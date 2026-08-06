@@ -567,27 +567,87 @@ body.ui .hud{opacity:.58}
 })();
 </script>
 <!-- === MODULE SITE · RETURN TO CONTENTS ==================================
-     Added when the seven decks were joined into one site. Self-contained:
-     it borrows nothing from the deck's own stylesheet or script, and sits in
-     the one corner no deck uses (the edit button is top-left, the HUD is
-     bottom-right). stopPropagation keeps the deck's click-to-advance handler
-     from firing a slide change on the way out.
+     Added when the seven decks were joined into one site. Self-contained: it
+     borrows nothing from the deck's own stylesheet or script.
+
+     The link docks into the deck's own HUD rather than floating over the
+     slide. A fixed corner does not work: at exactly 16:9 — the projector
+     case — the stage fills the viewport and a top-right badge lands on top
+     of the running head. The HUD is already positioned clear of slide
+     content in every deck, so the way out travels with the navigation.
+
+     Esc and C leave from anywhere, including when the HUD is hidden. On the
+     last slide the link goes solid, because a deck that has run out should
+     say where to go next.
      ====================================================================== -->
 <style>
-.tocback{position:fixed;right:clamp(12px,1.6vw,26px);top:clamp(12px,1.6vw,26px);z-index:70;
-  font:500 clamp(10px,.95vw,12px)/1 'JetBrains Mono',ui-monospace,monospace;
-  letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:#8e9a90;
-  background:rgba(10,14,11,.6);border:1px solid rgba(255,255,255,.1);
-  padding:8px 13px;border-radius:100px;opacity:.32;
-  transition:opacity .25s ease,color .25s ease;user-select:none}
-.tocback:hover,.tocback:focus-visible{opacity:1;color:#f2efe6}
-.tocback:focus-visible{outline:2px solid #c14524;outline-offset:3px}
-body.editing .tocback{display:none}
-@media print{.tocback{display:none}}
+.tocback{display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  font:inherit;letter-spacing:.14em;text-transform:uppercase;color:#8e9a90;
+  padding:5px 10px;border-radius:100px;border:1px solid transparent;
+  transition:color .2s ease,background .2s ease,border-color .2s ease;
+  white-space:nowrap;user-select:none}
+.tocback:hover,.tocback:focus-visible{color:#f2efe6;background:rgba(255,255,255,.12)}
+.tocback:focus-visible{outline:2px solid #c14524;outline-offset:2px}
+.tocback kbd{font:inherit;font-size:.85em;letter-spacing:.08em;color:#c2ccc2;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);
+  border-radius:4px;padding:3px 5px}
+.tocback.end{color:#fff;background:#c14524;border-color:#c14524}
+.tocback.end kbd{color:#fff;background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.36)}
+.tocsep{width:1px;align-self:stretch;background:rgba(255,255,255,.16);margin:0 2px}
+
+/* Fallback only, for a deck with no HUD to dock into. */
+.tocback.loose{position:fixed;right:clamp(12px,1.6vw,26px);bottom:clamp(58px,6vw,76px);z-index:70;
+  font:500 12px/1 'JetBrains Mono',ui-monospace,monospace;
+  background:rgba(10,14,11,.72);border-color:rgba(255,255,255,.14);padding:9px 13px}
+
+body.editing .tocback,body.editing .tocsep{display:none}
+@media print{.tocback,.tocsep{display:none}}
 </style>
-<a class="tocback" href="index.html" title="Back to the MEN 201 contents">&larr;&nbsp; Contents</a>
 <script>
-document.querySelector('.tocback').addEventListener('click',function(e){e.stopPropagation()});
+(function(){
+  var link = document.createElement('a');
+  link.className = 'tocback';
+  link.href = 'index.html';
+  link.title = 'Leave this deck and go back to the MEN 201 contents (Esc)';
+  link.innerHTML = '<span class="toclabel">&larr;&nbsp;Contents</span><kbd>Esc</kbd>';
+  link.addEventListener('click', function(e){ e.stopPropagation(); });
+
+  var hud = document.querySelector('.hud');
+  if (hud) {
+    var sep = document.createElement('span');
+    sep.className = 'tocsep';
+    hud.insertBefore(sep, hud.firstChild);
+    hud.insertBefore(link, hud.firstChild);
+  } else {
+    link.classList.add('loose');
+    document.body.appendChild(link);
+  }
+
+  document.addEventListener('keydown', function(e){
+    /* While editing, Esc belongs to the deck — it leaves edit mode. */
+    if (document.body.classList.contains('editing')) return;
+    /* In script-requested fullscreen the first Esc should only exit
+       fullscreen; a second press then leaves the deck. */
+    if (e.key === 'Escape' && document.fullscreenElement) return;
+    if (e.key === 'Escape' || e.key === 'c' || e.key === 'C') {
+      e.preventDefault();
+      location.href = 'index.html';
+    }
+  });
+
+  var slides = [].slice.call(document.querySelectorAll('.slide'));
+  if (!slides.length) return;
+  var last  = slides[slides.length - 1],
+      label = link.querySelector('.toclabel');
+
+  function sync(){
+    var atEnd = last.classList.contains('active');
+    link.classList.toggle('end', atEnd);
+    label.innerHTML = atEnd ? '&larr;&nbsp;End &middot; contents' : '&larr;&nbsp;Contents';
+  }
+  new MutationObserver(sync).observe(last, {attributes:true, attributeFilter:['class']});
+  sync();
+})();
 </script>
 </body>
 </html>

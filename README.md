@@ -30,7 +30,8 @@ Google Fonts stylesheet. Open `index.html` and pick a unit, or open a unit file 
 | <kbd>→</kbd> <kbd>Space</kbd> <kbd>Page Down</kbd> | Next slide |
 | <kbd>←</kbd> <kbd>Backspace</kbd> <kbd>Page Up</kbd> | Previous slide |
 | <kbd>Home</kbd> <kbd>End</kbd> | First or last slide |
-| <kbd>E</kbd> | Edit slide text in place — <kbd>Ctrl</kbd>+<kbd>S</kbd> saves, <kbd>Esc</kbd> leaves |
+| <kbd>Esc</kbd> <kbd>C</kbd> | Leave the deck and return to the contents page |
+| <kbd>E</kbd> | Edit slide text in place — <kbd>Ctrl</kbd>+<kbd>S</kbd> saves, <kbd>Esc</kbd> leaves edit mode |
 | <kbd>O</kbd> <kbd>?</kbd> <kbd>T</kbd> | Slide index, shortcuts, class timer — Unit II only |
 
 Tapping or clicking the right and left thirds of the screen also moves through the deck, as

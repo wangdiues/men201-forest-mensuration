@@ -36,7 +36,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
-        with:
-          # Recent Pages deployments for this repository take longer than the
-          # action's 10-minute default while waiting in GitHub's Pages queue.
-          timeout: 1200000

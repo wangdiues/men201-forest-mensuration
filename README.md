@@ -3,7 +3,7 @@
 Teaching decks for **MEN 201 Forest Mensuration**, BSc in Forestry — College of Natural
 Resources, Royal University of Bhutan.
 
-Seven units, 343 slides, joined into one site with a contents page.
+Seven units, 347 slides, joined into one site with a contents page.
 
 **Author** — Wangdi, Senior Forestry Officer, Forest Resources Planning and Management
 Division; Adjunct Lecturer. [Portfolio](https://wangdiues.github.io/Wangdi-portfolio-v7/)
@@ -14,10 +14,10 @@ Division; Adjunct Lecturer. [Portfolio](https://wangdiues.github.io/Wangdi-portf
 |------|-------|--------|
 | I | Introduction to Forest Mensuration | 39 |
 | II | Diameter, Girth and Bark Thickness | 42 |
-| III | Measurement of Crown Closure | 50 |
+| III | Measurement of Crown Closure | 51 |
 | IV | Measurement of Tree Height | 57 |
-| V | Measurement of Tree Volume | 54 |
-| VI | Measurement of the Crop | 52 |
+| V | Measurement of Tree Volume | 56 |
+| VI | Measurement of the Crop | 53 |
 | VII | Age and Growth of Trees | 49 |
 
 ## Source presentations
@@ -41,6 +41,22 @@ the field in Bhutan.
 | A Simple Guide to Common Forest Measurements | Mercker & Yang, UT Extension W 1117 | I, II, IV, VI |
 
 The UT Extension guide is in imperial units (inches, feet, acres); the decks are SI throughout.
+
+Four slides were built from these documents and are cited on the references slide of each unit
+that uses them:
+
+| Slide | Unit | What it adds |
+|-------|------|--------------|
+| 41 | III | The national canopy cover procedure — GRS densitometer, 100 points on a 2.5 m grid, and the FNCA 2023 thresholds a forestry clearance turns on |
+| 51 | V | The Department's two selected volume models for *Pinus wallichiana*, their merchantability standard and their fitted range |
+| 52 | V | Worked example 10 — the deck's own blue pine measured three ways, showing that the three figures answer three different questions |
+| 48 | VI | From stand volume to biomass, and why a curved equation may not be applied to the mean tree |
+
+**Unit III diverges from the national method deliberately.** The deck teaches the spherical
+densiometer with the ×1.04 factor, because that is the instrument the College holds and reducing
+its counts teaches the idea. The Department uses Line Intercept Sampling with a GRS crown
+densitometer and a binary tally. Slide 41 sets out the national procedure and says plainly which
+one governs official work.
 
 ## Running a deck
 

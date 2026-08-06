@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MEN 201 · Forest Mensuration — Teaching decks</title>
+<meta name="description" content="MEN 201 Forest Mensuration: seven teaching decks covering the discipline, diameter and girth, crown closure, tree height, tree volume, measurement of the crop, and age and growth. BSc in Forestry, College of Natural Resources, Royal University of Bhutan.">
+<meta name="author" content="Wangdi — Senior Forestry Officer, Forest Resources Planning and Management Division; Adjunct Lecturer">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f2efe6'/%3E%3Crect x='13' y='3' width='6' height='26' fill='none' stroke='%232f5140' stroke-width='1.6'/%3E%3Cpath d='M13 8h6M13 13h6M13 18h6M13 23h6' stroke='%232f5140' stroke-width='1.6'/%3E%3Cpath d='M5 16h7' stroke='%23c14524' stroke-width='2'/%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="MEN 201 · Forest Mensuration">
+<meta property="og:description" content="Seven teaching decks — 343 slides — for BSc Forestry at the College of Natural Resources, Royal University of Bhutan.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   MEN 201 · FOREST MENSURATION — CONTENTS
+   The front matter of the field notebook the seven decks are pages of.
+   Same tokens, same three faces, same two accents as every unit deck, so
+   the site reads as one continuous document.
+
+   Structural device: the module is a schedule of measurements that widens
+   from a point on a stem to a stand through time. The page is therefore set
+   as a register against a levelling staff — each unit is a graduation, and
+   each row declares the quantity and the SI unit that unit teaches.
+   ========================================================================== */
+
+/* === TOKENS (inherited from the decks) === */
+:root{
+  --paper:      #f2efe6;
+  --paper-card: #faf9f4;
+  --paper-sunk: #e9e5d9;
+
+  --ink:        #141c18;
+  --ink-soft:   #4a544c;
+  --ink-faint:  #7b857c;
+
+  --moss:       #2f5140;
+  --moss-mid:   #4a7a5f;
+  --moss-wash:  rgba(47,81,64,.075);
+  --moss-line:  rgba(47,81,64,.28);
+  --vermilion:  #c14524;
+  --vermilion-wash: rgba(193,69,36,.08);
+  --gold:       #a8842c;
+
+  --rule:       rgba(20,28,24,.16);
+  --rule-soft:  rgba(20,28,24,.09);
+  --grid-major: rgba(20,28,24,.055);
+  --grid-minor: rgba(20,28,24,.028);
+
+  --display: 'Fraunces', Georgia, serif;
+  --body:    'Public Sans', 'Helvetica Neue', sans-serif;
+  --mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  --gut: clamp(20px, 5vw, 92px);   /* page margin, matches the deck chrome */
+  --staff-w: 26px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  /* graph-paper substrate, identical geometry to the deck slides */
+  background-image:
+    linear-gradient(var(--grid-major) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),
+    linear-gradient(var(--grid-minor) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);
+  background-size:80px 80px,80px 80px,16px 16px,16px 16px;
+}
+p{margin:0}
+a{color:inherit}
+
+:focus-visible{outline:2px solid var(--vermilion);outline-offset:4px}
+
+.wrap{max-width:1360px;margin:0 auto;padding:0 var(--gut)}
+
+/* Skip link — the register is long and keyboard-driven. */
+.skip{position:absolute;left:-9999px;top:0;z-index:99;
+  font:500 13px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  background:var(--ink);color:var(--paper);padding:14px 18px;text-decoration:none}
+.skip:focus{left:var(--gut);top:14px}
+
+/* === RUNNING HEAD ========================================================= */
+.runhead{border-bottom:1px solid var(--rule);background:rgba(242,239,230,.86);
+  backdrop-filter:blur(6px);position:sticky;top:0;z-index:20}
+.runhead .wrap{display:flex;align-items:baseline;justify-content:space-between;
+  gap:16px;padding-top:14px;padding-bottom:13px;
+  font:500 12px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-faint)}
+.runhead b{color:var(--moss);font-weight:700}
+.runhead .r{text-align:right;letter-spacing:.16em}
+@media (max-width:620px){.runhead .r{display:none}}
+
+/* === MASTHEAD ============================================================= */
+.masthead{padding:clamp(56px,9vw,124px) 0 clamp(40px,6vw,72px)}
+.eyebrow{font:500 clamp(12px,1.15vw,15px)/1 var(--mono);letter-spacing:.30em;
+  text-transform:uppercase;color:var(--vermilion);margin:0 0 clamp(20px,3vw,32px)}
+
+h1{margin:0;font-family:var(--display);font-optical-sizing:auto;font-weight:600;
+  font-size:clamp(38px,10.5vw,146px);line-height:.92;letter-spacing:-.035em;
+  color:var(--ink);max-width:14ch}
+h1 em{font-style:italic;font-weight:300;color:var(--moss)}
+
+.lede{margin-top:clamp(28px,4vw,44px);max-width:62ch;
+  font-family:var(--display);font-weight:400;font-size:clamp(19px,2.1vw,27px);
+  line-height:1.5;letter-spacing:-.005em;color:var(--ink-soft)}
+.lede strong{font-weight:600;color:var(--moss)}
+
+/* Tally strip: the module's own numbers, set as field-book totals. */
+.tally{margin-top:clamp(36px,5vw,60px);display:flex;flex-wrap:wrap;
+  gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.tally div{flex:1 1 150px;padding:18px 0 16px;border-right:1px solid var(--rule-soft)}
+.tally div:last-child{border-right:0}
+.tally dt{font:500 11px/1 var(--mono);letter-spacing:.20em;text-transform:uppercase;
+  color:var(--ink-faint);margin:0}
+.tally dd{margin:9px 0 0;font-family:var(--display);font-weight:500;
+  font-size:clamp(24px,2.6vw,33px);line-height:1;letter-spacing:-.02em;color:var(--moss)}
+.tally dd small{font-family:var(--body);font-size:14px;font-weight:400;
+  letter-spacing:0;color:var(--ink-faint)}
+
+/* === REGISTER ============================================================= */
+.register{position:relative;padding-bottom:clamp(56px,8vw,96px)}
+.register-head{display:flex;align-items:baseline;justify-content:space-between;
+  gap:20px;padding-bottom:14px;border-bottom:2px solid var(--ink);
+  margin-left:calc(var(--staff-w) + 34px)}
+.register-head h2{margin:0;font-family:var(--display);font-weight:600;
+  font-size:clamp(19px,2vw,24px);letter-spacing:-.01em;color:var(--ink)}
+.register-head span{font:500 11px/1 var(--mono);letter-spacing:.20em;
+  text-transform:uppercase;color:var(--ink-faint)}
+
+.reg-body{position:relative;display:grid;
+  grid-template-columns:calc(var(--staff-w) + 34px) 1fr}
+
+/* --- the levelling staff ------------------------------------------------ */
+.staff{position:relative}
+.rod{position:absolute;left:0;top:0;bottom:0;width:var(--staff-w);
+  background:var(--paper-card);border-left:2px solid var(--moss);
+  border-right:1px solid var(--moss-line);
+  /* minor graduations every 14px, major every 70px — a staff face */
+  background-image:
+    repeating-linear-gradient(to bottom,var(--moss-line) 0 1px,transparent 1px 14px),
+    repeating-linear-gradient(to bottom,var(--moss) 0 2px,transparent 2px 70px);
+  background-size:9px 100%,17px 100%;
+  background-position:0 0,0 0;background-repeat:no-repeat}
+
+/* the reading: a vermilion index that settles on the current graduation */
+.index{position:absolute;left:0;width:calc(var(--staff-w) + 26px);height:0;
+  top:var(--y,0px);transform:translateY(-50%);
+  transition:top .42s cubic-bezier(.22,1,.36,1);pointer-events:none;z-index:3}
+.index::before{content:"";position:absolute;left:0;right:12px;top:-1px;height:2px;
+  background:var(--vermilion)}
+.index::after{content:"";position:absolute;right:0;top:-6px;
+  border:6px solid transparent;border-right-color:var(--vermilion);border-left:0}
+.index i{position:absolute;left:calc(var(--staff-w) + 2px);top:-30px;
+  font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--vermilion);font-style:normal}
+
+/* --- unit rows ---------------------------------------------------------- */
+.units{list-style:none;margin:0;padding:0}
+.units li{border-bottom:1px solid var(--rule-soft)}
+
+.unit{display:grid;grid-template-columns:1fr minmax(200px,266px);
+  gap:clamp(18px,3vw,48px);align-items:start;
+  padding:clamp(26px,3.4vw,40px) clamp(14px,1.8vw,26px) clamp(26px,3.4vw,40px) 0;
+  text-decoration:none;position:relative;
+  transition:background .22s ease,padding-left .22s ease}
+.unit::before{content:"";position:absolute;left:0;top:0;bottom:-1px;width:0;
+  background:var(--vermilion);transition:width .22s ease}
+.unit:hover,.unit:focus-visible{background:var(--moss-wash);padding-left:clamp(14px,1.8vw,26px)}
+.unit:hover::before,.unit:focus-visible::before{width:3px}
+
+.u-no{font:700 12px/1 var(--mono);letter-spacing:.22em;color:var(--vermilion);
+  text-transform:uppercase}
+.u-no .sess{color:var(--ink-faint);font-weight:400;letter-spacing:.14em;margin-left:14px}
+
+.u-title{margin:13px 0 0;font-family:var(--display);font-optical-sizing:auto;
+  font-weight:500;font-size:clamp(27px,3.5vw,44px);line-height:1.06;
+  letter-spacing:-.024em;color:var(--ink);
+  transition:color .22s ease}
+.unit:hover .u-title,.unit:focus-visible .u-title{color:var(--moss)}
+
+.u-topics{margin:14px 0 0;max-width:60ch;font-size:clamp(15px,1.35vw,17px);
+  line-height:1.62;color:var(--ink-soft)}
+.u-topics b{font-weight:600;color:var(--ink)}
+
+/* Right column: what the unit measures, in the unit it is measured in.
+   It mirrors the left column line for line — the extent sits on the eyebrow
+   line, the quantity on the title line — so the register reads across. */
+.u-meta{border-left:1px solid var(--rule-soft);padding-left:clamp(16px,2vw,28px)}
+.u-count{margin:0;font:500 11px/1 var(--mono);letter-spacing:.20em;
+  text-transform:uppercase;color:var(--ink-faint)}
+.u-si{margin:13px 0 0;font-family:var(--display);font-weight:500;
+  font-size:clamp(21px,2.1vw,27px);line-height:1.14;letter-spacing:-.015em;color:var(--moss)}
+.u-unit{margin:7px 0 0;font:400 13px/1.4 var(--mono);letter-spacing:.10em;color:var(--ink-faint)}
+.u-tutor{margin:15px 0 0;font:400 12px/1.5 var(--mono);letter-spacing:.06em;color:var(--ink-faint)}
+
+@media (max-width:900px){
+  .unit{grid-template-columns:1fr;gap:0}
+  .u-meta{border-left:0;padding-left:0;margin-top:20px;padding-top:16px;
+    border-top:1px solid var(--rule-soft);
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 22px}
+  .u-si{margin:0;order:-1;width:100%}
+  .u-unit,.u-count,.u-tutor{margin:0}
+}
+@media (max-width:640px){
+  .reg-body{grid-template-columns:1fr}
+  .register-head{margin-left:0}
+  .staff{display:none}
+}
+
+/* === RUNNING THE DECKS ==================================================== */
+.driving{border-top:2px solid var(--ink);padding:clamp(40px,6vw,68px) 0 clamp(48px,7vw,84px)}
+.driving h2{margin:0;font-family:var(--display);font-weight:600;
+  font-size:clamp(25px,3vw,36px);letter-spacing:-.02em;color:var(--ink)}
+.driving > .wrap > p{margin-top:16px;max-width:66ch;color:var(--ink-soft);
+  font-size:clamp(15px,1.4vw,17px)}
+
+/* Fixed column counts, not auto-fit: six items divide evenly into three and
+   two, so the grid never leaves a hollow cell showing its own gap colour. */
+.keys{list-style:none;margin:clamp(28px,4vw,40px) 0 0;padding:0;
+  display:grid;gap:1px;background:var(--rule-soft);
+  grid-template-columns:repeat(3,1fr);border:1px solid var(--rule-soft)}
+@media (max-width:900px){.keys{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.keys{grid-template-columns:1fr}}
+.keys li{background:var(--paper-card);padding:20px 22px 22px}
+.keys .k{display:flex;flex-wrap:wrap;gap:6px}
+kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
+  background:var(--paper-sunk);border:1px solid var(--rule);
+  border-bottom-width:2px;border-radius:4px;padding:7px 9px;white-space:nowrap}
+.keys .d{margin-top:13px;font-size:15px;line-height:1.5;color:var(--ink-soft)}
+
+.note{margin-top:clamp(28px,4vw,40px);padding:20px 24px;background:var(--vermilion-wash);
+  border-left:3px solid var(--vermilion);max-width:74ch}
+.note strong{color:var(--vermilion)}
+.note p + p{margin-top:10px}
+
+/* === COLOPHON ============================================================= */
+.colophon{border-top:1px solid var(--rule);background:var(--paper-sunk);
+  padding:clamp(38px,5vw,58px) 0 clamp(44px,6vw,66px)}
+.colophon .wrap{display:grid;gap:clamp(24px,4vw,56px);
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.colophon h3{margin:0 0 12px;font:500 11px/1 var(--mono);letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-faint)}
+.colophon p{font-size:15px;line-height:1.65;color:var(--ink-soft)}
+.colophon a{color:var(--moss);text-decoration:none;
+  border-bottom:1px solid var(--moss-line)}
+.colophon a:hover{color:var(--vermilion);border-bottom-color:var(--vermilion)}
+.colophon .sig{font-family:var(--display);font-size:19px;color:var(--ink);
+  letter-spacing:-.01em;margin-bottom:4px}
+.colophon .stack{margin-top:12px}
+
+/* === MOTION =============================================================== */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.001ms !important;animation-duration:.001ms !important}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#register">Skip to the units</a>
+
+<div class="runhead">
+  <div class="wrap">
+    <span><b>MEN 201</b> · Forest Mensuration</span>
+    <span class="r">BSc Forestry · CNR · Royal University of Bhutan</span>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">Module MEN 201 · Teaching decks · Year 2026–2027</p>
+    <h1>Forest <em>Mensuration</em></h1>
+    <p class="lede">Seven decks, in teaching order, on measuring the forest: <strong>what a tree is,
+      in numbers</strong> — its diameter, its crown, its height, its volume — then the crop it
+      belongs to, and finally how both change with time.</p>
+
+    <dl class="tally">
+      <div><dt>Units</dt><dd>7</dd></div>
+      <div><dt>Slides</dt><dd>343</dd></div>
+      <div><dt>Stage</dt><dd>16 : 9 <small>1920 × 1080</small></dd></div>
+    </dl>
+  </div>
+</header>
+
+<main class="register" id="register">
+  <div class="wrap">
+    <div class="register-head">
+      <h2>Register of units</h2>
+      <span>Extent · Quantity · Unit</span>
+    </div>
+
+    <div class="reg-body">
+      <div class="staff" aria-hidden="true">
+        <div class="rod"></div>
+        <div class="index" id="index"><i>I</i></div>
+      </div>
+
+      <ol class="units" id="units">
+
+        <li>
+          <a class="unit" href="MEN201_Unit_I_Introduction_to_Forest_Mensuration.html" data-numeral="I">
+            <div>
+              <p class="u-no">Unit I <span class="sess">Session 2</span></p>
+              <h3 class="u-title">Introduction to Forest Mensuration</h3>
+              <p class="u-topics">What forest mensuration is and why anything is measured at all ·
+                <b>Objectives and importance</b> · The accuracy attainable in a forest measurement ·
+                Precision and accuracy, and why they are not the same thing</p>
+            </div>
+            <div class="u-meta">
+              <p class="u-count">39 slides</p>
+              <p class="u-si">The discipline</p>
+              <p class="u-unit">what &amp; why</p>
+              <p class="u-tutor">Laxmi Sagar</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="unit" href="MEN201_Unit_II_Diameter_Girth_and_Bark_Thickness.html" data-numeral="II">
+            <div>
+              <p class="u-no">Unit II <span class="sess">Sessions 3–4</span></p>
+              <h3 class="u-title">Diameter, Girth &amp; Bark Thickness</h3>
+              <p class="u-topics">Units of measure · Diameter and girth, and the relation between them ·
+                <b>Calliper, tape and relaskop</b> · Breast height and the rules for awkward stems ·
+                Bark thickness, and converting over bark to under bark</p>
+            </div>
+            <div class="u-meta">
+              <p class="u-count">42 slides</p>
+              <p class="u-si">d, at a point</p>
+              <p class="u-unit">cm · at 1.30 m</p>
+              <p class="u-tutor">Laxmi Sagar</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="unit" href="MEN201_Unit_III_Measurement_of_Crown_Closure.html" data-numeral="III">
+            <div>
+              <p class="u-no">Unit III <span class="sess">Session 5</span></p>
+              <h3 class="u-title">Measurement of Crown Closure</h3>
+              <p class="u-topics">The terms of the crown and its dimensions ·
+                <b>Crown closure, canopy cover and canopy closure</b> kept apart ·
+                The field methods used to measure and to estimate closure</p>
+            </div>
+            <div class="u-meta">
+              <p class="u-count">50 slides</p>
+              <p class="u-si">Cover</p>
+              <p class="u-unit">per cent</p>
+              <p class="u-tutor">Laxmi Sagar</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="unit" href="MEN201_Unit_IV_Measurement_of_Tree_Height.html" data-numeral="IV">
+            <div>
+              <p class="u-no">Unit IV</p>
+              <h3 class="u-title">Measurement of Tree Height</h3>
+              <p class="u-topics">Defining and classifying height · Ocular and non-instrumental methods ·
+                <b>The tangent method</b> · Leaning trees and the sine method ·
+                Where the error comes from · DBH and height classes</p>
+            </div>
+            <div class="u-meta">
+              <p class="u-count">57 slides</p>
+              <p class="u-si">h, the standing tree</p>
+              <p class="u-unit">metres</p>
+              <p class="u-tutor">Laxmi Sagar</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="unit" href="MEN201_Unit_V_Measurement_of_Tree_Volume.html" data-numeral="V">
+            <div>
+              <p class="u-no">Unit V</p>
+              <h3 class="u-title">Measurement of Tree Volume</h3>
+              <p class="u-topics">Stem form and form factor · The volume of felled trees and logs ·
+                <b>Standing tree volume</b> · Volume tables and how to read one</p>
+            </div>
+            <div class="u-meta">
+              <p class="u-count">54 slides</p>
+              <p class="u-si">V = g · h · f</p>
+              <p class="u-unit">m³ · per tree</p>
+              <p class="u-tutor">Laxmi Sagar</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="unit" href="MEN201_Unit_VI_Measurement_of_Crop.html" data-numeral="VI">
+            <div>
+              <p class="u-no">Unit VI</p>
+              <h3 class="u-title">Measurement of the Crop</h3>
+              <p class="u-topics">Basal area, and what it stands for · Determining crop diameter and
+                <b>crop height</b> · Crop age · The volume of the crop from the plot upward</p>
+            </div>
+            <div class="u-meta">
+              <p class="u-count">52 slides</p>
+              <p class="u-si">G and V, the stand</p>
+              <p class="u-unit">m²/ha · m³/ha</p>
+              <p class="u-tutor">Wangdi</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="unit" href="MEN201_Unit_VII_Age_and_Growth_of_Trees.html" data-numeral="VII">
+            <div>
+              <p class="u-no">Unit VII</p>
+              <h3 class="u-title">Age and Growth of Trees</h3>
+              <p class="u-topics">Determining the age of a tree · Growth and increment ·
+                <b>CAI, MAI and the culmination</b> · Increment percentage</p>
+            </div>
+            <div class="u-meta">
+              <p class="u-count">49 slides</p>
+              <p class="u-si">ΔV / Δt</p>
+              <p class="u-unit">m³/ha/yr</p>
+              <p class="u-tutor">Wangdi</p>
+            </div>
+          </a>
+        </li>
+
+      </ol>
+    </div>
+  </div>
+</main>
+
+<section class="driving">
+  <div class="wrap">
+    <h2>Running a deck</h2>
+    <p>Each unit is one self-contained file. Open it, press <kbd>F11</kbd> for full screen, and drive
+      it from the keyboard — or tap the right and left thirds of the screen from a phone or tablet.</p>
+
+    <ul class="keys">
+      <li><p class="k"><kbd>→</kbd><kbd>Space</kbd><kbd>Page Down</kbd></p><p class="d">Next slide</p></li>
+      <li><p class="k"><kbd>←</kbd><kbd>Backspace</kbd><kbd>Page Up</kbd></p><p class="d">Previous slide</p></li>
+      <li><p class="k"><kbd>Home</kbd><kbd>End</kbd></p><p class="d">Jump to the first or last slide</p></li>
+      <li><p class="k"><kbd>E</kbd></p><p class="d">Edit the slide text in place. <kbd>Ctrl</kbd>+<kbd>S</kbd> saves, <kbd>Esc</kbd> leaves</p></li>
+      <li><p class="k"><kbd>O</kbd><kbd>?</kbd><kbd>T</kbd></p><p class="d">Slide index, shortcuts and class timer — Unit II only</p></li>
+      <li><p class="k"><kbd>Swipe</kbd></p><p class="d">Left and right to move through the deck on a touchscreen</p></li>
+    </ul>
+
+    <div class="note">
+      <p><strong>Edits stay on the machine that made them.</strong> Pressing <kbd>E</kbd> and saving
+        writes to that browser's local storage only — it does not change the file and no one else
+        sees it. To publish a correction for everyone, edit the HTML and push it.</p>
+      <p>Decks are laid out on a fixed 1920 × 1080 stage and scaled to fit, so they look the same on a
+        laptop as on the projector. Anything narrower than about 900 px will letterbox heavily.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h3>Module</h3>
+      <p class="sig">MEN 201 · Forest Mensuration</p>
+      <p>BSc in Forestry<br>College of Natural Resources<br>Royal University of Bhutan</p>
+    </div>
+    <div>
+      <h3>Author</h3>
+      <p class="sig">Wangdi</p>
+      <p>Senior Forestry Officer<br>Forest Resources Planning and Management Division<br>
+        Adjunct Lecturer</p>
+    </div>
+    <div>
+      <h3>Module tutors</h3>
+      <p>Units I–V — Mr. Laxmi Sagar<br>
+        <a href="mailto:sagar.cnr@rub.edu.bt">sagar.cnr@rub.edu.bt</a></p>
+      <p class="stack">Units VI–VII — Wangdi</p>
+    </div>
+    <div>
+      <h3>Using these decks</h3>
+      <p>Teaching material for MEN 201. Free to use and adapt for teaching with attribution to the
+        author, the module tutors and the College of Natural Resources.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* The staff index tracks whichever unit the reader is on: the row nearest the
+   middle of the viewport by default, or the row under the pointer/keyboard
+   focus. It is decoration with a job — it names the graduation you are at. */
+(function(){
+  const index = document.getElementById('index');
+  const numeral = index.querySelector('i');
+  const rows = [...document.querySelectorAll('.units li')];
+  const staff = document.querySelector('.staff');
+  if(!rows.length || !staff) return;
+
+  let pinned = null;      // row under pointer or focus, wins over scroll
+  let current = null;
+
+  function place(row){
+    if(!row || row === current) return;
+    current = row;
+    const r = row.getBoundingClientRect(), s = staff.getBoundingClientRect();
+    index.style.setProperty('--y', (r.top - s.top + r.height/2) + 'px');
+    numeral.textContent = row.querySelector('.unit').dataset.numeral;
+  }
+
+  function nearest(){
+    const mid = innerHeight/2;
+    let best = rows[0], bestD = Infinity;
+    for(const row of rows){
+      const r = row.getBoundingClientRect();
+      const d = Math.abs(r.top + r.height/2 - mid);
+      if(d < bestD){bestD = d; best = row}
+    }
+    return best;
+  }
+
+  function update(){ place(pinned || nearest()) }
+
+  rows.forEach(row=>{
+    const a = row.querySelector('.unit');
+    row.addEventListener('mouseenter',()=>{pinned = row; update()});
+    row.addEventListener('mouseleave',()=>{pinned = null; update()});
+    a.addEventListener('focus',()=>{pinned = row; update()});
+    a.addEventListener('blur',()=>{pinned = null; update()});
+  });
+
+  let ticking = false;
+  addEventListener('scroll',()=>{
+    if(ticking) return; ticking = true;
+    requestAnimationFrame(()=>{update(); ticking = false});
+  },{passive:true});
+  addEventListener('resize',()=>{current = null; update()});
+
+  place(rows[0]);
+  update();
+})();
+</script>
+
+</body>
+</html>

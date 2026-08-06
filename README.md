@@ -20,6 +20,28 @@ Division; Adjunct Lecturer. [Portfolio](https://wangdiues.github.io/Wangdi-portf
 | VI | Measurement of the Crop | 52 |
 | VII | Age and Growth of Trees | 49 |
 
+## Source presentations
+
+Units I–IV link out to the Google Slides presentation each deck was built from, shown as
+**Source slides** on the unit's row on the contents page. They are hosted on Drive, not in this
+repo, and must stay shared as *Anyone with the link → Viewer* or students will hit a request-access
+screen. Units V–VII have no source link yet.
+
+## Supplementary readings
+
+Four PDFs in `supplementary/`, linked from the contents page. Three are the working documents of
+the Department of Forests and Park Services, so the equations and procedures match what is used in
+the field in Bhutan.
+
+| Document | Source | Units |
+|----------|--------|-------|
+| Species-Specific Volume Equation — *Pinus wallichiana* | Forest Resources Management Division, DoFPS, 2018 | V |
+| Allometric Biomass Equations — 14 species and 2 general | UWICER & FRMD, DoFPS, 2018 | V, VI |
+| Forest Canopy Cover Assessment Guidelines | Forest Monitoring and Information Division, DoFPS, 2024 | III |
+| A Simple Guide to Common Forest Measurements | Mercker & Yang, UT Extension W 1117 | I, II, IV, VI |
+
+The UT Extension guide is in imperial units (inches, feet, acres); the decks are SI throughout.
+
 ## Running a deck
 
 Each unit is a single self-contained HTML file — no build step, no dependencies beyond the

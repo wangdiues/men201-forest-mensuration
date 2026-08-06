@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MEN 201 · Forest Mensuration — Teaching decks</title>
-<meta name="description" content="MEN 201 Forest Mensuration: seven teaching decks covering the discipline, diameter and girth, crown closure, tree height, tree volume, measurement of the crop, and age and growth. BSc in Forestry, College of Natural Resources, Royal University of Bhutan.">
+<meta name="description" content="MEN 201 Forest Mensuration: seven teaching decks covering the discipline, diameter and girth, crown closure, tree height, tree volume, measurement of the crop, and age and growth, with four supplementary readings. BSc in Forestry, College of Natural Resources, Royal University of Bhutan.">
 <meta name="author" content="Wangdi — Senior Forestry Officer, Forest Resources Planning and Management Division; Adjunct Lecturer">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f2efe6'/%3E%3Crect x='13' y='3' width='6' height='26' fill='none' stroke='%232f5140' stroke-width='1.6'/%3E%3Cpath d='M13 8h6M13 13h6M13 18h6M13 23h6' stroke='%232f5140' stroke-width='1.6'/%3E%3Cpath d='M5 16h7' stroke='%23c14524' stroke-width='2'/%3E%3C/svg%3E">
@@ -125,6 +125,8 @@ h1 em{font-style:italic;font-weight:300;color:var(--moss)}
   font-size:clamp(24px,2.6vw,33px);line-height:1;letter-spacing:-.02em;color:var(--moss)}
 .tally dd small{font-family:var(--body);font-size:14px;font-weight:400;
   letter-spacing:0;color:var(--ink-faint)}
+.tally dd a{text-decoration:none;border-bottom:1px solid var(--moss-line)}
+.tally dd a:hover{color:var(--vermilion);border-bottom-color:var(--vermilion)}
 
 /* === REGISTER ============================================================= */
 .register{position:relative;padding-bottom:clamp(56px,8vw,96px)}
@@ -166,15 +168,25 @@ h1 em{font-style:italic;font-weight:300;color:var(--moss)}
 .units{list-style:none;margin:0;padding:0}
 .units li{border-bottom:1px solid var(--rule-soft)}
 
+/* The row is a block, not a link, so that the source-slides link can sit
+   inside it — an anchor cannot be nested in an anchor. The deck link instead
+   stretches an invisible overlay across the whole row (.u-link::after), which
+   keeps the entire row clickable while leaving one real link per destination
+   for a screen reader. Anything that must stay clickable above the overlay
+   raises itself with .u-over. */
 .unit{display:grid;grid-template-columns:1fr minmax(200px,266px);
   gap:clamp(18px,3vw,48px);align-items:start;
   padding:clamp(26px,3.4vw,40px) clamp(14px,1.8vw,26px) clamp(26px,3.4vw,40px) 0;
-  text-decoration:none;position:relative;
+  position:relative;
   transition:background .22s ease,padding-left .22s ease}
 .unit::before{content:"";position:absolute;left:0;top:0;bottom:-1px;width:0;
   background:var(--vermilion);transition:width .22s ease}
-.unit:hover,.unit:focus-visible{background:var(--moss-wash);padding-left:clamp(14px,1.8vw,26px)}
-.unit:hover::before,.unit:focus-visible::before{width:3px}
+.unit:hover,.unit:focus-within{background:var(--moss-wash);padding-left:clamp(14px,1.8vw,26px)}
+.unit:hover::before,.unit:focus-within::before{width:3px}
+
+.u-link{text-decoration:none;color:inherit}
+.u-link::after{content:"";position:absolute;inset:0;z-index:1}
+.u-over{position:relative;z-index:2}
 
 .u-no{font:700 12px/1 var(--mono);letter-spacing:.22em;color:var(--vermilion);
   text-transform:uppercase}
@@ -184,7 +196,8 @@ h1 em{font-style:italic;font-weight:300;color:var(--moss)}
   font-weight:500;font-size:clamp(27px,3.5vw,44px);line-height:1.06;
   letter-spacing:-.024em;color:var(--ink);
   transition:color .22s ease}
-.unit:hover .u-title,.unit:focus-visible .u-title{color:var(--moss)}
+.unit:hover .u-title,.unit:focus-within .u-title{color:var(--moss)}
+.u-link:focus-visible{outline:2px solid var(--vermilion);outline-offset:4px}
 
 .u-topics{margin:14px 0 0;max-width:60ch;font-size:clamp(15px,1.35vw,17px);
   line-height:1.62;color:var(--ink-soft)}
@@ -201,19 +214,68 @@ h1 em{font-style:italic;font-weight:300;color:var(--moss)}
 .u-unit{margin:7px 0 0;font:400 13px/1.4 var(--mono);letter-spacing:.10em;color:var(--ink-faint)}
 .u-tutor{margin:15px 0 0;font:400 12px/1.5 var(--mono);letter-spacing:.06em;color:var(--ink-faint)}
 
+/* The presentation the deck was built from, kept on Google Slides. */
+.u-src{margin:16px 0 0}
+.u-src a{font:500 11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--moss);text-decoration:none;border-bottom:1px solid var(--moss-line);
+  padding-bottom:2px;transition:color .2s ease,border-color .2s ease}
+.u-src a:hover,.u-src a:focus-visible{color:var(--vermilion);border-bottom-color:var(--vermilion)}
+
 @media (max-width:900px){
   .unit{grid-template-columns:1fr;gap:0}
   .u-meta{border-left:0;padding-left:0;margin-top:20px;padding-top:16px;
     border-top:1px solid var(--rule-soft);
     display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 22px}
   .u-si{margin:0;order:-1;width:100%}
-  .u-unit,.u-count,.u-tutor{margin:0}
+  .u-unit,.u-count,.u-tutor,.u-src{margin:0}
 }
 @media (max-width:640px){
   .reg-body{grid-template-columns:1fr}
   .register-head{margin-left:0}
   .staff{display:none}
 }
+
+/* === SUPPLEMENTARY READINGS =============================================== */
+/* The appendix to the register: documents a student reads beside the decks,
+   filed the same way the units are — issuing body, title, what it is for. */
+.readings{border-top:2px solid var(--ink);padding:clamp(40px,6vw,68px) 0 clamp(46px,7vw,80px)}
+.readings h2{margin:0;font-family:var(--display);font-weight:600;
+  font-size:clamp(25px,3vw,36px);letter-spacing:-.02em;color:var(--ink)}
+.readings > .wrap > p{margin-top:16px;max-width:66ch;color:var(--ink-soft);
+  font-size:clamp(15px,1.4vw,17px)}
+
+/* Four documents, two columns — like .keys, a fixed count that divides evenly
+   so no cell is ever left hollow showing the gap colour through. */
+.refs{list-style:none;margin:clamp(28px,4vw,40px) 0 0;padding:0;
+  display:grid;gap:1px;background:var(--rule-soft);
+  grid-template-columns:repeat(2,1fr);border:1px solid var(--rule-soft)}
+@media (max-width:800px){.refs{grid-template-columns:1fr}}
+.refs li{background:var(--paper-card)}
+
+.ref{display:flex;flex-direction:column;height:100%;position:relative;
+  padding:clamp(22px,2.6vw,30px) clamp(20px,2.4vw,28px) clamp(20px,2.4vw,26px);
+  text-decoration:none;transition:background .22s ease}
+.ref::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;
+  background:var(--vermilion);transition:width .22s ease}
+.ref:hover,.ref:focus-visible{background:var(--moss-wash)}
+.ref:hover::before,.ref:focus-visible::before{width:3px}
+
+.ref-src{font:500 11px/1.5 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-faint)}
+.ref-title{margin:12px 0 0;font-family:var(--display);font-optical-sizing:auto;
+  font-weight:500;font-size:clamp(20px,2.1vw,26px);line-height:1.14;
+  letter-spacing:-.018em;color:var(--ink);transition:color .22s ease}
+.ref-title em{font-style:italic;font-weight:400}
+.ref:hover .ref-title,.ref:focus-visible .ref-title{color:var(--moss)}
+.ref-note{margin:13px 0 0;font-size:15px;line-height:1.6;color:var(--ink-soft)}
+.ref-note b{font-weight:600;color:var(--ink)}
+
+.ref-foot{margin:auto 0 0;padding-top:18px;display:flex;flex-wrap:wrap;
+  align-items:baseline;justify-content:space-between;gap:8px 18px}
+.ref-units{font:700 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--vermilion)}
+.ref-file{font:400 11px/1 var(--mono);letter-spacing:.12em;color:var(--ink-faint)}
+.ref-file::before{content:"↓ ";color:var(--moss)}
 
 /* === RUNNING THE DECKS ==================================================== */
 .driving{border-top:2px solid var(--ink);padding:clamp(40px,6vw,68px) 0 clamp(48px,7vw,84px)}
@@ -286,6 +348,7 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
       <div><dt>Units</dt><dd>7</dd></div>
       <div><dt>Slides</dt><dd>343</dd></div>
       <div><dt>Stage</dt><dd>16 : 9 <small>1920 × 1080</small></dd></div>
+      <div><dt>Readings</dt><dd><a href="#readings">4 <small>PDF</small></a></dd></div>
     </dl>
   </div>
 </header>
@@ -306,10 +369,10 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
       <ol class="units" id="units">
 
         <li>
-          <a class="unit" href="MEN201_Unit_I_Introduction_to_Forest_Mensuration.html" data-numeral="I">
+          <div class="unit" data-numeral="I" data-href="MEN201_Unit_I_Introduction_to_Forest_Mensuration.html">
             <div>
               <p class="u-no">Unit I <span class="sess">Session 2</span></p>
-              <h3 class="u-title">Introduction to Forest Mensuration</h3>
+              <h3 class="u-title"><a class="u-link" href="MEN201_Unit_I_Introduction_to_Forest_Mensuration.html">Introduction to Forest Mensuration</a></h3>
               <p class="u-topics">What forest mensuration is and why anything is measured at all ·
                 <b>Objectives and importance</b> · The accuracy attainable in a forest measurement ·
                 Precision and accuracy, and why they are not the same thing</p>
@@ -318,15 +381,16 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
               <p class="u-count">39 slides</p>
               <p class="u-si">The discipline</p>
               <p class="u-unit">what &amp; why</p>
+              <p class="u-src"><a class="u-over" href="https://docs.google.com/presentation/d/1y69_2V2SRVTbRCrOo8bzInUg0zZvIlfq/edit?usp=sharing" target="_blank" rel="noopener">Source slides &#8599;</a></p>
             </div>
-          </a>
+          </div>
         </li>
 
         <li>
-          <a class="unit" href="MEN201_Unit_II_Diameter_Girth_and_Bark_Thickness.html" data-numeral="II">
+          <div class="unit" data-numeral="II" data-href="MEN201_Unit_II_Diameter_Girth_and_Bark_Thickness.html">
             <div>
               <p class="u-no">Unit II <span class="sess">Sessions 3–4</span></p>
-              <h3 class="u-title">Diameter, Girth &amp; Bark Thickness</h3>
+              <h3 class="u-title"><a class="u-link" href="MEN201_Unit_II_Diameter_Girth_and_Bark_Thickness.html">Diameter, Girth &amp; Bark Thickness</a></h3>
               <p class="u-topics">Units of measure · Diameter and girth, and the relation between them ·
                 <b>Calliper, tape and relaskop</b> · Breast height and the rules for awkward stems ·
                 Bark thickness, and converting over bark to under bark</p>
@@ -335,15 +399,16 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
               <p class="u-count">42 slides</p>
               <p class="u-si">d, at a point</p>
               <p class="u-unit">cm · at 1.30 m</p>
+              <p class="u-src"><a class="u-over" href="https://docs.google.com/presentation/d/1FGGiFfEGp4kJy_r8ShBXGRfvcDiblaSUrptZf1Xm8v4/edit?usp=sharing" target="_blank" rel="noopener">Source slides &#8599;</a></p>
             </div>
-          </a>
+          </div>
         </li>
 
         <li>
-          <a class="unit" href="MEN201_Unit_III_Measurement_of_Crown_Closure.html" data-numeral="III">
+          <div class="unit" data-numeral="III" data-href="MEN201_Unit_III_Measurement_of_Crown_Closure.html">
             <div>
               <p class="u-no">Unit III <span class="sess">Session 5</span></p>
-              <h3 class="u-title">Measurement of Crown Closure</h3>
+              <h3 class="u-title"><a class="u-link" href="MEN201_Unit_III_Measurement_of_Crown_Closure.html">Measurement of Crown Closure</a></h3>
               <p class="u-topics">The terms of the crown and its dimensions ·
                 <b>Crown closure, canopy cover and canopy closure</b> kept apart ·
                 The field methods used to measure and to estimate closure</p>
@@ -352,15 +417,16 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
               <p class="u-count">50 slides</p>
               <p class="u-si">Cover</p>
               <p class="u-unit">per cent</p>
+              <p class="u-src"><a class="u-over" href="https://docs.google.com/presentation/d/1ZRm5g-lbxCPxwSqGtsfyca6HE_MqCwFb/edit?usp=sharing" target="_blank" rel="noopener">Source slides &#8599;</a></p>
             </div>
-          </a>
+          </div>
         </li>
 
         <li>
-          <a class="unit" href="MEN201_Unit_IV_Measurement_of_Tree_Height.html" data-numeral="IV">
+          <div class="unit" data-numeral="IV" data-href="MEN201_Unit_IV_Measurement_of_Tree_Height.html">
             <div>
               <p class="u-no">Unit IV</p>
-              <h3 class="u-title">Measurement of Tree Height</h3>
+              <h3 class="u-title"><a class="u-link" href="MEN201_Unit_IV_Measurement_of_Tree_Height.html">Measurement of Tree Height</a></h3>
               <p class="u-topics">Defining and classifying height · Ocular and non-instrumental methods ·
                 <b>The tangent method</b> · Leaning trees and the sine method ·
                 Where the error comes from · DBH and height classes</p>
@@ -369,15 +435,16 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
               <p class="u-count">57 slides</p>
               <p class="u-si">h, the standing tree</p>
               <p class="u-unit">metres</p>
+              <p class="u-src"><a class="u-over" href="https://docs.google.com/presentation/d/1-LS9eXTkPDufs_7Ic8bn4DibP_riWQMW/edit?usp=sharing" target="_blank" rel="noopener">Source slides &#8599;</a></p>
             </div>
-          </a>
+          </div>
         </li>
 
         <li>
-          <a class="unit" href="MEN201_Unit_V_Measurement_of_Tree_Volume.html" data-numeral="V">
+          <div class="unit" data-numeral="V" data-href="MEN201_Unit_V_Measurement_of_Tree_Volume.html">
             <div>
               <p class="u-no">Unit V</p>
-              <h3 class="u-title">Measurement of Tree Volume</h3>
+              <h3 class="u-title"><a class="u-link" href="MEN201_Unit_V_Measurement_of_Tree_Volume.html">Measurement of Tree Volume</a></h3>
               <p class="u-topics">Stem form and form factor · The volume of felled trees and logs ·
                 <b>Standing tree volume</b> · Volume tables and how to read one</p>
             </div>
@@ -386,14 +453,14 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
               <p class="u-si">V = g · h · f</p>
               <p class="u-unit">m³ · per tree</p>
             </div>
-          </a>
+          </div>
         </li>
 
         <li>
-          <a class="unit" href="MEN201_Unit_VI_Measurement_of_Crop.html" data-numeral="VI">
+          <div class="unit" data-numeral="VI" data-href="MEN201_Unit_VI_Measurement_of_Crop.html">
             <div>
               <p class="u-no">Unit VI</p>
-              <h3 class="u-title">Measurement of the Crop</h3>
+              <h3 class="u-title"><a class="u-link" href="MEN201_Unit_VI_Measurement_of_Crop.html">Measurement of the Crop</a></h3>
               <p class="u-topics">Basal area, and what it stands for · Determining crop diameter and
                 <b>crop height</b> · Crop age · The volume of the crop from the plot upward</p>
             </div>
@@ -402,14 +469,14 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
               <p class="u-si">G and V, the stand</p>
               <p class="u-unit">m²/ha · m³/ha</p>
             </div>
-          </a>
+          </div>
         </li>
 
         <li>
-          <a class="unit" href="MEN201_Unit_VII_Age_and_Growth_of_Trees.html" data-numeral="VII">
+          <div class="unit" data-numeral="VII" data-href="MEN201_Unit_VII_Age_and_Growth_of_Trees.html">
             <div>
               <p class="u-no">Unit VII</p>
-              <h3 class="u-title">Age and Growth of Trees</h3>
+              <h3 class="u-title"><a class="u-link" href="MEN201_Unit_VII_Age_and_Growth_of_Trees.html">Age and Growth of Trees</a></h3>
               <p class="u-topics">Determining the age of a tree · Growth and increment ·
                 <b>CAI, MAI and the culmination</b> · Increment percentage</p>
             </div>
@@ -418,13 +485,71 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
               <p class="u-si">ΔV / Δt</p>
               <p class="u-unit">m³/ha/yr</p>
             </div>
-          </a>
+          </div>
         </li>
 
       </ol>
     </div>
   </div>
 </main>
+
+<section class="readings" id="readings">
+  <div class="wrap">
+    <h2>Supplementary readings</h2>
+    <p>Four documents to read beside the decks — three of them the working instruments of the
+      Department of Forests and Park Services, so the equations and procedures taught here are the
+      ones a graduate will actually be handed in the field.</p>
+
+    <ul class="refs">
+
+      <li>
+        <a class="ref" href="supplementary/Volume_Equation_Pinus_wallichiana_2018.pdf" target="_blank" rel="noopener">
+          <p class="ref-src">Forest Resources Management Division · DoFPS · 2018</p>
+          <h3 class="ref-title">Species-Specific Volume Equation — <em>Pinus wallichiana</em></h3>
+          <p class="ref-note">Sixteen candidate models fitted for merchantable volume — on DBH,
+            on basal area, on <b>D²H</b> and on BAH — compared by AIC and BIC, with a worked
+            demonstration of the selected model and a frank statement of its limits. The full
+            dataset is annexed.</p>
+          <p class="ref-foot"><span class="ref-units">Unit V</span><span class="ref-file">PDF · 48 pp · 2.5 MB</span></p>
+        </a>
+      </li>
+
+      <li>
+        <a class="ref" href="supplementary/Allometric_Biomass_Equations_Bhutan_2018.pdf" target="_blank" rel="noopener">
+          <p class="ref-src">UWICER &amp; FRMD · DoFPS · 2018</p>
+          <h3 class="ref-title">Allometric Biomass Equations — 14 species and 2 general</h3>
+          <p class="ref-note">Biomass equations from the <b>National Forest Inventory of Bhutan</b>:
+            two for each of fourteen species — one on basal area alone, one on basal area and
+            height — plus a general conifer and a general broadleaf equation. Biomass in kilograms.</p>
+          <p class="ref-foot"><span class="ref-units">Units V · VI</span><span class="ref-file">PDF · 4 pp · 311 KB</span></p>
+        </a>
+      </li>
+
+      <li>
+        <a class="ref" href="supplementary/Forest_Canopy_Cover_Assessment_Guidelines_2024.pdf" target="_blank" rel="noopener">
+          <p class="ref-src">Forest Monitoring &amp; Information Division · DoFPS · 2024</p>
+          <h3 class="ref-title">Forest Canopy Cover Assessment Guidelines</h3>
+          <p class="ref-note">The national procedure for assessing canopy cover — the instruments,
+            the sampling design and the recording sheets. Read it against Unit III, which keeps
+            <b>crown closure, canopy cover and canopy closure</b> apart as three different things.</p>
+          <p class="ref-foot"><span class="ref-units">Unit III</span><span class="ref-file">PDF · 23 pp · 1.9 MB</span></p>
+        </a>
+      </li>
+
+      <li>
+        <a class="ref" href="supplementary/A_Simple_Guide_to_Common_Forest_Measurements.pdf" target="_blank" rel="noopener">
+          <p class="ref-src">Mercker &amp; Yang · UT Extension W 1117</p>
+          <h3 class="ref-title">A Simple Guide to Common Forest Measurements</h3>
+          <p class="ref-note">A short plain-language pass over DBH, basal area, trees per unit area,
+            fixed- and variable-radius plots, age, height, crown class and site index. Written in
+            <b>imperial units</b> — inches, feet, acres — so convert before comparing it with the decks.</p>
+          <p class="ref-foot"><span class="ref-units">Units I · II · IV · VI</span><span class="ref-file">PDF · 7 pp · 243 KB</span></p>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</section>
 
 <section class="driving">
   <div class="wrap">
@@ -512,11 +637,13 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
   function update(){ place(pinned || nearest()) }
 
   rows.forEach(row=>{
-    const a = row.querySelector('.unit');
     row.addEventListener('mouseenter',()=>{pinned = row; update()});
     row.addEventListener('mouseleave',()=>{pinned = null; update()});
-    a.addEventListener('focus',()=>{pinned = row; update()});
-    a.addEventListener('blur',()=>{pinned = null; update()});
+    /* focusin/focusout rather than focus/blur: the row is a div now, and the
+       events have to bubble up from whichever link inside it took focus —
+       the deck title or the source-slides link. */
+    row.addEventListener('focusin',()=>{pinned = row; update()});
+    row.addEventListener('focusout',()=>{pinned = null; update()});
   });
 
   let ticking = false;

@@ -6,19 +6,19 @@ Resources, Royal University of Bhutan.
 Seven units, 343 slides, joined into one site with a contents page.
 
 **Author** — Wangdi, Senior Forestry Officer, Forest Resources Planning and Management
-Division; Adjunct Lecturer.
+Division; Adjunct Lecturer. [Portfolio](https://wangdiues.github.io/Wangdi-portfolio-v7/)
 
 ## The units
 
-| Unit | Title | Slides | Tutor |
-|------|-------|--------|-------|
-| I | Introduction to Forest Mensuration | 39 | Laxmi Sagar |
-| II | Diameter, Girth and Bark Thickness | 42 | Laxmi Sagar |
-| III | Measurement of Crown Closure | 50 | Laxmi Sagar |
-| IV | Measurement of Tree Height | 57 | Laxmi Sagar |
-| V | Measurement of Tree Volume | 54 | Laxmi Sagar |
-| VI | Measurement of the Crop | 52 | Wangdi |
-| VII | Age and Growth of Trees | 49 | Wangdi |
+| Unit | Title | Slides |
+|------|-------|--------|
+| I | Introduction to Forest Mensuration | 39 |
+| II | Diameter, Girth and Bark Thickness | 42 |
+| III | Measurement of Crown Closure | 50 |
+| IV | Measurement of Tree Height | 57 |
+| V | Measurement of Tree Volume | 54 |
+| VI | Measurement of the Crop | 52 |
+| VII | Age and Growth of Trees | 49 |
 
 ## Running a deck
 
@@ -55,4 +55,4 @@ means updating the matching `href`.
 ## Licence
 
 Teaching material for MEN 201. Free to use and adapt for teaching, with attribution to the
-author, the module tutors and the College of Natural Resources, Royal University of Bhutan.
+author and the College of Natural Resources, Royal University of Bhutan.

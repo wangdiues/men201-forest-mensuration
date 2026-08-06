@@ -72,6 +72,15 @@ h2.title em{font-style:italic;font-weight:400;color:var(--moss)}
 .runhead{position:absolute;right:92px;top:70px;font:400 15px/1 var(--mono);letter-spacing:.16em;color:var(--faint)}
 .body{position:absolute;left:92px;right:92px;top:222px;bottom:104px}.body.deep{top:250px}.body.tight{top:202px}
 .footrule{position:absolute;left:92px;right:92px;bottom:74px;height:1px;background:var(--rulesoft)}
+
+/* Links inside a slide. Rare by design - they point at the supplementary
+   readings filed beside the decks - so they are marked with the moss rule
+   rather than a full underline, and the runtime stops a click on one from
+   also turning the page. */
+.slide a{color:var(--moss);text-decoration:none;
+  border-bottom:1px solid rgba(47,81,64,.4);transition:color .18s ease,border-color .18s ease}
+.slide a:hover,.slide a:focus-visible{color:var(--vermilion);border-bottom-color:var(--vermilion)}
+.slide a::after{content:" ↗";font-size:.8em;color:var(--ink-faint);border:0}
 .src{position:absolute;left:92px;bottom:37px;max-width:1450px;font:400 14px/1.35 var(--mono);color:var(--faint)}
 .pageno{position:absolute;right:92px;bottom:40px;font:500 16px/1 var(--mono);letter-spacing:.14em;color:var(--faint)}
 
@@ -447,10 +456,6 @@ body.ui .hud{opacity:.58}
            title:s.dataset.title||(ttl?ttl.textContent.replace(/\s+/g,' ').trim():'Slide')};
   });
 
-  /* Page numbers are generated so inserting or removing a slide never leaves
-     a stale "n / 39" behind. */
-  slides.forEach((s,k)=>{const p=s.querySelector('.pageno');if(p)p.textContent=(k+1)+' / '+slides.length});
-
   /* Section boundary ticks along the progress track. */
   meta.forEach((m,k)=>{if(k&&m.sec!==meta[k-1].sec){const t=document.createElement('div');
     t.className='stick';t.style.left=(k/slides.length*100)+'%';document.body.appendChild(t)}});
@@ -527,6 +532,7 @@ body.ui .hud{opacity:.58}
   document.addEventListener('click',e=>{
     if(document.body.classList.contains('editing')||ovlOpen())return;
     if(e.target.closest('.hud')||e.target.closest('.editbtn')||e.target.closest('.ovl'))return;
+    if(e.target.closest('a'))return;   // links in slides must not also turn the page
     const x=e.clientX/innerWidth;if(x>.72)next();else if(x<.28)prev()});
   let tx=0,ty=0;
   document.addEventListener('touchstart',e=>{tx=e.changedTouches[0].clientX;ty=e.changedTouches[0].clientY},{passive:true});
@@ -561,6 +567,11 @@ body.ui .hud{opacity:.58}
 
   /* --- BOOT -------------------------------------------------------------- */
   restore();
+
+  /* Page numbers are generated from the running order, and only after saved
+     edits have been restored, so inserting or removing a slide never leaves a
+     stale "n / 42" behind. */
+  slides.forEach((s,k)=>{const p=s.querySelector('.pageno');if(p)p.textContent=(k+1)+' / '+slides.length});
   const h=parseInt((location.hash||'').slice(1),10);
   show(Number.isFinite(h)&&h>0?h-1:0,false);
   addEventListener('hashchange',()=>{const n=parseInt((location.hash||'').slice(1),10);if(Number.isFinite(n)&&n-1!==i)show(n-1,false)});

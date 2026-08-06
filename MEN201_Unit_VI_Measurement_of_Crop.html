@@ -104,6 +104,15 @@ h2.title em{font-style:italic;font-weight:400;color:var(--moss)}
 .pageno{position:absolute;right:92px;bottom:40px;font:500 16px/1 var(--mono);
   letter-spacing:.14em;color:var(--ink-faint)}
 .footrule{position:absolute;left:92px;right:92px;bottom:74px;height:1px;background:var(--rule-soft)}
+
+/* Links inside a slide. Rare by design - they point at the supplementary
+   readings filed beside the decks - so they are marked with the moss rule
+   rather than a full underline, and the runtime stops a click on one from
+   also turning the page. */
+.slide a{color:var(--moss);text-decoration:none;
+  border-bottom:1px solid rgba(47,81,64,.4);transition:color .18s ease,border-color .18s ease}
+.slide a:hover,.slide a:focus-visible{color:var(--vermilion);border-bottom-color:var(--vermilion)}
+.slide a::after{content:" ↗";font-size:.8em;color:var(--ink-faint);border:0}
 .src{position:absolute;left:92px;bottom:38px;font:400 15px/1.4 var(--mono);color:var(--ink-faint);
   max-width:1400px;letter-spacing:.02em}
 
@@ -3462,6 +3471,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   document.addEventListener('click', (e) => {
     if (document.body.classList.contains('editing')) return;
     if (e.target.closest('.hud') || e.target.closest('.editbtn')) return;
+    if (e.target.closest('a')) return;   // links in slides must not also turn the page
     const x = e.clientX / window.innerWidth;
     if (x > 0.72) next(); else if (x < 0.28) prev();
   });
@@ -3509,7 +3519,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     try {
       const data = {};
       slides.forEach((s, k) => { data[k] = s.innerHTML; });
-      localStorage.setItem(STORE, JSON.stringify(data));
+      /* Stored with the slide count: edits are keyed by position, so they may
+         only be replayed onto a deck of the same length. */
+      localStorage.setItem(STORE, JSON.stringify({ n: slides.length, d: data }));
       toast('Edits saved to this browser');
     } catch (err) { toast('Could not save — storage unavailable'); }
   }
@@ -3518,11 +3530,23 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     try {
       const raw = localStorage.getItem(STORE);
       if (!raw) return;
-      const data = JSON.parse(raw);
-      slides.forEach((s, k) => { if (data[k]) s.innerHTML = data[k]; });
+      const saved = JSON.parse(raw);
+      /* Only replay edits captured against a deck of the same length -
+         otherwise an added slide would be overwritten by its predecessor. */
+      if (!saved || saved.n !== slides.length || !saved.d) return;
+      slides.forEach((s, k) => { if (saved.d[k]) s.innerHTML = saved.d[k]; });
     } catch (err) { /* corrupt store — ignore and show the original deck */ }
   }
   restoreEdits();
+
+  /* Page numbers are generated from the running order, and only after saved
+     edits have been restored, so inserting or removing a slide never leaves a
+     stale "50 / 54" behind. Slides carrying no .pageno - covers and section
+     dividers - stay unnumbered by design. */
+  slides.forEach((s, k) => {
+    const p = s.querySelector('.pageno');
+    if (p) p.textContent = (k + 1) + ' / ' + slides.length;
+  });
 
   /* --- BOOT ------------------------------------------------------------- */
   const fromHash = parseInt((location.hash || '').replace('#', ''), 10);

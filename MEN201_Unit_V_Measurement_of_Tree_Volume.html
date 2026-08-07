@@ -3270,7 +3270,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
-    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:38px;height:calc(100% - 120px)">
+    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:38px;height:calc(100% - 160px)">
       <div class="stack">
         <div class="card rv" style="--d:2">
           <div class="ch">Why it had to be built</div>
@@ -3338,7 +3338,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      The form-factor figure being the highest of the three deserves its own moment. The published mean of 0.548 is an average over the species; this stem's own form factor is 0.488, so it is more heavily tapered than the average blue pine, and applying the species mean to it therefore overestimates. That is the failure mode of any average applied to an individual, and it is the same lesson as the volume-table slides.
 
-     Finally the panel on what dropping height costs. Here model 7 and model 16 nearly agree, because this tree is close to average form for its diameter. On the Department's own demonstration tree - 54.1 cm and 23.4 m - model 7 gives 2.908 against model 16's 2.237, with the field measurement at 2.109. The no-height model was wrong by nearly 40 per cent on that one tree. A diameter-only equation is a convenience, and it is safe only for trees of ordinary form.
+     Finally, what dropping the height costs. This is not on the slide - put it on the board. Model 7, on diameter alone, gives 1.134 cubic metres for this tree, so here the two models nearly agree, because this tree is close to average form for its diameter. On the Department's own demonstration tree - 54.1 cm and 23.4 m - model 7 gives 2.908 against model 16's 2.237, with the field measurement at 2.109. The no-height model was wrong by nearly 40 per cent on that one tree. A diameter-only equation is a convenience, and it is safe only for trees of ordinary form.
 
      Ask them which model they would use to scale a rural timber allotment, and to justify it. The right answer involves measuring the height.
 -->
@@ -3350,8 +3350,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
-    <p class="lead rv" style="--d:2;margin-bottom:20px">The blue pine of worked example 1, at Yusipang. <strong>DBH 40 cm</strong>, <strong>total height 22 m</strong>, stem volume by sectional measurement <strong>1.35 m<sup>3</sup></strong>, its own form factor <strong>0.488</strong>.</p>
-    <div class="g3" style="height:308px">
+    <p class="lead rv" style="--d:2;margin-bottom:18px">Worked example 1's blue pine: <strong>DBH 40 cm</strong>, <strong>height 22 m</strong>, sectional stem volume <strong>1.35 m<sup>3</sup></strong>, form factor <strong>0.488</strong>.</p>
+    <div class="g3" style="height:calc(100% - 190px)">
       <div class="card rv" style="--d:3">
         <div class="ch v">1 · Sectional measurement</div>
         <p class="txt-sm" style="margin-top:12px">Every 2 m section scaled and summed. The reference figure, because nothing in it is estimated.</p>
@@ -3368,21 +3368,15 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="card rv" style="--d:5">
         <div class="ch v">3 · The Department's Model 16</div>
         <div class="step"><div class="sl">BAH</div><div class="sv">0.125664 × 22 = 2.7646 m<sup>3</sup></div></div>
-        <div class="step"><div class="sl">g(BAH)</div><div class="sv">2.5716<sup>3</sup> − 1.8936<sup>3</sup> × 1.0805 + 0<br>= 17.0063 − 7.3365 = <span class="hlt">9.6698</span></div></div>
+        <div class="step"><div class="sl">g(BAH)</div><div class="sv">17.0063 − 7.3365 = <span class="hlt">9.6698</span></div></div>
         <div class="step"><div class="sl">V</div><div class="sv">−0.00094 + 0.42844 × 2.7646 − 0.00164 × 9.6698</div></div>
         <div class="answer" style="margin-top:16px"><span class="k">Answer</span><span class="v">1.168 m<sup>3</sup></span></div>
         <p class="txt-sm" style="margin-top:10px;color:var(--ink-faint)">merchantable, to a 10 cm top</p>
       </div>
     </div>
-    <div class="g2" style="gap:32px;margin-top:22px">
-      <div class="callout moss rv" style="--d:7">
-        <span class="k">"Which is the volume of this tree?" is a badly posed question</span>
-        <p style="font-size:19px">1 and 2 estimate <strong>total stem volume over bark</strong>. 3 estimates <strong>merchantable volume to a 10 cm top, branches excluded</strong>. The 0.18 m<sup>3</sup> between 1.35 and 1.17 is not error — it is the top of the stem, which the merchantable standard discards. <strong>Before comparing two volume figures, ask what each of them includes.</strong></p>
-      </div>
-      <div class="card sunk rv" style="--d:8">
-        <div class="ch v">And what dropping the height costs</div>
-        <p class="txt-sm" style="margin-top:10px">Model 7, on diameter alone, gives <strong>1.134 m<sup>3</sup></strong> here — close, because this tree is of ordinary form. On the Department's own demonstration tree of 54.1 cm and 23.4 m it gives <strong>2.908</strong> against Model 16's <strong>2.237</strong>, with the field measurement at <strong>2.109 m<sup>3</sup></strong>: wrong by nearly 40 %. A diameter-only equation is a convenience, and it is safe only for trees of average form.</p>
-      </div>
+    <div class="callout moss rv" style="--d:7;position:absolute;left:0;right:0;bottom:0">
+      <span class="k">"Which is the volume of this tree?" is a badly posed question</span>
+      <p style="font-size:19px">1 and 2 estimate <strong>total stem volume over bark</strong>; 3 estimates <strong>merchantable volume to a 10 cm top, branches excluded</strong>. The 0.18 m<sup>3</sup> between them is the top of the stem, which that standard discards — not error. <strong>Before comparing two volume figures, ask what each of them includes.</strong></p>
     </div>
   </div>
   <div class="src">Coefficients and knots: FRMD (2018) · form factor: Tenzin, Wangchuk &amp; Hasenauer (2016)</div>

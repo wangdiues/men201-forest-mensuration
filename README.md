@@ -3,7 +3,7 @@
 Teaching decks for **MEN 201 Forest Mensuration**, BSc in Forestry — College of Natural
 Resources, Royal University of Bhutan.
 
-Seven units, 347 slides, joined into one site with a contents page.
+Seven units, 348 slides, joined into one site with a contents page.
 
 **Author** — Wangdi, Senior Forestry Officer, Forest Resources Planning and Management
 Division; Adjunct Lecturer. [Portfolio](https://wangdiues.github.io/Wangdi-portfolio-v7/)
@@ -12,7 +12,7 @@ Division; Adjunct Lecturer. [Portfolio](https://wangdiues.github.io/Wangdi-portf
 
 | Unit | Title | Slides |
 |------|-------|--------|
-| I | Introduction to Forest Mensuration | 39 |
+| I | Introduction to Forest Mensuration | 40 |
 | II | Diameter, Girth and Bark Thickness | 42 |
 | III | Measurement of Crown Closure | 51 |
 | IV | Measurement of Tree Height | 57 |
@@ -47,6 +47,7 @@ that uses them:
 
 | Slide | Unit | What it adds |
 |-------|------|--------------|
+| 2 | I | The module descriptor as approved — credits, the 30/30/40 assessment, core and supplementary units, and the instrument changes |
 | 41 | III | The national canopy cover procedure — GRS densitometer, 100 points on a 2.5 m grid, and the FNCA 2023 thresholds a forestry clearance turns on |
 | 51 | V | The Department's two selected volume models for *Pinus wallichiana*, their merchantability standard and their fitted range |
 | 52 | V | Worked example 10 — the deck's own blue pine measured three ways, showing that the three figures answer three different questions |

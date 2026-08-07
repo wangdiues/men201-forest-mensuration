@@ -3,7 +3,8 @@
 Teaching decks for **MEN 201 Forest Mensuration**, BSc in Forestry — College of Natural
 Resources, Royal University of Bhutan.
 
-Seven units, 348 slides, joined into one site with a contents page.
+Seven units, 348 slides, joined into one site with a contents page, together with the full
+module descriptor as a 27-slide deck of its own.
 
 **Author** — Wangdi, Senior Forestry Officer, Forest Resources Planning and Management
 Division; Adjunct Lecturer. [Portfolio](https://wangdiues.github.io/Wangdi-portfolio-v7/)
@@ -12,6 +13,7 @@ Division; Adjunct Lecturer. [Portfolio](https://wangdiues.github.io/Wangdi-portf
 
 | Unit | Title | Slides |
 |------|-------|--------|
+| — | **The Module Descriptor** — the approved terms of the module in full | 27 |
 | I | Introduction to Forest Mensuration | 40 |
 | II | Diameter, Girth and Bark Thickness | 42 |
 | III | Measurement of Crown Closure | 51 |

@@ -45,16 +45,13 @@ html,body{margin:0;height:100%;overflow:hidden;background:var(--letterbox);-webk
 
 /* === CHROME + BODY SAFE AREA === */
 /* === VERTICAL RHYTHM ===
-   Two rules, working together:
-   1. Rows are sized to their content rather than stretched to the full band, so
-      a panel is never a tall box with a small block of text adrift inside it.
-      They stay anchored to the top, keeping the content tied to the title and
-      letting the leftover space fall on the paper, where the footrule and
-      source line already close the frame.
-   2. Columns in a row still share one height, so when a diagram or a long list
-      drives the row tall, the shorter card centres its contents instead of
-      jamming them against the top edge — the rule `.diagram` always used.
-   Slides whose content already fills the band are unaffected by both. */
+   Rows stretch to fill the body band, and each card centres its own contents
+   inside the height it is given. Sizing rows to their content instead left
+   this deck at 58 % average fill — the emptiest in the module by a wide
+   margin — with cards clinging to the title and half the paper bare.
+   Filling the band and centring within it reads as deliberate; leaving a
+   third of the slide blank reads as unfinished.
+   A stretched row cannot overflow: it takes exactly the height available. */
 .body.g2,.body.g3,.body.g4{align-content:start}
 .body.g2>.card,.body.g3>.card,.body.g4>.card,
 .body.g2>.colc,.body.g3>.colc{display:flex;flex-direction:column;justify-content:center}
@@ -66,11 +63,11 @@ html,body{margin:0;height:100%;overflow:hidden;background:var(--letterbox);-webk
    out unevenly against a neighbouring table; keep its natural row rhythm. */
 .body>table.dt{align-self:start}
 .head{position:absolute;left:92px;right:92px;top:70px}.head .hr{height:1px;background:var(--rule);margin-top:24px}
-.eyebrow{font:500 17px/1 var(--mono);letter-spacing:.30em;text-transform:uppercase;color:var(--verm)}
-h2.title{margin:20px 0 0;font:600 52px/1.05 var(--display);letter-spacing:-.022em;color:var(--ink);max-width:1450px}
+.eyebrow{font:500 19px/1 var(--mono);letter-spacing:.30em;text-transform:uppercase;color:var(--verm)}
+h2.title{margin:20px 0 0;font:600 58px/1.04 var(--display);letter-spacing:-.024em;color:var(--ink);max-width:1500px}
 h2.title em{font-style:italic;font-weight:400;color:var(--moss)}
-.runhead{position:absolute;right:92px;top:70px;font:400 15px/1 var(--mono);letter-spacing:.16em;color:var(--faint)}
-.body{position:absolute;left:92px;right:92px;top:222px;bottom:104px}.body.deep{top:250px}.body.tight{top:202px}
+.runhead{position:absolute;right:92px;top:66px;font:400 17px/1.4 var(--mono);letter-spacing:.16em;color:var(--faint)}
+.body{position:absolute;left:92px;right:92px;top:222px;bottom:104px}.body.deep{top:266px}.body.tight{top:202px}
 .footrule{position:absolute;left:92px;right:92px;bottom:74px;height:1px;background:var(--rulesoft)}
 
 /* Links inside a slide. Rare by design - they point at the supplementary
@@ -81,35 +78,36 @@ h2.title em{font-style:italic;font-weight:400;color:var(--moss)}
   border-bottom:1px solid rgba(47,81,64,.4);transition:color .18s ease,border-color .18s ease}
 .slide a:hover,.slide a:focus-visible{color:var(--vermilion);border-bottom-color:var(--vermilion)}
 .slide a::after{content:" ↗";font-size:.8em;color:var(--ink-faint);border:0}
-.src{position:absolute;left:92px;bottom:37px;max-width:1450px;font:400 14px/1.35 var(--mono);color:var(--faint)}
-.pageno{position:absolute;right:92px;bottom:40px;font:500 16px/1 var(--mono);letter-spacing:.14em;color:var(--faint)}
+.src{position:absolute;left:92px;bottom:36px;max-width:1500px;font:400 17px/1.4 var(--mono);color:var(--faint)}
+.pageno{position:absolute;right:92px;bottom:38px;font:500 18px/1 var(--mono);letter-spacing:.14em;color:var(--faint)}
 
 /* === TYPOGRAPHY + PRIMITIVES === */
-p{margin:0}.lead{font:400 33px/1.42 var(--display);color:var(--ink);letter-spacing:-.005em}.lead strong{font-weight:600;color:var(--moss)}
-.txt{font:400 23px/1.5 var(--body);color:var(--soft)}.txt-sm{font:400 19px/1.5 var(--body);color:var(--soft)}
-.mono{font:500 18px/1.5 var(--mono);color:var(--ink)}.label{font:500 15px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--moss)}
-.label.v{color:var(--verm)}.big-num{font:600 96px/1 var(--display);color:var(--moss);letter-spacing:-.04em}
-.card{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:33px 34px;box-shadow:0 2px 0 rgba(20,28,24,.05),0 14px 34px rgba(20,28,24,.045)}
+p{margin:0}.lead{font:400 38px/1.38 var(--display);color:var(--ink);letter-spacing:-.008em}.lead strong{font-weight:600;color:var(--moss)}
+.txt{font:400 30px/1.45 var(--body);color:var(--soft)}.txt-sm{font:400 25px/1.45 var(--body);color:var(--soft)}
+.mono{font:500 22px/1.55 var(--mono);color:var(--ink)}.label{font:500 18px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--moss)}
+.label.v{color:var(--verm)}.big-num{font:600 104px/1 var(--display);color:var(--moss);letter-spacing:-.04em}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:26px 30px;box-shadow:0 2px 0 rgba(20,28,24,.05),0 14px 34px rgba(20,28,24,.045)}
 .card.sunk{background:var(--sunk);box-shadow:none}.card.moss{background:var(--moss);border-color:var(--moss);color:#fff}
-.card h3,.ch{margin:0 0 16px;font:600 29px/1.2 var(--display);letter-spacing:-.012em;color:var(--ink)}
+.card h3,.ch{margin:0 0 12px;font:600 34px/1.18 var(--display);letter-spacing:-.014em;color:var(--ink)}
 .card.moss h3,.card.moss .ch{color:#fff}.card.moss .txt,.card.moss .txt-sm{color:#d3decf}
-ul.bul{list-style:none;margin:0;padding:0}ul.bul li{position:relative;padding-left:30px;margin-bottom:13px;font:400 22px/1.46 var(--body);color:var(--soft)}
+ul.bul{list-style:none;margin:0;padding:0}ul.bul li{position:relative;padding-left:34px;margin-bottom:15px;font:400 28px/1.42 var(--body);color:var(--soft)}
 ul.bul li::before{content:"";position:absolute;left:0;top:.65em;width:11px;height:2px;background:var(--verm)}ul.bul li:last-child{margin-bottom:0}
-ul.bul.sm li{font-size:19px;margin-bottom:10px}ul.bul li strong{color:var(--ink);font-weight:600}.card.moss ul.bul li{color:#d3decf}.card.moss ul.bul li strong{color:#fff}
-.formula{padding:24px 28px;text-align:center;border:1px solid var(--mossline);background:var(--mosswash);border-radius:3px;
-  font:500 40px/1.2 var(--display);color:var(--moss)}.formula.v{border-color:rgba(193,69,36,.30);background:var(--vermwash);color:var(--verm)}
-.formula.sm{font-size:31px;padding:18px}.formula .u{display:block;margin-top:9px;font:400 17px/1.35 var(--body);color:var(--faint)}
-.callout{border-left:4px solid var(--verm);background:var(--vermwash);padding:21px 26px;border-radius:0 3px 3px 0}
-.callout.moss{border-left-color:var(--moss);background:var(--mosswash)}.callout .k{display:block;margin-bottom:8px;font:500 14px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--verm)}
-.callout.moss .k{color:var(--moss)}.callout p{font:400 22px/1.45 var(--body);color:var(--ink)}
-.answer{display:flex;align-items:baseline;gap:20px;padding:20px 28px;background:var(--moss);color:#fff;border-radius:3px}.answer .k{font:500 15px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#a9c9b3}.answer .v{font:600 34px/1 var(--display)}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:28px}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.stack{display:flex;flex-direction:column;gap:26px}.row{display:flex;gap:24px}.fill{height:100%}.center{text-align:center}
-.numrow{display:grid;grid-template-columns:46px 1fr;gap:17px;align-items:start;margin-bottom:19px}.badge{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--verm);color:#fff;font:700 17px/1 var(--mono)}.badge.m{background:var(--moss)}
-table.dt{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--rule);font:400 19px/1.4 var(--body);color:var(--soft)}
-table.dt th{padding:15px 17px;background:var(--moss);color:#fff;text-align:left;font:600 16px/1.3 var(--body)}table.dt td{padding:16px 17px;border-top:1px solid var(--rulesoft)}table.dt tbody tr:nth-child(even){background:rgba(20,28,24,.025)}table.dt td:first-child{font-weight:600;color:var(--ink)}
-.step{display:grid;grid-template-columns:235px 1fr;gap:22px;align-items:center;padding:16px 0;border-top:1px solid var(--rulesoft)}.step:first-child{border-top:0}.step .sl{font:500 15px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--moss)}.step .sv{font:500 21px/1.3 var(--mono);color:var(--ink)}
-.q{display:grid;grid-template-columns:46px 1fr;gap:18px;padding:22px 25px;background:var(--card);border:1px solid var(--rule);border-radius:3px}.q .qt{font:400 21px/1.42 var(--body);color:var(--ink)}
+ul.bul.sm li{font-size:24px;margin-bottom:12px}ul.bul li strong{color:var(--ink);font-weight:600}.card.moss ul.bul li{color:#d3decf}.card.moss ul.bul li strong{color:#fff}
+.formula{padding:19px 26px;text-align:center;border:1px solid var(--mossline);background:var(--mosswash);border-radius:3px;
+  font:500 46px/1.2 var(--display);color:var(--moss)}.formula.v{border-color:rgba(193,69,36,.30);background:var(--vermwash);color:var(--verm)}
+.formula.sm{font-size:36px;padding:20px}.formula .u{display:block;margin-top:10px;font:400 20px/1.35 var(--body);color:var(--faint)}
+.callout{border-left:4px solid var(--verm);background:var(--vermwash);padding:17px 24px;border-radius:0 3px 3px 0}
+.callout.moss{border-left-color:var(--moss);background:var(--mosswash)}.callout .k{display:block;margin-bottom:9px;font:500 17px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--verm)}
+.callout.moss .k{color:var(--moss)}.callout p{font:400 28px/1.42 var(--body);color:var(--ink)}
+.answer{display:flex;align-items:baseline;gap:20px;padding:20px 28px;background:var(--moss);color:#fff;border-radius:3px}.answer .k{font:500 17px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#a9c9b3}.answer .v{font:600 40px/1 var(--display)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.stack{display:flex;flex-direction:column;gap:20px}.row{display:flex;gap:24px}.fill{height:100%}.center{text-align:center}
+.numrow{display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:start;margin-bottom:15px}.badge{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--verm);color:#fff;font:700 17px/1 var(--mono)}.badge.m{background:var(--moss)}
+table.dt{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--rule);font:400 24px/1.4 var(--body);color:var(--soft)}
+table.dt.sm{font-size:21px}table.dt.sm th{font-size:18px;padding:11px 13px}table.dt.sm td{padding:9px 13px}table.dt td.rh{font-weight:600;color:var(--ink);background:rgba(47,81,64,.05)}table.dt tr.hi td{background:var(--vermwash)}
+table.dt th{padding:12px 17px;background:var(--moss);color:#fff;text-align:left;font:600 20px/1.3 var(--body)}table.dt td{padding:13px 17px;border-top:1px solid var(--rulesoft)}table.dt tbody tr:nth-child(even){background:rgba(20,28,24,.025)}table.dt td:first-child{font-weight:600;color:var(--ink)}
+.step{display:grid;grid-template-columns:235px 1fr;gap:22px;align-items:center;padding:16px 0;border-top:1px solid var(--rulesoft)}.step:first-child{border-top:0}.step .sl{font:500 17px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--moss)}.step .sv{font:500 25px/1.3 var(--mono);color:var(--ink)}
+.q{display:grid;grid-template-columns:46px 1fr;gap:16px;padding:18px 22px;background:var(--card);border:1px solid var(--rule);border-radius:3px}.q .qt{font:400 25px/1.4 var(--body);color:var(--ink)}
 /* Step rows sitting on a moss card need inverted rule + label colours,
    otherwise the dark-on-dark defaults above become unreadable. */
 .card.moss .step{border-top-color:rgba(255,255,255,.17)}.card.moss .step .sl{color:#d8b76a}.card.moss .step .sv{color:#fff}
@@ -120,9 +118,9 @@ table.dt th{padding:15px 17px;background:var(--moss);color:#fff;text-align:left;
 .rings::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:12px;border-radius:50%;background:var(--verm);transform:translate(-50%,-50%)}
 .circle{width:420px;height:420px;border:8px solid var(--moss);border-radius:50%;position:relative}.circle .diam{position:absolute;left:-5px;right:-5px;top:50%;height:6px;background:var(--verm)}.circle .rad{position:absolute;left:50%;top:50%;width:50%;height:5px;background:var(--gold);transform:rotate(-38deg);transform-origin:left}.circle .c{position:absolute;left:50%;top:50%;width:15px;height:15px;border-radius:50%;background:var(--ink);transform:translate(-50%,-50%)}
 .tree{position:relative;width:300px;height:610px}.trunk{position:absolute;left:116px;top:42px;width:72px;height:520px;background:linear-gradient(90deg,#74503b,#a57958 50%,#694732);clip-path:polygon(25% 0,75% 0,100% 100%,0 100%)}
-.dbhline{position:absolute;left:20px;right:18px;bottom:170px;height:6px;background:var(--verm)}.dbhline::after{content:"1.3 m";position:absolute;right:0;top:-42px;font:700 22px var(--mono);color:var(--verm)}
+.dbhline{position:absolute;left:20px;right:18px;bottom:170px;height:6px;background:var(--verm)}.dbhline::after{content:"BH";position:absolute;right:0;top:-42px;font:700 22px var(--mono);color:var(--verm)}
 .ground{position:absolute;left:0;right:0;bottom:34px;height:7px;background:var(--moss);transform:rotate(-8deg);transform-origin:left}.cross{position:absolute;left:140px;bottom:165px;width:24px;height:24px}.cross::before,.cross::after{content:"";position:absolute;background:#fff}.cross::before{left:10px;width:4px;height:24px}.cross::after{top:10px;width:24px;height:4px}
-.caliper{position:relative;width:640px;height:310px}.caliper .beam{position:absolute;left:50px;right:25px;top:142px;height:20px;background:var(--moss)}.caliper .arm{position:absolute;top:62px;width:24px;height:180px;background:var(--moss)}.caliper .fixed{left:50px}.caliper .moving{right:125px}.caliper .tick{position:absolute;left:84px;right:40px;top:120px;height:18px;background:repeating-linear-gradient(90deg,transparent 0 18px,var(--ink) 19px 20px)}
+.calliper{position:relative;width:640px;height:310px}.calliper .beam{position:absolute;left:50px;right:25px;top:142px;height:20px;background:var(--moss)}.calliper .arm{position:absolute;top:62px;width:24px;height:180px;background:var(--moss)}.calliper .fixed{left:50px}.calliper .moving{right:125px}.calliper .tick{position:absolute;left:84px;right:40px;top:120px;height:18px;background:repeating-linear-gradient(90deg,transparent 0 18px,var(--ink) 19px 20px)}
 .tape{width:560px;height:310px;position:relative}.tape .loop{position:absolute;left:110px;top:25px;width:300px;height:255px;border:18px solid var(--verm);border-radius:50%}.tape .tail{position:absolute;right:10px;top:145px;width:190px;height:18px;background:var(--verm);transform:rotate(-12deg)}
 .barkcut{width:520px;height:520px;border-radius:50%;position:relative;background:radial-gradient(circle,#d8c29a 0 46%,#8a603f 46.5% 67%,#553625 68% 100%);box-shadow:0 0 0 2px rgba(20,28,24,.3)}.barkcut .r1,.barkcut .r2{position:absolute;left:50%;top:50%;height:5px;transform-origin:left;background:#fff}.barkcut .r1{width:235px;transform:rotate(-18deg)}.barkcut .r2{width:160px;transform:rotate(-18deg);background:var(--verm)}
 .barkcut .lab{position:absolute;right:8px;top:175px;font:700 20px var(--mono);color:#fff;text-shadow:0 2px 5px #000}
@@ -184,7 +182,6 @@ body.ui .hud{opacity:.58}
 .hud .sec{max-width:196px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#a9c9b3;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 .hud .sec,.hud .sep.s1{display:none}
 .hud:hover .sec,.hud:hover .sep.s1{display:inline-block}
-.hud .clk{color:#8c9a8e;font-variant-numeric:tabular-nums;cursor:pointer}.hud .clk.run{color:#d8b76a}
 .hud .sep{width:1px;height:15px;background:rgba(255,255,255,.2)}
 .hud .ico{width:26px;height:26px;border:0;background:transparent;color:#fff;font:500 12px var(--mono);cursor:pointer;opacity:.8}
 .hud .ico:hover{opacity:1}
@@ -196,6 +193,41 @@ body.ui .hud{opacity:.58}
 /* flex-basis stays `auto` so the figure still contributes its real height when
    the grid row is sized to content, rather than collapsing to nothing. */
 .figcard .fig{flex:1 1 auto;min-height:0;display:grid;place-items:center;overflow:hidden;margin:10px 0 18px}
+/* === DENSITY OVERRIDE ======================================================
+   The type scale was raised across the module for readability from the back of
+   the room. On the densest slides that costs vertical space, and it is bought
+   back here from padding and gaps - never from font size.
+   `fit` is the normal step; `fit2` is for the few slides that need more.
+   ========================================================================== */
+.slide.fit .card{padding:18px 22px}
+.slide.fit .callout{padding:12px 20px}
+.slide.fit .callout .k{margin-bottom:5px}
+.slide.fit .stack{gap:14px}
+.slide.fit .stack.sm{gap:10px}
+.slide.fit ul.bul li{margin-bottom:7px}
+.slide.fit ul.bul.sm li{margin-bottom:5px}
+.slide.fit .card h3,.slide.fit .card .ch,.slide.fit .ch{margin-bottom:8px}
+.slide.fit .formula{padding:13px 22px}
+.slide.fit .formula.sm{padding:11px 18px}
+.slide.fit table.dt td{padding:10px 14px}
+.slide.fit table.dt th{padding:9px 14px}
+.slide.fit .step{padding:8px 0}
+.slide.fit .numrow{margin-bottom:8px}
+.slide.fit .q{padding:13px 18px}
+.slide.fit .answer{padding:13px 24px}
+.slide.fit2 .card{padding:14px 20px}
+.slide.fit2 .callout{padding:10px 18px}
+.slide.fit2 .stack{gap:11px}
+.slide.fit2 .stack.sm{gap:8px}
+.slide.fit2 ul.bul li{margin-bottom:5px}
+.slide.fit2 ul.bul.sm li{margin-bottom:4px}
+.slide.fit2 .card h3,.slide.fit2 .card .ch,.slide.fit2 .ch{margin-bottom:6px}
+.slide.fit2 .formula{padding:10px 20px}
+.slide.fit2 table.dt td{padding:8px 12px}
+.slide.fit2 table.dt th{padding:7px 12px}
+.slide.fit2 .step{padding:6px 0}
+.slide.fit2 .numrow{margin-bottom:6px}
+.slide.fit2 .q{padding:11px 16px}
 @page{size:20in 11.25in;margin:0}
 @media print{html,body{overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible}.stage{position:static;width:1920px;height:auto;transform:none;box-shadow:none}.slide{position:relative;width:1920px;height:1080px;visibility:visible;opacity:1;pointer-events:auto;page-break-after:always}.rv{opacity:1!important;transform:none!important}.progress,.progtrack,.stick,.hud,.editbtn,.toast,.ovl{display:none!important}}
 </style>
@@ -209,73 +241,80 @@ body.ui .hud{opacity:.58}
   <div class="plate"><svg viewBox="0 0 720 1080" aria-hidden="true"><g fill="none" stroke="#2f5140" stroke-opacity=".35"><circle cx="360" cy="540" r="400"/><circle cx="364" cy="536" r="348" stroke-width="1.5"/><circle cx="357" cy="543" r="296"/><circle cx="365" cy="535" r="246" stroke-width="1.5"/><circle cx="358" cy="542" r="198"/><circle cx="363" cy="538" r="152"/><circle cx="360" cy="540" r="110"/><circle cx="361" cy="540" r="72"/><circle cx="360" cy="540" r="36"/></g><circle cx="360" cy="540" r="8" fill="#c14524"/></svg></div>
   <div style="position:absolute;left:110px;top:96px"><div class="eyebrow rv">MEN 201 · Forest Mensuration · Unit II</div><div class="rv" style="--d:1;margin-top:24px;width:120px;height:1px;background:var(--ink)"></div></div>
   <div style="position:absolute;left:110px;top:280px;width:1070px"><h1 class="rv" style="--d:2">Diameter, Girth<br><em>&amp; Bark Thickness</em></h1><p class="lead rv" style="--d:4;margin-top:42px;max-width:820px">Measure the tree at a defensible point, with the right instrument, and know exactly whether bark is included.</p></div>
-  <div class="cmeta rv" style="--d:6"><strong>BSc in Forestry</strong>College of Natural Resources · Royal University of Bhutan<br>Sessions 3–4 · Teaching deck<br>Module Tutor &middot; Wangdi</div><div class="pageno">1 / 42</div>
+  <div class="cmeta rv" style="--d:6"><strong>BSc in Forestry</strong>College of Natural Resources · Royal University of Bhutan<br>Sessions 3–4 · Teaching deck<br>Module Tutor &middot; Wangdi</div><div class="pageno">1 / 48</div>
 </section>
 
 <!-- SLIDE 2 — OUTCOMES -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Start · What mastery looks like</div><h2 class="title rv" style="--d:1">By the end, you can make a <em>repeatable field measurement</em></h2><div class="hr"></div></div><div class="runhead">MEN 201 · UNIT II</div>
-  <div class="body g2"><div class="stack"><div class="numrow rv" style="--d:2"><div class="badge">01</div><div><div class="ch">Use units correctly</div><p class="txt">Convert length, area and volume without mixing dimensions.</p></div></div><div class="numrow rv" style="--d:3"><div class="badge">02</div><div><div class="ch">Relate girth and diameter</div><p class="txt">Move confidently between G, D and r.</p></div></div><div class="numrow rv" style="--d:4"><div class="badge">03</div><div><div class="ch">Choose and use instruments</div><p class="txt">Match scales, calipers and tapes to the tree and required accuracy.</p></div></div></div><div class="stack"><div class="numrow rv" style="--d:3"><div class="badge m">04</div><div><div class="ch">Locate breast height</div><p class="txt">Apply the 1.3 m convention on slopes, leaning stems, forks and buttresses.</p></div></div><div class="numrow rv" style="--d:4"><div class="badge m">05</div><div><div class="ch">Measure bark thickness</div><p class="txt">Sample non-uniform bark with a gauge or probe.</p></div></div><div class="numrow rv" style="--d:5"><div class="badge m">06</div><div><div class="ch">Convert over bark to under bark</div><p class="txt">Calculate DUB and GUB with clear notation.</p></div></div></div></div><div class="footrule"></div><div class="pageno">2 / 42</div>
+  <div class="body g2"><div class="stack"><div class="numrow rv" style="--d:2"><div class="badge">01</div><div><div class="ch">Use units correctly</div><p class="txt">Convert length, area and volume without mixing dimensions.</p></div></div><div class="numrow rv" style="--d:3"><div class="badge">02</div><div><div class="ch">Relate girth and diameter</div><p class="txt">Move confidently between G, D and r.</p></div></div><div class="numrow rv" style="--d:4"><div class="badge">03</div><div><div class="ch">Choose and use instruments</div><p class="txt">Match scales, callipers and tapes to the tree and required accuracy.</p></div></div></div><div class="stack"><div class="numrow rv" style="--d:3"><div class="badge m">04</div><div><div class="ch">Locate breast height</div><p class="txt">Apply the protocol reference height on slopes, leaning stems, forks and buttresses.</p></div></div><div class="numrow rv" style="--d:4"><div class="badge m">05</div><div><div class="ch">Measure bark thickness</div><p class="txt">Sample non-uniform bark with a gauge or probe.</p></div></div><div class="numrow rv" style="--d:5"><div class="badge m">06</div><div><div class="ch">Convert over bark to under bark</div><p class="txt">Calculate DUB and GUB with clear notation.</p></div></div></div>  <div class="callout moss rv" style="--d:9;margin-top:22px;grid-column:1/-1"><span class="k">What mastery actually looks like</span><p>None of these six is difficult on its own. The skill being assessed is doing all six <strong>the same way twice</strong> — and being able to show a second crew how you did it.</p></div>
+</div><div class="footrule"></div><div class="pageno">2 / 48</div>
 </section>
 
 <!-- SLIDE 3 — MAP -->
-<section class="slide"><div class="head"><div class="eyebrow rv">Road map · Three linked decisions</div><h2 class="title rv" style="--d:1">Where, how and <em>what boundary</em> are you measuring?</h2><div class="hr"></div></div><div class="runhead">MEN 201 · UNIT II</div>
-  <div class="body g3"><div class="card rv" style="--d:2"><div class="big-num">01</div><div class="label v">Geometry + tools</div><h3 style="margin-top:20px">Diameter and girth</h3><p class="txt">Circular geometry, measurement units, instrument choice and error.</p></div><div class="card moss rv" style="--d:3"><div class="big-num" style="color:#d3decf">02</div><div class="label" style="color:#d8b76a">Reference point</div><h3 style="margin-top:20px">Breast height</h3><p class="txt">A standard 1.3 m reference, adjusted only when stem form forces a defensible deviation.</p></div><div class="card rv" style="--d:4"><div class="big-num">03</div><div class="label v">Boundary correction</div><h3 style="margin-top:20px">Bark thickness</h3><p class="txt">Measure the radial layer and remove it when under-bark dimensions are required.</p></div></div><div class="footrule"></div><div class="pageno">3 / 42</div>
+<section class="slide fit fit2"><div class="head"><div class="eyebrow rv">Road map · Three linked decisions</div><h2 class="title rv" style="--d:1">Where, how and <em>what boundary</em> are you measuring?</h2><div class="hr"></div></div><div class="runhead">MEN 201 · UNIT II</div>
+  <div class="body g3"><div class="card rv" style="--d:2"><div class="big-num">01</div><div class="label v">Geometry + tools</div><h3 style="margin-top:20px">Diameter and girth</h3><p class="txt">Circular geometry, measurement units, instrument choice and error &mdash; worked on Bhutanese stems: blue pine, chir pine, spruce, hemlock and oak.</p></div><div class="card moss rv" style="--d:3"><div class="big-num" style="color:#d3decf">02</div><div class="label" style="color:#d8b76a">Reference point</div><h3 style="margin-top:20px">Breast height</h3><p class="txt">One reference height, fixed by the governing protocol, adjusted only when stem form forces a defensible deviation.</p></div><div class="card rv" style="--d:4"><div class="big-num">03</div><div class="label v">Boundary correction</div><h3 style="margin-top:20px">Bark thickness</h3><p class="txt">Measure the radial layer and remove it when under-bark dimensions are required.</p></div>  <div class="callout rv" style="--d:9;margin-top:22px;grid-column:1/-1"><span class="k">The three decisions are not independent</span><p>The instrument fixes the errors you will make; the reference point fixes whether anyone can repeat you; the boundary fixes what the number means.</p></div>
+</div><div class="footrule"></div><div class="pageno">3 / 48</div>
 </section>
 
 <!-- SLIDE 4 — SECTION -->
-<section class="slide section" data-sec="A · Diameter &amp; Girth" data-title="Section A opener"><div class="deckline"></div><div class="sectext"><div class="eyebrow rv">Section A · Session 3</div><h1 class="rv" style="--d:1">Diameter<br><em>&amp; Girth</em></h1><p class="rv" style="--d:3">Begin with units and circular geometry, then choose an instrument whose errors you understand.</p></div><div class="plate"><svg viewBox="0 0 720 1080" aria-hidden="true"><circle cx="360" cy="520" r="260" fill="none" stroke="#2f5140" stroke-width="18"/><line x1="100" y1="520" x2="620" y2="520" stroke="#c14524" stroke-width="8"/><line x1="360" y1="520" x2="520" y2="330" stroke="#a8842c" stroke-width="7"/><circle cx="360" cy="520" r="10" fill="#141c18"/><text x="360" y="840" text-anchor="middle" font-family="JetBrains Mono" font-size="24" fill="#2f5140">G = πD</text></svg></div><div class="pageno" style="color:#d3decf">4 / 42</div></section>
+<section class="slide section" data-sec="A · Diameter &amp; Girth" data-title="Section A opener"><div class="deckline"></div><div class="sectext"><div class="eyebrow rv">Section A · Session 3</div><h1 class="rv" style="--d:1">Diameter<br><em>&amp; Girth</em></h1><p class="rv" style="--d:3">Begin with units and circular geometry, then choose an instrument whose errors you understand.</p></div><div class="plate"><svg viewBox="0 0 720 1080" aria-hidden="true"><circle cx="360" cy="520" r="260" fill="none" stroke="#2f5140" stroke-width="18"/><line x1="100" y1="520" x2="620" y2="520" stroke="#c14524" stroke-width="8"/><line x1="360" y1="520" x2="520" y2="330" stroke="#a8842c" stroke-width="7"/><circle cx="360" cy="520" r="10" fill="#141c18"/><text x="360" y="840" text-anchor="middle" font-family="JetBrains Mono" font-size="24" fill="#2f5140">G = πD</text></svg></div><div class="pageno" style="color:#d3decf">4 / 48</div></section>
 
 <!-- SLIDE 5 — UNITS -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Foundations · Dimensional discipline</div><h2 class="title rv" style="--d:1">The exponent tells you <em>what is being measured</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
-  <div class="body g3"><div class="card rv" style="--d:2"><div class="label v">Length · L</div><div class="big-num">m</div><p class="txt">Linear distance: diameter, girth, radius or tree height.</p><p class="mono" style="margin-top:18px">mm · cm · m</p></div><div class="card moss rv" style="--d:3"><div class="label" style="color:#d8b76a">Area · L²</div><div class="big-num" style="color:#fff">m²</div><p class="txt">Cross-sectional area of the stem, commonly basal area at breast height.</p><p class="mono" style="color:#d3decf;margin-top:18px">cm² · m² · ha</p></div><div class="card rv" style="--d:4"><div class="label v">Volume · L³</div><div class="big-num">m³</div><p class="txt">Three-dimensional space occupied by a stem, log or wood product.</p><p class="mono" style="margin-top:18px">m³ · ft³</p></div></div><div class="footrule"></div><div class="src">Source: Session 3, slides 3–4. Unit conversions corrected and standardised.</div><div class="pageno">5 / 42</div></section>
+  <div class="body g3"><div class="card rv" style="--d:2"><div class="label v">Length · L</div><div class="big-num">m</div><p class="txt">Linear distance: diameter, girth, radius or tree height.</p><p class="mono" style="margin-top:18px">mm · cm · m</p></div><div class="card moss rv" style="--d:3"><div class="label" style="color:#d8b76a">Area · L²</div><div class="big-num" style="color:#fff">m²</div><p class="txt">Cross-sectional area of the stem, commonly basal area at breast height.</p><p class="mono" style="color:#d3decf;margin-top:18px">cm² · m² · ha</p></div><div class="card rv" style="--d:4"><div class="label v">Volume · L³</div><div class="big-num">m³</div><p class="txt">Three-dimensional space occupied by a stem, log or wood product.</p><p class="mono" style="margin-top:18px">m³ · ft³</p></div>  <div class="callout moss rv" style="--d:9;margin-top:22px;grid-column:1/-1"><span class="k">Why the exponent matters more than the unit</span><p>Length, area and volume are <strong>L, L² and L³</strong>. Halve a diameter reading by mistake and the area is quartered and the volume divided by eight. Dimensional errors do not stay small.</p></div>
+</div><div class="footrule"></div><div class="src">SI units after BIPM (2019), <em>The International System of Units</em>, 9th ed. Conversions to imperial units are exact by definition.</div><div class="pageno">5 / 48</div></section>
 
 <!-- SLIDE 6 — CONVERSIONS -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Foundations · Exact reference</div><h2 class="title rv" style="--d:1">Convert the unit first; <em>then calculate</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
-  <div class="body g2"><table class="dt rv" style="--d:2"><thead><tr><th>Length</th><th>Equivalent</th></tr></thead><tbody><tr><td>10 mm</td><td>1 cm</td></tr><tr><td>100 cm</td><td>1 m</td></tr><tr><td>1 inch</td><td>2.54 cm</td></tr><tr><td>1 foot</td><td>0.3048 m</td></tr></tbody></table><div class="stack"><table class="dt rv" style="--d:3"><thead><tr><th>Land area</th><th>Equivalent</th></tr></thead><tbody><tr><td>1 hectare</td><td>10,000 m²</td></tr><tr><td>1 acre</td><td>4,046.86 m²</td></tr><tr><td>1 hectare</td><td>2.471 acres</td></tr></tbody></table><table class="dt rv" style="--d:4"><thead><tr><th>Volume</th><th>Equivalent</th></tr></thead><tbody><tr><td>1 ft³</td><td>1,728 in³</td></tr><tr><td>1 yd³</td><td>27 ft³</td></tr></tbody></table></div></div><div class="footrule"></div><div class="src">Teaching note: 1 acre = 4,046.86 m². This corrects typographical conversion errors in the source slide.</div><div class="pageno">6 / 42</div></section>
+  <div class="body g2"><table class="dt rv" style="--d:2"><thead><tr><th>Length</th><th>Equivalent</th></tr></thead><tbody><tr><td>10 mm</td><td>1 cm</td></tr><tr><td>100 cm</td><td>1 m</td></tr><tr><td>1 inch</td><td>2.54 cm</td></tr><tr><td>1 foot</td><td>0.3048 m</td></tr></tbody></table><div class="stack"><table class="dt rv" style="--d:3"><thead><tr><th>Land area</th><th>Equivalent</th></tr></thead><tbody><tr><td>1 hectare</td><td>10,000 m²</td></tr><tr><td>1 acre</td><td>4,046.86 m²</td></tr><tr><td>1 hectare</td><td>2.471 acres</td></tr></tbody></table><table class="dt rv" style="--d:4"><thead><tr><th>Volume</th><th>Equivalent</th></tr></thead><tbody><tr><td>1 ft³</td><td>1,728 in³</td></tr><tr><td>1 yd³</td><td>27 ft³</td></tr></tbody></table></div>  <div class="callout rv" style="--d:9;margin-top:22px;grid-column:1/-1"><span class="k">The habit worth forming now</span><p>Convert to a single system <strong>before</strong> the arithmetic, never during it. Almost every unit error in student work happens mid-calculation, not at the start.</p></div>
+</div><div class="footrule"></div><div class="src">General international method. 1 acre = 4,046.856 m<sup>2</sup> exactly; 1 ha = 2.4711 acres. Bhutan reports forest area in hectares.</div><div class="pageno">6 / 48</div></section>
 
 <!-- SLIDE 7 — GEOMETRY -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Geometry · One cross-section</div><h2 class="title rv" style="--d:1">Girth goes around; diameter goes <em>through the centre</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
-  <div class="body g2"><div class="diagram rv" style="--d:2"><div class="circle"><div class="diam"></div><div class="rad"></div><div class="c"></div><span class="mono" style="position:absolute;left:145px;top:185px;color:#fff;background:var(--verm);padding:6px 10px">D = 2r</span><span class="mono" style="position:absolute;right:44px;top:92px;color:var(--gold)">r</span></div></div><div class="stack"><div class="card rv" style="--d:3"><div class="label v">Girth · G</div><p class="txt" style="margin-top:12px">The circumference: distance around the outside of the stem cross-section.</p></div><div class="card rv" style="--d:4"><div class="label v">Diameter · D</div><p class="txt" style="margin-top:12px">A straight line through the centre from one side of the stem to the other.</p></div><div class="card rv" style="--d:5"><div class="label v">Radius · r</div><p class="txt" style="margin-top:12px">Distance from the centre to the edge; half the diameter.</p></div></div></div><div class="footrule"></div><div class="src">Source: Session 3, slide 5.</div><div class="pageno">7 / 42</div></section>
+  <div class="body g2"><div class="diagram rv" style="--d:2"><div class="circle"><div class="diam"></div><div class="rad"></div><div class="c"></div><span class="mono" style="position:absolute;left:145px;top:185px;color:#fff;background:var(--verm);padding:6px 10px">D = 2r</span><span class="mono" style="position:absolute;right:44px;top:92px;color:var(--gold)">r</span></div></div><div class="stack"><div class="card rv" style="--d:3"><div class="label v">Girth · G</div><p class="txt" style="margin-top:12px">The circumference: distance around the outside of the stem cross-section.</p></div><div class="card rv" style="--d:4"><div class="label v">Diameter · D</div><p class="txt" style="margin-top:12px">A straight line through the centre from one side of the stem to the other.</p></div><div class="card rv" style="--d:5"><div class="label v">Radius · r</div><p class="txt" style="margin-top:12px">Distance from the centre to the edge; half the diameter.</p></div></div></div><div class="footrule"></div><div class="src">Standard circular geometry. See Husch, Beers &amp; Kershaw (2003), <em>Forest Mensuration</em>, 4th ed., ch. 5.</div><div class="pageno">7 / 48</div></section>
 
 <!-- SLIDE 8 — RELATION -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Geometry · Conversion</div><h2 class="title rv" style="--d:1">For a circle, <em>G = πD</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
-  <div class="body g2"><div class="stack"><div class="formula rv" style="--d:2">G = 2πr</div><div class="formula rv" style="--d:3">D = 2r</div><div class="formula v rv" style="--d:4">G = πD &nbsp;&nbsp;·&nbsp;&nbsp; D = G/π</div></div><div class="card rv" style="--d:4"><div class="label v">Quick check</div><h3 style="margin-top:18px">A tree has G = 30 cm</h3><div class="step"><div class="sl">Substitute</div><div class="sv">D = 30/π</div></div><div class="step"><div class="sl">Calculate</div><div class="sv">D ≈ 9.55 cm</div></div><div class="callout moss" style="margin-top:22px"><span class="k">Reverse check</span><p>If D = 1 cm, then G = π × 1 ≈ <strong>3.14 cm</strong>.</p></div></div></div><div class="footrule"></div><div class="src">Source: Session 3, slide 6.</div><div class="pageno">8 / 42</div></section>
+  <div class="body g2"><div class="stack"><div class="formula rv" style="--d:2">G = 2πr</div><div class="formula rv" style="--d:3">D = 2r</div><div class="formula v rv" style="--d:4">G = πD &nbsp;&nbsp;·&nbsp;&nbsp; D = G/π</div></div><div class="card rv" style="--d:4"><div class="label v">Quick check</div><h3 style="margin-top:18px">A tree has G = 30 cm</h3><div class="step"><div class="sl">Substitute</div><div class="sv">D = 30/π</div></div><div class="step"><div class="sl">Calculate</div><div class="sv">D ≈ 9.55 cm</div></div><div class="callout moss" style="margin-top:22px"><span class="k">Reverse check</span><p>If D = 1 cm, then G = π × 1 ≈ <strong>3.14 cm</strong>.</p></div></div></div><div class="footrule"></div><div class="src">Standard circular geometry. See Husch, Beers &amp; Kershaw (2003), <em>Forest Mensuration</em>, 4th ed., ch. 5.</div><div class="pageno">8 / 48</div></section>
 
 <!-- SLIDE 9 — BASAL AREA (added: defines the term used on the units slide) -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Geometry · From diameter to area</div><h2 class="title rv" style="--d:1">Cross-sectional area grows with the <em>square of the diameter</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
-  <div class="body g2"><div class="stack"><div class="formula rv" style="--d:2">BA = πD²/4 = πr²</div><div class="formula v rv" style="--d:3">BA (m²) = 0.00007854 × D²<span class="u">when D is entered in centimetres</span></div><div class="callout rv" style="--d:4"><span class="k">Why it matters</span><p>Basal area at breast height is the standard expression of stand density, and it is the bridge from a single diameter reading to volume.</p></div></div><div class="card rv" style="--d:3"><div class="label v">Double the diameter, quadruple the area</div><table class="dt" style="margin-top:20px"><thead><tr><th>D (cm)</th><th>BA (m²)</th><th>Relative</th></tr></thead><tbody><tr><td>10</td><td>0.0079</td><td>1×</td></tr><tr><td>20</td><td>0.0314</td><td>4×</td></tr><tr><td>40</td><td>0.1257</td><td>16×</td></tr><tr><td>80</td><td>0.5027</td><td>64×</td></tr></tbody></table><div class="callout moss" style="margin-top:24px"><span class="k">Consequence</span><p>A 1% error in diameter becomes roughly a <strong>2% error</strong> in basal area — and in any volume built on it.</p></div></div></div><div class="footrule"></div><div class="src">Extends the circular geometry of Session 3, slides 5–6; supports the D² argument in Session 4.</div><div class="pageno">9 / 42</div></section>
+  <div class="body g2"><div class="stack"><div class="formula rv" style="--d:2">BA = πD²/4 = πr²</div><div class="formula v rv" style="--d:3">BA (m²) = 0.00007854 × D²<span class="u">when D is entered in centimetres</span></div><div class="callout rv" style="--d:4"><span class="k">Why it matters</span><p>Basal area at breast height is the standard expression of stand density, and it is the bridge from a single diameter reading to volume.</p></div></div><div class="card rv" style="--d:3"><div class="label v">Double the diameter, quadruple the area</div><table class="dt" style="margin-top:20px"><thead><tr><th>D (cm)</th><th>BA (m²)</th><th>Relative</th></tr></thead><tbody><tr><td>10</td><td>0.0079</td><td>1×</td></tr><tr><td>20</td><td>0.0314</td><td>4×</td></tr><tr><td>40</td><td>0.1257</td><td>16×</td></tr><tr><td>80</td><td>0.5027</td><td>64×</td></tr></tbody></table><div class="callout moss" style="margin-top:24px"><span class="k">Consequence</span><p>A 1% error in diameter becomes roughly a <strong>2% error</strong> in basal area — and in any volume built on it.</p></div></div></div><div class="footrule"></div><div class="src">Basal area convention as used in Bhutan&rsquo;s National Forest Inventory. The D<sup>2</sup> argument recurs in Unit V (volume) and Unit VI (stand basal area).</div><div class="pageno">9 / 48</div></section>
 
 <!-- SLIDE 10 — INSTRUMENTS -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Tools · Selection begins with context</div><h2 class="title rv" style="--d:1">No instrument is best in <em>every field situation</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
-  <div class="body"><div class="g3"><div class="card rv" style="--d:2"><div class="label v">Direct contact</div><h3 style="margin-top:18px">Scale + caliper</h3><p class="txt">Read diameter directly from a straight span across the stem or log end.</p></div><div class="card moss rv" style="--d:3"><div class="label" style="color:#d8b76a">Encircling</div><h3 style="margin-top:18px">Tape + diameter tape</h3><p class="txt">Measure circumference, or convert the scale so the reading is diameter.</p></div><div class="card rv" style="--d:4"><div class="label v">Optical / angular</div><h3 style="margin-top:18px">Relascope</h3><p class="txt">Supports indirect diameter and basal-area work where direct contact is impractical.</p></div></div><div class="callout rv" style="--d:5;margin-top:30px"><span class="k">Choose by</span><p>standing or felled tree · position of the log · required accuracy · diameter range · terrain and access</p></div></div><div class="footrule"></div><div class="src">Source: Session 3, slide 7.</div><div class="pageno">10 / 42</div></section>
+  <div class="body"><div class="g3"><div class="card rv" style="--d:2"><div class="label v">Direct contact</div><h3 style="margin-top:18px">Scale + calliper</h3><p class="txt">Read diameter directly from a straight span across the stem or log end.</p></div><div class="card moss rv" style="--d:3"><div class="label" style="color:#d8b76a">Encircling</div><h3 style="margin-top:18px">Tape + diameter tape</h3><p class="txt">Measure circumference, or convert the scale so the reading is diameter.</p></div><div class="card rv" style="--d:4"><div class="label v">Optical / angular</div><h3 style="margin-top:18px">Relascope</h3><p class="txt">Supports indirect diameter and basal-area work where direct contact is impractical.</p></div></div><div class="callout rv" style="--d:5;margin-top:30px"><span class="k">Choose by</span><p>standing or felled tree · position of the log · required accuracy · diameter range · terrain and access</p></div></div><div class="footrule"></div><div class="src">Instrument selection after Husch, Beers &amp; Kershaw (2003), ch. 4; and West (2009), <em>Tree and Forest Measurement</em>, 2nd ed., ch. 4.</div><div class="pageno">10 / 48</div></section>
 
 <!-- SLIDE 10 — THREE TOOLS -->
-<section class="slide"><div class="head"><div class="eyebrow rv">Tools · Contact geometry</div><h2 class="title rv" style="--d:1">Straight span, sliding jaws, or <em>a loop around the stem</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
-  <div class="body g3"><div class="card figcard rv" style="--d:2"><div class="label v">Scale</div><div class="fig"><div style="width:360px;height:34px;background:var(--moss);position:relative"><div style="position:absolute;inset:-18px 0 auto;height:18px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 24px)"></div></div></div><p class="txt-sm">Useful on stumps, log ends, and successive sections in stem analysis.</p></div><div class="card figcard rv" style="--d:3"><div class="label v">Caliper</div><div class="fig"><div class="caliper" style="transform:scale(.72)"><div class="beam"></div><div class="arm fixed"></div><div class="arm moving"></div><div class="tick"></div></div></div><p class="txt-sm">A fixed arm, movable arm and graduated scale read diameter directly.</p></div><div class="card figcard rv" style="--d:4"><div class="label v">Tape</div><div class="fig"><div class="tape" style="transform:scale(.82)"><div class="loop"></div><div class="tail"></div></div></div><p class="txt-sm">Wraps the whole circumference; keep it flat, untwisted and perpendicular.</p></div></div><div class="footrule"></div><div class="src">Source: Session 3, slide 8.</div><div class="pageno">11 / 42</div></section>
+<section class="slide fit"><div class="head"><div class="eyebrow rv">Tools · Contact geometry</div><h2 class="title rv" style="--d:1">Straight span, sliding jaws, or <em>a loop around the stem</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
+  <div class="body g3"><div class="card figcard rv" style="--d:2"><div class="label v">Scale</div><div class="fig"><div style="width:360px;height:34px;background:var(--moss);position:relative"><div style="position:absolute;inset:-18px 0 auto;height:18px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 24px)"></div></div></div><p class="txt-sm">Useful on stumps, log ends, and successive sections in stem analysis.</p></div><div class="card figcard rv" style="--d:3"><div class="label v">Calliper</div><div class="fig"><div class="calliper" style="transform:scale(.72)"><div class="beam"></div><div class="arm fixed"></div><div class="arm moving"></div><div class="tick"></div></div></div><p class="txt-sm">A fixed arm, movable arm and graduated scale read diameter directly.</p></div><div class="card figcard rv" style="--d:4"><div class="label v">Tape</div><div class="fig"><div class="tape" style="transform:scale(.82)"><div class="loop"></div><div class="tail"></div></div></div><p class="txt-sm">Wraps the whole circumference; keep it flat, untwisted and perpendicular.</p></div>  <div class="callout moss rv" style="--d:9;margin-top:22px;grid-column:1/-1"><span class="k">Three tools, three error signatures</span><p>A scale needs a visible cross-section. A calliper needs two axes and square jaws. A tape needs a flat, level, untwisted loop. <strong>Choose the tool whose failure mode you can see and control.</strong></p></div>
+</div><div class="footrule"></div><div class="src">Instrument description after West (2009), <em>Tree and Forest Measurement</em>, 2nd ed., ch. 4.</div><div class="pageno">11 / 48</div></section>
 
 <!-- SLIDE 11 — CALIPER ANATOMY -->
-<section class="slide"><div class="head"><div class="eyebrow rv">Calipers · Read a straight span</div><h2 class="title rv" style="--d:1">The movable arm must slide freely and stay <em>square to the beam</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
-  <div class="body g2"><div class="diagram rv" style="--d:2"><div class="caliper"><div class="beam"></div><div class="arm fixed"></div><div class="arm moving"></div><div class="tick"></div><span class="mono" style="position:absolute;left:18px;top:20px">fixed arm</span><span class="mono" style="position:absolute;right:35px;top:20px">movable arm</span><span class="mono" style="position:absolute;left:255px;bottom:15px">graduated beam</span></div></div><div class="stack"><div class="card rv" style="--d:3"><h3>Placement</h3><ul class="bul"><li>Open beyond the stem.</li><li>Place both jaws against the bark.</li><li>Keep the beam perpendicular to the stem axis.</li></ul></div><div class="callout moss rv" style="--d:4"><span class="k">Irregular stems</span><p>Take two measurements at right angles and record the agreed mean according to the inventory protocol.</p></div></div></div><div class="footrule"></div><div class="src">Source: Session 3, slide 8.</div><div class="pageno">12 / 42</div></section>
+<section class="slide"><div class="head"><div class="eyebrow rv">Callipers · Read a straight span</div><h2 class="title rv" style="--d:1">The movable arm must slide freely and stay <em>square to the beam</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
+  <div class="body g2 deep"><div class="diagram rv" style="--d:2"><div class="calliper"><div class="beam"></div><div class="arm fixed"></div><div class="arm moving"></div><div class="tick"></div><span class="mono" style="position:absolute;left:18px;top:20px">fixed arm</span><span class="mono" style="position:absolute;right:35px;top:20px">movable arm</span><span class="mono" style="position:absolute;left:255px;bottom:15px">graduated beam</span></div></div><div class="stack"><div class="card rv" style="--d:3"><h3>Placement</h3><ul class="bul"><li>Open beyond the stem.</li><li>Place both jaws against the bark.</li><li>Keep the beam perpendicular to the stem axis.</li></ul></div><div class="callout moss rv" style="--d:4"><span class="k">Irregular stems</span><p>Take two measurements at right angles and record the agreed mean according to the inventory protocol.</p></div></div></div><div class="footrule"></div><div class="src">Instrument description after West (2009), <em>Tree and Forest Measurement</em>, 2nd ed., ch. 4.</div><div class="pageno">12 / 48</div></section>
 
 <!-- SLIDE 12 — CALIPER TRADEOFFS -->
-<section class="slide"><div class="head"><div class="eyebrow rv">Calipers · Error profile</div><h2 class="title rv" style="--d:1">Fast direct readings—until size, dirt or terrain <em>works against you</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
-  <div class="body g2"><div class="card moss rv" style="--d:2"><div class="label" style="color:#d8b76a">Advantages</div><ul class="bul" style="margin-top:22px"><li><strong>Direct</strong> diameter reading in cm or mm</li><li>Quick with little calculation</li><li>Positive and negative placement errors may partly offset</li><li>Can be used by trained field assistants</li></ul></div><div class="card rv" style="--d:3"><div class="label v">Limitations</div><ul class="bul" style="margin-top:22px"><li>Misadjustment produces inaccurate readings</li><li>Large calipers are awkward to carry</li><li>Two orientations are difficult on steep ground</li><li>Wet or dirty beams can jam the movable arm</li></ul></div></div><div class="footrule"></div><div class="src">Source: Session 3, slide 9.</div><div class="pageno">13 / 42</div></section>
+<section class="slide"><div class="head"><div class="eyebrow rv">Callipers · Error profile</div><h2 class="title rv" style="--d:1">Fast direct readings—until size, dirt or terrain <em>works against you</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
+  <div class="body g2 deep"><div class="card moss rv" style="--d:2"><div class="label" style="color:#d8b76a">Advantages</div><ul class="bul" style="margin-top:22px"><li><strong>Direct</strong> diameter reading in cm or mm</li><li>Quick with little calculation</li><li>Positive and negative placement errors may partly offset</li><li>Can be used by trained field assistants</li></ul></div><div class="card rv" style="--d:3"><div class="label v">Limitations</div><ul class="bul" style="margin-top:22px"><li>Misadjustment produces inaccurate readings</li><li>Large callipers are awkward to carry</li><li>Two orientations are difficult on steep ground</li><li>Wet or dirty beams can jam the movable arm</li></ul></div>  <div class="callout rv" style="--d:9;margin-top:22px;grid-column:1/-1"><span class="k">Which column decides the reading</span><p>The advantages are about <strong>speed</strong>; the limitations are about <strong>bias</strong>. Speed can be recovered by practice. Bias cannot be recovered at all once the crew has left the plot.</p></div>
+</div><div class="footrule"></div><div class="src">Error profile after Husch, Beers &amp; Kershaw (2003), ch. 4; and Unit I on random error and bias.</div><div class="pageno">13 / 48</div></section>
 
 <!-- SLIDE 13 — TAPE TECHNIQUE -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Measuring tape · Technique</div><h2 class="title rv" style="--d:1">A tape is accurate only when its plane is <em>perpendicular to the stem</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
-  <div class="body g2"><div class="diagram rv" style="--d:2"><div class="tape"><div class="loop"></div><div class="tail"></div><span class="mono" style="position:absolute;left:110px;bottom:-5px">flat · untwisted · level</span></div></div><div class="stack"><div class="numrow rv" style="--d:3"><div class="badge">1</div><div><div class="ch">Inspect the tape</div><p class="txt">Do not use a stretched, broken or illegible tape.</p></div></div><div class="numrow rv" style="--d:4"><div class="badge">2</div><div><div class="ch">Clear the path</div><p class="txt">Exclude vines and undergrowth; remove only loose surface material.</p></div></div><div class="numrow rv" style="--d:5"><div class="badge">3</div><div><div class="ch">Control tension</div><p class="txt">Use consistent tension and ensure the zero and reading marks meet correctly.</p></div></div></div></div><div class="footrule"></div><div class="src">Source: Session 3, slides 8 and 10.</div><div class="pageno">14 / 42</div></section>
+  <div class="body g2 deep"><div class="diagram rv" style="--d:2"><div class="tape"><div class="loop"></div><div class="tail"></div><span class="mono" style="position:absolute;left:110px;bottom:-5px">flat · untwisted · level</span></div></div><div class="stack"><div class="numrow rv" style="--d:3"><div class="badge">1</div><div><div class="ch">Inspect the tape</div><p class="txt">Do not use a stretched, broken or illegible tape.</p></div></div><div class="numrow rv" style="--d:4"><div class="badge">2</div><div><div class="ch">Clear the path</div><p class="txt">Exclude vines and undergrowth; remove only loose surface material.</p></div></div><div class="numrow rv" style="--d:5"><div class="badge">3</div><div><div class="ch">Control tension</div><p class="txt">Use consistent tension and ensure the zero and reading marks meet correctly.</p></div></div></div>  <div class="callout moss rv" style="--d:9;margin-top:22px;grid-column:1/-1"><span class="k">The one that catches everybody</span><p>A tape that is not perpendicular to the stem measures an <strong>ellipse</strong>, and an ellipse is always longer than the circle. The error is one-directional, so it never averages out.</p></div>
+</div><div class="footrule"></div><div class="src">Tape technique after West (2009), ch. 4. The tension and levelling rules are common to all published inventory manuals.</div><div class="pageno">14 / 48</div></section>
 
 <!-- SLIDE 14 — TAPE TRADEOFFS -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Measuring tape · Error profile</div><h2 class="title rv" style="--d:1">Portable and consistent, but rough bark tends to <em>inflate the reading</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
-  <div class="body g2"><div class="stack"><div class="card moss rv" style="--d:2"><h3>Why crews like it</h3><ul class="bul"><li>Compact and easy to carry</li><li>One encircling measurement</li><li>Works around logs on the ground</li><li>Systematic positive bias can be calibrated</li></ul></div><div class="callout moss rv" style="--d:4"><span class="k">Error signature</span><p>Tape follows the convex hull of bark irregularities. Deep fissures are bridged, so the circular-equivalent diameter is usually overestimated.</p></div></div><div class="card rv" style="--d:3"><h3>Where it struggles</h3><ul class="bul"><li>Rough bark exaggerates girth</li><li>Slower in dense stands</li><li>The far side cannot be seen</li><li>Hard to keep level on leaning or obstructed stems</li><li>Different operators may apply different tension</li></ul></div></div><div class="footrule"></div><div class="src">Source: Session 3, slide 10.</div><div class="pageno">15 / 42</div></section>
+  <div class="body g2 deep"><div class="stack"><div class="card moss rv" style="--d:2"><h3>Why crews like it</h3><ul class="bul"><li>Compact and easy to carry</li><li>One encircling measurement</li><li>Works around logs on the ground</li><li>Systematic positive bias can be calibrated</li></ul></div><div class="callout moss rv" style="--d:4"><span class="k">Error signature</span><p>Tape follows the convex hull of bark irregularities. Deep fissures are bridged, so the circular-equivalent diameter is usually overestimated.</p></div></div><div class="card rv" style="--d:3"><h3>Where it struggles</h3><ul class="bul"><li>Rough bark exaggerates girth</li><li>Slower in dense stands</li><li>The far side cannot be seen</li><li>Hard to keep level on leaning or obstructed stems</li><li>Different operators may apply different tension</li></ul></div></div><div class="footrule"></div><div class="src">Tape bias after Husch, Beers &amp; Kershaw (2003), ch. 4. The convex-hull argument follows directly from the geometry.</div><div class="pageno">15 / 48</div></section>
 
 <!-- SLIDE 15 — DIAMETER TAPE -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Diameter tape · The printed conversion</div><h2 class="title rv" style="--d:1">The tape measures girth but the scale reports <em>G ÷ π</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
-  <div class="body g2"><div class="stack"><div class="formula rv" style="--d:2">D/G = 1/π ≈ 0.3183</div><div class="formula v rv" style="--d:3">3.14159 cm of tape = 1.00 cm diameter</div><div class="callout rv" style="--d:4"><span class="k">Design logic</span><p>Each diameter unit is spaced π units apart on the physical tape, so no field calculation is needed.</p></div></div><div class="card rv" style="--d:4"><div class="label v">Benefits</div><ul class="bul" style="margin-top:20px"><li>Direct diameter reading</li><li>Shorter scale than an ordinary tape</li><li>Convenient for repeated inventory work</li></ul><div class="label v" style="margin-top:34px">Caution</div><p class="txt" style="margin-top:14px">The circular conversion assumes a perfect circle; irregular tree cross-sections can require species- or stand-specific calibration.</p></div></div><div class="footrule"></div><div class="src">Source: Session 3, slides 11–12.</div><div class="pageno">16 / 42</div></section>
+  <div class="body g2"><div class="stack"><div class="formula rv" style="--d:2">D/G = 1/π ≈ 0.3183</div><div class="formula v rv" style="--d:3">3.14159 cm of tape = 1.00 cm diameter</div><div class="callout rv" style="--d:4"><span class="k">Design logic</span><p>Each diameter unit is spaced π units apart on the physical tape, so no field calculation is needed.</p></div></div><div class="card rv" style="--d:4"><div class="label v">Benefits</div><ul class="bul" style="margin-top:20px"><li>Direct diameter reading</li><li>Shorter scale than an ordinary tape</li><li>Convenient for repeated inventory work</li></ul><div class="label v" style="margin-top:34px">Caution</div><p class="txt" style="margin-top:14px">The circular conversion assumes a perfect circle; irregular tree cross-sections can require species- or stand-specific calibration.</p></div></div><div class="footrule"></div><div class="src">Diameter-tape design. The printed scale divides girth by &pi;; see West (2009), ch. 4.</div><div class="pageno">16 / 48</div></section>
 
 <!-- SLIDE 16 — SPECIES FACTORS -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Diameter tape · Biological calibration</div><h2 class="title rv" style="--d:1">Tree cross-sections are not perfect circles, so <em>D/G can vary</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
-  <div class="body g2"><div class="colc"><table class="dt rv" style="--d:2"><thead><tr><th>Species</th><th>D/G factor</th></tr></thead><tbody><tr><td><em>Pinus roxburghii</em></td><td>0.3093</td></tr><tr><td><em>Tectona grandis</em></td><td>0.3160</td></tr><tr><td><em>Shorea robusta</em></td><td>0.3119</td></tr><tr><td>Perfect circle</td><td>0.3183</td></tr></tbody></table><div class="answer rv" style="--d:4;margin-top:24px"><span class="k">Example</span><span class="v">32 cm × 0.3183 ≈ 10.19 cm</span></div></div><div class="stack"><p class="lead rv" style="--d:3">A lower factor means the measured perimeter is larger than a circle with the same representative diameter.</p><div class="callout moss rv" style="--d:5"><span class="k">Field implication</span><p>Use a calibration factor only when the inventory manual specifies the species, region and derivation. Otherwise report the standard circular-equivalent diameter.</p></div></div></div><div class="footrule"></div><div class="src">Source: Session 3, slide 13. Perfect-circle factor rounded from 1/π.</div><div class="pageno">17 / 42</div></section>
+  <div class="body g2"><div class="colc"><table class="dt rv" style="--d:2"><thead><tr><th>Species</th><th>D/G factor</th></tr></thead><tbody><tr><td><em>Pinus roxburghii</em> · chir pine</td><td>0.3093</td></tr><tr><td><em>Shorea robusta</em> · sal</td><td>0.3119</td></tr><tr><td><em>Tectona grandis</em> · teak</td><td>0.3160</td></tr><tr><td>Perfect circle</td><td>0.3183</td></tr></tbody></table><div class="answer rv" style="--d:4;margin-top:24px"><span class="k">Example</span><span class="v">32 cm × 0.3183 ≈ 10.19 cm</span></div></div><div class="stack"><p class="lead rv" style="--d:3">A lower factor means the measured perimeter is larger than a circle with the same representative diameter.</p><div class="callout moss rv" style="--d:5"><span class="k">Field implication</span><p>These are <strong>hypothetical teaching values</strong>. Use a calibration factor only where the inventory manual names the species, region and derivation &mdash; otherwise report the standard circular-equivalent diameter. Bhutan&rsquo;s National Forest Inventory does <strong>not</strong> apply species D/G factors; it records the tape reading as circular-equivalent diameter.</p></div></div></div><div class="footrule"></div><div class="src">Hypothetical teaching data for the species factors. The perfect-circle factor 0.3183 is 1/&pi;. Use a published factor only where the source names the species, region and derivation.</div><div class="pageno">17 / 48</div></section>
 
 <!-- SLIDE 18 — RELASCOPE (added: the deck names this tool twice without explaining it) -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Indirect measurement · Angle instead of contact</div><h2 class="title rv" style="--d:1">The relascope reads the <em>angle a stem subtends</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
@@ -290,110 +329,486 @@ body.ui .hud{opacity:.58}
     <text x="270" y="493" text-anchor="middle" font-family="JetBrains Mono" font-size="19" fill="#4a544c">horizontal distance</text>
     <line x1="470" y1="137" x2="470" y2="363" stroke="#c14524" stroke-width="6"/>
     <text x="510" y="258" font-family="JetBrains Mono" font-size="21" fill="#c14524">D</text></svg></div>
-    <div class="stack"><div class="card rv" style="--d:3"><div class="label v">Principle</div><p class="txt" style="margin-top:12px">Sighted from a fixed point, a stem covers an angle set by its diameter and its distance. With the distance known, the instrument's scale converts that angle straight into a diameter.</p></div><div class="card rv" style="--d:4"><div class="label v">Where it earns its place</div><ul class="bul sm" style="margin-top:16px"><li>Upper-stem diameters that cannot be reached</li><li>Angle-count sampling for basal area per hectare</li><li>Rapid stand-level work without touching every tree</li></ul></div><div class="callout rv" style="--d:5"><span class="k">The trade</span><p>No contact error — but it needs a clear line of sight, an accurate distance and a practised observer.</p></div></div></div><div class="footrule"></div><div class="src">Expands the instrument named in Session 3, slide 7. Detailed angle-count sampling belongs to a later unit.</div><div class="pageno">18 / 42</div></section>
+    <div class="stack"><div class="card rv" style="--d:3"><div class="label v">Principle</div><p class="txt" style="margin-top:12px">Sighted from a fixed point, a stem covers an angle set by its diameter and its distance. With the distance known, the instrument's scale converts that angle straight into a diameter.</p></div><div class="card rv" style="--d:4"><div class="label v">Where it earns its place</div><ul class="bul sm" style="margin-top:16px"><li>Upper-stem diameters that cannot be reached</li><li>Angle-count sampling for basal area per hectare</li><li>Rapid stand-level work without touching every tree</li></ul></div><div class="callout rv" style="--d:5"><span class="k">The trade</span><p>No contact error — but it needs a clear line of sight, an accurate distance and a practised observer.</p></div></div></div><div class="footrule"></div><div class="src">Background only &mdash; the relascope and wedge prism are <strong>not part of the revised module</strong> and are not assessed. Angle-count sampling is developed in Unit VI. Bitterlich (1984), <em>The Relascope Idea</em>.</div><div class="pageno">18 / 48</div></section>
 
 <!-- SLIDE 19 — CHOICE MATRIX -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Tools · Decision matrix</div><h2 class="title rv" style="--d:1">Match the instrument to the <em>measurement job</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
-  <div class="body"><table class="dt rv" style="--d:2"><thead><tr><th>Situation</th><th>Preferred tool</th><th>Reason</th><th>Watch for</th></tr></thead><tbody><tr><td>Standing tree, accessible stem</td><td>Caliper or diameter tape</td><td>Direct, repeatable DBH</td><td>Orientation / rough bark</td></tr><tr><td>Large or irregular stem</td><td>Tape</td><td>Encircles diameters beyond caliper capacity</td><td>Positive bias and tape level</td></tr><tr><td>Stump or log end</td><td>Scale or caliper</td><td>Cross-section is visible</td><td>Choose representative axes</td></tr><tr><td>Log lying on ground</td><td>Tape or accessible end diameters</td><td>Lower side may be inaccessible</td><td>Do not force tape under unstable logs</td></tr><tr><td>Indirect survey work</td><td>Relascope</td><td>No direct contact required</td><td>Training and visibility</td></tr></tbody></table></div><div class="footrule"></div><div class="src">Synthesis from Session 3, slides 7–10.</div><div class="pageno">19 / 42</div></section>
+  <div class="body"><table class="dt rv" style="--d:2"><thead><tr><th>Situation</th><th>Preferred tool</th><th>Reason</th><th>Watch for</th></tr></thead><tbody><tr><td>Standing tree, accessible stem</td><td>Calliper or diameter tape</td><td>Direct, repeatable DBH</td><td>Orientation / rough bark</td></tr><tr><td>Large or irregular stem</td><td>Tape</td><td>Encircles diameters beyond calliper capacity</td><td>Positive bias and tape level</td></tr><tr><td>Stump or log end</td><td>Scale or calliper</td><td>Cross-section is visible</td><td>Choose representative axes</td></tr><tr><td>Log lying on ground</td><td>Tape or accessible end diameters</td><td>Lower side may be inaccessible</td><td>Do not force tape under unstable logs</td></tr><tr><td>Indirect survey work</td><td>Relascope</td><td>No direct contact required</td><td>Training and visibility</td></tr></tbody></table>  <div class="callout rv" style="--d:9;margin-top:22px;grid-column:1/-1"><span class="k">Read the last column first</span><p>Every row of this table has a <em>watch for</em>. That column, not the <em>preferred tool</em> column, is what separates a defensible measurement from a plausible one.</p></div>
+</div><div class="footrule"></div><div class="src">Synthesis. Instrument choice after Husch, Beers &amp; Kershaw (2003), ch. 4, and West (2009), ch. 4.</div><div class="pageno">19 / 48</div></section>
 
 <!-- SLIDE 18 — SECTION DBH -->
-<section class="slide section" data-sec="B · Breast Height" data-title="Section B opener"><div class="deckline"></div><div class="sectext"><div class="eyebrow rv">Section B · A common reference</div><h1 class="rv" style="--d:1">Breast<br><em>Height</em></h1><p class="rv" style="--d:3">Standardisation makes measurements comparable—provided abnormal stems are handled consistently and recorded.</p></div><div class="plate"><div style="height:100%;display:grid;place-items:center"><div class="tree" style="transform:scale(1.25)"><div class="trunk"></div><div class="ground"></div><div class="dbhline"></div><div class="cross"></div></div></div></div><div class="pageno" style="color:#d3decf">20 / 42</div></section>
+<section class="slide section" data-sec="B · Breast Height" data-title="Section B opener"><div class="deckline"></div><div class="sectext"><div class="eyebrow rv">Section B · A common reference</div><h1 class="rv" style="--d:1">Breast<br><em>Height</em></h1><p class="rv" style="--d:3">Standardisation makes measurements comparable—provided abnormal stems are handled consistently and recorded.</p></div><div class="plate"><div style="height:100%;display:grid;place-items:center"><div class="tree" style="transform:scale(1.25)"><div class="trunk"></div><div class="ground"></div><div class="dbhline"></div><div class="cross"></div></div></div></div><div class="pageno" style="color:#d3decf">20 / 48</div></section>
 
 <!-- SLIDE 19 — WHY 1.3 -->
-<section class="slide"><div class="head"><div class="eyebrow rv">DBH · The 1.3 m convention</div><h2 class="title rv" style="--d:1">A convenient height becomes powerful because <em>everyone uses it</em></h2><div class="hr"></div></div><div class="runhead">BREAST HEIGHT</div>
-  <div class="body g2"><div class="diagram rv" style="--d:2"><div class="tree"><div class="trunk"></div><div class="ground"></div><div class="dbhline"></div><div class="cross"></div></div></div><div class="stack"><div class="card rv" style="--d:3"><ul class="bul"><li>Convenient working height with less fatigue</li><li>Often above undergrowth and basal swelling</li><li>Usually above buttress or abnormal basal growth</li><li>Independent of irregular stump height after felling</li><li>Internationally recognised reference point</li></ul></div><div class="callout moss rv" style="--d:5"><span class="k">Core principle</span><p>Comparability matters more than personal convenience. Mark and record any justified departure from 1.3 m.</p></div></div></div><div class="footrule"></div><div class="src">Source: Session 3, slide 14.</div><div class="pageno">21 / 42</div></section>
+<section class="slide"><div class="head"><div class="eyebrow rv">DBH · Breast height is protocol-dependent</div><h2 class="title rv" style="--d:1">A convenient height becomes powerful only because <em>everyone uses the same one</em></h2><div class="hr"></div></div><div class="runhead">BREAST HEIGHT</div>
+  <div class="body g2 deep"><div class="diagram rv" style="--d:2"><div class="tree"><div class="trunk"></div><div class="ground"></div><div class="dbhline"></div><div class="cross"></div></div></div><div class="stack"><div class="card rv" style="--d:3"><ul class="bul"><li>Convenient working height with less fatigue</li><li>Often above undergrowth and basal swelling</li><li>Usually above buttress or abnormal basal growth</li><li>Independent of irregular stump height after felling</li></ul><div class="callout" style="margin-top:22px"><span class="k">The value itself is set by the protocol</span><p>Bhutan&rsquo;s <strong>Second National Forest Inventory recorded over-bark DBH at 1.37 m</strong>. Many international manuals use <strong>1.30 m</strong>. Neither is universally correct.</p></div></div><div class="callout moss rv" style="--d:5"><span class="k">Core principle</span><p><strong>Identify and follow the applicable inventory protocol, and record the reference height you used.</strong> Comparability matters more than personal convenience &mdash; mark and record any justified departure.</p></div></div></div><div class="footrule"></div><div class="src">DBH reference height is protocol-dependent. Bhutan, Second National Forest Inventory (DoFPS 2023): over-bark DBH at <strong>1.37 m</strong>. Many international manuals: 1.30 m.</div><div class="pageno">21 / 48</div></section>
 
 <!-- SLIDE 20 — NOTATION -->
 <section class="slide"><div class="head"><div class="eyebrow rv">DBH · Say what the measurement includes</div><h2 class="title rv" style="--d:1">The boundary—over bark or under bark—is <em>part of the variable</em></h2><div class="hr"></div></div><div class="runhead">BREAST HEIGHT</div>
-  <div class="body g2"><div class="stack"><div class="formula rv" style="--d:2">d.b.h. (o.b.)<span class="u">diameter at breast height over bark</span></div><div class="formula rv" style="--d:3">g.b.h. (o.b.)<span class="u">girth at breast height over bark</span></div></div><div class="stack"><div class="formula v rv" style="--d:3">d.b.h. (u.b.)<span class="u">diameter at breast height under bark</span></div><div class="formula v rv" style="--d:4">g.b.h. (u.b.)<span class="u">girth at breast height under bark</span></div></div><div class="callout rv" style="--d:5;grid-column:1/-1"><span class="k">Default reading</span><p>If the qualifier is omitted in the source convention, the measurement is normally understood to be <strong>over bark</strong>. Good field sheets still state it explicitly.</p></div></div><div class="footrule"></div><div class="src">Source: Session 3, slide 16.</div><div class="pageno">22 / 42</div></section>
+  <div class="body g2 deep"><div class="stack"><div class="formula rv" style="--d:2">d.b.h. (o.b.)<span class="u">diameter at breast height over bark</span></div><div class="formula rv" style="--d:3">g.b.h. (o.b.)<span class="u">girth at breast height over bark</span></div></div><div class="stack"><div class="formula v rv" style="--d:3">d.b.h. (u.b.)<span class="u">diameter at breast height under bark</span></div><div class="formula v rv" style="--d:4">g.b.h. (u.b.)<span class="u">girth at breast height under bark</span></div></div><div class="callout rv" style="--d:5;grid-column:1/-1"><span class="k">Default reading</span><p>If the qualifier is omitted in the source convention, the measurement is normally understood to be <strong>over bark</strong>. Good field sheets still state it explicitly.</p></div></div><div class="footrule"></div><div class="src">Notation as used throughout MEN 201. See the notation reference sheet in every unit.</div><div class="pageno">22 / 48</div></section>
 
 <!-- SLIDE 21 — SLOPE + LEAN -->
 <section class="slide"><div class="head"><div class="eyebrow rv">DBH · Standard field cases</div><h2 class="title rv" style="--d:1">On a slope, measure from the <em>uphill side</em></h2><div class="hr"></div></div><div class="runhead">BREAST HEIGHT</div>
-  <div class="body g3"><div class="card figcard rv" style="--d:2"><div class="label v">Level ground</div><div class="fig" style="height:400px"><div class="tree" style="transform:scale(.6)"><div class="trunk"></div><div class="ground" style="transform:none"></div><div class="dbhline"></div><div class="cross"></div></div></div><p class="txt-sm">Measure 1.3 m vertically from the ground reference and mark the point.</p></div><div class="card moss figcard rv" style="--d:3"><div class="label" style="color:#d8b76a">Sloping ground</div><div class="fig" style="height:400px"><div class="tree" style="transform:scale(.6)"><div class="trunk"></div><div class="ground"></div><div class="dbhline"></div><div class="cross"></div></div></div><p class="txt-sm">Take the ground reference on the uphill side.</p></div><div class="card figcard rv" style="--d:4"><div class="label v">Leaning tree</div><div class="fig" style="height:400px"><div class="tree" style="transform:scale(.6) rotate(8deg)"><div class="trunk"></div><div class="ground" style="transform:rotate(-8deg)"></div><div class="dbhline"></div><div class="cross"></div></div></div><p class="txt-sm">On level ground use the side of the lean; on a slope the uphill-side rule governs.</p></div></div><div class="footrule"></div><div class="src">Source: Session 3, slide 17.</div><div class="pageno">23 / 42</div></section>
+  <div class="body g3"><div class="card figcard rv" style="--d:2"><div class="label v">Level ground</div><div class="fig" style="height:400px"><div class="tree" style="transform:scale(.6)"><div class="trunk"></div><div class="ground" style="transform:none"></div><div class="dbhline"></div><div class="cross"></div></div></div><p class="txt-sm">Measure the reference height vertically from the ground and mark the point.</p></div><div class="card moss figcard rv" style="--d:3"><div class="label" style="color:#d8b76a">Sloping ground</div><div class="fig" style="height:400px"><div class="tree" style="transform:scale(.6)"><div class="trunk"></div><div class="ground"></div><div class="dbhline"></div><div class="cross"></div></div></div><p class="txt-sm">Take the ground reference on the uphill side.</p></div><div class="card figcard rv" style="--d:4"><div class="label v">Leaning tree</div><div class="fig" style="height:400px"><div class="tree" style="transform:scale(.6) rotate(8deg)"><div class="trunk"></div><div class="ground" style="transform:rotate(-8deg)"></div><div class="dbhline"></div><div class="cross"></div></div></div><p class="txt-sm">On level ground use the side of the lean; on a slope the uphill-side rule governs.</p></div></div><div class="footrule"></div><div class="src">Slope and lean conventions after Husch, Beers &amp; Kershaw (2003), ch. 5. The binding rule is always the governing inventory field manual.</div><div class="pageno">23 / 48</div></section>
 
 <!-- SLIDE 22 — ABNORMAL + FORKS -->
-<section class="slide"><div class="head"><div class="eyebrow rv">DBH · When 1.3 m is not representative</div><h2 class="title rv" style="--d:1">Move the point only enough to avoid the <em>abnormality</em></h2><div class="hr"></div></div><div class="runhead">BREAST HEIGHT</div>
-  <div class="body g2"><div class="card rv" style="--d:2"><div class="label v">Swelling, branch or wound at 1.3 m</div><p class="lead" style="margin-top:18px">Measure just above or below the abnormal section where the stem becomes representative.</p><div class="callout" style="margin-top:30px"><span class="k">Always record</span><p>The actual measurement height and the reason for deviation.</p></div></div><div class="card moss rv" style="--d:3"><div class="label" style="color:#d8b76a">Forking rule</div><div class="numrow" style="margin-top:24px"><div class="badge">↑</div><div><div class="ch">Fork above breast height</div><p class="txt">Count as one tree.</p></div></div><div class="numrow"><div class="badge">↓</div><div><div class="ch">Fork below breast height</div><p class="txt">Count stems as separate trees.</p></div></div><div class="numrow"><div class="badge">±</div><div><div class="ch">Fork at breast height</div><p class="txt">Shift the point to a defensible section; the resulting position determines one or separate stems.</p></div></div></div></div><div class="footrule"></div><div class="src">Source: Session 3, slide 18.</div><div class="pageno">24 / 42</div></section>
+<section class="slide"><div class="head"><div class="eyebrow rv">DBH · When breast height is not representative</div><h2 class="title rv" style="--d:1">Move the point only enough to avoid the <em>abnormality</em></h2><div class="hr"></div></div><div class="runhead">BREAST HEIGHT</div>
+  <div class="body g2"><div class="card rv" style="--d:2"><div class="label v">Swelling, branch or wound at breast height</div><p class="lead" style="margin-top:18px"><strong>Follow the applicable inventory protocol.</strong> Some prescribe measuring immediately above or below the abnormality; others prescribe measuring above and below and taking the mean. <strong>They are not interchangeable.</strong></p><div class="callout" style="margin-top:24px"><span class="k">Always record</span><p>The abnormality, the measurement positions used, the calculation method, and the actual measurement height.</p></div></div><div class="card moss rv" style="--d:3"><div class="label" style="color:#d8b76a">Forking rule</div><div class="numrow" style="margin-top:24px"><div class="badge">↑</div><div><div class="ch">Fork above breast height</div><p class="txt">Count as one tree.</p></div></div><div class="numrow"><div class="badge">↓</div><div><div class="ch">Fork below breast height</div><p class="txt">Count stems as separate trees.</p></div></div><div class="numrow"><div class="badge">±</div><div><div class="ch">Fork at breast height</div><p class="txt">Measure below the swelling at a representative section and record the height used. The position finally adopted determines one stem or separate stems &mdash; and Unit VI applies the same rule.</p></div></div></div></div><div class="footrule"></div><div class="src">Difficult-stem rules. Follow the applicable inventory protocol and record the abnormality, the measurement positions and the calculation method.</div><div class="pageno">24 / 48</div></section>
 
 <!-- SLIDE 23 — BUTTRESS + PREP -->
 <section class="slide"><div class="head"><div class="eyebrow rv">DBH · Buttresses and surface preparation</div><h2 class="title rv" style="--d:1">Measure above persistent buttress and <em>document the new height</em></h2><div class="hr"></div></div><div class="runhead">BREAST HEIGHT</div>
-  <div class="body g2"><div class="stack"><div class="card rv" style="--d:2"><h3>Buttressed species</h3><p class="txt">Choose a point where the buttress no longer influences the stem and is not expected to extend during the monitoring interval.</p></div><div class="callout moss rv" style="--d:4"><span class="k">Permanent plots</span><p>Record the cross-mark height so future crews return to exactly the same point.</p></div></div><div class="card rv" style="--d:3"><h3>Before measuring</h3><ul class="bul"><li>Remove moss, creepers and lichens</li><li>Remove loose bark without cutting sound bark</li><li>Do not include vines or other objects under the tape</li><li>Mark the reference point with a cross</li><li>Record diameter in cm (or inches) and girth in m (or feet), following the field form</li></ul></div></div><div class="footrule"></div><div class="src">Source: Session 3, slide 19.</div><div class="pageno">25 / 42</div></section>
+  <div class="body g2 deep"><div class="stack"><div class="card rv" style="--d:2"><h3>Buttressed species</h3><p class="txt">Choose a point where the buttress no longer influences the stem and is not expected to extend during the monitoring interval.</p></div><div class="callout moss rv" style="--d:4"><span class="k">Permanent plots</span><p>Record the cross-mark height so future crews return to exactly the same point.</p></div></div><div class="card rv" style="--d:3"><h3>Before measuring</h3><ul class="bul"><li>Remove moss, creepers and lichens</li><li>Remove loose bark without cutting sound bark</li><li>Do not include vines or other objects under the tape</li><li>Mark the reference point with a cross</li><li>Record diameter in cm (or inches) and girth in m (or feet), following the field form</li></ul></div></div><div class="footrule"></div><div class="src">Surface preparation and permanent-plot marking after West (2009), ch. 4, and standard permanent-sample-plot practice.</div><div class="pageno">25 / 48</div></section>
 
 <!-- SLIDE 24 — PROTOCOL -->
 <section class="slide"><div class="head"><div class="eyebrow rv">DBH · A repeatable six-step protocol</div><h2 class="title rv" style="--d:1">Consistency is a <em>field method</em>, not a personality trait</h2><div class="hr"></div></div><div class="runhead">BREAST HEIGHT</div>
-  <div class="body g3"><div class="card rv" style="--d:2"><div class="badge">1</div><h3 style="margin-top:20px">Inspect</h3><p class="txt-sm">Slope, lean, fork, buttress and abnormalities.</p></div><div class="card rv" style="--d:3"><div class="badge">2</div><h3 style="margin-top:20px">Locate</h3><p class="txt-sm">Set 1.3 m from the correct ground reference.</p></div><div class="card rv" style="--d:4"><div class="badge">3</div><h3 style="margin-top:20px">Prepare</h3><p class="txt-sm">Clear vines and loose surface matter.</p></div><div class="card rv" style="--d:3"><div class="badge m">4</div><h3 style="margin-top:20px">Measure</h3><p class="txt-sm">Use calibrated equipment and correct orientation.</p></div><div class="card rv" style="--d:4"><div class="badge m">5</div><h3 style="margin-top:20px">Repeat</h3><p class="txt-sm">Take the specified second axis or bark readings.</p></div><div class="card moss rv" style="--d:5"><div class="badge">6</div><h3 style="margin-top:20px">Record</h3><p class="txt-sm">Value, unit, o.b./u.b., height and exception code.</p></div></div><div class="footrule"></div><div class="src">Synthesis from Session 3, slides 14–19.</div><div class="pageno">26 / 42</div></section>
+  <div class="body g3"><div class="card rv" style="--d:2"><div class="badge">1</div><h3 style="margin-top:20px">Inspect</h3><p class="txt-sm">Slope, lean, fork, buttress and abnormalities.</p></div><div class="card rv" style="--d:3"><div class="badge">2</div><h3 style="margin-top:20px">Locate</h3><p class="txt-sm">Set the protocol reference height from the correct ground reference.</p></div><div class="card rv" style="--d:4"><div class="badge">3</div><h3 style="margin-top:20px">Prepare</h3><p class="txt-sm">Clear vines and loose surface matter.</p></div><div class="card rv" style="--d:3"><div class="badge m">4</div><h3 style="margin-top:20px">Measure</h3><p class="txt-sm">Use calibrated equipment and correct orientation.</p></div><div class="card rv" style="--d:4"><div class="badge m">5</div><h3 style="margin-top:20px">Repeat</h3><p class="txt-sm">Take the specified second axis or bark readings.</p></div><div class="card moss rv" style="--d:5"><div class="badge">6</div><h3 style="margin-top:20px">Record</h3><p class="txt-sm">Value, unit, o.b./u.b., height and exception code.</p></div></div><div class="footrule"></div><div class="src">Synthesis of the breast-height section. Every step is auditable: a second crew must be able to reproduce it at the same point.</div><div class="pageno">26 / 48</div></section>
 
 <!-- SLIDE 25 — SECTION BARK -->
-<section class="slide section" data-sec="C · Bark Thickness" data-title="Section C opener"><div class="deckline"></div><div class="sectext"><div class="eyebrow rv">Section C · Session 4</div><h1 class="rv" style="--d:1">Bark<br><em>Thickness</em></h1><p class="rv" style="--d:3">Bark is a radial layer. Measuring it lets us convert external dimensions into wood dimensions.</p></div><div class="plate"><div style="height:100%;display:grid;place-items:center"><div class="barkcut" style="transform:scale(1.2)"><div class="r1"></div><div class="r2"></div><div class="lab">t</div></div></div></div><div class="pageno" style="color:#d3decf">27 / 42</div></section>
+<section class="slide section" data-sec="C · Bark Thickness" data-title="Section C opener"><div class="deckline"></div><div class="sectext"><div class="eyebrow rv">Section C · Session 4</div><h1 class="rv" style="--d:1">Bark<br><em>Thickness</em></h1><p class="rv" style="--d:3">Bark is a radial layer. Measuring it lets us convert external dimensions into wood dimensions.</p></div><div class="plate"><div style="height:100%;display:grid;place-items:center"><div class="barkcut" style="transform:scale(1.2)"><div class="r1"></div><div class="r2"></div><div class="lab">t</div></div></div></div><div class="pageno" style="color:#d3decf">27 / 48</div></section>
 
 <!-- SLIDE 26 — DEFINITION -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Bark · Definition and variation</div><h2 class="title rv" style="--d:1">Thickness is the distance from the outer surface to the <em>cambium boundary</em></h2><div class="hr"></div></div><div class="runhead">BARK THICKNESS</div>
-  <div class="body g2"><div class="diagram rv" style="--d:2"><div class="barkcut"><div class="r1"></div><div class="r2"></div><div class="lab">one-sided t</div></div></div><div class="stack"><p class="lead rv" style="--d:3">Bark is not a fixed correction. It varies at four scales.</p><div class="card rv" style="--d:4"><ul class="bul"><li><strong>Among species</strong></li><li><strong>Within a species</strong></li><li><strong>Among trees</strong> with age and locality</li><li><strong>Along one tree</strong>, commonly thicker near the base than near the tip</li></ul></div></div></div><div class="footrule"></div><div class="src">Source: Session 4, slide 3.</div><div class="pageno">28 / 42</div></section>
+  <div class="body g2 deep"><div class="diagram rv" style="--d:2"><div class="barkcut"><div class="r1"></div><div class="r2"></div><div class="lab">one-sided t</div></div></div><div class="stack"><p class="lead rv" style="--d:3">Bark is not a fixed correction. It varies at four scales.</p><div class="card rv" style="--d:4"><ul class="bul"><li><strong>Among species</strong></li><li><strong>Within a species</strong></li><li><strong>Among trees</strong> with age and locality</li><li><strong>Along one tree</strong>, commonly thicker near the base than near the tip</li></ul></div></div></div><div class="footrule"></div><div class="src">Bark variation after Husch, Beers &amp; Kershaw (2003), ch. 5.</div><div class="pageno">28 / 48</div></section>
 
 <!-- SLIDE 27 — WHY -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Bark · Why the correction matters</div><h2 class="title rv" style="--d:1">Over-bark diameter includes material that may not belong in <em>wood volume</em></h2><div class="hr"></div></div><div class="runhead">BARK THICKNESS</div>
-  <div class="body g2"><div class="stack"><div class="formula rv" style="--d:2">Volume responds to D²<span class="u">a small diameter bias becomes a larger area and volume bias</span></div><div class="callout rv" style="--d:3"><span class="k">Boundary question</span><p>Are you estimating total stem volume over bark, or merchantable wood volume under bark?</p></div></div><div class="card moss rv" style="--d:4"><h3>Two trees can share the same DOB</h3><p class="txt">The tree with thicker bark has a smaller wood cylinder. Without a bark correction, their under-bark volumes would be treated as equal.</p><div class="answer" style="margin-top:28px;background:#1f382c"><span class="k">Therefore</span><span class="v">define the boundary before computing</span></div></div></div><div class="footrule"></div><div class="src">Source: Session 4, slide 3. D² implication follows circular cross-sectional geometry.</div><div class="pageno">29 / 42</div></section>
+  <div class="body g2 deep"><div class="stack"><div class="formula rv" style="--d:2">Volume responds to D²<span class="u">a small diameter bias becomes a larger area and volume bias</span></div><div class="callout rv" style="--d:3"><span class="k">Boundary question</span><p>Are you estimating total stem volume over bark, or merchantable wood volume under bark?</p></div></div><div class="card moss rv" style="--d:4"><h3>Two trees can share the same DOB</h3><p class="txt">The tree with thicker bark has a smaller wood cylinder. Without a bark correction, their under-bark volumes would be treated as equal.</p><div class="answer" style="margin-top:28px;background:#1f382c"><span class="k">Therefore</span><span class="v">define the boundary before computing</span></div></div></div><div class="footrule"></div><div class="src">Bark variation after Husch, Beers &amp; Kershaw (2003), ch. 5. The D<sup>2</sup> implication follows from circular cross-sectional geometry.</div><div class="pageno">29 / 48</div></section>
 
 <!-- SLIDE 28 — TOOLS -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Bark · Tools</div><h2 class="title rv" style="--d:1">A gauge cuts to the boundary; a probe <em>locates it</em></h2><div class="hr"></div></div><div class="runhead">BARK THICKNESS</div>
-  <div class="body g2"><div class="card rv" style="--d:2"><div class="label v">Bark gauge</div><div style="height:320px;display:grid;place-items:center"><svg width="560" height="250" viewBox="0 0 560 250" aria-hidden="true"><rect x="60" y="105" width="350" height="32" rx="6" fill="#2f5140"/><path d="M410 105 L520 121 L410 137 Z" fill="#c14524"/><rect x="60" y="65" width="38" height="112" rx="5" fill="#141c18"/><g stroke="#141c18"><line x1="125" y1="90" x2="125" y2="104"/><line x1="170" y1="90" x2="170" y2="104"/><line x1="215" y1="90" x2="215" y2="104"/><line x1="260" y1="90" x2="260" y2="104"/><line x1="305" y1="90" x2="305" y2="104"/></g></svg></div><p class="txt">A calibrated cutting edge is driven through bark until resistance changes at the wood/cambium boundary.</p></div><div class="card moss rv" style="--d:3"><div class="label" style="color:#d8b76a">Bark probe</div><div style="height:320px;display:grid;place-items:center"><svg width="560" height="250" viewBox="0 0 560 250" aria-hidden="true"><rect x="80" y="111" width="360" height="18" rx="9" fill="#d3decf"/><path d="M440 111 L525 120 L440 129 Z" fill="#d8b76a"/><circle cx="82" cy="120" r="48" fill="none" stroke="#fff" stroke-width="15"/><g stroke="#fff"><line x1="150" y1="90" x2="150" y2="108"/><line x1="195" y1="90" x2="195" y2="108"/><line x1="240" y1="90" x2="240" y2="108"/><line x1="285" y1="90" x2="285" y2="108"/></g></svg></div><p class="txt">A slender probe penetrates the layer and indicates the depth to the wood boundary.</p></div></div><div class="footrule"></div><div class="src">Source: Session 4, slide 5.</div><div class="pageno">30 / 42</div></section>
+  <div class="body g2"><div class="card rv" style="--d:2"><div class="label v">Bark gauge</div><div style="height:320px;display:grid;place-items:center"><svg width="560" height="250" viewBox="0 0 560 250" aria-hidden="true"><rect x="60" y="105" width="350" height="32" rx="6" fill="#2f5140"/><path d="M410 105 L520 121 L410 137 Z" fill="#c14524"/><rect x="60" y="65" width="38" height="112" rx="5" fill="#141c18"/><g stroke="#141c18"><line x1="125" y1="90" x2="125" y2="104"/><line x1="170" y1="90" x2="170" y2="104"/><line x1="215" y1="90" x2="215" y2="104"/><line x1="260" y1="90" x2="260" y2="104"/><line x1="305" y1="90" x2="305" y2="104"/></g></svg></div><p class="txt">A calibrated cutting edge is driven through bark until resistance changes at the wood/cambium boundary.</p></div><div class="card moss rv" style="--d:3"><div class="label" style="color:#d8b76a">Bark probe</div><div style="height:320px;display:grid;place-items:center"><svg width="560" height="250" viewBox="0 0 560 250" aria-hidden="true"><rect x="80" y="111" width="360" height="18" rx="9" fill="#d3decf"/><path d="M440 111 L525 120 L440 129 Z" fill="#d8b76a"/><circle cx="82" cy="120" r="48" fill="none" stroke="#fff" stroke-width="15"/><g stroke="#fff"><line x1="150" y1="90" x2="150" y2="108"/><line x1="195" y1="90" x2="195" y2="108"/><line x1="240" y1="90" x2="240" y2="108"/><line x1="285" y1="90" x2="285" y2="108"/></g></svg></div><p class="txt">A slender probe penetrates the layer and indicates the depth to the wood boundary.</p></div>  <div class="callout moss rv" style="--d:9;margin-top:22px;grid-column:1/-1"><span class="k">Both tools measure to the same boundary</span><p>The gauge cuts to the cambium; the probe finds it. Either is acceptable — but a crew that mixes the two without saying so has introduced a difference nobody can later quantify.</p></div>
+</div><div class="footrule"></div><div class="src">Bark gauge and probe. See West (2009), <em>Tree and Forest Measurement</em>, 2nd ed., ch. 4.</div><div class="pageno">30 / 48</div></section>
 
 <!-- SLIDE 29 — SAMPLING -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Bark · Sampling non-uniform thickness</div><h2 class="title rv" style="--d:1">Measure two opposite pairs that match the <em>diameter axes</em></h2><div class="hr"></div></div><div class="runhead">BARK THICKNESS</div>
-  <div class="body g2"><div class="diagram rv" style="--d:2"><svg width="610" height="610" viewBox="0 0 610 610" aria-hidden="true"><circle cx="305" cy="305" r="235" fill="#8a603f"/><circle cx="305" cy="305" r="180" fill="#d8c29a"/><line x1="70" y1="305" x2="540" y2="305" stroke="#c14524" stroke-width="7"/><line x1="305" y1="70" x2="305" y2="540" stroke="#2f5140" stroke-width="7"/><circle cx="70" cy="305" r="15" fill="#fff"/><circle cx="540" cy="305" r="15" fill="#fff"/><circle cx="305" cy="70" r="15" fill="#fff"/><circle cx="305" cy="540" r="15" fill="#fff"/><text x="305" y="590" text-anchor="middle" font-family="JetBrains Mono" font-size="20" fill="#4a544c">four one-sided readings</text></svg></div><div class="stack"><div class="numrow rv" style="--d:3"><div class="badge">1</div><div><div class="ch">Align with the first diameter</div><p class="txt">Measure bark at its two opposite endpoints.</p></div></div><div class="numrow rv" style="--d:4"><div class="badge">2</div><div><div class="ch">Rotate 90°</div><p class="txt">Measure the second opposite pair.</p></div></div><div class="numrow rv" style="--d:5"><div class="badge m">3</div><div><div class="ch">Average explicitly</div><p class="txt">Mean one-sided thickness: t̄ = (t₁+t₂+t₃+t₄)/4.</p></div></div><div class="callout moss rv" style="--d:6"><span class="k">Equivalent double bark</span><p>2t̄ is the mean bark contribution across a diameter.</p></div></div></div><div class="footrule"></div><div class="src">Source: Session 4, slide 6. Notation clarified for four one-sided readings.</div><div class="pageno">31 / 42</div></section>
+  <div class="body g2"><div class="diagram rv" style="--d:2"><svg width="610" height="610" viewBox="0 0 610 610" aria-hidden="true"><circle cx="305" cy="305" r="235" fill="#8a603f"/><circle cx="305" cy="305" r="180" fill="#d8c29a"/><line x1="70" y1="305" x2="540" y2="305" stroke="#c14524" stroke-width="7"/><line x1="305" y1="70" x2="305" y2="540" stroke="#2f5140" stroke-width="7"/><circle cx="70" cy="305" r="15" fill="#fff"/><circle cx="540" cy="305" r="15" fill="#fff"/><circle cx="305" cy="70" r="15" fill="#fff"/><circle cx="305" cy="540" r="15" fill="#fff"/><text x="305" y="590" text-anchor="middle" font-family="JetBrains Mono" font-size="20" fill="#4a544c">four one-sided readings</text></svg></div><div class="stack"><div class="numrow rv" style="--d:3"><div class="badge">1</div><div><div class="ch">Align with the first diameter</div><p class="txt">Measure bark at its two opposite endpoints.</p></div></div><div class="numrow rv" style="--d:4"><div class="badge">2</div><div><div class="ch">Rotate 90°</div><p class="txt">Measure the second opposite pair.</p></div></div><div class="numrow rv" style="--d:5"><div class="badge m">3</div><div><div class="ch">Average explicitly</div><p class="txt">Mean one-sided thickness: t̄ = (t₁+t₂+t₃+t₄)/4.</p></div></div><div class="callout moss rv" style="--d:6"><span class="k">Equivalent double bark</span><p>2t̄ is the mean bark contribution across a diameter.</p></div></div></div><div class="footrule"></div><div class="src">Four one-sided readings at the two diameter axes. Notation: <em>t</em> is one-sided bark thickness; <em>B</em> = 2<em>t</em> is double bark thickness.</div><div class="pageno">31 / 48</div></section>
 
 <!-- SLIDE 30 — DOB TO DUB -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Bark · Diameter conversion</div><h2 class="title rv" style="--d:1">Subtract bark from <em>both sides</em> of the diameter</h2><div class="hr"></div></div><div class="runhead">BARK THICKNESS</div>
-  <div class="body g2"><div class="stack"><div class="formula rv" style="--d:2">D<sub>ub</sub> = D<sub>ob</sub> − 2t̄</div><div class="formula v rv" style="--d:3">D<sub>ub</sub> = D<sub>ob</sub> − b<span class="u">where b = 2t̄ is double bark thickness</span></div><div class="callout rv" style="--d:4"><span class="k">Notation check</span><p>Do not subtract a one-sided thickness only once. A diameter crosses bark at two endpoints.</p></div></div><div class="diagram rv" style="--d:4"><div class="barkcut"><div class="r1"></div><div class="r2"></div><div class="lab">DOB − 2t</div></div></div></div><div class="footrule"></div><div class="src">Derived directly from the sampling method in Session 4, slide 6.</div><div class="pageno">32 / 42</div></section>
+  <div class="body g2"><div class="stack"><div class="formula rv" style="--d:2">D<sub>ub</sub> = D<sub>ob</sub> − 2t̄</div><div class="formula v rv" style="--d:3">D<sub>ub</sub> = D<sub>ob</sub> − b<span class="u">where b = 2t̄ is double bark thickness</span></div><div class="callout rv" style="--d:4"><span class="k">Notation check</span><p>Do not subtract a one-sided thickness only once. A diameter crosses bark at two endpoints.</p></div></div><div class="diagram rv" style="--d:4"><div class="barkcut"><div class="r1"></div><div class="r2"></div><div class="lab">DOB − 2t</div></div></div></div><div class="footrule"></div><div class="src">Follows directly from the sampling method on the previous slide. Notation: <em>t</em> one-sided, <em>B</em> = 2<em>t</em> double bark thickness.</div><div class="pageno">32 / 48</div></section>
 
 <!-- SLIDE 31 — GOB TO GUB -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Bark · Girth conversion</div><h2 class="title rv" style="--d:1">Reducing radius by t reduces circumference by <em>2πt</em></h2><div class="hr"></div></div><div class="runhead">BARK THICKNESS</div>
-  <div class="body g2"><div class="card rv" style="--d:2"><div class="step"><div class="sl">Over bark</div><div class="sv">G<sub>ob</sub> = 2πr<sub>ob</sub></div></div><div class="step"><div class="sl">Under-bark radius</div><div class="sv">r<sub>ub</sub> = r<sub>ob</sub> − t</div></div><div class="step"><div class="sl">Substitute</div><div class="sv">G<sub>ub</sub> = 2π(r<sub>ob</sub> − t)</div></div><div class="step"><div class="sl">Expand</div><div class="sv">G<sub>ub</sub> = 2πr<sub>ob</sub> − 2πt</div></div></div><div class="stack"><div class="formula v rv" style="--d:3">G<sub>ub</sub> = G<sub>ob</sub> − 2πt</div><p class="lead rv" style="--d:4">Here t is the mean <strong>one-sided radial bark thickness</strong>.</p><div class="callout moss rv" style="--d:5"><span class="k">Unit discipline</span><p>G and t must be in the same length unit before subtraction.</p></div></div></div><div class="footrule"></div><div class="src">Source: Session 4, slide 7.</div><div class="pageno">33 / 42</div></section>
+  <div class="body g2"><div class="card rv" style="--d:2"><div class="step"><div class="sl">Over bark</div><div class="sv">G<sub>ob</sub> = 2πr<sub>ob</sub></div></div><div class="step"><div class="sl">Under-bark radius</div><div class="sv">r<sub>ub</sub> = r<sub>ob</sub> − t</div></div><div class="step"><div class="sl">Substitute</div><div class="sv">G<sub>ub</sub> = 2π(r<sub>ob</sub> − t)</div></div><div class="step"><div class="sl">Expand</div><div class="sv">G<sub>ub</sub> = 2πr<sub>ob</sub> − 2πt</div></div></div><div class="stack"><div class="formula v rv" style="--d:3">G<sub>ub</sub> = G<sub>ob</sub> − 2πt</div><p class="lead rv" style="--d:4">Here t is the mean <strong>one-sided radial bark thickness</strong>.</p><div class="callout moss rv" style="--d:5"><span class="k">Unit discipline</span><p>G and t must be in the same length unit before subtraction.</p></div></div></div><div class="footrule"></div><div class="src">Follows from circular geometry: reducing the radius by <em>t</em> reduces the circumference by 2&pi;<em>t</em>.</div><div class="pageno">33 / 48</div></section>
 
 <!-- SLIDE 34 — BARK PERCENTAGE (added: connects the bark correction to the D² lesson) -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Bark · Expressing the correction as a share</div><h2 class="title rv" style="--d:1">7.5% of the diameter is <em>14.4% of the area</em></h2><div class="hr"></div></div><div class="runhead">BARK THICKNESS</div>
-  <div class="body g2"><div class="stack"><div class="formula sm rv" style="--d:2">bark % of diameter = (2t̄ / D<sub>ob</sub>) × 100</div><div class="formula sm v rv" style="--d:3">bark % of area = [1 − (D<sub>ub</sub>/D<sub>ob</sub>)²] × 100</div><div class="callout rv" style="--d:4"><span class="k">Read it as</span><p>Bark is a ring, not a slab. Stripping a thin outer ring removes a disproportionate share of the cross-section, because area follows D².</p></div><div class="callout moss rv" style="--d:5"><span class="k">Field use</span><p>Bark percentage is how species-level bark corrections are tabulated, so a crew can estimate under-bark volume without gauging every tree.</p></div></div><div class="card moss rv" style="--d:3"><div class="label" style="color:#d8b76a">The same 40 cm tree</div><div class="step"><div class="sl">Diameter o.b.</div><div class="sv">D<sub>ob</sub> = 40.0 cm</div></div><div class="step"><div class="sl">Double bark</div><div class="sv">2t̄ = 3.0 cm</div></div><div class="step"><div class="sl">Diameter u.b.</div><div class="sv">D<sub>ub</sub> = 37.0 cm</div></div><div class="step"><div class="sl">Share of diameter</div><div class="sv">3.0 / 40.0 = 7.5%</div></div><div class="step"><div class="sl">Share of area</div><div class="sv">1 − (37/40)² = 14.4%</div></div><div class="answer" style="margin-top:26px;background:#1f382c"><span class="k">Lesson</span><span class="v">thin bark, thick correction</span></div></div></div><div class="footrule"></div><div class="src">Derived from the conversions in Session 4, slides 6–7.</div><div class="pageno">34 / 42</div></section>
+  <div class="body g2"><div class="stack"><div class="formula sm rv" style="--d:2">bark % of diameter = (2t̄ / D<sub>ob</sub>) × 100</div><div class="formula sm v rv" style="--d:3">bark % of area = [1 − (D<sub>ub</sub>/D<sub>ob</sub>)²] × 100</div><div class="callout rv" style="--d:4"><span class="k">Read it as</span><p>Bark is a ring, not a slab. Stripping a thin outer ring removes a disproportionate share of the cross-section, because area follows D².</p></div><div class="callout moss rv" style="--d:5"><span class="k">Field use</span><p>Bark percentage is how species-level bark corrections are tabulated, so a crew can estimate under-bark volume without gauging every tree.</p></div></div><div class="card moss rv" style="--d:3"><div class="label" style="color:#d8b76a">The same 40 cm tree</div><div class="step"><div class="sl">Diameter o.b.</div><div class="sv">D<sub>ob</sub> = 40.0 cm</div></div><div class="step"><div class="sl">Double bark</div><div class="sv">2t̄ = 3.0 cm</div></div><div class="step"><div class="sl">Diameter u.b.</div><div class="sv">D<sub>ub</sub> = 37.0 cm</div></div><div class="step"><div class="sl">Share of diameter</div><div class="sv">3.0 / 40.0 = 7.5%</div></div><div class="step"><div class="sl">Share of area</div><div class="sv">1 − (37/40)² = 14.4%</div></div><div class="answer" style="margin-top:26px;background:#1f382c"><span class="k">Lesson</span><span class="v">thin bark, thick correction</span></div></div></div><div class="footrule"></div><div class="src">Derived from the two conversions above. Bark percentage of area follows from the D<sup>2</sup> relationship.</div><div class="pageno">34 / 48</div></section>
 
 <!-- SLIDE 35 — WORKED EXAMPLE -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Worked example · One tree, two boundaries</div><h2 class="title rv" style="--d:1">A 1.5 cm bark layer removes <em>3.0 cm from diameter</em></h2><div class="hr"></div></div><div class="runhead">BARK THICKNESS</div>
-  <div class="body g2"><div class="card rv" style="--d:2"><div class="label v">Given</div><div class="step"><div class="sl">Diameter o.b.</div><div class="sv">D<sub>ob</sub> = 40.0 cm</div></div><div class="step"><div class="sl">Girth o.b.</div><div class="sv">G<sub>ob</sub> = 125.7 cm</div></div><div class="step"><div class="sl">Mean bark</div><div class="sv">t = 1.5 cm</div></div></div><div class="stack"><div class="formula rv" style="--d:3">D<sub>ub</sub> = 40.0 − 2(1.5) = 37.0 cm</div><div class="formula v rv" style="--d:4">G<sub>ub</sub> = 125.7 − 2π(1.5) ≈ 116.3 cm</div><div class="answer rv" style="--d:5"><span class="k">Cross-check</span><span class="v">π × 37.0 ≈ 116.2 cm</span></div></div></div><div class="footrule"></div><div class="src">Worked example based on the formulas in Session 4, slides 6–7. Minor difference reflects rounding.</div><div class="pageno">35 / 42</div></section>
+  <div class="body g2"><div class="card rv" style="--d:2"><div class="label v">Given</div><div class="step"><div class="sl">Diameter o.b.</div><div class="sv">D<sub>ob</sub> = 40.0 cm</div></div><div class="step"><div class="sl">Girth o.b.</div><div class="sv">G<sub>ob</sub> = 125.7 cm</div></div><div class="step"><div class="sl">Mean bark</div><div class="sv">t = 1.5 cm</div></div></div><div class="stack"><div class="formula rv" style="--d:3">D<sub>ub</sub> = 40.0 − 2(1.5) = 37.0 cm</div><div class="formula v rv" style="--d:4">G<sub>ub</sub> = 125.7 − 2π(1.5) ≈ 116.3 cm</div><div class="answer rv" style="--d:5"><span class="k">Cross-check</span><span class="v">π × 37.0 ≈ 116.2 cm</span></div></div>  <div class="callout rv" style="--d:9;margin-top:22px;grid-column:1/-1"><span class="k">Check the arithmetic against the geometry</span><p>π × 37.0 = 116.2 cm against 116.3 cm from the girth conversion. When two routes to the same number agree to a millimetre, both are probably right. <strong>Always take the second route.</strong></p></div>
+</div><div class="footrule"></div><div class="src">Hypothetical teaching data. The 0.1 cm difference between the two cross-checks is rounding in G<sub>ob</sub>.</div><div class="pageno">35 / 48</div></section>
+
+<!-- SLIDE — OFFICIAL BHUTAN DBH PROTOCOL -->
+<!-- SPEAKER NOTES · OFFICIAL BHUTAN DBH PROTOCOL
+     The slide Unit II was missing. Everything before it teaches how to measure a diameter; this one
+     says which diameters Bhutan's national inventory measures, at what height, and from what
+     threshold.
+
+     Lead with the reference height, because it is the correction this module most needed. The
+     Second National Forest Inventory recorded over-bark DBH at 1.37 m. Many international manuals -
+     and many textbooks students will pick up - use 1.30 m. Neither is universally correct. The rule
+     is: identify the protocol governing the job, follow it, and record the height on the sheet.
+
+     Then the thresholds, which decide what gets recorded at all. Trees from 10 cm DBH. Saplings
+     from 5 cm to under 10 cm. A stem of 9.8 cm is a sapling and is not counted in the tree tally,
+     and a crew that rounds it up to 10 has manufactured a tree.
+
+     Then the plot geometry, which students will meet again in Unit VI: three plots of 12.62 m
+     radius per cluster, on a 4 by 4 km national grid, with data captured electronically in Open
+     Foris Collect Mobile and estimates published with 95 per cent confidence intervals.
+
+     Make the last point explicitly. This is one protocol. A Forest Management Unit inventory, a
+     community forest inventory and a teaching exercise may each prescribe something different, and
+     the professional habit is to read the field manual before touching a tape - not to assume that
+     what you learned in a lecture is what this job requires.
+-->
+<section class="slide fit2"><div class="head"><div class="eyebrow rv">Official Bhutan procedure · Second National Forest Inventory</div><h2 class="title rv" style="--d:1">The <em>national DBH protocol</em> — and why the height is not a constant</h2><div class="hr"></div></div><div class="runhead">BREAST HEIGHT</div>
+  <div class="body deep">
+    <div class="g2" style="gap:30px;margin-bottom:26px">
+      <div class="card moss rv" style="--d:2">
+        <div class="ch">What Bhutan&rsquo;s Second NFI records</div>
+        <ul class="bul sm">
+          <li>Over-bark DBH at <strong>1.37 m</strong></li>
+          <li><strong>Trees</strong> from <strong>10 cm DBH</strong> upwards</li>
+          <li><strong>Saplings</strong> from <strong>5 cm to under 10 cm</strong> DBH</li>
+          <li><strong>Three plots of 12.62 m radius</strong> per cluster &mdash; 500 m<sup>2</sup> each</li>
+          <li>A <strong>4 &times; 4 km</strong> national sampling grid</li>
+          <li>Electronic capture in <strong>Open Foris Collect Mobile</strong></li>
+          <li>Estimates published with <strong>95 % confidence intervals</strong></li>
+        </ul>
+      </div>
+      <div class="stack">
+        <div class="callout rv" style="--d:3"><span class="k">The rule to carry into every job</span><p>DBH reference height is <strong>protocol-dependent</strong>. Bhutan&rsquo;s Second NFI used <strong>1.37 m</strong>; many international manuals use <strong>1.30 m</strong>. Always identify and follow the applicable inventory protocol, and <strong>record the reference height used</strong>.</p></div>
+        <div class="card rv" style="--d:4">
+          <div class="label v">A 9.8 cm stem is not a small tree</div>
+          <p class="txt-sm" style="margin-top:12px">It is a <strong>sapling</strong>, and it does not enter the tree tally. A crew that rounds it up to 10 cm has not been generous &mdash; it has manufactured a tree, and the error propagates into stems per hectare, basal area and every volume built on them.</p>
+        </div>
+      </div>
+    </div>
+    <div class="label rv" style="--d:5;margin-bottom:12px">One country, several protocols — read the field manual before you touch a tape</div>
+    <div class="g4">
+      <div class="card sunk rv" style="--d:6"><div class="label">National forest inventory</div><p class="txt-sm" style="margin-top:10px">Fixed national protocol, published, with confidence intervals.</p></div>
+      <div class="card sunk rv" style="--d:6"><div class="label">FMU inventory</div><p class="txt-sm" style="margin-top:10px">Set by the approved management plan for that unit.</p></div>
+      <div class="card sunk rv" style="--d:7"><div class="label">Community forest</div><p class="txt-sm" style="margin-top:10px">Set by the community-forest management plan, often simplified by design.</p></div>
+      <div class="card sunk rv" style="--d:7"><div class="label">Teaching exercise</div><p class="txt-sm" style="margin-top:10px">Set by the practical sheet &mdash; which states the height, so that you record it.</p></div>
+    </div>
+  </div>
+  <div class="footrule"></div>
+  <div class="src">DoFPS (2023). <em>National Forest Inventory Volume I &mdash; State of Forest Report 2023</em>, field protocol and sampling design sections.</div>
+  <div class="pageno">36 / 48</div>
+</section>
+
+<!-- SLIDE — CALIBRATION AND REPEATABILITY -->
+<!-- SPEAKER NOTES · CALIBRATION AND REPEATABILITY TOLERANCES
+     The quality-control slide Unit II lacked, and the one that connects this unit to Unit I's
+     treatment of bias.
+
+     Calibration first. A girth tape stretches. A steel tape does not stretch appreciably but it
+     kinks and the zero end wears. A calliper's movable arm goes out of square, and once it is out
+     of square every reading is wrong in the same direction. Check all three against a known
+     standard at the start of every field season and after any drop.
+
+     The key sentence, and make the class repeat it: an instrument error is SYSTEMATIC. Measuring
+     twice as many trees with a stretched tape gives a more precise wrong answer. This is exactly
+     Unit I's distinction, met for the first time on a real instrument.
+
+     Then tolerances. The point of a tolerance is that it is agreed BEFORE the fieldwork, not argued
+     about afterwards. The figures on this slide are working values for a teaching exercise, and
+     they are labelled as such - the binding numbers for real work come from the field manual that
+     governs it.
+
+     Run the blind re-measurement properly in the practical. Student A measures, records, and covers
+     the sheet. Student B measures independently. Only then do they compare. If B can see A's
+     number, the exercise measures nothing except social pressure, and the agreement will be
+     spuriously good.
+
+     Finally, what to do when a pair falls outside tolerance. Do not average them and move on. Find
+     out why: usually the mark has moved, the tape is twisted, or the two students are measuring
+     different axes on an oval stem.
+-->
+<section class="slide fit"><div class="head"><div class="eyebrow rv">Quality control · calibration and repeatability</div><h2 class="title rv" style="--d:1">A stretched tape gives a <em>more precise wrong answer</em></h2><div class="hr"></div></div><div class="runhead">QUALITY CONTROL</div>
+  <div class="body">
+    <div class="g2" style="gap:28px;margin-bottom:20px">
+      <div class="card rv" style="--d:2;padding:24px 26px">
+        <div class="ch" style="font-size:31px;margin-bottom:10px">Calibrate — start of every season, and after any drop</div>
+        <ul class="bul sm">
+          <li><strong>Girth and diameter tapes</strong> stretch with use. Check against a steel rule over a known 1 m span; retire a tape that reads more than 2 mm out</li>
+          <li><strong>Steel tapes</strong> do not stretch appreciably but kink, and the zero end wears</li>
+          <li><strong>Callipers</strong> go out of square. Check the movable arm reads zero when closed and stays parallel across the beam</li>
+          <li><strong>Bark gauges</strong> — check the scale zero against the cutting edge</li>
+        </ul>
+      </div>
+      <div class="stack">
+        <div class="callout moss rv" style="--d:3;padding:16px 22px"><span class="k">Why calibration and not more measurements</span><p style="font-size:24px">An instrument error is <strong>systematic</strong>: the same sign on every tree, so it <strong>survives averaging intact</strong>. Only calibration removes it.</p></div>
+        <div class="card sunk rv" style="--d:4;padding:22px 24px">
+          <div class="label v">Working tolerances for this module</div>
+          <table class="dt sm" style="margin-top:12px"><tbody>
+            <tr><td>DBH, blind re-measure</td><td>within <strong>0.3 cm</strong></td></tr>
+            <tr><td>Girth, blind re-measure</td><td>within <strong>1.0 cm</strong></td></tr>
+            <tr><td>Bark thickness, one side</td><td>within <strong>2 mm</strong></td></tr>
+            <tr><td>Reference-height mark</td><td>within <strong>2 cm</strong></td></tr>
+          </tbody></table>
+          <p class="txt-sm" style="margin-top:10px;font-size:22px">Working values for a teaching exercise. For real work the binding tolerances come from the <strong>field manual governing that inventory</strong>.</p>
+        </div>
+      </div>
+    </div>
+    <div class="g3">
+      <div class="card rv" style="--d:5"><div class="label">1 · Blind</div><p class="txt-sm" style="margin-top:10px">Student A measures, records, and <strong>covers the sheet</strong>. Student B measures independently. Only then compare. If B can see A&rsquo;s number the exercise measures nothing but social pressure.</p></div>
+      <div class="card rv" style="--d:6"><div class="label">2 · Compare</div><p class="txt-sm" style="margin-top:10px">Record <strong>both</strong> values and the difference. Re-measure <strong>5&ndash;10 %</strong> of trees this way &mdash; it is what allows the error to be <strong>quantified rather than guessed</strong>.</p></div>
+      <div class="card moss rv" style="--d:7"><div class="label" style="color:#d8b76a">3 · Outside tolerance</div><p class="txt-sm" style="margin-top:10px">Do <strong>not</strong> average and move on. Find the cause: usually the mark has moved, the tape is twisted, or the two are measuring <strong>different axes</strong> on an oval stem.</p></div>
+    </div>
+  </div>
+  <div class="footrule"></div>
+  <div class="src">Quality-control practice common to published inventory manuals; the systematic/random distinction is Unit I, and the same discipline reappears in Unit VI.</div>
+  <div class="pageno">37 / 48</div>
+</section>
+
+<!-- SLIDE — FIELD DATA SHEET -->
+<!-- SPEAKER NOTES · FIELD DATA SHEET
+     Issue this before the practical, not after, and insist the header is copied exactly.
+
+     The header is what students dismiss as bureaucracy and professionals treat as the most
+     important part of the record. Every field exists because somebody once could not interpret a
+     sheet without it. The reference height, because 1.30 and 1.37 m both exist. The instrument,
+     because a tape and a calliper have different biases. The bark boundary, because o.b. and u.b.
+     are different variables. The observer, because between-observer differences are real and
+     measurable.
+
+     Walk the exception codes. They are the difference between a defensible record and a rumour.
+     A tree measured at 1.9 m because of a buttress is not an error - it is a documented decision,
+     and the code plus the recorded height is what makes it one.
+
+     Insist that the QC block at the bottom is completed in the field. A re-measurement done back
+     at the College is not a re-measurement.
+-->
+<section class="slide fit fit2"><div class="head"><div class="eyebrow rv">Field practical · copy this header exactly</div><h2 class="title rv" style="--d:1">Field <em>data sheet</em> — diameter, girth and bark</h2><div class="hr"></div></div><div class="runhead">FIELD PRACTICAL</div>
+  <div class="body">
+    <div class="card rv" style="--d:2;padding:22px 26px;margin-bottom:20px">
+      <div class="label v">Header</div>
+      <p class="mono" style="margin-top:10px;line-height:1.75;font-size:20px">
+        Plot / stand ____________ &nbsp;·&nbsp; Location or grid ref. ____________ &nbsp;·&nbsp; Date ________ &nbsp;·&nbsp; Weather ________<br>
+        <strong>DBH reference height used ______ m</strong> &nbsp;·&nbsp; Minimum recorded DBH ______ cm &nbsp;·&nbsp; Governing protocol ____________<br>
+        Instrument: girth tape / diameter tape / calliper &nbsp;·&nbsp; Serial or ID ______ &nbsp;·&nbsp; Last calibrated ________<br>
+        Boundary recorded: over bark / under bark &nbsp;·&nbsp; Observer ____________ &nbsp;·&nbsp; Recorder ____________ &nbsp;·&nbsp; Supervisor ____________
+      </p>
+    </div>
+    <div class="g2" style="gap:28px">
+      <div>
+        <div class="label rv" style="--d:3;margin-bottom:10px">Tree record — one row per tree, in ink</div>
+        <table class="dt rv" style="--d:3">
+          <thead><tr><th>No.</th><th>Species</th><th>D<sub>1</sub> cm</th><th>D<sub>2</sub> cm</th><th>D&#772; o.b.</th><th>t&#772; cm</th><th>D u.b.</th><th>Ht m</th><th>Code</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>…</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="stack">
+        <div class="card sunk rv" style="--d:4">
+          <div class="label v">Exception codes — a documented decision, not an error</div>
+          <p class="mono" style="margin-top:10px;line-height:1.7;font-size:20px">
+            <strong>S</strong> slope, measured uphill side &nbsp;·&nbsp; <strong>L</strong> leaning stem<br>
+            <strong>B</strong> buttress — height shifted, record it &nbsp;·&nbsp; <strong>W</strong> wound or swelling<br>
+            <strong>F&lt;</strong> forked below BH, counted as separate stems<br>
+            <strong>F&gt;</strong> forked above BH, counted as one tree<br>
+            <strong>H</strong> hollow &nbsp;·&nbsp; <strong>D</strong> dead standing &nbsp;·&nbsp; <strong>X</strong> excluded, state why
+          </p>
+        </div>
+        <div class="card rv" style="--d:5">
+          <div class="label v">QC block — completed in the field</div>
+          <p class="mono" style="margin-top:10px;line-height:1.7;font-size:20px">
+            Trees blind re-measured ______ of ______ &nbsp;(target 5&ndash;10 %)<br>
+            Largest disagreement ______ cm &nbsp;·&nbsp; Within tolerance? &nbsp;Y / N<br>
+            If N — cause found and action taken ____________________
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footrule"></div>
+  <div class="src">Teaching data sheet. For official work, the reference height, minimum recorded DBH, tolerances and exception codes are taken from the governing field manual and this sheet amended to match.</div>
+  <div class="pageno">38 / 48</div>
+</section>
+
+<!-- SLIDE — BHUTAN POLICY CONNECTION -->
+<!-- SPEAKER NOTES · BHUTAN POLICY CONNECTION
+     Short, and student-facing. Diameter is the most-measured quantity in Bhutanese forestry, and
+     students should know where their tape readings end up.
+
+     Community forest inventory first, because it is the one most graduates will actually do. A
+     community forest group measures its own stems, usually with a girth tape, to prepare and revise
+     its management plan. The numbers decide how much timber the group may take each year.
+
+     Timber marking and rural timber allotment: the trees marked for felling are chosen and scaled
+     on diameter. The household entitlement that follows is a volume, and that volume comes from a
+     diameter and a height through the equations of Unit V.
+
+     Then the point that gives this unit its weight. Diameter enters basal area as a square and
+     volume as roughly a square. A one per cent error in diameter is about two per cent in basal
+     area and in every volume, biomass and carbon figure downstream. Unit II is the most
+     consequential unit in the module precisely because it is the earliest one.
+-->
+<section class="slide fit"><div class="head"><div class="eyebrow rv">Official Bhutan policy context · why this unit exists</div><h2 class="title rv" style="--d:1;max-width:1180px">Diameter in <em>Bhutanese forest management</em></h2><div class="hr"></div></div><div class="runhead">DIAMETER + GIRTH</div>
+  <div class="body">
+    <p class="lead rv" style="--d:2;margin-bottom:24px">Diameter is the most-measured quantity in Bhutanese forestry, and the <strong>first</strong> measurement in every chain that follows.</p>
+    <div class="g4" style="margin-bottom:26px">
+      <div class="card rv" style="--d:3"><div class="ch" style="font-size:28px">Community-forest inventory</div><p class="txt-sm">A group measures its own stems, usually with a girth tape, to prepare and revise its <strong>management plan</strong> — and the numbers decide how much timber it may take each year.</p></div>
+      <div class="card rv" style="--d:4"><div class="ch" style="font-size:28px">Timber marking</div><p class="txt-sm">Trees marked for felling are selected and scaled on <strong>diameter</strong>. The rural timber allotment that follows is a volume derived from it.</p></div>
+      <div class="card rv" style="--d:5"><div class="ch" style="font-size:28px">NFI tree measurement</div><p class="txt-sm">Every tree of 10 cm DBH and above in every plot of the national grid — the raw material of the <strong>State of Forest Report</strong>.</p></div>
+      <div class="card moss rv" style="--d:6"><div class="ch" style="font-size:28px">Biomass and carbon</div><p class="txt-sm">The Bhutan allometric equations of Unit VI take <strong>basal area</strong> as their predictor. Diameter is where a national carbon figure begins.</p></div>
+    </div>
+    <div class="g2" style="gap:30px">
+      <div class="callout rv" style="--d:7"><span class="k">Why this unit carries more weight than it looks</span><p>Diameter enters basal area as a <strong>square</strong>, and volume as roughly a square. A <strong>1 % error in diameter is about 2 %</strong> in basal area — and in every volume, biomass and carbon figure downstream. This is the most consequential unit in the module because it is the earliest.</p></div>
+      <div class="callout moss rv" style="--d:8"><span class="k">Beyond timber</span><p>The same tape readings describe <strong>diameter-class diversity</strong>, large habitat trees, deadwood, regeneration and change between inventories. Diameter is not a timber measurement; it is a <strong>forest-structure</strong> measurement that timber happens to use.</p></div>
+    </div>
+  </div>
+  <div class="footrule"></div>
+  <div class="src">National Forest Policy of Bhutan 2011 &middot; Forest and Nature Conservation Act of Bhutan 2023 &middot; DoFPS, State of Forest Report 2023</div>
+  <div class="pageno">39 / 48</div>
+</section>
+
+
+<!-- ======================================================================
+     CASE STUDY 1 OF 6 — II
+     ====================================================================== -->
+<!-- SPEAKER NOTES · CASE STUDY, STEP 1
+     One plot runs through six units. Point at the banner every time it appears and say which
+     step the class is on, because the whole value of the thread is that students recognise it
+     as the same forest.
+
+     
+-->
+<section class="slide">
+  <div class="head">
+    <div class="eyebrow rv" style="--d:0">Case study &middot; one 500 m<sup>2</sup> plot, carried through Units II&ndash;VII &middot; step 1 of 6</div>
+    <h2 class="title rv" style="--d:1;max-width:1180px">Case study &middot; <em>the tree list</em></h2>
+    <div class="hr"></div>
+  </div>
+  <div class="runhead">CASE STUDY &middot; UNIT II</div>
+  <div class="body">
+    <p class="txt rv" style="--d:2;margin-bottom:16px">A blue pine compartment in the Thimphu valley at about 2 600 m. One <strong>circular plot of 12.62 m radius</strong> &mdash; 500 m<sup>2</sup>, the same geometry as the National Forest Inventory and the 2024 canopy guideline, so the expansion factor is <strong>20</strong>.</p>
+    <div class="g2" style="gap:26px">
+      <div>
+        <div class="label rv" style="--d:3;margin-bottom:10px">Every stem of 10 cm DBH and above</div>
+        <table class="dt sm rv" style="--d:3">
+          <thead><tr><th style="width:60px">No.</th><th>Species</th><th class="c">DBH cm</th><th class="c">h m</th><th class="c">g m<sup>2</sup></th></tr></thead>
+          <tbody>
+            <tr><td class="rh c">1</td><td><em>Pinus wallichiana</em></td><td class="num c">11.2</td><td class="num c">10.4</td><td class="num c">0.00985</td></tr>
+            <tr><td class="rh c">2</td><td><em>Pinus wallichiana</em></td><td class="num c">12.4</td><td class="num c">11.3</td><td class="num c">0.01208</td></tr>
+            <tr><td class="rh c">3</td><td><em>Quercus lanata</em></td><td class="num c">13.1</td><td class="num c">11.8</td><td class="num c">0.01348</td></tr>
+            <tr><td class="rh c">4</td><td><em>Pinus wallichiana</em></td><td class="num c">14.0</td><td class="num c">12.5</td><td class="num c">0.01539</td></tr>
+            <tr><td class="rh c">&hellip;</td><td colspan="4" style="text-align:center;color:var(--ink-faint)">14 stems omitted</td></tr>
+            <tr><td class="rh c">21</td><td><em>Pinus wallichiana</em></td><td class="num c">41.0</td><td class="num c">24.6</td><td class="num c">0.13203</td></tr>
+            <tr><td class="rh c">22</td><td><em>Pinus wallichiana</em></td><td class="num c">44.7</td><td class="num c">25.5</td><td class="num c">0.15693</td></tr>
+            <tr><td class="rh c">23</td><td><em>Pinus wallichiana</em></td><td class="num c">49.3</td><td class="num c">26.5</td><td class="num c">0.19089</td></tr>
+            <tr><td class="rh c">24</td><td><em>Pinus wallichiana</em></td><td class="num c">57.6</td><td class="num c">27.8</td><td class="num c">0.26058</td></tr>
+            <tr class="hi"><td class="rh c">&Sigma;</td><td><strong>24 stems</strong></td><td class="num c">&mdash;</td><td class="num c">&mdash;</td><td class="num c">1.6084</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="stack">
+        <div class="card moss rv" style="--d:4">
+          <div class="ch">What Unit II contributes</div>
+          <ul class="bul sm">
+            <li>Every DBH measured over bark at the <strong>protocol reference height</strong>, recorded on the sheet</li>
+            <li>Bark sampled on a subsample, so under-bark diameters can be recovered</li>
+            <li>Exception codes for the slope, the two forked stems and one buttressed oak</li>
+            <li><strong>24 stems</strong> &rarr; &times; 20 &rarr; <strong>480 stems per hectare</strong></li>
+          </ul>
+        </div>
+        <div class="callout rv" style="--d:5"><span class="k">Carry this forward</span><p>Diameter enters basal area as a <strong>square</strong>. Every error made on this sheet is still in the growing-stock figure in Unit VI and the harvest decision in Unit VII. Nothing downstream can repair it.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="src">Hypothetical teaching data, consistent with a Thimphu-valley blue pine stand. The same plot is used in Units III, IV, V, VI and VII.</div>
+  <div class="pageno">40 / 48</div>
+</section>
 
 <!-- SLIDE 33 — INTEGRATED WORKFLOW -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Integration · From stem to field record</div><h2 class="title rv" style="--d:1">A defensible measurement preserves the <em>entire chain of decisions</em></h2><div class="hr"></div></div><div class="runhead">FIELD WORKFLOW</div>
-  <div class="body"><div class="g4"><div class="card rv" style="--d:2"><div class="badge">1</div><h3 style="margin-top:18px">Reference</h3><p class="txt-sm">Locate and mark breast height using the correct terrain rule.</p></div><div class="card rv" style="--d:3"><div class="badge">2</div><h3 style="margin-top:18px">Instrument</h3><p class="txt-sm">Select a calibrated tool and note whether it reads G or D.</p></div><div class="card rv" style="--d:4"><div class="badge m">3</div><h3 style="margin-top:18px">Boundary</h3><p class="txt-sm">Record over bark or take bark readings for an under-bark result.</p></div><div class="card moss rv" style="--d:5"><div class="badge">4</div><h3 style="margin-top:18px">Record</h3><p class="txt-sm">Value, unit, height, axis, exceptions, instrument and operator.</p></div></div><div class="callout moss rv" style="--d:6;margin-top:34px"><span class="k">Quality control</span><p>A second crew should be able to reconstruct what was done—and repeat it at the same point.</p></div></div><div class="footrule"></div><div class="src">Synthesis of Sessions 3 and 4.</div><div class="pageno">36 / 42</div></section>
+  <div class="body deep"><div class="g4"><div class="card rv" style="--d:2"><div class="badge">1</div><h3 style="margin-top:18px">Reference</h3><p class="txt-sm">Locate and mark breast height using the correct terrain rule.</p></div><div class="card rv" style="--d:3"><div class="badge">2</div><h3 style="margin-top:18px">Instrument</h3><p class="txt-sm">Select a calibrated tool and note whether it reads G or D.</p></div><div class="card rv" style="--d:4"><div class="badge m">3</div><h3 style="margin-top:18px">Boundary</h3><p class="txt-sm">Record over bark or take bark readings for an under-bark result.</p></div><div class="card moss rv" style="--d:5"><div class="badge">4</div><h3 style="margin-top:18px">Record</h3><p class="txt-sm">Value, unit, height, axis, exceptions, instrument and operator.</p></div></div><div class="callout moss rv" style="--d:6;margin-top:34px"><span class="k">Quality control</span><p>A second crew should be able to reconstruct what was done—and repeat it at the same point.</p></div></div><div class="footrule"></div><div class="src">Synthesis of the unit. The chain of decisions is what makes a measurement defensible, not the number at the end.</div><div class="pageno">41 / 48</div></section>
 
 <!-- SLIDE 34 — ERRORS -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Quality control · Errors with consequences</div><h2 class="title rv" style="--d:1">Most mistakes are not arithmetic—they are <em>placement and definition</em></h2><div class="hr"></div></div><div class="runhead">FIELD WORKFLOW</div>
-  <div class="body g2"><div class="card rv" style="--d:2"><div class="label v">Placement errors</div><ul class="bul" style="margin-top:20px"><li>Measuring from the downhill side</li><li>Tape tilted rather than perpendicular</li><li>Caliper axis not representative</li><li>Measuring directly on swelling or fork</li><li>Including vines or loose bark</li></ul></div><div class="card moss rv" style="--d:3"><div class="label" style="color:#d8b76a">Definition + recording errors</div><ul class="bul" style="margin-top:20px"><li><strong>Confusing G with D</strong></li><li><strong>Omitting units</strong></li><li><strong>Not stating o.b. or u.b.</strong></li><li><strong>Subtracting t only once from DOB</strong></li><li><strong>Failing to record shifted measurement height</strong></li></ul></div></div><div class="footrule"></div><div class="src">Synthesis from Sessions 3 and 4.</div><div class="pageno">37 / 42</div></section>
+  <div class="body g2 deep"><div class="card rv" style="--d:2"><div class="label v">Placement errors</div><ul class="bul" style="margin-top:20px"><li>Measuring from the downhill side</li><li>Tape tilted rather than perpendicular</li><li>Calliper axis not representative</li><li>Measuring directly on swelling or fork</li><li>Including vines or loose bark</li></ul></div><div class="card moss rv" style="--d:3"><div class="label" style="color:#d8b76a">Definition + recording errors</div><ul class="bul" style="margin-top:20px"><li><strong>Confusing G with D</strong></li><li><strong>Omitting units</strong></li><li><strong>Not stating o.b. or u.b.</strong></li><li><strong>Subtracting t only once from DOB</strong></li><li><strong>Failing to record shifted measurement height</strong></li></ul></div>  <div class="callout moss rv" style="--d:9;margin-top:22px;grid-column:1/-1"><span class="k">Why this list is worth more than the formulas</span><p>Not one of these is an arithmetic mistake. They are errors of <strong>placement and definition</strong>, and they are invisible in the data — which is exactly why a field sheet records the height, the axis, the boundary and the exception code.</p></div>
+</div><div class="footrule"></div><div class="src">Error classification follows Unit I: random error is reduced by repetition, systematic error is not.</div><div class="pageno">42 / 48</div></section>
 
 <!-- SLIDE 35 — PRACTICAL -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Field practical · Team exercise</div><h2 class="title rv" style="--d:1">Measure one tree three ways and explain <em>why the readings differ</em></h2><div class="hr"></div></div><div class="runhead">FIELD PRACTICAL</div>
-  <div class="body g2"><div class="stack"><div class="q rv" style="--d:2"><div class="badge">1</div><div class="qt">Mark DBH and photograph or sketch the terrain case.</div></div><div class="q rv" style="--d:3"><div class="badge">2</div><div class="qt">Measure two perpendicular diameters with a caliper.</div></div><div class="q rv" style="--d:4"><div class="badge">3</div><div class="qt">Measure girth with a tape and convert it to circular-equivalent diameter.</div></div></div><div class="stack"><div class="q rv" style="--d:3"><div class="badge m">4</div><div class="qt">Take four bark readings at the two diameter axes.</div></div><div class="q rv" style="--d:4"><div class="badge m">5</div><div class="qt">Calculate DUB and GUB, showing units and definitions.</div></div><div class="q rv" style="--d:5"><div class="badge m">6</div><div class="qt">Write a three-sentence error diagnosis: geometry, instrument, operator.</div></div></div></div><div class="footrule"></div><div class="src">Practical designed from Sessions 3 and 4.</div><div class="pageno">38 / 42</div></section>
+  <div class="body g2 deep"><div class="stack"><div class="q rv" style="--d:2"><div class="badge">1</div><div class="qt">Mark DBH and photograph or sketch the terrain case.</div></div><div class="q rv" style="--d:3"><div class="badge">2</div><div class="qt">Measure two perpendicular diameters with a calliper.</div></div><div class="q rv" style="--d:4"><div class="badge">3</div><div class="qt">Measure girth with a tape and convert it to circular-equivalent diameter.</div></div></div><div class="stack"><div class="q rv" style="--d:3"><div class="badge m">4</div><div class="qt">Take four bark readings at the two diameter axes.</div></div><div class="q rv" style="--d:4"><div class="badge m">5</div><div class="qt">Calculate DUB and GUB, showing units and definitions.</div></div><div class="q rv" style="--d:5"><div class="badge m">6</div><div class="qt">Write a three-sentence error diagnosis: geometry, instrument, operator.</div></div></div>  <div class="callout rv" style="--d:9;margin-top:22px;grid-column:1/-1"><span class="k">What the report is really testing</span><p>Not whether your three readings agree — they will not. Whether you can say <strong>why</strong> they differ, and which one you would defend to a buyer.</p></div>
+</div><div class="footrule"></div><div class="src">Practical designed from Sessions 3 and 4.</div><div class="pageno">43 / 48</div></section>
 
 <!-- SLIDE 36 — REVIEW -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Review · Explain before calculating</div><h2 class="title rv" style="--d:1">Can you defend the <em>measurement decision</em>?</h2><div class="hr"></div></div><div class="runhead">REVIEW</div>
-  <div class="body g2"><div class="stack"><div class="q rv" style="--d:2"><div class="badge">1</div><div class="qt">Why is breast height measured from the uphill side?</div></div><div class="q rv" style="--d:3"><div class="badge">2</div><div class="qt">Why does rough bark usually produce a positive tape bias?</div></div><div class="q rv" style="--d:4"><div class="badge">3</div><div class="qt">When is a fork counted as one tree, and when as two?</div></div></div><div class="stack"><div class="q rv" style="--d:3"><div class="badge m">4</div><div class="qt">A tree has G = 94.2 cm. Estimate its circular-equivalent D.</div></div><div class="q rv" style="--d:4"><div class="badge m">5</div><div class="qt">Why must bark be sampled at opposite points?</div></div><div class="q rv" style="--d:5"><div class="badge m">6</div><div class="qt">Given DOB = 52 cm and t = 1.8 cm, calculate DUB.</div></div></div></div><div class="footrule"></div><div class="pageno">39 / 42</div></section>
+  <div class="body g2"><div class="stack"><div class="q rv" style="--d:2"><div class="badge">1</div><div class="qt">Why is breast height measured from the uphill side?</div></div><div class="q rv" style="--d:3"><div class="badge">2</div><div class="qt">Why does rough bark usually produce a positive tape bias?</div></div><div class="q rv" style="--d:4"><div class="badge">3</div><div class="qt">When is a fork counted as one tree, and when as two?</div></div></div><div class="stack"><div class="q rv" style="--d:3"><div class="badge m">4</div><div class="qt">A tree has G = 94.2 cm. Estimate its circular-equivalent D.</div></div><div class="q rv" style="--d:4"><div class="badge m">5</div><div class="qt">Why must bark be sampled at opposite points?</div></div><div class="q rv" style="--d:5"><div class="badge m">6</div><div class="qt">Given DOB = 52 cm and t = 1.8 cm, calculate DUB.</div></div></div>  <div class="callout moss rv" style="--d:9;margin-top:22px;grid-column:1/-1"><span class="k">Answer these before you look at the next slide</span><p>Every question here is a <em>why</em> or a <em>when</em>, not a <em>what</em>. If you can only recite the rule and not its reason, you will not be able to apply it to a stem the rule did not anticipate.</p></div>
+</div><div class="footrule"></div><div class="pageno">44 / 48</div></section>
 
 <!-- SLIDE 37 — ANSWERS -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Review · Numerical answers</div><h2 class="title rv" style="--d:1">Use the answers to check method—not to replace it</h2><div class="hr"></div></div><div class="runhead">REVIEW</div>
-  <div class="body g2"><div class="card rv" style="--d:2"><div class="label v">Question 4</div><div class="formula" style="margin-top:22px">D = 94.2/π ≈ 29.98 cm</div><p class="txt" style="margin-top:24px">Report approximately <strong>30.0 cm</strong>, with the stated rounding.</p></div><div class="card moss rv" style="--d:3"><div class="label" style="color:#d8b76a">Question 6</div><div class="formula v" style="margin-top:22px;background:#fff">D<sub>ub</sub> = 52 − 2(1.8)</div><div class="answer" style="margin-top:24px;background:#1f382c"><span class="k">Answer</span><span class="v">48.4 cm</span></div></div><div class="callout moss rv" style="--d:5;grid-column:1/-1"><span class="k">Short explanations</span><p>Uphill side standardises the ground reference. Rough bark increases the encircled path. Opposite bark readings capture radial non-uniformity. Fork status depends on its position relative to the breast-height reference.</p></div></div><div class="footrule"></div><div class="pageno">40 / 42</div></section>
+  <div class="body g2"><div class="card rv" style="--d:2"><div class="label v">Question 4</div><div class="formula" style="margin-top:22px">D = 94.2/π ≈ 29.98 cm</div><p class="txt" style="margin-top:24px">Report approximately <strong>30.0 cm</strong>, with the stated rounding.</p></div><div class="card moss rv" style="--d:3"><div class="label" style="color:#d8b76a">Question 6</div><div class="formula v" style="margin-top:22px;background:#fff">D<sub>ub</sub> = 52 − 2(1.8)</div><div class="answer" style="margin-top:24px;background:#1f382c"><span class="k">Answer</span><span class="v">48.4 cm</span></div></div><div class="callout moss rv" style="--d:5;grid-column:1/-1"><span class="k">Short explanations</span><p>Uphill side standardises the ground reference. Rough bark increases the encircled path. Opposite bark readings capture radial non-uniformity. Fork status depends on its position relative to the breast-height reference.</p></div></div><div class="footrule"></div><div class="pageno">45 / 48</div></section>
 
 <!-- SLIDE 38 — SUMMARY + REFERENCES -->
 <section class="slide"><div class="head"><div class="eyebrow rv">Close · Unit II synthesis</div><h2 class="title rv" style="--d:1">Five rules make the data <em>comparable and useful</em></h2><div class="hr"></div></div><div class="runhead">SUMMARY</div>
-  <div class="body g2"><div class="card moss rv" style="--d:2"><div class="numrow"><div class="badge">1</div><div><div class="ch">Keep dimensions and units consistent.</div></div></div><div class="numrow"><div class="badge">2</div><div><div class="ch">Use G = πD only as circular geometry.</div></div></div><div class="numrow"><div class="badge">3</div><div><div class="ch">Know the instrument’s error profile.</div></div></div><div class="numrow"><div class="badge">4</div><div><div class="ch">Measure at a standard, recorded point.</div></div></div><div class="numrow"><div class="badge">5</div><div><div class="ch">State over bark or under bark.</div></div></div></div><div class="stack"><div class="card rv" style="--d:3"><div class="label v">Primary teaching sources</div><ul class="bul sm" style="margin-top:18px"><li>Session 3: <strong>Diameter and Girth Measurement</strong>, MEN 201, 19 Aug 2025.</li><li>Session 4: <strong>Bark Thickness Measurement by Bark Gauge</strong>, MEN 201, 19 Aug 2025.</li></ul></div><div class="callout rv" style="--d:5"><span class="k">Next field habit</span><p>Before writing a number, write its unit, reference height and bark boundary.</p></div></div></div><div class="footrule"></div><div class="pageno">41 / 42</div></section>
+  <div class="body g2"><div class="card moss rv" style="--d:2"><div class="numrow"><div class="badge">1</div><div><div class="ch">Keep dimensions and units consistent.</div></div></div><div class="numrow"><div class="badge">2</div><div><div class="ch">Use G = πD only as circular geometry.</div></div></div><div class="numrow"><div class="badge">3</div><div><div class="ch">Know the instrument’s error profile.</div></div></div><div class="numrow"><div class="badge">4</div><div><div class="ch">Measure at a standard, recorded point.</div></div></div><div class="numrow"><div class="badge">5</div><div><div class="ch">State over bark or under bark.</div></div></div></div><div class="stack"><div class="card rv" style="--d:3"><div class="label v">References</div><ul class="bul sm" style="margin-top:16px;font-size:22px"><li><strong>DoFPS (2023).</strong> <em>National Forest Inventory Volume I &mdash; State of Forest Report 2023.</em> Thimphu. <span style="color:var(--faint)">&mdash; DBH at 1.37 m, 10 cm threshold, 12.62 m plots, 4 &times; 4 km grid</span></li><li><strong>Husch, B., Beers, T. W. &amp; Kershaw, J. A. (2003).</strong> <em>Forest Mensuration</em>, 4th ed. Wiley. <span style="color:var(--faint)">&mdash; chs. 4&ndash;5, instruments and diameter</span></li><li><strong>West, P. W. (2009).</strong> <em>Tree and Forest Measurement</em>, 2nd ed. Springer. <span style="color:var(--faint)">&mdash; ch. 4, technique and error</span></li><li><strong>BIPM (2019).</strong> <em>The International System of Units (SI)</em>, 9th ed. <span style="color:var(--faint)">&mdash; units and exact conversions</span></li><li><strong>Mercker, D. &amp; Yang, S.-I.</strong> <a href="supplementary/A_Simple_Guide_to_Common_Forest_Measurements.pdf" target="_blank" rel="noopener">A Simple Guide to Common Forest Measurements</a>, UT Extension W 1117. <span style="color:var(--verm)">&mdash; comparative reading only: it uses 4.5 ft DBH, acres, board feet and Doyle log rules, none of which apply in Bhutan</span></li></ul></div><div class="callout rv" style="--d:5"><span class="k">Next field habit</span><p>Before writing a number, write its unit, reference height and bark boundary.</p></div></div></div><div class="footrule"></div><div class="pageno">46 / 48</div></section>
+
+<!-- ======================================================================
+     NOTATION REFERENCE SHEET — IDENTICAL IN EVERY UNIT OF MEN 201
+     ====================================================================== -->
+<!-- SPEAKER NOTES · NOTATION REFERENCE SHEET
+     This slide is identical in all seven decks. Point that out to the class the first time they
+     meet it, and tell them it is the page to photograph.
+
+     The rule that does most of the work is lower case for one tree, upper case for the stand.
+     g and G, v and V. Students who internalise that one convention stop making the single most
+     common error in the module, which is multiplying a per-tree figure by a per-hectare figure.
+
+     On bark: insist on t for one-sided thickness and B = 2t for double bark thickness. The older
+     literature uses b for both, which is exactly why this module fixes two symbols. A diameter
+     crosses the bark twice, so the subtraction is always 2t.
+
+     On crown terms: the module uses four names and never the bare term "crown height". Unit III
+     shows why - the term carries three incompatible meanings, and students will meet all three.
+
+     On the DBH reference height, which is not a symbol but belongs here anyway: it is protocol-
+     dependent, Bhutan's Second NFI used 1.37 m, many international manuals use 1.30 m, and the
+     examinable skill is identifying the governing protocol and recording the height - not
+     memorising a number.
+-->
+<section class="slide">
+  <div class="head">
+    <div class="eyebrow rv" style="--d:0">Reference sheet &middot; identical in every unit of MEN 201 &middot; photograph this one</div>
+    <h2 class="title rv" style="--d:1">Notation, units and <em>terminology</em></h2>
+    <div class="hr"></div>
+  </div>
+  <div class="runhead">NOTATION</div>
+  <div class="body">
+    <div style="display:grid;grid-template-columns:.78fr .62fr .60fr;gap:26px;height:100%">
+      <table class="dt sm rv" style="--d:3;align-self:start">
+        <thead><tr><th style="width:74px">Symbol</th><th>Quantity</th><th style="width:96px">Unit</th></tr></thead>
+        <tbody>
+          <tr><td class="rh">d</td><td>diameter of one tree</td><td>cm</td></tr>
+          <tr><td class="rh">C</td><td>circumference or girth</td><td>cm</td></tr>
+          <tr><td class="rh">g</td><td>basal area, <strong>one tree</strong></td><td>m<sup>2</sup></td></tr>
+          <tr class="hi"><td class="rh">G</td><td>basal area, <strong>stand</strong></td><td>m<sup>2</sup>/ha</td></tr>
+          <tr><td class="rh">h</td><td>height of one tree</td><td>m</td></tr>
+          <tr><td class="rh">H<sub>L</sub></td><td>Lorey&rsquo;s mean height</td><td>m</td></tr>
+          <tr><td class="rh">v</td><td>volume, <strong>one tree</strong></td><td>m<sup>3</sup></td></tr>
+          <tr class="hi"><td class="rh">V</td><td>volume, <strong>stand</strong></td><td>m<sup>3</sup>/ha</td></tr>
+          <tr><td class="rh">t</td><td>bark thickness, <strong>one side</strong></td><td>cm</td></tr>
+          <tr><td class="rh">B</td><td>double bark, B = 2t</td><td>cm</td></tr>
+          <tr><td class="rh">f</td><td>form factor</td><td>&mdash;</td></tr>
+        </tbody>
+      </table>
+      <div style="display:flex;flex-direction:column;gap:18px;min-height:0">
+        <div class="card moss rv" style="--d:4;padding:20px 22px">
+          <div class="ch" style="font-size:27px;margin-bottom:8px">Lower case is one tree.<br>Upper case is the stand.</div>
+          <p class="txt-sm" style="font-size:22px">That one rule resolves most of the confusion in the literature: <strong>g</strong> is the tree in front of you, <strong>G</strong> is the hectare it stands in. Likewise <strong>v</strong> and <strong>V</strong>.</p>
+        </div>
+        <div class="card rv" style="--d:5;padding:20px 22px">
+          <div class="ch v" style="font-size:24px;margin-bottom:8px">Two conversions that follow</div>
+          <div class="mn" style="font-size:23px;color:var(--moss);line-height:1.8">
+            C = &pi;d &nbsp;&middot;&nbsp; d = C / &pi;<br>
+            D<sub>ub</sub> = D<sub>ob</sub> &minus; 2t<br>
+            G<sub>ub</sub> = G<sub>ob</sub> &minus; 2&pi;t
+          </div>
+          <p class="txt-sm" style="margin-top:8px;font-size:22px">A diameter crosses bark <strong>twice</strong>. Subtract <strong>2t</strong>, never <em>t</em>.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;min-height:0">
+        <div class="card sunk rv" style="--d:6;padding:18px 22px">
+          <div class="ch v" style="font-size:24px;margin-bottom:8px">Crown terms &mdash; four names</div>
+          <p class="txt-sm" style="font-size:22px"><strong>Crown-base height</strong> ground to the base of the live crown &middot; <strong>crown length</strong> H &minus; crown-base height &middot; <strong>crown midpoint height</strong> ground to the crown midpoint &middot; <strong>live-crown ratio</strong> crown length &divide; H. The bare term <strong>&ldquo;crown height&rdquo; is not used</strong> &mdash; three incompatible meanings.</p>
+        </div>
+        <div class="card sunk rv" style="--d:7;padding:18px 22px">
+          <div class="ch v" style="font-size:24px;margin-bottom:8px">Spelling fixed for this module</div>
+          <p class="txt-sm" style="font-size:22px"><strong>relascope</strong> &middot; <strong>calliper</strong> &middot; <strong>Smythies&rsquo; hypsometer</strong> &middot; <strong>chir pine</strong> &middot; <strong>breast height</strong> &middot; <strong>over bark</strong> / <strong>under bark</strong> &middot; <strong>merchantable height</strong> &middot; <strong>bole height</strong></p>
+        </div>
+        <div class="callout rv" style="--d:8;padding:16px 20px">
+          <span class="k">Not a symbol, but it belongs here</span>
+          <p style="font-size:22px"><strong>DBH reference height is protocol-dependent.</strong> Bhutan&rsquo;s Second NFI used <strong>1.37 m</strong>; many international manuals use <strong>1.30 m</strong>. Follow the applicable protocol and <strong>record the height used</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="src">Notation fixed for MEN 201. Where a textbook or a published equation uses different symbols, translate into this table before you calculate.</div>
+  <div class="pageno">47 / 48</div>
+</section>
 
 <!-- SLIDE 39 — CLOSING -->
 <section class="slide cover" data-sec="D · Practice &amp; Review" data-title="Class details &amp; contact"><div class="plate"><svg viewBox="0 0 720 1080" aria-hidden="true"><g fill="none" stroke="#2f5140" stroke-opacity=".35"><circle cx="360" cy="540" r="400"/><circle cx="364" cy="536" r="348"/><circle cx="357" cy="543" r="296"/><circle cx="365" cy="535" r="246"/><circle cx="358" cy="542" r="198"/><circle cx="363" cy="538" r="152"/><circle cx="360" cy="540" r="110"/><circle cx="361" cy="540" r="72"/><circle cx="360" cy="540" r="36"/></g><circle cx="360" cy="540" r="8" fill="#c14524"/></svg></div>
-  <div style="position:absolute;left:110px;top:96px"><div class="eyebrow rv">MEN 201 · Forest Mensuration · Unit II</div><div class="rv" style="--d:1;margin-top:24px;width:120px;height:1px;background:var(--ink)"></div></div><div style="position:absolute;left:110px;top:265px;width:1060px"><h1 class="rv" style="--d:2;font-size:94px">Diameter, Girth<br><em>&amp; Bark Thickness</em></h1><div class="g2 rv" style="--d:4;margin-top:58px;max-width:930px"><div class="card"><div class="label v">Class hours</div><p class="mono" style="margin-top:16px;line-height:1.9">Monday · 2nd–4th · 09:00–12:15<br>Thursday · 2nd–3rd · 09:00–11:15<br>Classroom · B2.6</p></div><div class="card"><div class="label v">Tutor</div><p class="mono" style="margin-top:16px;line-height:1.9">Wangdi<br>Senior Forestry Officer<br>Adjunct Lecturer<br>Forest Resources Planning and Management Division</p></div></div></div><div class="cmeta"><strong>BSc in Forestry</strong>College of Natural Resources · Royal University of Bhutan</div><div class="pageno">42 / 42</div>
+  <div style="position:absolute;left:110px;top:96px"><div class="eyebrow rv">MEN 201 · Forest Mensuration · Unit II</div><div class="rv" style="--d:1;margin-top:24px;width:120px;height:1px;background:var(--ink)"></div></div><div style="position:absolute;left:110px;top:265px;width:1060px"><h1 class="rv" style="--d:2;font-size:120px">Diameter, Girth<br><em>&amp; Bark Thickness</em></h1><div class="g2 rv" style="--d:4;margin-top:58px;max-width:930px"><div class="card"><div class="label v">Carry into Unit III and IV</div><p class="mono" style="margin-top:16px;line-height:1.9">A diameter is not a number.<br>It is a number, a unit,<br>a reference height,<br>and a bark boundary.</p></div><div class="card"><div class="label v">Module tutor</div><p class="mono" style="margin-top:16px;line-height:1.9">Wangdi<br>Senior Forestry Officer<br>Adjunct Lecturer<br>Forest Resources Planning and Management Division</p></div></div></div><div class="cmeta"><strong>BSc in Forestry</strong>College of Natural Resources · Royal University of Bhutan</div><div class="pageno">48 / 48</div>
 </section>
 
 </div></div>
 <div class="hud">
   <button id="prev" title="Previous slide (←)" aria-label="Previous slide">‹</button>
-  <span><b id="cur">1</b> / <span id="tot">42</span></span>
+  <span><b id="cur">1</b> / <span id="tot">48</span></span>
   <button id="next" title="Next slide (→)" aria-label="Next slide">›</button>
   <span class="sep s1"></span><span class="sec" id="hsec">Opening</span>
-  <span class="sep"></span><span class="clk" id="clk" title="Click to start / pause the class timer (T). Double-click to reset.">00:00</span>
   <span class="sep"></span><button class="ico" id="idxbtn" title="Slide index (O)" aria-label="Open slide index">☰</button>
   <button class="ico" id="helpbtn" title="Keyboard shortcuts (?)" aria-label="Keyboard shortcuts">?</button>
 </div>
@@ -414,8 +829,6 @@ body.ui .hud{opacity:.58}
       <div class="keyrow"><span><kbd>Home</kbd><kbd>End</kbd></span><span>First / last slide</span></div>
       <div class="keyrow"><span><kbd>1</kbd>…<kbd>9</kbd><kbd>↵</kbd></span><span>Type a slide number, then Enter</span></div>
       <div class="keyrow"><span><kbd>O</kbd></span><span>Slide index</span></div>
-      <div class="keyrow"><span><kbd>T</kbd></span><span>Start / pause the class timer</span></div>
-      <div class="keyrow"><span><kbd>R</kbd></span><span>Reset the class timer</span></div>
       <div class="keyrow"><span><kbd>E</kbd></span><span>Edit slide text in place</span></div>
       <div class="keyrow"><span><kbd>Ctrl</kbd><kbd>S</kbd></span><span>Save edits to this browser</span></div>
       <div class="keyrow"><span><kbd>Ctrl</kbd><kbd>P</kbd></span><span>Print / export to PDF (one slide per page)</span></div>
@@ -436,7 +849,7 @@ body.ui .hud{opacity:.58}
 (function(){'use strict';
   const $=s=>document.getElementById(s);
   const stage=$('stage'),slides=[...document.querySelectorAll('.slide')],prog=$('prog'),cur=$('cur'),tot=$('tot'),
-        toastEl=$('toast'),editbtn=$('editbtn'),hsec=$('hsec'),clk=$('clk'),
+        toastEl=$('toast'),editbtn=$('editbtn'),hsec=$('hsec'),
         idxovl=$('idxovl'),helpovl=$('helpovl'),idxlist=$('idxlist');
   /* Bumped to v2 when three slides were added: edits saved against the older
      39-slide deck must not silently overwrite the new content. */
@@ -493,16 +906,6 @@ body.ui .hud{opacity:.58}
   $('idxbtn').onclick=()=>openOvl(idxovl);$('helpbtn').onclick=()=>openOvl(helpovl);
   document.querySelectorAll('[data-close]').forEach(b=>b.onclick=closeOvl);
 
-  /* --- CLASS TIMER ------------------------------------------------------- */
-  let t0=0,acc=0,tick=null;
-  function fmt(ms){const s=Math.floor(ms/1000),h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60,p=n=>String(n).padStart(2,'0');
-    return(h?h+':':'')+p(m)+':'+p(x)}
-  function paint(){clk.textContent=fmt(acc+(t0?Date.now()-t0:0))}
-  function timerToggle(){if(t0){acc+=Date.now()-t0;t0=0;clearInterval(tick);tick=null;clk.classList.remove('run')}
-    else{t0=Date.now();tick=setInterval(paint,1000);clk.classList.add('run')}paint()}
-  function timerReset(){acc=0;if(t0)t0=Date.now();paint();toast('Timer reset')}
-  clk.onclick=timerToggle;clk.ondblclick=timerReset;
-
   /* --- KEYBOARD ---------------------------------------------------------- */
   let buf='',bufT=null;
   document.addEventListener('keydown',e=>{
@@ -523,8 +926,6 @@ body.ui .hud{opacity:.58}
       case'End':e.preventDefault();show(slides.length-1);break;
       case'o':case'O':idxovl.classList.contains('on')?closeOvl():openOvl(idxovl);break;
       case'?':helpovl.classList.contains('on')?closeOvl():openOvl(helpovl);break;
-      case't':case'T':timerToggle();break;
-      case'r':case'R':timerReset();break;
       case'e':case'E':toggleEdit(true)}
   });
 

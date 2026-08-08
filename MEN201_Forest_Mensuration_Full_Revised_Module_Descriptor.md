@@ -30,7 +30,7 @@ On completion of the module, students will be able to:
 
 5\. Classify trees into appropriate girth and diameter classes.
 
-6\. Estimate crown closure using visual methods and a spherical densiometer and express the results as percentages.
+6\. Assess canopy cover using Bhutan's Forest Canopy Cover Assessment Guidelines 2024 and the GRS crown densitometer, compare the result with visual and spherical-densiometer estimates, and express all three as percentages.
 
 7\. Calculate the volume of standing trees, logs, and sawn timber using appropriate methods and formulae.
 
@@ -223,6 +223,11 @@ None
 
 **2.1.4 Definition and purpose of breast height**
 
+Breast height is a convention, and the value is protocol-dependent. Bhutan's Second National
+Forest Inventory recorded over-bark diameter at **1.37 m**; many international manuals use
+**1.30 m**. Neither is universally correct. Students must identify and follow the inventory
+protocol governing the work in hand, and record the reference height used.
+
 **2.1.5 Standard rules governing breast-height measurement**
 
 Measurement procedures will include trees growing:
@@ -327,21 +332,27 @@ Applications include forest-density assessment, competition assessment, wildlife
 
 **3.4.2 Difference between crown closure, canopy cover, and canopy openness**
 
-**3.4.3 Visual estimation of crown closure**
+**3.4.3 Bhutan's Forest Canopy Cover Assessment Guidelines 2024 — the national procedure**
 
-**3.4.4 Measurement using a spherical densiometer**
+Taught as the governing method, before the comparative approaches. Covers: the forest and high-forest
+definitions and thresholds of the Forest and Nature Conservation Act 2023; the area-based choice
+between direct measurement and sampling; the 500 m² circular plot of 12.62 m radius; the 2.5 m grid
+with 89 systematic and 11 additional observation points; the GRS crown densitometer and its binary
+tally rule; and the calculation for a single plot and for multiple plots.
 
-**3.4.5 Components and operating principles of a spherical densiometer**
+**3.4.4 Visual estimation of crown closure — comparative method**
 
-**3.4.6 Correct positioning and leveling of the instrument**
+**3.4.5 Measurement using a spherical densiometer — comparative method**
 
-**3.4.7 Selection of observation points**
+**3.4.6 Components and operating principles of a spherical densiometer**
 
-**3.4.8 Recording observations in different directions**
+**3.4.7 Correct positioning and leveling of the instrument**
 
-**3.4.9 Calculation of percentage crown closure**
+**3.4.8 Selection of observation points**
 
-**3.4.10 Comparison of visual and densiometer estimates**
+**3.4.9 Recording observations in different directions**
+
+**3.4.10 Calculation of percentage crown closure, and comparison of the official, visual and densiometer estimates**
 
 **3.4.11 Digital canopy-assessment methods, where available**
 
@@ -938,17 +949,26 @@ Students will measure tree height using a clinometer, measuring tape, hypsometer
 - Calculate live-crown length and live-crown ratio.
 - Classify trees according to crown position or crown class.
 
-## Practical 5: Crown-Closure Assessment Using a Spherical Densiometer
+## Practical 5: Canopy Cover Assessment — the National Procedure, with Comparative Methods
 
 **Students will:**
 
-- Identify representative sampling locations and develop a sampling plan.
-- Correctly hold and level the spherical densiometer.
-- Conduct and record observations in the required directions.
-- Calculate crown-closure percentage.
-- Conduct visual estimates and compare them with densiometer measurements.
-- Calculate average crown closure and identify sources of error.
+- Establish a 500 m² circular plot of 12.62 m radius from a supplied plot centre.
+- Lay the 2.5 m × 2.5 m observation grid from a pre-generated point layout, without selecting
+  their own points.
+- Record 89 systematic and 11 additional observations with the GRS crown densitometer, taking the
+  11 from the quadrant assigned to the group.
+- Apply the binary tally rule and calculate canopy cover for a single plot and for the pooled plots.
+- Classify the plot as forest or non-forest and as high forest or not, and state what follows under
+  the Forest and Nature Conservation Act 2023.
+- **As comparative methods:** correctly hold and level the spherical densiometer, conduct and record
+  observations in the required directions, calculate crown-closure percentage, and make an
+  independent visual estimate.
+- Compare the three figures, explain why they differ, and identify sources of error.
 - Prepare a short technical report.
+
+*The spherical densiometer is retained as a comparative instrument. The prescribed method for the
+assessment itself is the Forest Canopy Cover Assessment Guidelines 2024.*
 
 ## Practical 6: Log-Volume Measurement
 
@@ -1202,7 +1222,7 @@ Students must:
 
 6\. The relascope and wedge prism are not included in the revised module.
 
-7\. The spherical densiometer will be used as the main instrument for field-based crown-closure assessment.
+7\. Canopy cover assessment follows the Forest Canopy Cover Assessment Guidelines 2024 (FMID, DoFPS), using the GRS crown densitometer. The spherical densiometer is retained as a comparative instrument and for teaching the reduction of counts.
 
 8\. Laser rangefinders and digital hypsometers may be used to supplement clinometer-based height measurement.
 
@@ -1220,6 +1240,19 @@ Students must:
 
 15\. All field activities must follow institutional safety requirements.
 
+# Acknowledgement
+
+The course developer gratefully acknowledges **Laxmi Sagr, Associate Lecturer, College of Natural
+Resources**, for sharing teaching materials previously used for the same Forest Mensuration course.
+Selected concepts and materials were reviewed, adapted, expanded, and contextualized for the
+present MEN 201 course.
+
+Where a particular diagram, table, exercise, explanation, or slide is directly adapted from the
+shared materials, a specific source note appears on that slide or in the corresponding
+lecture-note section. Acknowledgement of the overall contribution does not replace proper citation
+of original books, manuals, reports, research papers, photographs, diagrams, equations, tables, or
+datasets used within the shared teaching materials.
+
 # Module Revision Information
 
 **Original descriptor date:** March 2022
@@ -1230,7 +1263,15 @@ Students must:
 
 **Wedge prism:** Removed
 
-**Spherical densiometer:** Added
+**Spherical densiometer:** Added, as a comparative instrument
+
+**Canopy cover assessment:** Aligned to the Forest Canopy Cover Assessment Guidelines 2024 (FMID, DoFPS); GRS crown densitometer added as the prescribed instrument
+
+**DBH reference height:** Stated as protocol-dependent — 1.37 m in Bhutan's Second National Forest Inventory, 1.30 m in many international manuals
+
+**Teaching aids added:** Excel calculators for the Bhutan merchantable-volume and allometric-biomass equations; standalone printable field sheets for Units II, III and V; a continuous case study of one 500 m² plot carried through Units II to VII
+
+**Student-facing materials:** Class timers and timetable information removed from all lecture slides. Class hours, practical dates and room allocation are maintained on the VLE
 
 **Supplementary revision date:** 07/08/2026
 

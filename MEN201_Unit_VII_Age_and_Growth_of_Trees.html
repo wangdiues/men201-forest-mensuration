@@ -90,18 +90,18 @@ html,body{margin:0;padding:0;height:100%;overflow:hidden;background:var(--letter
    (top-right), a hairline baseline, and a page number.
    ========================================================================== */
 .head{position:absolute;left:92px;right:92px;top:70px}
-.eyebrow{font:500 17px/1 var(--mono);letter-spacing:.30em;text-transform:uppercase;
+.eyebrow{font:500 19px/1 var(--mono);letter-spacing:.30em;text-transform:uppercase;
   color:var(--vermilion)}
 .eyebrow.warn{color:var(--gold)}
 h2.title{margin:20px 0 0;font-family:var(--display);font-optical-sizing:auto;
-  font-weight:600;font-size:52px;line-height:1.05;letter-spacing:-.022em;color:var(--ink);
-  max-width:1420px}
+  font-weight:600;font-size:58px;line-height:1.05;letter-spacing:-.022em;color:var(--ink);
+  max-width:1500px}
 h2.title em{font-style:italic;font-weight:400;color:var(--moss)}
 .head .hr{margin-top:24px;height:1px;background:var(--rule)}
 
-.runhead{position:absolute;right:92px;top:70px;font:400 15px/1 var(--mono);
+.runhead{position:absolute;right:92px;top:66px;font:400 17px/1.4 var(--mono);
   letter-spacing:.16em;color:var(--ink-faint);text-align:right}
-.pageno{position:absolute;right:92px;bottom:40px;font:500 16px/1 var(--mono);
+.pageno{position:absolute;right:92px;bottom:38px;font:500 18px/1 var(--mono);
   letter-spacing:.14em;color:var(--ink-faint)}
 .footrule{position:absolute;left:92px;right:92px;bottom:74px;height:1px;background:var(--rule-soft)}
 
@@ -113,46 +113,46 @@ h2.title em{font-style:italic;font-weight:400;color:var(--moss)}
   border-bottom:1px solid rgba(47,81,64,.4);transition:color .18s ease,border-color .18s ease}
 .slide a:hover,.slide a:focus-visible{color:var(--vermilion);border-bottom-color:var(--vermilion)}
 .slide a::after{content:" ↗";font-size:.8em;color:var(--ink-faint);border:0}
-.src{position:absolute;left:92px;bottom:38px;font:400 15px/1.4 var(--mono);color:var(--ink-faint);
+.src{position:absolute;left:92px;bottom:36px;font:400 17px/1.4 var(--mono);color:var(--ink-faint);
   max-width:1400px;letter-spacing:.02em}
 
 /* Body region: the safe zone between chrome */
 .body{position:absolute;left:92px;right:92px;top:222px;bottom:104px}
 .body.tight{top:200px}
-.body.deep{top:250px}
+.body.deep{top:266px}
 
 /* === PRIMITIVES === */
-.lead{font-family:var(--display);font-weight:400;font-size:30px;line-height:1.42;
+.lead{font-family:var(--display);font-weight:400;font-size:34px;line-height:1.40;
   color:var(--ink);letter-spacing:-.005em}
 .lead strong{font-weight:600;color:var(--moss)}
 p{margin:0}
-.txt{font:400 21px/1.55 var(--body);color:var(--ink-soft)}
-.txt-sm{font:400 18px/1.5 var(--body);color:var(--ink-soft)}
-.mono-sm{font:400 16px/1.5 var(--mono);color:var(--ink-faint);letter-spacing:.02em}
+.txt{font:400 24px/1.52 var(--body);color:var(--ink-soft)}
+.txt-sm{font:400 21px/1.48 var(--body);color:var(--ink-soft)}
+.mono-sm{font:400 18px/1.5 var(--mono);color:var(--ink-faint);letter-spacing:.02em}
 
-.label{font:500 15px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--moss)}
+.label{font:500 17px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--moss)}
 .label.v{color:var(--vermilion)}
 
 /* Cards — the paper leaf that sits on the graph paper */
 .card{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;
-  padding:30px 32px;box-shadow:0 2px 0 rgba(20,28,24,.05),0 14px 34px rgba(20,28,24,.045)}
+  padding:24px 28px;box-shadow:0 2px 0 rgba(20,28,24,.05),0 14px 34px rgba(20,28,24,.045)}
 .card.sunk{background:var(--paper-sunk);box-shadow:none}
 .card.moss{background:var(--moss);border-color:var(--moss);color:#eef2ea}
 .card.moss .label{color:#a9c9b3}
 .card.moss .txt,.card.moss .txt-sm{color:#d3decf}
-.card h3,.card .ch{margin:0 0 14px;font-family:var(--display);font-weight:600;font-size:26px;
+.card h3,.card .ch{margin:0 0 11px;font-family:var(--display);font-weight:600;font-size:28px;
   line-height:1.2;color:var(--ink);letter-spacing:-.012em}
 .card.moss .ch{color:#fff}
 .card .ch.v{color:var(--vermilion)}
 
 /* Tick-mark bullet list */
 ul.bul{margin:0;padding:0;list-style:none}
-ul.bul li{position:relative;padding-left:30px;margin-bottom:11px;
-  font:400 20px/1.48 var(--body);color:var(--ink-soft)}
+ul.bul li{position:relative;padding-left:30px;margin-bottom:9px;
+  font:400 23px/1.45 var(--body);color:var(--ink-soft)}
 ul.bul li:last-child{margin-bottom:0}
 ul.bul li::before{content:"";position:absolute;left:0;top:.62em;width:11px;height:1.5px;
   background:var(--vermilion)}
-ul.bul.sm li{font-size:18px;margin-bottom:8px;padding-left:26px}
+ul.bul.sm li{font-size:21px;margin-bottom:7px;padding-left:28px}
 ul.bul.sm li::before{width:9px}
 ul.bul li strong{color:var(--ink);font-weight:600}
 .card.moss ul.bul li{color:#d3decf}
@@ -160,7 +160,7 @@ ul.bul li strong{color:var(--ink);font-weight:600}
 .card.moss ul.bul li strong{color:#fff}
 
 /* Numbered badge lists */
-.numrow{display:flex;gap:18px;align-items:flex-start;margin-bottom:14px}
+.numrow{display:flex;gap:16px;align-items:flex-start;margin-bottom:11px}
 .badge{flex:0 0 auto;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
   font:700 17px/1 var(--mono);background:var(--vermilion);color:#fff}
 .badge.moss{background:var(--moss)}
@@ -169,7 +169,7 @@ ul.bul li strong{color:var(--ink);font-weight:600}
 
 /* Formula plates */
 .formula{background:var(--moss-wash);border:1px solid var(--moss-line);border-radius:3px;
-  padding:22px 28px;text-align:center;
+  padding:17px 26px;text-align:center;
   font-family:var(--display);font-weight:500;font-size:38px;line-height:1.2;color:var(--moss);
   letter-spacing:.01em}
 .formula.v{background:var(--vermilion-wash);border-color:rgba(193,69,36,.3);color:var(--vermilion)}
@@ -189,37 +189,37 @@ sup{font-size:.62em;vertical-align:.42em}
 
 /* Callout — the "so what" bar */
 .callout{border-left:4px solid var(--vermilion);background:var(--vermilion-wash);
-  padding:18px 24px;border-radius:0 3px 3px 0}
+  padding:15px 22px;border-radius:0 3px 3px 0}
 .callout.moss{border-left-color:var(--moss);background:var(--moss-wash)}
-.callout .k{font:500 14px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
-  color:var(--vermilion);display:block;margin-bottom:9px}
+.callout .k{font:500 16px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--vermilion);display:block;margin-bottom:7px}
 .callout.moss .k{color:var(--moss)}
-.callout p{font:400 20px/1.45 var(--body);color:var(--ink)}
-.callout.sm p{font-size:18px}
+.callout p{font:400 23px/1.42 var(--body);color:var(--ink)}
+.callout.sm p{font-size:21px}
 
 /* Answer bar */
-.answer{background:var(--moss);color:#fff;border-radius:3px;padding:20px 30px;
+.answer{background:var(--moss);color:#fff;border-radius:3px;padding:16px 28px;
   display:flex;align-items:baseline;gap:20px}
-.answer .k{font:500 15px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:#a9c9b3}
-.answer .v{font-family:var(--display);font-weight:600;font-size:32px;letter-spacing:-.01em}
-.answer .n{font:400 18px/1.4 var(--body);color:#c6d6c9}
+.answer .k{font:500 17px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:#a9c9b3}
+.answer .v{font-family:var(--display);font-weight:600;font-size:36px;letter-spacing:-.01em}
+.answer .n{font:400 20px/1.4 var(--body);color:#c6d6c9}
 
 /* Data tables */
 table.dt{width:100%;border-collapse:collapse;background:var(--paper-card);
-  border:1px solid var(--rule);font:400 19px/1.4 var(--body);color:var(--ink-soft)}
-table.dt th{background:var(--moss);color:#fff;font:600 17px/1.3 var(--body);
-  text-align:left;padding:14px 16px;letter-spacing:.01em;vertical-align:middle}
+  border:1px solid var(--rule);font:400 21px/1.4 var(--body);color:var(--ink-soft)}
+table.dt th{background:var(--moss);color:#fff;font:600 19px/1.3 var(--body);
+  text-align:left;padding:11px 16px;letter-spacing:.01em;vertical-align:middle}
 table.dt th:first-child{font-family:var(--mono);font-size:14px;letter-spacing:.14em;
   text-transform:uppercase;font-weight:500;color:#b6cdbd}
-table.dt td{padding:18px 16px;border-top:1px solid var(--rule-soft);vertical-align:top}
+table.dt td{padding:14px 16px;border-top:1px solid var(--rule-soft);vertical-align:top}
 table.dt tbody tr:nth-child(even){background:rgba(20,28,24,.022)}
 table.dt td.rh{font-weight:600;color:var(--ink);background:rgba(47,81,64,.05)}
-table.dt td.num{font-family:var(--mono);font-size:18px;color:var(--ink)}
-table.dt.sm{font-size:17px}
-table.dt.sm th{font-size:15px;padding:11px 13px}
+table.dt td.num{font-family:var(--mono);font-size:20px;color:var(--ink)}
+table.dt.sm{font-size:19px}
+table.dt.sm th{font-size:17px;padding:11px 13px}
 table.dt.sm td{padding:9px 13px}
-table.dt.xs{font-size:15px}
-table.dt.xs th{font-size:13px;padding:9px 10px}
+table.dt.xs{font-size:17px}
+table.dt.xs th{font-size:15px;padding:9px 10px}
 table.dt.xs td{padding:7px 10px}
 table.dt tr.hi td{background:var(--vermilion-wash)}
 table.dt tr.tot td{background:rgba(47,81,64,.10);font-weight:600;color:var(--ink);
@@ -227,39 +227,39 @@ table.dt tr.tot td{background:rgba(47,81,64,.10);font-weight:600;color:var(--ink
 table.dt td.c,table.dt th.c{text-align:center}
 
 /* Layout helpers */
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
 .gcols{display:grid;gap:28px}
 .stack{display:flex;flex-direction:column;gap:22px}
-.stack.sm{gap:16px}
+.stack.sm{gap:13px}
 .row{display:flex;gap:24px}
 .fill{height:100%}
 .between{justify-content:space-between}
 .center{text-align:center}
 
 /* Step chain for worked examples */
-.step{display:grid;grid-template-columns:230px 1fr;gap:22px;align-items:center;
-  padding:14px 0;border-top:1px solid var(--rule-soft)}
+.step{display:grid;grid-template-columns:210px 1fr;gap:20px;align-items:center;
+  padding:11px 0;border-top:1px solid var(--rule-soft)}
 .step:first-child{border-top:none}
-.step .sl{font:500 15px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--moss)}
-.step .sv{font-family:var(--mono);font-size:22px;color:var(--ink);letter-spacing:-.01em}
+.step .sl{font:500 17px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--moss)}
+.step .sv{font-family:var(--mono);font-size:25px;color:var(--ink);letter-spacing:-.01em}
 .step .sv .hlt{color:var(--vermilion)}
 .step.sm{padding:10px 0}
 .step.sm .sv{font-size:19px}
 
 /* Question cards */
-.q{display:grid;grid-template-columns:46px 1fr;gap:18px;align-items:start;
-  background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;padding:20px 22px}
-.q .qt{font:400 19px/1.42 var(--body);color:var(--ink)}
-.q .qm{margin-top:8px;font:500 14px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+.q{display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:start;
+  background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;padding:16px 20px}
+.q .qt{font:400 21px/1.4 var(--body);color:var(--ink)}
+.q .qm{margin-top:8px;font:500 16px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
   color:var(--ink-faint)}
-.q .qa{margin-top:8px;font:500 17px var(--mono);color:var(--moss)}
+.q .qa{margin-top:8px;font:500 19px var(--mono);color:var(--moss)}
 
 /* Chips */
 .chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{font:500 15px/1 var(--mono);letter-spacing:.08em;color:var(--moss);
+.chip{font:500 17px/1 var(--mono);letter-spacing:.08em;color:var(--moss);
   border:1px solid var(--moss-line);background:var(--moss-wash);padding:9px 14px;border-radius:2px}
 .chip.v{color:var(--vermilion);border-color:rgba(193,69,36,.3);background:var(--vermilion-wash)}
 
@@ -339,6 +339,41 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   font:500 13px/1 var(--mono);letter-spacing:.1em;color:#f2efe6;background:rgba(47,81,64,.95);
   padding:12px 20px;border-radius:100px;opacity:0;pointer-events:none;transition:opacity .3s}
 .toast.on{opacity:1}
+/* === DENSITY OVERRIDE ======================================================
+   The type scale was raised across the module for readability from the back of
+   the room. On the densest slides that costs vertical space, and it is bought
+   back here from padding and gaps - never from font size.
+   `fit` is the normal step; `fit2` is for the few slides that need more.
+   ========================================================================== */
+.slide.fit .card{padding:18px 22px}
+.slide.fit .callout{padding:12px 20px}
+.slide.fit .callout .k{margin-bottom:5px}
+.slide.fit .stack{gap:14px}
+.slide.fit .stack.sm{gap:10px}
+.slide.fit ul.bul li{margin-bottom:7px}
+.slide.fit ul.bul.sm li{margin-bottom:5px}
+.slide.fit .card h3,.slide.fit .card .ch,.slide.fit .ch{margin-bottom:8px}
+.slide.fit .formula{padding:13px 22px}
+.slide.fit .formula.sm{padding:11px 18px}
+.slide.fit table.dt td{padding:10px 14px}
+.slide.fit table.dt th{padding:9px 14px}
+.slide.fit .step{padding:8px 0}
+.slide.fit .numrow{margin-bottom:8px}
+.slide.fit .q{padding:13px 18px}
+.slide.fit .answer{padding:13px 24px}
+.slide.fit2 .card{padding:14px 20px}
+.slide.fit2 .callout{padding:10px 18px}
+.slide.fit2 .stack{gap:11px}
+.slide.fit2 .stack.sm{gap:8px}
+.slide.fit2 ul.bul li{margin-bottom:5px}
+.slide.fit2 ul.bul.sm li{margin-bottom:4px}
+.slide.fit2 .card h3,.slide.fit2 .card .ch,.slide.fit2 .ch{margin-bottom:6px}
+.slide.fit2 .formula{padding:10px 20px}
+.slide.fit2 table.dt td{padding:8px 12px}
+.slide.fit2 table.dt th{padding:7px 12px}
+.slide.fit2 .step{padding:6px 0}
+.slide.fit2 .numrow{margin-bottom:6px}
+.slide.fit2 .q{padding:11px 16px}
 </style>
 </head>
 <body>
@@ -353,7 +388,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
      SLIDE 1 — COVER
      ====================================================================== -->
 <!-- SPEAKER NOTES · SLIDE 1
-     Welcome the class to Unit VII. This unit merges what were previously three separate sessions - Session 14 on the age of trees, Session 15 on growth and increment, and Session 16 on increment percentage - into one continuous story, because they answer one question in three steps: how old is this tree, how fast is it growing, and how do we express that rate as a number a manager can use.
+     Welcome the class to Unit VII. This unit occupies three sessions - Session 15 on the age of trees, Session 16 on growth and increment, and Session 17 on increment percentage - into one continuous story, because they answer one question in three steps: how old is this tree, how fast is it growing, and how do we express that rate as a number a manager can use.
 
      Open with the reason age matters at all. A tree's size tells you nothing about its productivity until you know how long it took to get there. Two trees of the same 40 cm diameter, one aged 30 years and one aged 120, are completely different propositions - one is a productive site, the other is not. Age converts a measurement into a rate.
 
@@ -403,7 +438,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="rv" style="--d:1;margin-top:24px;width:120px;height:1px;background:var(--ink);opacity:.85"></div>
   </div>
   <div class="cframe">
-    <div class="cunit rv" style="--d:2">Unit VII</div>
+    <div class="cunit rv" style="--d:2">Unit VII &middot; Sessions 15&ndash;17</div>
     <h1 class="rv" style="--d:3">Age and Growth<br><em>of Trees</em></h1>
     <p class="csub rv" style="--d:5">Determination of age · growth and increment · CAI, MAI and the culmination · increment percentage</p>
   </div>
@@ -411,7 +446,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="rv" style="--d:7"><strong>BSc in Forestry</strong>College of Natural Resources<br>Royal University of Bhutan</div>
     <div class="rv" style="--d:8"><strong>Module Tutor &middot; Wangdi</strong>Senior Forestry Officer, Adjunct Lecturer<br>Forest Resources Planning and Management Division</div>
   </div>
-  <div class="pageno">01 / 49</div>
+  <div class="pageno">01 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -451,14 +486,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">02 / 49</div>
+  <div class="pageno">02 / 52</div>
 </section>
 
 <!-- ======================================================================
      SLIDE 3 — WHY AGE AND GROWTH MATTER
      ====================================================================== -->
 <!-- SPEAKER NOTES · SLIDE 3
-     This is the objectives slide from Session 14, expanded. Do not rush it - students treat age as a curiosity until they see money and policy attached to it.
+     This is the objectives slide for Session 15, expanded. Do not rush it - students treat age as a curiosity until they see money and policy attached to it.
 
      The three objectives from the source, in order:
      - The time required to produce volume and biomass. This is the productivity question. A site that grows 300 cubic metres per hectare in 40 years is worth far more than one that takes 120 years to do the same.
@@ -480,15 +515,15 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <p class="lead rv" style="--d:2;margin-bottom:26px">A tree's size tells you nothing about its productivity until you know <strong>how long it took to get there</strong>. Two 40 cm trees, one aged 30 years and one aged 120, are entirely different propositions.</p>
     <div class="g3 rv" style="--d:3;gap:26px;margin-bottom:26px">
       <div class="card">
-        <div class="numrow" style="margin-bottom:4px"><div class="badge">1</div><div class="ch" style="margin:6px 0 0;font-size:24px">Time to produce volume and biomass</div></div>
+        <div class="numrow" style="margin-bottom:4px"><div class="badge">1</div><div class="ch" style="margin:6px 0 0;font-size:27px">Time to produce volume and biomass</div></div>
         <p class="txt-sm" style="margin-top:14px">The productivity question. A site growing 300 m<sup>3</sup>/ha in 40 years is worth far more than one taking 120 years to do the same.</p>
       </div>
       <div class="card">
-        <div class="numrow" style="margin-bottom:4px"><div class="badge">2</div><div class="ch" style="margin:6px 0 0;font-size:24px">The rate of growth</div></div>
+        <div class="numrow" style="margin-bottom:4px"><div class="badge">2</div><div class="ch" style="margin:6px 0 0;font-size:27px">The rate of growth</div></div>
         <p class="txt-sm" style="margin-top:14px">Size divided by time. Everything in Sections B, C and D of this unit is one way or another of expressing this single quantity.</p>
       </div>
       <div class="card">
-        <div class="numrow" style="margin-bottom:4px"><div class="badge moss">3</div><div class="ch" style="margin:6px 0 0;font-size:24px">Comparing financial results</div></div>
+        <div class="numrow" style="margin-bottom:4px"><div class="badge moss">3</div><div class="ch" style="margin:6px 0 0;font-size:27px">Comparing financial results</div></div>
         <p class="txt-sm" style="margin-top:14px">Money has a time value. Without age there is no rate of return, and forestry cannot be compared with any other use of the land.</p>
       </div>
     </div>
@@ -502,14 +537,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">03 / 49</div>
+  <div class="pageno">03 / 52</div>
 </section>
 
 <!-- ======================================================================
      SLIDE 4 — UNIT MAP
      ====================================================================== -->
 <!-- SPEAKER NOTES · SLIDE 4
-     Give students the map before the journey. Section A was Session 14; Sections B and C were Session 15; Section D was Session 16.
+     Give students the map before the journey. Section A is Session 15; Sections B and C are Session 16; Section D is Session 17.
 
      Say the through-line explicitly: Section A gets the age, Section B defines what growth is, Section C measures it as an absolute amount per year, and Section D expresses it as a percentage. The same tree, described four ways, each more useful than the last for a particular decision.
 
@@ -527,8 +562,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="g4 fill" style="align-items:stretch">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column">
-        <div style="font-family:var(--display);font-weight:600;font-size:92px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">A</div>
-        <div class="ch" style="margin-top:24px;font-size:28px">Age of trees</div>
+        <div style="font-family:var(--display);font-weight:600;font-size:103px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">A</div>
+        <div class="ch" style="margin-top:24px;font-size:31px">Age of trees</div>
         <p class="txt-sm">How old is this tree, when nobody wrote down the year it germinated?</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:22px">
@@ -537,8 +572,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column">
-        <div style="font-family:var(--display);font-weight:600;font-size:92px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">B</div>
-        <div class="ch" style="margin-top:24px;font-size:28px">Growth and increment</div>
+        <div style="font-family:var(--display);font-weight:600;font-size:103px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">B</div>
+        <div class="ch" style="margin-top:24px;font-size:31px">Growth and increment</div>
         <p class="txt-sm">What exactly is growing, and what shape does a lifetime of growth take?</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:22px">
@@ -547,8 +582,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="card rv" style="--d:6;display:flex;flex-direction:column">
-        <div style="font-family:var(--display);font-weight:600;font-size:92px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">C</div>
-        <div class="ch" style="margin-top:24px;font-size:28px">CAI, MAI and the culmination</div>
+        <div style="font-family:var(--display);font-weight:600;font-size:103px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">C</div>
+        <div class="ch" style="margin-top:24px;font-size:31px">CAI, MAI and the culmination</div>
         <p class="txt-sm">How much per year — and when should the crop be cut?</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:22px">
@@ -557,8 +592,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="card rv" style="--d:8;display:flex;flex-direction:column">
-        <div style="font-family:var(--display);font-weight:600;font-size:92px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">D</div>
-        <div class="ch" style="margin-top:24px;font-size:28px">Increment percentage</div>
+        <div style="font-family:var(--display);font-weight:600;font-size:103px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">D</div>
+        <div class="ch" style="margin-top:24px;font-size:31px">Increment percentage</div>
         <p class="txt-sm">How fast, expressed as a rate of return — the language of finance.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:22px">
@@ -568,8 +603,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
     </div>
   </div>
-  <div class="src">Section A was Session 14; Sections B and C were Session 15; Section D was Session 16. Section D is where forestry meets finance — those formulae are the compound interest formulae from banking, applied to wood.</div>
-  <div class="pageno">04 / 49</div>
+  <div class="src">Section A is Session 15; Sections B and C are Session 16; Section D is Session 17. Section D is where forestry meets finance — those formulae are the compound interest formulae from banking, applied to wood.</div>
+  <div class="pageno">04 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -580,7 +615,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      That is the whole problem of Section A. Every method in this section is a way of getting at a number that is hidden inside the stem, and every one of them is either indirect, approximate, or destructive.
 
-     This section was formerly Session 14.
+     This section is Session 15.
 -->
 <section class="slide" data-n="5">
   <div class="sect">
@@ -607,7 +642,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="srule rv" style="--d:2"></div>
       <p class="ssub rv" style="--d:3">From records · from appearance · from whorls · from periodic measurements · from the rings themselves</p>
     </div>
-    <div class="spage">05 / 49</div>
+    <div class="spage">05 / 52</div>
   </div>
 </section>
 
@@ -651,12 +686,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
     <div class="g2 rv" style="--d:4;gap:34px;margin-bottom:24px">
       <div class="card sunk">
-        <div class="ch" style="font-size:22px">The nursery offset students forget</div>
+        <div class="ch" style="font-size:25px">The nursery offset students forget</div>
         <p class="txt-sm">A plantation record gives the <strong>planting year</strong>. Seedlings spend one to three years in the nursery first. A stand recorded as planted in 2000 may have germinated in 1998 — and every age computed from that record is short by two years, for every tree, always in the same direction.</p>
       </div>
       <div class="card sunk">
-        <div class="ch" style="font-size:22px">Which age does a ring count give?</div>
-        <p class="txt-sm">Rings counted at a stump or at breast height give the age <strong>at that height</strong>, not from germination. The years the tree spent growing up to that height must be added back — see slide 14.</p>
+        <div class="ch" style="font-size:25px">Which age does a ring count give?</div>
+        <p class="txt-sm">Rings counted at a stump or at breast height give the age <strong>at that height</strong>, not from germination. The years the tree spent growing up to that height must be added back — see slide 13.</p>
       </div>
     </div>
     <div class="callout rv" style="--d:6;position:absolute;left:0;right:0;bottom:0">
@@ -665,7 +700,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">06 / 49</div>
+  <div class="pageno">06 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -705,7 +740,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <span class="u">year of determining the age &nbsp;−&nbsp; year of the seeding felling</span>
         </div>
         <div class="card rv" style="--d:4">
-          <div class="ch" style="font-size:22px">What a seeding felling is</div>
+          <div class="ch" style="font-size:25px">What a seeding felling is</div>
           <p class="txt-sm">In the shelterwood system, the cut that opens the canopy so that seed can fall and germinate. It is the nearest thing natural regeneration has to a planting date — and it is recorded in the working plan.</p>
         </div>
         <div style="flex:1"></div>
@@ -722,7 +757,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">07 / 49</div>
+  <div class="pageno">07 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -774,8 +809,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
     </div>
   </div>
-  <div class="src">Tutor: the bark direction given for sal is as stated in the source session. Bark character must be learned species by species — say so in class rather than letting students generalise it.</div>
-  <div class="pageno">08 / 49</div>
+  <div class="src">Bark character must be learned species by species. Do not generalise a bark description from one species to another.</div>
+  <div class="pageno">08 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -796,7 +831,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Where it fails, and students should know: broadleaves, which do not whorl; conifers on poor sites that miss a year; and any tree that has been browsed or had its leader broken, which produces a false whorl or a doubled one. In Bhutan, blue pine and spruce whorl reliably in young plantations, which is exactly where the method is most useful and where the record usually exists anyway.
 -->
-<section class="slide" data-n="9">
+<section class="slide fit fit2" data-n="9">
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Section A · Method 3</div>
     <h2 class="title rv" style="--d:1">Age from <em>whorls of branches</em> and annual shoots</h2>
@@ -806,13 +841,13 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div style="display:grid;grid-template-columns:1.06fr .94fr;gap:34px;height:100%">
       <div class="stack">
-        <p class="lead rv" style="--d:2">Many conifers produce exactly <strong>one whorl of branches a year</strong> from a single terminal bud. Count the whorls up the stem and you have counted the years.</p>
+        <p class="lead rv" style="--d:2">Many conifers produce exactly <strong>one whorl of branches a year</strong>. Count the whorls, and you have counted the years.</p>
         <div class="formula sm rv" style="--d:3">Age &nbsp;=&nbsp; number of whorls &nbsp;+&nbsp; years for the part not visible
           <span class="u">the same formula serves species showing annual shoot marks</span>
         </div>
         <div class="card rv" style="--d:4">
           <div class="ch v">The whole difficulty is the second term</div>
-          <p class="txt-sm">The lowest whorls are lost first — shed by natural pruning as the crown lifts, and their scars grow over. A count from the ground <strong>always undercounts</strong>. The correction is an estimate of the years the tree took to reach the lowest whorl you can still see.</p>
+          <p class="txt-sm">The lowest whorls are shed as the crown lifts and their scars grow over, so a ground count <strong>always undercounts</strong>. The correction estimates the years taken to reach the lowest whorl still visible.</p>
         </div>
         <div class="card sunk rv" style="--d:5">
           <div class="label v">Worked illustration</div>
@@ -869,7 +904,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="src">These methods give only an approximate idea of the age of a tree.</div>
-  <div class="pageno">09 / 49</div>
+  <div class="pageno">09 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -900,13 +935,13 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="stack">
         <p class="lead rv" style="--d:2">The tree is measured <strong>three times at equal intervals</strong>. No rings are counted and no judgement is used — which is why this method also works on trees that have <strong>no annual rings</strong>.</p>
         <div class="card rv" style="--d:3">
-          <div class="ch" style="font-size:22px">Notation</div>
+          <div class="ch" style="font-size:25px">Notation</div>
           <table style="width:100%;border-collapse:collapse;font:400 18px/1.5 var(--body);color:var(--ink-soft);margin-top:8px">
-            <tr><td style="width:82px;padding:6px 0;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:19px">d<sub>1</sub></td><td>the initial diameter</td></tr>
-            <tr><td style="padding:6px 0;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:19px">d<sub>2</sub>, d<sub>3</sub></td><td>diameters at the subsequent periodic measurements</td></tr>
-            <tr><td style="padding:6px 0;font-family:var(--mono);font-weight:700;color:var(--vermilion);font-size:19px">P<sub>1</sub></td><td>growth per unit diameter per year, <strong>first</strong> period</td></tr>
-            <tr><td style="padding:6px 0;font-family:var(--mono);font-weight:700;color:var(--vermilion);font-size:19px">P<sub>2</sub></td><td>growth per unit diameter per year, <strong>second</strong> period</td></tr>
-            <tr><td style="padding:6px 0;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:19px">T</td><td>length of each period, in years</td></tr>
+            <tr><td style="width:82px;padding:6px 0;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:21px">d<sub>1</sub></td><td>the initial diameter</td></tr>
+            <tr><td style="padding:6px 0;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:21px">d<sub>2</sub>, d<sub>3</sub></td><td>diameters at the subsequent periodic measurements</td></tr>
+            <tr><td style="padding:6px 0;font-family:var(--mono);font-weight:700;color:var(--vermilion);font-size:21px">P<sub>1</sub></td><td>growth per unit diameter per year, <strong>first</strong> period</td></tr>
+            <tr><td style="padding:6px 0;font-family:var(--mono);font-weight:700;color:var(--vermilion);font-size:21px">P<sub>2</sub></td><td>growth per unit diameter per year, <strong>second</strong> period</td></tr>
+            <tr><td style="padding:6px 0;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:21px">T</td><td>length of each period, in years</td></tr>
           </table>
         </div>
         <div class="formula sm rv" style="--d:4">P<sub>1</sub> &nbsp;=&nbsp;
@@ -931,7 +966,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">10 / 49</div>
+  <div class="pageno">10 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -986,7 +1021,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">11 / 49</div>
+  <div class="pageno">11 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -1011,7 +1046,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Put the two answers side by side: 60 years against 55. A five-year difference, nine per cent, produced entirely by rounding one intermediate value from 0.018182 to 0.018 - a change of one per cent in that value alone.
 
-     IMPORTANT NOTE FOR THE TUTOR. The Session 14 slide gives the answer as 55 years, obtained with P2 rounded to 0.018. The exact answer for the data as stated is 60 years. Decide before the class which you will mark as correct, and tell the students. The recommendation here is to teach 60 as the answer and use 55 to demonstrate the rounding trap, because that turns an error in the notes into the most memorable lesson of the unit. If past examination papers have used 55, say so openly rather than leaving students to discover the discrepancy in the exam hall.
+     RESOLVED FOR THIS MODULE. The answer marked as correct is 60 years, computed at full precision, and 55 years is taught only as the demonstration of the rounding trap. An older source slide gave 55 because it rounded P2 to 0.018; if a student produces 55 from a past paper, show them the two columns on this slide rather than simply marking it wrong.
 
      Close by connecting back: Unit V told them to carry six significant figures, Unit VI showed a result resting on a two-centimetre difference, and here a rounding in the third decimal place moves a tree's age by five years. The rule is not pedantry.
 -->
@@ -1050,8 +1085,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="callout rv" style="--d:7"><span class="k">The rule, three units running</span><p>Unit V said carry six significant figures. Unit VI showed a result resting on two centimetres. Here a rounding in the <strong>third decimal place</strong> moves a tree's age by five years.</p></div>
     </div>
   </div>
-  <div class="src">Tutor: the Session 14 slide gives 55 years, using P₂ rounded to 0.018. The exact answer for the data as stated is 60. Decide which you will mark as correct and tell the class — and if past papers used 55, say so openly.</div>
-  <div class="pageno">12 / 49</div>
+  <div class="src">For this module the correct answer is <strong>60 years</strong>, computed at full precision. The 55-year figure is what rounding P₂ to 0.018 produces, and it is shown only to demonstrate the rounding trap.</div>
+  <div class="pageno">12 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -1072,7 +1107,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Ask the class: why count on the stump rather than at breast height, if the stump correction is smaller? Because the stump is what is left after felling, and the log has gone to the depot. The count you can actually do is often the count you must use.
 -->
-<section class="slide" data-n="13">
+<section class="slide fit fit2" data-n="13">
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Section A · The exact method, when it is available</div>
     <h2 class="title rv" style="--d:1">Age of a <em>felled tree</em> · counting the rings</h2>
@@ -1135,7 +1170,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">13 / 49</div>
+  <div class="pageno">13 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -1153,7 +1188,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      That doubling is the step students get wrong, and it is worth stating three times. A core is a radius, not a diameter. The rings on it record growth on one side of the tree only. Diameter increases by twice the ring width, because the tree lays wood on all sides.
 
-     So the past diameter is: present diameter minus twice the width of the outermost n rings. That is exactly the arithmetic on slide 43, where 65 − (9.5 × 2) = 46 cm.
+     So the past diameter is: present diameter minus twice the width of the outermost n rings. That is exactly the arithmetic on slide 40, where 65 − (9.5 × 2) = 46 cm.
 
      Field practice worth teaching: bore at breast height, on the uphill side, perpendicular to the stem and aimed at the pith - a core that misses the pith undercounts the rings. Do not bore a tree you intend to leave standing for a century if you can avoid it; the wound is small but it is a wound, and in some species it is an infection court. In Bhutan, boring is routinely done on sample trees in permanent plots, not on every tree.
 
@@ -1202,9 +1237,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </svg>
     </div>
     <div class="g3" style="gap:26px;margin-bottom:24px">
-      <div class="card rv" style="--d:4"><div class="ch" style="font-size:22px">Count all the rings</div><p class="txt-sm">gives the <strong>age at breast height</strong> — add the years taken to reach 1.3 m</p></div>
-      <div class="card rv" style="--d:5"><div class="ch" style="font-size:22px">Measure the outer <em>n</em> rings</div><p class="txt-sm">gives the <strong>radial</strong> growth of the last <em>n</em> years</p></div>
-      <div class="card rv" style="--d:6"><div class="ch v" style="font-size:22px">Double it</div><p class="txt-sm">gives the <strong>diameter</strong> growth of the last <em>n</em> years — the input to Section D</p></div>
+      <div class="card rv" style="--d:4"><div class="ch" style="font-size:25px">Count all the rings</div><p class="txt-sm">gives the <strong>age at breast height</strong> — add the years taken to reach 1.3 m</p></div>
+      <div class="card rv" style="--d:5"><div class="ch" style="font-size:25px">Measure the outer <em>n</em> rings</div><p class="txt-sm">gives the <strong>radial</strong> growth of the last <em>n</em> years</p></div>
+      <div class="card rv" style="--d:6"><div class="ch v" style="font-size:25px">Double it</div><p class="txt-sm">gives the <strong>diameter</strong> growth of the last <em>n</em> years — the input to Section D</p></div>
     </div>
     <div class="callout rv" style="--d:8;position:absolute;left:0;right:0;bottom:0">
       <span class="k">Say this three times · a core is a radius, not a diameter</span>
@@ -1212,7 +1247,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="src">Bore at breast height, on the uphill side, perpendicular to the stem and aimed at the pith — a core that misses the pith undercounts. Bore sample trees in permanent plots, not every tree: the wound is small, but in some species it is an infection court.</div>
-  <div class="pageno">14 / 49</div>
+  <div class="pageno">14 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -1246,22 +1281,22 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <p class="lead rv" style="--d:2;margin-bottom:24px">Ring counting is exact <strong>only where the growing season is sharply seasonal</strong>. Four things go wrong, and each has a distinct cause and a distinct direction of error.</p>
     <div class="g2" style="gap:28px;row-gap:24px;grid-template-rows:1fr 1fr;height:calc(100% - 190px)">
       <div class="card rv" style="--d:3">
-        <div class="numrow" style="margin-bottom:4px"><div class="badge">1</div><div class="ch" style="margin:6px 0 0;font-size:23px">False rings</div></div>
+        <div class="numrow" style="margin-bottom:4px"><div class="badge">1</div><div class="ch" style="margin:6px 0 0;font-size:26px">False rings</div></div>
         <p class="txt-sm" style="margin-top:12px">A drought or a defoliation part way through the season stops growth; when conditions improve the cambium restarts and lays a band that <strong>looks like late wood in mid-year</strong>.</p>
         <p class="txt-sm" style="margin-top:10px;color:var(--vermilion)"><strong>Overestimates</strong> the age. A false ring usually fades out round the circumference instead of closing cleanly.</p>
       </div>
       <div class="card rv" style="--d:4">
-        <div class="numrow" style="margin-bottom:4px"><div class="badge">2</div><div class="ch" style="margin:6px 0 0;font-size:23px">Missing rings</div></div>
+        <div class="numrow" style="margin-bottom:4px"><div class="badge">2</div><div class="ch" style="margin:6px 0 0;font-size:26px">Missing rings</div></div>
         <p class="txt-sm" style="margin-top:12px">In a very bad year, or in a heavily suppressed tree, the cambium may not divide at all round part of the stem. The ring is simply <strong>not there on that radius</strong>.</p>
         <p class="txt-sm" style="margin-top:10px;color:var(--vermilion)"><strong>Underestimates</strong> the age. This is why several radii and several trees are cross-dated.</p>
       </div>
       <div class="card moss rv" style="--d:5">
-        <div class="numrow" style="margin-bottom:4px"><div class="badge lg" style="background:var(--gold)">3</div><div class="ch" style="margin:8px 0 0;font-size:23px">Indistinct rings — the Bhutanese problem</div></div>
+        <div class="numrow" style="margin-bottom:4px"><div class="badge lg" style="background:var(--gold)">3</div><div class="ch" style="margin:8px 0 0;font-size:26px">Indistinct rings — the Bhutanese problem</div></div>
         <p class="txt-sm" style="margin-top:12px">In the wet subtropical broadleaf forests of the southern foothills there is <strong>no strong dry season</strong> to arrest growth, so many species form no clear annual boundary at all.</p>
         <p class="txt-sm" style="margin-top:10px">Ring counting there is unreliable to useless — which is exactly why the <strong>periodic measurement formula</strong> of Method 4 exists.</p>
       </div>
       <div class="card rv" style="--d:6">
-        <div class="numrow" style="margin-bottom:4px"><div class="badge">4</div><div class="ch" style="margin:6px 0 0;font-size:23px">Multiple rings a year</div></div>
+        <div class="numrow" style="margin-bottom:4px"><div class="badge">4</div><div class="ch" style="margin:6px 0 0;font-size:26px">Multiple rings a year</div></div>
         <p class="txt-sm" style="margin-top:12px">Some species flush <strong>twice</strong> in a season and lay two boundaries in one year.</p>
         <p class="txt-sm" style="margin-top:10px;color:var(--vermilion)"><strong>Overestimates</strong> the age, and cannot be detected from a single core at all.</p>
       </div>
@@ -1272,7 +1307,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">15 / 49</div>
+  <div class="pageno">15 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -1315,7 +1350,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">16 / 49</div>
+  <div class="pageno">16 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -1348,7 +1383,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">17 / 49</div>
+  <div class="pageno">17 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -1359,7 +1394,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Ask the class before you begin: does a tree grow taller from the bottom, pushing the top up, or from the top? Most will hesitate. The answer - only from the tip - is the single most useful fact in this section, and it explains why a nail driven into a stem at 1.3 m is still at 1.3 m fifty years later.
 
-     This section was formerly the first half of Session 15.
+     This section is the first half of Session 16.
 -->
 <section class="slide" data-n="18">
   <div class="sect">
@@ -1382,7 +1417,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="srule rv" style="--d:2"></div>
       <p class="ssub rv" style="--d:3">Elongation and thickening · primary and secondary meristem · increment defined · the growth curve and the increment curve</p>
     </div>
-    <div class="spage">18 / 49</div>
+    <div class="spage">18 / 52</div>
   </div>
 </section>
 
@@ -1419,8 +1454,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <p class="lead rv" style="--d:2">Growth is the <strong>elongation</strong> and the <strong>thickening</strong> of roots, stems and branches — and it causes a tree to change in weight, in volume, and in form.</p>
         <div class="card rv" style="--d:3">
           <div class="ch">Two tissues, two kinds of growth</div>
-          <div class="step" style="margin-top:6px"><div class="sl">Primary meristem</div><div class="sv" style="font-size:19px">linear growth — <span class="hlt">elongation</span></div></div>
-          <div class="step"><div class="sl">Secondary meristem<br>(the cambium)</div><div class="sv" style="font-size:19px">thickening — <span class="hlt">diameter growth</span></div></div>
+          <div class="step" style="margin-top:6px"><div class="sl">Primary meristem</div><div class="sv" style="font-size:21px">linear growth — <span class="hlt">elongation</span></div></div>
+          <div class="step"><div class="sl">Secondary meristem<br>(the cambium)</div><div class="sv" style="font-size:21px">thickening — <span class="hlt">diameter growth</span></div></div>
           <p class="txt-sm" style="margin-top:16px">The primary meristems sit at the <strong>tips</strong> — the apical bud of the leader, the tip of each branch, the tip of each root. The cambium is a thin sleeve producing new wood and bark <strong>between the old wood and the old bark</strong>.</p>
         </div>
         <div style="flex:1"></div>
@@ -1455,12 +1490,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <line x1="180" y1="370" x2="480" y2="370" stroke="#141c18" stroke-opacity=".45" stroke-width="2"/>
           </svg>
         </div>
-        <div class="callout moss rv" style="--d:6"><span class="k">Why this matters back in Unit VI</span><p>Because the stem does not elongate below the tip, <strong>breast height stays breast height</strong>. That is what makes 1.3 m a stable, repeatable point to re-measure decade after decade.</p></div>
+        <div class="callout moss rv" style="--d:6"><span class="k">Why this matters back in Unit VI</span><p>Because the stem does not elongate below the tip, <strong>breast height stays breast height</strong>. That is what makes the breast-height mark a stable, repeatable point to re-measure decade after decade &mdash; provided every crew uses the <strong>same reference height</strong>, which is fixed by the governing protocol (1.37 m in Bhutan&rsquo;s Second NFI; 1.30 m in many international manuals).</p></div>
       </div>
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">19 / 49</div>
+  <div class="pageno">19 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -1490,10 +1525,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <p class="lead rv" style="--d:2;margin-bottom:26px">Whoever does business with forestry — managing natural forest or plantations — wants to assess <strong>the benefits out of it</strong> and the proper techniques for its management. Four pieces of information are necessary.</p>
     <div class="g4 rv" style="--d:3;gap:24px;margin-bottom:26px">
-      <div class="card"><div class="numrow" style="margin-bottom:0"><div class="badge">1</div><div><div class="ch" style="margin:4px 0 6px;font-size:21px">Age and diameter</div><p class="txt-sm">The age–diameter curve — sibling of Unit VI's height–diameter curve. Given a diameter, it predicts an age.</p></div></div></div>
-      <div class="card"><div class="numrow" style="margin-bottom:0"><div class="badge">2</div><div><div class="ch" style="margin:4px 0 6px;font-size:21px">Age, diameter and volume</div><p class="txt-sm">The three-way relation between them. Set it out in a table and you have a <strong>yield table</strong>.</p></div></div></div>
-      <div class="card"><div class="numrow" style="margin-bottom:0"><div class="badge moss">3</div><div><div class="ch" style="margin:4px 0 6px;font-size:21px">The age of rotation</div><p class="txt-sm">When to cut. <strong>Section C</strong> answers this precisely, through the culmination of the MAI.</p></div></div></div>
-      <div class="card"><div class="numrow" style="margin-bottom:0"><div class="badge moss">4</div><div><div class="ch" style="margin:4px 0 6px;font-size:21px">The rate of growth</div><p class="txt-sm">How fast, as an absolute amount in <strong>Section C</strong> and as a percentage in <strong>Section D</strong>.</p></div></div></div>
+      <div class="card"><div class="numrow" style="margin-bottom:0"><div class="badge">1</div><div><div class="ch" style="margin:4px 0 6px;font-size:24px">Age and diameter</div><p class="txt-sm">The age–diameter curve — sibling of Unit VI's height–diameter curve. Given a diameter, it predicts an age.</p></div></div></div>
+      <div class="card"><div class="numrow" style="margin-bottom:0"><div class="badge">2</div><div><div class="ch" style="margin:4px 0 6px;font-size:24px">Age, diameter and volume</div><p class="txt-sm">The three-way relation between them. Set it out in a table and you have a <strong>yield table</strong>.</p></div></div></div>
+      <div class="card"><div class="numrow" style="margin-bottom:0"><div class="badge moss">3</div><div><div class="ch" style="margin:4px 0 6px;font-size:24px">The age of rotation</div><p class="txt-sm">When to cut. <strong>Section C</strong> answers this precisely, through the culmination of the MAI.</p></div></div></div>
+      <div class="card"><div class="numrow" style="margin-bottom:0"><div class="badge moss">4</div><div><div class="ch" style="margin:4px 0 6px;font-size:24px">The rate of growth</div><p class="txt-sm">How fast, as an absolute amount in <strong>Section C</strong> and as a percentage in <strong>Section D</strong>.</p></div></div></div>
     </div>
     <div class="g2" style="gap:34px">
       <div class="callout moss rv" style="--d:5"><span class="k">Notice the shape of the syllabus</span><p>Those four items map almost exactly onto the rest of this unit. The list is not arbitrary — it <strong>is</strong> the unit.</p></div>
@@ -1501,7 +1536,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">20 / 49</div>
+  <div class="pageno">20 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -1520,7 +1555,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Ask the class where the curve IS reliable. Answer: in even-aged, single-species plantations of known site quality - which is exactly where the planting record usually exists anyway. The honest conclusion is that the curve is most trustworthy where it is least needed, and that tension is worth sitting with.
 -->
-<section class="slide" data-n="21">
+<section class="slide fit" data-n="21">
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Section B · The first of the four relations the source asks for</div>
     <h2 class="title rv" style="--d:1">The <em>age–diameter</em> curve</h2>
@@ -1578,11 +1613,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="stack">
         <div class="card rv" style="--d:3">
-          <div class="ch" style="font-size:22px">Built exactly like Unit VI's curve</div>
+          <div class="ch" style="font-size:25px">Built exactly like Unit VI's curve</div>
           <p class="txt-sm">Bore or fell a sample across the whole diameter range, count the rings on each, plot <strong>age against diameter</strong>, draw a smooth curve. The same technique, a new pair of variables.</p>
         </div>
         <div class="card sunk rv" style="--d:4">
-          <div class="ch" style="font-size:22px">What it buys you</div>
+          <div class="ch" style="font-size:25px">What it buys you</div>
           <p class="txt-sm">A diameter is <strong>cheap</strong> to measure on every tree. An age is <strong>expensive</strong> to measure on any tree. The curve lets the cheap measurement stand in for the dear one.</p>
         </div>
         <div class="callout rv" style="--d:5"><span class="k">It steepens — the opposite of Unit VI</span><p>Each further centimetre costs <strong>more</strong> years than the last. A misread diameter is <strong>most</strong> costly at the large end — where the height–diameter curve was most forgiving.</p></div>
@@ -1592,7 +1627,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="src">The curve is most trustworthy in even-aged single-species plantations of known site quality — which is exactly where the planting record usually exists anyway. It is most reliable where it is least needed.</div>
-  <div class="pageno">21 / 49</div>
+  <div class="pageno">21 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -1626,35 +1661,35 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="g5 rv" style="--d:2;align-items:stretch;height:calc(100% - 128px)">
       <div class="card" style="display:flex;flex-direction:column">
         <div class="label v">1 · Species</div>
-        <div class="ch" style="margin-top:12px;font-size:21px">The genetic ceiling</div>
+        <div class="ch" style="margin-top:12px;font-size:24px">The genetic ceiling</div>
         <p class="txt-sm">A poplar and a yew on one site differ by an order of magnitude. No silviculture closes that gap.</p>
         <div style="flex:1"></div>
         <p class="txt-sm" style="margin-top:14px;color:var(--vermilion)">Decided once, at planting — and not revisitable for a rotation.</p>
       </div>
       <div class="card" style="display:flex;flex-direction:column">
         <div class="label v">2 · Site</div>
-        <div class="ch" style="margin-top:12px;font-size:21px">The ground itself</div>
+        <div class="ch" style="margin-top:12px;font-size:24px">The ground itself</div>
         <p class="txt-sm">Soil depth, texture, drainage, nutrients — and <strong>aspect</strong>.</p>
         <div style="flex:1"></div>
         <p class="txt-sm" style="margin-top:14px;color:var(--vermilion)">In Bhutan's terrain a south and a north slope at one elevation are different sites entirely.</p>
       </div>
       <div class="card" style="display:flex;flex-direction:column">
         <div class="label v">3 · Climate</div>
-        <div class="ch" style="margin-top:12px;font-size:21px">Above all, season length</div>
+        <div class="ch" style="margin-top:12px;font-size:24px">Above all, season length</div>
         <p class="txt-sm">Rainfall, temperature, and the length of the growing season.</p>
         <div style="flex:1"></div>
         <p class="txt-sm" style="margin-top:14px;color:var(--vermilion)">A stand at 500 m and one at 3 000 m are not comparable, whatever the species.</p>
       </div>
       <div class="card" style="display:flex;flex-direction:column">
         <div class="label v">4 · Competition</div>
-        <div class="ch" style="margin-top:12px;font-size:21px">Density and crown position</div>
+        <div class="ch" style="margin-top:12px;font-size:24px">Density and crown position</div>
         <p class="txt-sm">The same genes on the same site grow very differently as a dominant and as a suppressed stem.</p>
         <div style="flex:1"></div>
         <p class="txt-sm" style="margin-top:14px;color:var(--moss)">This is what Unit VI's <strong>basal area</strong> measures.</p>
       </div>
       <div class="card moss" style="display:flex;flex-direction:column">
         <div class="label">5 · Silviculture</div>
-        <div class="ch" style="margin-top:12px;font-size:21px">What the forester does</div>
+        <div class="ch" style="margin-top:12px;font-size:24px">What the forester does</div>
         <p class="txt-sm">Thinning, weeding, drainage, fertilising, pruning.</p>
         <div style="flex:1"></div>
         <p class="txt-sm" style="margin-top:14px">Notice what they share: <strong>every one works by reducing competition or improving the site</strong>.</p>
@@ -1666,7 +1701,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">22 / 49</div>
+  <div class="pageno">22 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -1681,7 +1716,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Third bullet, and it is the interesting one: with increasing age the forces of decay become more active than the increment. In that situation the tree is said to be putting on NEGATIVE increment. Make sure students can define this. A hollowing, rotting veteran may lose more wood to decay each year than its cambium adds, so its net volume falls. It is still growing - the cambium is still working - but it is losing ground.
 
-     Fourth bullet: the age at which the highest rate of growth is reached is DIFFERENT for different growth parameters - diameter, height, form, volume. That is not a detail; it is the reason a single 'growth rate' for a tree is meaningless without saying growth in what. Slide 24 gives the numbers.
+     Fourth bullet: the age at which the highest rate of growth is reached is DIFFERENT for different growth parameters - diameter, height, form, volume. That is not a detail; it is the reason a single 'growth rate' for a tree is meaningless without saying growth in what. Slide 25 gives the numbers.
 -->
 <section class="slide" data-n="23">
   <div class="head">
@@ -1691,7 +1726,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit VII</div>
   <div class="body">
-    <div class="formula rv" style="--d:2;font-size:27px;margin-bottom:26px">Increment is the <strong>increase</strong> in girth, diameter, basal area, height,<br>volume, quality, price or value of trees or crops <strong>during a given period</strong>
+    <div class="formula rv" style="--d:2;font-size:30px;margin-bottom:26px">Increment is the <strong>increase</strong> in girth, diameter, basal area, height,<br>volume, quality, price or value of trees or crops <strong>during a given period</strong>
     </div>
     <div class="g2 rv" style="--d:4;gap:34px;margin-bottom:24px">
       <div class="card">
@@ -1709,13 +1744,13 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <p class="txt-sm">With increasing age the <strong>forces of decay</strong> become more active than the increment. A hollowing, rotting veteran may lose more wood to decay each year than its cambium adds, so its net volume falls. It is still growing — and still losing ground.</p>
       </div>
       <div class="card sunk rv" style="--d:7">
-        <div class="ch" style="font-size:22px">Growth in <em>what</em>?</div>
+        <div class="ch" style="font-size:25px">Growth in <em>what</em>?</div>
         <p class="txt-sm">The age at which the highest rate is reached is <strong>different for different parameters</strong> — diameter, height, form, volume. A single "growth rate" for a tree is meaningless without saying growth in what.</p>
       </div>
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">23 / 49</div>
+  <div class="pageno">23 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -1779,7 +1814,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="callout moss rv" style="--d:6"><span class="k">The link to the next slide</span><p>The increment curve is the <strong>slope</strong> of this one. Steepest here = maximum there; flat here = near zero there.</p></div>
     </div>
   </div>
-  <div class="pageno">24 / 49</div>
+  <div class="pageno">24 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -1798,7 +1833,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      First, the ordering. Height peaks earliest, then diameter, then basal area, then volume. Why? Because each is built from the one before, with a lag. Basal area depends on diameter squared, so it keeps rising after diameter increment has begun to fall. Volume depends on basal area and height together, so it peaks later still. That cascade is worth working through aloud - it is a genuinely satisfying piece of reasoning.
 
-     Second, negative increment. The curve is drawn approaching zero, but in an over-mature tree it crosses zero and goes below. That is the negative increment defined on slide 21, and it is the reason a working plan removes over-mature trees rather than leaving them to grow.
+     Second, negative increment. The curve is drawn approaching zero, but in an over-mature tree it crosses zero and goes below. That is the negative increment defined on slide 23, and it is the reason a working plan removes over-mature trees rather than leaving them to grow.
 -->
 <section class="slide" data-n="25">
   <div class="head">
@@ -1848,23 +1883,23 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="stack">
         <div class="card rv" style="--d:4">
-          <div class="ch" style="font-size:22px">It is the slope of the last curve</div>
+          <div class="ch" style="font-size:25px">It is the slope of the last curve</div>
           <p class="txt-sm">Near zero at first · a <strong>peak</strong> where the growth curve is steepest · declining as the growth curve flattens. Put the two one above the other with the same age axis and the peak sits exactly under the steepest slope.</p>
         </div>
         <div class="card sunk rv" style="--d:5">
-          <div class="ch" style="font-size:22px">Why the peaks come in that order</div>
+          <div class="ch" style="font-size:25px">Why the peaks come in that order</div>
           <p class="txt-sm">Each parameter is built from the one before, with a lag. Basal area goes with <strong>d<sup>2</sup></strong>, so it keeps rising after diameter increment has begun to fall. Volume needs basal area <strong>and</strong> height, so it peaks later still.</p>
           <div class="chips" style="margin-top:14px">
             <span class="chip">height</span><span class="chip">→ diameter</span><span class="chip">→ basal area</span><span class="chip v">→ volume</span>
           </div>
         </div>
         <div style="flex:1"></div>
-        <div class="callout rv" style="--d:7"><span class="k">Below the axis</span><p>In an over-mature tree the curve <strong>crosses zero</strong> — the negative increment of slide 21. It is why a working plan removes over-mature trees rather than leaving them to grow.</p></div>
+        <div class="callout rv" style="--d:7"><span class="k">Below the axis</span><p>In an over-mature tree the curve <strong>crosses zero</strong> — the negative increment of slide 23. It is why a working plan removes over-mature trees rather than leaving them to grow.</p></div>
       </div>
     </div>
   </div>
-  <div class="src">Peak ages are illustrative, taken from the figures reproduced in the source session; verify the species and locality before quoting them as constants.</div>
-  <div class="pageno">25 / 49</div>
+  <div class="src">Hypothetical teaching data. Peak ages are illustrative; they are not constants, and they differ with species, site and locality.</div>
+  <div class="pageno">25 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -1895,7 +1930,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">26 / 49</div>
+  <div class="pageno">26 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -1906,7 +1941,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Tell the class outright that this section contains the idea that fixes rotation ages in every managed forest in the world. It is worth their full attention.
 
-     This section was formerly the second half of Session 15.
+     This section is the second half of Session 16.
 -->
 <section class="slide" data-n="27">
   <div class="sect">
@@ -1929,7 +1964,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="srule rv" style="--d:2"></div>
       <p class="ssub rv" style="--d:3">Classification of increment · current, periodic, total and mean annual · the relationship between them · culmination and rotation</p>
     </div>
-    <div class="spage">27 / 49</div>
+    <div class="spage">27 / 52</div>
   </div>
 </section>
 
@@ -1949,7 +1984,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      4. Mean annual increment, m.a.i. The total increment up to a given age divided by that age. Then the two special names from the source: computed for a portion of the age it is the PERIODIC mean annual increment; computed at the rotation age it is the FINAL mean annual increment.
 
-     Drill the arithmetic distinction: MAI is a running average from year zero; PAI is a local average over a short window; CAI is the instantaneous rate. Ask the class which of the three a yield table actually contains. Answer: MAI and PAI, because CAI cannot be measured.
+     Drill the arithmetic distinction: MAI is a running average from year zero; PAI is a local average over a short window; CAI is the instantaneous rate. Ask the class which of the three a yield table actually contains. Answer: MAI and PAI, because a single year's growth is smaller than the error of an ordinary tape measurement. Be careful with the wording here - CAI is not unmeasurable in principle, and students who go on to research will meet dendrometer bands and ring-width series that estimate it directly.
 -->
 <section class="slide" data-n="28">
   <div class="head">
@@ -1965,7 +2000,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <th style="width:6%"></th><th style="width:26%">Class</th><th style="width:24%">The period it relates to</th><th style="width:44%">What you must be able to say about it</th>
       </tr></thead>
       <tbody>
-        <tr><td class="rh c">1</td><td class="rh">Current annual increment<br><span class="mn" style="color:var(--vermilion)">c.a.i</span></td><td>A <strong>single year</strong></td><td>Usually <strong>not possible to assess</strong> — trees grow too slowly to measure one year reliably, so p.a.i is used instead</td></tr>
+        <tr><td class="rh c">1</td><td class="rh">Current annual increment<br><span class="mn" style="color:var(--vermilion)">c.a.i</span></td><td>A <strong>single year</strong></td><td>Rarely recoverable from ordinary annual tape measurements — the growth is smaller than the measurement error, so p.a.i is used instead. It <strong>can</strong> be estimated from dendrometers, tree rings or a growth model</td></tr>
         <tr><td class="rh c">2</td><td class="rh">Periodic annual increment<br><span class="mn" style="color:var(--vermilion)">p.a.i</span></td><td>Any <strong>short period</strong></td><td>An <strong>average</strong> annual increment over that period — measure at each end, subtract, divide by the years</td></tr>
         <tr><td class="rh c">3</td><td class="rh">Total increment<br><span class="mn" style="color:var(--vermilion)">T.I</span></td><td><strong>Origin</strong> to the age of cutting</td><td>The sum of the c.a.i — and therefore it <strong>represents the volume</strong> of the tree or crop. Everything a tree contains, it grew</td></tr>
         <tr class="hi"><td class="rh c">4</td><td class="rh">Mean annual increment<br><span class="mn" style="color:var(--vermilion)">m.a.i</span></td><td><strong>Origin</strong> to a given age</td><td>Total increment ÷ that age. For part of the age it is the <strong>periodic</strong> m.a.i; at the rotation age it is the <strong>final</strong> m.a.i</td></tr>
@@ -1977,8 +2012,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="card sunk"><div class="label v">m.a.i</div><p class="txt-sm" style="margin-top:10px">a <strong>running</strong> average, always from year zero</p></div>
     </div>
   </div>
-  <div class="src">Ask the class which of the three a yield table actually contains. Answer: m.a.i and p.a.i — because c.a.i cannot be measured.</div>
-  <div class="pageno">28 / 49</div>
+  <div class="src">A yield table contains m.a.i and p.a.i, because one year of growth is smaller than the error of an ordinary annual tape measurement.</div>
+  <div class="pageno">28 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -1993,12 +2028,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Then the cost of that trick, which students should also know. The p.a.i is an AVERAGE over the period, so it tells you nothing about what happened within it. A stand that was released by a thinning in year three and grew fast afterwards gives the same p.a.i as one that grew steadily. The longer the period, the more you have smoothed away.
 
-     So the choice of period is a trade-off: too short and the measurement error swamps the growth; too long and you cannot see when anything happened. Five to ten years is the usual compromise in Bhutanese permanent plots. Note for the tutor: verify the remeasurement interval used in the National Forest Inventory and in local permanent sample plots before quoting it.
+     So the choice of period is a trade-off: too short and the measurement error swamps the growth; too long and you cannot see when anything happened. Five to ten years is the usual compromise for permanent sample plots. State it as the general working range rather than as a national constant, since the remeasurement interval is fixed by whichever inventory or management plan governs the plots.
 -->
 <section class="slide" data-n="29">
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Section C · Why the substitution is forced on us</div>
-    <h2 class="title rv" style="--d:1">c.a.i cannot be measured — so we use <em>p.a.i</em></h2>
+    <h2 class="title rv" style="--d:1">c.a.i is rarely measurable by tape — so we use <em>p.a.i</em></h2>
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit VII</div>
@@ -2022,13 +2057,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="formula rv" style="--d:4;margin-bottom:24px">p.a.i &nbsp;=&nbsp;
       <span class="frac"><span class="n">size at the end &nbsp;−&nbsp; size at the beginning</span><span class="d">number of years in the period</span></span>
     </div>
-    <div class="g2" style="gap:34px">
-      <div class="callout moss rv" style="--d:6"><span class="k">A general principle worth naming</span><p>When the signal is small, <strong>lengthen the period</strong>. It is the same reasoning that puts several plots in an inventory rather than one big one.</p></div>
-      <div class="callout rv" style="--d:7"><span class="k">And the price you pay for it</span><p>p.a.i is an <strong>average</strong>: it tells you nothing about what happened <em>within</em> the period. A stand released by a thinning in year three gives the same p.a.i as one that grew steadily.</p></div>
+    <div class="g3" style="gap:26px">
+      <div class="callout moss rv" style="--d:6"><span class="k">A general principle worth naming</span><p style="font-size:21px">When the signal is small, <strong>lengthen the period</strong>. It is the same reasoning that puts several plots in an inventory rather than one big one.</p></div>
+      <div class="callout rv" style="--d:7"><span class="k">And the price you pay for it</span><p style="font-size:21px">p.a.i is an <strong>average</strong>: it tells you nothing about what happened <em>within</em> the period. A stand released by a thinning in year three gives the same p.a.i as one that grew steadily.</p></div>
+      <div class="callout moss rv" style="--d:8"><span class="k">Say it precisely</span><p style="font-size:21px">c.a.i is not unmeasurable in principle. It is too small and too variable to recover from ordinary annual tape measurements. It <strong>can</strong> be estimated with dendrometer bands, tree-ring measurement, repeated high-precision observation, or a fitted growth model.</p></div>
     </div>
   </div>
-  <div class="src">Too short and measurement error swamps the growth; too long and you cannot see when anything happened. Five to ten years is the usual compromise — verify the interval used in local permanent sample plots.</div>
-  <div class="pageno">29 / 49</div>
+  <div class="src">Too short and measurement error swamps the growth; too long and you cannot see when anything happened. Five to ten years is the usual compromise for permanent sample plots.</div>
+  <div class="pageno">29 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -2047,7 +2083,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Second: what is the m.a.i of this stand in 2025? The class will try to compute it from these numbers and cannot, because m.a.i needs the age and this data does not give it. That failure is the point - it forces them to notice that m.a.i is measured from origin, not from the last measurement. Ask what extra information is needed. Answer: the age of the stand.
 
-     Third: if the stand was planted in 1985, what is its m.a.i in 2025? Age 40, volume 226, so m.a.i = 226/40 = 5.65 cubic metres per hectare per year. Now put the two side by side: p.a.i 7.8 against m.a.i 5.65. The p.a.i is higher, which tells you the stand is currently growing faster than its lifetime average - and therefore, as the next slides show, that the m.a.i has not yet culminated and the stand is not yet ready to cut.
+     Third: if the stand was planted in 1985, what is its m.a.i in 2025? Age 40, volume 226, so m.a.i = 226/40 = 5.65 cubic metres per hectare per year. Now put the two side by side: p.a.i 7.8 against m.a.i 5.65. The p.a.i is higher, which tells you the stand is currently growing faster than its lifetime average - and therefore, as the next slides show, that the m.a.i has not yet culminated. Be precise about what follows from that and what does not. It means mean annual volume production is still rising under the assumed yield sequence. It does not on its own mean the stand should be left standing: harvest decisions in Bhutan also turn on the management plan, biodiversity and watershed objectives, livelihood demand, regeneration, carbon, and legal prescription.
 
      That last inference is the whole of Section C in one sentence, arrived at from two easy subtractions. Do not rush it.
 -->
@@ -2078,7 +2114,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="stack">
         <div class="card sunk rv" style="--d:4">
-          <div class="ch" style="font-size:22px">Three questions to answer before you move on</div>
+          <div class="ch" style="font-size:25px">Three questions to answer before you move on</div>
           <div class="numrow" style="margin-top:14px"><div class="badge">1</div><div class="txt-sm">Is 7.8 the growth in any <strong>particular</strong> year? <em>No — it is the average of ten. 2019 may have added 9, and 2022 only 6.</em></div></div>
           <div class="numrow"><div class="badge">2</div><div class="txt-sm">Could you find the m.a.i from the two volumes <strong>alone</strong>? <em>No. m.a.i runs from origin, so it needs the age — which the two measurements do not give.</em></div></div>
           <div class="numrow" style="margin-bottom:0"><div class="badge moss">3</div><div class="txt-sm">What does p.a.i &gt; m.a.i tell you? <em>See below.</em></div></div>
@@ -2088,12 +2124,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <span class="n">p.a.i above m.a.i</span>
         </div>
         <div style="flex:1"></div>
-        <div class="callout moss rv" style="--d:7"><span class="k">The whole of Section C, from two subtractions</span><p>The stand is currently growing <strong>faster than its lifetime average</strong>. So the m.a.i is still rising, it has <strong>not yet culminated</strong>, and the stand is <strong>not yet ready to cut</strong>.</p></div>
+        <div class="callout moss rv" style="--d:7"><span class="k">The whole of Section C, from two subtractions</span><p>The stand is currently growing <strong>faster than its lifetime average</strong>, so the m.a.i is still rising and has <strong>not yet culminated</strong>. That means mean annual volume production is still increasing under the assumed yield sequence. It does <strong>not</strong> by itself decide whether the stand should be harvested.</p></div>
       </div>
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">30 / 49</div>
+  <div class="pageno">30 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -2147,7 +2183,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </table>
       <div class="stack">
         <div class="card rv" style="--d:3">
-          <div class="ch" style="font-size:22px">Find these three for yourself</div>
+          <div class="ch" style="font-size:25px">Find these three for yourself</div>
           <div class="numrow" style="margin-top:12px"><div class="badge">1</div><div class="txt-sm">p.a.i peaks at <strong>15.00</strong> over 20–30, then falls</div></div>
           <div class="numrow"><div class="badge">2</div><div class="txt-sm">m.a.i peaks at <strong>11.13 at age 40</strong>, then falls</div></div>
           <div class="numrow" style="margin-bottom:0"><div class="badge moss">3</div><div class="txt-sm">p.a.i is <strong>above</strong> m.a.i up to 40 and <strong>below</strong> it from 45 — they cross exactly where m.a.i culminates</div></div>
@@ -2165,7 +2201,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
     </div>
   </div>
-  <div class="pageno">31 / 49</div>
+  <div class="pageno">31 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -2209,7 +2245,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">32 / 49</div>
+  <div class="pageno">32 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -2234,7 +2270,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Note the two curves also touch at the very beginning - the source's 'end of the first year' meeting. In the first year, total increment and current increment are the same thing, so m.a.i and c.a.i are necessarily equal. Point at the left-hand end of the graph.
 -->
-<section class="slide" data-n="33">
+<section class="slide fit" data-n="33">
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Section C · Draw this from memory in the examination</div>
     <h2 class="title rv" style="--d:1">The <em>culmination</em> of the mean annual increment</h2>
@@ -2287,7 +2323,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="stack">
         <div class="card rv" style="--d:4">
-          <div class="ch" style="font-size:22px">Before the crossing</div>
+          <div class="ch" style="font-size:25px">Before the crossing</div>
           <p class="txt-sm">Each year the stand grows <strong>more</strong> than its running average, so it <strong>pulls the average up</strong>. The m.a.i is rising.</p>
         </div>
         <div class="card moss rv" style="--d:5">
@@ -2295,7 +2331,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <p class="txt-sm">The year's growth <strong>exactly equals</strong> the running average, so the average does not move. This is the <strong>peak</strong> of the m.a.i curve.</p>
         </div>
         <div class="card rv" style="--d:6">
-          <div class="ch" style="font-size:22px">After the crossing</div>
+          <div class="ch" style="font-size:25px">After the crossing</div>
           <p class="txt-sm">Each year the stand grows <strong>less</strong> than its running average, so it <strong>drags the average down</strong>. The m.a.i is falling.</p>
         </div>
         <div style="flex:1"></div>
@@ -2303,7 +2339,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
     </div>
   </div>
-  <div class="pageno">33 / 49</div>
+  <div class="pageno">33 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -2359,7 +2395,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">34 / 49</div>
+  <div class="pageno">34 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -2389,22 +2425,23 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit VII</div>
   <div class="body">
-    <div class="formula lg rv" style="--d:2;margin-bottom:24px">The rotation of maximum volume production<br>= the age at which the <strong>m.a.i culminates</strong>
+    <div class="formula lg rv" style="--d:2;margin-bottom:20px">Culmination of the m.a.i identifies the <strong>biological rotation</strong><br>for maximum mean annual volume production
+      <span class="u">it identifies one rotation — it is not, by itself, the rotation that will be adopted</span>
     </div>
-    <p class="lead rv" style="--d:3;margin-bottom:24px">Cut every stand at that age and, over the long run, the forest produces the <strong>greatest average annual volume it is capable of</strong>. That is the classical sustained yield criterion.</p>
+    <p class="lead rv" style="--d:3;margin-bottom:20px">Cut every stand at that age and, over the long run, the forest produces the <strong>greatest average annual volume it is capable of</strong>. That is the classical sustained-yield criterion — one criterion among several.</p>
     <div class="g4" style="gap:24px">
-      <div class="card rv" style="--d:4"><div class="ch" style="font-size:20px">It maximises volume, not value</div><p class="txt-sm">Large trees are worth more per m<sup>3</sup>. The <strong>financial</strong> rotation is usually <strong>longer</strong>.</p></div>
-      <div class="card rv" style="--d:5"><div class="ch" style="font-size:20px">It ignores the cost of waiting</div><p class="txt-sm">Money tied up for 40 years must earn its keep. The <strong>economic</strong> rotation is usually <strong>shorter</strong>.</p></div>
-      <div class="card rv" style="--d:6"><div class="ch" style="font-size:20px">It assumes volume is the object</div><p class="txt-sm">For protection forest, conservation or habitat, the rotation may be far longer — or may not exist at all.</p></div>
-      <div class="card moss rv" style="--d:7"><div class="ch" style="font-size:20px">The peak is flat — and that is a gift</div><p class="txt-sm">11.00 at 35 · <strong>11.13 at 40</strong> · 11.00 at 45. Ten years either side costs about <strong>1 %</strong>.</p></div>
+      <div class="card rv" style="--d:4"><div class="ch" style="font-size:22px">It maximises volume, not value</div><p class="txt-sm">Large trees are worth more per m<sup>3</sup>. The <strong>financial</strong> rotation is usually <strong>longer</strong>.</p></div>
+      <div class="card rv" style="--d:5"><div class="ch" style="font-size:22px">It ignores the cost of waiting</div><p class="txt-sm">Money tied up for 40 years must earn its keep. The <strong>economic</strong> rotation is usually <strong>shorter</strong>.</p></div>
+      <div class="card rv" style="--d:6"><div class="ch" style="font-size:22px">It assumes volume is the object</div><p class="txt-sm">For protection forest, conservation or habitat, the rotation may be far longer — or may not exist at all.</p></div>
+      <div class="card moss rv" style="--d:7"><div class="ch" style="font-size:22px">The peak is flat — and that is a gift</div><p class="txt-sm">11.00 at 35 · <strong>11.13 at 40</strong> · 11.00 at 45. Ten years either side costs about <strong>1 %</strong>.</p></div>
     </div>
     <div class="callout rv" style="--d:9;position:absolute;left:0;right:0;bottom:0">
-      <span class="k">The practical point students rarely meet</span>
-      <p>Because the m.a.i curve is <strong>flat near its peak</strong>, the rotation can be adjusted by a decade either way for markets, labour or road access <strong>without material loss of production</strong>. The optimum is a broad plateau, not a knife edge.</p>
+      <span class="k">What actually fixes a rotation in Bhutan</span>
+      <p style="font-size:21px">The m.a.i curve is <strong>flat near its peak</strong>, so the rotation can move a decade either way without material loss of production. In a Bhutanese management plan the age finally adopted is set by <strong>biodiversity and habitat objectives, watershed protection, livelihood and rural timber demand, regeneration, carbon, cultural values, financial return, and the legal prescription of the approved plan</strong> — with the culmination as the biological benchmark against which those choices are judged.</p>
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">35 / 49</div>
+  <div class="pageno">35 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -2430,14 +2467,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="q rv" style="--d:3"><div class="badge">2</div><div><div class="qt">How many times do the c.a.i and m.a.i curves meet, and when?</div><div class="qa"><strong>Twice</strong> — end of the first year, and at the culmination of the m.a.i</div></div></div>
       <div class="q rv" style="--d:4"><div class="badge">3</div><div><div class="qt">Why is c.a.i usually replaced by p.a.i in practice?</div><div class="qa">One year's growth is smaller than the measurement error</div></div></div>
       <div class="q rv" style="--d:5"><div class="badge">4</div><div><div class="qt">A stand aged 30 holds 315 m<sup>3</sup>/ha. What is its m.a.i?</div><div class="qa">315 ÷ 30 = 10.5 m<sup>3</sup>/ha/yr</div></div></div>
-      <div class="q rv" style="--d:6"><div class="badge moss">5</div><div><div class="qt">A stand's p.a.i is 12 and its m.a.i is 9. Has the m.a.i culminated? Should the stand be cut?</div><div class="qa">No and no — p.a.i above m.a.i means the m.a.i is still rising</div></div></div>
+      <div class="q rv" style="--d:6"><div class="badge moss">5</div><div><div class="qt">A stand's p.a.i is 12 and its m.a.i is 9. Has the m.a.i culminated? What does that tell you — and what does it not tell you?</div><div class="qa">Not yet — mean annual production is still rising. It does <strong>not</strong> settle the harvest decision</div></div></div>
       <div class="q rv" style="--d:7"><div class="badge moss">6</div><div><div class="qt">Why can m.a.i never be negative while c.a.i can?</div><div class="qa">m.a.i = V/A, both positive; c.a.i is a difference</div></div></div>
       <div class="q rv" style="--d:8"><div class="badge moss">7</div><div><div class="qt">Explain, without calculus, why a running average peaks exactly where the current value crosses it.</div><div class="qa">A new value above the average lifts it, below it lowers it; equal leaves it still</div></div></div>
       <div class="q rv" style="--d:9"><div class="badge moss">8</div><div><div class="qt">Give two reasons a manager might legitimately not cut at the culmination of the m.a.i.</div><div class="qa">Value rises with size; money has a time cost; the object may not be volume</div></div></div>
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">36 / 49</div>
+  <div class="pageno">36 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -2450,7 +2487,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Then the sentence that frames the section: these are the compound interest formulae from banking, applied to wood instead of money. A tree is a savings account that pays its interest in timber. Students who have met compound interest in economics will recognise every formula here.
 
-     This section was formerly Session 16.
+     This section is Session 17.
 -->
 <section class="slide" data-n="37">
   <div class="sect">
@@ -2473,7 +2510,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="srule rv" style="--d:2"></div>
       <p class="ssub rv" style="--d:3">Simple interest · compound interest · Pressler's formula · obtaining the past size by boring at breast height</p>
     </div>
-    <div class="spage">37 / 49</div>
+    <div class="spage">37 / 52</div>
   </div>
 </section>
 
@@ -2527,7 +2564,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">38 / 49</div>
+  <div class="pageno">38 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -2565,16 +2602,16 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="label v">Notation — common to all three</div>
       <table style="width:100%;border-collapse:collapse;font:400 18px/1.5 var(--body);color:var(--ink-soft);margin-top:10px">
         <tr>
-          <td style="width:60px;padding:5px 0;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:19px">S<sub>o</sub></td><td style="width:34%">size of the parameter at the <strong>beginning</strong> of the growth period</td>
-          <td style="width:60px;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:19px">S<sub>n</sub></td><td style="width:30%">size at the <strong>end</strong> of the growth period</td>
-          <td style="width:44px;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:19px">n</td><td>number of units of time</td>
+          <td style="width:60px;padding:5px 0;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:21px">S<sub>o</sub></td><td style="width:34%">size of the parameter at the <strong>beginning</strong> of the growth period</td>
+          <td style="width:60px;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:21px">S<sub>n</sub></td><td style="width:30%">size at the <strong>end</strong> of the growth period</td>
+          <td style="width:44px;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:21px">n</td><td>number of units of time</td>
         </tr>
       </table>
       <p class="txt-sm" style="margin-top:12px;color:var(--vermilion)">"Size of the parameter" may be <strong>diameter, basal area, height or volume</strong>. The formulae do not care — do not think of these as volume formulae.</p>
     </div>
     <div class="g3" style="gap:26px">
       <div class="card rv" style="--d:4">
-        <div class="numrow" style="margin-bottom:6px"><div class="badge">1</div><div class="ch" style="margin:6px 0 0;font-size:22px">Simple interest</div></div>
+        <div class="numrow" style="margin-bottom:6px"><div class="badge">1</div><div class="ch" style="margin:6px 0 0;font-size:25px">Simple interest</div></div>
         <div class="formula sm" style="margin-top:14px">P =
           <span class="frac"><span class="n">S<sub>n</sub> − S<sub>o</sub></span><span class="d">n S<sub>o</sub></span></span>
           × 100
@@ -2582,12 +2619,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <p class="txt-sm" style="margin-top:16px">The denominator <strong>never changes</strong>: every year's growth is measured against the tree as it was at the beginning. No compounding — which is exactly why it reads <strong>highest</strong>.</p>
       </div>
       <div class="card rv" style="--d:5">
-        <div class="numrow" style="margin-bottom:6px"><div class="badge">2</div><div class="ch" style="margin:6px 0 0;font-size:22px">Compound interest</div></div>
+        <div class="numrow" style="margin-bottom:6px"><div class="badge">2</div><div class="ch" style="margin:6px 0 0;font-size:25px">Compound interest</div></div>
         <div class="formula sm" style="margin-top:14px">P = ( <sup>n</sup>√( S<sub>n</sub> / S<sub>o</sub> ) − 1 ) × 100</div>
         <p class="txt-sm" style="margin-top:16px">What constant annual rate, <strong>compounded</strong>, carries the tree from S<sub>o</sub> to S<sub>n</sub> in n years? The base grows each year, because the previous increment has been added to it.</p>
       </div>
       <div class="card rv" style="--d:6">
-        <div class="numrow" style="margin-bottom:6px"><div class="badge moss">3</div><div class="ch" style="margin:6px 0 0;font-size:22px">Pressler's</div></div>
+        <div class="numrow" style="margin-bottom:6px"><div class="badge moss">3</div><div class="ch" style="margin:6px 0 0;font-size:25px">Pressler's</div></div>
         <div class="formula sm" style="margin-top:14px">P<sub>p</sub> =
           <span class="frac"><span class="n">S<sub>n</sub> − S<sub>o</sub></span><span class="d">S<sub>n</sub> + S<sub>o</sub></span></span>
           ×
@@ -2602,7 +2639,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="src">Pressler's formula and the increment borer of slide 14 come from the same man — Max Robert Pressler, nineteenth-century German forest scientist.</div>
-  <div class="pageno">39 / 49</div>
+  <div class="pageno">39 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -2660,8 +2697,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
     </div>
   </div>
-  <div class="src">Tutor: 9.5 cm over 10 rings is 9.5 mm of radial growth a year — rapid, a well-grown tree on a good site. Present it as the source's illustrative figure rather than as a typical rate.</div>
-  <div class="pageno">40 / 49</div>
+  <div class="src">Hypothetical teaching data. 9.5 cm over 10 rings is 9.5 mm of radial growth a year — rapid, a well-grown tree on a good site, not a typical rate.</div>
+  <div class="pageno">40 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -2692,7 +2729,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="card sunk rv" style="--d:2;margin-bottom:24px">
       <div class="label v">The data, recovered by boring on the previous slide</div>
-      <div class="mn" style="font-size:21px;color:var(--ink);margin-top:12px">S<sub>o</sub> = 46 cm &nbsp;·&nbsp; S<sub>n</sub> = 65 cm &nbsp;·&nbsp; n = 10 years</div>
+      <div class="mn" style="font-size:24px;color:var(--ink);margin-top:12px">S<sub>o</sub> = 46 cm &nbsp;·&nbsp; S<sub>n</sub> = 65 cm &nbsp;·&nbsp; n = 10 years</div>
     </div>
     <div class="g3" style="gap:26px;margin-bottom:24px">
       <div class="card rv" style="--d:3">
@@ -2724,14 +2761,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">41 / 49</div>
+  <div class="pageno">41 / 52</div>
 </section>
 
 <!-- ======================================================================
      SLIDE 40 — WORKED EXAMPLE 5
      ====================================================================== -->
 <!-- SPEAKER NOTES · SLIDE 40
-     The second worked example, from the source's chirpine question, and it exists to make one point: the ordering of the three formulae is not an accident of the first dataset. It holds always.
+     The second worked example, from the source's chir pine question, and it exists to make one point: the ordering of the three formulae is not an accident of the first dataset. It holds always.
 
      The data: present volume Sn = 400 cft, volume 10 years ago So = 300 cft, n = 10.
 
@@ -2749,7 +2786,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 -->
 <section class="slide" data-n="42">
   <div class="head">
-    <div class="eyebrow warn rv" style="--d:0">The source's chirpine question — for teaching purposes</div>
+    <div class="eyebrow warn rv" style="--d:0">The source's chir pine question — for teaching purposes</div>
     <h2 class="title rv" style="--d:1">Worked example 5 · <em>the same three, applied to volume</em></h2>
     <div class="hr"></div>
   </div>
@@ -2759,7 +2796,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="stack">
         <div class="card rv" style="--d:2">
           <div class="ch">The problem</div>
-          <p class="txt-sm">The present volume of a chirpine is <strong>400 cft</strong>, and the volume <strong>10 years ago</strong> was <strong>300 cft</strong>. Find the increment percentage by all three formulae.</p>
+          <p class="txt-sm">The present volume of a chir pine is <strong>400 cft</strong>, and the volume <strong>10 years ago</strong> was <strong>300 cft</strong>. Find the increment percentage by all three formulae.</p>
         </div>
         <div class="card sunk rv" style="--d:3">
           <div class="label v">Units cancel — always</div>
@@ -2787,7 +2824,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">42 / 49</div>
+  <div class="pageno">42 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -2835,7 +2872,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">43 / 49</div>
+  <div class="pageno">43 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -2866,7 +2903,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">44 / 49</div>
+  <div class="pageno">44 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -2924,11 +2961,55 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
     <div class="callout moss rv" style="--d:6;position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:30px">
       <div style="font:500 15px/1.5 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--moss);flex:0 0 auto">Non-negotiable<br>habits</div>
-      <p style="font-size:19px">Bore several radii and cross-check · record the <strong>height</strong> at which every count was taken · state the <strong>datum</strong> for every age · state the <strong>formula</strong> for every percentage · carry full precision to the end.</p>
+      <p style="font-size:21px">Bore several radii and cross-check · record the <strong>height</strong> at which every count was taken · state the <strong>datum</strong> for every age · state the <strong>formula</strong> for every percentage · carry full precision to the end.</p>
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">45 / 49</div>
+  <div class="pageno">45 / 52</div>
+</section>
+
+<!-- ======================================================================
+     BHUTAN POLICY CONNECTION — WHAT THIS UNIT IS FOR
+     ====================================================================== -->
+<!-- SPEAKER NOTES · BHUTAN POLICY CONNECTION
+     Every unit in MEN 201 carries one of these. It is short and it is student-facing, because
+     students consistently learn the arithmetic of increment without ever being told what national
+     decision the arithmetic feeds.
+
+     Take the four boxes in order and name a real decision behind each. The allowable cut in an FMU
+     working plan is an increment calculation. The re-measurement of permanent sample plots is a
+     p.a.i calculation. A community forest management plan states a harvest that its members can
+     take each year without depleting the resource, and that number comes from the same place.
+
+     Then make the honest point that closes the unit. Culmination of the m.a.i tells you the age of
+     maximum volume production and nothing else. Bhutan does not manage its forests for maximum
+     volume alone, and the Constitution, the Forest and Nature Conservation Act 2023 and the National
+     Forest Policy 2011 all say so in different words. The mensuration gives the manager a number;
+     the policy decides what weight that number carries against biodiversity, water, livelihoods,
+     carbon and cultural value.
+-->
+<section class="slide">
+  <div class="head">
+    <div class="eyebrow rv" style="--d:0">Official Bhutan policy context · why this unit exists</div>
+    <h2 class="title rv" style="--d:1">Age and growth in <em>Bhutanese forest management</em></h2>
+    <div class="hr"></div>
+  </div>
+  <div class="runhead">MEN 201 · Forest Mensuration<br>Unit VII</div>
+  <div class="body">
+    <p class="lead rv" style="--d:2;margin-bottom:24px">Increment is the quantity a management plan is built on. Everything in this unit ends in a decision that somebody has to sign.</p>
+    <div class="g4" style="gap:24px;margin-bottom:26px">
+      <div class="card rv" style="--d:3"><div class="ch" style="font-size:24px">Allowable harvest</div><p class="txt-sm">An FMU or community-forest plan sets the annual cut against the increment the forest actually puts on. Harvest above increment is depletion, whatever the plan says.</p></div>
+      <div class="card rv" style="--d:4"><div class="ch" style="font-size:24px">Growth monitoring</div><p class="txt-sm">Permanent sample plots re-measured on a five- to ten-year cycle give the p.a.i that tells a Division whether a stand is responding to management.</p></div>
+      <div class="card rv" style="--d:5"><div class="ch" style="font-size:24px">Rotation decisions</div><p class="txt-sm">Culmination of the m.a.i is the <strong>biological benchmark</strong>. The rotation adopted also answers to biodiversity, watershed, livelihood, carbon, cultural and legal objectives.</p></div>
+      <div class="card moss rv" style="--d:6"><div class="ch" style="font-size:24px">Climate resilience</div><p class="txt-sm">Repeated increment measurement is how a drought year, an insect outbreak or a shift in growing season is detected at all — a declining p.a.i is often the first evidence.</p></div>
+    </div>
+    <div class="g2" style="gap:30px">
+      <div class="callout moss rv" style="--d:7"><span class="k">Community forestry</span><p style="font-size:21px">A community-forest management plan must state a sustainable annual harvest of timber, fuelwood and poles. Members' own observation of which stands are growing well is combined with plot re-measurement — <strong>local ecological knowledge and formal measurement together</strong>, not one instead of the other.</p></div>
+      <div class="callout rv" style="--d:8"><span class="k">Beyond volume</span><p style="font-size:21px">Growth data also supports carbon reporting, habitat-tree retention, deadwood recruitment, regeneration monitoring and the assessment of forest health. <strong>Volume is one variable this unit produces, not its purpose.</strong></p></div>
+    </div>
+  </div>
+  <div class="src">Constitution of the Kingdom of Bhutan, Art. 5 &middot; National Forest Policy of Bhutan 2011 &middot; Forest and Nature Conservation Act of Bhutan 2023</div>
+  <div class="pageno">46 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -2946,7 +3027,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Close by returning to the sentence from slide 3: age converts a measurement into a rate. Ask the class to point at every place on this slide where a measurement has become a rate. Answer: all of them - p.a.i, m.a.i and every growth percentage. That is what the unit was for.
 -->
-<section class="slide" data-n="46">
+<section class="slide" data-n="47">
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Revision · photograph this one</div>
     <h2 class="title rv" style="--d:1">The unit <em>on one page</em></h2>
@@ -2980,7 +3061,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <text x="410" y="112">Size now,</text><text x="410" y="138">size then</text>
           <text x="690" y="112">Increment</text><text x="690" y="138">the difference</text>
           <text x="970" y="112">p.a.i and</text><text x="970" y="138">m.a.i</text>
-          <text x="1250" y="112">Culmination</text><text x="1250" y="138">= rotation</text>
+          <text x="1250" y="112">Culmination</text><text x="1250" y="138">= biological rotation</text>
           <text x="1560" y="105" font-size="22" fill="#c14524">Increment %</text>
           <text x="1560" y="134" font-size="19" fill="#c14524">a rate of return</text>
           <text x="1560" y="158" font-size="15" fill="#7b857c" font-weight="400">compare it with a bank rate</text>
@@ -2993,31 +3074,45 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </svg>
     </div>
     <div class="g4" style="gap:24px">
-      <div class="card sunk rv" style="--d:4"><div class="label v">Age from measurements</div><div class="mn" style="font-size:18px;color:var(--ink);margin-top:12px;line-height:1.75">P = (D₂−D₁)/(D₁T)<br>S = (logP₁−logP₂)<br>&nbsp;&nbsp;&nbsp;&nbsp;÷ (logd₂−logd₁)<br>Age = 1/(P₁S)</div></div>
-      <div class="card sunk rv" style="--d:5"><div class="label v">Increment</div><div class="mn" style="font-size:18px;color:var(--ink);margin-top:12px;line-height:1.75">p.a.i = ΔV ÷ n<br>m.a.i = V ÷ A<br>T.I = the volume<br>c.a.i = one year</div></div>
-      <div class="card sunk rv" style="--d:6"><div class="label v">Culmination</div><div class="mn" style="font-size:18px;color:var(--ink);margin-top:12px;line-height:1.75">m.a.i peaks where<br>c.a.i = m.a.i<br>= rotation of max<br>volume production</div></div>
-      <div class="card sunk rv" style="--d:7"><div class="label v">Increment %</div><div class="mn" style="font-size:18px;color:var(--ink);margin-top:12px;line-height:1.75">simple &gt; compound<br>&gt; Pressler<br>S₀ = S&#8345; − 2(ring width)</div></div>
+      <div class="card sunk rv" style="--d:4"><div class="label v">Age from measurements</div><div class="mn" style="font-size:20px;color:var(--ink);margin-top:12px;line-height:1.75">P = (D₂−D₁)/(D₁T)<br>S = (logP₁−logP₂)<br>&nbsp;&nbsp;&nbsp;&nbsp;÷ (logd₂−logd₁)<br>Age = 1/(P₁S)</div></div>
+      <div class="card sunk rv" style="--d:5"><div class="label v">Increment</div><div class="mn" style="font-size:20px;color:var(--ink);margin-top:12px;line-height:1.75">p.a.i = ΔV ÷ n<br>m.a.i = V ÷ A<br>T.I = the volume<br>c.a.i = one year</div></div>
+      <div class="card sunk rv" style="--d:6"><div class="label v">Culmination</div><div class="mn" style="font-size:20px;color:var(--ink);margin-top:12px;line-height:1.75">m.a.i peaks where<br>c.a.i = m.a.i<br>= rotation of max<br>volume production</div></div>
+      <div class="card sunk rv" style="--d:7"><div class="label v">Increment %</div><div class="mn" style="font-size:20px;color:var(--ink);margin-top:12px;line-height:1.75">simple &gt; compound<br>&gt; Pressler<br>S₀ = S&#8345; − 2(ring width)</div></div>
     </div>
     <div class="callout moss rv" style="--d:9;position:absolute;left:0;right:0;bottom:0">
       <p>Back to the sentence from slide 3: <strong>age converts a measurement into a rate.</strong> Point at every place on this page where that has happened — p.a.i, m.a.i and every growth percentage. That is what the unit was for.</p>
     </div>
   </div>
-  <div class="pageno">46 / 49</div>
+  <div class="pageno">47 / 52</div>
 </section>
 
 <!-- ======================================================================
      SLIDE 45 — ASSESSMENT-STYLE QUESTIONS
      ====================================================================== -->
-<!-- SPEAKER NOTES · SLIDE 45
+<!-- SPEAKER NOTES · SLIDE 47
      Set these as the end-of-unit assignment, or work two in class and set the rest.
 
      Question 1 is the full pipeline and is the most likely long question. Expect it to carry the most marks.
      Question 3 requires the log formula and is the most technically demanding calculation in the unit.
      Question 6 is the discussion question; mark it on the reasoning rather than the conclusion.
 
+     WORKED ANSWER TO QUESTION 3 (25, 28, 31 cm at five-year intervals):
+     P1 = (28 − 25)/(25 x 5) = 3/125 = 0.024000
+     P2 = (31 − 28)/(28 x 5) = 3/140 = 0.021429
+     log P1 − log P2 = −1.619789 − (−1.669007) = 0.049218
+     log d2 − log d1 = 1.447158 − 1.397940 = 0.049218
+     S = 1.000000 exactly
+     Age in 2000 = 1/(0.024 x 1) = 41.7 years; age in 2010 = 41.7 + 10 = about 52 years.
+     The second half of the question is the teaching point. Whenever the two periodic increments are
+     EQUAL in absolute terms, P1/P2 = d2/d1 identically, so S = 1 for any such data set and the age
+     reduces to d1 divided by the annual diameter increment. A 31 cm stem aged about 52 years implies
+     roughly 0.6 cm of diameter a year, which is a defensible rate for a Bhutanese conifer on a moderate
+     site. The earlier version of this question used 24, 27 and 29 cm and returned an age of about 19
+     years, which is not biologically credible for that stem, so it was recalibrated.
+
      Marking guidance: award marks for working, not only for the final answer, and say so in advance.
 -->
-<section class="slide" data-n="47">
+<section class="slide" data-n="48">
   <div class="head">
     <div class="eyebrow rv" style="--d:0">End of unit · assessment-style questions</div>
     <h2 class="title rv" style="--d:1">Questions for <em>assessment and practice</em></h2>
@@ -3028,7 +3123,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="g2" style="gap:26px;row-gap:20px">
       <div class="q rv" style="--d:2"><div class="badge">1</div><div><div class="qt">From a yield series, tabulate the m.a.i and p.a.i, plot both, locate the culmination and state the rotation of maximum volume production. Show all working.</div><div class="qm">Long question · full pipeline · highest marks</div></div></div>
       <div class="q rv" style="--d:3"><div class="badge">2</div><div><div class="qt">Describe the four methods of determining the age of a standing tree, and evaluate the reliability of each.</div><div class="qm">Description and evaluation · Section A</div></div></div>
-      <div class="q rv" style="--d:4"><div class="badge">4</div><div><div class="qt">A tree measured in 2000, 2005 and 2010 had diameters 24, 27 and 29 cm. Determine its age in 2010.</div><div class="qm">Calculation · logs required · Section A</div></div></div>
+      <div class="q rv" style="--d:4"><div class="badge">3</div><div><div class="qt">A tree measured in 2000, 2005 and 2010 had diameters 25, 28 and 31 cm. Determine its age in 2010, and explain why S takes the value it does for this data set.</div><div class="qm">Calculation · logs required · Section A</div></div></div>
       <div class="q rv" style="--d:5"><div class="badge">4</div><div><div class="qt">Explain, with a labelled sketch, the relationship between c.a.i and m.a.i, and state how many times the curves meet and why.</div><div class="qm">Sketch and explanation · Section C</div></div></div>
       <div class="q rv" style="--d:6"><div class="badge moss">5</div><div><div class="qt">A core shows 7.2 cm across the outermost 10 rings; present diameter under bark is 58 cm. Compute the growth percentage by all three formulae and comment on the ordering.</div><div class="qm">Calculation · Section D</div></div></div>
       <div class="q rv" style="--d:7"><div class="badge moss">6</div><div><div class="qt">A manager's stand has culminated in m.a.i but timber prices are expected to rise sharply in five years. Should the stand be cut now? Justify.</div><div class="qm">Discussion · marked on reasoning, not conclusion</div></div></div>
@@ -3037,7 +3132,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="src">Marks are awarded for working, not only for the final answer.</div>
-  <div class="pageno">47 / 49</div>
+  <div class="pageno">48 / 52</div>
 </section>
 
 <!-- ======================================================================
@@ -3050,15 +3145,15 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Emphasise that they are wounding a living tree. Use designated practical trees, not specimens, and never bore the same tree repeatedly.
 
-     Note for the tutor: confirm the number of serviceable borers available, the designated practical trees, and the practical date before showing this slide. Fill in the specific reading references from the module reading list.
+     Housekeeping to settle before the session: the number of serviceable borers, the designated practical trees, and the practical date. Announce all three on the VLE rather than on the slide, so that the deck does not go stale.
 -->
-<section class="slide" data-n="48">
+<section class="slide" data-n="49">
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Before the next session</div>
-    <h2 class="title rv" style="--d:1">Practical, preparation and <em>further reading</em></h2>
+    <h2 class="title rv" style="--d:1;max-width:1180px">Practical, preparation and <em>further reading</em></h2>
     <div class="hr"></div>
   </div>
-  <div class="runhead">MEN 201 · Forest Mensuration<br>Unit VII</div>
+  <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit VII</div>
   <div class="body">
     <div class="g3 fill" style="align-items:stretch">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column">
@@ -3095,23 +3190,155 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
     </div>
   </div>
-  <div class="src">Tutor: confirm the number of serviceable borers, the designated practical trees and the practical date, and fill in the specific reading references from the module reading list.</div>
-  <div class="pageno">48 / 49</div>
+  <div class="src">Practical trees, dates and equipment allocation are announced on the VLE. Bring the module reading list with you.</div>
+  <div class="pageno">49 / 52</div>
 </section>
 
 <!-- ======================================================================
      SLIDE — CLOSING
      ====================================================================== -->
+
+<!-- ======================================================================
+     CASE STUDY 6 OF 6 — VII
+     ====================================================================== -->
+<!-- SPEAKER NOTES · CASE STUDY, STEP 6
+     One plot runs through six units. Point at the banner every time it appears and say which
+     step the class is on, because the whole value of the thread is that students recognise it
+     as the same forest.
+
+     
+-->
+<section class="slide">
+  <div class="head">
+    <div class="eyebrow rv" style="--d:0">Case study &middot; one 500 m<sup>2</sup> plot, carried through Units II&ndash;VII &middot; step 6 of 6</div>
+    <h2 class="title rv" style="--d:1">Case study &middot; <em>ten years on</em></h2>
+    <div class="hr"></div>
+  </div>
+  <div class="runhead">CASE STUDY &middot; UNIT VII</div>
+  <div class="body">
+    <p class="txt rv" style="--d:2;margin-bottom:16px">The plot is a <strong>permanent sample plot</strong>, so it is re-measured. Ten years later, at a mean diameter increment of 0.42 cm a year:</p>
+    <div class="g2" style="gap:30px;margin-bottom:18px">
+      <div>
+        <table class="dt sm rv" style="--d:3">
+          <thead><tr><th></th><th class="c">At establishment</th><th class="c">Ten years on</th></tr></thead>
+          <tbody>
+            <tr><td class="rh">Basal area G</td><td class="num c">32.2 m<sup>2</sup>/ha</td><td class="num c">41.2 m<sup>2</sup>/ha</td></tr>
+            <tr><td class="rh">Lorey's height H<sub>L</sub></td><td class="num c">22.7 m</td><td class="num c">23.6 m</td></tr>
+            <tr class="hi"><td class="rh">Growing stock V</td><td class="num c">349 m<sup>3</sup>/ha</td><td class="num c">464 m<sup>3</sup>/ha</td></tr>
+          </tbody>
+        </table>
+        <div class="card rv" style="--d:4;margin-top:16px">
+          <div class="step"><div class="sl">p.a.i</div><div class="sv">(464 &minus; 349) &divide; 10 = <span class="hlt">11.5 m<sup>3</sup>/ha/yr</span></div></div>
+          <div class="step"><div class="sl">m.a.i at age 65</div><div class="sv">464 &divide; 65 = <span class="hlt">7.1 m<sup>3</sup>/ha/yr</span></div></div>
+        </div>
+      </div>
+      <div class="stack sm">
+        <div class="card moss rv" style="--d:5"><div class="ch">What the two numbers say</div>
+          <p class="txt-sm"><strong>p.a.i 11.5 exceeds m.a.i 7.1</strong>, so mean annual volume production is <strong>still rising</strong> and the m.a.i has not culminated.</p>
+          <p class="txt-sm" style="margin-top:12px">That is all it says. It does <strong>not</strong> by itself decide whether this compartment should be harvested.</p>
+        </div>
+        <div class="callout rv" style="--d:6"><span class="k">What would decide it</span><p style="font-size:19px">The management plan &middot; biodiversity and habitat &middot; watershed protection &middot; local timber and fuelwood demand &middot; regeneration &middot; carbon &middot; cultural value &middot; and the legal prescription in force.</p></div>
+      </div>
+    </div>
+    <div class="callout moss rv" style="--d:8"><span class="k">Where the thread ends</span><p>A tape reading in Unit II became a stem, a canopy figure, a height curve, a volume, a hectare and now a rate. <strong>Every step inherited the errors of the one before it</strong> &mdash; which is why the module spent so long on how to make the first measurement properly.</p></div>
+  </div>
+  <div class="src">Hypothetical teaching data. Mean diameter increment 0.42 cm a year, applied to every stem and re-expanded.</div>
+  <div class="pageno">50 / 52</div>
+</section>
+
+<!-- ======================================================================
+     NOTATION REFERENCE SHEET — IDENTICAL IN EVERY UNIT OF MEN 201
+     ====================================================================== -->
+<!-- SPEAKER NOTES · NOTATION REFERENCE SHEET
+     This slide is identical in all seven decks. Point that out to the class the first time they
+     meet it, and tell them it is the page to photograph.
+
+     The rule that does most of the work is lower case for one tree, upper case for the stand.
+     g and G, v and V. Students who internalise that one convention stop making the single most
+     common error in the module, which is multiplying a per-tree figure by a per-hectare figure.
+
+     On bark: insist on t for one-sided thickness and B = 2t for double bark thickness. The older
+     literature uses b for both, which is exactly why this module fixes two symbols. A diameter
+     crosses the bark twice, so the subtraction is always 2t.
+
+     On crown terms: the module uses four names and never the bare term "crown height". Unit III
+     shows why - the term carries three incompatible meanings, and students will meet all three.
+
+     On the DBH reference height, which is not a symbol but belongs here anyway: it is protocol-
+     dependent, Bhutan's Second NFI used 1.37 m, many international manuals use 1.30 m, and the
+     examinable skill is identifying the governing protocol and recording the height - not
+     memorising a number.
+-->
+<section class="slide">
+  <div class="head">
+    <div class="eyebrow rv" style="--d:0">Reference sheet &middot; identical in every unit of MEN 201 &middot; photograph this one</div>
+    <h2 class="title rv" style="--d:1">Notation, units and <em>terminology</em></h2>
+    <div class="hr"></div>
+  </div>
+  <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit VII</div>
+  <div class="body">
+    <div style="display:grid;grid-template-columns:.78fr .62fr .60fr;gap:26px;height:100%">
+      <table class="dt sm rv" style="--d:3;align-self:start">
+        <thead><tr><th style="width:74px">Symbol</th><th>Quantity</th><th style="width:96px">Unit</th></tr></thead>
+        <tbody>
+          <tr><td class="rh">d</td><td>diameter of one tree</td><td>cm</td></tr>
+          <tr><td class="rh">C</td><td>circumference or girth</td><td>cm</td></tr>
+          <tr><td class="rh">g</td><td>basal area, <strong>one tree</strong></td><td>m<sup>2</sup></td></tr>
+          <tr class="hi"><td class="rh">G</td><td>basal area, <strong>stand</strong></td><td>m<sup>2</sup>/ha</td></tr>
+          <tr><td class="rh">h</td><td>height of one tree</td><td>m</td></tr>
+          <tr><td class="rh">H<sub>L</sub></td><td>Lorey&rsquo;s mean height</td><td>m</td></tr>
+          <tr><td class="rh">v</td><td>volume, <strong>one tree</strong></td><td>m<sup>3</sup></td></tr>
+          <tr class="hi"><td class="rh">V</td><td>volume, <strong>stand</strong></td><td>m<sup>3</sup>/ha</td></tr>
+          <tr><td class="rh">t</td><td>bark thickness, <strong>one side</strong></td><td>cm</td></tr>
+          <tr><td class="rh">B</td><td>double bark, B = 2t</td><td>cm</td></tr>
+          <tr><td class="rh">f</td><td>form factor</td><td>&mdash;</td></tr>
+        </tbody>
+      </table>
+      <div style="display:flex;flex-direction:column;gap:18px;min-height:0">
+        <div class="card moss rv" style="--d:4;padding:20px 22px">
+          <div class="ch" style="font-size:24px;margin-bottom:8px">Lower case is one tree.<br>Upper case is the stand.</div>
+          <p class="txt-sm" style="font-size:19px">That one rule resolves most of the confusion in the literature: <strong>g</strong> is the tree in front of you, <strong>G</strong> is the hectare it stands in. Likewise <strong>v</strong> and <strong>V</strong>.</p>
+        </div>
+        <div class="card rv" style="--d:5;padding:20px 22px">
+          <div class="ch v" style="font-size:21px;margin-bottom:8px">Two conversions that follow</div>
+          <div class="mn" style="font-size:20px;color:var(--moss);line-height:1.8">
+            C = &pi;d &nbsp;&middot;&nbsp; d = C / &pi;<br>
+            D<sub>ub</sub> = D<sub>ob</sub> &minus; 2t<br>
+            G<sub>ub</sub> = G<sub>ob</sub> &minus; 2&pi;t
+          </div>
+          <p class="txt-sm" style="margin-top:8px;font-size:19px">A diameter crosses bark <strong>twice</strong>. Subtract <strong>2t</strong>, never <em>t</em>.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;min-height:0">
+        <div class="card sunk rv" style="--d:6;padding:18px 22px">
+          <div class="ch v" style="font-size:21px;margin-bottom:8px">Crown terms &mdash; four names</div>
+          <p class="txt-sm" style="font-size:19px"><strong>Crown-base height</strong> ground to the base of the live crown &middot; <strong>crown length</strong> H &minus; crown-base height &middot; <strong>crown midpoint height</strong> ground to the crown midpoint &middot; <strong>live-crown ratio</strong> crown length &divide; H. The bare term <strong>&ldquo;crown height&rdquo; is not used</strong> &mdash; three incompatible meanings.</p>
+        </div>
+        <div class="card sunk rv" style="--d:7;padding:18px 22px">
+          <div class="ch v" style="font-size:21px;margin-bottom:8px">Spelling fixed for this module</div>
+          <p class="txt-sm" style="font-size:19px"><strong>relascope</strong> &middot; <strong>calliper</strong> &middot; <strong>Smythies&rsquo; hypsometer</strong> &middot; <strong>chir pine</strong> &middot; <strong>breast height</strong> &middot; <strong>over bark</strong> / <strong>under bark</strong> &middot; <strong>merchantable height</strong> &middot; <strong>bole height</strong></p>
+        </div>
+        <div class="callout rv" style="--d:8;padding:16px 20px">
+          <span class="k">Not a symbol, but it belongs here</span>
+          <p style="font-size:19px"><strong>DBH reference height is protocol-dependent.</strong> Bhutan&rsquo;s Second NFI used <strong>1.37 m</strong>; many international manuals use <strong>1.30 m</strong>. Follow the applicable protocol and <strong>record the height used</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="src">Notation fixed for MEN 201. Where a textbook or a published equation uses different symbols, translate into this table before you calculate.</div>
+  <div class="pageno">51 / 52</div>
+</section>
+
 <!-- SPEAKER NOTES
      Close the unit here. Remind students of the review questions at the end of each section, the assessment questions, and the date of the increment borer practical.
 
      Leave them with the one sentence the unit was built on: a measurement becomes useful only when it is divided by time.
 
-     Invite questions outside class hours by email rather than by phone, and set the expectation that a question about a calculation should come with the student's own attempt attached.
+     Invite questions by email rather than by phone, and set the expectation that a question about a calculation should come with the student's own attempt attached.
 
      Note for the tutor: fill in the contact details before delivering the unit.
 -->
-<section class="slide cover" data-n="49">
+<section class="slide cover" data-n="52">
   <div class="plate">
     <svg viewBox="0 0 720 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <g fill="none" stroke="#2f5140" stroke-opacity=".35">
@@ -3129,19 +3356,19 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="rv" style="--d:1;margin-top:24px;width:120px;height:1px;background:var(--ink);opacity:.85"></div>
   </div>
   <div style="position:absolute;left:110px;top:290px;width:1030px">
-    <h1 class="rv" style="--d:2;font-size:104px">Age and Growth<br><em>of Trees</em></h1>
+    <h1 class="rv" style="--d:2;font-size:116px">Age and Growth<br><em>of Trees</em></h1>
     <div class="g2 rv" style="--d:4;margin-top:64px;max-width:880px;gap:40px">
       <div class="card">
-        <div class="label v">Class hours</div>
-        <div class="mn" style="font-size:19px;color:var(--ink);margin-top:14px;line-height:2">
-          Monday &nbsp; 2nd – 4th period &nbsp; 09:00 – 12:15<br>
-          Thursday &nbsp; 2nd – 3rd period &nbsp; 09:00 – 11:15<br>
-          Classroom &nbsp; B2.6
+        <div class="label v">Where to find things</div>
+        <div class="mn" style="font-size:21px;color:var(--ink);margin-top:14px;line-height:2">
+          All seven units &middot; the contents page<br>
+          Readings &middot; the supplementary folder<br>
+          Practical sheets and dates &middot; the VLE
         </div>
       </div>
       <div class="card">
         <div class="label v">Tutor</div>
-        <div class="mn" style="font-size:19px;color:var(--ink);margin-top:14px;line-height:2">
+        <div class="mn" style="font-size:21px;color:var(--ink);margin-top:14px;line-height:2">
           Wangdi<br>
           Senior Forestry Officer<br>
           Adjunct Lecturer<br>
@@ -3153,14 +3380,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="cmeta">
     <div class="rv" style="--d:7"><strong>BSc in Forestry</strong>College of Natural Resources<br>Royal University of Bhutan</div>
   </div>
-  <div class="pageno">49 / 49</div>
+  <div class="pageno">52 / 52</div>
 </section>
 </div><!-- /.stage -->
 </div><!-- /.deck-viewport -->
 
 <div class="hud">
   <button id="prev" title="Previous (←)">‹</button>
-  <span><b id="cur">1</b> / <span id="tot">49</span></span>
+  <span><b id="cur">1</b> / <span id="tot">52</span></span>
   <button id="next" title="Next (→)">›</button>
 </div>
 

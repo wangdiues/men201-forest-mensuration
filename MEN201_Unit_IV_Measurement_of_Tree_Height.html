@@ -16,8 +16,8 @@
    annotation in monospace, editorial serif for voice, and exactly two
    accents (moss green for structure, vermilion for signal).
 
-   Type scale note: this unit runs one step larger than Unit V throughout
-   (roughly +12 %), for readability from the back of room B2.6.
+   Type scale note: all seven decks share one type scale, set for readability
+   from the back of a lecture room. Unit IV was the first deck set at it.
    ========================================================================== */
 
 /* === DESIGN TOKENS === */
@@ -121,7 +121,7 @@ h2.title em{font-style:italic;font-weight:400;color:var(--moss)}
 /* Body region: the safe zone between chrome */
 .body{position:absolute;left:92px;right:92px;top:232px;bottom:100px}
 .body.tight{top:212px}
-.body.deep{top:262px}
+.body.deep{top:266px}
 
 /* === PRIMITIVES === */
 .lead{font-family:var(--display);font-weight:400;font-size:34px;line-height:1.4;
@@ -138,7 +138,7 @@ p{margin:0}
 
 /* Cards — the paper leaf that sits on the graph paper */
 .card{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;
-  padding:28px 30px;box-shadow:0 2px 0 rgba(20,28,24,.05),0 14px 34px rgba(20,28,24,.045)}
+  padding:24px 28px;box-shadow:0 2px 0 rgba(20,28,24,.05),0 14px 34px rgba(20,28,24,.045)}
 .card.sunk{background:var(--paper-sunk);box-shadow:none}
 .card.moss{background:var(--moss);border-color:var(--moss);color:#eef2ea}
 .card.moss .label{color:#a9c9b3}
@@ -150,7 +150,7 @@ p{margin:0}
 
 /* Tick-mark bullet list */
 ul.bul{margin:0;padding:0;list-style:none}
-ul.bul li{position:relative;padding-left:32px;margin-bottom:11px;
+ul.bul li{position:relative;padding-left:32px;margin-bottom:9px;
   font:400 23px/1.45 var(--body);color:var(--ink-soft)}
 ul.bul li:last-child{margin-bottom:0}
 ul.bul li::before{content:"";position:absolute;left:0;top:.62em;width:12px;height:1.6px;
@@ -163,7 +163,7 @@ ul.bul li strong{color:var(--ink);font-weight:600}
 .card.moss ul.bul li strong{color:#fff}
 
 /* Numbered badge lists */
-.numrow{display:flex;gap:18px;align-items:flex-start;margin-bottom:14px}
+.numrow{display:flex;gap:16px;align-items:flex-start;margin-bottom:11px}
 .badge{flex:0 0 auto;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
   font:700 19px/1 var(--mono);background:var(--vermilion);color:#fff}
 .badge.moss{background:var(--moss)}
@@ -172,7 +172,7 @@ ul.bul li strong{color:var(--ink);font-weight:600}
 
 /* Formula plates */
 .formula{background:var(--moss-wash);border:1px solid var(--moss-line);border-radius:3px;
-  padding:22px 28px;text-align:center;
+  padding:17px 26px;text-align:center;
   font-family:var(--display);font-weight:500;font-size:42px;line-height:1.2;color:var(--moss);
   letter-spacing:.01em}
 .formula.v{background:var(--vermilion-wash);border-color:rgba(193,69,36,.3);color:var(--vermilion)}
@@ -191,16 +191,16 @@ sup{font-size:.62em;vertical-align:.42em}
 
 /* Callout — the "so what" bar */
 .callout{border-left:4px solid var(--vermilion);background:var(--vermilion-wash);
-  padding:18px 24px;border-radius:0 3px 3px 0}
+  padding:15px 22px;border-radius:0 3px 3px 0}
 .callout.moss{border-left-color:var(--moss);background:var(--moss-wash)}
 .callout .k{font:500 16px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
-  color:var(--vermilion);display:block;margin-bottom:9px}
+  color:var(--vermilion);display:block;margin-bottom:7px}
 .callout.moss .k{color:var(--moss)}
 .callout p{font:400 23px/1.42 var(--body);color:var(--ink)}
 .callout.sm p{font-size:20px}
 
 /* Answer bar */
-.answer{background:var(--moss);color:#fff;border-radius:3px;padding:20px 30px;
+.answer{background:var(--moss);color:#fff;border-radius:3px;padding:16px 28px;
   display:flex;align-items:baseline;gap:20px}
 .answer .k{font:500 17px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:#a9c9b3}
 .answer .v{font-family:var(--display);font-weight:600;font-size:36px;letter-spacing:-.01em}
@@ -210,10 +210,10 @@ sup{font-size:.62em;vertical-align:.42em}
 table.dt{width:100%;border-collapse:collapse;background:var(--paper-card);
   border:1px solid var(--rule);font:400 21px/1.4 var(--body);color:var(--ink-soft)}
 table.dt th{background:var(--moss);color:#fff;font:600 19px/1.3 var(--body);
-  text-align:left;padding:14px 16px;letter-spacing:.01em;vertical-align:middle}
+  text-align:left;padding:11px 16px;letter-spacing:.01em;vertical-align:middle}
 table.dt th:first-child{font-family:var(--mono);font-size:16px;letter-spacing:.14em;
   text-transform:uppercase;font-weight:500;color:#b6cdbd}
-table.dt td{padding:16px 16px;border-top:1px solid var(--rule-soft);vertical-align:top}
+table.dt td{padding:13px 16px;border-top:1px solid var(--rule-soft);vertical-align:top}
 table.dt tbody tr:nth-child(even){background:rgba(20,28,24,.022)}
 table.dt td.rh{font-weight:600;color:var(--ink);background:rgba(47,81,64,.05)}
 table.dt td.num{font-family:var(--mono);font-size:20px;color:var(--ink)}
@@ -226,20 +226,20 @@ table.dt.xs td{padding:8px 11px}
 table.dt tr.hi td{background:var(--vermilion-wash)}
 
 /* Layout helpers */
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
 .gcols{display:grid;gap:28px}
-.stack{display:flex;flex-direction:column;gap:22px}
-.stack.sm{gap:16px}
+.stack{display:flex;flex-direction:column;gap:18px}
+.stack.sm{gap:13px}
 .row{display:flex;gap:24px}
 .fill{height:100%}
 .between{justify-content:space-between}
 .center{text-align:center}
 
 /* Step chain for worked examples */
-.step{display:grid;grid-template-columns:250px 1fr;gap:22px;align-items:center;
+.step{display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:center;
   padding:13px 0;border-top:1px solid var(--rule-soft)}
 .step:first-child{border-top:none}
 .step .sl{font:500 17px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--moss)}
@@ -250,7 +250,7 @@ table.dt tr.hi td{background:var(--vermilion-wash)}
 .step.sm .sl{font-size:15px}
 
 /* Question cards */
-.q{display:grid;grid-template-columns:50px 1fr;gap:18px;align-items:start;
+.q{display:grid;grid-template-columns:50px 1fr;gap:16px;align-items:start;
   background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;padding:20px 22px}
 .q .qt{font:400 21px/1.4 var(--body);color:var(--ink)}
 .q .qm{margin-top:8px;font:500 15px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
@@ -339,6 +339,41 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   font:500 13px/1 var(--mono);letter-spacing:.1em;color:#f2efe6;background:rgba(47,81,64,.95);
   padding:12px 20px;border-radius:100px;opacity:0;pointer-events:none;transition:opacity .3s}
 .toast.on{opacity:1}
+/* === DENSITY OVERRIDE ======================================================
+   The type scale was raised across the module for readability from the back of
+   the room. On the densest slides that costs vertical space, and it is bought
+   back here from padding and gaps - never from font size.
+   `fit` is the normal step; `fit2` is for the few slides that need more.
+   ========================================================================== */
+.slide.fit .card{padding:18px 22px}
+.slide.fit .callout{padding:12px 20px}
+.slide.fit .callout .k{margin-bottom:5px}
+.slide.fit .stack{gap:14px}
+.slide.fit .stack.sm{gap:10px}
+.slide.fit ul.bul li{margin-bottom:7px}
+.slide.fit ul.bul.sm li{margin-bottom:5px}
+.slide.fit .card h3,.slide.fit .card .ch,.slide.fit .ch{margin-bottom:8px}
+.slide.fit .formula{padding:13px 22px}
+.slide.fit .formula.sm{padding:11px 18px}
+.slide.fit table.dt td{padding:10px 14px}
+.slide.fit table.dt th{padding:9px 14px}
+.slide.fit .step{padding:8px 0}
+.slide.fit .numrow{margin-bottom:8px}
+.slide.fit .q{padding:13px 18px}
+.slide.fit .answer{padding:13px 24px}
+.slide.fit2 .card{padding:14px 20px}
+.slide.fit2 .callout{padding:10px 18px}
+.slide.fit2 .stack{gap:11px}
+.slide.fit2 .stack.sm{gap:8px}
+.slide.fit2 ul.bul li{margin-bottom:5px}
+.slide.fit2 ul.bul.sm li{margin-bottom:4px}
+.slide.fit2 .card h3,.slide.fit2 .card .ch,.slide.fit2 .ch{margin-bottom:6px}
+.slide.fit2 .formula{padding:10px 20px}
+.slide.fit2 table.dt td{padding:8px 12px}
+.slide.fit2 table.dt th{padding:7px 12px}
+.slide.fit2 .step{padding:6px 0}
+.slide.fit2 .numrow{margin-bottom:6px}
+.slide.fit2 .q{padding:11px 16px}
 </style>
 </head>
 <body>
@@ -407,7 +442,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="rv" style="--d:1;margin-top:24px;width:120px;height:1px;background:var(--ink);opacity:.85"></div>
   </div>
   <div class="cframe">
-    <div class="cunit rv" style="--d:2">Unit IV</div>
+    <div class="cunit rv" style="--d:2">Unit IV &middot; Sessions 6&ndash;9</div>
     <h1 class="rv" style="--d:3">Measurement of<br><em>Tree Height</em></h1>
     <p class="csub rv" style="--d:5">Definition and classification &middot; Ocular and non-instrumental methods &middot; The tangent method &middot; Leaning trees and the sine method &middot; DBH and height classes</p>
   </div>
@@ -415,7 +450,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="rv" style="--d:7"><strong>BSc in Forestry</strong>College of Natural Resources<br>Royal University of Bhutan</div>
     <div class="rv" style="--d:8"><strong>Module Tutor &middot; Wangdi</strong>Senior Forestry Officer, Adjunct Lecturer<br>Forest Resources Planning and Management Division</div>
   </div>
-  <div class="pageno">01 / 57</div>
+  <div class="pageno">01 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -455,7 +490,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">02 / 57</div>
+  <div class="pageno">02 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -494,7 +529,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">03 / 57</div>
+  <div class="pageno">03 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -557,7 +592,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="footrule"></div>
   <div class="src">Formerly Session 6 (Part I) &middot; Session 7 (Part II) &middot; Session 8 (Part III) &middot; Session 9 (DBH and Height Class)</div>
-  <div class="pageno">04 / 57</div>
+  <div class="pageno">04 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -588,7 +623,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="srule rv" style="--d:2"></div>
       <p class="ssub rv" style="--d:3">Definition and objectives &middot; the six heights measured on one tree &middot; choosing the height that answers the question being asked</p>
     </div>
-    <div class="spage">05 / 57</div>
+    <div class="spage">05 / 60</div>
   </div>
 </section>
 
@@ -661,7 +696,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">06 / 57</div>
+  <div class="pageno">06 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -715,7 +750,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">07 / 57</div>
+  <div class="pageno">07 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -768,7 +803,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">08 / 57</div>
+  <div class="pageno">08 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -779,11 +814,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Stump height is simply the height of the stump left after felling. It sounds trivial, and it is the most controllable loss in the whole harvesting operation - every extra centimetre of stump is butt-log volume left in the forest, and the butt log is the most valuable part of the tree. Ask the class to estimate the loss over a whole coupe if every stump is 15 cm too tall.
 
-     Crown length and crown height are easy to confuse, and the confusion is worth ten seconds of care. Crown length is measured downwards from the tip to the lowest green branches - it is a length of crown. Crown height is measured upwards from the ground to the first green branches - it is a height of the crown above the ground. Together they add up to total height.
+     Crown length and crown-base height are easy to confuse, and the confusion is worth ten seconds of care. Crown length is measured downwards from the tip to the base of the live crown - it is a length of crown. Crown-base height is measured upwards from the ground to the base of the live crown - it is a height above the ground. Together they add up to total height. Use these two names and NOT the bare term 'crown height', which Unit III shows carries at least three incompatible meanings in the literature.
 
-     Note the deliberate difference from bole height: crown height uses the first *green* branch, bole height uses the first crown-forming branch *living or dead*. So bole height is usually a little shorter than crown height on a tree that has retained dead branches.
+     Note the deliberate difference from bole height: crown-base height uses the base of the LIVE crown, bole height uses the first crown-forming branch *living or dead*. So bole height is usually a little shorter than crown-base height on a tree that has retained dead branches.
 
-     Practical use: crown length divided by total height is the crown ratio, a standard field indicator of tree vigour. A crown ratio under about one third signals a suppressed tree.
+     Practical use: crown length divided by total height is the LIVE-CROWN RATIO, a standard field indicator of tree vigour. A live-crown ratio under about one third signals a suppressed tree. Unit III uses the same term for the same quantity.
 -->
 <section class="slide" data-n="9">
   <div class="head">
@@ -797,24 +832,24 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="g3">
         <div class="card rv" style="--d:2"><div class="label v">4</div><div class="ch" style="margin-top:12px">Stump height</div><p class="txt-sm">The height of the stump left standing after felling. Every extra centimetre is butt-log volume &mdash; the most valuable wood in the tree &mdash; left behind in the coupe.</p></div>
         <div class="card rv" style="--d:3"><div class="label v">5</div><div class="ch" style="margin-top:12px">Crown length</div><p class="txt-sm">The distance from the <strong>tip of the tree</strong> down to the lowest <strong>green</strong> branches forming the crown. Measured downwards.</p></div>
-        <div class="card rv" style="--d:4"><div class="label v">6</div><div class="ch" style="margin-top:12px">Crown height</div><p class="txt-sm">The distance from the <strong>ground</strong> up to the first <strong>green</strong> branches forming the crown. Measured upwards.</p></div>
+        <div class="card rv" style="--d:4"><div class="label v">6</div><div class="ch" style="margin-top:12px">Crown-base height</div><p class="txt-sm">The distance from the <strong>ground</strong> up to the <strong>base of the live crown</strong> &mdash; the first <strong>green</strong> branches. Measured upwards. <span style="color:var(--vermilion)">The module uses this name, not &ldquo;crown height&rdquo;.</span></p></div>
       </div>
       <div class="g2 rv" style="--d:5">
-        <div class="formula sm" style="margin:0">crown length &nbsp;+&nbsp; crown height &nbsp;=&nbsp; total height
+        <div class="formula sm" style="margin:0">crown length &nbsp;+&nbsp; crown-base height &nbsp;=&nbsp; total height
           <span class="u">the two crown measures partition the tree between them</span>
         </div>
-        <div class="formula sm v" style="margin:0">crown ratio &nbsp;=&nbsp; crown length &divide; total height
+        <div class="formula sm v" style="margin:0">live-crown ratio &nbsp;=&nbsp; crown length &divide; total height
           <span class="u">below about 1/3 the tree is suppressed and losing vigour</span>
         </div>
       </div>
       <div class="callout rv" style="--d:6">
-        <span class="k">Do not confuse these two</span>
-        <p><strong>Bole height</strong> stops at the first crown-forming branch <em>living or dead</em>. <strong>Crown height</strong> stops at the first <em>green</em> branch. On a tree that has retained its dead branches, bole height is the shorter of the two.</p>
+        <span class="k">The names this module uses &mdash; and one it does not</span>
+        <p><strong>Bole height</strong> stops at the first crown-forming branch <em>living or dead</em>. <strong>Crown-base height</strong> stops at the base of the <em>live</em> crown. On a tree that has kept its dead branches, bole height is the shorter of the two. The bare term <strong>&ldquo;crown height&rdquo; is not used in this module</strong>, because the literature gives it at least three different meanings &mdash; see Unit III.</p>
       </div>
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">09 / 57</div>
+  <div class="pageno">09 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -894,7 +929,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <text x="356" y="478" fill="#2f5140" text-anchor="middle" transform="rotate(-90 356 478)">2 &middot; COMMERCIAL BOLE</text>
           <text x="486" y="538" fill="#2f5140" text-anchor="middle" transform="rotate(-90 486 538)">1 &middot; BOLE HEIGHT</text>
           <text x="1424" y="220" fill="#a8842c" text-anchor="middle" transform="rotate(-90 1424 220)">5 &middot; CROWN LENGTH</text>
-          <text x="1524" y="513" fill="#a8842c" text-anchor="middle" transform="rotate(-90 1524 513)">6 &middot; CROWN HEIGHT</text>
+          <text x="1524" y="513" fill="#a8842c" text-anchor="middle" transform="rotate(-90 1524 513)">6 &middot; CROWN-BASE HEIGHT</text>
           <text x="1624" y="600" fill="#c14524" text-anchor="middle" transform="rotate(-90 1624 600)">4 &middot; STUMP</text>
         </g>
         <g font-family="Public Sans, sans-serif" font-size="18" fill="#4a544c" text-anchor="end">
@@ -911,7 +946,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">10 / 57</div>
+  <div class="pageno">10 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -942,14 +977,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <tr><td class="num">3</td><td class="rh">Commercial bole height</td><td>Ground level &rarr; last point fit for utilisation</td><td>Buyer, sawmiller &middot; how many logs of standard length the tree yields</td><td>Instrument + judgement of defect</td></tr>
         <tr class="hi"><td class="num">4</td><td class="rh">Height of standard timber bole</td><td>Ground level &rarr; point where mean diameter over bark = 20 cm</td><td>Revenue and inventory &middot; the one bole measure free of judgement</td><td>Instrument + diameter check</td></tr>
         <tr><td class="num">5</td><td class="rh">Stump height</td><td>Ground level &rarr; top of stump</td><td>Harvest supervisor &middot; controls butt-log volume left in the coupe</td><td>Tape, after felling</td></tr>
-        <tr><td class="num">6</td><td class="rh">Crown length</td><td>Tip &rarr; lowest green branches</td><td>Researcher &middot; crown ratio, vigour, competition status</td><td>Instrument, target often hidden</td></tr>
-        <tr><td class="num">7</td><td class="rh">Crown height</td><td>Ground level &rarr; first green branches</td><td>Researcher, fire officer &middot; ladder-fuel gap to the canopy</td><td>Instrument, target often hidden</td></tr>
+        <tr><td class="num">6</td><td class="rh">Crown length</td><td>Tip &rarr; base of the live crown (lowest green branches)</td><td>Researcher &middot; live-crown ratio, vigour, competition status</td><td>Instrument, target often hidden</td></tr>
+        <tr><td class="num">7</td><td class="rh">Crown-base height</td><td>Ground level &rarr; base of the live crown (first green branches)</td><td>Researcher, fire officer &middot; ladder-fuel gap to the canopy</td><td>Instrument, target often hidden</td></tr>
       </tbody>
     </table>
   </div>
   <div class="footrule"></div>
   <div class="src">Rows 2&ndash;7 are the heights listed under &ldquo;Classification of Height&rdquo; in Session 6</div>
-  <div class="pageno">11 / 57</div>
+  <div class="pageno">11 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -980,7 +1015,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="srule rv" style="--d:2"></div>
       <p class="ssub rv" style="--d:3">The taxonomy of methods &middot; ocular estimation &middot; similar triangles &middot; the shadow method &middot; the single pole method</p>
     </div>
-    <div class="spage">12 / 57</div>
+    <div class="spage">12 / 60</div>
   </div>
 </section>
 
@@ -998,7 +1033,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Note for later: hypsometer means measurement of height, altimeter means measurement of altitude, clinometer means measurement of the angle of slope. Only the first is named after the job we are doing, yet in Bhutan the clinometer is the instrument almost always used.
 -->
-<section class="slide" data-n="13">
+<section class="slide fit fit2" data-n="13">
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Section B &middot; Taxonomy</div>
     <h2 class="title rv" style="--d:1">Three families of <em>method</em></h2>
@@ -1006,7 +1041,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
   <div class="body tight">
-    <div class="fig rv" style="--d:2;height:calc(100% - 108px)">
+    <div class="fig rv" style="--d:2;height:calc(100% - 126px)">
       <svg viewBox="0 0 1680 560" preserveAspectRatio="xMidYMid meet">
         <!-- root -->
         <rect x="620" y="18" width="440" height="62" rx="3" fill="#2f5140" stroke="#2f5140"/>
@@ -1061,13 +1096,13 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </g>
       </svg>
     </div>
-    <div class="callout moss rv" style="--d:3;margin-top:20px">
+    <div class="callout moss rv" style="--d:3;margin-top:14px">
       <span class="k">The exception</span>
       <p><strong>Small trees</strong> need none of this &mdash; they are measured directly with a rod, a scale or a measuring tape. Every method above exists only because the tip of the tree is out of reach.</p>
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">13 / 57</div>
+  <div class="pageno">13 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -1158,7 +1193,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">14 / 57</div>
+  <div class="pageno">14 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -1240,7 +1275,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">15 / 57</div>
+  <div class="pageno">15 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -1331,7 +1366,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">16 / 57</div>
+  <div class="pageno">16 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -1393,7 +1428,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">17 / 57</div>
+  <div class="pageno">17 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -1487,7 +1522,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">18 / 57</div>
+  <div class="pageno">18 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -1543,7 +1578,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">19 / 57</div>
+  <div class="pageno">19 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -1587,7 +1622,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">20 / 57</div>
+  <div class="pageno">20 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -1618,7 +1653,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="srule rv" style="--d:2"></div>
       <p class="ssub rv" style="--d:3">Hypsometer, altimeter, clinometer &middot; the trigonometry you need &middot; four ground situations, four formulae &middot; using a clinometer honestly</p>
     </div>
-    <div class="spage">21 / 57</div>
+    <div class="spage">21 / 60</div>
   </div>
 </section>
 
@@ -1632,7 +1667,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Why? Because any instrument that can measure an angle of slope can be used for height measurement by trigonometry. The clinometer is cheap, rugged, waterproof, needs no batteries and doubles as a slope gauge for the survey work the same crew is doing anyway. That is a practical argument, not a theoretical one, and it wins.
 
-     The two principles are the organising idea of the rest of this section. A geometric instrument sets up a similar triangle inside itself - Christen's and Smythie's hypsometers do this - and reads height off a scale directly. A trigonometric instrument measures an angle and leaves the arithmetic to you.
+     The two principles are the organising idea of the rest of this section. A geometric instrument sets up a similar triangle inside itself - Christen's and Smythies&rsquo; hypsometers do this - and reads height off a scale directly. A trigonometric instrument measures an angle and leaves the arithmetic to you.
 
      Ask which family is more flexible. The trigonometric one, because a single angle-measuring device serves any distance, any slope and any tree, while a geometric hypsometer is usually built for one fixed pole length or one fixed distance.
 -->
@@ -1646,7 +1681,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="stack">
       <div class="g3">
-        <div class="card rv" style="--d:2"><div class="label v">Instrument 1</div><div class="ch" style="margin-top:12px">Hypsometer</div><p class="txt-sm">Measurement of <strong>height</strong>. Named for the job &mdash; Christen's and Smythie's hypsometers read height directly off a graduated scale.</p></div>
+        <div class="card rv" style="--d:2"><div class="label v">Instrument 1</div><div class="ch" style="margin-top:12px">Hypsometer</div><p class="txt-sm">Measurement of <strong>height</strong>. Named for the job &mdash; Christen's and Smythies&rsquo; hypsometers read height directly off a graduated scale.</p></div>
         <div class="card rv" style="--d:3"><div class="label v">Instrument 2</div><div class="ch" style="margin-top:12px">Altimeter</div><p class="txt-sm">Measurement of <strong>altitude</strong> &mdash; height above sea level. Adapted for tree height by reading vertical angles, e.g. the Haga altimeter.</p></div>
         <div class="card rv" style="--d:4;border-color:rgba(193,69,36,.45)"><div class="label v">Instrument 3</div><div class="ch v" style="margin-top:12px">Clinometer</div><p class="txt-sm">Measurement of the <strong>angle of slope</strong>. Not named for height at all &mdash; and yet it is the instrument used most in Bhutan.</p></div>
       </div>
@@ -1663,13 +1698,13 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="callout rv" style="--d:7">
-        <span class="k">Why the clinometer wins in the field</span>
-        <p>Any instrument that can measure an angle of slope can be used for height measurement by trigonometry. The clinometer is cheap, rugged, needs no batteries, and the same crew already carries one for slope correction. <strong>In Bhutan the clinometer is used the most.</strong></p>
+        <span class="k">Which instrument, in which setting</span>
+        <p style="font-size:19px">Any instrument that measures an angle of slope can measure height by trigonometry. The clinometer is cheap, rugged, needs no batteries, and the crew already carries one for slope correction &mdash; which is why it dominates <strong>teaching exercises and resource-limited field work</strong>. Bhutan&rsquo;s <strong>Second National Forest Inventory used a Hagl&ouml;f Laser Geo hypsometer</strong>. <strong>Name the setting before you name the instrument.</strong></p>
       </div>
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">22 / 57</div>
+  <div class="pageno">22 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -1678,11 +1713,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 <!-- SPEAKER NOTES · SLIDE 23
      A naming slide. Students should be able to place any instrument they meet into one of these two columns, and the placement tells them immediately what the instrument will demand of them.
 
-     Left column, similar triangles: Christen's hypsometer, Smythie's hypsometer, improvised callipers. These need a pole of known length placed against the tree, or a fixed distance from it, and then the height is read off. No calculation, no calculator, no trigonometry - but also no flexibility, and the pole must be placed correctly every time.
+     Left column, similar triangles: Christen's hypsometer, Smythies&rsquo; hypsometer, improvised callipers. These need a pole of known length placed against the tree, or a fixed distance from it, and then the height is read off. No calculation, no calculator, no trigonometry - but also no flexibility, and the pole must be placed correctly every time.
 
-     Right column, trigonometrical: Brandis hypsometer, Abney's level, Haga altimeter, Ravi multimeter, Relaskop, clinometer. These measure angles. They need a measured distance and arithmetic, and they work at any distance you like.
+     Right column, trigonometrical: Brandis hypsometer, Abney's level, Haga altimeter, Ravi multimeter, relascope, clinometer. These measure angles. They need a measured distance and arithmetic, and they work at any distance you like.
 
-     The last two are printed in red in the source notes for a reason. The Relaskop is the most versatile forest instrument ever made - height, diameter at any point on the stem, and basal area sweep, all in one device. The clinometer is the one students will actually hold in the practical.
+     The last two are printed in red in the source notes for a reason. The relascope is the most versatile forest instrument ever made - height, diameter at any point on the stem, and basal area sweep, all in one device. The clinometer is the one students will actually hold in the practical.
 
      Ask the class which column a smartphone application belongs to. Trigonometric - a phone measures its own tilt with an accelerometer, exactly like a clinometer, and then does the arithmetic invisibly. Which is why a phone reading is only as good as the distance you gave it.
 -->
@@ -1700,7 +1735,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <div class="ch" style="margin-top:16px">Read the height off a scale</div>
         <div class="chips" style="margin-top:20px">
           <div class="chip">Christen's hypsometer</div>
-          <div class="chip">Smythie's hypsometer</div>
+          <div class="chip">Smythies&rsquo; hypsometer</div>
           <div class="chip">Improvised callipers</div>
         </div>
         <div style="flex:1"></div>
@@ -1718,7 +1753,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <div class="chip v">Abney's level</div>
           <div class="chip v">Haga altimeter</div>
           <div class="chip v">Ravi multimeter</div>
-          <div class="chip v" style="font-weight:700">Relaskop</div>
+          <div class="chip v" style="font-weight:700">relascope</div>
           <div class="chip v" style="font-weight:700">Clinometer</div>
         </div>
         <div style="flex:1"></div>
@@ -1732,7 +1767,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="footrule"></div>
   <div class="src">Instrument lists as given in Session 7, &ldquo;Instruments to measure Height&rdquo;</div>
-  <div class="pageno">23 / 57</div>
+  <div class="pageno">23 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -1817,7 +1852,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">24 / 57</div>
+  <div class="pageno">24 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -1864,7 +1899,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">25 / 57</div>
+  <div class="pageno">25 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -1951,7 +1986,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">26 / 57</div>
+  <div class="pageno">26 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -2042,7 +2077,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">27 / 57</div>
+  <div class="pageno">27 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -2123,7 +2158,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">28 / 57</div>
+  <div class="pageno">28 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -2204,7 +2239,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">29 / 57</div>
+  <div class="pageno">29 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -2253,7 +2288,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="footrule"></div>
   <div class="src">In all cases EB = slope distance from eye to the base of the tree &middot; ED = EB cos &#946; = horizontal distance</div>
-  <div class="pageno">30 / 57</div>
+  <div class="pageno">30 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -2315,7 +2350,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">31 / 57</div>
+  <div class="pageno">31 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -2380,7 +2415,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">32 / 57</div>
+  <div class="pageno">32 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -2433,7 +2468,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">33 / 57</div>
+  <div class="pageno">33 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -2481,7 +2516,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">34 / 57</div>
+  <div class="pageno">34 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -2512,7 +2547,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="srule rv" style="--d:2"></div>
       <p class="ssub rv" style="--d:3">Why the tangent method fails &middot; the sine law &middot; six observer positions, six formulae &middot; the seven sources of error</p>
     </div>
-    <div class="spage">35 / 57</div>
+    <div class="spage">35 / 60</div>
   </div>
 </section>
 
@@ -2595,7 +2630,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">36 / 57</div>
+  <div class="pageno">36 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -2656,7 +2691,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">37 / 57</div>
+  <div class="pageno">37 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -2673,7 +2708,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Field note: EB, the distance from the eye to the base along the line of sight, is measured with a tape or a laser rangefinder. It is a slope distance and stays a slope distance - the sine method never needs the horizontal distance, and that is its practical advantage on broken ground.
 -->
-<section class="slide" data-n="38">
+<section class="slide fit fit2" data-n="38">
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Section D &middot; Notation and the master equation</div>
     <h2 class="title rv" style="--d:1">The sine law on a <em>leaning stem</em></h2>
@@ -2681,33 +2716,33 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
   <div class="body">
-    <div style="display:grid;grid-template-columns:1.06fr .94fr;gap:32px;height:100%">
+    <div style="display:grid;grid-template-columns:1.06fr .94fr;gap:28px;height:100%">
       <div class="stack sm">
         <div class="card rv" style="--d:2">
           <div class="label v">Notation &mdash; identical in all six cases</div>
-          <table class="dt xs" style="margin-top:14px;border:none;background:transparent">
+          <table class="dt xs" style="margin-top:10px;border:none;background:transparent">
             <tbody>
               <tr><td class="num" style="width:70px;border:none">AB</td><td style="border:none">the leaning tree &mdash; A is the tip, B is the base</td></tr>
               <tr><td class="num" style="border:none">E</td><td style="border:none">the observer's eye</td></tr>
-              <tr><td class="num" style="border:none">BC</td><td style="border:none">imaginary line from the base, meeting the sight line EA at C</td></tr>
-              <tr><td class="num" style="border:none">ED</td><td style="border:none">imaginary horizontal line from E, meeting BC at D</td></tr>
-              <tr><td class="num" style="border:none">&#945;, &#946;</td><td style="border:none">angles of elevation and of depression, read with the clinometer</td></tr>
+              <tr><td class="num" style="border:none">BC</td><td style="border:none">imaginary line from the base, meeting sight line EA at C</td></tr>
+              <tr><td class="num" style="border:none">ED</td><td style="border:none">imaginary horizontal from E, meeting BC at D</td></tr>
+              <tr><td class="num" style="border:none">&#945;, &#946;</td><td style="border:none">angles of elevation and depression, from the clinometer</td></tr>
               <tr><td class="num" style="border:none">&#952;</td><td style="border:none">the angle of lean of the tree</td></tr>
             </tbody>
           </table>
         </div>
-        <div class="formula sm rv" style="--d:3">
+        <div class="formula sm rv" style="--d:3;font-size:24px">
           <span class="frac"><span class="n">AB</span><span class="d">sin &#8736;AEB</span></span> =
           <span class="frac"><span class="n">BE</span><span class="d">sin &#8736;EAB</span></span> =
           <span class="frac"><span class="n">AE</span><span class="d">sin &#8736;ABE</span></span>
         </div>
-        <div class="formula lg v rv" style="--d:4">AB &nbsp;=&nbsp; <span class="frac"><span class="n">EB &middot; sin &#8736;AEB</span><span class="d">sin &#8736;EAB</span></span>
+        <div class="formula v rv" style="--d:4">AB &nbsp;=&nbsp; <span class="frac"><span class="n">EB &middot; sin &#8736;AEB</span><span class="d">sin &#8736;EAB</span></span>
           <span class="u">the master equation &mdash; the next six slides only find &#8736;EAB</span>
         </div>
         <div style="flex:1"></div>
         <div class="callout moss rv" style="--d:6">
           <span class="k">Why foresters like it</span>
-          <p>EB is a <strong>slope distance</strong> measured straight along the line of sight, and it stays one. The sine method never needs the horizontal distance &mdash; which is its whole advantage on broken ground.</p>
+          <p>EB is a <strong>slope distance</strong>, read straight along the line of sight. The sine method never needs the horizontal distance &mdash; its whole advantage on steep ground.</p>
         </div>
       </div>
       <div class="fig rv" style="--d:5">
@@ -2743,7 +2778,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">38 / 57</div>
+  <div class="pageno">38 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -2819,7 +2854,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">39 / 57</div>
+  <div class="pageno">39 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -2894,7 +2929,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">40 / 57</div>
+  <div class="pageno">40 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -2969,7 +3004,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">41 / 57</div>
+  <div class="pageno">41 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -3043,7 +3078,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">42 / 57</div>
+  <div class="pageno">42 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -3116,7 +3151,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">43 / 57</div>
+  <div class="pageno">43 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -3192,7 +3227,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">44 / 57</div>
+  <div class="pageno">44 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -3246,7 +3281,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="footrule"></div>
   <div class="src">Set &#952; = 0 and every formula above collapses to the tangent-method result of Slide 30</div>
-  <div class="pageno">45 / 57</div>
+  <div class="pageno">45 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -3306,7 +3341,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">46 / 57</div>
+  <div class="pageno">46 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -3354,7 +3389,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="footrule"></div>
   <div class="src">Systematic errors never average out, however many trees you measure &mdash; only better procedure removes them</div>
-  <div class="pageno">47 / 57</div>
+  <div class="pageno">47 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -3397,7 +3432,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">48 / 57</div>
+  <div class="pageno">48 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -3428,7 +3463,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="srule rv" style="--d:2"></div>
       <p class="ssub rv" style="--d:3">Why individual measurements are grouped &middot; the 2, 5 and 10 cm rules &middot; the 1, 3 and 5 m rules &middot; what the classes are used for</p>
     </div>
-    <div class="spage">49 / 57</div>
+    <div class="spage">49 / 60</div>
   </div>
 </section>
 
@@ -3521,7 +3556,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">50 / 57</div>
+  <div class="pageno">50 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -3570,7 +3605,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">51 / 57</div>
+  <div class="pageno">51 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -3587,7 +3622,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Connect it back to Section C: a two-degree clinometer misreading moved a 17 m tree by 1.2 m. That is why a 1 m class is already generous at 15 m and indefensible at 30 m.
 
-     Then a practical note: in most Bhutanese inventories the height of every tree is not measured at all. A subsample is measured and a height-diameter curve fills in the rest - which makes the height class a summary of a modelled quantity, and worth saying so.
+     Then a practical note, and state it carefully because the older version of this slide over-generalised. Whether every tree is measured depends on the inventory. Bhutan's Second National Forest Inventory measured the height of every tree in the plot, using a Haglof Laser Geo hypsometer. Many Forest Management Unit inventories, community-forest inventories and teaching exercises measure only a subsample and fill in the rest from a height-diameter curve. Where that is done the height class summarises a modelled quantity, and a report should say so. Do not present subsampling as a national convention - it is a practice, adopted or not according to the manual governing the job.
 -->
 <section class="slide" data-n="52">
   <div class="head">
@@ -3619,14 +3654,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <p>Tall trees are not only fewer, they are <strong>measured less accurately</strong>. A class width should never be finer than the measurement error. On Slide 31 a 2&deg; misreading moved a 17 m tree by 1.2 m &mdash; so a 1 m class is already generous at 15 m and indefensible at 30 m.</p>
         </div>
         <div class="callout rv" style="--d:7">
-          <span class="k">What actually happens in an inventory</span>
-          <p>In most inventories the height of <strong>every</strong> tree is never measured. A subsample is measured and a height&ndash;diameter curve supplies the rest &mdash; so the height class often summarises a <em>modelled</em> quantity. Say so when you report it.</p>
+          <span class="k">Measured, or modelled? It depends on the inventory</span>
+          <p style="font-size:19px">Bhutan&rsquo;s <strong>Second NFI measured the height of every tree in the plot</strong> with a laser hypsometer. Many <strong>FMU, community-forest and teaching</strong> inventories measure a subsample and fill in the rest from a height&ndash;diameter curve. In that case the height class summarises a <strong>modelled</strong> quantity &mdash; and you say so when you report it.</p>
         </div>
       </div>
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">52 / 57</div>
+  <div class="pageno">52 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -3692,7 +3727,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="footrule"></div>
   <div class="src">Basal area goes as the <em>square</em> of diameter &mdash; twenty stems in the 70&ndash;80 class can hold more wood than two hundred in the 10&ndash;20 class</div>
-  <div class="pageno">53 / 57</div>
+  <div class="pageno">53 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -3755,7 +3790,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">54 / 57</div>
+  <div class="pageno">54 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -3826,7 +3861,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="footrule"></div>
   <div class="src">DBH classes 2 / 5 / 10 cm &middot; Height classes 1 / 3 / 5 m &mdash; see slides 51 and 52 for the thresholds</div>
-  <div class="pageno">55 / 57</div>
+  <div class="pageno">55 / 60</div>
 </section>
 
 <!-- ======================================================================
@@ -3835,7 +3870,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 <!-- SPEAKER NOTES · SLIDE 56
      Use these as an exit ticket. Give five minutes, collect the answers, and use the results to decide what to revisit at the start of the next session.
 
-     Question 1 tests vocabulary; a student who cannot separate bole height from crown height has not read Section A.
+     Question 1 tests vocabulary; a student who cannot separate bole height from crown-base height has not read Section A.
      Question 2 tests whether they understood that the shadow method's weakness is physical, not mathematical.
      Question 3 tests the eye-height rule and is the one most often failed.
      Question 4 tests case selection, which is the skill the field practical will assess.
@@ -3855,7 +3890,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
   <div class="body">
     <div class="g3" style="row-gap:22px">
-      <div class="q rv" style="--d:2"><div class="badge hollow">1</div><div><div class="qt">A tree has dead branches low on the stem and green branches only near the top. Which is greater &mdash; bole height or crown height?</div><div class="qm">Section A</div><div class="qa">Crown height &mdash; bole height stops at the first branch living <em>or dead</em></div></div></div>
+      <div class="q rv" style="--d:2"><div class="badge hollow">1</div><div><div class="qt">A tree has dead branches low on the stem and green branches only near the top. Which is greater &mdash; bole height or crown-base height?</div><div class="qm">Section A</div><div class="qa">Crown-base height &mdash; bole height stops at the first branch living <em>or dead</em></div></div></div>
       <div class="q rv" style="--d:3"><div class="badge hollow">2</div><div><div class="qt">Why can the shadow method not be used inside a closed broadleaf stand at midday?</div><div class="qm">Section B</div><div class="qa">No sunshine reaches the floor, so there is no shadow to measure</div></div></div>
       <div class="q rv" style="--d:4"><div class="badge hollow">3</div><div><div class="qt">You measure on a slope with the eye between top and base and add 1.5 m eye height at the end. What have you done wrong?</div><div class="qm">Section C</div><div class="qa">Double-counted &mdash; &#946; to the base already measures the drop from eye to base</div></div></div>
       <div class="q rv" style="--d:5"><div class="badge hollow">4</div><div><div class="qt">You stand on a ridge; the tree is below you and leans away. Which formula?</div><div class="qm">Section D</div><div class="qa">AB = EB sin(&#946;&minus;&#945;) / cos(&#945;&minus;&#952;) &mdash; case 2c</div></div></div>
@@ -3865,13 +3900,189 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="footrule"></div>
   <div class="src">Assignment &mdash; measure one campus tree by pole, tangent and sine method; submit all three with working</div>
-  <div class="pageno">56 / 57</div>
+  <div class="pageno">56 / 60</div>
+</section>
+
+<!-- ======================================================================
+     BHUTAN POLICY CONNECTION — WHAT THIS UNIT IS FOR
+     ====================================================================== -->
+<!-- SPEAKER NOTES · BHUTAN POLICY CONNECTION
+     Height is the measurement students most often treat as a chore, so this slide exists to say
+     what it buys.
+
+     Growing stock first: V = G x h x f. Without h there is no volume, and without volume there is
+     no allowable cut. That is the direct line from a clinometer reading to a management decision.
+
+     Dominant height and site quality next, which is the one students under-rate. The height of the
+     dominant trees at a given age is the standard index of what a site can produce, and it is
+     almost independent of stocking - which is exactly what makes it useful. Two stands of the same
+     species and age with the same dominant height have the same productive capacity, however
+     differently they have been thinned.
+
+     Biomass models third. The Bhutan allometric equations of Unit VI have two forms, one on
+     diameter alone and one on basal area times height. The height-inclusive form is the better one,
+     and the exercise in Unit VI shows two trees of identical DBH whose biomass differs by 37 per
+     cent because their heights differ. Height is what separates them.
+
+     Then the instrument point from earlier in this section, restated: the Second NFI measured every
+     tree with a laser hypsometer. Say plainly that a graduate's first inventory may hand them
+     either a laser or a clinometer, and the trigonometry is the same.
+
+     Finally the multipurpose panel: canopy structure, ladder fuels, habitat trees, riparian shading.
+     None of them is timber, all of them need height.
+-->
+<section class="slide">
+  <div class="head">
+    <div class="eyebrow rv" style="--d:0">Official Bhutan policy context &middot; why this unit exists</div>
+    <h2 class="title rv" style="--d:1;max-width:1180px">Height in <em>Bhutanese forest management</em></h2>
+    <div class="hr"></div>
+  </div>
+  <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
+  <div class="body">
+    <p class="lead rv" style="--d:2;margin-bottom:24px">Height is the measurement students most often treat as a chore. Here is what it buys.</p>
+    <div class="g4" style="margin-bottom:26px">
+      <div class="card rv" style="--d:3"><div class="ch" style="font-size:21px">Growing-stock estimation</div><p class="txt-sm"><strong>V = G &times; h &times; f.</strong> No height, no volume; no volume, no annual allowable cut. That is the direct line from a clinometer reading to a management decision.</p></div>
+      <div class="card rv" style="--d:4"><div class="ch" style="font-size:21px">Dominant height and site quality</div><p class="txt-sm">The height of the dominant trees at a given age is the standard index of what a site can produce &mdash; and it is <strong>almost independent of stocking</strong>, which is exactly what makes it useful.</p></div>
+      <div class="card rv" style="--d:5"><div class="ch" style="font-size:21px">Biomass and carbon models</div><p class="txt-sm">Bhutan&rsquo;s 2018 allometric equations have a DBH-only form and a <strong>DBH-and-height</strong> form. The height-inclusive one is better &mdash; Unit VI shows two trees of identical DBH differing by <strong>37 %</strong> in biomass because their heights differ.</p></div>
+      <div class="card moss rv" style="--d:6"><div class="ch" style="font-size:21px">Beyond timber</div><p class="txt-sm">Canopy structure and layering, ladder fuels and fire risk, large habitat trees, riparian shading and stream temperature. <strong>None of these is timber. All of them need height.</strong></p></div>
+    </div>
+    <div class="g2" style="gap:32px">
+      <div class="callout rv" style="--d:7"><span class="k">Which instrument you will be handed</span><p style="font-size:19px">Bhutan&rsquo;s <strong>Second National Forest Inventory measured every tree in the plot with a Hagl&ouml;f Laser Geo hypsometer</strong>. An FMU or community-forest inventory may hand you a clinometer instead. <strong>The trigonometry of Section C is the same either way</strong> &mdash; which is why it is taught before any instrument.</p></div>
+      <div class="callout moss rv" style="--d:8"><span class="k">Community forestry</span><p style="font-size:19px">A community-forest group measures heights on a subsample to build its own height&ndash;diameter curve, and uses it to estimate standing volume for the management plan. It is the cheapest way for a group to know what it holds &mdash; and the curve is theirs to keep and re-use.</p></div>
+    </div>
+  </div>
+  <div class="src">DoFPS (2023) <em>State of Forest Report 2023</em>, field protocol &middot; UWICER &amp; FRMD (2018) allometric biomass equations &middot; National Forest Policy of Bhutan 2011</div>
+  <div class="pageno">57 / 60</div>
+</section>
+
+
+<!-- ======================================================================
+     CASE STUDY 3 OF 6 — IV
+     ====================================================================== -->
+<!-- SPEAKER NOTES · CASE STUDY, STEP 3
+     One plot runs through six units. Point at the banner every time it appears and say which
+     step the class is on, because the whole value of the thread is that students recognise it
+     as the same forest.
+
+     
+-->
+<section class="slide">
+  <div class="head">
+    <div class="eyebrow rv" style="--d:0">Case study &middot; one 500 m<sup>2</sup> plot, carried through Units II&ndash;VII &middot; step 3 of 6</div>
+    <h2 class="title rv" style="--d:1">Case study &middot; <em>heights on a subsample</em></h2>
+    <div class="hr"></div>
+  </div>
+  <div class="runhead">CASE STUDY &middot; UNIT IV</div>
+  <div class="body">
+    <p class="txt rv" style="--d:2;margin-bottom:16px">Measuring the height of all 24 stems is possible but slow. <strong>Ten</strong> are measured, spanning the diameter range, and a height&ndash;diameter curve supplies the rest.</p>
+    <div class="g2" style="gap:30px;margin-bottom:20px">
+      <div>
+        <div class="label rv" style="--d:3;margin-bottom:10px">Measured, and read from the curve</div>
+        <table class="dt sm rv" style="--d:3">
+          <thead><tr><th class="c">DBH cm</th><th class="c">11.2</th><th class="c">19.2</th><th class="c">27.3</th><th class="c">35.8</th><th class="c">44.7</th><th class="c">57.6</th></tr></thead>
+          <tbody><tr><td class="rh">Height m</td><td class="num c">10.4</td><td class="num c">15.6</td><td class="num c">19.9</td><td class="num c">23.1</td><td class="num c">25.5</td><td class="num c">27.8</td></tr></tbody>
+        </table>
+        <div class="callout rv" style="--d:5;margin-top:16px"><span class="k">Say which is which</span><p>Six of these were <strong>measured</strong>; the other eighteen were <strong>modelled</strong> from the curve. A crop height built partly on modelled values is still a good estimate &mdash; but the report says so.</p></div>
+      </div>
+      <div class="card moss rv" style="--d:4">
+        <div class="ch">Why a curve and not an average</div>
+        <p class="txt-sm">Height rises steeply with diameter among small stems and flattens among large ones. A single mean height would over-estimate the small trees and under-estimate the large ones &mdash; and it is the large ones that carry the volume.</p>
+        <p class="txt-sm" style="margin-top:14px">The curve is also <strong>reusable</strong>: measure ten trees once, and every future inventory of this compartment can read heights from it.</p>
+      </div>
+    </div>
+    <div class="callout moss rv" style="--d:7"><span class="k">Carry this forward</span><p>Unit VI weights these heights by basal area to get Lorey's mean height, and Unit V needs the height of a single stem to run Model 16. Bhutan's Second NFI measured <strong>every</strong> tree with a laser hypsometer; a community forest measuring a subsample and fitting a curve is doing the same job with less equipment.</p></div>
+  </div>
+  <div class="src">Hypothetical teaching data. Curve of Chapman&ndash;Richards form, fitted to the ten measured stems.</div>
+  <div class="pageno">58 / 60</div>
+</section>
+
+<!-- ======================================================================
+     NOTATION REFERENCE SHEET — IDENTICAL IN EVERY UNIT OF MEN 201
+     ====================================================================== -->
+<!-- SPEAKER NOTES · NOTATION REFERENCE SHEET
+     This slide is identical in all seven decks. Point that out to the class the first time they
+     meet it, and tell them it is the page to photograph.
+
+     The rule that does most of the work is lower case for one tree, upper case for the stand.
+     g and G, v and V. Students who internalise that one convention stop making the single most
+     common error in the module, which is multiplying a per-tree figure by a per-hectare figure.
+
+     On bark: insist on t for one-sided thickness and B = 2t for double bark thickness. The older
+     literature uses b for both, which is exactly why this module fixes two symbols. A diameter
+     crosses the bark twice, so the subtraction is always 2t.
+
+     On crown terms: the module uses four names and never the bare term "crown height". Unit III
+     shows why - the term carries three incompatible meanings, and students will meet all three.
+
+     On the DBH reference height, which is not a symbol but belongs here anyway: it is protocol-
+     dependent, Bhutan's Second NFI used 1.37 m, many international manuals use 1.30 m, and the
+     examinable skill is identifying the governing protocol and recording the height - not
+     memorising a number.
+-->
+<section class="slide">
+  <div class="head">
+    <div class="eyebrow rv" style="--d:0">Reference sheet &middot; identical in every unit of MEN 201 &middot; photograph this one</div>
+    <h2 class="title rv" style="--d:1">Notation, units and <em>terminology</em></h2>
+    <div class="hr"></div>
+  </div>
+  <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
+  <div class="body">
+    <div style="display:grid;grid-template-columns:.78fr .62fr .60fr;gap:26px;height:100%">
+      <table class="dt sm rv" style="--d:3;align-self:start">
+        <thead><tr><th style="width:74px">Symbol</th><th>Quantity</th><th style="width:96px">Unit</th></tr></thead>
+        <tbody>
+          <tr><td class="rh">d</td><td>diameter of one tree</td><td>cm</td></tr>
+          <tr><td class="rh">C</td><td>circumference or girth</td><td>cm</td></tr>
+          <tr><td class="rh">g</td><td>basal area, <strong>one tree</strong></td><td>m<sup>2</sup></td></tr>
+          <tr class="hi"><td class="rh">G</td><td>basal area, <strong>stand</strong></td><td>m<sup>2</sup>/ha</td></tr>
+          <tr><td class="rh">h</td><td>height of one tree</td><td>m</td></tr>
+          <tr><td class="rh">H<sub>L</sub></td><td>Lorey&rsquo;s mean height</td><td>m</td></tr>
+          <tr><td class="rh">v</td><td>volume, <strong>one tree</strong></td><td>m<sup>3</sup></td></tr>
+          <tr class="hi"><td class="rh">V</td><td>volume, <strong>stand</strong></td><td>m<sup>3</sup>/ha</td></tr>
+          <tr><td class="rh">t</td><td>bark thickness, <strong>one side</strong></td><td>cm</td></tr>
+          <tr><td class="rh">B</td><td>double bark, B = 2t</td><td>cm</td></tr>
+          <tr><td class="rh">f</td><td>form factor</td><td>&mdash;</td></tr>
+        </tbody>
+      </table>
+      <div style="display:flex;flex-direction:column;gap:18px;min-height:0">
+        <div class="card moss rv" style="--d:4;padding:20px 22px">
+          <div class="ch" style="font-size:21px;margin-bottom:8px">Lower case is one tree.<br>Upper case is the stand.</div>
+          <p class="txt-sm" style="font-size:17px">That one rule resolves most of the confusion in the literature: <strong>g</strong> is the tree in front of you, <strong>G</strong> is the hectare it stands in. Likewise <strong>v</strong> and <strong>V</strong>.</p>
+        </div>
+        <div class="card rv" style="--d:5;padding:20px 22px">
+          <div class="ch v" style="font-size:19px;margin-bottom:8px">Two conversions that follow</div>
+          <div class="mn" style="font-size:18px;color:var(--moss);line-height:1.8">
+            C = &pi;d &nbsp;&middot;&nbsp; d = C / &pi;<br>
+            D<sub>ub</sub> = D<sub>ob</sub> &minus; 2t<br>
+            G<sub>ub</sub> = G<sub>ob</sub> &minus; 2&pi;t
+          </div>
+          <p class="txt-sm" style="margin-top:8px;font-size:17px">A diameter crosses bark <strong>twice</strong>. Subtract <strong>2t</strong>, never <em>t</em>.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;min-height:0">
+        <div class="card sunk rv" style="--d:6;padding:18px 22px">
+          <div class="ch v" style="font-size:19px;margin-bottom:8px">Crown terms &mdash; four names</div>
+          <p class="txt-sm" style="font-size:17px"><strong>Crown-base height</strong> ground to the base of the live crown &middot; <strong>crown length</strong> H &minus; crown-base height &middot; <strong>crown midpoint height</strong> ground to the crown midpoint &middot; <strong>live-crown ratio</strong> crown length &divide; H. The bare term <strong>&ldquo;crown height&rdquo; is not used</strong> &mdash; three incompatible meanings.</p>
+        </div>
+        <div class="card sunk rv" style="--d:7;padding:18px 22px">
+          <div class="ch v" style="font-size:19px;margin-bottom:8px">Spelling fixed for this module</div>
+          <p class="txt-sm" style="font-size:17px"><strong>relascope</strong> &middot; <strong>calliper</strong> &middot; <strong>Smythies&rsquo; hypsometer</strong> &middot; <strong>chir pine</strong> &middot; <strong>breast height</strong> &middot; <strong>over bark</strong> / <strong>under bark</strong> &middot; <strong>merchantable height</strong> &middot; <strong>bole height</strong></p>
+        </div>
+        <div class="callout rv" style="--d:8;padding:16px 20px">
+          <span class="k">Not a symbol, but it belongs here</span>
+          <p style="font-size:17px"><strong>DBH reference height is protocol-dependent.</strong> Bhutan&rsquo;s Second NFI used <strong>1.37 m</strong>; many international manuals use <strong>1.30 m</strong>. Follow the applicable protocol and <strong>record the height used</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="src">Notation fixed for MEN 201. Where a textbook or a published equation uses different symbols, translate into this table before you calculate.</div>
+  <div class="pageno">59 / 60</div>
 </section>
 
 <!-- ======================================================================
      SLIDE 57 — CLOSING COVER
      ====================================================================== -->
-<section class="slide cover" data-n="57">
+<section class="slide cover" data-n="60">
   <div class="plate">
     <svg viewBox="0 0 720 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <g fill="none" stroke="#2f5140" stroke-opacity=".35">
@@ -3892,11 +4103,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <h1 class="rv" style="--d:2;font-size:108px">Measurement of<br><em>Tree Height</em></h1>
     <div class="g2 rv" style="--d:4;margin-top:60px;max-width:900px;gap:40px">
       <div class="card">
-        <div class="label v">Class hours</div>
+        <div class="label v">Where to find things</div>
         <div class="mn" style="font-size:21px;color:var(--ink);margin-top:14px;line-height:2">
-          Monday &nbsp; 2nd &ndash; 4th period &nbsp; 09:00 &ndash; 12:15<br>
-          Thursday &nbsp; 2nd &ndash; 3rd period &nbsp; 09:00 &ndash; 11:15<br>
-          Classroom &nbsp; B2.6
+          All seven units &middot; the contents page<br>
+          Readings &middot; the supplementary folder<br>
+          Practical sheets and dates &middot; the VLE
         </div>
       </div>
       <div class="card">
@@ -3913,7 +4124,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="cmeta">
     <div class="rv" style="--d:7"><strong>BSc in Forestry</strong>College of Natural Resources<br>Royal University of Bhutan</div>
   </div>
-  <div class="pageno">57 / 57</div>
+  <div class="pageno">60 / 60</div>
 </section>
 
 </div><!-- /.stage -->
@@ -3921,7 +4132,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
 <div class="hud">
   <button id="prev" title="Previous (&larr;)">&lsaquo;</button>
-  <span><b id="cur">1</b> / <span id="tot">57</span></span>
+  <span><b id="cur">1</b> / <span id="tot">60</span></span>
   <button id="next" title="Next (&rarr;)">&rsaquo;</button>
 </div>
 

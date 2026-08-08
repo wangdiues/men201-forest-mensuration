@@ -91,18 +91,18 @@ html,body{margin:0;padding:0;height:100%;overflow:hidden;background:var(--letter
    (top-right), a hairline baseline, and a page number.
    ========================================================================== */
 .head{position:absolute;left:92px;right:92px;top:70px}
-.eyebrow{font:500 17px/1 var(--mono);letter-spacing:.30em;text-transform:uppercase;
+.eyebrow{font:500 19px/1 var(--mono);letter-spacing:.30em;text-transform:uppercase;
   color:var(--vermilion)}
 .eyebrow.warn{color:var(--gold)}
 h2.title{margin:20px 0 0;font-family:var(--display);font-optical-sizing:auto;
-  font-weight:600;font-size:52px;line-height:1.05;letter-spacing:-.022em;color:var(--ink);
-  max-width:1420px}
+  font-weight:600;font-size:58px;line-height:1.05;letter-spacing:-.022em;color:var(--ink);
+  max-width:1500px}
 h2.title em{font-style:italic;font-weight:400;color:var(--moss)}
 .head .hr{margin-top:24px;height:1px;background:var(--rule)}
 
-.runhead{position:absolute;right:92px;top:70px;font:400 15px/1 var(--mono);
+.runhead{position:absolute;right:92px;top:66px;font:400 17px/1.4 var(--mono);
   letter-spacing:.16em;color:var(--ink-faint);text-align:right}
-.pageno{position:absolute;right:92px;bottom:40px;font:500 16px/1 var(--mono);
+.pageno{position:absolute;right:92px;bottom:38px;font:500 18px/1 var(--mono);
   letter-spacing:.14em;color:var(--ink-faint)}
 .footrule{position:absolute;left:92px;right:92px;bottom:74px;height:1px;background:var(--rule-soft)}
 
@@ -114,46 +114,46 @@ h2.title em{font-style:italic;font-weight:400;color:var(--moss)}
   border-bottom:1px solid rgba(47,81,64,.4);transition:color .18s ease,border-color .18s ease}
 .slide a:hover,.slide a:focus-visible{color:var(--vermilion);border-bottom-color:var(--vermilion)}
 .slide a::after{content:" ↗";font-size:.8em;color:var(--ink-faint);border:0}
-.src{position:absolute;left:92px;bottom:38px;font:400 15px/1.4 var(--mono);color:var(--ink-faint);
+.src{position:absolute;left:92px;bottom:36px;font:400 17px/1.4 var(--mono);color:var(--ink-faint);
   max-width:1400px;letter-spacing:.02em}
 
 /* Body region: the safe zone between chrome */
 .body{position:absolute;left:92px;right:92px;top:222px;bottom:104px}
 .body.tight{top:200px}
-.body.deep{top:250px}
+.body.deep{top:266px}
 
 /* === PRIMITIVES === */
-.lead{font-family:var(--display);font-weight:400;font-size:30px;line-height:1.42;
+.lead{font-family:var(--display);font-weight:400;font-size:34px;line-height:1.40;
   color:var(--ink);letter-spacing:-.005em}
 .lead strong{font-weight:600;color:var(--moss)}
 p{margin:0}
-.txt{font:400 21px/1.55 var(--body);color:var(--ink-soft)}
-.txt-sm{font:400 18px/1.5 var(--body);color:var(--ink-soft)}
-.mono-sm{font:400 16px/1.5 var(--mono);color:var(--ink-faint);letter-spacing:.02em}
+.txt{font:400 24px/1.52 var(--body);color:var(--ink-soft)}
+.txt-sm{font:400 21px/1.48 var(--body);color:var(--ink-soft)}
+.mono-sm{font:400 18px/1.5 var(--mono);color:var(--ink-faint);letter-spacing:.02em}
 
-.label{font:500 15px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--moss)}
+.label{font:500 17px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--moss)}
 .label.v{color:var(--vermilion)}
 
 /* Cards — the paper leaf that sits on the graph paper */
 .card{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;
-  padding:30px 32px;box-shadow:0 2px 0 rgba(20,28,24,.05),0 14px 34px rgba(20,28,24,.045)}
+  padding:24px 28px;box-shadow:0 2px 0 rgba(20,28,24,.05),0 14px 34px rgba(20,28,24,.045)}
 .card.sunk{background:var(--paper-sunk);box-shadow:none}
 .card.moss{background:var(--moss);border-color:var(--moss);color:#eef2ea}
 .card.moss .label{color:#a9c9b3}
 .card.moss .txt,.card.moss .txt-sm{color:#d3decf}
-.card h3,.card .ch{margin:0 0 14px;font-family:var(--display);font-weight:600;font-size:26px;
+.card h3,.card .ch{margin:0 0 11px;font-family:var(--display);font-weight:600;font-size:28px;
   line-height:1.2;color:var(--ink);letter-spacing:-.012em}
 .card.moss .ch{color:#fff}
 .card .ch.v{color:var(--vermilion)}
 
 /* Tick-mark bullet list */
 ul.bul{margin:0;padding:0;list-style:none}
-ul.bul li{position:relative;padding-left:30px;margin-bottom:11px;
-  font:400 20px/1.48 var(--body);color:var(--ink-soft)}
+ul.bul li{position:relative;padding-left:30px;margin-bottom:9px;
+  font:400 23px/1.45 var(--body);color:var(--ink-soft)}
 ul.bul li:last-child{margin-bottom:0}
 ul.bul li::before{content:"";position:absolute;left:0;top:.62em;width:11px;height:1.5px;
   background:var(--vermilion)}
-ul.bul.sm li{font-size:18px;margin-bottom:8px;padding-left:26px}
+ul.bul.sm li{font-size:21px;margin-bottom:7px;padding-left:28px}
 ul.bul.sm li::before{width:9px}
 ul.bul li strong{color:var(--ink);font-weight:600}
 .card.moss ul.bul li{color:#d3decf}
@@ -161,7 +161,7 @@ ul.bul li strong{color:var(--ink);font-weight:600}
 .card.moss ul.bul li strong{color:#fff}
 
 /* Numbered badge lists */
-.numrow{display:flex;gap:18px;align-items:flex-start;margin-bottom:14px}
+.numrow{display:flex;gap:16px;align-items:flex-start;margin-bottom:11px}
 .badge{flex:0 0 auto;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
   font:700 17px/1 var(--mono);background:var(--vermilion);color:#fff}
 .badge.moss{background:var(--moss)}
@@ -170,7 +170,7 @@ ul.bul li strong{color:var(--ink);font-weight:600}
 
 /* Formula plates */
 .formula{background:var(--moss-wash);border:1px solid var(--moss-line);border-radius:3px;
-  padding:22px 28px;text-align:center;
+  padding:17px 26px;text-align:center;
   font-family:var(--display);font-weight:500;font-size:38px;line-height:1.2;color:var(--moss);
   letter-spacing:.01em}
 .formula.v{background:var(--vermilion-wash);border-color:rgba(193,69,36,.3);color:var(--vermilion)}
@@ -184,45 +184,45 @@ sup{font-size:.62em;vertical-align:.42em}
 
 /* Callout — the "so what" bar */
 .callout{border-left:4px solid var(--vermilion);background:var(--vermilion-wash);
-  padding:18px 24px;border-radius:0 3px 3px 0}
+  padding:15px 22px;border-radius:0 3px 3px 0}
 .callout.moss{border-left-color:var(--moss);background:var(--moss-wash)}
-.callout .k{font:500 14px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
-  color:var(--vermilion);display:block;margin-bottom:9px}
+.callout .k{font:500 16px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--vermilion);display:block;margin-bottom:7px}
 .callout.moss .k{color:var(--moss)}
-.callout p{font:400 20px/1.45 var(--body);color:var(--ink)}
-.callout.sm p{font-size:18px}
+.callout p{font:400 23px/1.42 var(--body);color:var(--ink)}
+.callout.sm p{font-size:21px}
 
 /* Answer bar */
-.answer{background:var(--moss);color:#fff;border-radius:3px;padding:20px 30px;
+.answer{background:var(--moss);color:#fff;border-radius:3px;padding:16px 28px;
   display:flex;align-items:baseline;gap:20px}
-.answer .k{font:500 15px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:#a9c9b3}
-.answer .v{font-family:var(--display);font-weight:600;font-size:32px;letter-spacing:-.01em}
-.answer .n{font:400 18px/1.4 var(--body);color:#c6d6c9}
+.answer .k{font:500 17px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:#a9c9b3}
+.answer .v{font-family:var(--display);font-weight:600;font-size:36px;letter-spacing:-.01em}
+.answer .n{font:400 20px/1.4 var(--body);color:#c6d6c9}
 
 /* Data tables */
 table.dt{width:100%;border-collapse:collapse;background:var(--paper-card);
-  border:1px solid var(--rule);font:400 19px/1.4 var(--body);color:var(--ink-soft)}
-table.dt th{background:var(--moss);color:#fff;font:600 17px/1.3 var(--body);
-  text-align:left;padding:14px 16px;letter-spacing:.01em;vertical-align:middle}
+  border:1px solid var(--rule);font:400 21px/1.4 var(--body);color:var(--ink-soft)}
+table.dt th{background:var(--moss);color:#fff;font:600 19px/1.3 var(--body);
+  text-align:left;padding:11px 16px;letter-spacing:.01em;vertical-align:middle}
 table.dt th:first-child{font-family:var(--mono);font-size:14px;letter-spacing:.14em;
   text-transform:uppercase;font-weight:500;color:#b6cdbd}
-table.dt td{padding:18px 16px;border-top:1px solid var(--rule-soft);vertical-align:top}
+table.dt td{padding:14px 16px;border-top:1px solid var(--rule-soft);vertical-align:top}
 table.dt tbody tr:nth-child(even){background:rgba(20,28,24,.022)}
 table.dt td.rh{font-weight:600;color:var(--ink);background:rgba(47,81,64,.05)}
-table.dt td.num{font-family:var(--mono);font-size:18px;color:var(--ink)}
-table.dt.sm{font-size:17px}
-table.dt.sm th{font-size:15px;padding:11px 13px}
+table.dt td.num{font-family:var(--mono);font-size:20px;color:var(--ink)}
+table.dt.sm{font-size:19px}
+table.dt.sm th{font-size:17px;padding:11px 13px}
 table.dt.sm td{padding:9px 13px}
-table.dt.xs{font-size:15px}
-table.dt.xs th{font-size:13px;padding:9px 10px}
+table.dt.xs{font-size:17px}
+table.dt.xs th{font-size:15px;padding:9px 10px}
 table.dt.xs td{padding:7px 10px}
 table.dt tr.hi td{background:var(--vermilion-wash)}
 
 /* Layout helpers */
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
 /* Grid and flex children default to min-height/min-width:auto, which lets an
    SVG's intrinsic aspect ratio override an explicit row height. Reset both so
    a fixed-height track actually constrains the cell it contains. */
@@ -231,32 +231,32 @@ table.dt tr.hi td{background:var(--vermilion-wash)}
 /* min-height:0 lets a stack shrink below the intrinsic size of the SVG plates
    it contains; without it a flex item refuses to shrink and pushes the column
    past the bottom of the stage. */
-.stack{display:flex;flex-direction:column;gap:22px;min-height:0}
-.stack.sm{gap:16px}
+.stack{display:flex;flex-direction:column;gap:18px;min-height:0}
+.stack.sm{gap:13px}
 .row{display:flex;gap:24px}
 .fill{height:100%}
 .between{justify-content:space-between}
 .center{text-align:center}
 
 /* Step chain for worked examples */
-.step{display:grid;grid-template-columns:230px 1fr;gap:22px;align-items:center;
-  padding:14px 0;border-top:1px solid var(--rule-soft)}
+.step{display:grid;grid-template-columns:210px 1fr;gap:20px;align-items:center;
+  padding:11px 0;border-top:1px solid var(--rule-soft)}
 .step:first-child{border-top:none}
-.step .sl{font:500 15px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--moss)}
-.step .sv{font-family:var(--mono);font-size:22px;color:var(--ink);letter-spacing:-.01em}
+.step .sl{font:500 17px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--moss)}
+.step .sv{font-family:var(--mono);font-size:25px;color:var(--ink);letter-spacing:-.01em}
 .step .sv .hlt{color:var(--vermilion)}
 
 /* Question cards */
-.q{display:grid;grid-template-columns:46px 1fr;gap:18px;align-items:start;
-  background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;padding:20px 22px}
-.q .qt{font:400 19px/1.42 var(--body);color:var(--ink)}
-.q .qm{margin-top:8px;font:500 14px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+.q{display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:start;
+  background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;padding:16px 20px}
+.q .qt{font:400 21px/1.4 var(--body);color:var(--ink)}
+.q .qm{margin-top:8px;font:500 16px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
   color:var(--ink-faint)}
-.q .qa{margin-top:8px;font:500 17px var(--mono);color:var(--moss)}
+.q .qa{margin-top:8px;font:500 19px var(--mono);color:var(--moss)}
 
 /* Chips */
 .chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{font:500 15px/1 var(--mono);letter-spacing:.08em;color:var(--moss);
+.chip{font:500 17px/1 var(--mono);letter-spacing:.08em;color:var(--moss);
   border:1px solid var(--moss-line);background:var(--moss-wash);padding:9px 14px;border-radius:2px}
 .chip.v{color:var(--vermilion);border-color:rgba(193,69,36,.3);background:var(--vermilion-wash)}
 
@@ -339,6 +339,41 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   font:500 13px/1 var(--mono);letter-spacing:.1em;color:#f2efe6;background:rgba(47,81,64,.95);
   padding:12px 20px;border-radius:100px;opacity:0;pointer-events:none;transition:opacity .3s}
 .toast.on{opacity:1}
+/* === DENSITY OVERRIDE ======================================================
+   The type scale was raised across the module for readability from the back of
+   the room. On the densest slides that costs vertical space, and it is bought
+   back here from padding and gaps - never from font size.
+   `fit` is the normal step; `fit2` is for the few slides that need more.
+   ========================================================================== */
+.slide.fit .card{padding:18px 22px}
+.slide.fit .callout{padding:12px 20px}
+.slide.fit .callout .k{margin-bottom:5px}
+.slide.fit .stack{gap:14px}
+.slide.fit .stack.sm{gap:10px}
+.slide.fit ul.bul li{margin-bottom:7px}
+.slide.fit ul.bul.sm li{margin-bottom:5px}
+.slide.fit .card h3,.slide.fit .card .ch,.slide.fit .ch{margin-bottom:8px}
+.slide.fit .formula{padding:13px 22px}
+.slide.fit .formula.sm{padding:11px 18px}
+.slide.fit table.dt td{padding:10px 14px}
+.slide.fit table.dt th{padding:9px 14px}
+.slide.fit .step{padding:8px 0}
+.slide.fit .numrow{margin-bottom:8px}
+.slide.fit .q{padding:13px 18px}
+.slide.fit .answer{padding:13px 24px}
+.slide.fit2 .card{padding:14px 20px}
+.slide.fit2 .callout{padding:10px 18px}
+.slide.fit2 .stack{gap:11px}
+.slide.fit2 .stack.sm{gap:8px}
+.slide.fit2 ul.bul li{margin-bottom:5px}
+.slide.fit2 ul.bul.sm li{margin-bottom:4px}
+.slide.fit2 .card h3,.slide.fit2 .card .ch,.slide.fit2 .ch{margin-bottom:6px}
+.slide.fit2 .formula{padding:10px 20px}
+.slide.fit2 table.dt td{padding:8px 12px}
+.slide.fit2 table.dt th{padding:7px 12px}
+.slide.fit2 .step{padding:6px 0}
+.slide.fit2 .numrow{margin-bottom:6px}
+.slide.fit2 .q{padding:11px 16px}
 </style>
 </head>
 <body>
@@ -359,7 +394,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Set the frame for the whole module. Mensuration is the measuring arm of forestry. Every other subject they will study — silviculture, management, harvesting, economics, inventory — consumes numbers, and this is the module that produces them. If the numbers are wrong, every decision built on them is wrong, and nobody downstream will ever know.
 
-     Housekeeping: give the class hours, the classroom, and the tutor contact from the closing slide now as well, so that latecomers to the module have them from day one.
+     Housekeeping: point out the tutor contact on the closing slide, and tell the class where the timetable lives - the VLE, not the deck - so that latecomers know where to look.
 -->
 <section class="slide cover" data-n="1">
   <div class="plate">
@@ -401,7 +436,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <line x1="240" y1="762" x2="620" y2="762" stroke-dasharray="6 8"/>
         <line x1="371" y1="742" x2="371" y2="782"/><line x1="414" y1="742" x2="414" y2="782"/>
       </g>
-      <text x="628" y="757" font-family="JetBrains Mono, monospace" font-size="17" fill="#c14524" text-anchor="end">d @ 1.3 m</text>
+      <text x="628" y="757" font-family="JetBrains Mono, monospace" font-size="17" fill="#c14524" text-anchor="end">d @ breast height</text>
       <text x="240" y="800" font-family="JetBrains Mono, monospace" font-size="16" fill="#7b857c">breast height</text>
 
       <!-- crown diameter -->
@@ -445,7 +480,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="rv" style="--d:7"><strong>BSc in Forestry</strong>College of Natural Resources<br>Royal University of Bhutan</div>
     <div class="rv" style="--d:8"><strong>Module Tutor &middot; Wangdi</strong>Senior Forestry Officer, Adjunct Lecturer<br>Forest Resources Planning and Management Division</div>
   </div>
-  <div class="pageno">1 / 40</div>
+  <div class="pageno">1 / 43</div>
 </section>
 
 
@@ -475,13 +510,13 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="g4" style="gap:26px;height:132px;margin-bottom:24px">
       <div class="card sunk rv" style="--d:2"><div class="label v">Programme</div>
-        <div class="mn" style="font-size:19px;color:var(--ink);margin-top:10px;line-height:1.5">BSc in Forestry<br>College of Natural Resources</div></div>
+        <div class="mn" style="font-size:21px;color:var(--ink);margin-top:10px;line-height:1.5">BSc in Forestry<br>College of Natural Resources</div></div>
       <div class="card sunk rv" style="--d:3"><div class="label v">Credit value</div>
-        <div class="mn" style="font-size:19px;color:var(--ink);margin-top:10px;line-height:1.5">12 credits<br>120 hours in total</div></div>
+        <div class="mn" style="font-size:21px;color:var(--ink);margin-top:10px;line-height:1.5">12 credits<br>120 hours in total</div></div>
       <div class="card sunk rv" style="--d:4"><div class="label v">Hours each week</div>
-        <div class="mn" style="font-size:19px;color:var(--ink);margin-top:10px;line-height:1.5">3 lecture · 2 field<br>75 contact · 45 independent</div></div>
+        <div class="mn" style="font-size:21px;color:var(--ink);margin-top:10px;line-height:1.5">3 lecture · 2 field<br>75 contact · 45 independent</div></div>
       <div class="card sunk rv" style="--d:5"><div class="label v">Module tutor</div>
-        <div class="mn" style="font-size:19px;color:var(--ink);margin-top:10px;line-height:1.5">Wangdi<br>Adjunct Lecturer</div></div>
+        <div class="mn" style="font-size:21px;color:var(--ink);margin-top:10px;line-height:1.5">Wangdi<br>Adjunct Lecturer</div></div>
     </div>
 
     <div class="g2" style="gap:34px;height:calc(100% - 400px)">
@@ -513,11 +548,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
     <div class="callout rv" style="--d:10;position:absolute;left:0;right:0;bottom:0">
       <span class="k">What changed in the revision — and why an older textbook will not match</span>
-      <p style="font-size:19px">The <strong>relascope</strong> and the <strong>wedge prism</strong> are out of the revised module. The <strong>spherical densiometer</strong> is in, and is the main instrument for field crown-closure assessment. Where an older set of notes teaches the relascope, that is why it is not assessed here.</p>
+      <p style="font-size:21px">The <strong>relascope</strong> and the <strong>wedge prism</strong> are out of the revised module. The <strong>spherical densiometer</strong> is in, and is the main instrument for field crown-closure assessment. Where an older set of notes teaches the relascope, that is why it is not assessed here.</p>
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">2 / 40</div>
+  <div class="pageno">2 / 43</div>
 </section>
 <!-- ======================================================================
      SLIDE 3 — LEARNING OUTCOMES
@@ -542,7 +577,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="g3" style="position:absolute;left:0;right:0;top:0;bottom:132px;align-content:center;row-gap:26px">
       <div class="numrow rv" style="--d:2"><div class="badge">1</div><div class="txt-sm"><strong style="color:var(--ink)">State</strong> the definition of forest mensuration and the Latin root from which the word comes</div></div>
       <div class="numrow rv" style="--d:3"><div class="badge">2</div><div class="txt-sm"><strong style="color:var(--ink)">Identify</strong> the four kinds of measurement it deals with — linear, area, volume and weight</div></div>
-      <div class="numrow rv" style="--d:4"><div class="badge">3</div><div class="txt-sm"><strong style="color:var(--ink)">Explain</strong> why volume is the single most important measurement in forest management</div></div>
+      <div class="numrow rv" style="--d:4"><div class="badge">3</div><div class="txt-sm"><strong style="color:var(--ink)">Explain</strong> why volume carries so many management decisions &mdash; and what else mensuration is asked to estimate</div></div>
       <div class="numrow rv" style="--d:5"><div class="badge">4</div><div class="txt-sm"><strong style="color:var(--ink)">List</strong> the four objectives of forest mensuration and describe what each one delivers</div></div>
       <div class="numrow rv" style="--d:6"><div class="badge">5</div><div class="txt-sm"><strong style="color:var(--ink)">Frame</strong> the importance of mensuration as the practical questions it answers</div></div>
       <div class="numrow rv" style="--d:7"><div class="badge">6</div><div class="txt-sm"><strong style="color:var(--ink)">Justify</strong> the claim that absolute accuracy is neither necessary nor desirable in forestry</div></div>
@@ -556,7 +591,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">3 / 40</div>
+  <div class="pageno">3 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -588,12 +623,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="card rv" style="--d:7"><div class="ch">Policy</div><p class="txt-sm">"Forest cover shall not fall below 60 %" is a measurement statement. The threshold means nothing until somebody defines and measures what counts.</p></div>
     </div>
     <div class="callout moss rv" style="--d:8;position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:28px">
-      <div style="font-family:var(--display);font-weight:600;font-size:44px;color:var(--moss);line-height:1;letter-spacing:-.02em;flex:0 0 auto">69.71 %</div>
-      <p style="font-size:19px">Forest cover in Bhutan, as reported in the National Forest Inventory. Every national figure of this kind — cover, growing stock, carbon — begins as a field measurement taken by a forester with an instrument in their hand. <strong>A wrong number never announces itself; it simply propagates.</strong></p>
+      <div style="font-family:var(--display);font-weight:600;font-size:49px;color:var(--moss);line-height:1;letter-spacing:-.02em;flex:0 0 auto">69.71 %</div>
+      <p style="font-size:21px">Forest cover in Bhutan, as reported in the National Forest Inventory. Every national figure of this kind — cover, growing stock, carbon — begins as a field measurement taken by a forester with an instrument in their hand. <strong>A wrong number never announces itself; it simply propagates.</strong></p>
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">4 / 40</div>
+  <div class="pageno">4 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -616,9 +651,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="g4 fill" style="align-items:stretch">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column;padding:26px 26px">
-        <div style="font-family:var(--display);font-weight:600;font-size:92px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">A</div>
-        <div class="ch" style="margin-top:22px;font-size:27px">Forest mensuration defined</div>
-        <p class="txt" style="font-size:18px">Where the word comes from, what the definition contains, and what is actually being measured.</p>
+        <div style="font-family:var(--display);font-weight:600;font-size:103px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">A</div>
+        <div class="ch" style="margin-top:22px;font-size:30px">Forest mensuration defined</div>
+        <p class="txt" style="font-size:20px">Where the word comes from, what the definition contains, and what is actually being measured.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:22px">
           <span class="chip">mensura</span><span class="chip">Dimensions</span><span class="chip">Form</span>
@@ -626,9 +661,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column;padding:26px 26px">
-        <div style="font-family:var(--display);font-weight:600;font-size:92px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">B</div>
-        <div class="ch" style="margin-top:22px;font-size:27px">Objectives and importance</div>
-        <p class="txt" style="font-size:18px">The four reasons a forester measures anything at all, and the questions those measurements answer.</p>
+        <div style="font-family:var(--display);font-weight:600;font-size:103px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">B</div>
+        <div class="ch" style="margin-top:22px;font-size:30px">Objectives and importance</div>
+        <p class="txt" style="font-size:20px">The four reasons a forester measures anything at all, and the questions those measurements answer.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:22px">
           <span class="chip">Sale</span><span class="chip">Management</span><span class="chip">Research</span>
@@ -636,9 +671,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="card rv" style="--d:6;display:flex;flex-direction:column;padding:26px 26px">
-        <div style="font-family:var(--display);font-weight:600;font-size:92px;line-height:.8;color:var(--vermilion);opacity:.3;letter-spacing:-.04em">C</div>
-        <div class="ch" style="margin-top:22px;font-size:27px">Accuracy of measurement</div>
-        <p class="txt" style="font-size:18px">Why a forest cannot be measured like a machined part, and why that is not a defect.</p>
+        <div style="font-family:var(--display);font-weight:600;font-size:103px;line-height:.8;color:var(--vermilion);opacity:.3;letter-spacing:-.04em">C</div>
+        <div class="ch" style="margin-top:22px;font-size:30px">Accuracy of measurement</div>
+        <p class="txt" style="font-size:20px">Why a forest cannot be measured like a machined part, and why that is not a defect.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:22px">
           <span class="chip v">Tree form</span><span class="chip v">Felling</span><span class="chip v">Instruments</span>
@@ -646,9 +681,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="card rv" style="--d:8;display:flex;flex-direction:column;padding:26px 26px">
-        <div style="font-family:var(--display);font-weight:600;font-size:92px;line-height:.8;color:var(--vermilion);opacity:.3;letter-spacing:-.04em">D</div>
-        <div class="ch" style="margin-top:22px;font-size:27px">Precision and accuracy</div>
-        <p class="txt" style="font-size:18px">Two words that are not synonyms, and the practical difference between the errors they describe.</p>
+        <div style="font-family:var(--display);font-weight:600;font-size:103px;line-height:.8;color:var(--vermilion);opacity:.3;letter-spacing:-.04em">D</div>
+        <div class="ch" style="margin-top:22px;font-size:30px">Precision and accuracy</div>
+        <p class="txt" style="font-size:20px">Two words that are not synonyms, and the practical difference between the errors they describe.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:22px">
           <span class="chip v">Precision</span><span class="chip v">Accuracy</span><span class="chip v">Bias</span>
@@ -658,7 +693,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">5 / 40</div>
+  <div class="pageno">5 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -694,7 +729,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="srule rv" style="--d:2"></div>
       <p class="ssub rv" style="--d:3">The Latin root · the formal definition and what it contains · dimensions, form, age and increment · tree, stand and whole wood · standing and felled · the four kinds of measurement</p>
     </div>
-    <div class="spage">05 / 39</div>
+    <div class="spage">6 / 43</div>
   </div>
 </section>
 
@@ -775,7 +810,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">7 / 40</div>
+  <div class="pageno">7 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -799,7 +834,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="stack" style="height:100%">
       <div class="card rv" style="--d:2;padding:40px 46px;border-left:4px solid var(--vermilion)">
         <div class="label v">Definition</div>
-        <p style="margin-top:20px;font-family:var(--display);font-weight:400;font-size:34px;line-height:1.42;color:var(--ink);letter-spacing:-.008em">
+        <p style="margin-top:20px;font-family:var(--display);font-weight:400;font-size:38px;line-height:1.42;color:var(--ink);letter-spacing:-.008em">
           “Forest mensuration is that <strong style="font-weight:600;color:var(--moss)">branch of forestry</strong> which deals with the
           <strong style="font-weight:600;color:var(--moss)">determination of dimensions</strong> (e.g. diameter, height, volume etc.),
           <strong style="font-weight:600;color:var(--moss)">form</strong>, <strong style="font-weight:600;color:var(--moss)">age</strong> and
@@ -809,27 +844,27 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="g3 rv" style="--d:4;gap:26px">
         <div class="card sunk">
-          <div class="ch" style="font-size:23px">What is determined</div>
+          <div class="ch" style="font-size:26px">What is determined</div>
           <p class="txt-sm">Dimensions, form, age and increment. Not one of the four is optional — a deck of diameters with no age and no increment describes a forest that cannot be managed through time.</p>
         </div>
         <div class="card sunk">
-          <div class="ch" style="font-size:23px">On what</div>
+          <div class="ch" style="font-size:26px">On what</div>
           <p class="txt-sm">A single tree, a stand, or whole woods. The subject scales from one stem measured with a tape to a national inventory covering a country.</p>
         </div>
         <div class="card sunk">
-          <div class="ch" style="font-size:23px">In what state</div>
+          <div class="ch" style="font-size:26px">In what state</div>
           <p class="txt-sm">Standing or after felling. The standing tree must be measured indirectly and estimated; the felled tree can be measured directly and checked.</p>
         </div>
       </div>
       <div style="flex:1"></div>
       <div class="callout moss rv" style="--d:6">
         <span class="k">Therefore</span>
-        <p>Forest mensuration concerns itself with <strong>linear, area, volume and weight</strong> measurement — and of these, <strong>volume is the most important measurement for forest management</strong>.</p>
+        <p>Forest mensuration concerns itself with <strong>linear, area, volume and weight</strong> measurement. Of these, <strong>volume carries the largest number of management decisions</strong> &mdash; but it is one variable among several, not the purpose of the discipline.</p>
       </div>
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">8 / 40</div>
+  <div class="pageno">8 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -856,25 +891,25 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="g4" style="position:absolute;left:0;right:0;top:0;bottom:132px;align-content:center">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column">
-        <div class="numrow" style="margin-bottom:16px"><div class="badge">1</div><div class="ch" style="margin:0;font-size:25px;align-self:center">Dimensions</div></div>
+        <div class="numrow" style="margin-bottom:16px"><div class="badge">1</div><div class="ch" style="margin:0;font-size:28px;align-self:center">Dimensions</div></div>
         <p class="txt-sm">The measurable extents of the tree — <strong>diameter, girth, height, length, basal area, volume</strong>.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:18px"><span class="chip">Tape</span><span class="chip">Calliper</span><span class="chip">Hypsometer</span></div>
       </div>
       <div class="card rv" style="--d:3;display:flex;flex-direction:column">
-        <div class="numrow" style="margin-bottom:16px"><div class="badge">2</div><div class="ch" style="margin:0;font-size:25px;align-self:center">Form</div></div>
+        <div class="numrow" style="margin-bottom:16px"><div class="badge">2</div><div class="ch" style="margin:0;font-size:28px;align-self:center">Form</div></div>
         <p class="txt-sm">How the stem <strong>tapers</strong> — the degree to which it departs from a cylinder. Form is what allows a diameter and a height to become a volume.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:18px"><span class="chip">Taper</span><span class="chip">Form factor</span><span class="chip">Form quotient</span></div>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column">
-        <div class="numrow" style="margin-bottom:16px"><div class="badge">3</div><div class="ch" style="margin:0;font-size:25px;align-self:center">Age</div></div>
+        <div class="numrow" style="margin-bottom:16px"><div class="badge">3</div><div class="ch" style="margin:0;font-size:28px;align-self:center">Age</div></div>
         <p class="txt-sm">How old the tree or stand is. Read from <strong>annual rings, branch whorls</strong> or plantation records — rings are unreliable where growth is not seasonal.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:18px"><span class="chip">Rings</span><span class="chip">Whorls</span><span class="chip">Records</span></div>
       </div>
       <div class="card rv" style="--d:5;display:flex;flex-direction:column">
-        <div class="numrow" style="margin-bottom:16px"><div class="badge moss">4</div><div class="ch" style="margin:0;font-size:25px;align-self:center">Increment</div></div>
+        <div class="numrow" style="margin-bottom:16px"><div class="badge moss">4</div><div class="ch" style="margin:0;font-size:28px;align-self:center">Increment</div></div>
         <p class="txt-sm">The <strong>change per unit time</strong> in any of the above. The only one of the four that cannot be obtained from a single visit to the tree.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:18px"><span class="chip">Increment borer</span><span class="chip">Remeasurement</span></div>
@@ -886,7 +921,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">9 / 40</div>
+  <div class="pageno">9 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -976,7 +1011,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">10 / 40</div>
+  <div class="pageno">10 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -1003,7 +1038,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="g2" style="height:calc(100% - 122px);gap:34px;align-items:stretch">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column">
-        <div class="numrow" style="margin-bottom:18px"><div class="badge moss lg">S</div><div class="ch" style="margin:0;font-size:30px;align-self:center">Standing tree</div></div>
+        <div class="numrow" style="margin-bottom:18px"><div class="badge moss lg">S</div><div class="ch" style="margin:0;font-size:34px;align-self:center">Standing tree</div></div>
         <ul class="bul sm">
           <li>Measured <strong>indirectly</strong> above about 2 m — height from an angle and a distance, upper diameters through an optical instrument</li>
           <li>Volume is <strong>estimated</strong> from a volume table, an equation or a form factor, never measured</li>
@@ -1017,7 +1052,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column">
-        <div class="numrow" style="margin-bottom:18px"><div class="badge lg">F</div><div class="ch" style="margin:0;font-size:30px;align-self:center">Felled tree</div></div>
+        <div class="numrow" style="margin-bottom:18px"><div class="badge lg">F</div><div class="ch" style="margin:0;font-size:34px;align-self:center">Felled tree</div></div>
         <ul class="bul sm">
           <li>Measured <strong>directly</strong> — the stem is on the ground and any diameter can be read with a tape</li>
           <li>Volume computed section by section by <strong>Smalian, Huber or Newton</strong>, and checkable by displacement</li>
@@ -1037,7 +1072,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">11 / 40</div>
+  <div class="pageno">11 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -1067,7 +1102,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="g4" style="position:absolute;left:0;right:0;top:0;bottom:132px;align-content:center">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column">
         <div class="label">One dimension</div>
-        <div class="ch" style="margin-top:16px;font-size:28px">Linear</div>
+        <div class="ch" style="margin-top:16px;font-size:31px">Linear</div>
         <ul class="bul sm" style="margin-top:6px">
           <li>Diameter and girth</li><li>Total and merchantable height</li>
           <li>Log length, bole height</li><li>Crown diameter</li><li>Distances in survey and plot layout</li>
@@ -1077,7 +1112,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="card rv" style="--d:3;display:flex;flex-direction:column">
         <div class="label">Two dimensions</div>
-        <div class="ch" style="margin-top:16px;font-size:28px">Area</div>
+        <div class="ch" style="margin-top:16px;font-size:31px">Area</div>
         <ul class="bul sm" style="margin-top:6px">
           <li>Basal area of a stem</li><li>Basal area per hectare</li>
           <li>Crown projection area</li><li>Plot and compartment area</li><li>Forest cover</li>
@@ -1087,7 +1122,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="card moss rv" style="--d:4;display:flex;flex-direction:column">
         <div class="label">Three dimensions</div>
-        <div class="ch" style="margin-top:16px;font-size:28px">Volume</div>
+        <div class="ch" style="margin-top:16px;font-size:31px">Volume</div>
         <ul class="bul sm" style="margin-top:6px">
           <li>Volume of a standing tree</li><li>Volume of a log or a stack</li>
           <li>Growing stock of a stand</li><li>Annual allowable cut</li><li>Increment in volume</li>
@@ -1097,7 +1132,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="card rv" style="--d:5;display:flex;flex-direction:column">
         <div class="label">Mass</div>
-        <div class="ch" style="margin-top:16px;font-size:28px">Weight</div>
+        <div class="ch" style="margin-top:16px;font-size:31px">Weight</div>
         <ul class="bul sm" style="margin-top:6px">
           <li>Fuelwood and pulpwood</li><li>Chips and residues</li>
           <li>Foliage, branches, roots</li><li>Biomass and carbon stock</li><li>Green and oven-dry weight</li>
@@ -1112,14 +1147,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">12 / 40</div>
+  <div class="pageno">12 / 43</div>
 </section>
 
 <!-- ======================================================================
      SLIDE 13 — VOLUME IS THE MOST IMPORTANT
      ====================================================================== -->
 <!-- SPEAKER NOTES · SLIDE 13
-     The source statement is blunt: volume is the most important measurement for forest management. Do not let students accept it without a reason; make them supply the reasons and then confirm them.
+     The older source statement was blunt: volume is the most important measurement for forest management. Do not let students accept that without qualification. Volume carries more management decisions than any other single variable, and that is worth saying plainly - but Bhutan does not manage forests for volume alone, and the moss callout on the right is the corrective. Make the class supply the reasons volume matters, confirm them, and then make them name four quantities on that list that have nothing to do with timber.
 
      Reasons that should emerge: timber is sold by volume; the annual allowable cut is a volume; growing stock and yield tables are volumes; increment is expressed as volume per hectare per year; the value of a forest as an asset is a volume multiplied by a price.
 
@@ -1127,28 +1162,31 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      That is the arithmetic reason why diameter is measured so carefully, at a fixed height, with a specified instrument, and why the whole of the next unit is about doing it properly.
 -->
-<section class="slide" data-n="13">
+<section class="slide fit fit2" data-n="13">
   <div class="head">
-    <div class="eyebrow rv" style="--d:0">Section A · The quantity everything else serves</div>
-    <h2 class="title rv" style="--d:1">Volume is the <em>most important measurement</em></h2>
+    <div class="eyebrow rv" style="--d:0">Section A · The quantity that carries the most decisions — and what sits beside it</div>
+    <h2 class="title rv" style="--d:1">Volume, and the <em>other things we are asked to estimate</em></h2>
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit I · Session 2</div>
   <div class="body">
     <div style="display:grid;grid-template-columns:1.02fr .98fr;gap:34px;height:100%">
       <div class="stack">
-        <p class="lead rv" style="--d:2">Volume is the currency of forest management: it is what is <strong>sold</strong>, what is <strong>prescribed</strong>, what is <strong>grown</strong> and what is <strong>reported</strong>.</p>
+        <p class="lead rv" style="--d:2">Volume is the currency of timber management: it is what is <strong>sold</strong>, what is <strong>prescribed</strong>, what is <strong>grown</strong> and what is <strong>reported</strong>. It is not, however, the whole of what mensuration is for.</p>
         <ul class="bul rv" style="--d:3">
-          <li>Timber is <strong>traded</strong> in cubic metres — the sale price is a volume multiplied by a rate</li>
+          <li>Timber is <strong>traded</strong> in cubic metres — price is a volume times a rate</li>
           <li>The <strong>annual allowable cut</strong>, the central control of sustained yield, is a volume</li>
-          <li><strong>Growing stock</strong> and yield tables are volume statements of what a forest holds and will hold</li>
-          <li><strong>Increment</strong> — the growth a forest can afford to give up — is volume per hectare per year</li>
-          <li>Biomass and <strong>carbon</strong> figures begin as volume, then are multiplied by density and expansion factors</li>
+          <li><strong>Growing stock</strong> and yield tables are volume statements</li>
+          <li><strong>Increment</strong> is volume per hectare per year</li>
         </ul>
         <div style="flex:1"></div>
         <div class="callout rv" style="--d:5">
           <span class="k">And yet</span>
           <p>Volume on a standing tree is <strong>never measured — it is computed</strong>, from diameter, height and form. It therefore inherits every error made in those three.</p>
+        </div>
+        <div class="callout moss rv" style="--d:6;margin-top:12px">
+          <span class="k">And what else the same measurements estimate</span>
+          <p style="font-size:21px">Growing stock &middot; timber and fuelwood supply &middot; non-wood forest products &middot; biomass &middot; carbon &middot; forest structure &middot; biodiversity habitat &middot; regeneration &middot; forest health &middot; watershed protection &middot; livelihood supply &middot; restoration &middot; sustainable harvest &middot; climate-change impacts. <strong>Volume is one major variable, not the sole objective.</strong></p>
         </div>
       </div>
       <div class="stack">
@@ -1182,7 +1220,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">13 / 40</div>
+  <div class="pageno">13 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -1268,7 +1306,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">14 / 40</div>
+  <div class="pageno">14 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -1306,7 +1344,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="srule rv" style="--d:2"></div>
       <p class="ssub rv" style="--d:3">Basis of sale · basis for management · measurement for research · measurement for planning · and the practical questions that only measurement can answer</p>
     </div>
-    <div class="spage">14 / 39</div>
+    <div class="spage">15 / 43</div>
   </div>
 </section>
 
@@ -1330,29 +1368,29 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="g4" style="position:absolute;left:0;right:0;top:0;bottom:132px;align-content:center">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column">
-        <div style="font-family:var(--display);font-weight:600;font-size:76px;line-height:.8;color:var(--moss);opacity:.26;letter-spacing:-.04em">01</div>
-        <div class="ch" style="margin-top:20px;font-size:26px">Basis of sale</div>
+        <div style="font-family:var(--display);font-weight:600;font-size:85px;line-height:.8;color:var(--moss);opacity:.26;letter-spacing:-.04em">01</div>
+        <div class="ch" style="margin-top:20px;font-size:29px">Basis of sale</div>
         <p class="txt-sm">Estimate volume and price based on supply and demand for forest produce.</p>
         <div style="flex:1"></div>
         <div class="mono-sm" style="margin-top:16px;color:var(--vermilion)">HORIZON · now</div>
       </div>
       <div class="card rv" style="--d:3;display:flex;flex-direction:column">
-        <div style="font-family:var(--display);font-weight:600;font-size:76px;line-height:.8;color:var(--moss);opacity:.26;letter-spacing:-.04em">02</div>
-        <div class="ch" style="margin-top:20px;font-size:26px">Basis for management</div>
+        <div style="font-family:var(--display);font-weight:600;font-size:85px;line-height:.8;color:var(--moss);opacity:.26;letter-spacing:-.04em">02</div>
+        <div class="ch" style="margin-top:20px;font-size:29px">Basis for management</div>
         <p class="txt-sm">Inventory data and facts necessary for preparing a management plan and for its implementation.</p>
         <div style="flex:1"></div>
         <div class="mono-sm" style="margin-top:16px;color:var(--vermilion)">HORIZON · the plan period</div>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column">
-        <div style="font-family:var(--display);font-weight:600;font-size:76px;line-height:.8;color:var(--moss);opacity:.26;letter-spacing:-.04em">03</div>
-        <div class="ch" style="margin-top:20px;font-size:26px">Measurement for research</div>
+        <div style="font-family:var(--display);font-weight:600;font-size:85px;line-height:.8;color:var(--moss);opacity:.26;letter-spacing:-.04em">03</div>
+        <div class="ch" style="margin-top:20px;font-size:29px">Measurement for research</div>
         <p class="txt-sm">Data collection and research plot layout — the evidence from which forestry knowledge is built.</p>
         <div style="flex:1"></div>
         <div class="mono-sm" style="margin-top:16px;color:var(--vermilion)">HORIZON · decades</div>
       </div>
       <div class="card rv" style="--d:5;display:flex;flex-direction:column">
-        <div style="font-family:var(--display);font-weight:600;font-size:76px;line-height:.8;color:var(--moss);opacity:.26;letter-spacing:-.04em">04</div>
-        <div class="ch" style="margin-top:20px;font-size:26px">Measurement for planning</div>
+        <div style="font-family:var(--display);font-weight:600;font-size:85px;line-height:.8;color:var(--moss);opacity:.26;letter-spacing:-.04em">04</div>
+        <div class="ch" style="margin-top:20px;font-size:29px">Measurement for planning</div>
         <p class="txt-sm">Statistical data to plan for the future, and a yardstick against which to check the viability of projects.</p>
         <div style="flex:1"></div>
         <div class="mono-sm" style="margin-top:16px;color:var(--vermilion)">HORIZON · the future</div>
@@ -1364,7 +1402,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">16 / 40</div>
+  <div class="pageno">16 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -1420,7 +1458,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">17 / 40</div>
+  <div class="pageno">17 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -1490,7 +1528,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">18 / 40</div>
+  <div class="pageno">18 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -1515,7 +1553,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="g2" style="height:calc(100% - 122px);gap:34px;align-items:stretch">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column">
-        <div class="numrow" style="margin-bottom:18px"><div class="badge lg">3</div><div class="ch" style="margin:0;font-size:30px;align-self:center">Measurement for research</div></div>
+        <div class="numrow" style="margin-bottom:18px"><div class="badge lg">3</div><div class="ch" style="margin:0;font-size:34px;align-self:center">Measurement for research</div></div>
         <p class="txt-sm" style="margin-bottom:16px">Data collection and research plot layout — the evidence from which forestry knowledge is built.</p>
         <ul class="bul sm">
           <li>Trials must be <strong>laid out</strong> before they can be measured: plot size, shape, replication, buffer</li>
@@ -1529,7 +1567,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column">
-        <div class="numrow" style="margin-bottom:18px"><div class="badge moss lg">4</div><div class="ch" style="margin:0;font-size:30px;align-self:center">Measurement for planning</div></div>
+        <div class="numrow" style="margin-bottom:18px"><div class="badge moss lg">4</div><div class="ch" style="margin:0;font-size:34px;align-self:center">Measurement for planning</div></div>
         <p class="txt-sm" style="margin-bottom:16px">Statistical data to plan for the future, and a yardstick to check the viability of projects.</p>
         <ul class="bul sm">
           <li>Projections of yield, revenue and cost rest on <strong>measured growth rates</strong></li>
@@ -1549,7 +1587,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">19 / 40</div>
+  <div class="pageno">19 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -1586,7 +1624,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">20 / 40</div>
+  <div class="pageno">20 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -1626,7 +1664,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">21 / 40</div>
+  <div class="pageno">21 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -1664,7 +1702,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="srule rv" style="--d:2"></div>
       <p class="ssub rv" style="--d:3">Why forest mensuration is not mathematics · why absolute accuracy is neither necessary nor desirable · the six reasons why reasonable, relative accuracy is enough</p>
     </div>
-    <div class="spage">21 / 39</div>
+    <div class="spage">22 / 43</div>
   </div>
 </section>
 
@@ -1691,7 +1729,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="g3" style="position:absolute;left:0;right:0;top:0;bottom:132px;align-content:center">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column">
         <div class="label">The comparison</div>
-        <div class="ch" style="margin-top:16px;font-size:25px">A machined part</div>
+        <div class="ch" style="margin-top:16px;font-size:28px">A machined part</div>
         <ul class="bul sm">
           <li>Made to a specified shape</li>
           <li>Measured to a hundredth of a millimetre</li>
@@ -1703,7 +1741,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="card rv" style="--d:3;display:flex;flex-direction:column">
         <div class="label v">The reality</div>
-        <div class="ch" style="margin-top:16px;font-size:25px">A standing tree</div>
+        <div class="ch" style="margin-top:16px;font-size:28px">A standing tree</div>
         <ul class="bul sm">
           <li>Made to no specification at all</li>
           <li>Measured through leaves, on a slope, in the rain</li>
@@ -1715,7 +1753,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="card moss rv" style="--d:4;display:flex;flex-direction:column">
         <div class="label">The consequence</div>
-        <div class="ch" style="margin-top:16px;font-size:25px">What honesty requires</div>
+        <div class="ch" style="margin-top:16px;font-size:28px">What honesty requires</div>
         <ul class="bul sm">
           <li>Report a figure <strong>with</strong> an indication of how good it is</li>
           <li>Never quote more decimal places than the instrument can support</li>
@@ -1732,7 +1770,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">23 / 40</div>
+  <div class="pageno">23 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -1800,7 +1838,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">24 / 40</div>
+  <div class="pageno">24 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -1823,12 +1861,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <p class="lead rv" style="--d:2;margin-bottom:20px">Reasonable or relative accuracy is enough for forest mensuration, for six reasons:</p>
     <div class="g3 rv" style="--d:3;position:absolute;left:0;right:0;top:86px;bottom:132px;align-content:center;row-gap:28px">
-      <div class="card"><div class="numrow" style="margin:0"><div class="badge">1</div><div><div class="ch" style="margin:0 0 8px;font-size:23px">Characteristics of trees</div><p class="txt-sm">No tree shows a geometrical form.</p></div></div></div>
-      <div class="card"><div class="numrow" style="margin:0"><div class="badge">2</div><div><div class="ch" style="margin:0 0 8px;font-size:23px">Felling and conversion</div><p class="txt-sm">Varying methods and conditions of work.</p></div></div></div>
-      <div class="card"><div class="numrow" style="margin:0"><div class="badge">3</div><div><div class="ch" style="margin:0 0 8px;font-size:23px">Instruments and conditions</div><p class="txt-sm">And the way in which they are used.</p></div></div></div>
-      <div class="card"><div class="numrow" style="margin:0"><div class="badge">4</div><div><div class="ch" style="margin:0 0 8px;font-size:23px">Biological character</div><p class="txt-sm">A forest is a living entity, subject to locality factors.</p></div></div></div>
-      <div class="card"><div class="numrow" style="margin:0"><div class="badge moss">5</div><div><div class="ch" style="margin:0 0 8px;font-size:23px">The use of the measurement</div><p class="txt-sm">More accuracy for expensive and important produce.</p></div></div></div>
-      <div class="card"><div class="numrow" style="margin:0"><div class="badge moss">6</div><div><div class="ch" style="margin:0 0 8px;font-size:23px">Cost</div><p class="txt-sm">More accuracy means more expense.</p></div></div></div>
+      <div class="card"><div class="numrow" style="margin:0"><div class="badge">1</div><div><div class="ch" style="margin:0 0 8px;font-size:26px">Characteristics of trees</div><p class="txt-sm">No tree shows a geometrical form.</p></div></div></div>
+      <div class="card"><div class="numrow" style="margin:0"><div class="badge">2</div><div><div class="ch" style="margin:0 0 8px;font-size:26px">Felling and conversion</div><p class="txt-sm">Varying methods and conditions of work.</p></div></div></div>
+      <div class="card"><div class="numrow" style="margin:0"><div class="badge">3</div><div><div class="ch" style="margin:0 0 8px;font-size:26px">Instruments and conditions</div><p class="txt-sm">And the way in which they are used.</p></div></div></div>
+      <div class="card"><div class="numrow" style="margin:0"><div class="badge">4</div><div><div class="ch" style="margin:0 0 8px;font-size:26px">Biological character</div><p class="txt-sm">A forest is a living entity, subject to locality factors.</p></div></div></div>
+      <div class="card"><div class="numrow" style="margin:0"><div class="badge moss">5</div><div><div class="ch" style="margin:0 0 8px;font-size:26px">The use of the measurement</div><p class="txt-sm">More accuracy for expensive and important produce.</p></div></div></div>
+      <div class="card"><div class="numrow" style="margin:0"><div class="badge moss">6</div><div><div class="ch" style="margin:0 0 8px;font-size:26px">Cost</div><p class="txt-sm">More accuracy means more expense.</p></div></div></div>
     </div>
     <div class="callout moss rv" style="--d:6;position:absolute;left:0;right:0;bottom:0">
       <span class="k">The shape of the list — learn it this way</span>
@@ -1836,7 +1874,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">25 / 40</div>
+  <div class="pageno">25 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -1926,7 +1964,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">26 / 40</div>
+  <div class="pageno">26 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -2019,7 +2057,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">27 / 40</div>
+  <div class="pageno">27 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -2085,7 +2123,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">28 / 40</div>
+  <div class="pageno">28 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -2116,11 +2154,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="stack">
         <p class="lead rv" style="--d:2">A forest is a <strong>living entity</strong>. It is affected by many other factors — especially <strong>locality factors</strong> — and those factors cannot be predicted accurately by calculation.</p>
         <div class="card sunk rv" style="--d:3">
-          <div class="ch" style="font-size:23px">It changes while you measure it</div>
+          <div class="ch" style="font-size:26px">It changes while you measure it</div>
           <p class="txt-sm">A measurement is a <strong>snapshot</strong> of something that grows during the field season, that will be different next year, and that may be lost to windthrow, fire, pest or landslide before the plan period ends.</p>
         </div>
         <div class="card sunk rv" style="--d:4">
-          <div class="ch" style="font-size:23px">Its drivers vary over metres</div>
+          <div class="ch" style="font-size:26px">Its drivers vary over metres</div>
           <p class="txt-sm">Soil depth, aspect, moisture, altitude, exposure and the weather of a particular decade control growth — and they change across a single hillside. Two plots 100 m apart can differ in site quality more than two plots in different districts.</p>
         </div>
         <div style="flex:1"></div>
@@ -2170,7 +2208,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">29 / 40</div>
+  <div class="pageno">29 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -2210,7 +2248,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">30 / 40</div>
+  <div class="pageno">30 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -2287,7 +2325,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">31 / 40</div>
+  <div class="pageno">31 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -2323,7 +2361,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="srule rv" style="--d:2"></div>
       <p class="ssub rv" style="--d:3">Two words that are not synonyms · the target diagram · bias and random error · why more readings cure one of them and not the other</p>
     </div>
-    <div class="spage">31 / 39</div>
+    <div class="spage">32 / 43</div>
   </div>
 </section>
 
@@ -2353,8 +2391,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="g2 rv" style="--d:2;gap:34px">
         <div class="card" style="border-left:4px solid var(--moss)">
           <div class="label">Definition</div>
-          <div class="ch" style="margin-top:14px;font-size:38px;color:var(--moss)">Precision</div>
-          <p style="font-family:var(--display);font-weight:400;font-size:27px;line-height:1.36;color:var(--ink);margin-top:6px">The degree of <strong style="font-weight:600">agreement in a series of measurements</strong>.</p>
+          <div class="ch" style="margin-top:14px;font-size:43px;color:var(--moss)">Precision</div>
+          <p style="font-family:var(--display);font-weight:400;font-size:30px;line-height:1.36;color:var(--ink);margin-top:6px">The degree of <strong style="font-weight:600">agreement in a series of measurements</strong>.</p>
           <ul class="bul sm" style="margin-top:20px">
             <li>A property of a <strong>series</strong>, not of one reading — a single measurement has no precision</li>
             <li>Measured by the spread: range, standard deviation, coefficient of variation</li>
@@ -2363,8 +2401,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
         <div class="card" style="border-left:4px solid var(--vermilion)">
           <div class="label v">Definition</div>
-          <div class="ch" style="margin-top:14px;font-size:38px;color:var(--vermilion)">Accuracy</div>
-          <p style="font-family:var(--display);font-weight:400;font-size:27px;line-height:1.36;color:var(--ink);margin-top:6px">The <strong style="font-weight:600">closeness of a measurement to the true value</strong>.</p>
+          <div class="ch" style="margin-top:14px;font-size:43px;color:var(--vermilion)">Accuracy</div>
+          <p style="font-family:var(--display);font-weight:400;font-size:30px;line-height:1.36;color:var(--ink);margin-top:6px">The <strong style="font-weight:600">closeness of a measurement to the true value</strong>.</p>
           <ul class="bul sm" style="margin-top:20px">
             <li>Requires a <strong>true value</strong> — which for a standing tree is never known</li>
             <li>Usually inferred by checking against a better method, or from the design of the instrument</li>
@@ -2375,7 +2413,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div style="flex:1"></div>
       <div class="callout moss rv" style="--d:4">
         <span class="k">One sentence to remember the whole section by</span>
-        <p style="font-size:23px"><strong>Precision is the measurements agreeing with each other. Accuracy is the measurements agreeing with reality.</strong></p>
+        <p style="font-size:26px"><strong>Precision is the measurements agreeing with each other. Accuracy is the measurements agreeing with reality.</strong></p>
       </div>
       <div class="callout rv" style="--d:5">
         <span class="k">And the consequence</span>
@@ -2384,7 +2422,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">33 / 40</div>
+  <div class="pageno">33 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -2499,7 +2537,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">34 / 40</div>
+  <div class="pageno">34 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -2527,7 +2565,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="g2" style="height:calc(100% - 128px);gap:34px;align-items:stretch">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column">
         <div class="label">Costs precision</div>
-        <div class="ch" style="margin-top:14px;font-size:32px">Random error</div>
+        <div class="ch" style="margin-top:14px;font-size:36px">Random error</div>
         <ul class="bul sm">
           <li>Varies in <strong>size and sign</strong> from one reading to the next</li>
           <li>Averages to approximately <strong>zero</strong> over many readings</li>
@@ -2538,11 +2576,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <p>Rounding a tape to the nearest centimetre · slight differences in where the tape is placed · judging the tree top a little high on one tree and a little low on the next</p>
         </div>
         <div style="flex:1"></div>
-        <div class="answer" style="margin-top:20px"><span class="k">Cure</span><span class="v" style="font-size:26px">more readings</span></div>
+        <div class="answer" style="margin-top:20px"><span class="k">Cure</span><span class="v" style="font-size:29px">more readings</span></div>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column;border-left:4px solid var(--vermilion)">
         <div class="label v">Costs accuracy</div>
-        <div class="ch" style="margin-top:14px;font-size:32px">Systematic error · bias</div>
+        <div class="ch" style="margin-top:14px;font-size:36px">Systematic error · bias</div>
         <ul class="bul sm">
           <li>The <strong>same size and the same sign</strong> every single time</li>
           <li>Survives averaging <strong>completely intact</strong></li>
@@ -2553,7 +2591,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <p>A tape stretched by years of use · measuring above a buttress because the buttress is in the way · always sighting from downhill · a girth tape on out-of-round stems</p>
         </div>
         <div style="flex:1"></div>
-        <div class="answer" style="margin-top:20px;background:var(--vermilion)"><span class="k" style="color:#f6d9d0">Cure</span><span class="v" style="font-size:26px">calibrate and correct</span></div>
+        <div class="answer" style="margin-top:20px;background:var(--vermilion)"><span class="k" style="color:#f6d9d0">Cure</span><span class="v" style="font-size:29px">calibrate and correct</span></div>
       </div>
     </div>
     <div class="callout rv" style="--d:6;position:absolute;left:0;right:0;bottom:0">
@@ -2562,7 +2600,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">35 / 40</div>
+  <div class="pageno">35 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -2618,7 +2656,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
         <div style="flex:1"></div>
         <div class="answer rv" style="--d:5">
-          <span class="k">A must</span><span class="v" style="font-size:26px">check the tape</span>
+          <span class="k">A must</span><span class="v" style="font-size:29px">check the tape</span>
           <span class="n">more readings would only confirm the wrong answer</span>
         </div>
       </div>
@@ -2643,7 +2681,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">36 / 40</div>
+  <div class="pageno">36 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -2667,8 +2705,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="g4" style="height:calc(100% - 116px);align-items:stretch">
       <div class="card rv" style="--d:2;padding:26px 26px">
         <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px">
-          <div style="font-family:var(--display);font-weight:600;font-size:40px;color:var(--moss);line-height:1">A</div>
-          <div class="ch" style="margin:0;font-size:22px">Defined</div>
+          <div style="font-family:var(--display);font-weight:600;font-size:45px;color:var(--moss);line-height:1">A</div>
+          <div class="ch" style="margin:0;font-size:25px">Defined</div>
         </div>
         <ul class="bul sm">
           <li>Latin <strong>mensura</strong> — measure of length, area and volume</li>
@@ -2676,14 +2714,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <li>Of a <strong>single tree, stands or whole woods</strong></li>
           <li>Either <strong>standing or after felling</strong></li>
           <li>Concerns <strong>linear, area, volume and weight</strong></li>
-          <li><strong>Volume</strong> is the most important measurement for management</li>
+          <li><strong>Volume</strong> carries the most management decisions &mdash; and is one variable among several</li>
           <li>Volume is computed, not measured: <span class="mn">V = g·h·f</span></li>
         </ul>
       </div>
       <div class="card rv" style="--d:4;padding:26px 26px">
         <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px">
-          <div style="font-family:var(--display);font-weight:600;font-size:40px;color:var(--moss);line-height:1">B</div>
-          <div class="ch" style="margin:0;font-size:22px">Objectives</div>
+          <div style="font-family:var(--display);font-weight:600;font-size:45px;color:var(--moss);line-height:1">B</div>
+          <div class="ch" style="margin:0;font-size:25px">Objectives</div>
         </div>
         <ul class="bul sm">
           <li><strong>Basis of sale</strong> — volume and price from supply and demand</li>
@@ -2696,8 +2734,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="card rv" style="--d:6;padding:26px 26px">
         <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px">
-          <div style="font-family:var(--display);font-weight:600;font-size:40px;color:var(--vermilion);line-height:1">C</div>
-          <div class="ch" style="margin:0;font-size:22px">Accuracy</div>
+          <div style="font-family:var(--display);font-weight:600;font-size:45px;color:var(--vermilion);line-height:1">C</div>
+          <div class="ch" style="margin:0;font-size:25px">Accuracy</div>
         </div>
         <ul class="bul sm">
           <li>Forest mensuration is <strong>not as accurate as mathematics</strong></li>
@@ -2712,8 +2750,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="card rv" style="--d:8;padding:26px 26px">
         <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px">
-          <div style="font-family:var(--display);font-weight:600;font-size:40px;color:var(--vermilion);line-height:1">D</div>
-          <div class="ch" style="margin:0;font-size:22px">Precision &amp; accuracy</div>
+          <div style="font-family:var(--display);font-weight:600;font-size:45px;color:var(--vermilion);line-height:1">D</div>
+          <div class="ch" style="margin:0;font-size:25px">Precision &amp; accuracy</div>
         </div>
         <ul class="bul sm">
           <li><strong>Precision</strong> — degree of agreement in a series of measurements</li>
@@ -2727,11 +2765,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
     </div>
     <div class="callout moss rv" style="--d:10;position:absolute;left:0;right:0;bottom:0">
-      <p style="font-size:22px"><strong>A figure without its method and its accuracy is not a measurement — it is a claim.</strong></p>
+      <p style="font-size:25px"><strong>A figure without its method and its accuracy is not a measurement — it is a claim.</strong></p>
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">37 / 40</div>
+  <div class="pageno">37 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -2759,7 +2797,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="numrow rv" style="--d:4"><div class="badge moss">7</div><div class="txt-sm">State and explain the six reasons why only reasonable or relative accuracy is attainable in forest mensuration.</div></div>
       <div class="numrow rv" style="--d:4"><div class="badge">3</div><div class="txt-sm">Name the four kinds of measurement forest mensuration deals with, and give two forestry examples of each.</div></div>
       <div class="numrow rv" style="--d:5"><div class="badge moss">8</div><div class="txt-sm">Define precision and accuracy. Describe a set of five readings that is highly precise and badly inaccurate, and say how you would detect the problem.</div></div>
-      <div class="numrow rv" style="--d:5"><div class="badge">4</div><div class="txt-sm">Why is volume the most important measurement for forest management? Why is it never measured directly on a standing tree?</div></div>
+      <div class="numrow rv" style="--d:5"><div class="badge">4</div><div class="txt-sm">Why does volume carry so many management decisions? Name four other quantities mensuration estimates. Why is volume never measured directly on a standing tree?</div></div>
       <div class="numrow rv" style="--d:6"><div class="badge moss">9</div><div class="txt-sm">A tape reads 1.5 cm high on every tree. The mean diameter recorded is 38.0 cm. By what percentage is the growing stock overstated? Show your working.</div></div>
       <div class="numrow rv" style="--d:6"><div class="badge">5</div><div class="txt-sm">List the four objectives of forest mensuration and, for each, name one field activity that serves it.</div></div>
       <div class="numrow rv" style="--d:7"><div class="badge moss">10</div><div class="txt-sm">You must measure a compartment of mixed fuelwood and one stand of high-value sawlogs. How much accuracy does each deserve, and how would you defend the difference to an auditor?</div></div>
@@ -2769,7 +2807,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">38 / 40</div>
+  <div class="pageno">38 / 43</div>
 </section>
 
 <!-- ======================================================================
@@ -2827,20 +2865,218 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
   </div>
   <div class="footrule"></div>
-  <div class="pageno">39 / 40</div>
+  <div class="pageno">39 / 43</div>
 </section>
 
 <!-- ======================================================================
      SLIDE 40 — CLOSING
      ====================================================================== -->
+<!-- ======================================================================
+     BHUTAN POLICY CONNECTION — WHAT THIS MODULE IS FOR
+     ====================================================================== -->
+<!-- SPEAKER NOTES · BHUTAN POLICY CONNECTION
+     Every unit of MEN 201 carries one of these. This is the first, and it sets the frame for the
+     other six, so give it five minutes rather than one.
+
+     Start with Article 5 of the Constitution, because it is the sentence that makes forest
+     mensuration a national obligation rather than a technical hobby: a minimum of 60 per cent of
+     Bhutan's total land under forest cover for all time to come. Somebody has to measure that, and
+     it is measured with the methods in this module.
+
+     Then the National Forest Policy 2011, which frames forestry around equitable benefit, people-
+     centred management, good science combined with indigenous knowledge, biodiversity, ecosystem
+     services, climate change and cultural values. Read the list aloud and ask the class how many of
+     those items are volume. One.
+
+     Then the Forest and Nature Conservation Act 2023 and the biodiversity strategy, which
+     reinforce conservation, sustainable use and multipurpose management.
+
+     The point to land: a course that teaches mensuration as the art of estimating timber volume is
+     teaching a subset of what Bhutan actually needs measured. Volume is in the list, and it is the
+     variable with the most money attached, but growing stock, biomass, carbon, structure, habitat,
+     regeneration, forest health, watershed condition, NWFP resources and livelihood supply are all
+     in the list too - and they are all measured with the same tape, the same clinometer and the
+     same plot.
+-->
+<section class="slide">
+  <div class="head">
+    <div class="eyebrow rv" style="--d:0">Official Bhutan policy context · the frame for all seven units</div>
+    <h2 class="title rv" style="--d:1">What Bhutan actually asks to be <em>measured</em></h2>
+    <div class="hr"></div>
+  </div>
+  <div class="runhead">MEN 201 · Forest Mensuration<br>Unit I · Session 2</div>
+  <div class="body">
+    <div class="callout moss rv" style="--d:2;margin-bottom:24px">
+      <span class="k">Constitution of the Kingdom of Bhutan, Article 5</span>
+      <p>A minimum of <strong>sixty per cent of Bhutan&rsquo;s total land</strong> shall be maintained under forest cover <strong>for all time to come</strong>. Somebody has to measure that — and it is measured with the methods in this module.</p>
+    </div>
+    <div class="g3" style="margin-bottom:24px">
+      <div class="card rv" style="--d:3">
+        <div class="ch" style="font-size:25px">National Forest Policy 2011</div>
+        <p class="txt-sm">Frames forestry around <strong>equitable benefit, people-centred management, good science combined with indigenous knowledge, biodiversity, ecosystem services, climate change and cultural values</strong>.</p>
+      </div>
+      <div class="card rv" style="--d:4">
+        <div class="ch" style="font-size:25px">Forest and Nature Conservation Act 2023</div>
+        <p class="txt-sm">Governs State Reserved Forest Land, forest management regimes and forestry clearance. Unit III shows how a canopy figure becomes a decision under s. 46 (2).</p>
+      </div>
+      <div class="card rv" style="--d:5">
+        <div class="ch" style="font-size:25px">Biodiversity strategy 2025</div>
+        <p class="txt-sm">Reinforces conservation, sustainable use and <strong>multipurpose forest management</strong> — measurement in service of more than one objective at a time.</p>
+      </div>
+    </div>
+    <div class="card sunk rv" style="--d:6">
+      <div class="label v">What this module is asked to estimate — read the list, then count how many are volume</div>
+      <div class="chips" style="margin-top:14px">
+        <span class="chip">growing stock</span><span class="chip">timber &amp; fuelwood supply</span><span class="chip">non-wood forest products</span>
+        <span class="chip">biomass</span><span class="chip">carbon</span><span class="chip">forest structure</span>
+        <span class="chip">biodiversity habitat</span><span class="chip">regeneration</span><span class="chip">forest health</span>
+        <span class="chip">watershed protection</span><span class="chip">livelihood supply</span><span class="chip">restoration</span>
+        <span class="chip">sustainable harvest</span><span class="chip">climate-change impacts</span>
+      </div>
+      <p class="txt-sm" style="margin-top:16px"><strong>One.</strong> Volume is the variable with the most money attached to it, and it is one item on a list of fourteen. Each unit of this module ends with a slide like this one, naming the Bhutanese decisions its measurements feed.</p>
+    </div>
+  </div>
+  <div class="src">Constitution of the Kingdom of Bhutan, Art. 5 &middot; National Forest Policy of Bhutan 2011 &middot; Forest and Nature Conservation Act of Bhutan 2023 &middot; National Biodiversity Strategy and Action Plan 2025</div>
+  <div class="pageno">40 / 43</div>
+</section>
+
+<!-- ======================================================================
+     ACKNOWLEDGEMENT
+     ====================================================================== -->
+<!-- SPEAKER NOTES · ACKNOWLEDGEMENT
+     Show this slide and read it. It takes thirty seconds and it matters.
+
+     Teaching materials circulate informally between lecturers and the contribution usually goes
+     unrecorded. It should not. Where a diagram, table, exercise, explanation or slide in this
+     module derives directly from the materials shared for this course, the slide or the
+     corresponding lecture-note section carries its own adaptation note as well.
+
+     Say plainly what acknowledgement does and does not do: it records a contribution, and it does
+     not replace citation of the original books, manuals, reports, research papers, photographs,
+     diagrams, equations or datasets used within those materials. Those are cited where they are
+     used, on the slide that uses them.
+-->
+<section class="slide">
+  <div class="head">
+    <div class="eyebrow rv" style="--d:0">Acknowledgement</div>
+    <h2 class="title rv" style="--d:1">With <em>thanks</em></h2>
+    <div class="hr"></div>
+  </div>
+  <div class="runhead">MEN 201 · Forest Mensuration<br>Unit I · Session 2</div>
+  <div class="body">
+    <div style="max-width:1280px">
+      <div class="card moss rv" style="--d:2">
+        <p class="lead" style="color:#eef2ea;font-size:32px">The course developer gratefully acknowledges <strong style="color:#fff">Laxmi Sagr, Associate Lecturer, College of Natural Resources</strong>, for sharing teaching materials previously used for the same Forest Mensuration course.</p>
+        <p class="txt" style="margin-top:20px;color:#d3decf">Selected concepts and materials were reviewed, adapted, expanded and contextualized for the present MEN 201 course.</p>
+      </div>
+      <div class="g2 rv" style="--d:4;margin-top:28px;gap:30px">
+        <div class="card sunk">
+          <div class="label v">Where a specific item is adapted</div>
+          <p class="txt-sm" style="margin-top:12px">The slide, or the corresponding section of the student lecture notes, carries its own note:</p>
+          <p class="txt-sm" style="margin-top:12px;font-style:italic;color:var(--moss)">&ldquo;Adapted from teaching materials shared by Laxmi Sagr, Associate Lecturer, College of Natural Resources.&rdquo;</p>
+        </div>
+        <div class="callout">
+          <span class="k">What acknowledgement does not replace</span>
+          <p style="font-size:21px">Acknowledging a contribution does <strong>not</strong> replace proper citation of the original books, manuals, reports, research papers, photographs, diagrams, equations, tables or datasets used within the shared materials. Those are cited <strong>where they are used</strong>, on the slide that uses them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="src">The same acknowledgement appears in the course README and in the student lecture notes.</div>
+  <div class="pageno">41 / 43</div>
+</section>
+
+<!-- ======================================================================
+     NOTATION REFERENCE SHEET — IDENTICAL IN EVERY UNIT OF MEN 201
+     ====================================================================== -->
+<!-- SPEAKER NOTES · NOTATION REFERENCE SHEET
+     This slide is identical in all seven decks. Point that out to the class the first time they
+     meet it, and tell them it is the page to photograph.
+
+     The rule that does most of the work is lower case for one tree, upper case for the stand.
+     g and G, v and V. Students who internalise that one convention stop making the single most
+     common error in the module, which is multiplying a per-tree figure by a per-hectare figure.
+
+     On bark: insist on t for one-sided thickness and B = 2t for double bark thickness. The older
+     literature uses b for both, which is exactly why this module fixes two symbols. A diameter
+     crosses the bark twice, so the subtraction is always 2t.
+
+     On crown terms: the module uses four names and never the bare term "crown height". Unit III
+     shows why - the term carries three incompatible meanings, and students will meet all three.
+
+     On the DBH reference height, which is not a symbol but belongs here anyway: it is protocol-
+     dependent, Bhutan's Second NFI used 1.37 m, many international manuals use 1.30 m, and the
+     examinable skill is identifying the governing protocol and recording the height - not
+     memorising a number.
+-->
+<section class="slide">
+  <div class="head">
+    <div class="eyebrow rv" style="--d:0">Reference sheet &middot; identical in every unit of MEN 201 &middot; photograph this one</div>
+    <h2 class="title rv" style="--d:1">Notation, units and <em>terminology</em></h2>
+    <div class="hr"></div>
+  </div>
+  <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit I &middot; Session 2</div>
+  <div class="body">
+    <div style="display:grid;grid-template-columns:.78fr .62fr .60fr;gap:26px;height:100%">
+      <table class="dt sm rv" style="--d:3;align-self:start">
+        <thead><tr><th style="width:74px">Symbol</th><th>Quantity</th><th style="width:96px">Unit</th></tr></thead>
+        <tbody>
+          <tr><td class="rh">d</td><td>diameter of one tree</td><td>cm</td></tr>
+          <tr><td class="rh">C</td><td>circumference or girth</td><td>cm</td></tr>
+          <tr><td class="rh">g</td><td>basal area, <strong>one tree</strong></td><td>m<sup>2</sup></td></tr>
+          <tr class="hi"><td class="rh">G</td><td>basal area, <strong>stand</strong></td><td>m<sup>2</sup>/ha</td></tr>
+          <tr><td class="rh">h</td><td>height of one tree</td><td>m</td></tr>
+          <tr><td class="rh">H<sub>L</sub></td><td>Lorey&rsquo;s mean height</td><td>m</td></tr>
+          <tr><td class="rh">v</td><td>volume, <strong>one tree</strong></td><td>m<sup>3</sup></td></tr>
+          <tr class="hi"><td class="rh">V</td><td>volume, <strong>stand</strong></td><td>m<sup>3</sup>/ha</td></tr>
+          <tr><td class="rh">t</td><td>bark thickness, <strong>one side</strong></td><td>cm</td></tr>
+          <tr><td class="rh">B</td><td>double bark, B = 2t</td><td>cm</td></tr>
+          <tr><td class="rh">f</td><td>form factor</td><td>&mdash;</td></tr>
+        </tbody>
+      </table>
+      <div style="display:flex;flex-direction:column;gap:18px;min-height:0">
+        <div class="card moss rv" style="--d:4;padding:20px 22px">
+          <div class="ch" style="font-size:24px;margin-bottom:8px">Lower case is one tree.<br>Upper case is the stand.</div>
+          <p class="txt-sm" style="font-size:19px">That one rule resolves most of the confusion in the literature: <strong>g</strong> is the tree in front of you, <strong>G</strong> is the hectare it stands in. Likewise <strong>v</strong> and <strong>V</strong>.</p>
+        </div>
+        <div class="card rv" style="--d:5;padding:20px 22px">
+          <div class="ch v" style="font-size:21px;margin-bottom:8px">Two conversions that follow</div>
+          <div class="mn" style="font-size:20px;color:var(--moss);line-height:1.8">
+            C = &pi;d &nbsp;&middot;&nbsp; d = C / &pi;<br>
+            D<sub>ub</sub> = D<sub>ob</sub> &minus; 2t<br>
+            G<sub>ub</sub> = G<sub>ob</sub> &minus; 2&pi;t
+          </div>
+          <p class="txt-sm" style="margin-top:8px;font-size:19px">A diameter crosses bark <strong>twice</strong>. Subtract <strong>2t</strong>, never <em>t</em>.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;min-height:0">
+        <div class="card sunk rv" style="--d:6;padding:18px 22px">
+          <div class="ch v" style="font-size:21px;margin-bottom:8px">Crown terms &mdash; four names</div>
+          <p class="txt-sm" style="font-size:19px"><strong>Crown-base height</strong> ground to the base of the live crown &middot; <strong>crown length</strong> H &minus; crown-base height &middot; <strong>crown midpoint height</strong> ground to the crown midpoint &middot; <strong>live-crown ratio</strong> crown length &divide; H. The bare term <strong>&ldquo;crown height&rdquo; is not used</strong> &mdash; three incompatible meanings.</p>
+        </div>
+        <div class="card sunk rv" style="--d:7;padding:18px 22px">
+          <div class="ch v" style="font-size:21px;margin-bottom:8px">Spelling fixed for this module</div>
+          <p class="txt-sm" style="font-size:19px"><strong>relascope</strong> &middot; <strong>calliper</strong> &middot; <strong>Smythies&rsquo; hypsometer</strong> &middot; <strong>chir pine</strong> &middot; <strong>breast height</strong> &middot; <strong>over bark</strong> / <strong>under bark</strong> &middot; <strong>merchantable height</strong> &middot; <strong>bole height</strong></p>
+        </div>
+        <div class="callout rv" style="--d:8;padding:16px 20px">
+          <span class="k">Not a symbol, but it belongs here</span>
+          <p style="font-size:19px"><strong>DBH reference height is protocol-dependent.</strong> Bhutan&rsquo;s Second NFI used <strong>1.37 m</strong>; many international manuals use <strong>1.30 m</strong>. Follow the applicable protocol and <strong>record the height used</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="src">Notation fixed for MEN 201. Where a textbook or a published equation uses different symbols, translate into this table before you calculate.</div>
+  <div class="pageno">42 / 43</div>
+</section>
+
 <!-- SPEAKER NOTES · SLIDE 40
-     Close the session here. Give the class hours and the classroom, and confirm the tutor contact details. Ask students to use email for questions rather than the phone, and to attach their own attempt when the question concerns a calculation.
+     Close the session here. Confirm the tutor contact details, and point students at the VLE for the timetable and the practical dates. Ask students to use email for questions rather than the phone, and to attach their own attempt when the question concerns a calculation.
 
      Point them at the review questions and at the reading, and tell them what the next session covers so they arrive with the right book.
 
      One closing line worth saying: they came into this session thinking measurement was about getting the right number. They leave knowing it is about getting a number whose quality they can state and defend. That is the difference between a student and a forester.
 -->
-<section class="slide cover" data-n="40">
+<section class="slide cover" data-n="43">
   <div class="plate">
     <svg viewBox="0 0 720 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <!-- the target and the tree, together: the two ideas of the session -->
@@ -2866,7 +3102,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <line x1="250" y1="846" x2="470" y2="846" stroke-dasharray="6 7"/>
         <line x1="334" y1="830" x2="334" y2="862"/><line x1="386" y1="830" x2="386" y2="862"/>
       </g>
-      <text x="480" y="842" font-family="JetBrains Mono, monospace" font-size="16" fill="#c14524">d @ 1.3 m</text>
+      <text x="480" y="842" font-family="JetBrains Mono, monospace" font-size="16" fill="#c14524">d @ breast height</text>
 
       <line x1="60" y1="948" x2="660" y2="948" stroke="#141c18" stroke-opacity=".14" stroke-width="1"/>
       <text x="60" y="990" font-family="JetBrains Mono, monospace" font-size="16" fill="#7b857c">precision · agreement with each other</text>
@@ -2878,19 +3114,19 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="rv" style="--d:1;margin-top:24px;width:120px;height:1px;background:var(--ink);opacity:.85"></div>
   </div>
   <div style="position:absolute;left:110px;top:290px;width:1030px">
-    <h1 class="rv" style="--d:2;font-size:104px">Introduction to<br><em>Forest Mensuration</em></h1>
+    <h1 class="rv" style="--d:2;font-size:116px">Introduction to<br><em>Forest Mensuration</em></h1>
     <div class="g2 rv" style="--d:4;margin-top:64px;max-width:880px;gap:40px">
       <div class="card">
-        <div class="label v">Class hours</div>
-        <div class="mn" style="font-size:19px;color:var(--ink);margin-top:14px;line-height:2">
-          Monday &nbsp; 2nd – 4th period &nbsp; 09:00 – 12:15<br>
-          Thursday &nbsp; 2nd – 3rd period &nbsp; 09:00 – 11:15<br>
-          Classroom &nbsp; B2.6
+        <div class="label v">Where to find things</div>
+        <div class="mn" style="font-size:21px;color:var(--ink);margin-top:14px;line-height:2">
+          All seven units &middot; the contents page<br>
+          Readings &middot; the supplementary folder<br>
+          Practical sheets and dates &middot; the VLE
         </div>
       </div>
       <div class="card">
         <div class="label v">Tutor</div>
-        <div class="mn" style="font-size:19px;color:var(--ink);margin-top:14px;line-height:2">
+        <div class="mn" style="font-size:21px;color:var(--ink);margin-top:14px;line-height:2">
           Wangdi<br>
           Senior Forestry Officer<br>
           Adjunct Lecturer<br>
@@ -2902,7 +3138,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="cmeta">
     <div class="rv" style="--d:7"><strong>BSc in Forestry</strong>College of Natural Resources<br>Royal University of Bhutan</div>
   </div>
-  <div class="pageno">40 / 40</div>
+  <div class="pageno">43 / 43</div>
 </section>
 
 </div><!-- /.stage -->
@@ -2910,7 +3146,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
 <div class="hud">
   <button id="prev" title="Previous (&larr;)">&lsaquo;</button>
-  <span><b id="cur">1</b> / <span id="tot">39</span></span>
+  <span><b id="cur">1</b> / <span id="tot">43</span></span>
   <button id="next" title="Next (&rarr;)">&rsaquo;</button>
 </div>
 

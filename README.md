@@ -45,16 +45,24 @@ screen. Units V–VII have no source link yet.
 
 ## Supplementary readings
 
-Four PDFs in `supplementary/`, linked from the contents page. Three are the working documents of
+Six PDFs in `supplementary/`, linked from the contents page. Five are the working documents of
 the Department of Forests and Park Services, so the equations and procedures match what is used in
 the field in Bhutan.
 
 | Document | Source | Units |
 |----------|--------|-------|
+| National Forest Inventory Volume I — State of Forest Report | Second NFI, DoFPS, 2023 | all |
+| National Forest Inventory Volume II — State of Forest Carbon Report | Second NFI, DoFPS, 2023 | V, VI, VII |
 | Species-Specific Volume Equation — *Pinus wallichiana* | Forest Resources Management Division, DoFPS, 2018 | V |
 | Allometric Biomass Equations — 14 species and 2 general | UWICER & FRMD, DoFPS, 2018 | V, VI |
 | Forest Canopy Cover Assessment Guidelines | Forest Monitoring and Information Division, DoFPS, 2024 | III |
 | A Simple Guide to Common Forest Measurements | Mercker & Yang, UT Extension W 1117 | I, II, IV, VI |
+
+The two inventory volumes are the source of the national protocol the module measures by — over-bark
+DBH at 1.37 m, trees from 10 cm, three 12.62 m plots to a cluster on a 4 × 4 km grid, 95 % confidence
+intervals, and the 69.71 % forest cover figure used throughout. They are also the largest files in the
+repository, at 6.5 MB and 11.2 MB; they are vendored rather than linked so the whole module can be
+cloned once and read offline.
 
 The UT Extension guide is in imperial units (inches, feet, acres); the decks are SI throughout.
 

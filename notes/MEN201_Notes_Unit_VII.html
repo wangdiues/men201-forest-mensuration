@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MEN 201 · Unit VII notes · Age and Growth of Trees</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_notes.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker">MEN 201 · Forest Mensuration · Student lecture notes</div>
+  <h1>Unit VII · Age and <em>Growth of Trees</em></h1>
+  <p class="sub">Determining age, the classes of increment, the culmination of the mean annual increment,
+    and growth expressed as a rate of return.</p>
+  <p class="meta">Sessions 15–17 · BSc in Forestry, College of Natural Resources, Royal University of Bhutan<br>
+    Read alongside <a href="../MEN201_Unit_VII_Age_and_Growth_of_Trees.html">the Unit VII deck</a>
+    &middot; <a href="MEN201_Calculation_Handbook.html">calculation handbook</a>
+    &middot; <a href="index.html">all notes</a></p>
+</header>
+
+<nav class="toc">
+  <h2>In this unit</h2>
+  <ol>
+    <li><a href="#outcomes">Learning outcomes</a></li>
+    <li><a href="#age">Determining age</a></li>
+    <li><a href="#growth">Growth and increment</a></li>
+    <li><a href="#classes">The four classes of increment</a></li>
+    <li><a href="#culmination">Culmination and rotation</a></li>
+    <li><a href="#percent">Increment percentage</a></li>
+    <li><a href="#errors">Error and quality control</a></li>
+    <li><a href="#bhutan">In Bhutanese forestry</a></li>
+    <li><a href="#practice">Practice questions</a></li>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#refs">References</a></li>
+  </ol>
+</nav>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="outcomes"><span class="n">Section 1</span>Learning outcomes</h2>
+<ol>
+  <li><strong>Determine</strong> the age of a standing tree four different ways, and of a felled tree by ring
+    counting, evaluating the reliability of each.</li>
+  <li><strong>Calculate</strong> the age of a tree from periodic diameter measurements.</li>
+  <li><strong>Define</strong> increment and distinguish current annual, periodic annual, total and mean annual
+    increment.</li>
+  <li><strong>Locate</strong> the culmination of the mean annual increment from a yield series, and state
+    precisely what it does and does not determine.</li>
+  <li><strong>Compute</strong> increment percentage by three formulae and explain why they differ.</li>
+  <li><strong>Recover</strong> a past diameter from an increment core.</li>
+</ol>
+
+<div class="note">
+  <span class="k">The sentence the unit is built on</span>
+  <p><strong>Age converts a measurement into a rate.</strong> Everything in Units II to VI told you how much
+    is there; this unit tells you how fast it is arriving.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="age"><span class="n">Section 2</span>Determining age</h2>
+
+<p>Age is harder to know than it looks, and &ldquo;age&rdquo; itself needs defining: age from germination?
+From planting out of the nursery? From the year the seeding felling was done? These differ, sometimes by
+several years.</p>
+
+<h3>Method 1 · existing records</h3>
+<p>Plantation journals, working plans, compartment histories. Exact where they exist and are trustworthy;
+useless for natural forest. <strong>The method that most often turns out to be wrong in a way nobody notices</strong>
+— always cross-check a record against the tree.</p>
+
+<h3>Method 2 · general appearance</h3>
+<p>Bark character, branching habit, crown form. Cannot be examined and cannot be dispensed with: it is the
+method that tells an experienced forester <strong>the record is wrong</strong>. Judgement is the cross-check
+on the arithmetic.</p>
+
+<div class="note">
+  <span class="k">A caution on bark</span>
+  <p>Bark character must be learned <strong>species by species</strong>. Do not generalise a bark description
+    from one species to another.</p>
+</div>
+
+<h3>Method 3 · whorls of branches and annual shoots</h3>
+
+<p>Many conifers produce exactly one whorl of branches a year from a single terminal bud. Count the whorls,
+and you have counted the years.</p>
+
+<div class="eq sm">Age = number of whorls + years for the part not visible</div>
+
+<p><strong>The whole difficulty is the second term.</strong> The lowest whorls are shed by natural pruning as
+the crown lifts and their scars grow over, so a ground count <strong>always undercounts</strong>. The
+correction estimates the years taken to reach the lowest whorl still visible.</p>
+
+<div class="worked">
+  <div class="h">Worked example 1 · whorl count</div>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">Whorls counted</td><td class="n">14</td></tr>
+      <tr><td class="rh">Lowest visible whorl</td><td class="n">1.2 m above ground</td></tr>
+      <tr><td class="rh">Years to reach 1.2 m</td><td class="n">≈ 3 (from local experience)</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">Age ≈ 17 years</div>
+</div>
+
+<p><strong>Where it fails:</strong> broadleaves, which do not whorl; conifers on poor sites that miss a year;
+and any tree browsed or with a broken leader, which produces a false or doubled whorl.</p>
+
+<h3>Method 4 · periodic measurements</h3>
+
+<p>The tree is measured <strong>three times at equal intervals</strong>. No rings are counted and no
+judgement is used — which is why this method also works on trees that have <em>no</em> annual rings, the
+Bhutanese problem in the wet subtropical broadleaf forests of the southern foothills.</p>
+
+<table class="sm">
+  <thead><tr><th>Symbol</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td class="rh">d₁</td><td>the initial diameter</td></tr>
+    <tr><td class="rh">d₂, d₃</td><td>diameters at the subsequent periodic measurements</td></tr>
+    <tr><td class="rh">P₁</td><td>growth per unit diameter per year, <strong>first</strong> period</td></tr>
+    <tr><td class="rh">P₂</td><td>growth per unit diameter per year, <strong>second</strong> period</td></tr>
+    <tr><td class="rh">T</td><td>length of each period, in years</td></tr>
+  </tbody>
+</table>
+
+<div class="eq sm">P₁ = (d₂ − d₁) ÷ (d₁ × T) &nbsp;&nbsp;·&nbsp;&nbsp; P₂ = (d₃ − d₂) ÷ (d₂ × T)
+  <span class="u">a proportional growth rate per year — not a percentage</span>
+</div>
+
+<div class="eq">S = (log P₁ − log P₂) ÷ (log d₂ − log d₁) &nbsp;&nbsp;·&nbsp;&nbsp; Age = 1 ÷ (P₁ S)</div>
+
+<div class="note">
+  <span class="k">The idea worth understanding</span>
+  <p>As a tree gets bigger its <strong>proportional</strong> growth rate falls. <strong>S</strong> measures
+    how fast that rate falls as diameter rises. Once you know how quickly the rate is decaying you can run the
+    decay <em>backwards</em> to find how long the tree has been growing — which is exactly what 1/(P₁S) does.</p>
+  <p>On the logarithms: any base will do provided you use the same base throughout, because the base cancels
+    in a ratio.</p>
+</div>
+
+<div class="worked">
+  <div class="h">Worked example 2 · age, and the rounding trap</div>
+  <p>A tree measured in 1970, 1975 and 1980 with diameters 30, 33 and 36 cm; each period 5 years.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">P₁</td><td class="n">3 ÷ (30 × 5) = 3/150 = 0.020000</td></tr>
+      <tr><td class="rh">P₂</td><td class="n">3 ÷ (33 × 5) = 3/165 = 0.018182 &nbsp;<em>not 0.018</em></td></tr>
+      <tr><td class="rh">log P₁ − log P₂</td><td class="n">−1.698970 − (−1.740363) = 0.041393</td></tr>
+      <tr><td class="rh">log d₂ − log d₁</td><td class="n">1.518514 − 1.477121 = 0.041393</td></tr>
+      <tr><td class="rh">S</td><td class="n">0.041393 ÷ 0.041393 = 1.000000 exactly</td></tr>
+      <tr><td class="rh">Age at 1970</td><td class="n">1 ÷ (0.02 × 1.000) = 50 years</td></tr>
+      <tr><td class="rh">Age at 1980</td><td class="n">50 + 10 = <strong>60 years</strong></td></tr>
+    </tbody>
+  </table>
+  <div class="ans">60 years — computed at full precision</div>
+  <p style="margin-top:10px"><strong>Why S came out exactly 1.</strong> P₁/P₂ = 0.02 ÷ 0.018182 = 1.1 exactly,
+    and d₂/d₁ = 33/33 … 33 ÷ 30 = 1.1 exactly. The ratio of two identical logarithms is 1 in any base. The
+    example was built that way.</p>
+  <p><strong>The rounding trap.</strong> Round P₂ to 0.018 and S becomes 1.105, giving 45 years at 1970 and
+    <strong>55 at 1980</strong>. A five-year difference — nine per cent — produced entirely by rounding one
+    intermediate value by one per cent. <em>For this module the correct answer is 60; 55 is taught only to
+    demonstrate the trap.</em></p>
+</div>
+
+<div class="note">
+  <span class="k">A general property worth noticing</span>
+  <p>Whenever the two periodic increments are <strong>equal in absolute terms</strong>, P₁/P₂ = d₂/d₁
+    identically, so <strong>S = 1</strong> for any such data set and the age reduces to d₁ divided by the
+    annual diameter increment.</p>
+</div>
+
+<h3>Method 5 · counting the rings of a felled tree</h3>
+
+<p>Exact where rings are distinct — and unavailable on a standing tree you are not felling.</p>
+
+<div class="note">
+  <span class="k">Rings at a stump give the age <em>at that height</em></span>
+  <p>Not from germination. The years the tree spent growing up to that height must be added back:
+    roughly <strong>3–8 years</strong> to reach breast height on a good site, and as much as
+    <strong>15 years</strong> for a stem suppressed under shade.</p>
+</div>
+
+<h3>The increment borer</h3>
+
+<p>Extracts a core from bark to pith on a standing tree. The rings on the core are counted, giving the age at
+the height bored — corrected as above.</p>
+
+<div class="note">
+  <span class="k">When rings lie</span>
+  <p><strong>False rings</strong> — a drought or defoliation mid-season produces a band that looks annual.
+    <strong>Missing rings</strong> — a severely suppressed tree may add no measurable wood in a bad year.
+    <strong>Indistinct rings</strong> — this is the Bhutanese problem: in the wet subtropical broadleaf forests
+    of the southern foothills there is no strong dry season to arrest growth, so many species form no clear
+    annual boundary at all. Ring counting there is unreliable to useless, which is exactly why the periodic
+    measurement formula of Method 4 matters.</p>
+</div>
+
+<div class="note">
+  <span class="k">A core is a radius</span>
+  <p>The rings record growth on <strong>one side only</strong>. Diameter grows by <strong>twice</strong> the
+    ring width. This catches people out repeatedly.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="growth"><span class="n">Section 3</span>Growth and increment</h2>
+
+<div class="eq sm">Increment is the <strong>increase</strong> in girth, diameter, basal area, height,<br>
+  volume, quality, price or value of trees or crops <strong>during a given period</strong></div>
+
+<div class="note">
+  <span class="k">Stop on the last three words in that list</span>
+  <p>Increment is <strong>not only physical</strong>. A stand whose timber has become more valuable per cubic
+    metre has put on increment in <strong>value</strong> without adding a single cubic metre of wood. That idea
+    underpins the whole of forest economics.</p>
+</div>
+
+<p><strong>The shape of a lifetime.</strong> The rate is slow at first, becomes rapid at a certain age
+reaching an optimum, then slows again — but it never stops until the tree dies.</p>
+
+<p><strong>Negative increment.</strong> With increasing age the forces of decay become more active than the
+increment. A hollowing, rotting veteran may lose more wood to decay each year than its cambium adds, so its
+net volume falls. It is still growing — and still losing ground. This is why a working plan removes
+over-mature trees rather than leaving them to grow.</p>
+
+<p><strong>Growth in <em>what</em>?</strong> The age at which the highest rate is reached is different for
+different parameters — diameter, height, form, volume. A single &ldquo;growth rate&rdquo; for a tree is
+meaningless without saying growth in what.</p>
+
+<div class="note">
+  <span class="k">Why breast height stays breast height</span>
+  <p>A stem does not elongate below the tip. Drive a nail into a stem at breast height and fifty years later
+    it is still at the same height — but <em>buried</em>, because the stem around it has thickened. That is
+    what makes the breast-height mark a stable, repeatable point to re-measure decade after decade, provided
+    every crew uses the same reference height.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="classes"><span class="n">Section 4</span>The four classes of increment</h2>
+
+<p>Increment — in diameter, height or volume alike — is classified only by <strong>the period to which it
+relates</strong>. Same tree, same growth, four different periods of accounting.</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th></th><th>Class</th><th>Period</th><th>What you must be able to say</th></tr></thead>
+  <tbody>
+    <tr><td class="rh">1</td><td><strong>c.a.i</strong> current annual increment</td><td>A single year</td>
+        <td>Rarely recoverable from ordinary annual tape measurements — the growth is smaller than the measurement error, so p.a.i is used instead. It <strong>can</strong> be estimated from dendrometers, tree rings or a growth model</td></tr>
+    <tr><td class="rh">2</td><td><strong>p.a.i</strong> periodic annual increment</td><td>Any short period</td>
+        <td>An <em>average</em> annual increment over that period — measure at each end, subtract, divide by the years</td></tr>
+    <tr><td class="rh">3</td><td><strong>T.I</strong> total increment</td><td>Origin to the age of cutting</td>
+        <td>The sum of the c.a.i, and therefore it <em>represents the volume</em> of the tree or crop. Everything a tree contains, it grew</td></tr>
+    <tr><td class="rh">4</td><td><strong>m.a.i</strong> mean annual increment</td><td>Origin to a given age</td>
+        <td>Total increment ÷ that age. For part of the age it is the <em>periodic</em> m.a.i; at the rotation age it is the <em>final</em> m.a.i</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Why c.a.i is replaced by p.a.i</h3>
+
+<div class="note">
+  <span class="k">Say it precisely</span>
+  <p>c.a.i is <strong>not unmeasurable in principle</strong>. It is too small and too variable to recover from
+    ordinary annual tape measurements. A blue pine adds about 4 mm of diameter in a good year; two people
+    reading a girth tape on the same stem commonly differ by 2–3 mm of diameter. <strong>The signal is the
+    same size as the noise.</strong></p>
+  <p>Widen the window to ten years and the same tree adds 40 mm, while the measurement error is still 2–3 mm —
+    now more than ten to one. That is the entire argument for periodic annual increment, and it generalises:
+    <strong>when the signal is small, lengthen the period</strong>.</p>
+</div>
+
+<div class="eq sm">p.a.i = (size at the end − size at the beginning) ÷ number of years in the period</div>
+
+<p><strong>And the price you pay.</strong> p.a.i is an <em>average</em>: it tells you nothing about what
+happened <em>within</em> the period. A stand released by a thinning in year three gives the same p.a.i as one
+that grew steadily. Five to ten years is the usual compromise for permanent sample plots.</p>
+
+<div class="worked">
+  <div class="h">Worked example 3 · p.a.i and m.a.i from a permanent plot</div>
+  <p>A blue pine plot measured in 2015 at 148 m³/ha and in 2025 at 226 m³/ha; planted in 1985.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">p.a.i</td><td class="n">(226 − 148) ÷ 10 = 7.8 m³/ha/yr</td></tr>
+      <tr><td class="rh">Age in 2025</td><td class="n">40 years</td></tr>
+      <tr><td class="rh">m.a.i</td><td class="n">226 ÷ 40 = 5.65 m³/ha/yr</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">p.a.i 7.8 &gt; m.a.i 5.65 — the m.a.i is still rising</div>
+  <p style="margin-top:10px">Note that m.a.i needs the <strong>age</strong>, which the two measurements alone
+    do not give. m.a.i is measured from origin, not from the last measurement.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="culmination"><span class="n">Section 5</span>Culmination and rotation</h2>
+
+<p>Plotted against age, the c.a.i and m.a.i curves <strong>meet exactly twice</strong>: once at the end of the
+first year, and once at the <strong>culmination of the m.a.i</strong>. Most students remember only the second.</p>
+
+<div class="note">
+  <span class="k">Why they cross exactly at the culmination</span>
+  <p>A running average rises while the current value is above it and falls while the current value is below it.
+    It is therefore stationary — at its maximum — exactly where the current value equals it. No calculus needed:
+    a new value above the average lifts it, below it lowers it, equal leaves it still.</p>
+</div>
+
+<div class="eq">Culmination of the m.a.i identifies the <strong>biological rotation</strong><br>
+  for maximum mean annual volume production
+  <span class="u">it identifies one rotation — it is not, by itself, the rotation that will be adopted</span>
+</div>
+
+<div class="note">
+  <span class="k">What p.a.i &gt; m.a.i does and does not tell you</span>
+  <p>It tells you mean annual volume production is <strong>still increasing</strong> under the assumed yield
+    sequence, so the m.a.i has not yet culminated. <strong>It does not by itself determine whether a stand
+    should be harvested.</strong></p>
+</div>
+
+<h3>What actually fixes a rotation</h3>
+
+<ul>
+  <li><strong>It maximises volume, not value.</strong> Large trees are worth more per m³, so the
+    <em>financial</em> rotation is usually <strong>longer</strong>.</li>
+  <li><strong>It ignores the cost of waiting.</strong> Money tied up for forty years must earn its keep, so the
+    <em>economic</em> rotation is usually <strong>shorter</strong>.</li>
+  <li><strong>It assumes volume is the object.</strong> For protection forest, conservation or habitat the
+    rotation may be far longer — or may not exist at all.</li>
+</ul>
+
+<div class="bhutan">
+  <span class="k">In a Bhutanese management plan</span>
+  <p>The age finally adopted answers to <strong>biodiversity and habitat objectives, watershed protection,
+    livelihood and rural timber demand, regeneration, carbon, cultural values, financial return, and the legal
+    prescription of the approved plan</strong> — with the culmination as the biological benchmark against which
+    those choices are judged.</p>
+</div>
+
+<div class="note">
+  <span class="k">The peak is flat — and that is a gift</span>
+  <p>11.00 at age 35, <strong>11.13 at 40</strong>, 11.00 at 45. Ten years either side of the culmination costs
+    about <strong>1 %</strong> of production. The rotation can therefore be adjusted by a decade for markets,
+    labour or road access without material loss. <strong>The optimum is a broad plateau, not a knife edge.</strong></p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="percent"><span class="n">Section 6</span>Increment percentage</h2>
+
+<p>Growth expressed as a <strong>rate of return</strong> on the growing stock — which is what makes it
+comparable with a bank rate.</p>
+
+<table class="sm">
+  <thead><tr><th>Symbol</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td class="rh">S<sub>o</sub></td><td>size of the parameter at the <strong>beginning</strong> of the growth period</td></tr>
+    <tr><td class="rh">S<sub>n</sub></td><td>size at the <strong>end</strong> of the period</td></tr>
+    <tr><td class="rh">n</td><td>number of units of time in the period</td></tr>
+  </tbody>
+</table>
+
+<p>The parameter may be diameter, basal area, height or volume. <strong>The formulae do not care</strong> —
+they are not volume formulae.</p>
+
+<div class="eq sm"><strong>1 · Simple interest</strong> &nbsp; P = (S<sub>n</sub> − S<sub>o</sub>) ÷ (n S<sub>o</sub>) × 100</div>
+<div class="eq sm"><strong>2 · Compound interest</strong> &nbsp; P = [(S<sub>n</sub>/S<sub>o</sub>)<sup>1/n</sup> − 1] × 100</div>
+<div class="eq sm"><strong>3 · Pressler's</strong> &nbsp; P<sub>p</sub> = (S<sub>n</sub> − S<sub>o</sub>) ÷ (S<sub>n</sub> + S<sub>o</sub>) × 200/n</div>
+
+<h3>Recovering the past diameter by boring</h3>
+
+<div class="eq sm">S<sub>o</sub> = S<sub>n</sub> − 2 × (width of the outermost n rings)</div>
+
+<div class="worked">
+  <div class="h">Worked example 4 · recovering the past diameter</div>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">Present diameter under bark</td><td class="n">65 cm</td></tr>
+      <tr><td class="rh">Width of 10 outer rings</td><td class="n">9.5 cm &nbsp;<em>(a radius)</em></td></tr>
+      <tr><td class="rh">Diameter growth in 10 yr</td><td class="n">9.5 × 2 = 19 cm</td></tr>
+      <tr><td class="rh">Diameter 10 years ago</td><td class="n">65 − 19 = <strong>46 cm</strong></td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:10px">9.5 cm over 10 rings is 9.5 mm of radial growth a year — rapid, a well-grown
+    tree on a good site, not a typical rate.</p>
+</div>
+
+<div class="worked">
+  <div class="h">Worked example 5 · one tree, three formulae</div>
+  <p>S<sub>o</sub> = 46 cm, S<sub>n</sub> = 65 cm, n = 10 years.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">Simple</td><td class="n">(65 − 46) ÷ (10 × 46) × 100 = 19/460 × 100 = <strong>4.13 %</strong></td></tr>
+      <tr><td class="rh">Compound</td><td class="n">[(65/46)<sup>1/10</sup> − 1] × 100 = <strong>3.52 %</strong></td></tr>
+      <tr><td class="rh">Pressler</td><td class="n">19/111 × 200/10 = 19/111 × 20 = <strong>3.42 %</strong></td></tr>
+    </tbody>
+  </table>
+  <div class="ans">Simple &gt; compound &gt; Pressler — always, in that order</div>
+  <p style="margin-top:10px"><strong>Why simple always reads highest.</strong> It divides by the original 46
+    for all ten years. Compound divides by a base that grows each year, and Pressler divides by the mean of the
+    two ends. The discrepancy <strong>grows with n</strong>: over one or two years the three converge and it
+    hardly matters; over ten years simple overstates by about a fifth.</p>
+</div>
+
+<div class="note">
+  <span class="k">Which to use</span>
+  <p><strong>Simple</strong> — short periods and rough work. <strong>Compound</strong> — <em>any financial
+    comparison</em>, because it is the only one comparable with an interest rate. <strong>Pressler</strong> —
+    avoids the complication of the compound calculation while staying close to it.</p>
+  <p>Units always cancel: every term is a ratio, so the answer is the same in cubic feet or cubic metres. If a
+    growth-percentage answer depends on the units you worked in, you have made an arithmetic error.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="errors"><span class="n">Section 7</span>Error and quality control</h2>
+
+<ul>
+  <li><strong>Random</strong> — reading the tape, judging a ring boundary, small differences between observers.
+    Averages out with more measurements.</li>
+  <li><strong>Systematic</strong> — a stretched tape, a crew measuring at a slightly different height at each
+    re-measurement, consistently counting a false ring. <strong>Does not average out</strong>, and no amount of
+    extra measurement will fix it.</li>
+</ul>
+
+<p>For increment work specifically:</p>
+<ul>
+  <li>Re-measure at <strong>exactly the same point</strong>. Mark it; on a permanent plot record the height.</li>
+  <li>Use the same instrument, or calibrate the new one against the old.</li>
+  <li>Carry full precision through the calculation and round <strong>once</strong>, at the end — Worked
+    example 2 shows a five-year error from rounding in the third decimal place.</li>
+  <li>Record the date of each re-measurement, not just the year.</li>
+</ul>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="bhutan"><span class="n">Section 8</span>In Bhutanese forestry</h2>
+
+<p>Increment is the quantity a management plan is built on. Everything in this unit ends in a decision that
+somebody has to sign.</p>
+
+<ul>
+  <li><strong>Allowable harvest.</strong> An FMU or community-forest plan sets the annual cut against the
+    increment the forest actually puts on. <strong>Harvest above increment is depletion</strong>, whatever the
+    plan says.</li>
+  <li><strong>Growth monitoring.</strong> Permanent sample plots re-measured on a five- to ten-year cycle give
+    the p.a.i that tells a Division whether a stand is responding to management.</li>
+  <li><strong>Rotation decisions.</strong> Culmination of the m.a.i is the biological benchmark; the rotation
+    adopted also answers to biodiversity, watershed, livelihood, carbon, cultural and legal objectives.</li>
+  <li><strong>Climate resilience.</strong> Repeated increment measurement is how a drought year, an insect
+    outbreak or a shift in growing season is detected at all — a declining p.a.i is often the first evidence.</li>
+</ul>
+
+<div class="bhutan">
+  <span class="k">Community forestry</span>
+  <p>A community-forest management plan must state a sustainable annual harvest of timber, fuelwood and poles.
+    Members' own observation of which stands are growing well is combined with plot re-measurement —
+    <strong>local ecological knowledge and formal measurement together</strong>, not one instead of the other.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="practice"><span class="n">Section 9</span>Practice questions</h2>
+
+<ol class="qs">
+  <li>From a yield series, tabulate the m.a.i and p.a.i, plot both, locate the culmination and state the
+    rotation of maximum volume production. Show all working.</li>
+  <li>Describe the four methods of determining the age of a standing tree, and evaluate the reliability of each.</li>
+  <li>A tree measured in 2000, 2005 and 2010 had diameters 25, 28 and 31 cm. Determine its age in 2010, and
+    explain why S takes the value it does for this data set.</li>
+  <li>Explain, with a labelled sketch, the relationship between c.a.i and m.a.i, and state how many times the
+    curves meet and why.</li>
+  <li>A core shows 7.2 cm across the outermost 10 rings; present diameter under bark is 58 cm. Compute the
+    growth percentage by all three formulae and comment on the ordering.</li>
+  <li>A manager's stand has culminated in m.a.i but timber prices are expected to rise sharply in five years.
+    Should the stand be cut now? Justify.</li>
+  <li>Prove, by any method you choose, that the m.a.i culminates exactly where the c.a.i crosses it.</li>
+  <li>Distinguish random from systematic error in age and growth estimation, giving two field examples of each
+    and stating how you would control them.</li>
+  <li>A stand's p.a.i is 12 and its m.a.i is 9 m³/ha/yr. Has the m.a.i culminated? What does that tell you —
+    and what does it <em>not</em> tell you?</li>
+  <li>Why can m.a.i never be negative while c.a.i can?</li>
+</ol>
+
+<p><em>Worked solutions to questions 3, 5 and 7 are in the</em>
+  <a href="MEN201_Calculation_Handbook.html#sol-vii">calculation handbook</a>.</p>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="summary"><span class="n">Section 10</span>Summary</h2>
+
+<ul>
+  <li>Five ways to age a tree: records, appearance, whorls, periodic measurements, ring counting. Rings at a
+    stump give age <em>at that height</em> — add the years to reach it.</li>
+  <li><span class="m">P = (D₂−D₁)/(D₁T)</span>; <span class="m">S = (logP₁−logP₂)/(logd₂−logd₁)</span>;
+    <span class="m">Age = 1/(P₁S)</span>.</li>
+  <li>Four classes of increment, distinguished only by <strong>the period</strong>: c.a.i, p.a.i, T.I, m.a.i.</li>
+  <li>c.a.i is replaced by p.a.i because one year's growth is smaller than the measurement error — not because
+    it is unmeasurable in principle.</li>
+  <li>The curves meet <strong>twice</strong>; the second meeting is the <strong>culmination of the m.a.i</strong>,
+    which identifies the <em>biological</em> rotation and nothing more.</li>
+  <li>Three growth percentages: <strong>simple &gt; compound &gt; Pressler</strong>, and the gap grows with n.
+    Use compound for any financial comparison.</li>
+  <li>A core is a <strong>radius</strong>: diameter grows by twice the ring width.</li>
+  <li><strong>Age converts a measurement into a rate.</strong></li>
+</ul>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="refs"><span class="n">Section 11</span>References</h2>
+
+<ul>
+  <li><strong>Husch, B., Beers, T. W. &amp; Kershaw, J. A. (2003).</strong> <em>Forest Mensuration</em>,
+    4th ed. Wiley. — chs. 14–15, growth and increment.</li>
+  <li><strong>West, P. W. (2009).</strong> <em>Tree and Forest Measurement</em>, 2nd ed. Springer. — ch. 10.</li>
+  <li><strong>Chaturvedi, A. N. &amp; Khanna, L. S. (2011).</strong> <em>Forest Mensuration and Biometry</em>.
+    Khanna Bandhu, Dehra Dun. — the age formula and the three growth percentages.</li>
+  <li><strong>Avery, T. E. &amp; Burkhart, H. E. (2002).</strong> <em>Forest Measurements</em>, 5th ed. McGraw-Hill.</li>
+  <li>Any silviculture text, on rotation and its several definitions.</li>
+  <li><strong>National Forest Policy of Bhutan (2011)</strong> · <strong>Forest and Nature Conservation Act of
+    Bhutan (2023)</strong> · <strong>Constitution of the Kingdom of Bhutan, Art. 5</strong>.</li>
+</ul>
+
+<footer class="foot">
+  <span>MEN 201 · Unit VII student lecture notes · College of Natural Resources</span>
+  <span><a href="index.html">All notes</a> · <a href="MEN201_Calculation_Handbook.html">Handbook</a> · <a href="../index.html">Contents</a></span>
+</footer>
+
+</div>
+</body>
+</html>

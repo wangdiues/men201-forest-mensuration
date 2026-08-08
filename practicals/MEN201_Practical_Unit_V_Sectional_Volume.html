@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MEN 201 · Practical · Sectional Volume of a Felled Tree</title>
+<link rel="stylesheet" href="_sheet.css">
+</head>
+<body>
+<p class="noprint">Print at A4 portrait, 100 % scale, background graphics on. &nbsp;·&nbsp; <a href="../index.html">back to contents</a></p>
+
+<div class="sheet">
+
+  <div class="mast">
+    <div>
+      <div class="who">MEN 201 · Forest Mensuration · College of Natural Resources</div>
+      <h1>Sectional Volume of a Felled Tree — field sheet</h1>
+    </div>
+    <div class="unit">Unit V<br>Practical</div>
+  </div>
+
+  <div class="aim">
+    <b>Aim.</b> Obtain the volume of one felled blue pine by sectional measurement, and compare it
+    with the volume the Department's <b>Model 16</b> merchantable-volume equation predicts from the
+    same tree's DBH and height. Part of the difference is <b>definition</b>, not error — Model 16
+    predicts merchantable volume to a 10 cm top, with branches excluded.
+  </div>
+
+  <div class="hdr">
+    Site <span class="u l"></span> &nbsp; Tree no. <span class="u s"></span> &nbsp; Species <span class="u"></span> &nbsp; Date <span class="u s"></span><br>
+    <b>DBH reference height used <span class="u s"></span> m</b> &nbsp; DBH over bark <span class="u s"></span> cm &nbsp; Total height <span class="u s"></span> m &nbsp; Section length <span class="u s"></span> m<br>
+    Clinometer distance <span class="u s"></span> m &nbsp; Angle up <span class="u s"></span>° &nbsp; Angle down <span class="u s"></span>° &nbsp; Instrument <span class="u"></span><br>
+    Observer <span class="u"></span> &nbsp; Recorder <span class="u"></span> &nbsp; Supervisor <span class="u"></span>
+  </div>
+
+  <h2>Safety <span>before anything else</span></h2>
+  <p class="note"><b>Felling is carried out only by the authorised crew.</b> Students remain at a
+    minimum of two tree lengths until the tree is on the ground and the crew signals that it is safe
+    to approach.</p>
+
+  <h2>Sectional measurement <span>Huber's formula — one mid-diameter per section</span></h2>
+  <table class="tight">
+    <thead>
+      <tr>
+        <th style="width:8%">Sec</th><th>From m</th><th>To m</th><th>Length L m</th>
+        <th>Mid-diameter d<sub>m</sub> cm</th><th>Bark t̄ cm</th>
+        <th>Sectional area s = πd<sub>m</sub>²/4 m²</th><th>Volume v = s·L m³</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <p class="note"><b>From</b> and <b>To</b> exist so that a suspicious reading can be found again and
+    re-checked. Without them it cannot. The terminal section above the last full length is scaled as
+    a <b>cone</b>: v = s·L/3.</p>
+
+  <h2>The three figures</h2>
+  <table class="tight">
+    <thead><tr><th style="width:46%">Method</th><th>Volume m³</th><th>Difference from sectional</th><th>%</th></tr></thead>
+    <tbody>
+      <tr><td class="lab">1 · Sectional measurement — the reference</td><td></td><td>—</td><td>—</td></tr>
+      <tr><td class="lab">2 · V = S · h · f, published form factor</td><td></td><td></td><td></td></tr>
+      <tr><td class="lab">3 · Model 16 (merchantable, 10 cm top)</td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Model 16 · working <span>FRMD, DoFPS (2018)</span></h2>
+  <table class="tight">
+    <tbody>
+      <tr><td class="lab" style="width:44%">BA = π d² / 4 &nbsp; <i>(d in m)</i></td><td></td><td class="lab" style="width:20%">m²</td><td></td></tr>
+      <tr><td class="lab">BAH = BA × h</td><td></td><td class="lab">m³</td><td></td></tr>
+      <tr><td class="lab">g(BAH) — knots 0.193, 0.871, 9.294</td><td></td><td class="lab">—</td><td></td></tr>
+      <tr class="tot"><td class="lab">V = −0.00094 + 0.42844·BAH − 0.00164·g(BAH)</td><td></td><td class="lab">m³</td><td></td></tr>
+    </tbody>
+  </table>
+  <p class="note">g(X) = (X−t₁)³₊ − (X−t₂)³₊·(t₃−t₁)/(t₃−t₂) + (X−t₃)³₊·(t₂−t₁)/(t₃−t₂). A bracket that
+    comes out negative contributes <b>zero</b>. Fitted range: DBH about 10–128 cm, height 4.6–61.3 m.</p>
+
+  <div class="qc">
+    <b>Is this tree inside the calibration range?</b> &nbsp; Y / N &nbsp;&nbsp;
+    If N, say so beside every figure you report from it.<br><br>
+    <b>In the report, separate the three causes of disagreement.</b>
+    <b>Definition</b> — Model 16 stops at a 10 cm top and excludes branches, so it should read lower
+    than a full sectional measurement of the whole stem.
+    <b>Model error</b> — the equation's own error, which does not shrink by measuring more trees.
+    <b>Measurement error</b> — in d and h, and d enters squared.
+  </div>
+
+  <div class="sign">
+    <div>Observer <span class="u"></span></div>
+    <div>Recorder <span class="u"></span></div>
+    <div>Supervisor <span class="u"></span></div>
+  </div>
+
+  <div class="foot">
+    <span>MEN 201 · Unit V · sectional volume and the Bhutan merchantable-volume equation</span>
+    <span>Sheet ____ of ____</span>
+  </div>
+</div>
+
+<script>
+(function(){
+  var tb = document.getElementById('rows'), html = '';
+  for (var r = 1; r <= 11; r++) {
+    html += '<tr><td class="n" style="background:#f1f3ef;font-weight:600">' + r + '</td>';
+    for (var c = 0; c < 7; c++) html += '<td></td>';
+    html += '</tr>';
+  }
+  html += '<tr class="tot"><td class="lab" colspan="7" style="text-align:right">Total stem volume &nbsp;=</td><td></td></tr>';
+  tb.innerHTML = html;
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+/* ==========================================================================
+   MEN 201 · FIELD PRACTICAL SHEETS
+   Printable A4 portrait. Screen preview shows the same page on a dark mat so
+   the margins are visible; print drops the mat and takes the page as it is.
+   Deliberately plain: these are photocopied, filled in with a pencil in the
+   rain, and read by somebody checking the work six months later.
+   ========================================================================== */
+@page { size: A4 portrait; margin: 10mm 11mm; }
+
+:root{
+  --ink:#141c18; --soft:#41493f; --faint:#6f7a6e;
+  --moss:#2f5140; --verm:#c14524;
+  --rule:#b9c0b6; --rule-soft:#d8ddd5; --fill:#f1f3ef;
+}
+
+*{box-sizing:border-box}
+html{background:#3a3f3a}
+body{margin:0;background:#3a3f3a;color:var(--ink);
+  font:9.5pt/1.28 "Public Sans","Segoe UI",Arial,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+.sheet{width:210mm;min-height:297mm;margin:14px auto;padding:11mm 11mm;background:#fff;
+  box-shadow:0 10px 40px rgba(0,0,0,.45)}
+
+/* ---- masthead ---------------------------------------------------------- */
+.mast{display:flex;justify-content:space-between;align-items:flex-end;
+  border-bottom:2px solid var(--moss);padding-bottom:5px;margin-bottom:9px}
+.mast .who{font:600 8pt/1.3 "JetBrains Mono",Consolas,monospace;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--verm)}
+.mast h1{margin:2px 0 0;font:700 14pt/1.1 "Public Sans",Arial,sans-serif;letter-spacing:-.01em}
+.mast .unit{font:600 8pt/1.3 "JetBrains Mono",Consolas,monospace;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--faint);text-align:right}
+
+.aim{background:var(--fill);border-left:3px solid var(--moss);padding:5px 8px;margin-bottom:7px;
+  font-size:8.8pt;line-height:1.3}
+.aim b{color:var(--moss)}
+
+/* ---- header field block ------------------------------------------------ */
+.hdr{border:1px solid var(--rule);padding:5px 8px;margin-bottom:7px;
+  font:8.2pt/1.85 "JetBrains Mono",Consolas,monospace}
+.hdr .u{display:inline-block;border-bottom:1px solid var(--ink);min-width:34mm}
+.hdr .u.s{min-width:20mm}
+.hdr .u.l{min-width:58mm}
+
+h2{margin:6px 0 3px;font:700 9.5pt/1.2 "Public Sans",Arial,sans-serif;
+  text-transform:uppercase;letter-spacing:.08em;color:var(--moss)}
+h2 span{float:right;font-weight:400;text-transform:none;letter-spacing:0;color:var(--faint);font-size:9pt}
+
+ol.steps{margin:0 0 6px;padding-left:15px;font-size:8.8pt}
+ol.steps li{margin-bottom:1px}
+ul.plain{margin:0 0 8px;padding-left:14px;font-size:9.5pt}
+ul.plain li{margin-bottom:2px}
+
+/* ---- tables ------------------------------------------------------------ */
+table{width:100%;border-collapse:collapse;font-size:8.4pt}
+th{background:var(--moss);color:#fff;font-weight:600;font-size:8pt;letter-spacing:.03em;
+  padding:4px 3px;border:1px solid var(--moss);text-align:center}
+td{border:1px solid var(--rule);padding:0;height:5.8mm;text-align:center}
+td.lab{background:var(--fill);font-weight:600;text-align:left;padding-left:4px;font-size:8.5pt}
+tr.tot td{background:var(--fill);font-weight:700;height:5.8mm}
+table.tight td{height:4.9mm}
+table.tally td{height:4.15mm;font-size:7.5pt}
+table.tally td.n{background:var(--fill);font:600 7.5pt "JetBrains Mono",Consolas,monospace;width:7mm}
+
+.note{font-size:8pt;color:var(--soft);margin:3px 0 6px}
+.note b{color:var(--verm)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
+
+.qc{border:1px solid var(--verm);background:#fdf4f1;padding:5px 8px;margin-top:7px;font-size:8.2pt;line-height:1.32}
+.qc b{color:var(--verm)}
+
+.sign{margin-top:7px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;
+  font:8.4pt/2.0 "JetBrains Mono",Consolas,monospace}
+.sign .u{display:inline-block;border-bottom:1px solid var(--ink);min-width:28mm}
+
+.foot{margin-top:7px;padding-top:4px;border-top:1px solid var(--rule-soft);
+  font-size:8pt;color:var(--faint);display:flex;justify-content:space-between}
+
+.pagebreak{page-break-before:always}
+
+@media print{
+  html,body{background:#fff}
+  .sheet{margin:0;padding:0;width:auto;min-height:0;box-shadow:none}
+  .noprint{display:none}
+}
+.noprint{max-width:210mm;margin:14px auto 0;color:#cfd6cd;font-size:9pt;
+  font-family:"JetBrains Mono",Consolas,monospace}
+.noprint a{color:#e9b39f}

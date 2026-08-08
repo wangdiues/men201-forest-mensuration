@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MEN 201 · Unit V notes · Measurement of Tree Volume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_notes.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker">MEN 201 · Forest Mensuration · Student lecture notes</div>
+  <h1>Unit V · Measurement of <em>Tree Volume</em></h1>
+  <p class="sub">Stem form and the form factor, the volume of felled trees and logs, standing-tree volume,
+    volume tables, and the Department's own volume equations for blue pine.</p>
+  <p class="meta">Sessions 10–12 · BSc in Forestry, College of Natural Resources, Royal University of Bhutan<br>
+    Read alongside <a href="../MEN201_Unit_V_Measurement_of_Tree_Volume.html">the Unit V deck</a>
+    &middot; <a href="../calculators/MEN201_Volume_Calculator_Pinus_wallichiana.xlsx">volume calculator</a>
+    &middot; <a href="../practicals/MEN201_Practical_Unit_V_Sectional_Volume.html">field sheet</a>
+    &middot; <a href="index.html">all notes</a></p>
+</header>
+
+<nav class="toc">
+  <h2>In this unit</h2>
+  <ol>
+    <li><a href="#outcomes">Learning outcomes</a></li>
+    <li><a href="#form">Stem form</a></li>
+    <li><a href="#ff">Form factor and form quotient</a></li>
+    <li><a href="#felled">Volume of felled trees and logs</a></li>
+    <li><a href="#qg">The quarter-girth formula</a></li>
+    <li><a href="#other">Bark, firewood and stacked volume</a></li>
+    <li><a href="#standing">Standing-tree volume and tables</a></li>
+    <li><a href="#bhutan">The Bhutan volume equations</a></li>
+    <li><a href="#errors">Sources of error</a></li>
+    <li><a href="#practical">Field practical</a></li>
+    <li><a href="#practice">Practice questions</a></li>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#refs">References</a></li>
+  </ol>
+</nav>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="outcomes"><span class="n">Section 1</span>Learning outcomes</h2>
+<ol>
+  <li><strong>Describe</strong> stem form using the four solids of revolution, and say where each appears
+    in a real stem.</li>
+  <li><strong>Calculate and interpret</strong> a form factor, a form height and a form quotient.</li>
+  <li><strong>Apply</strong> Smalian's, Huber's and Newton's formulae, and state which is exact for what.</li>
+  <li><strong>Convert</strong> between true volume and quarter-girth volume and quantify the loss.</li>
+  <li><strong>Read and interpolate</strong> a volume table, and classify tables by variables, locality and
+    material.</li>
+  <li><strong>Apply</strong> the Department's Model 16 for <em>Pinus wallichiana</em>, and state its domain
+    and limitations.</li>
+  <li><strong>Separate</strong> definitional difference, model error and measurement error when two volume
+    figures disagree.</li>
+</ol>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="form"><span class="n">Section 2</span>Stem form</h2>
+
+<p>A stem is not a cylinder. Its cross-sectional area falls with distance from the tip according to a
+single exponent <em>r</em>:</p>
+
+<div class="eq">S = k · x<sup>r</sup>
+  <span class="u">S = cross-sectional area · x = distance from the tip · r fixes the shape</span>
+</div>
+
+<table>
+  <thead><tr><th>Solid</th><th class="n">r</th><th>Taper</th><th>Where it appears in a stem</th></tr></thead>
+  <tbody>
+    <tr><td class="rh">Cylinder</td><td class="n">0</td><td>none</td><td>No real stem — the reference shape for the form factor</td></tr>
+    <tr><td class="rh">Paraboloid</td><td class="n">1</td><td>slight</td><td>The <strong>middle</strong> of most stems</td></tr>
+    <tr><td class="rh">Cone</td><td class="n">2</td><td>steady</td><td>The <strong>top</strong>, above the crown base</td></tr>
+    <tr><td class="rh">Neiloid</td><td class="n">3</td><td>concave, flaring</td><td>The <strong>butt swell</strong> at the base</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Metzger's girder theory</strong> explains why: a stem is loaded by wind on the crown and behaves
+like a cantilever beam of uniform resistance to bending. Such a beam is a cubic paraboloid. The practical
+consequence is that a stem exposed to more wind — an isolated tree, or one on a ridge — is more heavily
+tapered, and a stem grown in a dense stand is more cylindrical.</p>
+
+<div class="note">
+  <span class="k">Why cutting into short lengths matters</span>
+  <p>Smalian's, Huber's and Newton's formulae are all exact for a <em>paraboloid frustum</em> and approximate
+    for anything else. Over a 4 m length a real stem is close to a paraboloid frustum. Over 25 m it passes
+    through neiloid, paraboloid and cone, and no single formula holds. <strong>Cutting into short sections
+    keeps each piece inside the range where the geometry is honest.</strong></p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="ff"><span class="n">Section 3</span>Form factor and form quotient</h2>
+
+<h3>Form factor</h3>
+
+<div class="eq">f = V ÷ (S × h)
+  <span class="u">V tree volume, m³ · S cross-sectional area at the point of measurement, m² · h height, m<br>
+    f is dimensionless</span>
+</div>
+
+<p><strong>Reading the number.</strong> <em>f</em> = 1 is a perfect cylinder. <em>f</em> = 0.50 means the
+tree holds half the wood of the cylinder that encloses it. Real stems mostly fall between about
+0.35 and 0.55.</p>
+
+<h4>Three classes of form factor</h4>
+
+<table>
+  <thead><tr><th>Class</th><th>Where S is measured</th><th>Note</th></tr></thead>
+  <tbody>
+    <tr><td class="rh">Artificial</td><td>At breast height</td><td>The common one. Called <em>artificial</em> precisely because breast height is an arbitrary human convenience, not a feature of the tree</td></tr>
+    <tr><td class="rh">Absolute</td><td>At any convenient point, usually the base</td><td>Removes the arbitrariness but is harder to standardise</td></tr>
+    <tr><td class="rh">Normal</td><td>At a constant proportion of total height — 1/10, 1/20 …</td><td>Comparable between trees of different size</td></tr>
+  </tbody>
+</table>
+
+<div class="worked">
+  <div class="h">Worked example 1 · calculating a form factor</div>
+  <p>A blue pine is felled. Its stem volume, from measuring every 2 m section, is <strong>1.35 m³</strong>.
+    Before felling its DBH was <strong>40 cm</strong> and total height <strong>22 m</strong>.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">Square the diameter</td><td class="n">40² = 1 600 cm²</td></tr>
+      <tr><td class="rh">Basal area</td><td class="n">S = 0.00007854 × 1 600 = 0.125664 m²</td></tr>
+      <tr><td class="rh">Cylinder volume</td><td class="n">0.125664 × 22 = 2.764608 m³</td></tr>
+      <tr><td class="rh">Form factor</td><td class="n">f = 1.35 ÷ 2.764608 = 0.4883</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">f = 0.488 — this stem holds 49 % of its enclosing cylinder</div>
+</div>
+
+<h3>Form height</h3>
+
+<div class="eq sm">form height = f × h &nbsp;→&nbsp; V = S × (form height)</div>
+
+<p>A convenience: it collapses two of the three variables into one, so a volume table can be indexed on
+diameter and form height alone.</p>
+
+<h3>Form quotient</h3>
+
+<p>Schiffel's idea: you do not need the whole profile of a stem — one well-chosen upper diameter tells you
+most of what you need.</p>
+
+<div class="eq sm">FQ = mid-diameter ÷ DBH</div>
+
+<div class="note">
+  <span class="k">The problem with the simple form quotient</span>
+  <p>For a tree whose total height is <strong>twice breast height</strong> — about 2.6 m — half the total
+    height falls at breast height itself, so the mid-diameter <em>is</em> the DBH and <strong>FQ = 1</strong>
+    whatever the tree's real shape. For anything shorter the mid-point falls <em>below</em> breast height and
+    there is no mid-diameter to read at all. The ratio stops discriminating.</p>
+</div>
+
+<div class="eq sm">AFQ = diameter at half the height <strong>above breast height</strong> ÷ DBH</div>
+
+<p>That is the <strong>absolute form quotient</strong>, and it discriminates properly at all tree sizes.</p>
+
+<div class="worked">
+  <div class="h">Worked example 2 · form quotient and absolute form quotient</div>
+  <p>A hemlock has DBH 40 cm and total height 24 m. Upper-stem diameters read with a relascope:
+    26 cm at 12.0 m and 25 cm at 12.65 m.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">Simple FQ</td><td class="n">mid-point 24/2 = 12.0 m → 26/40 = <strong>0.650</strong></td></tr>
+      <tr><td class="rh">AFQ point</td><td class="n">1.3 + (24 − 1.3)/2 = 1.3 + 11.35 = <strong>12.65 m</strong></td></tr>
+      <tr><td class="rh">AFQ</td><td class="n">25/40 = <strong>0.625</strong></td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:10px"><strong>Subtract breast height first, then halve, then add it back.</strong>
+    Students who halve the total height and then add 1.3 get 13.3 m instead of 12.65 m.</p>
+  <p>The AFQ is always the lower figure for the same tree, because its measurement point is higher and a
+    stem is always narrower higher up. An AFQ of 0.625 says the stem still holds 62.5 % of its breast-height
+    diameter at the midpoint of its usable length — a reasonably cylindrical stem. Below about 0.55 indicates
+    heavy taper.</p>
+</div>
+
+<div class="note">
+  <span class="k">FQ and f are not interchangeable</span>
+  <p>They are related but not equal. Schiffel showed volume <em>can be predicted from</em> FQ, which is a
+    different claim from saying FQ equals <em>f</em>.</p>
+</div>
+
+<h3>Published form factors for Bhutan</h3>
+
+<table class="sm">
+  <thead><tr><th>Species</th><th>Common name</th><th>Group</th><th class="n">Mean f</th></tr></thead>
+  <tbody>
+    <tr><td class="rh"><em>Pinus wallichiana</em></td><td>Blue pine</td><td>Conifer</td><td class="n">0.548</td></tr>
+    <tr><td class="rh"><em>Abies densa</em></td><td>Fir</td><td>Conifer</td><td class="n">0.493</td></tr>
+    <tr><td class="rh"><em>Tsuga dumosa</em></td><td>Hemlock</td><td>Conifer</td><td class="n">0.491</td></tr>
+    <tr><td class="rh"><em>Picea spinulosa</em></td><td>Spruce</td><td>Conifer</td><td class="n">0.490</td></tr>
+    <tr><td class="rh"><em>Pinus roxburghii</em></td><td>Chir pine</td><td>Conifer</td><td class="n">0.479</td></tr>
+    <tr><td class="rh"><em>Castanopsis tribuloides</em></td><td>Chestnut</td><td>Broadleaf</td><td class="n">0.458</td></tr>
+    <tr><td class="rh"><em>Quercus lamellosa</em></td><td>Oak</td><td>Broadleaf</td><td class="n">0.436</td></tr>
+    <tr><td class="rh"><em>Quercus glauca</em></td><td>Oak</td><td>Broadleaf</td><td class="n">0.354</td></tr>
+    <tr><td class="rh"><em>Quercus lanata</em></td><td>Oak</td><td>Broadleaf</td><td class="n">0.336</td></tr>
+  </tbody>
+</table>
+
+<p>Tenzin, Wangchuk &amp; Hasenauer (2016), from 395 felled trees. Conifers cluster around 0.48–0.55;
+broadleaves fall away, and the two lowest are oaks — because oaks fork low and put mass into large branches,
+so a single-stem cylinder is a poor container for them. <strong>Never apply a conifer form factor to a
+broadleaf</strong>; the error would be 40 % or more.</p>
+
+<div class="note">
+  <span class="k">Two qualifications on any published form factor</span>
+  <p>First, these are <strong>means</strong>. Individual trees vary, and the study reported residual standard
+    deviations of 8–16 % of observed values. Applying a species mean to a single tree carries that uncertainty.</p>
+  <p>Second, the study measured DBH at <strong>1.37 m</strong>. DBH reference height is protocol-dependent —
+    a published constant always carries the conventions of the study that produced it, and those conventions
+    must be read before the number is used.</p>
+</div>
+
+<div class="worked">
+  <div class="h">Worked example 3 · standing-tree volume from a published form factor</div>
+  <p>A fir in an FMU at 3 200 m has DBH 55 cm and total height 28 m. No local volume table is available.
+    Use <em>f</em> = 0.493.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">Basal area</td><td class="n">S = 0.00007854 × 55² = 0.237583 m²</td></tr>
+      <tr><td class="rh">Cylinder</td><td class="n">0.237583 × 28 = 6.652 m³</td></tr>
+      <tr><td class="rh">Volume</td><td class="n">6.652 × 0.493 = 3.279 m³</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">V ≈ 3.28 m³</div>
+  <p style="margin-top:10px"><em>Reality check:</em> the enclosing cylinder holds 6.652 m³ and roughly half
+    of it is wood. That is what a form factor of about 0.5 means.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="felled"><span class="n">Section 4</span>Volume of felled trees and logs</h2>
+
+<h3>The master table</h3>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>Form</th><th>Full solid</th><th>Frustum</th><th>Name</th></tr></thead>
+  <tbody>
+    <tr><td class="rh">Cylinder</td><td class="n">S l</td><td class="n">—</td><td>—</td></tr>
+    <tr><td class="rh">Paraboloid</td><td class="n">S l / 2</td><td class="n">[(S₁ + S₂)/2] l</td><td><strong>Smalian's</strong></td></tr>
+    <tr><td class="rh">&nbsp;</td><td class="n">&nbsp;</td><td class="n">S<sub>m</sub> l</td><td><strong>Huber's</strong></td></tr>
+    <tr><td class="rh">Cone</td><td class="n">S l / 3</td><td class="n">[(S₁ + S₂ + √(S₁S₂))/3] l</td><td>—</td></tr>
+    <tr><td class="rh">Neiloid</td><td class="n">S l / 4</td><td class="n">[(S₁ + 4S<sub>m</sub> + S₂)/6] l</td><td><strong>Newton's / prismoidal</strong></td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Read the middle column as a pattern: <em>S l</em>, then divided by 2, by 3, by 4 — as the exponent
+<em>r</em> rises from 0 to 3, the solid holds a smaller share of its cylinder.</p>
+
+<h3>Which formula, and why</h3>
+
+<table>
+  <thead><tr><th></th><th>Smalian</th><th>Huber</th><th>Newton</th></tr></thead>
+  <tbody>
+    <tr><td class="rh">Measurements needed</td><td>2 — both ends</td><td>1 — the middle</td><td>3 — ends and middle</td></tr>
+    <tr><td class="rh">Exact for</td><td>Paraboloid frustum only</td><td>Paraboloid frustum only</td><td><strong>Cylinder, paraboloid, cone and neiloid</strong></td></tr>
+    <tr><td class="rh">Typical bias on a real log</td><td><strong>Over</strong>estimates</td><td><strong>Under</strong>estimates, by about half of Smalian's error</td><td>Effectively unbiased</td></tr>
+    <tr><td class="rh">Works on stacked logs?</td><td>Yes — only the ends are needed</td><td>No — the middle is buried</td><td>No</td></tr>
+  </tbody>
+</table>
+
+<div class="worked">
+  <div class="h">Worked example 4 · one log, three formulae</div>
+  <p>A 4.00 m spruce log, over bark: thick end <strong>46 cm</strong>, mid-point <strong>40 cm</strong>,
+    thin end <strong>34 cm</strong>.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">S₁</td><td class="n">0.00007854 × 46² = 0.166191 m²</td></tr>
+      <tr><td class="rh">S<sub>m</sub></td><td class="n">0.00007854 × 40² = 0.125664 m²</td></tr>
+      <tr><td class="rh">S₂</td><td class="n">0.00007854 × 34² = 0.090792 m²</td></tr>
+      <tr><td class="rh">Smalian</td><td class="n">[(0.166191 + 0.090792)/2] × 4.00 = <strong>0.513965 m³</strong> &nbsp;(+1.49 %)</td></tr>
+      <tr><td class="rh">Huber</td><td class="n">0.125664 × 4.00 = <strong>0.502656 m³</strong> &nbsp;(−0.75 %)</td></tr>
+      <tr><td class="rh">Newton</td><td class="n">[(0.166191 + 4(0.125664) + 0.090792)/6] × 4.00 = <strong>0.506426 m³</strong></td></tr>
+    </tbody>
+  </table>
+  <div class="ans">Smalian &gt; Newton &gt; Huber — always, on a normally tapering log</div>
+  <p style="margin-top:10px">Note that <strong>Huber's error is about half Smalian's, and of opposite
+    sign</strong>. That is not a coincidence; it falls out of the geometry.</p>
+</div>
+
+<h3>Sectional measurement</h3>
+
+<p>For a whole felled stem: crosscut or mark out sections of 2 m (or 4 m for commercial work), scale each
+by <strong>Huber's</strong> formula, and sum. The terminal section above the last full length is scaled as
+a <strong>cone</strong>: <span class="m">v = S l / 3</span>.</p>
+
+<p>Huber is preferred per section because on a 2 m section the mid-diameter is easily reached, it needs only
+one reading, and it is both faster and more accurate than Smalian.</p>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="qg"><span class="n">Section 5</span>The quarter-girth formula</h2>
+
+<p>The old commercial convention — Hoppus measure. It replaces π with 4, which makes the arithmetic doable
+without a calculator, at the cost of a known systematic under-measurement.</p>
+
+<div class="eq sm">true volume V = C² l / 4π &nbsp;&nbsp;→&nbsp;&nbsp; QGV = C² l / 16 = (C/4)² × l</div>
+
+<div class="eq">QGV / V = π / 4 = 0.7854
+  <span class="u">the quarter-girth volume is 78.5 % of the true volume — a systematic 21.5 % under-measurement</span>
+</div>
+
+<div class="worked">
+  <div class="h">Worked example 5 · true volume against quarter-girth volume</div>
+  <p>A chir pine log 4.00 m long; mid-point girth over bark 125 cm.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">Convert</td><td class="n">C = 1.25 m</td></tr>
+      <tr><td class="rh">True volume</td><td class="n">1.25² / (4π) × 4.00 = 1.5625 / 12.566371 × 4.00 = <strong>0.4974 m³</strong></td></tr>
+      <tr><td class="rh">Quarter girth</td><td class="n">1.25 / 4 = 0.3125 m</td></tr>
+      <tr><td class="rh">QGV</td><td class="n">0.3125² × 4.00 = 0.097656 × 4.00 = <strong>0.3906 m³</strong></td></tr>
+      <tr><td class="rh">Ratio</td><td class="n">0.3906 / 0.4974 = 0.785 ✓</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">The buyer gains 21.5 % of the wood, by convention</div>
+</div>
+
+<div class="note">
+  <span class="k">Why it survived so long</span>
+  <p>Because both parties knew about it. A systematic convention that everybody understands and prices
+    around is not fraud — it is a <em>unit</em>. It becomes a problem only when one party does not know,
+    or when a quarter-girth figure is compared with a true-volume figure without conversion.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="other"><span class="n">Section 6</span>Bark, firewood and stacked volume</h2>
+
+<h3>Bark volume</h3>
+<p>Bark volume = volume over bark − volume under bark. Compute each from its own diameter; do not try to
+subtract a bark thickness from a volume.</p>
+
+<h3>Stacked volume</h3>
+<p>Firewood and small timber are traded stacked, and a stack is mostly air.</p>
+
+<div class="eq sm">solid volume = stacked volume × stacking factor</div>
+
+<p>A stacking factor of about 0.65 is a general working figure for neatly stacked round firewood; it falls
+with crooked, branchy or unsplit material. <strong>It is a general international range, not a Bhutanese
+constant</strong> — a factor used in an actual transaction comes from DoFPS or from local practice.</p>
+
+<div class="worked">
+  <div class="h">Worked example 6 · stack to solid</div>
+  <p>7.20 stacked m³ at a stacking factor of 0.65.</p>
+  <div class="ans">7.20 × 0.65 = 4.68 solid m³</div>
+</div>
+
+<h3>Direct methods for small pieces</h3>
+<ul>
+  <li><strong>Xylometric</strong> — water displacement. Submerge the piece; the volume of water displaced is
+    the solid volume. A level rising from 2 400 cm³ to 3 150 cm³ gives 750 cm³ = 0.00075 m³.</li>
+  <li><strong>Specific gravity</strong> — weigh it and divide by the density. Requires a reliable density
+    figure for that species at that moisture content.</li>
+</ul>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="standing"><span class="n">Section 7</span>Standing-tree volume and volume tables</h2>
+
+<p>Four routes to the volume of a standing tree:</p>
+<ol>
+  <li><strong>Form factor</strong> — V = S · h · f.</li>
+  <li><strong>Volume table</strong> — read it off by dimension class.</li>
+  <li><strong>Volume equation</strong> — the same relationship written as a function.</li>
+  <li><strong>Upper-stem measurement</strong> — relascope or climbing, then sectional volume. Accurate, slow, rare.</li>
+</ol>
+
+<h3>The volume table</h3>
+
+<p>A volume table shows, for a given species, the <strong>average</strong> contents of trees, logs or sawn
+timber for one or more given dimensions. Tables are built from actual measurements of a large number of
+representative trees.</p>
+
+<div class="note">
+  <span class="k">The assumption underneath, and its consequence</span>
+  <p>That trees of the same species with the same dimensions hold the same volume. This holds
+    <strong>on average</strong> and fails for any individual tree. <strong>A volume table gives you the
+    average, not the volume of the tree in front of you.</strong> Use it for stands; be cautious with it
+    for a single valuable stem.</p>
+</div>
+
+<h4>Classification</h4>
+
+<p><strong>By number of variables:</strong></p>
+<ul>
+  <li><em>Single variable</em> — usually diameter alone. Usable only in a small locality, so it is called a
+    <strong>local</strong> volume table. Quick, because only DBH is measured.</li>
+  <li><em>Two variables</em> — diameter and height. Applicable to larger areas, so it is called a
+    <strong>general</strong> volume table. Local tables are usually derived from it.</li>
+  <li><em>Three variables</em> — diameter, height and form or taper. The most accurate and the most
+    expensive in field time.</li>
+</ul>
+
+<p><strong>By locality</strong> — general or local. <strong>By material</strong> — for standing trees, for
+felled logs, or for sawn timber out-turn.</p>
+
+<div class="worked">
+  <div class="h">Worked example 7 · reading and interpolating a general volume table</div>
+  <table class="sm">
+    <thead><tr><th class="n">DBH cm</th><th class="n">h 17 m</th><th class="n">h 23 m</th><th class="n">h 29 m</th></tr></thead>
+    <tbody>
+      <tr><td class="n">25</td><td class="n">0.222</td><td class="n">0.329</td><td class="n">0.435</td></tr>
+      <tr><td class="n">30</td><td class="n">0.355</td><td class="n">0.508</td><td class="n">0.661</td></tr>
+      <tr><td class="n">35</td><td class="n">0.512</td><td class="n">0.720</td><td class="n">0.929</td></tr>
+    </tbody>
+  </table>
+  <p>A tree of DBH 30 cm and height 26 m. There is no 26 m column, so interpolate linearly between 23 and 29 m.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">At 23 m</td><td class="n">0.508 m³</td></tr>
+      <tr><td class="rh">At 29 m</td><td class="n">0.661 m³</td></tr>
+      <tr><td class="rh">Difference over 6 m</td><td class="n">0.153 m³</td></tr>
+      <tr><td class="rh">26 m is halfway</td><td class="n">0.508 + 0.153/2 = 0.5845</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">V ≈ 0.585 m³</div>
+  <p style="margin-top:10px"><strong>Interpolate inside the table; never extrapolate beyond it.</strong>
+    A table's outermost rows are its least reliable, because they rest on the fewest sample trees.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="bhutan"><span class="n">Section 8</span>The Bhutan volume equations</h2>
+
+<div class="bhutan">
+  <span class="k">Why this equation had to be built</span>
+  <p>The pre-investment survey equations of 1974–81 predict <strong>total</strong> tree volume. When the
+    Department changed rural timber allotment for house construction from a number of trees to a
+    <strong>volume of logs</strong>, a total-volume equation could no longer answer the question being asked.
+    <strong>The measurement followed the policy</strong>, not the other way round.</p>
+</div>
+
+<h3>The merchantability standard — quote it with every figure</h3>
+<ul>
+  <li>Trees of <strong>10 cm DBH and above</strong>.</li>
+  <li>Sections up to a <strong>10 cm top diameter over bark</strong>; the tip above that is discarded.</li>
+  <li><strong>Branches and foliage excluded</strong> — this is log volume, not tree volume.</li>
+</ul>
+
+<h3>The two selected models</h3>
+
+<p>Sixteen candidate models were fitted; two were selected on AIC and BIC. Both use a
+<strong>restricted cubic spline</strong> term <em>g</em>( ), which lets the line bend without being told
+in advance what shape to take. The knots are the 10th, 50th and 90th percentiles of the predictor.</p>
+
+<div class="eq sm"><strong>Model 7 — diameter alone</strong><br>
+  V = −0.0384 + 6.6383·BA + 390.5079·g(BA)
+  <span class="u">BA = πd²/4 in m² · knots 0.020, 0.061, 0.311</span>
+</div>
+
+<div class="eq sm"><strong>Model 16 — height included, and the better of the two</strong><br>
+  V = −0.00094 + 0.42844·BAH − 0.00164·g(BAH)
+  <span class="u">BAH = BA × h in m³ · knots 0.193, 0.871, 9.294</span>
+</div>
+
+<div class="eq sm">g(X) = (X−t₁)³₊ − (X−t₂)³₊·(t₃−t₁)/(t₃−t₂) + (X−t₃)³₊·(t₂−t₁)/(t₃−t₂)
+  <span class="u">( )₊ means cube it only if the bracket is positive, otherwise zero</span>
+</div>
+
+<div class="worked">
+  <div class="h">Worked example 8 · the Department's own validation tree</div>
+  <p>A <em>Pinus wallichiana</em> from the study's own sample: DBH <strong>54.1 cm</strong>, height
+    <strong>23.4 m</strong>, field-measured merchantable volume <strong>2.109 m³</strong>.</p>
+  <table class="sm">
+    <thead><tr><th></th><th>Model 16</th><th>Model 7</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">BA</td><td class="n">0.229871 m²</td><td class="n">0.229871 m²</td></tr>
+      <tr><td class="rh">Predictor</td><td class="n">BAH = 5.37898</td><td class="n">BA = 0.229871</td></tr>
+      <tr><td class="rh">Spline g( )</td><td class="n">40.489</td><td class="n">0.003638</td></tr>
+      <tr><td class="rh">Predicted</td><td class="n"><strong>2.237 m³</strong></td><td class="n"><strong>2.908 m³</strong></td></tr>
+      <tr><td class="rh">Error</td><td class="n">+6.1 %</td><td class="n">+37.9 %</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">That 32-point gap is what one height measurement is worth</div>
+</div>
+
+<div class="note">
+  <span class="k">Is 6.1 % acceptable? It depends on a question one tree cannot answer</span>
+  <p>For a single rural timber allotment, 0.13 m³ on one stem — probably yes. For a stand estimate it
+    depends on whether the error is <strong>random or systematic</strong>. If the model is unbiased and this
+    tree merely sits above the line, over- and under-estimates <strong>partly offset</strong> across many
+    trees. If the model runs high for blue pine in this region, every tree is high and <strong>so is the
+    stand total</strong> — summation does not repair a bias. One tree cannot tell you which case you are in.</p>
+</div>
+
+<h3>Model domain — the boundary of the answer</h3>
+
+<table class="sm">
+  <tbody>
+    <tr><td class="rh">Species</td><td><em>Pinus wallichiana</em> only</td></tr>
+    <tr><td class="rh">Predicted quantity</td><td>Merchantable stem volume, m³</td></tr>
+    <tr><td class="rh">Minimum DBH</td><td>10 cm</td></tr>
+    <tr><td class="rh">Merchantable top</td><td>10 cm over bark</td></tr>
+    <tr><td class="rh">Excluded</td><td>Branches, foliage, and the tip above the 10 cm top</td></tr>
+    <tr><td class="rh">Sample</td><td><strong>249 felled trees</strong></td></tr>
+    <tr><td class="rh">Geographic basis</td><td><strong>214 of the 249</strong> from Thimphu, Paro and Haa</td></tr>
+    <tr><td class="rh">Fitted DBH range</td><td>about 10 – 128 cm; height 4.6 – 61.3 m</td></tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <span class="k">The honest weakness — say it if you use the model</span>
+  <p>Eighty-six per cent of the fitting trees came from the <strong>western valleys</strong>. A blue pine
+    in Bumthang or Trashigang may carry a different form for the same DBH and height. The equation will
+    still return a number, and <strong>nothing in the arithmetic will warn you</strong>.</p>
+  <p>Likewise a 140 cm stem is outside the fitted range: beyond its outer knot a cubic spline is
+    unconstrained and can run away. <strong>Interpolate; do not extrapolate.</strong></p>
+</div>
+
+<h3>Three quantities students conflate</h3>
+<ul>
+  <li><strong>Total tree volume</strong> — the whole stem to the tip, sometimes branches too.</li>
+  <li><strong>Merchantable stem volume</strong> — Model 16: to a 10 cm top, no branches.</li>
+  <li><strong>Biomass</strong> — oven-dry mass, a different quantity in different units, from Unit VI.</li>
+</ul>
+
+<p><strong>A difference between two of these is not error. It is a difference of definition.</strong>
+Before comparing two volume figures, ask what each of them includes.</p>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="errors"><span class="n">Section 9</span>Sources of error</h2>
+
+<ul>
+  <li><strong>Instrument</strong> — cured by calibration.</li>
+  <li><strong>Observer</strong> — cured by training and protocol.</li>
+  <li><strong>Subject</strong> (exceptional trees: hollow, forked, buttressed) — cured by rules for exceptions.</li>
+  <li><strong>Environmental and method</strong> — cured by judgement and supervision.</li>
+  <li><strong>Model</strong> — the equation's own error. It does <strong>not</strong> shrink by measuring more
+    trees with it; only a better model reduces it.</li>
+  <li><strong>Measurement propagating into the model</strong> — errors in <em>d</em> and <em>h</em> enter BAH
+    before the model sees them, and <em>d</em> enters <strong>squared</strong>.</li>
+</ul>
+
+<h3>Ten mistakes that cost marks and money</h3>
+<ol>
+  <li>Using Smalian on a long unsectioned stem.</li>
+  <li>Using Huber on stacked logs, where the middle is buried.</li>
+  <li>Mixing a quarter-girth figure with a true-volume figure.</li>
+  <li>Applying a conifer form factor to a broadleaf.</li>
+  <li>Applying a species mean form factor to one valuable stem and quoting it as exact.</li>
+  <li>Extrapolating beyond the range of a volume table or equation.</li>
+  <li>Omitting the spline term from Model 7 or 16.</li>
+  <li>Adding breast height <em>after</em> halving the total height when finding the AFQ point.</li>
+  <li>Comparing merchantable volume with total volume and calling the difference error.</li>
+  <li>Reporting a volume without the merchantability standard that produced it.</li>
+</ol>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="practical"><span class="n">Section 10</span>Field practical</h2>
+
+<p>Use the <a href="../practicals/MEN201_Practical_Unit_V_Sectional_Volume.html">printed field sheet</a>
+and the <a href="../calculators/MEN201_Volume_Calculator_Pinus_wallichiana.xlsx">volume calculator</a>.</p>
+
+<ol>
+  <li>Before felling, record DBH over bark at the prescribed reference height, from the uphill side, and
+    total height by clinometer from a measured horizontal distance.</li>
+  <li>After felling, measure total length from the cut face to the tip.</li>
+  <li>Mark out 2.0 m sections from the base; measure the mid-diameter over bark of each and bark thickness
+    at two points.</li>
+  <li>Compute each section by <strong>Huber's</strong> formula and sum for the sectional stem volume; scale
+    the terminal section as a cone.</li>
+  <li>Compute the same tree by <strong>Model 16</strong>, and again as V = S·h·f from the published form factor.</li>
+  <li>Tabulate absolute and percentage differences against the sectional volume, and separate
+    <strong>definitional</strong> difference from <strong>model</strong> and <strong>measurement</strong> error.</li>
+  <li>State whether the tree lies inside the equation's calibration range.</li>
+</ol>
+
+<div class="note">
+  <span class="k">Safety</span>
+  <p>Felling is carried out only by the authorised crew. <strong>Students remain at a minimum of two tree
+    lengths</strong> until the tree is on the ground and the crew signals that it is safe to approach.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="practice"><span class="n">Section 11</span>Practice questions</h2>
+
+<ol class="qs">
+  <li>Name the four solids of revolution, give the exponent <em>r</em> for each, and say where each appears
+    in a real stem.</li>
+  <li>A felled hemlock has DBH 38 cm, total height 25 m, and a sectional volume of 1.42 m³. Calculate its
+    form factor and comment on it against the published mean for the species.</li>
+  <li>Why is Newton's formula exact for all four solids while Smalian's and Huber's are not?</li>
+  <li>A 4.00 m log measures 52 cm at the thick end, 45 cm at the middle and 38 cm at the thin end. Compute the
+    volume by all three formulae and rank them.</li>
+  <li>A log 5.00 m long has a mid-girth of 140 cm. Compute the true volume and the quarter-girth volume, and
+    verify the ratio.</li>
+  <li>Explain why the absolute form quotient is always lower than the simple form quotient for the same tree.</li>
+  <li>Using the table in Section 7, estimate the volume of a tree with DBH 25 cm and height 20 m.</li>
+  <li>A blue pine has DBH 46 cm and height 24 m. Estimate its merchantable volume by Model 16.
+    (The spline arithmetic is set out in the handbook.)</li>
+  <li>Model 16 gives 1.17 m³ for a tree whose sectional stem volume is 1.35 m³. A student reports a
+    &ldquo;13 % error&rdquo;. What is wrong with that statement?</li>
+  <li>Why is the geographic composition of the fitting sample — 214 of 249 trees from three western
+    dzongkhags — worth stating whenever the model is used elsewhere?</li>
+</ol>
+
+<p><em>Worked solutions to questions 2, 4, 5, 7 and 8 are in the</em>
+  <a href="MEN201_Calculation_Handbook.html#sol-v">calculation handbook</a>.</p>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="summary"><span class="n">Section 12</span>Summary</h2>
+
+<ul>
+  <li>Four solids: cylinder, paraboloid, cone, neiloid — <em>r</em> = 0, 1, 2, 3.</li>
+  <li><span class="m">f = V / (S h)</span>. Conifers about 0.48–0.55 in Bhutan; oaks much lower.</li>
+  <li>Smalian over-estimates, Huber under-estimates by about half as much, <strong>Newton is exact for all
+    four solids</strong>.</li>
+  <li><span class="m">QGV/V = π/4 = 0.7854</span> — a systematic 21.5 % under-measurement, by convention.</li>
+  <li>A volume table gives the <strong>average</strong>, not the volume of one tree. Interpolate inside it;
+    never extrapolate.</li>
+  <li>Model 16 predicts <strong>merchantable</strong> volume to a 10 cm top for blue pine only, fitted on
+    249 trees, 214 of them from Thimphu, Paro and Haa.</li>
+  <li>Random errors may partly offset; <strong>shared model bias, site effects, species differences,
+    measurement bias and extrapolation error do not</strong>.</li>
+  <li>Before comparing two volume figures, <strong>ask what each of them includes</strong>.</li>
+</ul>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="refs"><span class="n">Section 13</span>References</h2>
+
+<ul>
+  <li><strong>FRMD, DoFPS (2018).</strong>
+    <a href="../supplementary/Volume_Equation_Pinus_wallichiana_2018.pdf">Species-Specific Volume Equation
+    for <em>Pinus wallichiana</em></a>. Thimphu. — Models 7 and 16, sections 9–11.</li>
+  <li><strong>Tenzin, J., Wangchuk, T. &amp; Hasenauer, H. (2016).</strong> Form factor functions for nine
+    commercial tree species in Bhutan. <em>Forestry</em> 89, doi:10.1093/forestry/cpw044.</li>
+  <li><strong>DoFPS (2023).</strong> <em>National Forest Inventory Volume I — State of Forest Report 2023</em>. Thimphu.</li>
+  <li><strong>Husch, B., Beers, T. W. &amp; Kershaw, J. A. (2003).</strong> <em>Forest Mensuration</em>,
+    4th ed. Wiley. — chs. 7–9, volume and volume tables.</li>
+  <li><strong>West, P. W. (2009).</strong> <em>Tree and Forest Measurement</em>, 2nd ed. Springer. — ch. 6.</li>
+  <li><strong>Preinvestment Survey of Forest Resources (1981).</strong> Report on Preinvestment Survey of
+    Forest Resources in Southern Bhutan. — the earlier total-volume equations.</li>
+</ul>
+
+<footer class="foot">
+  <span>MEN 201 · Unit V student lecture notes · College of Natural Resources</span>
+  <span><a href="index.html">All notes</a> · <a href="MEN201_Calculation_Handbook.html">Handbook</a> · <a href="../index.html">Contents</a></span>
+</footer>
+
+</div>
+</body>
+</html>

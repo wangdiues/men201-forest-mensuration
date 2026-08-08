@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MEN 201 · Unit II notes · Diameter, Girth and Bark Thickness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_notes.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker">MEN 201 · Forest Mensuration · Student lecture notes</div>
+  <h1>Unit II · Diameter, Girth <em>and Bark Thickness</em></h1>
+  <p class="sub">Measure the tree at a defensible point, with the right instrument, and know exactly
+    whether bark is included.</p>
+  <p class="meta">Sessions 3–4 · BSc in Forestry, College of Natural Resources, Royal University of Bhutan<br>
+    Read alongside <a href="../MEN201_Unit_II_Diameter_Girth_and_Bark_Thickness.html">the Unit II deck</a>
+    &middot; <a href="../practicals/MEN201_Practical_Unit_II_Diameter_and_Bark.html">field sheet</a>
+    &middot; <a href="index.html">all notes</a></p>
+</header>
+
+<nav class="toc">
+  <h2>In this unit</h2>
+  <ol>
+    <li><a href="#outcomes">Learning outcomes</a></li>
+    <li><a href="#terms">Key terms and notation</a></li>
+    <li><a href="#geometry">Girth, diameter, basal area</a></li>
+    <li><a href="#instruments">Instruments and their errors</a></li>
+    <li><a href="#bh">Breast height and the protocol</a></li>
+    <li><a href="#awkward">Awkward stems</a></li>
+    <li><a href="#bark">Bark thickness</a></li>
+    <li><a href="#qc">Calibration and tolerances</a></li>
+    <li><a href="#bhutan">In Bhutanese forestry</a></li>
+    <li><a href="#errors">Common errors</a></li>
+    <li><a href="#practical">Field practical</a></li>
+    <li><a href="#practice">Practice questions</a></li>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#refs">References</a></li>
+  </ol>
+</nav>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="outcomes"><span class="n">Section 1</span>Learning outcomes</h2>
+<ol>
+  <li><strong>Use units correctly</strong> — convert length, area and volume without mixing dimensions.</li>
+  <li><strong>Relate girth and diameter</strong> — move confidently between <em>C</em>, <em>d</em> and <em>r</em>.</li>
+  <li><strong>Choose and use instruments</strong> — match scale, calliper and tape to the tree and the required accuracy.</li>
+  <li><strong>Locate breast height</strong> — apply the protocol reference height on slopes, leaning stems, forks and buttresses.</li>
+  <li><strong>Measure bark thickness</strong> — sample non-uniform bark with a gauge or probe.</li>
+  <li><strong>Convert over bark to under bark</strong> — calculate D<sub>ub</sub> and G<sub>ub</sub> with clear notation.</li>
+</ol>
+
+<div class="note">
+  <span class="k">Why this is the most consequential unit in the module</span>
+  <p>Diameter enters basal area as a <strong>square</strong> and volume as roughly a square. A 1 % error
+    here is about 2 % in every basal area, volume, biomass and carbon figure downstream — and nothing
+    later in the module can repair it.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="terms"><span class="n">Section 2</span>Key terms and notation</h2>
+
+<p>The module uses one notation system throughout. Lower case is one tree; upper case is the stand.</p>
+
+<table>
+  <thead><tr><th>Symbol</th><th>Quantity</th><th>Unit</th></tr></thead>
+  <tbody>
+    <tr><td class="rh">d</td><td>diameter of one tree</td><td>cm</td></tr>
+    <tr><td class="rh">C</td><td>circumference or girth of one tree</td><td>cm</td></tr>
+    <tr><td class="rh">r</td><td>radius</td><td>cm</td></tr>
+    <tr><td class="rh">g</td><td>basal area of <strong>one tree</strong></td><td>m²</td></tr>
+    <tr><td class="rh">G</td><td>basal area of the <strong>stand</strong></td><td>m²/ha</td></tr>
+    <tr><td class="rh">t</td><td>bark thickness on <strong>one side</strong></td><td>cm</td></tr>
+    <tr><td class="rh">B</td><td>double bark thickness, <em>B</em> = 2<em>t</em></td><td>cm</td></tr>
+  </tbody>
+</table>
+
+<dl class="def">
+  <dt>Diameter at breast height (DBH)</dt>
+  <dd>The diameter of the stem measured at the reference height the governing protocol prescribes.
+    Recorded <strong>over bark</strong> unless stated otherwise.</dd>
+
+  <dt>Over bark (o.b.) / under bark (u.b.)</dt>
+  <dd>Whether the bark is included in the dimension. This is <strong>part of the variable</strong>, not
+    an afterthought — o.b. and u.b. diameters are different quantities.</dd>
+
+  <dt>Circular-equivalent diameter</dt>
+  <dd>The diameter a perfect circle of the measured circumference would have, <em>d</em> = <em>C</em>/π.
+    What a girth tape reports, and what a diameter tape's printed scale gives directly.</dd>
+
+  <dt>Basal area</dt>
+  <dd>The cross-sectional area of the stem at breast height. For one tree, <em>g</em> = π<em>d</em>²/4.</dd>
+</dl>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="geometry"><span class="n">Section 3</span>Girth, diameter and basal area</h2>
+
+<div class="eq">C = 2πr = πd &nbsp;&nbsp;·&nbsp;&nbsp; d = C / π
+  <span class="u">true only for a circular cross-section</span>
+</div>
+
+<p>Since 1/π ≈ 0.3183, a girth tape reading multiplied by 0.3183 gives the circular-equivalent diameter.
+A <strong>diameter tape</strong> does this for you: its scale is printed with each diameter unit spaced
+π units apart on the physical tape, so 3.14159 cm of tape reads as 1.00 cm of diameter.</p>
+
+<h3>Basal area</h3>
+
+<div class="eq">g = πd² / 4 = πr²
+  <span class="u">with <em>d</em> in metres, <em>g</em> is in m²</span>
+</div>
+
+<p>Foresters normally measure diameter in centimetres but want basal area in square metres. Combining
+the unit conversion with π/4 gives the constant used throughout Units II, V and VI:</p>
+
+<div class="eq sm">g (m²) = 0.00007854 × d²&nbsp;&nbsp;<span style="font-size:.7em">(d in cm)</span></div>
+
+<p>Because 0.00007854 = π/40000, this is exactly π<em>d</em>²/4 with <em>d</em> converted from cm to m.
+Learn the constant, but know where it comes from — it is examinable either way.</p>
+
+<div class="worked">
+  <div class="h">Worked example 1 · double the diameter, quadruple the area</div>
+  <table class="sm">
+    <thead><tr><th class="n">d (cm)</th><th class="n">g (m²)</th><th class="n">Relative</th></tr></thead>
+    <tbody>
+      <tr><td class="n">10</td><td class="n">0.0079</td><td class="n">1×</td></tr>
+      <tr><td class="n">20</td><td class="n">0.0314</td><td class="n">4×</td></tr>
+      <tr><td class="n">40</td><td class="n">0.1257</td><td class="n">16×</td></tr>
+      <tr><td class="n">80</td><td class="n">0.5027</td><td class="n">64×</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">A 1 % error in d becomes roughly a 2 % error in g</div>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="instruments"><span class="n">Section 4</span>Instruments and their errors</h2>
+
+<p>No instrument is best in every field situation. Choose by: standing or felled tree; position of the
+log; required accuracy; diameter range; terrain and access.</p>
+
+<table>
+  <thead><tr><th>Instrument</th><th>Reads</th><th>Strengths</th><th>Error signature</th></tr></thead>
+  <tbody>
+    <tr><td class="rh">Scale</td><td>diameter</td><td>Simple; good on stumps, log ends, stem-analysis discs</td><td>Needs a visible cross-section; axis choice is subjective</td></tr>
+    <tr><td class="rh">Calliper</td><td>diameter</td><td>Direct reading, quick, little calculation, usable by trained assistants</td><td>Misadjusted or out-of-square jaws; awkward on large stems; two axes hard on steep ground</td></tr>
+    <tr><td class="rh">Girth tape</td><td>circumference</td><td>Compact, one encircling measurement, works round felled logs</td><td><strong>Positive bias</strong> on rough bark; tension varies between operators; hard to keep level</td></tr>
+    <tr><td class="rh">Diameter tape</td><td>diameter</td><td>Direct reading, shorter scale, convenient for repeated inventory</td><td>Same as girth tape, plus it assumes a perfect circle</td></tr>
+    <tr><td class="rh">Relascope</td><td>angle → diameter</td><td>Upper-stem diameters out of reach; no contact error</td><td>Needs clear sight, accurate distance, a practised observer. <strong>Not part of the revised module and not assessed</strong></td></tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <span class="k">Why a tape reads high</span>
+  <p>A tape follows the <strong>convex hull</strong> of the bark: it bridges the fissures instead of
+    following them in and out. The encircled path is therefore longer than the true perimeter of the
+    wood, and the circular-equivalent diameter comes out too large. The bias is
+    <strong>one-directional</strong>, so it never averages out — report it, do not call it an error.</p>
+</div>
+
+<h3>Species factors — handle with care</h3>
+
+<p>A real stem is not a circle, so the ratio <em>d</em>/<em>C</em> is not exactly 1/π. Published species
+factors exist (chir pine 0.3093, sal 0.3119, teak 0.3160, against 0.3183 for a perfect circle).</p>
+
+<div class="note">
+  <span class="k">When to use one</span>
+  <p>Only where the inventory manual names the <strong>species, region and derivation</strong>. Bhutan's
+    National Forest Inventory does <em>not</em> apply species <em>d</em>/<em>C</em> factors — it records
+    the tape reading as circular-equivalent diameter. Otherwise you have introduced a correction nobody
+    else can reproduce.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="bh"><span class="n">Section 5</span>Breast height and the protocol</h2>
+
+<p>Breast height is a <strong>convention</strong>, not a law of nature. It was chosen because it is:</p>
+
+<ul>
+  <li>a convenient working height, with less fatigue over a long day;</li>
+  <li>usually above the undergrowth and the basal swelling;</li>
+  <li>usually above buttress or abnormal basal growth;</li>
+  <li>independent of an irregular stump height after felling.</li>
+</ul>
+
+<div class="bhutan">
+  <span class="k">The value itself is protocol-dependent</span>
+  <p>Bhutan's <strong>Second National Forest Inventory recorded over-bark DBH at 1.37 m</strong>. Many
+    international manuals use <strong>1.30 m</strong>; the American 4.5 ft is also 1.37 m.
+    <strong>Neither is universally correct.</strong></p>
+  <p>The rule: <strong>identify and follow the applicable inventory protocol, and record the reference
+    height you used.</strong> Comparability matters more than personal convenience.</p>
+</div>
+
+<h3>The Second NFI protocol in full</h3>
+
+<table>
+  <tbody>
+    <tr><td class="rh">Reference height</td><td>1.37 m, over bark</td></tr>
+    <tr><td class="rh">Trees</td><td>from <strong>10 cm DBH</strong> upwards</td></tr>
+    <tr><td class="rh">Saplings</td><td><strong>5 cm to under 10 cm</strong> DBH</td></tr>
+    <tr><td class="rh">Plot</td><td>three plots of <strong>12.62 m radius</strong> per cluster — 500 m² each</td></tr>
+    <tr><td class="rh">Grid</td><td><strong>4 × 4 km</strong> national sampling grid</td></tr>
+    <tr><td class="rh">Capture</td><td>electronic, Open Foris Collect Mobile</td></tr>
+    <tr><td class="rh">Reporting</td><td>estimates published with <strong>95 % confidence intervals</strong></td></tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <span class="k">A 9.8 cm stem is not a small tree</span>
+  <p>It is a <strong>sapling</strong>, and it does not enter the tree tally. A crew that rounds it up to
+    10 cm has not been generous — it has manufactured a tree, and the error propagates into stems per
+    hectare, basal area and every volume built on them.</p>
+</div>
+
+<h3>One country, several protocols</h3>
+
+<p>National inventory, FMU inventory, community-forest inventory and teaching exercises may each
+prescribe something different. <strong>Read the field manual before you touch a tape</strong> — do not
+assume that what you learned in a lecture is what this job requires.</p>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="awkward"><span class="n">Section 6</span>Awkward stems</h2>
+
+<table>
+  <thead><tr><th>Situation</th><th>Rule</th></tr></thead>
+  <tbody>
+    <tr><td class="rh">Sloping ground</td><td>Measure the reference height from the <strong>uphill</strong> side</td></tr>
+    <tr><td class="rh">Leaning stem</td><td>Measure the reference height <strong>along the stem</strong>, not vertically</td></tr>
+    <tr><td class="rh">Buttressed or fluted</td><td>Measure just above the buttress, at a point where it no longer influences the stem, and <strong>record that height</strong></td></tr>
+    <tr><td class="rh">Forked below breast height</td><td>Treat as <strong>two trees</strong></td></tr>
+    <tr><td class="rh">Forked above breast height</td><td>Treat as <strong>one tree</strong></td></tr>
+    <tr><td class="rh">Swelling or wound at breast height</td><td><strong>Follow the applicable inventory protocol.</strong> Record the abnormality, the measurement positions and the calculation method</td></tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <span class="k">The two rules for an abnormality are not interchangeable</span>
+  <p>Some protocols prescribe measuring immediately above or below the abnormality; others prescribe
+    measuring above <em>and</em> below and taking the mean. They give different numbers. Do not treat
+    them as universal alternatives — find out which one governs your job, apply it, and record what you did.</p>
+</div>
+
+<div class="bhutan">
+  <span class="k">Why the uphill rule is not a nicety</span>
+  <p>Bhutan is mountain forestry. If half a crew measures uphill and half downhill, the difference is
+    <strong>systematic, not random</strong> — it does not average out over the plot, and it biases every
+    crop parameter derived from it.</p>
+</div>
+
+<h3>Before measuring</h3>
+<ol>
+  <li><strong>Inspect</strong> — slope, lean, fork, buttress, abnormalities.</li>
+  <li><strong>Locate</strong> — set the protocol reference height from the correct ground reference.</li>
+  <li><strong>Prepare</strong> — remove moss, creepers and lichen; remove loose bark without cutting sound bark; exclude vines from under the tape.</li>
+  <li><strong>Measure</strong> — calibrated instrument, correct orientation, tape flat and perpendicular.</li>
+  <li><strong>Repeat</strong> — the specified second axis or the bark readings.</li>
+  <li><strong>Record</strong> — value, unit, o.b./u.b., height and exception code. Mark the point with a cross for permanent plots.</li>
+</ol>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="bark"><span class="n">Section 7</span>Bark thickness</h2>
+
+<p>Bark thickness is the distance from the outer surface to the cambium boundary. It is not a fixed
+correction; it varies at four scales — among species, within a species, among trees with age and
+locality, and along a single stem (usually thicker near the base).</p>
+
+<h3>Sampling</h3>
+<ol>
+  <li>Align with the first diameter axis; measure bark at both opposite endpoints.</li>
+  <li>Rotate 90° and measure the second opposite pair.</li>
+  <li>Average explicitly: <span class="m">t̄ = (t₁ + t₂ + t₃ + t₄) / 4</span></li>
+</ol>
+
+<h3>The conversions</h3>
+
+<div class="eq">D<sub>ub</sub> = D<sub>ob</sub> − 2t̄
+  <span class="u">a diameter crosses the bark <strong>twice</strong> — subtract 2t̄, never t̄</span>
+</div>
+
+<div class="eq">G<sub>ub</sub> = G<sub>ob</sub> − 2πt̄
+  <span class="u">reducing the radius by t reduces the circumference by 2πt</span>
+</div>
+
+<div class="worked">
+  <div class="h">Worked example 2 · one tree, two boundaries</div>
+  <p>Given: D<sub>ob</sub> = 40.0 cm, G<sub>ob</sub> = 125.7 cm, mean one-sided bark t̄ = 1.5 cm.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">Double bark</td><td class="n">B = 2 × 1.5 = 3.0 cm</td></tr>
+      <tr><td class="rh">Diameter under bark</td><td class="n">D<sub>ub</sub> = 40.0 − 3.0 = 37.0 cm</td></tr>
+      <tr><td class="rh">Girth under bark</td><td class="n">G<sub>ub</sub> = 125.7 − 2π(1.5) = 125.7 − 9.42 = 116.3 cm</td></tr>
+      <tr><td class="rh">Cross-check</td><td class="n">π × 37.0 = 116.2 cm ✓</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">D<sub>ub</sub> = 37.0 cm · G<sub>ub</sub> ≈ 116.3 cm</div>
+  <p style="margin-top:10px"><strong>Always take the second route.</strong> When two independent routes
+    to the same number agree to a millimetre, both are probably right. The 0.1 cm difference here is
+    rounding in G<sub>ob</sub>.</p>
+</div>
+
+<h3>Bark as a percentage</h3>
+
+<div class="eq sm">bark % of diameter = (2t̄ / D<sub>ob</sub>) × 100 &nbsp;&nbsp;·&nbsp;&nbsp;
+  bark % of area = [1 − (D<sub>ub</sub>/D<sub>ob</sub>)²] × 100</div>
+
+<p>For the tree above: 3.0/40.0 = <strong>7.5 %</strong> of the diameter, but
+1 − (37/40)² = <strong>14.4 %</strong> of the area. <strong>Bark is a ring, not a slab.</strong>
+Stripping a thin outer ring removes a disproportionate share of the cross-section, because area
+follows <em>d</em>².</p>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="qc"><span class="n">Section 8</span>Calibration and repeatability</h2>
+
+<p>Calibrate at the start of every field season and after any drop.</p>
+
+<ul>
+  <li><strong>Girth and diameter tapes</strong> stretch with use. Check against a steel rule over a known
+    1 m span; retire a tape more than 2 mm out.</li>
+  <li><strong>Steel tapes</strong> do not stretch appreciably but kink, and the zero end wears.</li>
+  <li><strong>Callipers</strong> go out of square. Check the movable arm reads zero closed and stays
+    parallel across the beam.</li>
+  <li><strong>Bark gauges</strong> — check the scale zero against the cutting edge.</li>
+</ul>
+
+<div class="note">
+  <span class="k">Why calibration and not more measurements</span>
+  <p>An instrument error is <strong>systematic</strong>. It has the same sign on every tree, so it survives
+    averaging intact. Measuring twice as many trees with a stretched tape gives a <strong>more precise
+    wrong answer</strong>. Only calibration removes it. This is Unit I's distinction, met for the first
+    time on a real instrument.</p>
+</div>
+
+<h3>Working tolerances for this module</h3>
+
+<table class="sm">
+  <tbody>
+    <tr><td class="rh">DBH, blind re-measure</td><td class="n">within 0.3 cm</td></tr>
+    <tr><td class="rh">Girth, blind re-measure</td><td class="n">within 1.0 cm</td></tr>
+    <tr><td class="rh">Bark thickness, one side</td><td class="n">within 2 mm</td></tr>
+    <tr><td class="rh">Reference-height mark</td><td class="n">within 2 cm</td></tr>
+  </tbody>
+</table>
+
+<p>These are teaching values. For real work the binding tolerances come from the field manual governing
+that inventory.</p>
+
+<p><strong>Blind means blind.</strong> Student A measures, records, and covers the sheet. Student B
+measures independently. Only then compare. If B can see A's number the exercise measures nothing except
+social pressure. Re-measure <strong>5–10 %</strong> of trees this way; the re-measurement data are what
+allow error to be <em>quantified</em> rather than guessed.</p>
+
+<p>Outside tolerance? Do <strong>not</strong> average and move on. Find the cause: usually the mark has
+moved, the tape is twisted, or the two are measuring different axes on an oval stem.</p>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="bhutan"><span class="n">Section 9</span>In Bhutanese forestry</h2>
+
+<p>Diameter is the most-measured quantity in Bhutanese forestry and the first measurement in every chain
+that follows.</p>
+
+<ul>
+  <li><strong>Community-forest inventory.</strong> A group measures its own stems, usually with a girth
+    tape, to prepare and revise its management plan. The numbers decide how much timber it may take each year.</li>
+  <li><strong>Timber marking.</strong> Trees marked for felling are selected and scaled on diameter; the
+    rural timber allotment that follows is a volume derived from it.</li>
+  <li><strong>NFI tree measurement.</strong> Every tree of 10 cm DBH and above in every plot of the
+    national grid — the raw material of the State of Forest Report.</li>
+  <li><strong>Biomass and carbon.</strong> The Bhutan allometric equations of Unit VI take
+    <strong>basal area</strong> as their predictor. Diameter is where a national carbon figure begins.</li>
+</ul>
+
+<div class="bhutan">
+  <span class="k">Beyond timber</span>
+  <p>The same tape readings describe diameter-class diversity, large habitat trees, deadwood, regeneration
+    and change between inventories. Diameter is not a timber measurement; it is a <strong>forest-structure
+    measurement</strong> that timber happens to use.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="errors"><span class="n">Section 10</span>Common errors</h2>
+
+<p>Most mistakes here are not arithmetic. They are errors of <strong>placement and definition</strong>,
+and they are invisible in the data.</p>
+
+<h4>Placement</h4>
+<ul>
+  <li>Measuring from the downhill side on a slope.</li>
+  <li>Tape tilted rather than perpendicular — it then measures an ellipse, which is always longer.</li>
+  <li>Calliper axis not representative of an oval stem.</li>
+  <li>Measuring directly on a swelling or a fork.</li>
+  <li>Including vines or loose bark under the tape.</li>
+  <li>Measuring at your own chest height rather than the prescribed reference height. <em>Issue a marked pole cut to that height.</em></li>
+</ul>
+
+<h4>Definition and recording</h4>
+<ul>
+  <li>Confusing <em>C</em> with <em>d</em>.</li>
+  <li>Omitting units.</li>
+  <li>Not stating over bark or under bark.</li>
+  <li><strong>Subtracting t̄ only once</strong> from D<sub>ob</sub>.</li>
+  <li>Failing to record a shifted measurement height.</li>
+  <li>Applying a species <em>d</em>/<em>C</em> factor the inventory does not use.</li>
+</ul>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="practical"><span class="n">Section 11</span>Field practical</h2>
+
+<p>Use the <a href="../practicals/MEN201_Practical_Unit_II_Diameter_and_Bark.html">printed field sheet</a>.</p>
+
+<ol>
+  <li>Mark the reference height and photograph or sketch the terrain case.</li>
+  <li>Measure two perpendicular diameters with a calliper.</li>
+  <li>Measure girth with a tape and convert to circular-equivalent diameter.</li>
+  <li>Take four bark readings at the two diameter axes.</li>
+  <li>Calculate D<sub>ub</sub> and G<sub>ub</sub>, showing units and definitions.</li>
+  <li>Blind re-measure 5–10 % of the trees and complete the QC block <strong>in the field</strong>.</li>
+  <li>Write a three-sentence error diagnosis: geometry, instrument, operator.</li>
+</ol>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="practice"><span class="n">Section 12</span>Practice questions</h2>
+
+<ol class="qs">
+  <li>Why is breast height measured from the uphill side on a slope?</li>
+  <li>Why does rough bark usually produce a positive tape bias? Is the bias random or systematic?</li>
+  <li>When is a fork counted as one tree, and when as two?</li>
+  <li>A tree has <em>C</em> = 94.2 cm. Estimate its circular-equivalent diameter.</li>
+  <li>Why must bark be sampled at opposite points, and why four readings rather than one?</li>
+  <li>Given D<sub>ob</sub> = 52 cm and t̄ = 1.8 cm, calculate D<sub>ub</sub> and the bark percentage of area.</li>
+  <li>A stem is 42.0 cm o.b. with a mean one-sided bark of 1.1 cm. Compute <em>g</em> over bark and
+    <em>g</em> under bark in m², and express the difference as a percentage.</li>
+  <li>State Bhutan's Second NFI DBH protocol in full — reference height, tree and sapling thresholds,
+    plot radius and grid.</li>
+  <li>Two crews measure the same 40-tree plot. Crew A's tape is 3 mm long over 1 m; Crew B's readings
+    scatter by ±0.4 cm with no bias. Which crew's basal area total is more trustworthy, and why?</li>
+</ol>
+
+<p><em>Worked solutions to questions 4, 6, 7 and 9 are in the</em>
+  <a href="MEN201_Calculation_Handbook.html#sol-ii">calculation handbook</a>.</p>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="summary"><span class="n">Section 13</span>Summary</h2>
+
+<ul>
+  <li>Keep dimensions and units consistent. <span class="m">g (m²) = 0.00007854 d²</span> with <em>d</em> in cm.</li>
+  <li><span class="m">C = πd</span> holds only for a circular cross-section.</li>
+  <li>Know the instrument's error profile. A tape is <strong>biased high</strong> on rough bark.</li>
+  <li>Measure at a <strong>standard, recorded</strong> point. The reference height is protocol-dependent —
+    1.37 m in Bhutan's Second NFI, 1.30 m in many international manuals.</li>
+  <li>State over bark or under bark. <span class="m">D<sub>ub</sub> = D<sub>ob</sub> − 2t̄</span>,
+    <span class="m">G<sub>ub</sub> = G<sub>ob</sub> − 2πt̄</span>.</li>
+  <li>Calibrate rather than measure more: instrument error is systematic and survives averaging.</li>
+  <li>Before writing a number, write its <strong>unit, reference height and bark boundary</strong>.</li>
+</ul>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="refs"><span class="n">Section 14</span>References</h2>
+
+<ul>
+  <li><strong>DoFPS (2023).</strong> <em>National Forest Inventory Volume I — State of Forest Report 2023</em>.
+    Thimphu. — DBH at 1.37 m, 10 cm threshold, 12.62 m plots, 4 × 4 km grid.</li>
+  <li><strong>Husch, B., Beers, T. W. &amp; Kershaw, J. A. (2003).</strong> <em>Forest Mensuration</em>,
+    4th ed. Wiley. — chs. 4–5, instruments and diameter.</li>
+  <li><strong>West, P. W. (2009).</strong> <em>Tree and Forest Measurement</em>, 2nd ed. Springer. — ch. 4,
+    technique and error.</li>
+  <li><strong>BIPM (2019).</strong> <em>The International System of Units (SI)</em>, 9th ed.</li>
+  <li><strong>Bitterlich, W. (1984).</strong> <em>The Relascope Idea</em>. — background only; the relascope
+    is not part of the revised module.</li>
+  <li><strong>Mercker, D. &amp; Yang, S.-I.</strong>
+    <a href="../supplementary/A_Simple_Guide_to_Common_Forest_Measurements.pdf">A Simple Guide to Common
+    Forest Measurements</a>, UT Extension W 1117. — <em>comparative reading only</em>: it uses 4.5 ft DBH,
+    acres, board feet and Doyle log rules, none of which apply in Bhutan.</li>
+</ul>
+
+<footer class="foot">
+  <span>MEN 201 · Unit II student lecture notes · College of Natural Resources</span>
+  <span><a href="index.html">All notes</a> · <a href="MEN201_Calculation_Handbook.html">Handbook</a> · <a href="../index.html">Contents</a></span>
+</footer>
+
+</div>
+</body>
+</html>

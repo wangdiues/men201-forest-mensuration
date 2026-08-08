@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MEN 201 · Unit VI notes · Measurement of the Crop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_notes.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker">MEN 201 · Forest Mensuration · Student lecture notes</div>
+  <h1>Unit VI · Measurement of <em>the Crop</em></h1>
+  <p class="sub">Basal area, crop diameter, crop height, crop age and crop volume; then biomass and carbon,
+    and the sampling and inference that make any of it defensible.</p>
+  <p class="meta">Sessions 13–14 · BSc in Forestry, College of Natural Resources, Royal University of Bhutan<br>
+    Read alongside <a href="../MEN201_Unit_VI_Measurement_of_Crop.html">the Unit VI deck</a>
+    &middot; <a href="../calculators/MEN201_Biomass_Calculator_Bhutan.xlsx">biomass calculator</a>
+    &middot; <a href="index.html">all notes</a></p>
+</header>
+
+<nav class="toc">
+  <h2>In this unit</h2>
+  <ol>
+    <li><a href="#outcomes">Learning outcomes</a></li>
+    <li><a href="#ba">Basal area</a></li>
+    <li><a href="#three">Three ways to get G</a></li>
+    <li><a href="#dia">Diameter of the crop</a></li>
+    <li><a href="#ht">Height of the crop</a></li>
+    <li><a href="#age">Age of the crop</a></li>
+    <li><a href="#vol">Volume of the crop</a></li>
+    <li><a href="#biomass">Biomass and carbon</a></li>
+    <li><a href="#sampling">Sampling and inference</a></li>
+    <li><a href="#qc">Error and quality control</a></li>
+    <li><a href="#bhutan">In Bhutanese forestry</a></li>
+    <li><a href="#practice">Practice questions</a></li>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#refs">References</a></li>
+  </ol>
+</nav>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="outcomes"><span class="n">Section 1</span>Learning outcomes</h2>
+<ol>
+  <li><strong>Define</strong> basal area and compute it for a tree and for a stand by three methods.</li>
+  <li><strong>Distinguish</strong> crop diameter, mean diameter and top diameter, and explain why crop
+    diameter is always the larger.</li>
+  <li><strong>Compute</strong> Lorey's crop height and mean height, and say which is wanted when.</li>
+  <li><strong>Compute</strong> the mean age of an uneven-aged crop by five methods.</li>
+  <li><strong>Expand</strong> a sample plot to a per-hectare and a whole-forest figure, with correct units.</li>
+  <li><strong>Estimate</strong> biomass by both routes, choose the right equation, and convert to a
+    per-hectare and carbon figure.</li>
+  <li><strong>Compute</strong> a mean, variance, standard error and confidence interval from plot data, and
+    say what one plot cannot tell you.</li>
+</ol>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="ba"><span class="n">Section 2</span>Basal area</h2>
+
+<dl class="def">
+  <dt>Basal area</dt>
+  <dd>The cross-sectional area of a stem at breast height. For one tree, <em>g</em>; for a stand,
+    <em>G</em>, in m²/ha.</dd>
+</dl>
+
+<div class="eq">g = π d² / 4 &nbsp;&nbsp;·&nbsp;&nbsp; g (m²) = 0.00007854 × d² <span style="font-size:.65em">(d in cm)</span></div>
+
+<h3>Four uses</h3>
+<ol>
+  <li><strong>Stand density.</strong> Basal area measures crowding in a way that reflects both tree size and
+    tree number — which is the whole argument for it.</li>
+  <li><strong>Stand volume.</strong> <span class="m">V = G × h × f</span> — the sentence that joins Unit V to
+    Unit VI. <em>G</em> from this unit, <em>h</em> from Section 4 below, <em>f</em> from Unit V.</li>
+  <li><strong>Stand growth.</strong> Increment is the difference between two basal-area measurements on the
+    same plot at two dates. Basal-area increment is easier to measure reliably than volume increment, because
+    it needs only diameters.</li>
+  <li><strong>Forest management.</strong> Stands are thinned back to a <em>target basal area</em> rather than
+    a target number of stems, precisely because the target then means the same thing in a stand of big trees
+    and a stand of small ones.</li>
+</ol>
+
+<div class="note">
+  <span class="k">Two stands, same basal area</span>
+  <p>Doubling the diameter <strong>quarters</strong> the number of trees needed for the same basal area,
+    because <em>g</em> goes with <em>d</em>². So 30 m²/ha can be 1 200 small stems or 150 large ones. Basal
+    area alone does not describe structure — which is why crop diameter and the diameter distribution matter.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="three"><span class="n">Section 3</span>Three ways to get G</h2>
+
+<h3>1 · Summing tree basal areas in a plot</h3>
+
+<p>Measure every DBH in a plot of known area, compute <em>g</em> for each, sum, and expand.</p>
+
+<div class="eq sm">G (m²/ha) = Σg ÷ plot area in ha</div>
+
+<div class="worked">
+  <div class="h">Worked example 1 · stand basal area from a plot</div>
+  <p>A 0.05 ha plot (500 m²) holds 24 stems whose basal areas total 1.6084 m².</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">Expansion factor</td><td class="n">1 ÷ 0.05 = 20</td></tr>
+      <tr><td class="rh">G</td><td class="n">1.6084 × 20 = 32.17 m²/ha</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">G ≈ 32.2 m²/ha</div>
+</div>
+
+<h3>2 · Point sampling</h3>
+
+<p>Stand at a point. Sweep a full circle through a gauge of fixed angle. Count every stem that looks
+<em>wider</em> than the gauge. Multiply.</p>
+
+<div class="eq">G = N × BAF
+  <span class="u">N = trees counted · BAF = basal area factor of the gauge, m²/ha per tree</span>
+</div>
+
+<div class="note">
+  <span class="k">Why it works — the sentence to be able to repeat back</span>
+  <p>A tree is counted only if it is closer to the point than a limiting distance that is
+    <strong>proportional to its diameter</strong>. So each tree carries its own circular plot, and the size
+    of that plot grows with the <em>square</em> of diameter — exactly as basal area does. The two effects
+    cancel, so <strong>every counted tree, big or small, contributes the same basal area per hectare</strong>.
+    That amount is the basal area factor.</p>
+</div>
+
+<div class="worked">
+  <div class="h">Worked example 2 · point sampling</div>
+  <p>Eight points on a systematic grid, gauge BAF 2 m²/ha per tree. Counts: 12, 15, 11, 14, 13, 16, 12, 15.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">Total</td><td class="n">108</td></tr>
+      <tr><td class="rh">Mean per point</td><td class="n">108 ÷ 8 = 13.5</td></tr>
+      <tr><td class="rh">G</td><td class="n">13.5 × 2 = 27.0 m²/ha</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">G = 27.0 m²/ha</div>
+</div>
+
+<p><strong>The borderline tree is the weak point.</strong> Crews unconsciously include big trees and exclude
+small ones, and that error is <strong>systematic</strong> — it does not average out. Where a tree looks
+borderline, measure its diameter and distance and decide by the rule.</p>
+
+<h3>3 · The spacing factor</h3>
+
+<p>The spacing factor <em>F</em> is the average distance between trees divided by the mean diameter, both in
+the same units — also called relative spacing.</p>
+
+<div class="eq sm">F = s ÷ d &nbsp;&nbsp;(s in m, d in m)</div>
+
+<p>The derivation, in four lines:</p>
+<ol>
+  <li>Trees per hectare on a square lattice: <span class="m">N = 10 000 / s²</span></li>
+  <li>Substitute <span class="m">s = F d</span>: <span class="m">N = 10 000 / (F² d²)</span></li>
+  <li>Basal area: <span class="m">G = N × π d² / 4</span></li>
+  <li>The <em>d</em>² cancels: <span class="m">G = 10 000 π / (4 F²) = 7 854 / F²</span></li>
+</ol>
+
+<div class="eq">G = 7 854 / F²
+  <span class="u">the surprise: G depends only on the <strong>relative</strong> spacing, not on tree size at all</span>
+</div>
+
+<div class="worked">
+  <div class="h">Worked example 3 · spacing factor</div>
+  <p>Mean spacing paced at 4.5 m; mean DBH 25 cm.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">F</td><td class="n">4.5 ÷ 0.25 = 18</td></tr>
+      <tr><td class="rh">G</td><td class="n">7 854 ÷ 18² = 7 854 ÷ 324 = 24.2 m²/ha</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">G ≈ 24.2 m²/ha</div>
+  <p style="margin-top:10px"><strong>Calibrate your pace.</strong> <em>F</em> sits in the denominator
+    <em>squared</em>: a pace 5 % short reports a spacing 5 % short and a basal area about
+    <strong>10 % high</strong>. Errors in spacing are magnified.</p>
+</div>
+
+<p><strong>Where it earns its place:</strong> a district forester walking a chir pine stand can pace the
+spacing, take three or four diameters, and have a basal area figure inside five minutes without laying out a
+single plot. Not accurate enough for a sale; entirely adequate for deciding whether a stand needs thinning
+this year or next.</p>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="dia"><span class="n">Section 4</span>Diameter of the crop</h2>
+
+<div class="note">
+  <span class="k">The central idea</span>
+  <p>Crop diameter is based on the <strong>mean basal area</strong> — not on the mean of the diameters.</p>
+</div>
+
+<dl class="def">
+  <dt>Crop diameter</dt><dd>The diameter corresponding to the mean basal area of a uniform, generally pure crop.</dd>
+  <dt>Mean diameter</dt><dd>The diameter corresponding to the mean basal area of a group of trees or a stand.
+    A general term, used for any stand structure.</dd>
+  <dt>Arithmetic mean diameter</dt><dd>Simply Σ(n·d)/Σn. <em>Not</em> the crop diameter.</dd>
+  <dt>Top diameter</dt><dd>The diameter corresponding to the mean basal area of the <strong>250 biggest
+    diameters per hectare</strong>.</dd>
+</dl>
+
+<div class="eq">mean basal area ḡ = (π/4) × (crop diameter)² &nbsp;→&nbsp; D = √(4ḡ / π)</div>
+
+<div class="worked">
+  <div class="h">Worked example 4 · the two answers, and why they differ</div>
+  <p>Five plots totalling 0.25 ha, 185 trees in six diameter classes. Σ(n·g) = 7.4995 m²; Σ(n·d) = 37.54 m.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">Arithmetic mean diameter</td><td class="n">37.54 ÷ 185 = 0.20292 m = <strong>20.29 cm</strong></td></tr>
+      <tr><td class="rh">Mean basal area</td><td class="n">7.4995 ÷ 185 = 0.040538 m²</td></tr>
+      <tr><td class="rh">Crop diameter</td><td class="n">√(4 × 0.040538 ÷ π) = √0.051615 = 0.22720 m = <strong>22.72 cm</strong></td></tr>
+    </tbody>
+  </table>
+  <div class="ans">Crop diameter is 2.43 cm — about 12 % — larger</div>
+</div>
+
+<div class="note">
+  <span class="k">The crop diameter is <em>always</em> the larger</span>
+  <p>Squaring gives the big stems more weight than counting them does. Averaging the diameters treats a
+    10 cm sapling and a 45 cm veteran as equals; averaging the basal areas does not. The gap widens as the
+    diameter distribution becomes more skewed, and closes in a uniform even-aged plantation.</p>
+</div>
+
+<div class="worked">
+  <div class="h">Worked example 5 · top diameter</div>
+  <p>Same dataset, 0.25 ha. Fill the quota from the largest classes down.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">Quota</td><td class="n">250/ha × 0.25 ha = 62.5 trees</td></tr>
+      <tr><td class="rh">Fill from the top</td><td class="n">8 (45 cm) + 13 (38) + 25 (31) = 46 → take 16.5 more at 24 cm</td></tr>
+      <tr><td class="rh">Their basal area</td><td class="n">1.272345 + 1.474349 + 1.886919 + 16.5 × 0.045239 = 5.38006 m²</td></tr>
+      <tr><td class="rh">Mean basal area</td><td class="n">5.38006 ÷ 62.5 = 0.086081 m²</td></tr>
+      <tr><td class="rh">Top diameter</td><td class="n">√(4 × 0.086081 ÷ π) = 0.33106 m</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">Top diameter = 33.11 cm</div>
+</div>
+
+<p><strong>Why 250, and why the biggest?</strong> Because the largest trees are the least affected by
+thinning history and stocking, and therefore the best available signal of what the <em>site</em> can produce.
+Top diameter feeds top height, and top height feeds site quality.</p>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="ht"><span class="n">Section 5</span>Height of the crop</h2>
+
+<h3>Lorey's crop height</h3>
+
+<div class="eq">H<sub>L</sub> = (s₁h₁ + s₂h₂ + …) ÷ (s₁ + s₂ + …)
+  <span class="u">s = the total basal area of each diameter class · h = the mean height of that class</span>
+</div>
+
+<p>It is a <strong>basal-area weighted</strong> mean height. Big trees count for more, in exact proportion
+to the wood they carry — because a stand's volume is dominated by its large trees, so its representative
+height must be too.</p>
+
+<div class="worked">
+  <div class="h">Worked example 6 · Lorey's crop height</div>
+  <table class="sm">
+    <thead><tr><th>Class</th><th class="n">n</th><th class="n">s (m²)</th><th class="n">h (m)</th><th class="n">s·h</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">7–13</td><td class="n">62</td><td class="n">0.486947</td><td class="n">9.0</td><td class="n">4.3825</td></tr>
+      <tr><td class="rh">14–20</td><td class="n">49</td><td class="n">1.112202</td><td class="n">13.5</td><td class="n">15.0147</td></tr>
+      <tr><td class="rh">21–27</td><td class="n">28</td><td class="n">1.266690</td><td class="n">17.0</td><td class="n">21.5337</td></tr>
+      <tr><td class="rh">28–34</td><td class="n">25</td><td class="n">1.886919</td><td class="n">19.5</td><td class="n">36.7949</td></tr>
+      <tr><td class="rh">35–41</td><td class="n">13</td><td class="n">1.474349</td><td class="n">21.5</td><td class="n">31.6985</td></tr>
+      <tr><td class="rh">42–48</td><td class="n">8</td><td class="n">1.272345</td><td class="n">23.0</td><td class="n">29.2639</td></tr>
+      <tr><td class="rh">Total</td><td class="n">185</td><td class="n">7.499452</td><td class="n">—</td><td class="n">138.6882</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">H<sub>L</sub> = 138.6882 ÷ 7.499452 = 18.49 m</div>
+  <p style="margin-top:10px">The plain arithmetic mean height, weighted by number of trees, is
+    <strong>14.31 m</strong>.</p>
+</div>
+
+<div class="note">
+  <span class="k">The consequence — and how to state it</span>
+  <p>Use 14.31 m in <span class="m">V = G × h × f</span> and the crop volume is understated by
+    <strong>22.6 %</strong> of the correct figure: (18.49 − 14.31) ÷ 18.49. On a 50 ha coupe that is not a
+    rounding error.</p>
+  <p>Dividing by 14.31 instead gives 29.2 %, which answers a <em>different</em> question — how much the
+    wrong figure would have to rise, not how much of the true value it misses. Be clear which you are quoting.</p>
+  <p>The gap is wide here because the stand is reverse-J: three fifths of the trees sit in the two smallest
+    classes, but those classes hold only 21 % of the basal area. In a uniform even-aged plantation the two
+    figures would be much closer.</p>
+</div>
+
+<h3>Mean height and top height</h3>
+
+<p><strong>Mean height</strong> is read from the height–diameter curve at the crop diameter. Two readings of
+one curve — at the crop diameter and at the arithmetic mean diameter — give different heights, and the
+difference is the same lesson as above.</p>
+
+<p><strong>Top height</strong> is the height corresponding to the mean diameter, calculated from basal area,
+of the <strong>250 biggest diameters per hectare</strong>, read from the height–diameter curve.</p>
+
+<div class="note">
+  <span class="k">The contrast to hold on to</span>
+  <p>Crop height and mean height relate to <strong>all</strong> the trees of the crop. Top height relates to
+    <strong>only the 250 biggest</strong>. Site quality uses top height because it is largely independent of
+    stocking and thinning history — two stands of the same species and age with the same top height have the
+    same productive capacity, however differently they have been managed.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="age"><span class="n">Section 6</span>Age of the crop</h2>
+
+<p>For an <strong>even-aged</strong> crop, the age of the crop is the age of its trees. For an
+<strong>uneven-aged</strong> crop there are five methods, and they give different answers because they weight
+by different things.</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th></th><th>Method</th><th>Formula</th><th>Weighted by</th></tr></thead>
+  <tbody>
+    <tr><td class="rh">i</td><td>Smalian &amp; Heyer</td><td class="n">ΣV ÷ Σ(V/a)</td><td>Volume — most accurate, most cumbersome</td></tr>
+    <tr><td class="rh">ii</td><td>Basal area</td><td class="n">(S₁a₁ + S₂a₂ + …) ÷ ΣS</td><td>Basal area — simple; valid if form height is similar across classes</td></tr>
+    <tr><td class="rh">iii</td><td>Andre's formula</td><td class="n">(n₁a₁ + n₂a₂ + …) ÷ Σn</td><td>Number of trees</td></tr>
+    <tr><td class="rh">iv</td><td>Gumpel's formula</td><td class="n">(m₁a₁ + m₂a₂ + …) ÷ Σm</td><td>Area occupied</td></tr>
+    <tr><td class="rh">v</td><td>Simple mean</td><td class="n">Σa ÷ number of groups</td><td>Nothing — each group counts once</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="worked">
+  <div class="h">Worked example 7 · one forest, five mean ages</div>
+  <table class="sm">
+    <thead><tr><th>Group</th><th class="n">Age a</th><th class="n">S (m²)</th><th class="n">Trees n</th><th class="n">Area m (ha)</th><th class="n">V (m³)</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">I</td><td class="n">25</td><td class="n">8</td><td class="n">520</td><td class="n">12</td><td class="n">90</td></tr>
+      <tr><td class="rh">II</td><td class="n">55</td><td class="n">14</td><td class="n">260</td><td class="n">20</td><td class="n">310</td></tr>
+      <tr><td class="rh">III</td><td class="n">90</td><td class="n">6</td><td class="n">60</td><td class="n">8</td><td class="n">200</td></tr>
+      <tr><td class="rh">Total</td><td class="n">—</td><td class="n">28</td><td class="n">840</td><td class="n">40</td><td class="n">600</td></tr>
+    </tbody>
+  </table>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">ii · basal area</td><td class="n">(200 + 770 + 540) ÷ 28 = 53.93 yr</td></tr>
+      <tr><td class="rh">iii · Andre</td><td class="n">(13 000 + 14 300 + 5 400) ÷ 840 = 38.93 yr</td></tr>
+      <tr><td class="rh">iv · Gumpel</td><td class="n">(300 + 1 100 + 720) ÷ 40 = 53.00 yr</td></tr>
+      <tr><td class="rh">v · simple mean</td><td class="n">(25 + 55 + 90) ÷ 3 = 56.67 yr</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">38.9 to 56.7 years — from one forest</div>
+  <p style="margin-top:10px"><strong>The spread is the lesson.</strong> Andre's number-weighted figure is
+    dragged down by the 520 young stems; the simple mean ignores that they exist at all.
+    <strong>Always state which method produced a mean age.</strong></p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="vol"><span class="n">Section 7</span>Volume of the crop</h2>
+
+<p>Direct measurement of the volume of a whole stand is neither practical nor economical — nobody fells a
+forest to find out how much wood it holds. Volume is built up from parts: a sample, a table or an equation,
+and an expansion.</p>
+
+<div class="eq">V<sub>total</sub> = (V<sub>sample</sub> ÷ sample area) × total area</div>
+
+<p><strong>Route 1 · with a volume table.</strong> Read volume per tree straight from the table by diameter
+class. No height or form factor needed — they are built into the table. This is what a field forester does.</p>
+
+<p><strong>Route 2 · without one.</strong> Compute <span class="m">V = G × h × f</span>. This is what an
+examination asks for when no table is given.</p>
+
+<div class="worked">
+  <div class="h">Worked example 8 · expanding a sample plot volume</div>
+  <p>Sample plot 0.1 ha; volume of all trees in it 5 m³; total forest area 50 ha.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">Per hectare</td><td class="n">5 ÷ 0.1 = 50 m³/ha</td></tr>
+      <tr><td class="rh">Expand</td><td class="n">50 × 50 = 2 500</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">2 500 m³ — total standing volume of the 50 ha forest</div>
+  <p style="margin-top:10px"><strong>The unit, and why it is not m³/ha.</strong> 50 m³/ha × 50 ha — the
+    hectares <em>cancel</em>, leaving cubic metres. A total is m³; only the intermediate figure is per
+    hectare. Catching this kind of slip in other people's work is a professional skill.</p>
+</div>
+
+<div class="note">
+  <span class="k">The real weakness of that estimate — and the wrong version of the criticism</span>
+  <p>It is <strong>one plot</strong>. One plot cannot represent the spatial variability of 50 ha, and it
+    gives <strong>no design-based variance</strong>, so the figure cannot honestly be quoted with a standard
+    error or a confidence interval.</p>
+  <p>Note what the weakness is <em>not</em>. The sampling fraction here is 0.2 %, and a small sampling
+    fraction is <strong>not by itself</strong> evidence of poor precision — a national inventory samples a
+    far smaller fraction and is far more precise. Precision depends on the number of plots, their
+    distribution, the variability of the population, the design, the plot size, the estimator, measurement
+    quality and spatial autocorrelation.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="biomass"><span class="n">Section 8</span>Biomass and carbon</h2>
+
+<h3>Two routes</h3>
+
+<p><strong>Route 1 · indirect, through volume.</strong></p>
+<div class="eq sm">B = V × ρ × BEF
+  <span class="u">volume (m³) × wood density (kg/m³) × biomass expansion factor</span>
+</div>
+<p>Use it when you already hold a volume figure and no tree list. The cost: <strong>three uncertainties
+stacked</strong> — volume error, a density that is usually a species or regional average, and an expansion
+factor that is usually a national default.</p>
+
+<p><strong>Route 2 · direct, allometric.</strong></p>
+<div class="eq sm">B = f (DBH) &nbsp;or&nbsp; f (DBH, h)
+  <span class="u">no volume is computed at all</span>
+</div>
+<p>Use it when you hold tree measurements — which, after Units II and IV, you always do. The cost: only the
+equation's own error. This is the route Bhutan's National Forest Inventory and every Bhutanese carbon report
+uses.</p>
+
+<h3>The selection hierarchy — work down it, never up</h3>
+<ol>
+  <li><strong>Species-specific, DBH and height</strong>, when the species is one of the fourteen and the tree
+    lies inside the fitted DBH range.</li>
+  <li><strong>Species-specific, DBH only</strong>, when reliable height is not available.</li>
+  <li><strong>General conifer</strong> or <strong>general broadleaf</strong> — only when no suitable species
+    equation exists.</li>
+</ol>
+
+<p><strong>Record all six, every time:</strong> equation source and year; species it was fitted to; input
+variables and their units; calibration range (n, min and max DBH); output unit; and why this equation and
+not another.</p>
+
+<h3>Structure of the Bhutan equations</h3>
+
+<div class="eq sm">B = b₀ + b₁·BA + b₂·X₂ &nbsp;&nbsp;or&nbsp;&nbsp; B = b₀ + b₁·BAH + b₂·X₂
+  <span class="u">BA = πd²/4 in <strong>square metres</strong>; BAH = BA × h in <strong>cubic metres</strong>;
+    B in <strong>kilograms</strong></span>
+</div>
+
+<p>X₂ is a restricted cubic spline of the predictor, with the same form as the volume models in Unit V.
+The knots are the 10th, 50th and 90th percentiles of the predictor in the fitting data, and they
+<strong>differ between the BA form and the BAH form of the same species</strong>.</p>
+
+<h3>Five ways to get a plausible-looking wrong answer</h3>
+<ol>
+  <li>Omitting the <strong>spline term</strong> because it looks like a correction. Drop it from the DBH-only
+    equation for a 45 cm blue pine and the estimate falls from 740 kg to 546 kg.</li>
+  <li>Mixing <strong>centimetres and metres</strong>, or cm² and m², in the predictor.</li>
+  <li>Using a tree <strong>outside the fitted DBH range</strong> without saying so.</li>
+  <li>Taking a <strong>general equation</strong> when a species equation exists.</li>
+  <li>Assuming equation error <strong>disappears on aggregation</strong>.</li>
+</ol>
+
+<div class="note">
+  <span class="k">On the fifth — say it precisely</span>
+  <p>Positive and negative <strong>random</strong> errors may partly offset in a sufficiently large sample.
+    <strong>Shared model bias, site effects, species differences, measurement bias and extrapolation error do
+    not offset</strong> — they survive summation intact and scale with the estimate. A stand total is not
+    automatically more accurate than the trees it was built from.</p>
+</div>
+
+<h3>Tree biomass to stand biomass to carbon</h3>
+<ol>
+  <li>Compute biomass for <strong>every tree</strong> individually — never from a mean tree.</li>
+  <li>Sum within the plot (kg/plot).</li>
+  <li>Divide by plot area in hectares — for a 500 m² plot, ÷ 0.05, the same as × 20.</li>
+  <li>Report kg/ha, then convert: <span class="m">1 Mg = 1 000 kg = 1 tonne</span>.</li>
+  <li>Report <strong>Mg/ha</strong> — the unit every national and international forest-carbon report uses.</li>
+  <li>Convert to carbon <strong>only with the fraction the applicable protocol requires</strong>, and cite
+    that protocol beside the figure.</li>
+</ol>
+
+<div class="note">
+  <span class="k">Do not memorise a carbon fraction</span>
+  <p>The biomass-to-carbon fraction is set by the <strong>reporting protocol</strong>, and it differs between
+    protocols and between carbon pools. The examinable skill is finding and citing the applicable fraction —
+    not reciting a number.</p>
+</div>
+
+<h3>Why biomass cannot be taken from the mean tree</h3>
+
+<div class="note">
+  <span class="k">The rule that reaches far past this unit</span>
+  <p>You may take an average <strong>before</strong> applying a <em>linear</em> function. You may
+    <strong>never</strong> take an average before applying a <em>curved</em> one. The biomass equation is a
+    cubic in basal area, so the biomass of the mean tree multiplied by the number of trees is <em>not</em> the
+    biomass of the stand.</p>
+  <p>On a 12-tree plot the difference is 3 493 kg computed tree by tree against 2 714 kg from the mean tree —
+    <strong>22 % low</strong>, because the one 60 cm tree carries almost half the biomass on its own. This is
+    why an inventory records individual trees and not class totals.</p>
+</div>
+
+<div class="worked">
+  <div class="h">Worked example 9 · three blue pine, two equations</div>
+  <table class="sm">
+    <thead><tr><th>Tree</th><th class="n">DBH cm</th><th class="n">h m</th><th class="n">DBH-only kg</th><th class="n">DBH+h kg</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">A</td><td class="n">25.0</td><td class="n">16.0</td><td class="n">172.9</td><td class="n">154.2</td></tr>
+      <tr><td class="rh">B</td><td class="n">25.0</td><td class="n">22.0</td><td class="n">172.9</td><td class="n">211.4</td></tr>
+      <tr><td class="rh">C</td><td class="n">45.0</td><td class="n">26.0</td><td class="n">740.0</td><td class="n">770.1</td></tr>
+      <tr><td class="rh">Total</td><td class="n">—</td><td class="n">—</td><td class="n">1 085.8</td><td class="n">1 135.7</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">Trees A and B: same DBH, so the DBH-only equation must give them the same biomass</div>
+  <p style="margin-top:10px">It <em>cannot</em> do anything else — height is not in the equation. But B is
+    six metres taller, and the height-inclusive equation puts it <strong>37 % heavier</strong> than A.</p>
+  <p><strong>And the subtler point.</strong> The two <em>totals</em> differ by only 4.4 %, because A's
+    overestimate and B's underestimate partly cancel. Do <strong>not</strong> conclude that the diameter-only
+    equation is therefore fine for stands. It cancelled here because this little sample happened to contain
+    one short tree and one tall one of the same diameter. In a stand systematically taller or shorter than
+    the fitting data — a fertile valley bottom, an exposed ridge — the errors all point the same way and
+    nothing cancels.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="sampling"><span class="n">Section 9</span>Sampling and inference</h2>
+
+<h3>The frame</h3>
+
+<p>The <strong>target population</strong> is what you want to describe — all forest in the FMU. The
+<strong>sampling population</strong> is what your frame can actually reach. They are never identical, and
+every exclusion — an out-of-date boundary, a cliff, a restricted area, a plot nobody could get to — moves the
+second away from the first. <strong>That gap is where bias lives, and it does not show up anywhere in the
+arithmetic.</strong></p>
+
+<p>Write down before the crew leaves: the forest boundary used and its source and date; what is excluded and
+on what rule; what will be done about inaccessible plots; and whether the frame is known to be incomplete.</p>
+
+<h3>Four designs</h3>
+
+<table>
+  <thead><tr><th>Design</th><th>What it is</th></tr></thead>
+  <tbody>
+    <tr><td class="rh">Simple random</td><td>Every location equally likely. The reference case for the mathematics — and expensive to walk.</td></tr>
+    <tr><td class="rh">Systematic</td><td>A grid. Spreads plots evenly and is easy to navigate to. <strong>Bhutan's NFI uses a 4 × 4 km grid.</strong></td></tr>
+    <tr><td class="rh">Stratified</td><td>Split the forest into types first, sample each. Buys precision when the strata really do differ.</td></tr>
+    <tr><td class="rh">Cluster</td><td>Several plots at each visited location. What you do when travel dominates cost — in Bhutan, <strong>three plots per cluster</strong>.</td></tr>
+  </tbody>
+</table>
+
+<p>Two further axes, often confused with the design: <strong>fixed-area</strong> plots take every tree inside
+a boundary, while <strong>variable-radius</strong> plots take a tree with probability proportional to its
+basal area; and <strong>permanent</strong> plots are re-measured while <strong>temporary</strong> ones are
+not. Only permanent plots can give increment — everything in Unit VII depends on them existing.</p>
+
+<h3>Expansion factors</h3>
+
+<div class="eq sm">expansion factor = 1 ha ÷ plot area in ha &nbsp;·&nbsp; for 500 m² = 0.05 ha, EF = 20</div>
+
+<h3>Variance, standard error and the confidence interval</h3>
+
+<div class="worked">
+  <div class="h">Worked example 10 · five plots in one blue pine stand</div>
+  <table class="sm">
+    <thead><tr><th>Plot</th><th class="n">Plot vol m³</th><th class="n">× 20 → m³/ha</th><th class="n">(x − x̄)</th><th class="n">(x − x̄)²</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">1</td><td class="n">8.2</td><td class="n">164</td><td class="n">−36</td><td class="n">1 296</td></tr>
+      <tr><td class="rh">2</td><td class="n">11.6</td><td class="n">232</td><td class="n">+32</td><td class="n">1 024</td></tr>
+      <tr><td class="rh">3</td><td class="n">6.9</td><td class="n">138</td><td class="n">−62</td><td class="n">3 844</td></tr>
+      <tr><td class="rh">4</td><td class="n">13.4</td><td class="n">268</td><td class="n">+68</td><td class="n">4 624</td></tr>
+      <tr><td class="rh">5</td><td class="n">9.9</td><td class="n">198</td><td class="n">−2</td><td class="n">4</td></tr>
+      <tr><td class="rh">Total</td><td class="n">50.0</td><td class="n">1 000</td><td class="n">—</td><td class="n">10 792</td></tr>
+    </tbody>
+  </table>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">Mean</td><td class="n">x̄ = 1 000 ÷ 5 = 200 m³/ha</td></tr>
+      <tr><td class="rh">Variance</td><td class="n">s² = 10 792 ÷ (5 − 1) = 2 698</td></tr>
+      <tr><td class="rh">Standard deviation</td><td class="n">s = √2 698 = 51.9 m³/ha</td></tr>
+      <tr><td class="rh">Standard error</td><td class="n">SE = 51.9 ÷ √5 = 23.2 m³/ha</td></tr>
+      <tr><td class="rh">95 % interval</td><td class="n">200 ± 2.776 × 23.2 = 200 ± 64 → 136 – 264</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">Report it as 200 ± 64 m³/ha, 95 % confidence, 5 plots, relative SE 11.6 %</div>
+</div>
+
+<p><strong>Three things to take from that interval.</strong> It is <em>wide</em> — the honest statement about
+this stand is a range, not the number 200. Divide by <strong>n − 1</strong>, because the mean was estimated
+from the same data. And <strong>SE falls with the square root of n</strong>: four times the plots halves it.
+That one sentence governs every inventory budget ever written.</p>
+
+<div class="worked">
+  <div class="h">How many plots would you actually need?</div>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">Coefficient of variation</td><td class="n">CV = 51.9 ÷ 200 = 26 %</td></tr>
+      <tr><td class="rh">For a 10 % relative SE</td><td class="n">n = (26 ÷ 10)² ≈ 7 plots</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">Seven plots of 0.05 ha in 50 ha is a sampling fraction of 0.7 %</div>
+  <p style="margin-top:10px">What buys precision is the <strong>number of plots</strong> set against the
+    <strong>variability of the forest</strong> — not the fraction of the area covered.</p>
+</div>
+
+<div class="note">
+  <span class="k">Two errors, not one</span>
+  <p><strong>Measurement error</strong> is the error in reading one tree, reduced by calibration, training and
+    protocol. <strong>Sampling error</strong> is the error from having measured plots instead of the whole
+    forest, reduced by more plots. A defensible report accounts for both — and, after the biomass section, for
+    <strong>model error</strong> as well.</p>
+</div>
+
+<h3>Inaccessible plots and non-response</h3>
+
+<ul>
+  <li><strong>Record it</strong> — coordinates, date, and the reason it could not be measured.</li>
+  <li><strong>Replace only under a written rule</strong> agreed before fieldwork, and record that a
+    replacement was used.</li>
+  <li><strong>Never</strong> walk on and measure the nearest convenient stand instead.</li>
+</ul>
+
+<div class="note">
+  <span class="k">Why substitution is the most damaging thing a crew can do</span>
+  <p>Steep, remote and cliff-bound ground is <strong>not a random subset</strong> of the forest — it carries
+    different stocking, different species and different disturbance history. Systematically dropping it biases
+    every estimate the inventory produces, in a direction nobody can afterwards calculate.
+    <strong>A documented gap can be adjusted for. An undocumented substitution cannot.</strong></p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="qc"><span class="n">Section 10</span>Error and quality control</h2>
+
+<p><strong>Random</strong> — reduced by measuring more: natural variation between plots, small reading
+differences, borderline judgements.</p>
+
+<p><strong>Systematic</strong> — not reduced by measuring more: a stretched or worn girth tape (reads high on
+every tree); a crew measuring downhill on slopes (high on every tree); generous inclusion of borderline trees
+in point sampling (every plot upward); a form factor from another species or site (every volume).</p>
+
+<h3>The QA/QC list</h3>
+<ul>
+  <li>Calibrate tapes, callipers and clinometers at the start of each season.</li>
+  <li>Repeat measurements on a sample of trees, <strong>blind</strong>.</li>
+  <li>State the <strong>tolerance</strong> a repeat must fall within.</li>
+  <li>Species-code checks against the agreed list.</li>
+  <li>Coordinate checks — is the plot where it should be?</li>
+  <li>Range checks on every field before analysis. A DBH of 400 cm is a typing error; a height of 3 m against
+    a 60 cm stem is a transposition. Neither is visible once the data are summed.</li>
+  <li>Duplicate-tree prevention in permanent plots.</li>
+  <li>Field-team consistency — the same rules across crews.</li>
+  <li>Supervisor re-measurement of a proportion of plots.</li>
+  <li>Data validation before any analysis begins.</li>
+</ul>
+
+<p>Every departure from the written method — a shifted measurement height, a different instrument, a plot
+moved — is <strong>recorded at the time</strong>, not reconstructed later.</p>
+
+<div class="note">
+  <span class="k">The question to expect</span>
+  <p>&ldquo;Your data give 200 m³/ha. <strong>Who checked it, when, against what tolerance, and where is that
+    recorded?</strong>&rdquo; A number without that context is not a result; it is a rumour.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="bhutan"><span class="n">Section 11</span>In Bhutanese forestry</h2>
+
+<p>Every figure in this unit ends up in a document somebody has to defend.</p>
+
+<ul>
+  <li><strong>Sustainable yield.</strong> Basal area and growing stock per hectare set the allowable cut in an
+    FMU working plan and in a community-forest management plan.</li>
+  <li><strong>Carbon reporting.</strong> Biomass per hectare, from the 2018 national equations, feeds the
+    greenhouse-gas inventory and Bhutan's carbon-neutrality commitment.</li>
+  <li><strong>National reporting.</strong> Growing stock and forest condition are published in the State of
+    Forest Report and in Bhutan's international submissions.</li>
+  <li><strong>Crop structure.</strong> Diameter-class distribution, top height and site quality decide
+    silvicultural treatment — thinning, regeneration felling, or leaving well alone.</li>
+</ul>
+
+<div class="bhutan">
+  <span class="k">Community forestry</span>
+  <p>The arithmetic of this unit <em>is</em> the arithmetic of a community-forest management plan: prepare and
+    revise the plan; estimate the group's own timber, fuelwood and pole requirement against what the forest
+    can sustainably supply; monitor regeneration; identify culturally important species and assess NWFP
+    resources; and combine members' <strong>local ecological knowledge</strong> with plot measurement — not
+    one instead of the other — in support of transparent and equitable allocation within the group.</p>
+</div>
+
+<div class="bhutan">
+  <span class="k">Beyond timber — the same instruments</span>
+  <p>Large habitat trees, standing and fallen deadwood, diameter-class diversity, crown condition,
+    regeneration density, basal area by species group, biomass and carbon, canopy cover, riparian stand
+    structure, climate-related mortality, change between inventories. Not one of these is volume, and every one
+    is measured with the instruments of this module. <strong>Volume is one output of mensuration, not its
+    purpose.</strong></p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="practice"><span class="n">Section 12</span>Practice questions</h2>
+
+<ol class="qs">
+  <li>Define basal area and state its four uses.</li>
+  <li>A 0.04 ha plot holds stems whose basal areas total 1.02 m². Compute G in m²/ha.</li>
+  <li>Six point-sampling stations with a BAF of 4 give counts of 7, 9, 6, 8, 10 and 8. Estimate G.</li>
+  <li>A stand has a mean spacing of 3.8 m and a mean DBH of 22 cm. Estimate G by the spacing factor, and state
+    what a 5 % pacing error would do to the answer.</li>
+  <li>Explain, with reference to squaring, why the crop diameter is always larger than the arithmetic mean
+    diameter.</li>
+  <li>From the Section 5 table, compute Lorey's crop height. Then compute the percentage by which the
+    arithmetic mean height of 14.31 m understates it, and say which base you used and why.</li>
+  <li>Distinguish crop height, mean height and top height, and say which one site quality uses and why.</li>
+  <li>A 500 m² plot holds 3 493 kg of biomass. Express this in Mg/ha.</li>
+  <li>Two blue pine both measure 30 cm DBH; one is 18 m tall and the other 25 m. What will the DBH-only
+    equation say about their biomass, and why is that wrong?</li>
+  <li>Four plots give 210, 185, 240 and 165 m³/ha. Compute the mean, the standard error and the 95 %
+    confidence interval (t = 3.182 for 3 degrees of freedom).</li>
+  <li>A crew cannot reach three of twenty plots and measures three easier ones nearby instead. What has this
+    done to the estimate, and what should they have done?</li>
+</ol>
+
+<p><em>Worked solutions to questions 2, 3, 4, 6, 8 and 10 are in the</em>
+  <a href="MEN201_Calculation_Handbook.html#sol-vi">calculation handbook</a>.</p>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="summary"><span class="n">Section 13</span>Summary</h2>
+
+<ul>
+  <li><span class="m">g = πd²/4</span>; <span class="m">G = Σg ÷ plot ha</span>;
+    <span class="m">G = N × BAF</span>; <span class="m">G = 7 854/F²</span>.</li>
+  <li><strong>Crop diameter comes from mean basal area</strong> and is always larger than the arithmetic mean
+    diameter.</li>
+  <li><strong>Top diameter and top height</strong> use the 250 biggest per hectare, because they are least
+    affected by stocking — which is what makes them a site-quality signal.</li>
+  <li>Lorey's <span class="m">H<sub>L</sub> = Σ(s·h) ÷ Σs</span> — basal-area weighted, because volume is
+    dominated by large trees.</li>
+  <li>Mean age depends entirely on the weighting. State the method.</li>
+  <li><span class="m">V = G × h × f</span>; expand with <span class="m">EF = 1 ÷ plot ha</span>; a total is
+    m³, not m³/ha.</li>
+  <li>Biomass: two routes, a selection hierarchy, and <strong>tree by tree, never from the mean tree</strong>.</li>
+  <li>One plot gives no variance. <strong>SE falls with √n</strong>; precision comes from the number of plots
+    against the variability of the forest, not from the sampling fraction.</li>
+</ul>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="refs"><span class="n">Section 14</span>References</h2>
+
+<ul>
+  <li><strong>UWICER &amp; FRMD, DoFPS (2018).</strong>
+    <a href="../supplementary/Allometric_Biomass_Equations_Bhutan_2018.pdf">Allometric Biomass Equations:
+    14 Species and 2 General</a>. Thimphu. — Tables A and B and the spline note.</li>
+  <li><strong>DoFPS (2023).</strong> <em>National Forest Inventory Volume I — State of Forest Report 2023</em>.
+    Thimphu. — sampling design, cluster and plot geometry, confidence intervals.</li>
+  <li><strong>Husch, B., Beers, T. W. &amp; Kershaw, J. A. (2003).</strong> <em>Forest Mensuration</em>,
+    4th ed. Wiley. — chs. 10–13, stand parameters and sampling.</li>
+  <li><strong>West, P. W. (2009).</strong> <em>Tree and Forest Measurement</em>, 2nd ed. Springer. — chs. 7–9.</li>
+  <li><strong>Bitterlich, W. (1984).</strong> <em>The Relascope Idea</em>. — angle-count sampling.</li>
+  <li><strong>National Forest Policy of Bhutan (2011)</strong> · <strong>Forest and Nature Conservation Act of
+    Bhutan (2023)</strong> · <strong>National Biodiversity Strategy and Action Plan (2025)</strong>.</li>
+</ul>
+
+<footer class="foot">
+  <span>MEN 201 · Unit VI student lecture notes · College of Natural Resources</span>
+  <span><a href="index.html">All notes</a> · <a href="MEN201_Calculation_Handbook.html">Handbook</a> · <a href="../index.html">Contents</a></span>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MEN 201 · Unit IV notes · Measurement of Tree Height</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_notes.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker">MEN 201 · Forest Mensuration · Student lecture notes</div>
+  <h1>Unit IV · Measurement of <em>Tree Height</em></h1>
+  <p class="sub">Which height you mean, how to get it without instruments, the tangent method and its
+    four cases, the sine method for leaning stems, and the class systems.</p>
+  <p class="meta">Sessions 6–9 · BSc in Forestry, College of Natural Resources, Royal University of Bhutan<br>
+    Read alongside <a href="../MEN201_Unit_IV_Measurement_of_Tree_Height.html">the Unit IV deck</a>
+    &middot; <a href="MEN201_Calculation_Handbook.html">calculation handbook</a>
+    &middot; <a href="index.html">all notes</a></p>
+</header>
+
+<nav class="toc">
+  <h2>In this unit</h2>
+  <ol>
+    <li><a href="#outcomes">Learning outcomes</a></li>
+    <li><a href="#which">Which height?</a></li>
+    <li><a href="#noinst">Without instruments</a></li>
+    <li><a href="#tangent">The tangent method</a></li>
+    <li><a href="#sine">Leaning trees and the sine method</a></li>
+    <li><a href="#errors">Sources of error</a></li>
+    <li><a href="#classes">DBH and height classes</a></li>
+    <li><a href="#bhutan">In Bhutanese forestry</a></li>
+    <li><a href="#practice">Practice questions</a></li>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#refs">References</a></li>
+  </ol>
+</nav>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="outcomes"><span class="n">Section 1</span>Learning outcomes</h2>
+<ol>
+  <li><strong>Define</strong> total height and distinguish the six heights measured along a tree.</li>
+  <li><strong>Estimate</strong> height without instruments by the ocular, shadow and single-pole methods,
+    and state the assumptions each makes.</li>
+  <li><strong>Apply</strong> the tangent method in all four standing positions, adding eye height correctly.</li>
+  <li><strong>Recognise</strong> when a tree leans enough to invalidate the tangent method, and
+    <strong>apply</strong> the sine method in all six cases.</li>
+  <li><strong>Identify</strong> the seven sources of error and say which are random and which systematic.</li>
+  <li><strong>Assign</strong> trees to DBH and height classes using the standard width rules.</li>
+</ol>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="which"><span class="n">Section 2</span>Which height?</h2>
+
+<p>&ldquo;Height&rdquo; on its own is not a measurement. Six different heights are read from one tree,
+and they answer different questions.</p>
+
+<table>
+  <thead><tr><th>#</th><th>Height</th><th>From → to</th><th>Who wants it</th></tr></thead>
+  <tbody>
+    <tr><td class="n">1</td><td class="rh">Total height</td><td>Ground level → tip of the leading shoot</td><td>Volume tables, site quality, growth studies</td></tr>
+    <tr><td class="n">2</td><td class="rh">Bole height</td><td>Ground → crown point, the first crown-forming branch <em>living or dead</em></td><td>Silviculturist — describes how the stem is carried</td></tr>
+    <tr><td class="n">3</td><td class="rh">Commercial bole height</td><td>Ground → the last point fit for utilisation</td><td>Buyer, sawmiller — how many logs</td></tr>
+    <tr><td class="n">4</td><td class="rh">Stump height</td><td>Ground → the top of the stump after felling</td><td>Harvesting supervisor — the most controllable loss on a coupe</td></tr>
+    <tr><td class="n">5</td><td class="rh">Crown length</td><td>Tip → base of the live crown</td><td>Researcher — live-crown ratio, vigour, competition</td></tr>
+    <tr><td class="n">6</td><td class="rh">Crown-base height</td><td>Ground → base of the live crown</td><td>Researcher, fire officer — the ladder-fuel gap</td></tr>
+  </tbody>
+</table>
+
+<div class="eq sm">crown length + crown-base height = total height &nbsp;·&nbsp; live-crown ratio = crown length ÷ total height</div>
+
+<div class="note">
+  <span class="k">Two that look the same and are not</span>
+  <p><strong>Bole height</strong> stops at the first crown-forming branch, <em>living or dead</em>.
+    <strong>Crown-base height</strong> stops at the base of the <em>live</em> crown. On a tree that has
+    kept its dead branches, bole height is the <strong>shorter</strong> of the two.</p>
+  <p>The bare term &ldquo;crown height&rdquo; is not used in this module — see
+    <a href="MEN201_Notes_Unit_III.html#terms">Unit III</a> for why.</p>
+</div>
+
+<div class="note">
+  <span class="k">Why height is the hardest dimension</span>
+  <p>Volume is <strong>linear</strong> in height. A 10 % error in the height of a tree is a 10 % error in
+    its volume — there is no averaging, no cancellation, and no way to recover it later in the office.
+    Diameter you can walk up to and touch; height you must infer from an angle and a distance, and both
+    can be wrong.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="noinst"><span class="n">Section 3</span>Measuring without instruments</h2>
+
+<h3>Ocular estimation</h3>
+<p>Judging height by eye. Fast, free, and genuinely good with practice against known trees. Systematically
+poor without calibration, and worse with tall trees than short ones. Use it as a <em>check</em> on an
+instrument reading, never as the reading.</p>
+
+<h3>The shadow method</h3>
+
+<p>Similar triangles. Measure a pole, the pole's shadow, and the tree's shadow.</p>
+
+<div class="eq">tree height = pole height × (tree shadow ÷ pole shadow)</div>
+
+<div class="worked">
+  <div class="h">Worked example 1 · shadow method</div>
+  <p>Pole 2.0 m, pole shadow 1.6 m, tree shadow 14.4 m.</p>
+  <div class="ans">h = 2.0 × 14.4 ÷ 1.6 = 18.0 m</div>
+  <p style="margin-top:10px"><strong>The sensitivity to watch.</strong> Suppose the pole shadow were
+    measured five minutes later and read 1.7 m instead of 1.6 m:
+    h = 2.0 × 14.4 ÷ 1.7 = <strong>16.9 m</strong>. A 6 cm error in one small measurement has moved the
+    tree by more than a metre. <strong>Measure all three within the same few minutes</strong>, because
+    the sun moves — and beware any ratio whose denominator is small.</p>
+</div>
+
+<p><strong>Assumptions:</strong> level ground, an unobstructed shadow, and the sun out. It cannot be used
+inside a closed broadleaf stand at midday, because no shadow reaches the floor to measure.</p>
+
+<h3>The single pole method</h3>
+
+<p>Hold a pole of known length vertically at arm's length, move until the pole visually covers the tree
+exactly, then use similar triangles between eye–pole and eye–tree. Cheap and surprisingly good; sensitive
+to holding the pole truly vertical and to a consistent arm's length.</p>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="tangent"><span class="n">Section 4</span>The tangent method</h2>
+
+<p>The professional standard where the tree is vertical. An instrument reads an <strong>angle</strong>;
+you supply the <strong>distance</strong> and do the arithmetic.</p>
+
+<h3>Instruments</h3>
+
+<table class="sm">
+  <thead><tr><th>Instrument</th><th>Principle</th></tr></thead>
+  <tbody>
+    <tr><td class="rh">Christen's hypsometer</td><td>Geometric — similar triangles, no distance needed, but a pole of known length must be held at the tree</td></tr>
+    <tr><td class="rh">Smythies' hypsometer</td><td>Geometric — a fixed base distance is set out</td></tr>
+    <tr><td class="rh">Clinometer</td><td><strong>Trigonometric</strong> — reads the angle; you supply the distance</td></tr>
+    <tr><td class="rh">Laser hypsometer</td><td>Trigonometric — measures the distance itself and does the arithmetic internally</td></tr>
+  </tbody>
+</table>
+
+<div class="bhutan">
+  <span class="k">Which instrument, in which setting</span>
+  <p>The clinometer is cheap, rugged, needs no batteries, and the crew already carries one for slope
+    correction — which is why it dominates <strong>teaching exercises and resource-limited field work</strong>.
+    Bhutan's <strong>Second National Forest Inventory used a Haglöf Laser Geo hypsometer</strong> and
+    measured every tree in the plot. <strong>Name the setting before you name the instrument.</strong></p>
+</div>
+
+<h3>The four cases</h3>
+
+<div class="eq sm"><strong>a · level ground</strong><br>
+  h = D · tan θ + eye height
+  <span class="u">D = horizontal distance · θ = elevation to the tip</span>
+</div>
+
+<div class="eq sm"><strong>b · eye between top and base</strong><br>
+  AB = EB · cos β (tan α + tan β)
+  <span class="u">α elevation to the top · β depression to the base · EB slope distance to the base</span>
+</div>
+
+<div class="eq sm"><strong>c · eye below the base</strong><br>
+  AB = EB · cos β (tan α − tan β)
+  <span class="u">both angles are elevations — the whole tree is above your horizontal</span>
+</div>
+
+<div class="eq sm"><strong>d · eye above the base</strong><br>
+  AB = EB · cos β (tan β − tan α)
+  <span class="u">both angles are depressions — β to the base is the steeper</span>
+</div>
+
+<div class="worked">
+  <div class="h">Worked example 2 · level ground</div>
+  <p>Horizontal distance D = 20.0 m, elevation to tip θ = 38°, eye height 1.5 m.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">tan 38°</td><td class="n">0.7813</td></tr>
+      <tr><td class="rh">Height above the eye</td><td class="n">20.0 × 0.7813 = 15.63 m</td></tr>
+      <tr><td class="rh">Add eye height</td><td class="n">15.63 + 1.50 = 17.13 m</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">h = 17.1 m</div>
+  <p style="margin-top:10px"><strong>15.63 m is the height above the eye — never the height of the tree.</strong>
+    Adding the eye height back is the step students omit.</p>
+  <p><strong>How much does 2° cost?</strong> Read as 40° instead of 38°:
+    20.0 × 0.8391 + 1.5 = <strong>18.3 m</strong>. A two-degree misreading has moved the tree by 1.2 m,
+    about 7 %. <em>Read the instrument twice and average.</em></p>
+</div>
+
+<div class="worked">
+  <div class="h">Worked example 3 · sloping ground, eye between top and base</div>
+  <p>Slope distance EB = 18.0 m, depression to base β = 12°, elevation to top α = 34°.</p>
+  <table class="sm">
+    <tbody>
+      <tr><td class="rh">Horizontal distance</td><td class="n">ED = 18.0 × cos 12° = 17.61 m</td></tr>
+      <tr><td class="rh">Tangents</td><td class="n">tan 34° = 0.6745 · tan 12° = 0.2126</td></tr>
+      <tr><td class="rh">Sum</td><td class="n">0.6745 + 0.2126 = 0.8871</td></tr>
+      <tr><td class="rh">Height</td><td class="n">17.61 × 0.8871 = 15.62 m</td></tr>
+    </tbody>
+  </table>
+  <div class="ans">h = 15.6 m</div>
+  <p style="margin-top:10px"><strong>Sanity-check it physically.</strong> Tip above eye
+    17.61 × 0.6745 = 11.88 m; base below eye 17.61 × 0.2126 = 3.74 m; total 15.62 m ✓.
+    <em>If you cannot explain the answer in those two physical parts, you have not understood it.</em></p>
+</div>
+
+<div class="note">
+  <span class="k">The commonest error on a slope</span>
+  <p>Measuring with the eye between top and base and then <strong>adding the eye height at the end</strong>.
+    That double-counts: the depression angle β to the base has <em>already</em> measured the drop from eye
+    to base. Eye height is added only in the level-ground case.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="sine"><span class="n">Section 5</span>Leaning trees and the sine method</h2>
+
+<p>Every tangent formula assumes the tree is <strong>vertical</strong> — that the tip stands directly above
+the base. A leaning tree breaks that assumption, and the tangent method then measures an imaginary vertical
+tree through the tip.</p>
+
+<div class="note">
+  <span class="k">Which way the error goes</span>
+  <p>A tree leaning <strong>towards</strong> you reads <strong>too tall</strong>: the imaginary vertical
+    tree through the tip is taller than the real stem. Leaning <strong>away</strong> reads too short.</p>
+</div>
+
+<h3>The master equation</h3>
+
+<p>The sine rule on triangle AEB, where A is the tip, B the base and E the eye:</p>
+
+<div class="eq">AB / sin ∠AEB = BE / sin ∠EAB = AE / sin ∠ABE</div>
+
+<div class="eq">AB = EB · sin ∠AEB ÷ sin ∠EAB
+  <span class="u">the master equation — the six cases below only find ∠EAB</span>
+</div>
+
+<div class="note">
+  <span class="k">Why foresters like it</span>
+  <p>EB is a <strong>slope distance</strong>, read straight along the line of sight — and it stays one.
+    The sine method <strong>never needs the horizontal distance</strong>, which is its whole advantage on
+    steep ground.</p>
+</div>
+
+<h3>The six cases</h3>
+
+<p>Three positions × two lean directions. <em>θ</em> is the angle of lean.</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>Case</th><th>Where you stand</th><th>Angles read</th><th>Leaning <em>towards</em> you</th><th>Leaning <em>away</em></th></tr></thead>
+  <tbody>
+    <tr><td class="rh">a</td><td>Between the base and the top</td><td>α elevation, β depression</td>
+        <td class="n">EB · sin(α+β) / cos(α−θ)</td><td class="n">EB · sin(α+β) / cos(α+θ)</td></tr>
+    <tr><td class="rh">b</td><td>Below the base and the top</td><td>both elevations</td>
+        <td class="n">EB · sin(α−β) / cos(α−θ)</td><td class="n">EB · sin(α−β) / cos(α+θ)</td></tr>
+    <tr><td class="rh">c</td><td>Above the base and the top</td><td>both depressions</td>
+        <td class="n">EB · sin(β−α) / cos(α+θ)</td><td class="n">EB · sin(β−α) / cos(α−θ)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="note">
+  <span class="k">How to use the table — two questions, never six formulae</span>
+  <p><strong>Where you stand</strong> chooses the row, and therefore the <em>numerator</em>.
+    <strong>Which way it leans</strong> chooses the column, and therefore the <em>sign inside the cosine</em>.
+    Three numerators × two signs = six cases. Do not memorise six formulae; memorise two questions.</p>
+</div>
+
+<p>The physical check: a bigger denominator gives a smaller height, which matches the fact that a tree
+leaning <em>away</em> is further off than it looks. Full derivations of the denominators are in the
+<a href="MEN201_Calculation_Handbook.html#deriv-sine">calculation handbook</a>.</p>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="errors"><span class="n">Section 6</span>Sources of error</h2>
+
+<table>
+  <thead><tr><th>Source</th><th>Nature</th><th>Cure</th></tr></thead>
+  <tbody>
+    <tr><td class="rh">Instrumental</td><td>Systematic</td><td>Calibrate; check the zero</td></tr>
+    <tr><td class="rh">Personal — one observer always sights high</td><td>Systematic</td><td>Two observers on a subsample, compared</td></tr>
+    <tr><td class="rh">Observational — misreading the scale</td><td>Random</td><td>Read twice and average</td></tr>
+    <tr><td class="rh">Weather — wind moving the crown</td><td>Random</td><td>Repeat; avoid gusty conditions</td></tr>
+    <tr><td class="rh">Wrong tip identified in a dense crown</td><td>Systematic (usually low)</td><td>Move until the true leader is visible</td></tr>
+    <tr><td class="rh">Slope distance used as horizontal distance</td><td>Systematic (high)</td><td>Use the correct case formula</td></tr>
+    <tr><td class="rh">Leaning stem measured by tangent</td><td>Systematic (either way)</td><td>Use the sine method</td></tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <span class="k">The distinction that decides the cure</span>
+  <p>Instrumental and personal errors are <strong>systematic</strong> and therefore never average out —
+    only better procedure removes them. Observational and weather errors are largely <strong>random</strong>
+    and do average out with repetition. That distinction decides whether the answer is <em>more
+    measurements</em> or <em>better procedure</em>.</p>
+</div>
+
+<h3>Six habits that remove most error</h3>
+<ol>
+  <li>Stand at roughly one tree length from the tree — closer exaggerates angle error, further makes the tip hard to see.</li>
+  <li>Make sure you can see both the tip and the base from where you stand.</li>
+  <li>Measure the distance, do not pace it, on anything that matters.</li>
+  <li>Read the instrument twice and average.</li>
+  <li>Check whether the stem leans before choosing a formula.</li>
+  <li>Round once, at the end — not at every step.</li>
+</ol>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="classes"><span class="n">Section 7</span>DBH and height classes</h2>
+
+<p>For research, every tree's dimensions are recorded separately. For routine measurement they are not
+needed: trees are allotted to a <strong>class</strong>, and the number in each class is recorded.</p>
+
+<h3>DBH classes</h3>
+
+<table>
+  <thead><tr><th>If the DBH is…</th><th>Use a class width of</th><th>Example intervals</th></tr></thead>
+  <tbody>
+    <tr><td class="rh">under 30 cm</td><td class="n">2 cm</td><td>10–12 · 12–14 · 14–16 …</td></tr>
+    <tr><td class="rh">30 to 50 cm</td><td class="n">5 cm</td><td>30–35 · 35–40 · 40–45 …</td></tr>
+    <tr><td class="rh">over 50 cm</td><td class="n">10 cm</td><td>50–60 · 60–70 · 70–80 …</td></tr>
+  </tbody>
+</table>
+
+<h3>Height classes</h3>
+
+<table>
+  <thead><tr><th>If the height is…</th><th>Use a class width of</th><th>Example intervals</th></tr></thead>
+  <tbody>
+    <tr><td class="rh">under 15 m</td><td class="n">1 m</td><td>10–11 · 11–12 · 12–13 …</td></tr>
+    <tr><td class="rh">15 to 25 m</td><td class="n">3 m</td><td>15–18 · 18–21 · 21–24 …</td></tr>
+    <tr><td class="rh">over 25 m</td><td class="n">5 m</td><td>25–30 · 30–35 · 35–40 …</td></tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <span class="k">The one students get wrong</span>
+  <p>The 3 m height series starts at <strong>15 m</strong>, not at zero — 15–18, 18–21, 21–24 — because
+    15 m is where the rule switches on. Counting from zero puts 19.6 m in the wrong row.</p>
+</div>
+
+<p><strong>The principle behind both rules:</strong> the class width follows the <em>density of the data</em>.
+Small trees are numerous and tightly packed, so a narrow class is needed to show structure; large trees are
+few and widely spread, so a narrow class would give rows holding one stem each. The aim is a roughly
+comparable number of trees in each class.</p>
+
+<div class="note">
+  <span class="k">Why height classes broaden faster than diameter classes</span>
+  <p>Not only because tall trees are fewer — because tall trees are <strong>measured less accurately</strong>.
+    A 30 m tree cannot be measured to the nearest metre with a clinometer in a real forest, so a 1 m class
+    would be recording precision that does not exist. <strong>A class width should never be finer than the
+    measurement error.</strong></p>
+</div>
+
+<div class="worked">
+  <div class="h">Worked example 4 · assigning trees to classes</div>
+  <table class="sm">
+    <thead><tr><th class="n">DBH</th><th>Rule</th><th>Class</th></tr></thead>
+    <tbody>
+      <tr><td class="n">12.4 cm</td><td>under 30 → 2 cm</td><td>12 – 14</td></tr>
+      <tr><td class="n">27.8 cm</td><td>under 30 → 2 cm</td><td>26 – 28</td></tr>
+      <tr><td class="n">34.2 cm</td><td>30–50 → 5 cm</td><td>30 – 35</td></tr>
+      <tr><td class="n">46.9 cm</td><td>30–50 → 5 cm</td><td>45 – 50</td></tr>
+      <tr><td class="n">58.3 cm</td><td>over 50 → 10 cm</td><td>50 – 60</td></tr>
+    </tbody>
+  </table>
+  <table class="sm">
+    <thead><tr><th class="n">Height</th><th>Rule</th><th>Class</th></tr></thead>
+    <tbody>
+      <tr><td class="n">11.2 m</td><td>under 15 → 1 m</td><td>11 – 12</td></tr>
+      <tr><td class="n">19.6 m</td><td>15–25 → 3 m</td><td>18 – 21</td></tr>
+      <tr><td class="n">27.4 m</td><td>over 25 → 5 m</td><td>25 – 30</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="bhutan">
+  <span class="k">Measured, or modelled?</span>
+  <p>Bhutan's Second NFI measured the height of <strong>every tree in the plot</strong> with a laser
+    hypsometer. Many FMU, community-forest and teaching inventories measure a <strong>subsample</strong>
+    and fill in the rest from a height–diameter curve. In that case the height class summarises a
+    <strong>modelled</strong> quantity — and you say so when you report it. Do not present subsampling as
+    a national convention; it is a practice, adopted or not according to the manual governing the job.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="bhutan"><span class="n">Section 8</span>In Bhutanese forestry</h2>
+
+<ul>
+  <li><strong>Growing-stock estimation.</strong> <span class="m">V = G × h × f</span>. No height, no volume;
+    no volume, no annual allowable cut. That is the direct line from a clinometer reading to a management decision.</li>
+  <li><strong>Dominant height and site quality.</strong> The height of the dominant trees at a given age is
+    the standard index of what a site can produce — and it is almost <em>independent of stocking</em>, which
+    is exactly what makes it useful.</li>
+  <li><strong>Biomass and carbon models.</strong> Bhutan's 2018 allometric equations have a DBH-only form and
+    a DBH-and-height form. The height-inclusive one is better: Unit VI shows two trees of identical DBH
+    differing by <strong>37 %</strong> in biomass because their heights differ.</li>
+  <li><strong>Beyond timber.</strong> Canopy structure and layering, ladder fuels and fire risk, large habitat
+    trees, riparian shading and stream temperature. None of these is timber; all of them need height.</li>
+</ul>
+
+<div class="bhutan">
+  <span class="k">Community forestry</span>
+  <p>A group measures heights on a subsample to build its own height–diameter curve, and uses it to estimate
+    standing volume for the management plan. It is the cheapest way for a group to know what it holds — and
+    the curve is theirs to keep and re-use.</p>
+</div>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="practice"><span class="n">Section 9</span>Practice questions</h2>
+
+<ol class="qs">
+  <li>A tree has dead branches low on the stem and green branches only near the top. Which is greater —
+    bole height or crown-base height? Explain.</li>
+  <li>Why can the shadow method not be used inside a closed broadleaf stand at midday?</li>
+  <li>You measure on a slope with the eye between top and base and add 1.5 m eye height at the end.
+    What have you done wrong?</li>
+  <li>Horizontal distance 25.0 m, elevation to tip 41°, eye height 1.6 m. Compute the total height.
+    Then recompute with the angle read as 43° and state the error in metres and per cent.</li>
+  <li>Slope distance 22.0 m, elevation to top 29°, depression to base 9°. Compute the height, and check
+    it in two physical parts.</li>
+  <li>You stand on a ridge; the tree is below you and leans away. Which formula applies?</li>
+  <li>A tree leans towards you and you use the tangent method. Is your answer too large or too small? Why?</li>
+  <li>A tree measures exactly 50.0 cm DBH and 24.8 m tall. State both classes.</li>
+  <li>Explain why height classes broaden with height faster than diameter classes broaden with diameter.</li>
+  <li>An inventory reports a mean height of 21.7 m for a stand in which only twelve of ninety trees were
+    measured. What must the report also say, and why?</li>
+</ol>
+
+<p><em>Worked solutions to questions 4, 5 and 8 are in the</em>
+  <a href="MEN201_Calculation_Handbook.html#sol-iv">calculation handbook</a>.</p>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="summary"><span class="n">Section 10</span>Summary</h2>
+
+<ul>
+  <li>Name the height before you measure it. Six heights, six purposes.</li>
+  <li>Volume is <strong>linear</strong> in height — a 10 % height error is a 10 % volume error, unrecoverable.</li>
+  <li>Tangent method: <span class="m">h = D tan θ + eye height</span> on level ground;
+    <span class="m">AB = EB cos β (tan α ± tan β)</span> on a slope. <strong>Add eye height only in the
+    level-ground case.</strong></li>
+  <li>Sine method for leaning stems: <span class="m">AB = EB · sin∠AEB / sin∠EAB</span>. Position picks the
+    numerator; lean direction picks the sign in the cosine.</li>
+  <li>Systematic errors never average out. Random ones do.</li>
+  <li>Class width follows data density, and is never finer than the measurement error.</li>
+</ul>
+
+<!-- ==================================================================== -->
+<h2 class="sec" id="refs"><span class="n">Section 11</span>References</h2>
+
+<ul>
+  <li><strong>DoFPS (2023).</strong> <em>National Forest Inventory Volume I — State of Forest Report 2023</em>.
+    Thimphu. — field protocol, laser hypsometer, every tree measured.</li>
+  <li><strong>Husch, B., Beers, T. W. &amp; Kershaw, J. A. (2003).</strong> <em>Forest Mensuration</em>,
+    4th ed. Wiley. — ch. 6, height measurement.</li>
+  <li><strong>West, P. W. (2009).</strong> <em>Tree and Forest Measurement</em>, 2nd ed. Springer. — ch. 5.</li>
+  <li><strong>Avery, T. E. &amp; Burkhart, H. E. (2002).</strong> <em>Forest Measurements</em>, 5th ed. McGraw-Hill.</li>
+  <li><strong>Chaturvedi, A. N. &amp; Khanna, L. S. (2011).</strong> <em>Forest Mensuration and Biometry</em>.
+    Khanna Bandhu, Dehra Dun. — the six sine cases.</li>
+</ul>
+
+<footer class="foot">
+  <span>MEN 201 · Unit IV student lecture notes · College of Natural Resources</span>
+  <span><a href="index.html">All notes</a> · <a href="MEN201_Calculation_Handbook.html">Handbook</a> · <a href="../index.html">Contents</a></span>
+</footer>
+
+</div>
+</body>
+</html>

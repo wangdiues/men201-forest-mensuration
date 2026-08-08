@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MEN 201 · Practical · Canopy Cover Assessment</title>
+<link rel="stylesheet" href="_sheet.css">
+</head>
+<body>
+<p class="noprint">Print at A4 portrait, 100 % scale, background graphics on. One sheet per plot. &nbsp;·&nbsp; <a href="../index.html">back to contents</a></p>
+
+<div class="sheet">
+
+  <div class="mast">
+    <div>
+      <div class="who">MEN 201 · Forest Mensuration · College of Natural Resources</div>
+      <h1>Canopy Cover Assessment — field sheet</h1>
+    </div>
+    <div class="unit">Unit III<br>Practical 5</div>
+  </div>
+
+  <div class="aim">
+    <b>Official Bhutan procedure</b> &mdash; Forest Canopy Cover Assessment Guidelines 2024 (FMID, DoFPS),
+    s. 4.1.1 and Annexure 1. Circular plot of <b>12.62 m radius</b> = 500 m², <b>100 points</b> on a
+    2.5 × 2.5 m grid, read with a <b>GRS crown densitometer</b>.
+  </div>
+
+  <div class="hdr">
+    Name of area <span class="u l"></span> &nbsp; Plot no. <span class="u s"></span> &nbsp; Date <span class="u s"></span> &nbsp; Time <span class="u s"></span><br>
+    Plot centre / grid ref. <span class="u l"></span> &nbsp; Random-point quadrant &nbsp; NE / SE / SW / NW &nbsp; Points read <span class="u s"></span><br>
+    Plot: circular r = 12.62 m &nbsp;/&nbsp; rectangular <span class="u s"></span> &nbsp; Layers included: trees only / all layers<br>
+    Forest type <span class="u"></span> &nbsp; Aspect <span class="u s"></span> &nbsp; Slope <span class="u s"></span> &nbsp; Altitude <span class="u s"></span> m &nbsp; Sky: overcast / clear / variable<br>
+    Data recorder <span class="u"></span> &nbsp; Observer <span class="u"></span> &nbsp; Supervisor check <span class="u"></span>
+  </div>
+
+  <h2>Procedure <span>read the whole of it before the first observation</span></h2>
+  <ol class="steps">
+    <li>Establish the circular plot of <b>12.62 m radius</b> from the supplied plot centre.</li>
+    <li>Lay the <b>2.5 × 2.5 m grid</b> from the pre-generated point layout. <b>Do not choose your own points.</b></li>
+    <li>Read <b>89 systematic + 11 additional</b> points. The 11 come from the quadrant assigned to your group — the same quadrant in every plot.</li>
+    <li>At each point: level, sight vertically, and record <b>1</b> if more than 50 % of the inner black circle is covered by canopy, <b>0</b> otherwise.</li>
+    <li>Total the 1s <b>in the field</b>, and compute the plot summary before you leave the plot.</li>
+  </ol>
+
+  <h2>Tally <span>one cell per observation point · 1 or 0 · in ink</span></h2>
+  <table class="tally">
+    <thead>
+      <tr>
+        <th>Obs</th><th>1/0</th><th>Obs</th><th>1/0</th><th>Obs</th><th>1/0</th><th>Obs</th><th>1/0</th><th>Obs</th><th>1/0</th>
+      </tr>
+    </thead>
+    <tbody id="tally"></tbody>
+  </table>
+  <p class="note">Beyond 100 points use a second sheet and carry the running total. <b>The divisor is then the total number of points, not 100.</b></p>
+
+  <h2>Plot summary <span>computed in the field, not in the classroom</span></h2>
+  <table class="tight">
+    <tbody>
+      <tr><td class="lab" style="width:52%">Total 1s in this plot</td><td></td><td class="lab" style="width:24%">Total points read</td><td></td></tr>
+      <tr><td class="lab"><b>Canopy cover % = Σ1s ÷ total points × 100</b></td><td></td><td class="lab">%</td><td></td></tr>
+      <tr><td class="lab">Forest? &nbsp; cover &gt; 10 %, trees &gt; 5 m, area &gt; 0.5 ha</td><td>Y / N</td><td class="lab">High forest? &nbsp; ≥ 40 %</td><td>Y / N</td></tr>
+      <tr><td class="lab">Comparative &mdash; ocular class</td><td></td><td class="lab">Spherical densiometer, closure %</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="qc">
+    <b>In ink, never overwritten</b> — strike through, initial, write the new value beside it. Compute
+    the plot summary while the stand is still in front of you.<br>
+    <b>What this number decides.</b> Under the Forest and Nature Conservation Act 2023, s. 46 (2),
+    forestry clearance shall not be issued for activity in high forest. A crew reading 38 % or 42 %
+    is settling whether a road or a school may lawfully proceed there.
+  </div>
+
+  <div class="sign">
+    <div>Observer <span class="u"></span></div>
+    <div>Recorder <span class="u"></span></div>
+    <div>Supervisor <span class="u"></span></div>
+  </div>
+
+  <div class="foot">
+    <span>MEN 201 · Unit III · adapted from FMID (2024) Forest Canopy Cover Assessment Guidelines, Annexure 1</span>
+    <span>Sheet ____ of ____</span>
+  </div>
+</div>
+
+<script>
+/* The tally grid is generated rather than typed out, so the numbering cannot
+   drift and a 120-point variant is one edit away. */
+(function(){
+  var rows = 20, cols = 5, tb = document.getElementById('tally'), html = '';
+  for (var r = 1; r <= rows; r++) {
+    html += '<tr>';
+    for (var c = 0; c < cols; c++) html += '<td class="n">' + (r + c * rows) + '</td><td></td>';
+    html += '</tr>';
+  }
+  html += '<tr class="tot"><td class="lab" colspan="9" style="text-align:right">Total 1s in this plot &nbsp;=</td><td></td></tr>';
+  tb.innerHTML = html;
+})();
+</script>
+</body>
+</html>

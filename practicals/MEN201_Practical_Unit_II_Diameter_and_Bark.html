@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MEN 201 · Practical · Diameter, Girth and Bark</title>
+<link rel="stylesheet" href="_sheet.css">
+</head>
+<body>
+<p class="noprint">Print at A4 portrait, 100 % scale, background graphics on. &nbsp;·&nbsp; <a href="../index.html">back to contents</a></p>
+
+<div class="sheet">
+
+  <div class="mast">
+    <div>
+      <div class="who">MEN 201 · Forest Mensuration · College of Natural Resources</div>
+      <h1>Diameter, Girth and Bark — field sheet</h1>
+    </div>
+    <div class="unit">Unit II<br>Practical</div>
+  </div>
+
+  <div class="aim">
+    <b>Aim.</b> Measure one tree three ways and account for the differences. Then record a plot of
+    trees to a stated protocol, so that a second crew could reproduce every number.
+    <b>DBH reference height is protocol-dependent</b> — Bhutan's Second National Forest Inventory
+    recorded over-bark DBH at 1.37 m; many international manuals use 1.30 m. Write down which you used.
+  </div>
+
+  <div class="hdr">
+    Plot / stand <span class="u l"></span> &nbsp; Location or grid ref. <span class="u"></span> &nbsp; Date <span class="u s"></span> &nbsp; Weather <span class="u s"></span><br>
+    <b>DBH reference height used <span class="u s"></span> m</b> &nbsp; Minimum recorded DBH <span class="u s"></span> cm &nbsp; Governing protocol <span class="u"></span><br>
+    Instrument: girth tape / diameter tape / calliper &nbsp; Serial or ID <span class="u s"></span> &nbsp; Last calibrated <span class="u s"></span><br>
+    Boundary recorded: over bark / under bark &nbsp; Observer <span class="u"></span> &nbsp; Recorder <span class="u"></span> &nbsp; Supervisor <span class="u"></span>
+  </div>
+
+  <h2>Part A · one tree, three ways</h2>
+  <table class="tight">
+    <thead><tr><th style="width:40%">Measurement</th><th>Reading 1</th><th>Reading 2</th><th>Mean</th><th>Unit</th></tr></thead>
+    <tbody>
+      <tr><td class="lab">Calliper, first axis</td><td></td><td></td><td></td><td>cm</td></tr>
+      <tr><td class="lab">Calliper, axis at 90°</td><td></td><td></td><td></td><td>cm</td></tr>
+      <tr><td class="lab">Girth tape, circumference C</td><td></td><td></td><td></td><td>cm</td></tr>
+      <tr><td class="lab">Circular-equivalent d = C / π</td><td></td><td></td><td></td><td>cm</td></tr>
+      <tr><td class="lab">Diameter tape, direct reading</td><td></td><td></td><td></td><td>cm</td></tr>
+      <tr class="tot"><td class="lab">Largest difference between methods</td><td></td><td></td><td></td><td>cm</td></tr>
+    </tbody>
+  </table>
+  <p class="note">A tape bridges the bark fissures, so it usually reads <b>high</b> against a calliper on a rough-barked stem. Report that, do not call it an error.</p>
+
+  <h2>Part B · bark</h2>
+  <table class="tight">
+    <thead><tr><th style="width:40%">One-sided bark thickness t</th><th>N</th><th>E</th><th>S</th><th>W</th><th>Mean t̄</th></tr></thead>
+    <tbody>
+      <tr><td class="lab">Gauge reading (cm)</td><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+  <table class="tight" style="margin-top:5px">
+    <tbody>
+      <tr><td class="lab" style="width:34%">Double bark B = 2t̄</td><td></td><td class="lab" style="width:34%">D<sub>ub</sub> = D<sub>ob</sub> − 2t̄</td><td></td></tr>
+      <tr><td class="lab">G<sub>ub</sub> = G<sub>ob</sub> − 2πt̄ &nbsp; <i>a diameter crosses bark twice — subtract 2t̄</i></td><td></td><td class="lab">Bark % of area</td><td></td></tr>
+    </tbody>
+  </table>
+    <h2>Part C · the plot <span>one row per tree, in ink</span></h2>
+  <table class="tight">
+    <thead>
+      <tr><th style="width:8%">No.</th><th style="width:22%">Species</th><th>D₁ cm</th><th>D₂ cm</th><th>D̄ o.b.</th><th>t̄ cm</th><th>D u.b.</th><th>Ht m</th><th style="width:10%">Code</th></tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+  <div class="two">
+    <div>
+      <h2>Exception codes</h2>
+      <p class="note" style="font-family:'JetBrains Mono',Consolas,monospace;line-height:1.9">
+        <b>S</b> slope, measured uphill side &nbsp; <b>L</b> leaning stem<br>
+        <b>B</b> buttress — height shifted, record it &nbsp; <b>W</b> wound or swelling<br>
+        <b>F&lt;</b> forked below BH, separate stems &nbsp; <b>F&gt;</b> forked above BH, one tree<br>
+        <b>H</b> hollow &nbsp; <b>D</b> dead standing &nbsp; <b>X</b> excluded, state why
+      </p>
+    </div>
+    <div>
+      <h2>Working tolerances</h2>
+      <p class="note" style="line-height:1.65">Blind re-measure &mdash; DBH <b>0.3 cm</b> &middot;
+      girth <b>1.0 cm</b> &middot; one-sided bark <b>2 mm</b> &middot; reference-height mark
+      <b>2 cm</b>. Teaching values; real work follows the governing field manual.</p>
+    </div>
+  </div>
+
+  <div class="qc">
+    <b>Quality control — completed in the field.</b>
+    Trees blind re-measured <span style="border-bottom:1px solid">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> of <span style="border-bottom:1px solid">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> (target 5–10 %) &nbsp;·&nbsp;
+    largest disagreement <span style="border-bottom:1px solid">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> cm &nbsp;·&nbsp; within tolerance? Y / N<br>
+    If N — cause found and action taken <span style="border-bottom:1px solid">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+    <b>Blind means blind.</b> Student A measures, records and covers the sheet before B measures.
+  </div>
+
+  <div class="sign">
+    <div>Observer <span class="u"></span></div>
+    <div>Recorder <span class="u"></span></div>
+    <div>Supervisor <span class="u"></span></div>
+  </div>
+
+  <div class="foot">
+    <span>MEN 201 · Unit II · diameter, girth and bark thickness</span>
+    <span>Sheet ____ of ____</span>
+  </div>
+</div>
+
+<script>
+(function(){
+  var tb = document.getElementById('rows'), html = '';
+  for (var r = 1; r <= 7; r++) {
+    html += '<tr><td class="n" style="background:#f1f3ef;font-weight:600">' + r + '</td>';
+    for (var c = 0; c < 8; c++) html += '<td></td>';
+    html += '</tr>';
+  }
+  tb.innerHTML = html;
+})();
+</script>
+</body>
+</html>

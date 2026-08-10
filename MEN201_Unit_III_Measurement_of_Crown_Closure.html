@@ -20,6 +20,8 @@
 
 /* === DESIGN TOKENS === */
 :root{
+  /* type zoom - one knob for every size in this document */
+  --tz: 1.12;
   /* surfaces */
   --paper:        #f2efe6;
   --paper-card:   #faf9f4;
@@ -90,18 +92,18 @@ html,body{margin:0;padding:0;height:100%;overflow:hidden;background:var(--letter
    (top-right), a hairline baseline, and a page number.
    ========================================================================== */
 .head{position:absolute;left:92px;right:92px;top:70px}
-.eyebrow{font:500 19px/1 var(--mono);letter-spacing:.30em;text-transform:uppercase;
+.eyebrow{font:500 calc(19px * var(--tz,1))/1 var(--mono);letter-spacing:.30em;text-transform:uppercase;
   color:var(--vermilion)}
 .eyebrow.warn{color:var(--gold)}
 h2.title{margin:20px 0 0;font-family:var(--display);font-optical-sizing:auto;
-  font-weight:600;font-size:58px;line-height:1.05;letter-spacing:-.022em;color:var(--ink);
+  font-weight:600;font-size:calc(58px * var(--tz,1));line-height:1.05;letter-spacing:-.022em;color:var(--ink);
   max-width:1500px}
 h2.title em{font-style:italic;font-weight:400;color:var(--moss)}
 .head .hr{margin-top:24px;height:1px;background:var(--rule)}
 
-.runhead{position:absolute;right:92px;top:66px;font:400 17px/1.4 var(--mono);
+.runhead{position:absolute;right:92px;top:66px;font:400 calc(17px * var(--tz,1))/1.4 var(--mono);
   letter-spacing:.16em;color:var(--ink-faint);text-align:right}
-.pageno{position:absolute;right:92px;bottom:38px;font:500 18px/1 var(--mono);
+.pageno{position:absolute;right:92px;bottom:38px;font:500 calc(18px * var(--tz,1))/1 var(--mono);
   letter-spacing:.14em;color:var(--ink-faint)}
 .footrule{position:absolute;left:92px;right:92px;bottom:74px;height:1px;background:var(--rule-soft)}
 
@@ -112,35 +114,104 @@ h2.title em{font-style:italic;font-weight:400;color:var(--moss)}
 .slide a{color:var(--moss);text-decoration:none;
   border-bottom:1px solid rgba(47,81,64,.4);transition:color .18s ease,border-color .18s ease}
 .slide a:hover,.slide a:focus-visible{color:var(--vermilion);border-bottom-color:var(--vermilion)}
-.slide a::after{content:" ↗";font-size:.8em;color:var(--ink-faint);border:0}
-.src{position:absolute;left:92px;bottom:36px;font:400 17px/1.4 var(--mono);color:var(--ink-faint);
+.slide a::after{content:"\00a0↗";font-size:.8em;color:var(--ink-faint);border:0}
+.src{position:absolute;left:92px;bottom:36px;font:400 calc(17px * var(--tz,1))/1.4 var(--mono);color:var(--ink-faint);
   max-width:1400px;letter-spacing:.02em}
+
+/* .src is slide chrome: it is pinned to the page baseline, so an absolute
+   position resolves against .body. Written inside a panel it is a footnote to
+   that panel and must stay in flow there, or it leaves the card entirely and
+   lands on the far side of the slide. */
+.card .src,.calc .src,.callout .src,.q .src,.fig .src{position:static;max-width:none;margin-top:14px}
+
+/* A source note written at the end of a .body is a citation for the content
+   above it, not page chrome. It keeps the baseline the absolute version had,
+   but as a real block: content above it now has to make room, so a note that
+   wraps to three lines can no longer be landed on by the closing bar. */
+.body>.src{position:static;margin-top:auto;padding-top:14px;max-width:100%;left:auto;bottom:auto}
+.body>.src+.src{padding-top:4px}
+
+/* A body that carries its own source note reaches further down the page. The
+   note used to be absolute chrome on the page baseline, so that band below
+   the safe zone is exactly the room it now needs; the hairline that ruled it
+   off would cross the note, so it steps aside. */
+.body.srcfoot{bottom:60px}
+.body.srcfoot~.footrule{display:none}
+
+/* A block that asked for the whole band with height:100% leaves nothing for a
+   source note that now shares that column with it. In that company it takes
+   what is left instead. */
+.body.srcfoot>.fill{height:auto;flex:1 1 auto;min-height:0}
+
+/* The xs table variant carries phrases and formulae, not only numerals, so a
+   .num cell in one must be allowed to wrap: held on one line it widens the
+   table past the card that frames it. A long monospace value in a step row is
+   the same problem in a different primitive. */
+table.dt.xs td.num{white-space:normal;overflow-wrap:anywhere}
+.step .sv{overflow-wrap:anywhere}
+/* The densest step for that variant, bought from padding as everywhere else. */
+.slide.fit2 table.dt.xs td,.slide.fit2 table.dt.xs th{padding:6px 10px}
+
+
+
+
+
 
 /* Body region: the safe zone between chrome */
 .body{position:absolute;left:92px;right:92px;top:222px;bottom:104px}
+/* === VERTICAL RHYTHM ======================================================
+   The body band is a fixed height. A slide that sizes its rows to their own
+   content stops partway down the paper and reads as unfinished; a closing bar
+   pinned out of flow cannot hold the content above it off. The band is a flex
+   column: blocks marked .grow share the leftover height, and a closing bar
+   held down by margin-top:auto still sits on the baseline while occupying
+   real space that nothing above it can overrun.
+   ========================================================================== */
+.body{display:flex;flex-direction:column}
+.body>*{flex:0 0 auto}
+.body>.grow{flex:1 0 auto;min-height:0}
+.grow>.stack>*{flex:1 0 auto}
+/* Tables keep their natural rhythm and are never stretched: padding a table
+   out to a row height spaces its rows unevenly, and a scroll wrapper grown
+   past its last row is just an empty framed box. */
+.body>table.dt{align-self:start}
+.body>.table-wrap{align-self:start;max-width:100%}
+
 .body.tight{top:200px}
 .body.deep{top:266px}
 
 /* === PRIMITIVES === */
-.lead{font-family:var(--display);font-weight:400;font-size:34px;line-height:1.40;
+.lead{font-family:var(--display);font-weight:400;font-size:calc(34px * var(--tz,1));line-height:1.40;
   color:var(--ink);letter-spacing:-.005em}
 .lead strong{font-weight:600;color:var(--moss)}
 p{margin:0}
-.txt{font:400 24px/1.52 var(--body);color:var(--ink-soft)}
-.txt-sm{font:400 21px/1.48 var(--body);color:var(--ink-soft)}
-.mono-sm{font:400 18px/1.5 var(--mono);color:var(--ink-faint);letter-spacing:.02em}
+.txt{font:400 calc(24px * var(--tz,1))/1.52 var(--body);color:var(--ink-soft)}
+.txt-sm{font:400 calc(21px * var(--tz,1))/1.48 var(--body);color:var(--ink-soft)}
+.mono-sm{font:400 calc(18px * var(--tz,1))/1.5 var(--mono);color:var(--ink-faint);letter-spacing:.02em}
 
-.label{font:500 17px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--moss)}
+.label{font:500 calc(17px * var(--tz,1))/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--moss)}
 .label.v{color:var(--vermilion)}
 
 /* Cards — the paper leaf that sits on the graph paper */
 .card{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;
   padding:24px 28px;box-shadow:0 2px 0 rgba(20,28,24,.05),0 14px 34px rgba(20,28,24,.045)}
+
+/* === PANEL CONTAINMENT ====================================================
+   A panel is the shape of its own text. Where a card is stretched to a row
+   height rather than sized to its contents, anything that overruns it is read
+   against the graph paper - or against the closing bar - instead of against
+   the leaf that is supposed to be behind it. Clipping is what makes that
+   overrun visible to the type-zoom guard in assets/men201-type-zoom.js, which
+   then sizes the slide so it cannot happen. The clip is the alarm, not the
+   remedy: by the time a slide is on screen the guard has already fitted it.
+   ========================================================================== */
+.card,.callout,.q,.answer,.calc{overflow:hidden}
+
 .card.sunk{background:var(--paper-sunk);box-shadow:none}
 .card.moss{background:var(--moss);border-color:var(--moss);color:#eef2ea}
 .card.moss .label{color:#a9c9b3}
 .card.moss .txt,.card.moss .txt-sm{color:#d3decf}
-.card h3,.card .ch{margin:0 0 11px;font-family:var(--display);font-weight:600;font-size:28px;
+.card h3,.card .ch{margin:0 0 11px;font-family:var(--display);font-weight:600;font-size:calc(28px * var(--tz,1));
   line-height:1.2;color:var(--ink);letter-spacing:-.012em}
 .card.moss .ch{color:#fff}
 .card .ch.v{color:var(--vermilion)}
@@ -148,11 +219,11 @@ p{margin:0}
 /* Tick-mark bullet list */
 ul.bul{margin:0;padding:0;list-style:none}
 ul.bul li{position:relative;padding-left:30px;margin-bottom:9px;
-  font:400 23px/1.45 var(--body);color:var(--ink-soft)}
+  font:400 calc(23px * var(--tz,1))/1.45 var(--body);color:var(--ink-soft)}
 ul.bul li:last-child{margin-bottom:0}
 ul.bul li::before{content:"";position:absolute;left:0;top:.62em;width:11px;height:1.5px;
   background:var(--vermilion)}
-ul.bul.sm li{font-size:21px;margin-bottom:7px;padding-left:28px}
+ul.bul.sm li{font-size:calc(21px * var(--tz,1));margin-bottom:7px;padding-left:28px}
 ul.bul.sm li::before{width:9px}
 ul.bul li strong{color:var(--ink);font-weight:600}
 .card.moss ul.bul li{color:#d3decf}
@@ -162,19 +233,19 @@ ul.bul li strong{color:var(--ink);font-weight:600}
 /* Numbered badge lists */
 .numrow{display:flex;gap:16px;align-items:flex-start;margin-bottom:11px}
 .badge{flex:0 0 auto;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
-  font:700 17px/1 var(--mono);background:var(--vermilion);color:#fff}
+  font:700 calc(17px * var(--tz,1))/1 var(--mono);background:var(--vermilion);color:#fff}
 .badge.moss{background:var(--moss)}
 .badge.hollow{background:transparent;border:1.5px solid var(--moss);color:var(--moss)}
-.badge.lg{width:46px;height:46px;font-size:20px}
+.badge.lg{width:46px;height:46px;font-size:calc(20px * var(--tz,1))}
 
 /* Formula plates */
 .formula{background:var(--moss-wash);border:1px solid var(--moss-line);border-radius:3px;
   padding:17px 26px;text-align:center;
-  font-family:var(--display);font-weight:500;font-size:38px;line-height:1.2;color:var(--moss);
+  font-family:var(--display);font-weight:500;font-size:calc(38px * var(--tz,1));line-height:1.2;color:var(--moss);
   letter-spacing:.01em}
 .formula.v{background:var(--vermilion-wash);border-color:rgba(193,69,36,.3);color:var(--vermilion)}
-.formula.sm{font-size:28px;padding:16px 20px}
-.formula.lg{font-size:46px;padding:28px 32px}
+.formula.sm{font-size:calc(28px * var(--tz,1));padding:16px 20px}
+.formula.lg{font-size:calc(46px * var(--tz,1));padding:28px 32px}
 .formula .u{font-size:.55em;color:var(--ink-faint);display:block;margin-top:10px;
   font-family:var(--body);font-weight:400;letter-spacing:0}
 sub{font-size:.62em;vertical-align:-.22em}
@@ -185,35 +256,35 @@ sup{font-size:.62em;vertical-align:.42em}
 .callout{border-left:4px solid var(--vermilion);background:var(--vermilion-wash);
   padding:15px 22px;border-radius:0 3px 3px 0}
 .callout.moss{border-left-color:var(--moss);background:var(--moss-wash)}
-.callout .k{font:500 16px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
+.callout .k{font:500 calc(16px * var(--tz,1))/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
   color:var(--vermilion);display:block;margin-bottom:7px}
 .callout.moss .k{color:var(--moss)}
-.callout p{font:400 23px/1.42 var(--body);color:var(--ink)}
-.callout.sm p{font-size:21px}
+.callout p{font:400 calc(23px * var(--tz,1))/1.42 var(--body);color:var(--ink)}
+.callout.sm p{font-size:calc(21px * var(--tz,1))}
 
 /* Answer bar */
 .answer{background:var(--moss);color:#fff;border-radius:3px;padding:16px 28px;
   display:flex;align-items:baseline;gap:20px}
-.answer .k{font:500 17px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:#a9c9b3}
-.answer .v{font-family:var(--display);font-weight:600;font-size:36px;letter-spacing:-.01em}
-.answer .n{font:400 20px/1.4 var(--body);color:#c6d6c9}
+.answer .k{font:500 calc(17px * var(--tz,1))/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:#a9c9b3}
+.answer .v{font-family:var(--display);font-weight:600;font-size:calc(36px * var(--tz,1));letter-spacing:-.01em}
+.answer .n{font:400 calc(20px * var(--tz,1))/1.4 var(--body);color:#c6d6c9}
 
 /* Data tables */
 table.dt{width:100%;border-collapse:collapse;background:var(--paper-card);
-  border:1px solid var(--rule);font:400 21px/1.4 var(--body);color:var(--ink-soft)}
-table.dt th{background:var(--moss);color:#fff;font:600 19px/1.3 var(--body);
+  border:1px solid var(--rule);font:400 calc(21px * var(--tz,1))/1.4 var(--body);color:var(--ink-soft)}
+table.dt th{background:var(--moss);color:#fff;font:600 calc(19px * var(--tz,1))/1.3 var(--body);
   text-align:left;padding:11px 16px;letter-spacing:.01em;vertical-align:middle}
-table.dt th:first-child{font-family:var(--mono);font-size:14px;letter-spacing:.14em;
+table.dt th:first-child{font-family:var(--mono);font-size:calc(14px * var(--tz,1));letter-spacing:.14em;
   text-transform:uppercase;font-weight:500;color:#b6cdbd}
 table.dt td{padding:14px 16px;border-top:1px solid var(--rule-soft);vertical-align:top}
 table.dt tbody tr:nth-child(even){background:rgba(20,28,24,.022)}
 table.dt td.rh{font-weight:600;color:var(--ink);background:rgba(47,81,64,.05)}
-table.dt td.num{font-family:var(--mono);font-size:20px;color:var(--ink)}
-table.dt.sm{font-size:19px}
-table.dt.sm th{font-size:17px;padding:11px 13px}
+table.dt td.num{font-family:var(--mono);font-size:calc(20px * var(--tz,1));color:var(--ink)}
+table.dt.sm{font-size:calc(19px * var(--tz,1))}
+table.dt.sm th{font-size:calc(17px * var(--tz,1));padding:11px 13px}
 table.dt.sm td{padding:9px 13px}
-table.dt.xs{font-size:17px}
-table.dt.xs th{font-size:15px;padding:9px 10px}
+table.dt.xs{font-size:calc(17px * var(--tz,1))}
+table.dt.xs th{font-size:calc(15px * var(--tz,1));padding:9px 10px}
 table.dt.xs td{padding:7px 10px}
 table.dt tr.hi td{background:var(--vermilion-wash)}
 
@@ -241,21 +312,21 @@ table.dt tr.hi td{background:var(--vermilion-wash)}
 .step{display:grid;grid-template-columns:210px 1fr;gap:20px;align-items:center;
   padding:11px 0;border-top:1px solid var(--rule-soft)}
 .step:first-child{border-top:none}
-.step .sl{font:500 17px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--moss)}
-.step .sv{font-family:var(--mono);font-size:25px;color:var(--ink);letter-spacing:-.01em}
+.step .sl{font:500 calc(17px * var(--tz,1))/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--moss)}
+.step .sv{font-family:var(--mono);font-size:calc(25px * var(--tz,1));color:var(--ink);letter-spacing:-.01em}
 .step .sv .hlt{color:var(--vermilion)}
 
 /* Question cards */
 .q{display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:start;
   background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;padding:16px 20px}
-.q .qt{font:400 21px/1.4 var(--body);color:var(--ink)}
-.q .qm{margin-top:8px;font:500 16px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+.q .qt{font:400 calc(21px * var(--tz,1))/1.4 var(--body);color:var(--ink)}
+.q .qm{margin-top:8px;font:500 calc(16px * var(--tz,1))/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
   color:var(--ink-faint)}
-.q .qa{margin-top:8px;font:500 19px var(--mono);color:var(--moss)}
+.q .qa{margin-top:8px;font:500 calc(19px * var(--tz,1)) var(--mono);color:var(--moss)}
 
 /* Chips */
 .chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{font:500 17px/1 var(--mono);letter-spacing:.08em;color:var(--moss);
+.chip{font:500 calc(17px * var(--tz,1))/1 var(--mono);letter-spacing:.08em;color:var(--moss);
   border:1px solid var(--moss-line);background:var(--moss-wash);padding:9px 14px;border-radius:2px}
 .chip.v{color:var(--vermilion);border-color:rgba(193,69,36,.3);background:var(--vermilion-wash)}
 
@@ -266,36 +337,36 @@ table.dt tr.hi td{background:var(--vermilion-wash)}
 .fig{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;
   position:relative;overflow:hidden;padding-bottom:32px;min-height:0}
 .fig svg{display:block;width:100%;height:100%}
-.fig .cap{position:absolute;left:18px;bottom:9px;font:400 15px/1.35 var(--mono);
+.fig .cap{position:absolute;left:18px;bottom:9px;font:400 calc(15px * var(--tz,1))/1.35 var(--mono);
   color:var(--ink-faint);letter-spacing:.02em}
-.fignote{font:400 16px/1.45 var(--mono);color:var(--ink-faint);letter-spacing:.01em}
+.fignote{font:400 calc(16px * var(--tz,1))/1.45 var(--mono);color:var(--ink-faint);letter-spacing:.01em}
 
 /* === TITLE / SECTION SLIDES === */
 .cover{position:absolute;inset:0;background:var(--paper)}
 .cover .plate{position:absolute;right:0;top:0;width:720px;height:1080px;
   border-left:1px solid var(--rule);background:linear-gradient(180deg,rgba(47,81,64,.06),rgba(193,69,36,.05))}
 .cover .cframe{position:absolute;left:110px;top:300px;width:1030px}
-.cover .cunit{font:600 26px/1 var(--body);letter-spacing:.42em;text-transform:uppercase;color:var(--moss)}
+.cover .cunit{font:600 calc(26px * var(--tz,1))/1 var(--body);letter-spacing:.42em;text-transform:uppercase;color:var(--moss)}
 .cover h1{margin:22px 0 0;font-family:var(--display);font-optical-sizing:auto;font-weight:600;
-  font-size:128px;line-height:.93;letter-spacing:-.03em;color:var(--ink)}
+  font-size:calc(128px * var(--tz,1));line-height:.93;letter-spacing:-.03em;color:var(--ink)}
 .cover h1 em{font-style:italic;font-weight:300;color:var(--moss)}
-.cover .csub{margin-top:44px;font:400 26px/1.55 var(--body);color:var(--ink-soft);max-width:830px}
+.cover .csub{margin-top:44px;font:400 calc(26px * var(--tz,1))/1.55 var(--body);color:var(--ink-soft);max-width:830px}
 .cover .cmeta{position:absolute;left:110px;bottom:88px;display:flex;gap:60px}
-.cover .cmeta div{font:400 18px/1.65 var(--mono);color:var(--ink-soft);letter-spacing:.01em}
+.cover .cmeta div{font:400 calc(18px * var(--tz,1))/1.65 var(--mono);color:var(--ink-soft);letter-spacing:.01em}
 .cover .cmeta strong{display:block;color:var(--ink);font-weight:500}
 
 .sect{position:absolute;inset:0;background:var(--moss);overflow:hidden}
 .sect .rings{position:absolute;right:-180px;top:50%;transform:translateY(-50%);width:1000px;height:1000px;opacity:.5}
 .sect .sframe{position:absolute;left:130px;top:50%;transform:translateY(-50%);width:1150px}
-.sect .sltr{font-family:var(--display);font-weight:600;font-size:200px;line-height:.8;
+.sect .sltr{font-family:var(--display);font-weight:600;font-size:calc(200px * var(--tz,1));line-height:.8;
   color:rgba(255,255,255,.16);letter-spacing:-.04em}
-.sect h1{margin:16px 0 0;font-family:var(--display);font-weight:500;font-size:96px;line-height:1.0;
+.sect h1{margin:16px 0 0;font-family:var(--display);font-weight:500;font-size:calc(96px * var(--tz,1));line-height:1.0;
   letter-spacing:-.028em;color:#fdfcf7}
-.sect .ssub{margin-top:34px;font:400 25px/1.55 var(--body);color:#bcd2c2;max-width:960px}
+.sect .ssub{margin-top:34px;font:400 calc(25px * var(--tz,1))/1.55 var(--body);color:#bcd2c2;max-width:960px}
 .sect .srule{margin-top:34px;width:220px;height:2px;background:var(--gold)}
-.sect .srun{position:absolute;left:130px;top:70px;font:400 16px/1 var(--mono);letter-spacing:.24em;
+.sect .srun{position:absolute;left:130px;top:70px;font:400 calc(16px * var(--tz,1))/1 var(--mono);letter-spacing:.24em;
   color:rgba(255,255,255,.55);text-transform:uppercase}
-.sect .spage{position:absolute;right:92px;bottom:44px;font:500 16px var(--mono);
+.sect .spage{position:absolute;right:92px;bottom:44px;font:500 calc(16px * var(--tz,1)) var(--mono);
   letter-spacing:.14em;color:rgba(255,255,255,.5)}
 
 /* === MOTION === */
@@ -335,7 +406,7 @@ body.editing .editbtn{color:var(--vermilion);border-color:var(--vermilion)}
 body.editing .slide.active [contenteditable]:hover{outline:1px dashed var(--vermilion);outline-offset:3px}
 body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermilion);outline-offset:3px}
 .toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%);z-index:70;
-  font:500 13px/1 var(--mono);letter-spacing:.1em;color:#f2efe6;background:rgba(47,81,64,.95);
+  font:500 calc(13px * var(--tz,1))/1 var(--mono);letter-spacing:.1em;color:#f2efe6;background:rgba(47,81,64,.95);
   padding:12px 20px;border-radius:100px;opacity:0;pointer-events:none;transition:opacity .3s}
 .toast.on{opacity:1}
 /* === DENSITY OVERRIDE ======================================================
@@ -373,8 +444,27 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 .slide.fit2 .step{padding:6px 0}
 .slide.fit2 .numrow{margin-bottom:6px}
 .slide.fit2 .q{padding:11px 16px}
-.slide.refs ul.bul.sm li{font-size:19px;line-height:1.34;margin-bottom:5px}
+.slide.refs ul.bul.sm li{font-size:calc(19px * var(--tz,1));line-height:1.34;margin-bottom:5px}
 </style>
+<style id="overlap-fixes">
+.stage>.slide:nth-of-type(26) .body{top:222px!important}
+.stage>.slide:nth-of-type(10) .body>.g3{height:calc(100% - 220px)!important}
+.stage>.slide:nth-of-type(13) .body>.g3{max-height:420px!important}
+.stage>.slide:nth-of-type(14) .body>.g4{max-height:280px!important}
+.stage>.slide:nth-of-type(31) .body>.g2,.stage>.slide:nth-of-type(32) .body>.g2,.stage>.slide:nth-of-type(45) .body>.g2,.stage>.slide:nth-of-type(55) .body>.g2{max-height:calc(100% - 120px)!important}
+.stage>.slide:nth-of-type(34) .body>.g5,.stage>.slide:nth-of-type(47) .body>.g3{max-height:calc(100% - 120px)!important}
+.stage>.slide:nth-of-type(10) .callout,.stage>.slide:nth-of-type(13) .callout,.stage>.slide:nth-of-type(14) .callout,.stage>.slide:nth-of-type(15) .callout,.stage>.slide:nth-of-type(26) .callout,.stage>.slide:nth-of-type(31) .callout,.stage>.slide:nth-of-type(32) .callout,.stage>.slide:nth-of-type(34) .callout,.stage>.slide:nth-of-type(45) .callout,.stage>.slide:nth-of-type(47) .callout,.stage>.slide:nth-of-type(55) .callout{padding:10px 20px!important}
+.stage>.slide:nth-of-type(10) .callout p,.stage>.slide:nth-of-type(13) .callout p,.stage>.slide:nth-of-type(14) .callout p,.stage>.slide:nth-of-type(15) .callout p,.stage>.slide:nth-of-type(26) .callout p,.stage>.slide:nth-of-type(31) .callout p,.stage>.slide:nth-of-type(32) .callout p,.stage>.slide:nth-of-type(34) .callout p,.stage>.slide:nth-of-type(45) .callout p,.stage>.slide:nth-of-type(47) .callout p,.stage>.slide:nth-of-type(55) .callout p{font-size:calc(16px * var(--tz,1))!important;line-height:1.3!important}
+.stage>.slide:nth-of-type(10) .eyebrow,.stage>.slide:nth-of-type(14) .eyebrow,.stage>.slide:nth-of-type(21) .eyebrow,.stage>.slide:nth-of-type(24) .eyebrow,.stage>.slide:nth-of-type(30) .eyebrow,.stage>.slide:nth-of-type(34) .eyebrow,.stage>.slide:nth-of-type(35) .eyebrow,.stage>.slide:nth-of-type(36) .eyebrow,.stage>.slide:nth-of-type(37) .eyebrow,.stage>.slide:nth-of-type(38) .eyebrow,.stage>.slide:nth-of-type(39) .eyebrow,.stage>.slide:nth-of-type(41) .eyebrow,.stage>.slide:nth-of-type(42) .eyebrow,.stage>.slide:nth-of-type(43) .eyebrow,.stage>.slide:nth-of-type(46) .eyebrow,.stage>.slide:nth-of-type(48) .eyebrow,.stage>.slide:nth-of-type(56) .eyebrow{font-size:calc(12px * var(--tz,1))!important;letter-spacing:.12em!important}
+.stage>.slide:nth-of-type(57) .cmeta{bottom:12px!important;gap:20px!important}
+.stage>.slide:nth-of-type(57) .cmeta div{font-size:calc(13px * var(--tz,1))!important;line-height:1.2!important}
+.stage>.slide:nth-of-type(52) .eyebrow{font-size:calc(13px * var(--tz,1))!important;letter-spacing:.14em!important}
+.stage>.slide:nth-of-type(31) .card.moss .step{border-top-color:rgba(255,255,255,.18)!important}
+.stage>.slide:nth-of-type(31) .card.moss .step .sl{color:#d8b76a!important}
+.stage>.slide:nth-of-type(31) .card.moss .step .sv{color:#eef2ea!important}
+</style>
+<script src="assets/men201-type-zoom.js" defer></script>
+<link rel="stylesheet" href="assets/men201-images.css">
 </head>
 <body>
 <div class="progress" id="prog"></div>
@@ -500,7 +590,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="numrow rv" style="--d:9"><div class="badge moss">8</div><div class="txt-sm"><strong style="color:var(--ink)">Classify</strong> a stand by crown closure percentage and name the nature of that stand</div></div>
       <div class="numrow rv" style="--d:10"><div class="badge moss">9</div><div class="txt-sm"><strong style="color:var(--ink)">Evaluate</strong> the main measurement methods and report a figure with its method attached</div></div>
     </div>
-    <div class="callout rv" style="--d:11;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:11;margin-top:auto">
       <span class="k">Assessment link</span>
       <p>Outcomes 2, 3, 6 and 7 will be tested as calculations with full working. Outcomes 4 and 5 are the most commonly failed — the three terms must be separated, not blurred.</p>
     </div>
@@ -541,9 +631,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="card rv" style="--d:6"><div class="ch">Habitat description</div><p class="txt-sm">Many species are defined by the canopy condition they require. Habitat maps are, in large part, canopy maps.</p></div>
       <div class="card rv" style="--d:7"><div class="ch">Stocking and growth</div><p class="txt-sm">Closure indexes how fully a site is occupied. It is a quick, cheap proxy for stand density where basal area cannot be measured.</p></div>
     </div>
-    <div class="callout moss rv" style="--d:8;position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:28px">
-      <div style="font-family:var(--display);font-weight:600;font-size:52px;color:var(--moss);line-height:1;letter-spacing:-.02em;flex:0 0 auto">69.71 %</div>
-      <p style="font-size:21px">Forest cover in Bhutan, as reported in the second National Forest Inventory. That figure exists because somebody drew a canopy cover threshold and then measured against it — with the methods in this session.</p>
+    <div class="callout moss rv" style="--d:8;margin-top:auto;display:flex;align-items:center;gap:28px">
+      <div style="font-family:var(--display);font-weight:600;font-size:calc(52px * var(--tz,1));color:var(--moss);line-height:1;letter-spacing:-.02em;flex:0 0 auto">69.71 %</div>
+      <p style="font-size:calc(21px * var(--tz,1))">Forest cover in Bhutan, as reported in the second National Forest Inventory. That figure exists because somebody drew a canopy cover threshold and then measured against it — with the methods in this session.</p>
     </div>
   </div>
   <div class="footrule"></div>
@@ -570,9 +660,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="g3 fill" style="align-items:stretch">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column">
-        <div style="font-family:var(--display);font-weight:600;font-size:116px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">A</div>
-        <div class="ch" style="margin-top:26px;font-size:36px">Terms related to the crown</div>
-        <p class="txt" style="font-size:22px">What is a crown, what parts does it have, and which of them can be measured with a tape?</p>
+        <div style="font-family:var(--display);font-weight:600;font-size:calc(116px * var(--tz,1));line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">A</div>
+        <div class="ch" style="margin-top:26px;font-size:calc(36px * var(--tz,1))">Terms related to the crown</div>
+        <p class="txt" style="font-size:calc(22px * var(--tz,1))">What is a crown, what parts does it have, and which of them can be measured with a tape?</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:26px">
           <span class="chip">Crown</span><span class="chip">Crown base</span><span class="chip">Crown length</span>
@@ -581,9 +671,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column">
-        <div style="font-family:var(--display);font-weight:600;font-size:116px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">B</div>
-        <div class="ch" style="margin-top:26px;font-size:36px">Crown closure</div>
-        <p class="txt" style="font-size:22px">Three quantities that sound alike, are routinely confused, and give three different numbers on the same plot.</p>
+        <div style="font-family:var(--display);font-weight:600;font-size:calc(116px * var(--tz,1));line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">B</div>
+        <div class="ch" style="margin-top:26px;font-size:calc(36px * var(--tz,1))">Crown closure</div>
+        <p class="txt" style="font-size:calc(22px * var(--tz,1))">Three quantities that sound alike, are routinely confused, and give three different numbers on the same plot.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:26px">
           <span class="chip">Crown closure</span><span class="chip">Canopy cover</span><span class="chip">Crown cover</span>
@@ -592,9 +682,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="card rv" style="--d:6;display:flex;flex-direction:column">
-        <div style="font-family:var(--display);font-weight:600;font-size:116px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">C</div>
-        <div class="ch" style="margin-top:26px;font-size:36px">Measuring canopy closure</div>
-        <p class="txt" style="font-size:22px">The eye, the mirror, the fisheye lens and the laser — what each one actually measures, and what it costs.</p>
+        <div style="font-family:var(--display);font-weight:600;font-size:calc(116px * var(--tz,1));line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">C</div>
+        <div class="ch" style="margin-top:26px;font-size:calc(36px * var(--tz,1))">Measuring canopy closure</div>
+        <p class="txt" style="font-size:calc(22px * var(--tz,1))">The eye, the mirror, the fisheye lens and the laser — what each one actually measures, and what it costs.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:26px">
           <span class="chip">Ocular estimation</span><span class="chip">Closure classes</span><span class="chip">Spherical densiometer</span>
@@ -617,22 +707,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 -->
 <section class="slide" data-n="5">
   <div class="sect">
-    <div class="rings" aria-hidden="true">
-      <svg viewBox="0 0 1000 1000">
-        <g fill="none" stroke="#a8842c" stroke-opacity=".38">
-          <circle cx="500" cy="500" r="470" stroke-width="1"/>
-          <circle cx="504" cy="496" r="412" stroke-width="1.6"/>
-          <circle cx="497" cy="503" r="350" stroke-width="1"/>
-          <circle cx="505" cy="495" r="292" stroke-width="1.5"/>
-          <circle cx="498" cy="502" r="235" stroke-width="1"/>
-          <circle cx="503" cy="498" r="182" stroke-width="1.4"/>
-          <circle cx="500" cy="500" r="134" stroke-width="1"/>
-          <circle cx="501" cy="500" r="88" stroke-width="1.6"/>
-          <circle cx="500" cy="500" r="45" stroke-width="1"/>
-        </g>
-        <circle cx="500" cy="500" r="9" fill="#a8842c" fill-opacity=".6"/>
-      </svg>
-    </div>
+    <div class="rings men-divider-photo" role="img" aria-label="Forest landscape in Bhutan"><img src="assets/images/men201/divider-uiii-s05.jpg" alt=""><span class="men-photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Chelela_to_Paro_road_views_during_LGFC_-_Bhutan_2019_(107).jpg">Vinayaraj · CC BY-SA 4.0</a></span></div>
     <div class="srun">MEN 201 · Forest Mensuration · Unit III</div>
     <div class="sframe">
       <div class="sltr rv" style="--d:0">A</div>
@@ -767,14 +842,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <p class="txt-sm">The distance from the ground to the base of the crown — the clean, branch-free length of stem. Where the crown base is taken at the lowest <strong>live</strong> branch, this is the <strong>crown-base height</strong> of Unit IV.</p>
       </div>
     </div>
-    <div class="g2 rv" style="--d:9;position:absolute;left:0;right:0;bottom:0;gap:28px">
+    <div class="g2 rv" style="--d:9;margin-top:auto;gap:28px">
       <div class="callout">
         <span class="k">Field warning · crown base</span>
-        <p style="font-size:21px">An isolated epicormic sprout is not the crown base. Use the lowest branch of the <strong>continuous live crown</strong>, and record the rule you applied.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">An isolated epicormic sprout is not the crown base. Use the lowest branch of the <strong>continuous live crown</strong>, and record the rule you applied.</p>
       </div>
       <div class="callout moss">
         <span class="k">Arithmetic that must always hold</span>
-        <p style="font-size:21px"><span class="mn">Total height = bole height + crown length.</span> If your three recorded numbers do not satisfy this, one of them is wrong.</p>
+        <p style="font-size:calc(21px * var(--tz,1))"><span class="mn">Total height = bole height + crown length.</span> If your three recorded numbers do not satisfy this, one of them is wrong.</p>
       </div>
     </div>
   </div>
@@ -815,7 +890,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="card moss rv" style="--d:5">
         <div class="ch">Canopy</div>
-        <p class="txt" style="font-size:25px">The uppermost layer of vegetation formed by the crowns of trees. It represents the <strong style="color:#fff">horizontal extent</strong> and the <strong style="color:#fff">vertical structure</strong> of foliage that influences light penetration, microclimate and forest dynamics.</p>
+        <p class="txt" style="font-size:calc(25px * var(--tz,1))">The uppermost layer of vegetation formed by the crowns of trees. It represents the <strong style="color:#fff">horizontal extent</strong> and the <strong style="color:#fff">vertical structure</strong> of foliage that influences light penetration, microclimate and forest dynamics.</p>
       </div>
       <div class="g3" style="gap:24px">
         <div class="card sunk rv" style="--d:6;padding:22px 26px">
@@ -832,7 +907,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
     </div>
-    <div class="callout rv" style="--d:10;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:10;margin-top:auto">
       <span class="k">Read the definition again</span>
       <p>Sections B and C of this session are an extended attempt to put a defensible number on just the first half of that sentence — the <strong>horizontal extent</strong>.</p>
     </div>
@@ -936,7 +1011,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="stack sm">
         <div class="card sunk rv" style="--d:4;padding:24px 26px">
           <div class="label">Read the diagram as arithmetic</div>
-          <div class="mn" style="font-size:20px;color:var(--ink);margin-top:14px;line-height:2.1">
+          <div class="mn" style="font-size:calc(20px * var(--tz,1));color:var(--ink);margin-top:14px;line-height:2.1">
             Crown length &nbsp;=&nbsp; H − BH<br>
             Crown midpoint height &nbsp;=&nbsp; BH + CL/2<br>
             Total height &nbsp;=&nbsp; BH + CL<br>
@@ -944,13 +1019,13 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           </div>
         </div>
         <div class="card rv" style="--d:6;padding:24px 26px">
-          <div class="ch" style="font-size:26px">The dashed rectangle</div>
+          <div class="ch" style="font-size:calc(26px * var(--tz,1))">The dashed rectangle</div>
           <p class="txt-sm">It is not a real object. It is the <strong>vertical projection</strong> of the crown onto the ground — the crown's shadow at noon on the equator.</p>
           <p class="txt-sm" style="margin-top:12px">Its area is the <strong>crown projection area</strong>, and the whole of Section B is built out of it.</p>
         </div>
         <div class="callout moss rv" style="--d:8">
           <span class="k">Check yourself</span>
-          <p style="font-size:21px">H = 24 m, BH = 10 m. Crown length? Crown midpoint height?<br><span class="mn" style="color:var(--moss)">14 m and 17 m.</span></p>
+          <p style="font-size:calc(21px * var(--tz,1))">H = 24 m, BH = 10 m. Crown length? Crown midpoint height?<br><span class="mn" style="color:var(--moss)">14 m and 17 m.</span></p>
         </div>
       </div>
     </div>
@@ -983,11 +1058,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
   <div class="body">
-    <div class="g3" style="height:calc(100% - 150px)">
+    <div class="g3" style="flex:1 1 auto;min-height:0">
       <div class="card moss rv" style="--d:2;display:flex;flex-direction:column">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
           <div class="ch" style="margin:0">Convention 1</div>
-          <div class="mn" style="font-size:17px;color:var(--gold);letter-spacing:.16em">= CROWN MIDPOINT HEIGHT</div>
+          <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--gold);letter-spacing:.16em">= CROWN MIDPOINT HEIGHT</div>
         </div>
         <p class="txt-sm" style="margin-top:12px">Ground → <strong style="color:#fff">midpoint</strong> of the live crown. This module calls it <strong style="color:#fff">crown midpoint height</strong>.</p>
         <div style="flex:1;min-height:0;margin:14px 0">
@@ -1000,12 +1075,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <line x1="120" y1="86" x2="196" y2="86" stroke="#a8842c" stroke-width="1" stroke-dasharray="3 4"/>
           </svg>
         </div>
-        <div class="mn" style="font-size:19px;color:#fff">CH = BH + CL / 2</div>
+        <div class="mn" style="font-size:calc(19px * var(--tz,1));color:#fff">CH = BH + CL / 2</div>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
           <div class="ch" style="margin:0">Convention 2</div>
-          <div class="mn" style="font-size:17px;color:var(--ink-faint);letter-spacing:.16em">CALL IT CROWN LENGTH</div>
+          <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--ink-faint);letter-spacing:.16em">CALL IT CROWN LENGTH</div>
         </div>
         <p class="txt-sm" style="margin-top:12px">The <strong>vertical extent</strong> of the crown itself, crown base to tip.</p>
         <div style="flex:1;min-height:0;margin:14px 0">
@@ -1018,12 +1093,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <line x1="120" y1="144" x2="196" y2="144" stroke="#c14524" stroke-width="1" stroke-dasharray="3 4"/>
           </svg>
         </div>
-        <div class="mn" style="font-size:19px;color:var(--ink)">CH = H − BH</div>
+        <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--ink)">CH = H − BH</div>
       </div>
       <div class="card rv" style="--d:6;display:flex;flex-direction:column">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
           <div class="ch" style="margin:0">Convention 3</div>
-          <div class="mn" style="font-size:17px;color:var(--ink-faint);letter-spacing:.16em">CALL IT CROWN-BASE HEIGHT</div>
+          <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--ink-faint);letter-spacing:.16em">CALL IT CROWN-BASE HEIGHT</div>
         </div>
         <p class="txt-sm" style="margin-top:12px">Ground → the <strong>base of the live crown</strong>. This module calls it <strong>crown-base height</strong> — the same term Unit IV uses.</p>
         <div style="flex:1;min-height:0;margin:14px 0">
@@ -1035,17 +1110,17 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <line x1="120" y1="144" x2="196" y2="144" stroke="#c14524" stroke-width="1" stroke-dasharray="3 4"/>
           </svg>
         </div>
-        <div class="mn" style="font-size:19px;color:var(--ink)">CH = BH</div>
+        <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--ink)">CH = BH</div>
       </div>
     </div>
-    <div class="g2 rv" style="--d:8;position:absolute;left:0;right:0;bottom:0;gap:28px">
+    <div class="g2 rv" style="--d:8;margin-top:auto;gap:28px">
       <div class="callout">
         <span class="k">Why this matters more than it looks</span>
-        <p style="font-size:21px">On a tree with H = 24.6 m and BH = 9.8 m the three conventions give <strong>17.2 m, 14.8 m and 9.8 m</strong>. Same tree, same tape, three answers.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">On a tree with H = 24.6 m and BH = 9.8 m the three conventions give <strong>17.2 m, 14.8 m and 9.8 m</strong>. Same tree, same tape, three answers.</p>
       </div>
       <div class="callout moss">
         <span class="k">The four names this module uses — everywhere, in every unit</span>
-        <p style="font-size:21px"><strong>Crown-base height</strong> ground to the base of the live crown &middot; <strong>crown length</strong> total height minus crown-base height &middot; <strong>crown midpoint height</strong> ground to the midpoint of the live crown &middot; <strong>live-crown ratio</strong> crown length divided by total height. Say one of these four, and nobody has to guess.</p>
+        <p style="font-size:calc(21px * var(--tz,1))"><strong>Crown-base height</strong> ground to the base of the live crown &middot; <strong>crown length</strong> total height minus crown-base height &middot; <strong>crown midpoint height</strong> ground to the midpoint of the live crown &middot; <strong>live-crown ratio</strong> crown length divided by total height. Say one of these four, and nobody has to guess.</p>
       </div>
     </div>
   </div>
@@ -1078,15 +1153,15 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <p class="lead rv" style="--d:2">No vertical crown dimension is measured directly. Every one is a <strong>difference of two hypsometer readings</strong>.</p>
         <div class="card rv" style="--d:3">
           <div class="ch">Procedure</div>
-          <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:30px;height:30px;font-size:16px">1</div><div class="txt-sm">Choose a station from which both the <strong>tip</strong> and the <strong>crown base</strong> are visible. Do not accept a station that shows only one.</div></div>
-          <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:30px;height:30px;font-size:16px">2</div><div class="txt-sm">Measure the <strong>horizontal</strong> distance to the stem — on a slope this is not the slope distance.</div></div>
-          <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:30px;height:30px;font-size:16px">3</div><div class="txt-sm">Read the angle to the tip of the leading shoot, and to the base of the tree. Their difference gives total height <span class="mn">H</span>.</div></div>
-          <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:30px;height:30px;font-size:16px">4</div><div class="txt-sm">Read the angle to the lowest live branch. This gives bole height <span class="mn">BH</span>.</div></div>
-          <div class="numrow" style="margin-bottom:0"><div class="badge moss" style="width:30px;height:30px;font-size:16px">5</div><div class="txt-sm">Subtract: <span class="mn">CL = H − BH</span>, then <span class="mn">CH = BH + CL/2</span>. Nothing else is recorded.</div></div>
+          <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:30px;height:30px;font-size:calc(16px * var(--tz,1))">1</div><div class="txt-sm">Choose a station from which both the <strong>tip</strong> and the <strong>crown base</strong> are visible. Do not accept a station that shows only one.</div></div>
+          <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:30px;height:30px;font-size:calc(16px * var(--tz,1))">2</div><div class="txt-sm">Measure the <strong>horizontal</strong> distance to the stem — on a slope this is not the slope distance.</div></div>
+          <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:30px;height:30px;font-size:calc(16px * var(--tz,1))">3</div><div class="txt-sm">Read the angle to the tip of the leading shoot, and to the base of the tree. Their difference gives total height <span class="mn">H</span>.</div></div>
+          <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:30px;height:30px;font-size:calc(16px * var(--tz,1))">4</div><div class="txt-sm">Read the angle to the lowest live branch. This gives bole height <span class="mn">BH</span>.</div></div>
+          <div class="numrow" style="margin-bottom:0"><div class="badge moss" style="width:30px;height:30px;font-size:calc(16px * var(--tz,1))">5</div><div class="txt-sm">Subtract: <span class="mn">CL = H − BH</span>, then <span class="mn">CH = BH + CL/2</span>. Nothing else is recorded.</div></div>
         </div>
         <div class="callout rv" style="--d:6">
           <span class="k">Errors add — they do not cancel</span>
-          <p style="font-size:21px">If one clinometer reading carries a standard error of about 0.5 m, a <em>difference</em> of two carries about <strong>0.7 m</strong>. A crown length of 14.8 m is 14.8 ± 0.7 m. Do not write 14.83 m.</p>
+          <p style="font-size:calc(21px * var(--tz,1))">If one clinometer reading carries a standard error of about 0.5 m, a <em>difference</em> of two carries about <strong>0.7 m</strong>. A crown length of 14.8 m is 14.8 ± 0.7 m. Do not write 14.83 m.</p>
         </div>
       </div>
       <div class="stack sm">
@@ -1165,11 +1240,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <p class="lead rv" style="--d:2">The eye is a poor plumb line. Finding the ground point vertically below the crown edge is the <strong>hardest easy measurement</strong> in mensuration.</p>
         <div class="card rv" style="--d:3">
           <div class="ch">Procedure</div>
-          <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:30px;height:30px;font-size:16px">1</div><div class="txt-sm">Use a <strong>crown mirror</strong> — a levelled 45° mirror that lets you sight vertically upward while looking ahead.</div></div>
-          <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:30px;height:30px;font-size:16px">2</div><div class="txt-sm">Walk outward until the crown edge sits on the cross-hair. Mark the ground point.</div></div>
-          <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:30px;height:30px;font-size:16px">3</div><div class="txt-sm">Tape from that point back to the centre of the stem — that is one crown <em>radius</em>.</div></div>
-          <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:30px;height:30px;font-size:16px">4</div><div class="txt-sm">Repeat on at least <strong>two perpendicular axes</strong> (or four to eight radii for research work).</div></div>
-          <div class="numrow" style="margin-bottom:0"><div class="badge moss" style="width:30px;height:30px;font-size:16px">5</div><div class="txt-sm">Average the diameters, then compute the projection area.</div></div>
+          <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:30px;height:30px;font-size:calc(16px * var(--tz,1))">1</div><div class="txt-sm">Use a <strong>crown mirror</strong> — a levelled 45° mirror that lets you sight vertically upward while looking ahead.</div></div>
+          <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:30px;height:30px;font-size:calc(16px * var(--tz,1))">2</div><div class="txt-sm">Walk outward until the crown edge sits on the cross-hair. Mark the ground point.</div></div>
+          <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:30px;height:30px;font-size:calc(16px * var(--tz,1))">3</div><div class="txt-sm">Tape from that point back to the centre of the stem — that is one crown <em>radius</em>.</div></div>
+          <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:30px;height:30px;font-size:calc(16px * var(--tz,1))">4</div><div class="txt-sm">Repeat on at least <strong>two perpendicular axes</strong> (or four to eight radii for research work).</div></div>
+          <div class="numrow" style="margin-bottom:0"><div class="badge moss" style="width:30px;height:30px;font-size:calc(16px * var(--tz,1))">5</div><div class="txt-sm">Average the diameters, then compute the projection area.</div></div>
         </div>
         <div class="formula rv" style="--d:5">CPA &nbsp;=&nbsp; π &nbsp;( CD&#772; / 2 )<sup>2</sup>
           <span class="u">CD&#772; = mean crown diameter · CPA = crown projection area, in m<sup>2</sup></span>
@@ -1208,7 +1283,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
         <div class="callout rv" style="--d:7">
           <span class="k">Know the bias you are accepting</span>
-          <p style="font-size:21px">A circle <strong>fills in the bays</strong> between the lobes, so it overestimates the area of a lobed crown. Acceptable for a stand cover figure; not acceptable for research on individual crowns, where the crown is mapped as a polygon.</p>
+          <p style="font-size:calc(21px * var(--tz,1))">A circle <strong>fills in the bays</strong> between the lobes, so it overestimates the area of a lobed crown. Acceptable for a stand cover figure; not acceptable for research on individual crowns, where the crown is mapped as a polygon.</p>
         </div>
       </div>
     </div>
@@ -1242,16 +1317,16 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
   <div class="body deep">
     <div class="row rv" style="--d:2;gap:30px;align-items:center;margin-bottom:24px">
-      <p class="txt" style="flex:1;font-size:22px">Crown length expressed as a percentage of total height. It is <strong>dimensionless</strong>, which is what makes a sapling comparable with a mature tree.</p>
+      <p class="txt" style="flex:1;font-size:calc(22px * var(--tz,1))">Crown length expressed as a percentage of total height. It is <strong>dimensionless</strong>, which is what makes a sapling comparable with a mature tree.</p>
       <div class="formula sm" style="flex:0 0 500px;margin:0">LCR &nbsp;=&nbsp; ( CL / H ) × 100
         <span class="u">crown length ÷ total height, as a percentage</span>
       </div>
     </div>
-    <div class="g3" style="height:calc(100% - 232px)">
+    <div class="g3" style="flex:1 1 auto;min-height:0">
       <div class="card rv" style="--d:3;display:flex;flex-direction:column">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
           <div class="ch" style="margin:0">Long crown</div>
-          <div class="mn" style="font-size:22px;font-weight:700;color:var(--moss)">LCR &gt; 50 %</div>
+          <div class="mn" style="font-size:calc(22px * var(--tz,1));font-weight:700;color:var(--moss)">LCR &gt; 50 %</div>
         </div>
         <div style="flex:1;min-height:0;margin:14px 0">
           <svg viewBox="0 0 220 210" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
@@ -1260,12 +1335,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <line x1="110" y1="154" x2="110" y2="188" stroke="#2f5140" stroke-width="6"/>
           </svg>
         </div>
-        <p class="txt-sm" style="font-size:19px">Large factory, small stem to feed. Vigorous, responds well to release, wind-firm.</p>
+        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Large factory, small stem to feed. Vigorous, responds well to release, wind-firm.</p>
       </div>
       <div class="card rv" style="--d:5;display:flex;flex-direction:column">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
           <div class="ch" style="margin:0">Moderate</div>
-          <div class="mn" style="font-size:22px;font-weight:700;color:var(--gold)">30 – 50 %</div>
+          <div class="mn" style="font-size:calc(22px * var(--tz,1));font-weight:700;color:var(--gold)">30 – 50 %</div>
         </div>
         <div style="flex:1;min-height:0;margin:14px 0">
           <svg viewBox="0 0 220 210" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
@@ -1274,12 +1349,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <line x1="110" y1="110" x2="110" y2="188" stroke="#2f5140" stroke-width="6"/>
           </svg>
         </div>
-        <p class="txt-sm" style="font-size:19px">Normal for a managed even-aged stand approaching first thinning. Watch it.</p>
+        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Normal for a managed even-aged stand approaching first thinning. Watch it.</p>
       </div>
       <div class="card rv" style="--d:7;display:flex;flex-direction:column">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
           <div class="ch" style="margin:0">Short crown</div>
-          <div class="mn" style="font-size:22px;font-weight:700;color:var(--vermilion)">LCR &lt; 30 %</div>
+          <div class="mn" style="font-size:calc(22px * var(--tz,1));font-weight:700;color:var(--vermilion)">LCR &lt; 30 %</div>
         </div>
         <div style="flex:1;min-height:0;margin:14px 0">
           <svg viewBox="0 0 220 210" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
@@ -1288,17 +1363,17 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <line x1="110" y1="70" x2="110" y2="188" stroke="#2f5140" stroke-width="6"/>
           </svg>
         </div>
-        <p class="txt-sm" style="font-size:19px">Long-shaded, branches shed. Poor response to release; at risk of snow break and windthrow.</p>
+        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Long-shaded, branches shed. Poor response to release; at risk of snow break and windthrow.</p>
       </div>
     </div>
-    <div class="g2 rv" style="--d:9;position:absolute;left:0;right:0;bottom:0;gap:28px">
+    <div class="g2 rv" style="--d:9;margin-top:auto;gap:28px">
       <div class="callout">
         <span class="k">Crown ratio is not recoverable in conifers</span>
-        <p style="font-size:21px">A shed branch does not grow back. A thinning delayed until the crop trees are at 20 % has been <strong>delayed too long</strong> — thinning is preventive, not curative.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">A shed branch does not grow back. A thinning delayed until the crop trees are at 20 % has been <strong>delayed too long</strong> — thinning is preventive, not curative.</p>
       </div>
       <div class="callout moss">
         <span class="k">Why this belongs in a session on closure</span>
-        <p style="font-size:21px">Closure counts <strong>area covered</strong>, not depth of crown behind it. Two stands with identical closure can differ completely in vigour.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">Closure counts <strong>area covered</strong>, not depth of crown behind it. Two stands with identical closure can differ completely in vigour.</p>
       </div>
     </div>
   </div>
@@ -1355,13 +1430,13 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </g>
       </svg>
     </div>
-    <div class="g4" style="height:calc(100% - 452px)">
-      <div class="card rv" style="--d:3;padding:22px 24px"><div class="ch" style="font-size:25px">Dominant</div><p class="txt-sm" style="font-size:19px">Crown above the general canopy level. Light from <strong>above and all sides</strong>.</p></div>
-      <div class="card rv" style="--d:4;padding:22px 24px"><div class="ch" style="font-size:25px">Co-dominant</div><p class="txt-sm" style="font-size:19px">Crown <strong>forms</strong> the general canopy level. Light from above only; crowded at the sides.</p></div>
-      <div class="card rv" style="--d:5;padding:22px 24px"><div class="ch" style="font-size:25px">Intermediate</div><p class="txt-sm" style="font-size:19px">Squeezed into the canopy. A little light from above, none from the side.</p></div>
-      <div class="card rv" style="--d:6;padding:22px 24px"><div class="ch" style="font-size:25px">Suppressed</div><p class="txt-sm" style="font-size:19px">Entirely <strong>below</strong> the canopy. Only filtered light. Also called overtopped.</p></div>
+    <div class="g4" style="flex:1 1 auto;min-height:0">
+      <div class="card rv" style="--d:3;padding:22px 24px"><div class="ch" style="font-size:calc(25px * var(--tz,1))">Dominant</div><p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Crown above the general canopy level. Light from <strong>above and all sides</strong>.</p></div>
+      <div class="card rv" style="--d:4;padding:22px 24px"><div class="ch" style="font-size:calc(25px * var(--tz,1))">Co-dominant</div><p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Crown <strong>forms</strong> the general canopy level. Light from above only; crowded at the sides.</p></div>
+      <div class="card rv" style="--d:5;padding:22px 24px"><div class="ch" style="font-size:calc(25px * var(--tz,1))">Intermediate</div><p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Squeezed into the canopy. A little light from above, none from the side.</p></div>
+      <div class="card rv" style="--d:6;padding:22px 24px"><div class="ch" style="font-size:calc(25px * var(--tz,1))">Suppressed</div><p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Entirely <strong>below</strong> the canopy. Only filtered light. Also called overtopped.</p></div>
     </div>
-    <div class="callout rv" style="--d:8;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:8;margin-top:auto">
       <span class="k">Why you needed this before Section B</span>
       <p><strong>Crown closure is defined on dominant and co-dominant crowns</strong> — the trees that form the canopy. A densiometer, however, cannot tell one crown class from another, and counts intermediates too. That alone makes the two numbers differ.</p>
     </div>
@@ -1397,10 +1472,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
   <div class="body">
     <div class="row rv" style="--d:2;gap:30px;align-items:stretch;margin-bottom:20px">
-      <p class="lead" style="flex:1;font-size:28px">A blue pine <em style="color:var(--ink-soft)">(Pinus wallichiana)</em> is measured. <strong>Total height 24.6 m</strong>; <strong>bole height 9.8 m</strong>; crown diameter <strong>6.4 m</strong> north–south and <strong>5.2 m</strong> east–west. Find the crown length, live-crown ratio, crown height, mean crown diameter and crown projection area.</p>
+      <p class="lead" style="flex:1;font-size:calc(28px * var(--tz,1))">A blue pine <em style="color:var(--ink-soft)">(Pinus wallichiana)</em> is measured. <strong>Total height 24.6 m</strong>; <strong>bole height 9.8 m</strong>; crown diameter <strong>6.4 m</strong> north–south and <strong>5.2 m</strong> east–west. Find the crown length, live-crown ratio, crown height, mean crown diameter and crown projection area.</p>
       <div class="card sunk" style="flex:0 0 400px;padding:20px 24px">
         <div class="label">Given</div>
-        <div class="mn" style="font-size:20px;color:var(--ink);margin-top:12px;line-height:2">
+        <div class="mn" style="font-size:calc(20px * var(--tz,1));color:var(--ink);margin-top:12px;line-height:2">
           H &nbsp;= 24.6 m<br>
           BH = 9.8 m<br>
           CD<sub>NS</sub> = 6.4 m &nbsp; CD<sub>EW</sub> = 5.2 m
@@ -1421,10 +1496,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="callout">
         <span class="k">Two errors the marker expects to see</span>
-        <p style="font-size:21px">Dividing crown length by <strong>bole</strong> height in step 2, and forgetting to add bole height back in step 3 — which gives 7.4 m instead of 17.2 m.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">Dividing crown length by <strong>bole</strong> height in step 2, and forgetting to add bole height back in step 3 — which gives 7.4 m instead of 17.2 m.</p>
       </div>
     </div>
-    <div class="callout moss rv" style="--d:8;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout moss rv" style="--d:8;margin-top:auto">
       <span class="k">Interpretation — never leave a number unread</span>
       <p>A live-crown ratio of 60 % on a blue pine is a <strong>vigorous tree with a full crown</strong>: a good crop tree, worth marking to retain at the next thinning. The two crown diameters differ by more than 20 %, which is normal where a tree has a close neighbour on one side — and is exactly why two perpendicular axes are the minimum.</p>
     </div>
@@ -1497,19 +1572,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 -->
 <section class="slide" data-n="17">
   <div class="sect">
-    <div class="rings" aria-hidden="true">
-      <svg viewBox="0 0 1000 1000">
-        <g fill="none" stroke="#a8842c" stroke-opacity=".34">
-          <circle cx="380" cy="420" r="220" stroke-width="1.6"/>
-          <circle cx="600" cy="360" r="180" stroke-width="1.2"/>
-          <circle cx="520" cy="600" r="240" stroke-width="1.5"/>
-          <circle cx="300" cy="660" r="170" stroke-width="1.2"/>
-          <circle cx="700" cy="640" r="150" stroke-width="1.4"/>
-          <circle cx="500" cy="440" r="120" stroke-width="1"/>
-        </g>
-        <rect x="180" y="220" width="640" height="640" fill="none" stroke="#a8842c" stroke-opacity=".5" stroke-width="1.6" stroke-dasharray="12 12"/>
-      </svg>
-    </div>
+    <div class="rings men-divider-photo" role="img" aria-label="Forest landscape in Bhutan"><img src="assets/images/men201/divider-uiii-s17.jpg" alt=""><span class="men-photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Chelela_to_Paro_road_views_during_LGFC_-_Bhutan_2019_(108).jpg">Vinayaraj · CC BY-SA 4.0</a></span></div>
     <div class="srun">MEN 201 · Forest Mensuration · Unit III</div>
     <div class="sframe">
       <div class="sltr rv" style="--d:0">B</div>
@@ -1544,27 +1607,27 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="stack" style="gap:26px">
       <div class="card rv" style="--d:2">
         <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px">
-          <div class="ch" style="margin:0;font-size:34px">Crown Closure</div>
-          <div class="mn" style="font-size:18px;color:var(--vermilion);letter-spacing:.14em">VIEWED HORIZONTALLY</div>
+          <div class="ch" style="margin:0;font-size:calc(34px * var(--tz,1))">Crown Closure</div>
+          <div class="mn" style="font-size:calc(18px * var(--tz,1));color:var(--vermilion);letter-spacing:.14em">VIEWED HORIZONTALLY</div>
         </div>
-        <p class="txt" style="font-size:26px">The proportion of forest area where the <strong style="color:var(--moss)">crowns</strong> of dominant and co-dominant trees <strong style="color:var(--moss)">touch or overlap</strong> when viewed horizontally.</p>
+        <p class="txt" style="font-size:calc(26px * var(--tz,1))">The proportion of forest area where the <strong style="color:var(--moss)">crowns</strong> of dominant and co-dominant trees <strong style="color:var(--moss)">touch or overlap</strong> when viewed horizontally.</p>
       </div>
       <div class="card rv" style="--d:4">
         <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px">
-          <div class="ch" style="margin:0;font-size:34px">Canopy Cover &nbsp;/&nbsp; Crown Cover</div>
-          <div class="mn" style="font-size:18px;color:var(--vermilion);letter-spacing:.14em">VIEWED FROM ABOVE</div>
+          <div class="ch" style="margin:0;font-size:calc(34px * var(--tz,1))">Canopy Cover &nbsp;/&nbsp; Crown Cover</div>
+          <div class="mn" style="font-size:calc(18px * var(--tz,1));color:var(--vermilion);letter-spacing:.14em">VIEWED FROM ABOVE</div>
         </div>
-        <p class="txt" style="font-size:26px">The percentage of <strong style="color:var(--moss)">ground area covered</strong> by the <strong style="color:var(--moss)">vertical projection</strong> of tree crowns, including all vegetation layers (trees, shrubs, and so on).</p>
+        <p class="txt" style="font-size:calc(26px * var(--tz,1))">The percentage of <strong style="color:var(--moss)">ground area covered</strong> by the <strong style="color:var(--moss)">vertical projection</strong> of tree crowns, including all vegetation layers (trees, shrubs, and so on).</p>
       </div>
       <div class="card rv" style="--d:6">
         <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px">
-          <div class="ch" style="margin:0;font-size:34px">Canopy Closure</div>
-          <div class="mn" style="font-size:18px;color:var(--vermilion);letter-spacing:.14em">VIEWED FROM BELOW</div>
+          <div class="ch" style="margin:0;font-size:calc(34px * var(--tz,1))">Canopy Closure</div>
+          <div class="mn" style="font-size:calc(18px * var(--tz,1));color:var(--vermilion);letter-spacing:.14em">VIEWED FROM BELOW</div>
         </div>
-        <p class="txt" style="font-size:26px">The proportion of the <strong style="color:var(--moss)">sky obscured by foliage</strong> when viewed from the forest floor.</p>
+        <p class="txt" style="font-size:calc(26px * var(--tz,1))">The proportion of the <strong style="color:var(--moss)">sky obscured by foliage</strong> when viewed from the forest floor.</p>
       </div>
     </div>
-    <div class="callout rv" style="--d:8;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:8;margin-top:auto">
       <span class="k">The structure that makes them memorable</span>
       <p>They differ in <strong>where the observer stands and which way they look</strong>: crowns against each other, horizontally · the ground seen from directly above · the sky seen from the forest floor. Three viewpoints, three numbers.</p>
     </div>
@@ -1599,15 +1662,15 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="stack sm">
         <p class="lead rv" style="--d:2">Three phrases in this definition do real work — and each of them <strong>excludes</strong> something.</p>
         <div class="card rv" style="--d:3;padding:24px 28px">
-          <div class="ch" style="font-size:26px">"of dominant and co-dominant trees"</div>
+          <div class="ch" style="font-size:calc(26px * var(--tz,1))">"of dominant and co-dominant trees"</div>
           <p class="txt-sm">Excludes the understorey. A dense layer of suppressed saplings or shrubs adds <strong>nothing</strong> to crown closure, however green the plot looks.</p>
         </div>
         <div class="card rv" style="--d:4;padding:24px 28px">
-          <div class="ch" style="font-size:26px">"touch or overlap"</div>
+          <div class="ch" style="font-size:calc(26px * var(--tz,1))">"touch or overlap"</div>
           <p class="txt-sm">A statement about <strong>neighbouring crowns</strong>, not about ground shaded. This is what makes it a <em>closure</em> measure rather than a <em>cover</em> measure.</p>
         </div>
         <div class="card rv" style="--d:5;padding:24px 28px">
-          <div class="ch" style="font-size:26px">"when viewed horizontally"</div>
+          <div class="ch" style="font-size:calc(26px * var(--tz,1))">"when viewed horizontally"</div>
           <p class="txt-sm">Describes the canopy as a <strong>continuous horizontal sheet</strong> — whether it is joined up — not the shadows it casts on the ground.</p>
         </div>
       </div>
@@ -1648,7 +1711,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
         <div class="callout moss rv" style="--d:7">
           <span class="k">The silvicultural reading</span>
-          <p style="font-size:21px">"The stand has closed canopy" is a <strong>milestone in stand development</strong>: after it, competition begins, height growth accelerates, diameter growth slows, and self-pruning starts. Thinning is timed against it.</p>
+          <p style="font-size:calc(21px * var(--tz,1))">"The stand has closed canopy" is a <strong>milestone in stand development</strong>: after it, competition begins, height growth accelerates, diameter growth slows, and self-pruning starts. Thinning is timed against it.</p>
         </div>
       </div>
     </div>
@@ -1681,7 +1744,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:34px;height:100%">
       <div class="stack sm">
-        <p class="lead rv" style="--d:2;font-size:30px"><strong>The proportion of ground covered by the vertical projection of tree crowns.</strong> <span style="font-size:.74em;color:var(--ink-faint)">Not &ldquo;what is shaded at noon&rdquo; &mdash; real shade moves with the sun.</span></p>
+        <p class="lead rv" style="--d:2;font-size:calc(30px * var(--tz,1))"><strong>The proportion of ground covered by the vertical projection of tree crowns.</strong> <span style="font-size:.74em;color:var(--ink-faint)">Not &ldquo;what is shaded at noon&rdquo; &mdash; real shade moves with the sun.</span></p>
         <div class="formula rv" style="--d:3">Cover &nbsp;=&nbsp; ( A<sub>covered</sub> / A<sub>ground</sub> ) × 100
           <span class="u">area of ground under crown projections ÷ total ground area</span>
         </div>
@@ -1824,7 +1887,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
         <div class="card sunk rv" style="--d:7;padding:20px 24px">
           <div class="label v">Angle of view decides the answer</div>
-          <div class="mn" style="font-size:19px;color:var(--ink);margin-top:12px;line-height:1.95">
+          <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--ink);margin-top:12px;line-height:1.95">
             narrow cone about vertical &nbsp;→&nbsp; converges on <em>cover</em><br>
             convex densiometer, ≈ 60° &nbsp;→&nbsp; intermediate<br>
             full hemisphere, 180° &nbsp;→&nbsp; largest <em>closure</em>
@@ -1876,7 +1939,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <tr><td class="rh">Report it when the question is</td><td>Stand development, stocking, thinning</td><td>Mapping, forest area statistics, land cover</td><td>Light, microclimate, regeneration, understorey</td></tr>
       </tbody>
     </table>
-    <div class="callout rv" style="--d:4;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:4;margin-top:auto">
       <span class="k">The row that is always missing from a field report</span>
       <p>The method. A canopy figure without its method and angle of view attached <strong>cannot be checked, compared or repeated</strong> — and is therefore not a measurement.</p>
     </div>
@@ -1907,7 +1970,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
   <div class="body">
-    <div class="g3" style="height:calc(100% - 132px)">
+    <div class="g3" style="flex:1 1 auto;min-height:0">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column">
         <div class="ch">Canopy cover / crown cover</div>
         <div style="flex:1;min-height:0;margin:6px 0 12px">
@@ -1925,9 +1988,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <text x="150" y="232" font-family="JetBrains Mono, monospace" font-size="16" fill="#c14524" text-anchor="middle">THE SHADOW BELOW</text>
           </svg>
         </div>
-        <p class="txt-sm" style="font-size:19px">Imagine holding a large umbrella over your head. The <strong>shadow it casts below</strong> is the vertical projection.</p>
+        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Imagine holding a large umbrella over your head. The <strong>shadow it casts below</strong> is the vertical projection.</p>
         <div style="flex:1"></div>
-        <div class="callout moss sm" style="margin-top:14px"><p style="font-size:19px">Ground area covered by foliage when viewed <strong>from above</strong></p></div>
+        <div class="callout moss sm" style="margin-top:14px"><p style="font-size:calc(19px * var(--tz,1))">Ground area covered by foliage when viewed <strong>from above</strong></p></div>
       </div>
 
       <div class="card rv" style="--d:4;display:flex;flex-direction:column">
@@ -1949,9 +2012,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <text x="150" y="236" font-family="Public Sans, sans-serif" font-size="15" fill="#4a544c" text-anchor="middle">sky blocked, in every direction</text>
           </svg>
         </div>
-        <p class="txt-sm" style="font-size:19px">Imagine lying on your back in a forest and looking up. The <strong>amount of sky blocked</strong> by leaves and branches.</p>
+        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Imagine lying on your back in a forest and looking up. The <strong>amount of sky blocked</strong> by leaves and branches.</p>
         <div style="flex:1"></div>
-        <div class="callout moss sm" style="margin-top:14px"><p style="font-size:19px">Sky obscured by foliage when viewed <strong>from the forest floor</strong></p></div>
+        <div class="callout moss sm" style="margin-top:14px"><p style="font-size:calc(19px * var(--tz,1))">Sky obscured by foliage when viewed <strong>from the forest floor</strong></p></div>
       </div>
 
       <div class="card rv" style="--d:6;display:flex;flex-direction:column">
@@ -1973,12 +2036,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <text x="150" y="232" font-family="JetBrains Mono, monospace" font-size="16" fill="#c14524" text-anchor="middle">WHERE THEY OVERLAP</text>
           </svg>
         </div>
-        <p class="txt-sm" style="font-size:19px">Imagine a group of people holding umbrellas close together. The <strong>overlap between umbrellas</strong> shows how much the crowns touch.</p>
+        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Imagine a group of people holding umbrellas close together. The <strong>overlap between umbrellas</strong> shows how much the crowns touch.</p>
         <div style="flex:1"></div>
-        <div class="callout moss sm" style="margin-top:14px"><p style="font-size:19px">Horizontal <strong>overlap</strong> of dominant tree crowns</p></div>
+        <div class="callout moss sm" style="margin-top:14px"><p style="font-size:calc(19px * var(--tz,1))">Horizontal <strong>overlap</strong> of dominant tree crowns</p></div>
       </div>
     </div>
-    <div class="callout rv" style="--d:8;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:8;margin-top:auto">
       <span class="k">Push the analogy one step further</span>
       <p>If ten people huddle together with overlapping umbrellas, is the shadow on the ground ten umbrella-areas? <strong>No.</strong> The gap between "ten umbrella areas" and the actual shadow is the overlap correction — the arithmetic on slide 25.</p>
     </div>
@@ -2050,21 +2113,21 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <text x="1520" y="418" font-family="Public Sans, sans-serif" font-size="17" fill="#4a544c" text-anchor="end">Distant crowns block sky without covering the observer's ground</text>
       </svg>
     </div>
-    <div class="g3" style="height:calc(100% - 556px)">
+    <div class="g3" style="flex:1 1 auto;min-height:0">
       <div class="card rv" style="--d:4;padding:22px 26px">
-        <div style="display:flex;justify-content:space-between;align-items:baseline"><div class="ch" style="margin:0;font-size:26px">Canopy cover</div><div class="mn" style="font-size:25px;font-weight:700;color:var(--moss)">smallest</div></div>
-        <p class="txt-sm" style="margin-top:10px;font-size:19px">Counts each patch of ground once, however many crowns are above it.</p>
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Canopy cover</div><div class="mn" style="font-size:calc(25px * var(--tz,1));font-weight:700;color:var(--moss)">smallest</div></div>
+        <p class="txt-sm" style="margin-top:10px;font-size:calc(19px * var(--tz,1))">Counts each patch of ground once, however many crowns are above it.</p>
       </div>
       <div class="card rv" style="--d:5;padding:22px 26px">
-        <div style="display:flex;justify-content:space-between;align-items:baseline"><div class="ch" style="margin:0;font-size:26px">Crown closure</div><div class="mn" style="font-size:25px;font-weight:700;color:var(--gold)">between</div></div>
-        <p class="txt-sm" style="margin-top:10px;font-size:19px">Counts only canopy-forming crowns, but treats them as a joined-up sheet.</p>
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Crown closure</div><div class="mn" style="font-size:calc(25px * var(--tz,1));font-weight:700;color:var(--gold)">between</div></div>
+        <p class="txt-sm" style="margin-top:10px;font-size:calc(19px * var(--tz,1))">Counts only canopy-forming crowns, but treats them as a joined-up sheet.</p>
       </div>
       <div class="card rv" style="--d:6;padding:22px 26px">
-        <div style="display:flex;justify-content:space-between;align-items:baseline"><div class="ch" style="margin:0;font-size:26px">Canopy closure</div><div class="mn" style="font-size:25px;font-weight:700;color:var(--vermilion)">largest</div></div>
-        <p class="txt-sm" style="margin-top:10px;font-size:19px">Distant crowns block sky obliquely; twigs, climbers and shrubs all count.</p>
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Canopy closure</div><div class="mn" style="font-size:calc(25px * var(--tz,1));font-weight:700;color:var(--vermilion)">largest</div></div>
+        <p class="txt-sm" style="margin-top:10px;font-size:calc(19px * var(--tz,1))">Distant crowns block sky obliquely; twigs, climbers and shrubs all count.</p>
       </div>
     </div>
-    <div class="callout moss rv" style="--d:8;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout moss rv" style="--d:8;margin-top:auto">
       <span class="k">The rule, and its caveat</span>
       <p>On most stands <span class="mn">canopy closure &gt; crown closure &gt; canopy cover</span>. In a very open stand the three <strong>converge</strong>, because there is little oblique blocking and little overlap. They diverge most in tall, dense stands — where the measurement matters most.</p>
     </div>
@@ -2100,17 +2163,17 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div style="display:grid;grid-template-columns:1.02fr .98fr;gap:34px;height:100%">
       <div class="stack sm">
         <div class="card rv" style="--d:2;padding:24px 28px">
-          <div class="ch" style="font-size:26px">1 · Crown cover — the naive sum</div>
+          <div class="ch" style="font-size:calc(26px * var(--tz,1))">1 · Crown cover — the naive sum</div>
           <div class="formula sm" style="margin:12px 0 10px">CC<sub>crown</sub> = ( Σ CPA<sub>i</sub> / A ) × 100</div>
           <p class="txt-sm">Add up every crown projection area and divide by plot area. <strong>This can exceed 100 %</strong> — and when it does it is not an error, it is information: the crowns overlap.</p>
         </div>
         <div class="card rv" style="--d:3;padding:24px 28px">
-          <div class="ch" style="font-size:26px">2 · Canopy cover — overlap counted once</div>
+          <div class="ch" style="font-size:calc(26px * var(--tz,1))">2 · Canopy cover — overlap counted once</div>
           <div class="formula sm" style="margin:12px 0 10px">CC<sub>canopy</sub> = ( ( Σ CPA<sub>i</sub> − A<sub>overlap</sub> ) / A ) × 100</div>
           <p class="txt-sm">The only honest way to obtain <span class="mn">A<sub>overlap</sub></span> is to <strong>map the crowns</strong> — on a plan sheet, on an aerial photograph, or in GIS. This figure cannot exceed 100 %.</p>
         </div>
         <div class="card moss rv" style="--d:4;padding:24px 28px">
-          <div class="ch" style="font-size:26px">3 · If crowns were placed at random</div>
+          <div class="ch" style="font-size:calc(26px * var(--tz,1))">3 · If crowns were placed at random</div>
           <div class="formula sm" style="margin:12px 0 10px;background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.25);color:#fff">CC<sub>canopy</sub> = 100 ( 1 − e<sup>−Σ CPA / A</sup> )</div>
           <p class="txt-sm">The chance a point is covered by <em>no</em> crown falls off exponentially. A model, not a measurement — it assumes crowns are small relative to the plot and independently placed.</p>
         </div>
@@ -2138,7 +2201,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
         <div class="callout rv" style="--d:7">
           <span class="k">The residual is a statement about spatial pattern</span>
-          <p style="font-size:21px">Measured cover <strong>below</strong> the random model → crowns are <strong>clumped</strong>. Measured cover <strong>above</strong> it → crowns are more <strong>regularly spaced</strong> than chance, which is what a plantation looks like.</p>
+          <p style="font-size:calc(21px * var(--tz,1))">Measured cover <strong>below</strong> the random model → crowns are <strong>clumped</strong>. Measured cover <strong>above</strong> it → crowns are more <strong>regularly spaced</strong> than chance, which is what a plantation looks like.</p>
         </div>
       </div>
     </div>
@@ -2176,10 +2239,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
   <div class="body">
     <div class="row rv" style="--d:2;gap:30px;align-items:stretch;margin-bottom:20px">
-      <p class="lead" style="flex:1;font-size:28px">On a <strong>20 m × 20 m</strong> plot, 12 trees are measured. The crown projection areas sum to <strong>268 m<sup>2</sup></strong>. The crowns are mapped on a plan sheet and the total overlapped area is found to be <strong>54 m<sup>2</sup></strong>. Find crown cover and canopy cover, and compare with the random-placement model.</p>
+      <p class="lead" style="flex:1;font-size:calc(28px * var(--tz,1))">On a <strong>20 m × 20 m</strong> plot, 12 trees are measured. The crown projection areas sum to <strong>268 m<sup>2</sup></strong>. The crowns are mapped on a plan sheet and the total overlapped area is found to be <strong>54 m<sup>2</sup></strong>. Find crown cover and canopy cover, and compare with the random-placement model.</p>
       <div class="card sunk" style="flex:0 0 380px;padding:20px 24px">
         <div class="label">Given</div>
-        <div class="mn" style="font-size:20px;color:var(--ink);margin-top:12px;line-height:2">
+        <div class="mn" style="font-size:calc(20px * var(--tz,1));color:var(--ink);margin-top:12px;line-height:2">
           A &nbsp;&nbsp;= 20 × 20 = 400 m<sup>2</sup><br>
           Σ CPA = 268 m<sup>2</sup><br>
           A<sub>overlap</sub> = 54 m<sup>2</sup>
@@ -2200,10 +2263,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="callout">
         <span class="k">Neither figure is wrong</span>
-        <p style="font-size:21px">67.0 % and 53.5 % are <strong>different quantities</strong>, not a measurement and an error. Report which one you mean.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">67.0 % and 53.5 % are <strong>different quantities</strong>, not a measurement and an error. Report which one you mean.</p>
       </div>
     </div>
-    <div class="callout moss rv" style="--d:8;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout moss rv" style="--d:8;margin-top:auto">
       <span class="k">Interpretation</span>
       <p>Measured canopy cover (53.5 %) is <strong>above</strong> the random prediction (48.8 %). More cover means <em>less</em> overlap than chance, so the crowns are more evenly spaced than a random scatter — the signature of a plantation, or of a stand that has been thinned. A measured 42 % would have implied the opposite: clumping, from group regeneration or a patchy site.</p>
     </div>
@@ -2245,7 +2308,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="g2" style="gap:30px">
         <div class="card sunk rv" style="--d:4">
-          <div class="ch" style="font-size:26px">When the form is vague</div>
+          <div class="ch" style="font-size:calc(26px * var(--tz,1))">When the form is vague</div>
           <p class="txt-sm">Forms ask for "canopy density", "crown density", or simply "cover". <strong>Do not guess.</strong> Find the protocol. If the protocol is silent, record what you did:</p>
           <div class="chips" style="margin-top:16px">
             <span class="chip v">instrument</span><span class="chip v">angle of view</span><span class="chip v">layers included</span>
@@ -2253,13 +2316,13 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           </div>
         </div>
         <div class="card sunk rv" style="--d:5">
-          <div class="ch" style="font-size:26px">A vocabulary warning</div>
+          <div class="ch" style="font-size:calc(26px * var(--tz,1))">A vocabulary warning</div>
           <p class="txt-sm">In much South Asian forestry literature the term <strong>"canopy density"</strong> is used for what this session calls crown closure or canopy cover, with the density classes of the Forest Survey of India.</p>
           <p class="txt-sm" style="margin-top:12px">Recognise the vocabulary rather than assuming the source is wrong — then convert it to the terms defined here.</p>
         </div>
       </div>
     </div>
-    <div class="callout moss rv" style="--d:7;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout moss rv" style="--d:7;margin-top:auto">
       <span class="k">The rule to write down and keep</span>
       <p>A figure <strong>with its method attached</strong> can always be converted, compared or reinterpreted later. A bare number cannot be — and a bare number is what most field reports contain.</p>
     </div>
@@ -2294,7 +2357,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </ul>
         <div class="callout moss" style="margin-top:22px">
           <span class="k">Three viewpoints</span>
-          <p style="font-size:21px">Crowns against each other, horizontally · the ground from directly above · the sky from the forest floor.</p>
+          <p style="font-size:calc(21px * var(--tz,1))">Crowns against each other, horizontally · the ground from directly above · the sky from the forest floor.</p>
         </div>
       </div>
       <div class="stack sm">
@@ -2330,19 +2393,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 -->
 <section class="slide" data-n="29">
   <div class="sect">
-    <div class="rings" aria-hidden="true">
-      <svg viewBox="0 0 1000 1000">
-        <circle cx="500" cy="500" r="420" fill="none" stroke="#a8842c" stroke-opacity=".45" stroke-width="2"/>
-        <g fill="none" stroke="#a8842c" stroke-opacity=".3" stroke-dasharray="10 12">
-          <circle cx="500" cy="500" r="315"/><circle cx="500" cy="500" r="210"/><circle cx="500" cy="500" r="105"/>
-        </g>
-        <g stroke="#a8842c" stroke-opacity=".3"><line x1="80" y1="500" x2="920" y2="500"/><line x1="500" y1="80" x2="500" y2="920"/></g>
-        <g fill="#a8842c" fill-opacity=".22" stroke="#a8842c" stroke-opacity=".45" stroke-width="1.4">
-          <circle cx="392" cy="382" r="150"/><circle cx="616" cy="446" r="126"/>
-          <circle cx="478" cy="640" r="140"/><circle cx="676" cy="668" r="96"/>
-        </g>
-      </svg>
-    </div>
+    <div class="rings men-divider-photo" role="img" aria-label="Forest landscape in Bhutan"><img src="assets/images/men201/divider-uiii-s29.jpg" alt=""><span class="men-photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Chelela_to_Paro_road_views_during_LGFC_-_Bhutan_2019_(109).jpg">Vinayaraj · CC BY-SA 4.0</a></span></div>
     <div class="srun">MEN 201 · Forest Mensuration · Unit III</div>
     <div class="sframe">
       <div class="sltr rv" style="--d:0">C</div>
@@ -2392,7 +2443,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
-  <div class="body">
+  <div class="body srcfoot">
     <p class="lead rv" style="--d:2;margin-bottom:22px">Section C opens with what the Department <strong>actually does</strong>. The comparative international methods come afterwards, and they are labelled as comparative.</p>
     <div class="g2" style="gap:34px;margin-bottom:24px">
       <div class="card rv" style="--d:3">
@@ -2402,7 +2453,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <li>Trees exceeding <strong>5 m in height</strong></li>
           <li>Canopy cover of <strong>more than 10 %</strong></li>
         </ul>
-        <div class="callout moss" style="margin-top:18px"><p style="font-size:21px"><strong>High forest</strong> — trees grown by natural seedling or by plantation where canopy cover is <strong>40 % and more</strong>, if the trees are of economic value and social benefit. <span class="mn" style="font-size:18px">FNCA 2023</span></p></div>
+        <div class="callout moss" style="margin-top:18px"><p style="font-size:calc(21px * var(--tz,1))"><strong>High forest</strong> — trees grown by natural seedling or by plantation where canopy cover is <strong>40 % and more</strong>, if the trees are of economic value and social benefit. <span class="mn" style="font-size:calc(18px * var(--tz,1))">FNCA 2023</span></p></div>
       </div>
       <div class="card moss rv" style="--d:4">
         <div class="ch">The two quantities, in the official words</div>
@@ -2414,15 +2465,15 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="g2" style="gap:32px">
       <div class="callout rv" style="--d:5">
         <span class="k">The sentence that makes this procedure matter</span>
-        <p style="font-size:21px">FNCA 2023, s. 46 (2): <em>&ldquo;Forestry clearance shall not be issued for any activity in State Reserved Forest Land which fall in: (a) high forest.&rdquo;</em> A crew reading <strong>38 % or 42 %</strong> is settling whether a road, a school or a transmission line may lawfully proceed on that land.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">FNCA 2023, s. 46 (2): <em>&ldquo;Forestry clearance shall not be issued for any activity in State Reserved Forest Land which fall in: (a) high forest.&rdquo;</em> A crew reading <strong>38 % or 42 %</strong> is settling whether a road, a school or a transmission line may lawfully proceed on that land.</p>
       </div>
       <div class="card sunk rv" style="--d:6">
-        <div class="ch v" style="font-size:24px">Why one national method at all</div>
+        <div class="ch v" style="font-size:calc(24px * var(--tz,1))">Why one national method at all</div>
         <p class="txt-sm">Before 2024, different offices used different instruments and different definitions, and the same stand returned different numbers. The guidelines <strong>standardise the method across all State Reserved Forest Land</strong>, so that a cover figure means the same thing in Haa as in Trashigang.</p>
       </div>
     </div>
-  </div>
-  <div class="src">FMID (2024). <em>Forest Canopy Cover Assessment Guidelines 2024</em>, sections 1.2 and 4 &middot; Forest and Nature Conservation Act of Bhutan 2023, s. 46 (2) and footnote definition of high forest &middot; <a href="supplementary/Forest_Canopy_Cover_Assessment_Guidelines_2024.pdf" target="_blank" rel="noopener">filed with this module</a></div>
+  <div class="src">FMID (2024). <em>Forest Canopy Cover Assessment Guidelines 2024</em>, sections 1.2 and 4 &middot; Forest and Nature Conservation Act of Bhutan 2023, s. 46 (2) and footnote definition of high forest &middot; <a href="supplementary/Forest_Canopy_Cover_Assessment_Guidelines_2024.pdf" target="_blank" rel="noopener">filed with this module</a></div></div>
+  
   <div class="pageno">30 / 57</div>
 </section>
 
@@ -2467,8 +2518,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
-  <div class="body">
-    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:34px;height:calc(100% - 150px)">
+  <div class="body srcfoot">
+    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:34px;flex:1 1 auto;min-height:0">
       <div class="stack sm">
         <table class="dt rv" style="--d:2">
           <thead><tr><th>Area of interest</th><th class="num">Observation points</th><th>Approach</th></tr></thead>
@@ -2480,7 +2531,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           </tbody>
         </table>
         <div class="card rv" style="--d:3">
-          <div class="ch v" style="font-size:24px">Where 2.5 m comes from</div>
+          <div class="ch v" style="font-size:calc(24px * var(--tz,1))">Where 2.5 m comes from</div>
           <div class="step"><div class="sl">Grid area</div><div class="sv">area &divide; points = 500 &divide; 100 = 5 m<sup>2</sup></div></div>
           <div class="step"><div class="sl">Point spacing</div><div class="sv">&radic;5 = 2.23 m &nbsp;&rarr;&nbsp; <span class="hlt">2.5 m</span></div></div>
           <p class="txt-sm" style="margin-top:12px">Spacing must be at least <strong>1 m</strong> and no more than <strong>2.5 m</strong>. If the arithmetic gives more than 2.5 m, <strong>do not stretch it</strong> — establish sample plots instead.</p>
@@ -2495,7 +2546,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <p class="txt-sm" style="margin-top:12px">The final count depends on the regular points GIS generates for the shape of the parcel, so it may be a little more or less. Above <strong>30 plots</strong> the grid opens to <strong>200 m &times; 200 m</strong>.</p>
         </div>
         <div class="card sunk rv" style="--d:5">
-          <div class="ch v" style="font-size:24px">Irregular boundaries and rectangular areas</div>
+          <div class="ch v" style="font-size:calc(24px * var(--tz,1))">Irregular boundaries and rectangular areas</div>
           <ul class="bul sm" style="margin-top:6px">
             <li>If the <strong>plot centre</strong> lies inside the area of interest, read the <strong>whole plot</strong> — including points that fall outside the boundary</li>
             <li><strong>Rectangular plots</strong> are for linear works only — farm and forest roads, low-tension lines, irrigation channels — where a circular plot cannot be laid</li>
@@ -2506,12 +2557,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
     </div>
-    <div class="callout rv" style="--d:7;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:7;margin-top:auto">
       <span class="k">Read the table as a decision, not as data</span>
-      <p style="font-size:21px">Small area, high accuracy demands total measurement; large area, accuracy comes from sampling. The threshold between the two is <strong>5 000 m<sup>2</sup></strong>, and it is not a matter of judgement.</p>
+      <p style="font-size:calc(21px * var(--tz,1))">Small area, high accuracy demands total measurement; large area, accuracy comes from sampling. The threshold between the two is <strong>5 000 m<sup>2</sup></strong>, and it is not a matter of judgement.</p>
     </div>
-  </div>
-  <div class="src">FMID (2024). <em>Forest Canopy Cover Assessment Guidelines 2024</em>, Table 1 and sections 4.1.1, 4.1.2 and 4.2</div>
+  <div class="src">FMID (2024). <em>Forest Canopy Cover Assessment Guidelines 2024</em>, Table 1 and sections 4.1.1, 4.1.2 and 4.2</div></div>
+  
   <div class="pageno">31 / 57</div>
 </section>
 
@@ -2550,8 +2601,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
-  <div class="body">
-    <div style="display:grid;grid-template-columns:1fr 1.05fr;gap:36px;height:calc(100% - 140px)">
+  <div class="body srcfoot">
+    <div style="display:grid;grid-template-columns:1fr 1.05fr;gap:36px;flex:1 1 auto;min-height:0">
       <div class="fig rv" style="--d:2">
         <svg viewBox="0 0 620 620" preserveAspectRatio="xMidYMid meet">
           <defs>
@@ -2597,11 +2648,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="stack sm">
         <div class="g2" style="gap:20px">
-          <div class="card sunk rv" style="--d:3"><div class="label v">Radius</div><div class="mn" style="font-size:30px;color:var(--ink);margin-top:8px">12.62 m</div><p class="txt-sm" style="margin-top:6px">&pi; &times; 12.62<sup>2</sup> = 500 m<sup>2</sup></p></div>
-          <div class="card sunk rv" style="--d:4"><div class="label v">Readings</div><div class="mn" style="font-size:30px;color:var(--ink);margin-top:8px">100 minimum</div><p class="txt-sm" style="margin-top:6px">so each reading is exactly 1 %</p></div>
+          <div class="card sunk rv" style="--d:3"><div class="label v">Radius</div><div class="mn" style="font-size:calc(30px * var(--tz,1));color:var(--ink);margin-top:8px">12.62 m</div><p class="txt-sm" style="margin-top:6px">&pi; &times; 12.62<sup>2</sup> = 500 m<sup>2</sup></p></div>
+          <div class="card sunk rv" style="--d:4"><div class="label v">Readings</div><div class="mn" style="font-size:calc(30px * var(--tz,1));color:var(--ink);margin-top:8px">100 minimum</div><p class="txt-sm" style="margin-top:6px">so each reading is exactly 1 %</p></div>
         </div>
         <div class="card rv" style="--d:5">
-          <div class="ch v" style="font-size:25px">89 systematic + 11 additional</div>
+          <div class="ch v" style="font-size:calc(25px * var(--tz,1))">89 systematic + 11 additional</div>
           <p class="txt-sm">A 2.5 m grid across a 12.62 m radius circle yields about <strong>89</strong> points inside the circle. Eleven more are added to reach the hundred.</p>
           <p class="txt-sm" style="margin-top:12px">The eleven must be taken from <strong>the same quadrant in every plot</strong>. If they come from the north-east in the first plot, they come from the north-east in all of them.</p>
         </div>
@@ -2612,11 +2663,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
     </div>
-    <div class="callout rv" style="--d:8;position:absolute;left:0;right:0;bottom:0">
-      <p style="font-size:21px">This is the <strong>same plot geometry</strong> used by the National Forest Inventory and by Forest Management Unit inventories — one plot, one radius, across all Bhutanese forest measurement.</p>
+    <div class="callout rv" style="--d:8;margin-top:auto">
+      <p style="font-size:calc(21px * var(--tz,1))">This is the <strong>same plot geometry</strong> used by the National Forest Inventory and by Forest Management Unit inventories — one plot, one radius, across all Bhutanese forest measurement.</p>
     </div>
-  </div>
-  <div class="src">FMID (2024). <em>Forest Canopy Cover Assessment Guidelines 2024</em>, section 4.1.1 (a)–(d) and Figure 1</div>
+  <div class="src">FMID (2024). <em>Forest Canopy Cover Assessment Guidelines 2024</em>, section 4.1.1 (a)–(d) and Figure 1</div></div>
+  
   <div class="pageno">32 / 57</div>
 </section>
 
@@ -2660,8 +2711,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
-  <div class="body">
-    <div style="display:grid;grid-template-columns:1fr 1.12fr;gap:34px;height:100%">
+  <div class="body srcfoot">
+    <div style="display:grid;grid-template-columns:1fr 1.12fr;gap:34px;flex:1 1 auto;min-height:0">
       <div class="stack sm">
         <div class="numrow rv" style="--d:2"><div class="badge">1</div><div class="txt-sm">Hold the instrument at the observation point and <strong>level it</strong> — align the sighting level and the bubble levels</div></div>
         <div class="numrow rv" style="--d:3"><div class="badge">2</div><div class="txt-sm">Sight <strong>vertically upward</strong> and look at the <strong>inner black circle</strong></div></div>
@@ -2671,10 +2722,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <div class="numrow rv" style="--d:7"><div class="badge moss">6</div><div class="txt-sm">Total the 1s <strong>on the tally sheet, in the field</strong> — one sheet per plot</div></div>
         <div class="callout rv" style="--d:8;padding:16px 22px">
           <span class="k">It is not the spherical densiometer</span>
-          <p style="font-size:20px">A sighting tube with cross-hairs and a bubble, not a convex mirror with an engraved grid. <strong>One point, one digit.</strong> No dot count, no mean of four bearings, <strong>no &times; 1.04</strong>.</p>
+          <p style="font-size:calc(20px * var(--tz,1))">A sighting tube with cross-hairs and a bubble, not a convex mirror with an engraved grid. <strong>One point, one digit.</strong> No dot count, no mean of four bearings, <strong>no &times; 1.04</strong>.</p>
         </div>
         <div class="callout moss rv" style="--d:9;padding:16px 22px">
-          <p style="font-size:20px">A hundred vertical binary readings on a fixed grid estimate <strong>canopy cover</strong> &mdash; the vertical projection of the crowns onto the ground. That is the quantity the law asks for.</p>
+          <p style="font-size:calc(20px * var(--tz,1))">A hundred vertical binary readings on a fixed grid estimate <strong>canopy cover</strong> &mdash; the vertical projection of the crowns onto the ground. That is the quantity the law asks for.</p>
         </div>
       </div>
       <div class="stack sm">
@@ -2705,16 +2756,16 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
         <div class="formula sm v rv" style="--d:7;margin:0">Several plots &nbsp;·&nbsp; Canopy cover % &nbsp;=&nbsp; &Sigma; 1s &divide; (100 &times; no. of plots) &times; 100</div>
         <div class="card sunk rv" style="--d:8">
-          <div class="ch v" style="font-size:24px">Worked · three plots</div>
+          <div class="ch v" style="font-size:calc(24px * var(--tz,1))">Worked · three plots</div>
           <div class="step"><div class="sl">1s recorded</div><div class="sv">71 &nbsp;+&nbsp; 64 &nbsp;+&nbsp; 78 &nbsp;=&nbsp; 213</div></div>
           <div class="step"><div class="sl">Divisor</div><div class="sv">100 &times; 3 = 300</div></div>
           <div class="step"><div class="sl">Canopy cover</div><div class="sv">213 &divide; 300 &times; 100 = <span class="hlt">71 %</span></div></div>
-          <p class="txt-sm" style="margin-top:10px;font-size:19px;color:var(--vermilion)"><strong>The exception:</strong> where more than 100 points are read, the divisor is the <strong>total number of observation points</strong>, not 100.</p>
+          <p class="txt-sm" style="margin-top:10px;font-size:calc(19px * var(--tz,1));color:var(--vermilion)"><strong>The exception:</strong> where more than 100 points are read, the divisor is the <strong>total number of observation points</strong>, not 100.</p>
         </div>
       </div>
     </div>
-  </div>
-  <div class="src">FMID (2024). <em>Forest Canopy Cover Assessment Guidelines 2024</em>, section 4.1.1, Figures 2 and 3, and Annexure 1 (data recording form)</div>
+  <div class="src">FMID (2024). <em>Forest Canopy Cover Assessment Guidelines 2024</em>, section 4.1.1, Figures 2 and 3, and Annexure 1 (data recording form)</div></div>
+  
   <div class="pageno">33 / 57</div>
 </section>
 
@@ -2738,51 +2789,51 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
   <div class="body">
-    <div class="g5" style="height:calc(100% - 140px)">
+    <div class="g5" style="flex:1 1 auto;min-height:0">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column;padding:24px 24px">
-        <div class="mn" style="font-size:17px;color:var(--vermilion);letter-spacing:.16em">01</div>
-        <div class="ch" style="margin-top:14px;font-size:27px">Ocular estimation</div>
-        <p class="txt-sm" style="font-size:19px">Look up, judge the percentage, assign a class.</p>
+        <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--vermilion);letter-spacing:.16em">01</div>
+        <div class="ch" style="margin-top:14px;font-size:calc(27px * var(--tz,1))">Ocular estimation</div>
+        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Look up, judge the percentage, assign a class.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:16px"><span class="chip">free</span><span class="chip v">subjective</span></div>
       </div>
       <div class="card rv" style="--d:3;display:flex;flex-direction:column;padding:24px 24px">
-        <div class="mn" style="font-size:17px;color:var(--vermilion);letter-spacing:.16em">02</div>
-        <div class="ch" style="margin-top:14px;font-size:27px">Spherical densiometer</div>
-        <p class="txt-sm" style="font-size:19px">Count dots on a curved mirror; convert with a fixed factor.</p>
+        <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--vermilion);letter-spacing:.16em">02</div>
+        <div class="ch" style="margin-top:14px;font-size:calc(27px * var(--tz,1))">Spherical densiometer</div>
+        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Count dots on a curved mirror; convert with a fixed factor.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:16px"><span class="chip">cheap</span><span class="chip">fast</span></div>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column;padding:24px 24px">
-        <div class="mn" style="font-size:17px;color:var(--vermilion);letter-spacing:.16em">03</div>
-        <div class="ch" style="margin-top:14px;font-size:27px">Hemispherical photography</div>
-        <p class="txt-sm" style="font-size:19px">Fisheye image of the whole sky, thresholded and analysed.</p>
+        <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--vermilion);letter-spacing:.16em">03</div>
+        <div class="ch" style="margin-top:14px;font-size:calc(27px * var(--tz,1))">Hemispherical photography</div>
+        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Fisheye image of the whole sky, thresholded and analysed.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:16px"><span class="chip">repeatable</span><span class="chip">archivable</span></div>
       </div>
       <div class="card rv" style="--d:5;display:flex;flex-direction:column;padding:24px 24px">
-        <div class="mn" style="font-size:17px;color:var(--vermilion);letter-spacing:.16em">04</div>
-        <div class="ch" style="margin-top:14px;font-size:27px">Transects, grids and tubes</div>
-        <p class="txt-sm" style="font-size:19px">Line intercept, point intercept, moosehorn, canopy scope, dot grid.</p>
+        <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--vermilion);letter-spacing:.16em">04</div>
+        <div class="ch" style="margin-top:14px;font-size:calc(27px * var(--tz,1))">Transects, grids and tubes</div>
+        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Line intercept, point intercept, moosehorn, canopy scope, dot grid.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:16px"><span class="chip">objective</span><span class="chip v">slow</span></div>
       </div>
       <div class="card rv" style="--d:6;display:flex;flex-direction:column;padding:24px 24px">
-        <div class="mn" style="font-size:17px;color:var(--vermilion);letter-spacing:.16em">05</div>
-        <div class="ch" style="margin-top:14px;font-size:27px">Remote sensing</div>
-        <p class="txt-sm" style="font-size:19px">Aerial photographs, satellite imagery and airborne lidar.</p>
+        <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--vermilion);letter-spacing:.16em">05</div>
+        <div class="ch" style="margin-top:14px;font-size:calc(27px * var(--tz,1))">Remote sensing</div>
+        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Aerial photographs, satellite imagery and airborne lidar.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:16px"><span class="chip">landscape</span><span class="chip v">costly</span></div>
       </div>
     </div>
-    <div class="g2 rv" style="--d:8;position:absolute;left:0;right:0;bottom:0;gap:28px">
+    <div class="g2 rv" style="--d:8;margin-top:auto;gap:28px">
       <div class="callout">
         <span class="k">The trade-off that runs through the whole section</span>
-        <p style="font-size:21px">Cheap and fast methods are <strong>subjective</strong>. Objective and repeatable methods are <strong>slow or expensive</strong>. No method is all four &mdash; which is why a country adopts <em>one</em> and requires everyone to use it.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">Cheap and fast methods are <strong>subjective</strong>. Objective and repeatable methods are <strong>slow or expensive</strong>. No method is all four &mdash; which is why a country adopts <em>one</em> and requires everyone to use it.</p>
       </div>
       <div class="callout moss">
         <span class="k">One of these is not like the others</span>
-        <p style="font-size:21px">All are point or plot methods <strong>except remote sensing</strong> — the only one that gives a whole landscape. Field methods exist largely to calibrate and check it.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">All are point or plot methods <strong>except remote sensing</strong> — the only one that gives a whole landscape. Field methods exist largely to calibrate and check it.</p>
       </div>
     </div>
   </div>
@@ -2861,7 +2912,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
         <div class="callout moss rv" style="--d:7">
           <span class="k">Why it survives despite all of that</span>
-          <p style="font-size:21px">It costs nothing and takes ten seconds. <strong>A hundred rough estimates spread over a compartment often describe it better than four excellent ones</strong> taken where the crew happened to stand.</p>
+          <p style="font-size:calc(21px * var(--tz,1))">It costs nothing and takes ten seconds. <strong>A hundred rough estimates spread over a compartment often describe it better than four excellent ones</strong> taken where the crew happened to stand.</p>
         </div>
       </div>
     </div>
@@ -2907,17 +2958,17 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <div class="g2 rv" style="--d:4;margin-top:26px;gap:28px">
           <div class="callout moss">
             <span class="k">The table is the definition, turned into classes</span>
-            <p style="font-size:21px">The boundary between the last two classes is exactly the boundary between <strong>touching</strong> and <strong>overlapping</strong> — the language of the crown closure definition itself.</p>
+            <p style="font-size:calc(21px * var(--tz,1))">The boundary between the last two classes is exactly the boundary between <strong>touching</strong> and <strong>overlapping</strong> — the language of the crown closure definition itself.</p>
           </div>
           <div class="callout">
             <span class="k">10 % is not an arbitrary boundary</span>
-            <p style="font-size:21px">It is the international threshold at which land begins to be called <strong>forest</strong>. Below it, the same trees are described as sparse tree cover.</p>
+            <p style="font-size:calc(21px * var(--tz,1))">It is the international threshold at which land begins to be called <strong>forest</strong>. Below it, the same trees are described as sparse tree cover.</p>
           </div>
         </div>
       </div>
       <div class="stack sm">
         <div class="card sunk rv" style="--d:5">
-          <div class="ch" style="font-size:26px">You will also meet these</div>
+          <div class="ch" style="font-size:calc(26px * var(--tz,1))">You will also meet these</div>
           <p class="txt-sm">The Forest Survey of India density classes, widely used in South Asian literature:</p>
           <table class="dt xs" style="margin-top:14px">
             <thead><tr><th>Class</th><th>Density</th></tr></thead>
@@ -2963,7 +3014,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <!-- grid-auto-rows:1fr constrains the second, implicit row — without it the
          row sizes to content and pushes the panels past the bottom callouts. -->
-    <div class="g3" style="row-gap:24px;height:calc(100% - 132px);grid-auto-rows:1fr">
+    <div class="g3" style="row-gap:24px;flex:1 1 auto;min-height:0;grid-auto-rows:1fr">
 
       <div class="card rv" style="--d:2;padding:18px;display:flex;flex-direction:column">
         <div style="flex:1;min-height:0">
@@ -2975,8 +3026,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           </svg>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:14px">
-          <div class="mn" style="font-size:17px;color:var(--ink-faint)">SPARSE TREE COVER</div>
-          <div style="font-family:var(--display);font-weight:600;font-size:31px;color:var(--moss)">5 %</div>
+          <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--ink-faint)">SPARSE TREE COVER</div>
+          <div style="font-family:var(--display);font-weight:600;font-size:calc(31px * var(--tz,1));color:var(--moss)">5 %</div>
         </div>
       </div>
 
@@ -2991,8 +3042,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           </svg>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:14px">
-          <div class="mn" style="font-size:17px;color:var(--ink-faint)">OPEN FOREST</div>
-          <div style="font-family:var(--display);font-weight:600;font-size:31px;color:var(--moss)">20 %</div>
+          <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--ink-faint)">OPEN FOREST</div>
+          <div style="font-family:var(--display);font-weight:600;font-size:calc(31px * var(--tz,1));color:var(--moss)">20 %</div>
         </div>
       </div>
 
@@ -3007,8 +3058,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           </svg>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:14px">
-          <div class="mn" style="font-size:17px;color:var(--ink-faint)">OPEN FOREST</div>
-          <div style="font-family:var(--display);font-weight:600;font-size:31px;color:var(--moss)">40 %</div>
+          <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--ink-faint)">OPEN FOREST</div>
+          <div style="font-family:var(--display);font-weight:600;font-size:calc(31px * var(--tz,1));color:var(--moss)">40 %</div>
         </div>
       </div>
 
@@ -3023,8 +3074,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           </svg>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:14px">
-          <div class="mn" style="font-size:17px;color:var(--ink-faint)">DENSE FOREST</div>
-          <div style="font-family:var(--display);font-weight:600;font-size:31px;color:var(--moss)">60 %</div>
+          <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--ink-faint)">DENSE FOREST</div>
+          <div style="font-family:var(--display);font-weight:600;font-size:calc(31px * var(--tz,1));color:var(--moss)">60 %</div>
         </div>
       </div>
 
@@ -3039,8 +3090,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           </svg>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:14px">
-          <div class="mn" style="font-size:17px;color:var(--ink-faint)">DENSE FOREST</div>
-          <div style="font-family:var(--display);font-weight:600;font-size:31px;color:var(--moss)">75 %</div>
+          <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--ink-faint)">DENSE FOREST</div>
+          <div style="font-family:var(--display);font-weight:600;font-size:calc(31px * var(--tz,1));color:var(--moss)">75 %</div>
         </div>
       </div>
 
@@ -3055,19 +3106,19 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           </svg>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:14px">
-          <div class="mn" style="font-size:17px;color:var(--ink-faint)">CLOSE FOREST</div>
-          <div style="font-family:var(--display);font-weight:600;font-size:31px;color:var(--moss)">92 %</div>
+          <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--ink-faint)">CLOSE FOREST</div>
+          <div style="font-family:var(--display);font-weight:600;font-size:calc(31px * var(--tz,1));color:var(--moss)">92 %</div>
         </div>
       </div>
     </div>
-    <div class="g2 rv" style="--d:9;position:absolute;left:0;right:0;bottom:0;gap:28px">
+    <div class="g2 rv" style="--d:9;margin-top:auto;gap:28px">
       <div class="callout">
         <span class="k">Why the eye fails</span>
-        <p style="font-size:21px">It responds to <strong>contrast and edges</strong>, not to area. Scattered dark patches look like more than they are; so do small bright gaps.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">It responds to <strong>contrast and edges</strong>, not to area. Scattered dark patches look like more than they are; so do small bright gaps.</p>
       </div>
       <div class="callout moss">
         <span class="k">The trick experienced foresters use</span>
-        <p style="font-size:21px">Estimate the <strong>open sky</strong> and subtract from 100. Most people judge gaps more accurately than cover, because gaps have crisp edges.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">Estimate the <strong>open sky</strong> and subtract from 100. Most people judge gaps more accurately than cover, because gaps have crisp edges.</p>
       </div>
     </div>
   </div>
@@ -3151,8 +3202,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <span class="u">the origin of the 1.04 factor — it is not a magic number</span>
         </div>
         <div class="card sunk rv" style="--d:6;padding:24px 28px">
-          <div class="ch v" style="font-size:26px">The convention — and the error that follows from mixing conventions</div>
-          <div class="mn" style="font-size:19px;color:var(--ink);margin-top:6px;line-height:1.7">
+          <div class="ch v" style="font-size:calc(26px * var(--tz,1))">The convention — and the error that follows from mixing conventions</div>
+          <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--ink);margin-top:6px;line-height:1.7">
             count dots <strong>showing open sky</strong> &nbsp;→&nbsp; × 1.04 = % <strong>not</strong> occupied<br>
             canopy cover &nbsp;=&nbsp; 100 − that figure
           </div>
@@ -3160,7 +3211,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
         <div class="callout rv" style="--d:8">
           <span class="k">The honest limitation</span>
-          <p style="font-size:21px">A wide angle of view means the convex densiometer <strong>does not measure vertical canopy cover.</strong> It measures something closer to canopy closure and reads higher than vertical methods — which is what the instrument does, not a fault in it.</p>
+          <p style="font-size:calc(21px * var(--tz,1))">A wide angle of view means the convex densiometer <strong>does not measure vertical canopy cover.</strong> It measures something closer to canopy closure and reads higher than vertical methods — which is what the instrument does, not a fault in it.</p>
         </div>
       </div>
     </div>
@@ -3196,13 +3247,13 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:34px;height:100%">
       <div class="card rv" style="--d:2">
         <div class="ch">Procedure at one sample point</div>
-        <div class="numrow" style="margin-bottom:11px"><div class="badge" style="width:32px;height:32px;font-size:17px">1</div><div class="txt-sm">Hold the instrument <strong>level</strong> — use the spirit level — at about elbow height, 30–45 cm in front of the body.</div></div>
-        <div class="numrow" style="margin-bottom:11px"><div class="badge" style="width:32px;height:32px;font-size:17px">2</div><div class="txt-sm">Position your head so that its reflection falls <strong>just outside the grid</strong>. A head inside the grid is counted as canopy, and biases every reading upward.</div></div>
-        <div class="numrow" style="margin-bottom:11px"><div class="badge" style="width:32px;height:32px;font-size:17px">3</div><div class="txt-sm">Imagine <strong>four equally spaced dots</strong> in each of the 24 squares — 96 dots in all.</div></div>
-        <div class="numrow" style="margin-bottom:11px"><div class="badge" style="width:32px;height:32px;font-size:17px">4</div><div class="txt-sm">Count the dots showing <strong>open sky</strong>. Record the raw count.</div></div>
-        <div class="numrow" style="margin-bottom:11px"><div class="badge" style="width:32px;height:32px;font-size:17px">5</div><div class="txt-sm">Repeat facing <strong>north, east, south and west</strong>. A canopy is directional; one reading does not describe it.</div></div>
-        <div class="numrow" style="margin-bottom:11px"><div class="badge moss" style="width:32px;height:32px;font-size:17px">6</div><div class="txt-sm">Mean the four counts, multiply by <strong>1.04</strong> for the percentage <em>not</em> occupied, and subtract from 100.</div></div>
-        <div class="numrow" style="margin-bottom:0"><div class="badge moss" style="width:32px;height:32px;font-size:17px">7</div><div class="txt-sm">Repeat at several points per plot — commonly the centre plus four points on the cardinal bearings.</div></div>
+        <div class="numrow" style="margin-bottom:11px"><div class="badge" style="width:32px;height:32px;font-size:calc(17px * var(--tz,1))">1</div><div class="txt-sm">Hold the instrument <strong>level</strong> — use the spirit level — at about elbow height, 30–45 cm in front of the body.</div></div>
+        <div class="numrow" style="margin-bottom:11px"><div class="badge" style="width:32px;height:32px;font-size:calc(17px * var(--tz,1))">2</div><div class="txt-sm">Position your head so that its reflection falls <strong>just outside the grid</strong>. A head inside the grid is counted as canopy, and biases every reading upward.</div></div>
+        <div class="numrow" style="margin-bottom:11px"><div class="badge" style="width:32px;height:32px;font-size:calc(17px * var(--tz,1))">3</div><div class="txt-sm">Imagine <strong>four equally spaced dots</strong> in each of the 24 squares — 96 dots in all.</div></div>
+        <div class="numrow" style="margin-bottom:11px"><div class="badge" style="width:32px;height:32px;font-size:calc(17px * var(--tz,1))">4</div><div class="txt-sm">Count the dots showing <strong>open sky</strong>. Record the raw count.</div></div>
+        <div class="numrow" style="margin-bottom:11px"><div class="badge" style="width:32px;height:32px;font-size:calc(17px * var(--tz,1))">5</div><div class="txt-sm">Repeat facing <strong>north, east, south and west</strong>. A canopy is directional; one reading does not describe it.</div></div>
+        <div class="numrow" style="margin-bottom:11px"><div class="badge moss" style="width:32px;height:32px;font-size:calc(17px * var(--tz,1))">6</div><div class="txt-sm">Mean the four counts, multiply by <strong>1.04</strong> for the percentage <em>not</em> occupied, and subtract from 100.</div></div>
+        <div class="numrow" style="margin-bottom:0"><div class="badge moss" style="width:32px;height:32px;font-size:calc(17px * var(--tz,1))">7</div><div class="txt-sm">Repeat at several points per plot — commonly the centre plus four points on the cardinal bearings.</div></div>
       </div>
       <div class="stack sm">
         <div class="fig rv" style="--d:4;flex:1">
@@ -3271,10 +3322,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
   <div class="body">
     <div class="row rv" style="--d:2;gap:30px;align-items:stretch;margin-bottom:20px">
-      <p class="lead" style="flex:1;font-size:28px">At one sample point a convex spherical densiometer is read on four bearings. The counts of quarter-square dots <strong>showing open sky</strong> are <strong>18, 22, 15 and 21</strong>. Compute the canopy closure at the point and assign the stand class.</p>
+      <p class="lead" style="flex:1;font-size:calc(28px * var(--tz,1))">At one sample point a convex spherical densiometer is read on four bearings. The counts of quarter-square dots <strong>showing open sky</strong> are <strong>18, 22, 15 and 21</strong>. Compute the canopy closure at the point and assign the stand class.</p>
       <div class="card sunk" style="flex:0 0 380px;padding:20px 24px">
         <div class="label">Raw counts · dots of open sky</div>
-        <div class="mn" style="font-size:20px;color:var(--ink);margin-top:12px;line-height:2">
+        <div class="mn" style="font-size:calc(20px * var(--tz,1));color:var(--ink);margin-top:12px;line-height:2">
           N = 18 &nbsp;&nbsp; E = 22<br>
           S = 15 &nbsp;&nbsp; W = 21<br>
           <span style="color:var(--ink-faint)">out of 96 dots each</span>
@@ -3295,10 +3346,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="callout">
         <span class="k">Mean the counts, not the percentages</span>
-        <p style="font-size:21px">Here it makes no difference — the transformation is linear. On a sheet of a hundred points, the habit of rounding early does.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">Here it makes no difference — the transformation is linear. On a sheet of a hundred points, the habit of rounding early does.</p>
       </div>
     </div>
-    <div class="callout moss rv" style="--d:8;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout moss rv" style="--d:8;margin-top:auto">
       <span class="k">Two things to say out loud before writing the figure down</span>
       <p>One dot in 96 is worth <strong>1.04 %</strong>, so this point clears the 80 % class boundary by one disputed dot. Report the number as well as the class. And always sanity-check: if the arithmetic says 20 % and your eyes say 80 %, <strong>the arithmetic is wrong</strong> — almost always a forgotten subtraction.</p>
     </div>
@@ -3332,26 +3383,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
   <div class="body">
-    <div class="g3" style="height:calc(100% - 140px)">
+    <div class="g3" style="flex:1 1 auto;min-height:0">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column">
-        <div style="display:flex;align-items:baseline;gap:14px"><div class="badge">1</div><div class="ch" style="margin:0;font-size:27px">Capture</div></div>
+        <div style="display:flex;align-items:baseline;gap:14px"><div class="badge">1</div><div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Capture</div></div>
         <div style="flex:1;min-height:0;margin:16px 0">
-          <svg viewBox="0 0 300 300" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
-            <circle cx="150" cy="150" r="128" fill="#dfe7e2" stroke="#2f5140" stroke-width="2"/>
-            <g clip-path="url(#hp1)">
-              <g fill="#2f5140" fill-opacity=".72">
-                <circle cx="88" cy="76" r="58"/><circle cx="206" cy="92" r="52"/>
-                <circle cx="230" cy="212" r="56"/><circle cx="96" cy="228" r="60"/>
-                <circle cx="152" cy="150" r="34"/><circle cx="34" cy="150" r="34"/>
-              </g>
-            </g>
-            <defs><clipPath id="hp1"><circle cx="150" cy="150" r="128"/></clipPath></defs>
-            <g fill="none" stroke="#c14524" stroke-opacity=".7" stroke-dasharray="5 6">
-              <circle cx="150" cy="150" r="43"/><circle cx="150" cy="150" r="85"/>
-            </g>
-            <text x="150" y="18" font-family="JetBrains Mono, monospace" font-size="15" fill="#c14524" text-anchor="middle">N</text>
-            <text x="150" y="294" font-family="Public Sans, sans-serif" font-size="16" fill="#4a544c" text-anchor="middle">180° fisheye, levelled, pointing up</text>
-          </svg>
+          <figure class="men-photo men-content-photo men-hemi-photo"><img src="assets/images/men201/hemispherical-canopy.jpg" alt="Hemispherical fisheye photograph of a forest canopy"><span class="men-photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Hemispherical_photo_of_Bavarian_Forest.jpg">Wegmann · CC BY-SA 3.0</a></span></figure>
         </div>
         <ul class="bul sm">
           <li>Levelled tripod, oriented to <strong>magnetic north</strong></li>
@@ -3359,20 +3395,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </ul>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column">
-        <div style="display:flex;align-items:baseline;gap:14px"><div class="badge">2</div><div class="ch" style="margin:0;font-size:27px">Threshold</div></div>
+        <div style="display:flex;align-items:baseline;gap:14px"><div class="badge">2</div><div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Threshold</div></div>
         <div style="flex:1;min-height:0;margin:16px 0">
-          <svg viewBox="0 0 300 300" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
-            <circle cx="150" cy="150" r="128" fill="#ffffff" stroke="#2f5140" stroke-width="2"/>
-            <g clip-path="url(#hp2)">
-              <g fill="#141c18">
-                <circle cx="88" cy="76" r="58"/><circle cx="206" cy="92" r="52"/>
-                <circle cx="230" cy="212" r="56"/><circle cx="96" cy="228" r="60"/>
-                <circle cx="152" cy="150" r="34"/><circle cx="34" cy="150" r="34"/>
-              </g>
-            </g>
-            <defs><clipPath id="hp2"><circle cx="150" cy="150" r="128"/></clipPath></defs>
-            <text x="150" y="294" font-family="Public Sans, sans-serif" font-size="16" fill="#4a544c" text-anchor="middle">every pixel: sky, or not sky</text>
-          </svg>
+          <figure class="men-photo men-content-photo men-hemi-photo men-hemi-threshold"><img src="assets/images/men201/hemispherical-canopy.jpg" alt="Hemispherical fisheye photograph of a forest canopy"><span class="men-photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Hemispherical_photo_of_Bavarian_Forest.jpg">Wegmann · CC BY-SA 3.0</a></span></figure>
         </div>
         <ul class="bul sm">
           <li>Everything downstream depends on <strong>where the threshold is placed</strong></li>
@@ -3381,7 +3406,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </ul>
       </div>
       <div class="card rv" style="--d:6;display:flex;flex-direction:column">
-        <div style="display:flex;align-items:baseline;gap:14px"><div class="badge moss">3</div><div class="ch" style="margin:0;font-size:27px">Measure by ring</div></div>
+        <div style="display:flex;align-items:baseline;gap:14px"><div class="badge moss">3</div><div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Measure by ring</div></div>
         <div style="flex:1;min-height:0;margin:16px 0">
           <svg viewBox="0 0 300 300" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
             <circle cx="150" cy="150" r="128" fill="none" stroke="#2f5140" stroke-width="2"/>
@@ -3402,14 +3427,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </ul>
       </div>
     </div>
-    <div class="g2 rv" style="--d:8;position:absolute;left:0;right:0;bottom:0;gap:28px">
+    <div class="g2 rv" style="--d:8;margin-top:auto;gap:28px">
       <div class="callout moss">
         <span class="k">The real advantage</span>
-        <p style="font-size:21px">One photograph answers several questions, and is a <strong>permanent, re-analysable record</strong>. No other field method leaves evidence behind.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">One photograph answers several questions, and is a <strong>permanent, re-analysable record</strong>. No other field method leaves evidence behind.</p>
       </div>
       <div class="callout">
         <span class="k">A note on smartphones</span>
-        <p style="font-size:21px">A clip-on fisheye is not a calibrated lens — but it is <strong>far better than nothing</strong>, and entirely adequate for teaching and for relative comparisons.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">A clip-on fisheye is not a calibrated lens — but it is <strong>far better than nothing</strong>, and entirely adequate for teaching and for relative comparisons.</p>
       </div>
     </div>
   </div>
@@ -3443,44 +3468,44 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
   <div class="body">
-    <div class="g2" style="row-gap:24px;column-gap:32px;height:calc(100% - 132px)">
+    <div class="g2" style="row-gap:24px;column-gap:32px;flex:1 1 auto;min-height:0">
       <div class="card rv" style="--d:2;padding:24px 28px">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
-          <div class="ch" style="margin:0;font-size:27px">Line intercept</div>
-          <div class="mn" style="font-size:18px;color:var(--vermilion)">length ÷ length</div>
+          <div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Line intercept</div>
+          <div class="mn" style="font-size:calc(18px * var(--tz,1));color:var(--vermilion)">length ÷ length</div>
         </div>
         <p class="txt-sm" style="margin-top:10px">Run a tape along a straight line and record the length lying beneath crown projections. <span class="mn">Cover = intercepted length / total length × 100.</span> Slow, needs a vertical sighting device — and it is the method against which many others are validated.</p>
       </div>
       <div class="card rv" style="--d:3;padding:24px 28px">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
-          <div class="ch" style="margin:0;font-size:27px">Point intercept · sighting tube</div>
-          <div class="mn" style="font-size:18px;color:var(--vermilion)">hits ÷ points</div>
+          <div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Point intercept · sighting tube</div>
+          <div class="mn" style="font-size:calc(18px * var(--tz,1));color:var(--vermilion)">hits ÷ points</div>
         </div>
         <p class="txt-sm" style="margin-top:10px">A levelled tube with a cross-hair, sighted vertically at regular points along a transect. Hit or miss at each. <strong>The standard error follows from binomial theory</strong>, so the number of points needed for a stated precision can be computed in advance.</p>
       </div>
       <div class="card rv" style="--d:4;padding:24px 28px">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
-          <div class="ch" style="margin:0;font-size:27px">Moosehorn</div>
-          <div class="mn" style="font-size:18px;color:var(--vermilion)">narrow angle</div>
+          <div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Moosehorn</div>
+          <div class="mn" style="font-size:calc(18px * var(--tz,1));color:var(--vermilion)">narrow angle</div>
         </div>
         <p class="txt-sm" style="margin-top:10px">A periscope-like tube with a grid of dots viewed against the canopy, sighted vertically. Because its angle of view is <strong>narrow</strong>, unlike the densiometer it genuinely approximates <strong>vertical canopy cover</strong>.</p>
       </div>
       <div class="card rv" style="--d:5;padding:24px 28px">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
-          <div class="ch" style="margin:0;font-size:27px">Canopy scope &nbsp;·&nbsp; dot grid</div>
-          <div class="mn" style="font-size:18px;color:var(--vermilion)">dots ÷ dots</div>
+          <div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Canopy scope &nbsp;·&nbsp; dot grid</div>
+          <div class="mn" style="font-size:calc(18px * var(--tz,1));color:var(--vermilion)">dots ÷ dots</div>
         </div>
         <p class="txt-sm" style="margin-top:10px">A transparent sheet of dots held at arm's length, or laid over an aerial photograph. This is how cover was measured over large areas before digital imagery — and modern pixel counting is simply a <strong>very fine dot grid</strong>.</p>
       </div>
     </div>
-    <div class="g2 rv" style="--d:7;position:absolute;left:0;right:0;bottom:0;gap:28px">
+    <div class="g2 rv" style="--d:7;margin-top:auto;gap:28px">
       <div class="callout moss">
         <span class="k">The shared virtue</span>
-        <p style="font-size:21px">No judgement of "how much" — only a series of <strong>yes-or-no decisions</strong>, which are far more repeatable between observers than proportion estimates.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">No judgement of "how much" — only a series of <strong>yes-or-no decisions</strong>, which are far more repeatable between observers than proportion estimates.</p>
       </div>
       <div class="callout">
         <span class="k">Worth knowing when the budget is tight</span>
-        <p style="font-size:21px">A <strong>canopy scope and a sighting tube can be built in the department workshop this afternoon</strong> from a transparent sheet and a length of pipe.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">A <strong>canopy scope and a sighting tube can be built in the department workshop this afternoon</strong> from a transparent sheet and a length of pipe.</p>
       </div>
     </div>
   </div>
@@ -3562,7 +3587,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
         <div class="callout rv" style="--d:7">
           <span class="k">The professional point — say this one twice</span>
-          <p style="font-size:21px">Remote sensing does not remove the need for field measurement; it <strong>changes its purpose</strong>. Field plots become the calibration and validation data. A national forest cover figure is a remote product <strong>checked against plots measured with densiometers and tapes</strong> — which is why this session still matters in an age of satellites.</p>
+          <p style="font-size:calc(21px * var(--tz,1))">Remote sensing does not remove the need for field measurement; it <strong>changes its purpose</strong>. Field plots become the calibration and validation data. A national forest cover figure is a remote product <strong>checked against plots measured with densiometers and tapes</strong> — which is why this session still matters in an age of satellites.</p>
         </div>
       </div>
     </div>
@@ -3612,14 +3637,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <tr><td class="rh">Airborne lidar</td><td><strong>Canopy cover</strong>, near-unbiased</td><td>Vertical</td><td><strong style="color:var(--vermilion)">Very high</strong></td><td><strong style="color:var(--moss)">Excellent</strong></td><td>Reference-quality cover over a landscape</td></tr>
       </tbody>
     </table>
-    <div class="g2 rv" style="--d:4;position:absolute;left:0;right:0;bottom:0;gap:28px">
+    <div class="g2 rv" style="--d:4;margin-top:auto;gap:28px">
       <div class="callout">
         <span class="k">Repeatable is not the same as accurate</span>
-        <p style="font-size:21px">The densiometer is highly repeatable <em>and</em> biased. <strong>A method can be precisely wrong.</strong> Students conflate the two constantly.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">The densiometer is highly repeatable <em>and</em> biased. <strong>A method can be precisely wrong.</strong> Students conflate the two constantly.</p>
       </div>
       <div class="callout moss">
         <span class="k">The rule the whole section was building to</span>
-        <p style="font-size:21px">Choose the method that measures the quantity <strong>your question</strong> needs — then report the method alongside the figure.</p>
+        <p style="font-size:calc(21px * var(--tz,1))">Choose the method that measures the quantity <strong>your question</strong> needs — then report the method alongside the figure.</p>
       </div>
     </div>
   </div>
@@ -3652,8 +3677,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
   <div class="body">
-    <div class="g2" style="gap:34px;height:calc(100% - 132px)">
-      <div class="card rv" style="--d:2">
+    <div class="g2" style="gap:34px;flex:1 1 auto;min-height:0">
+      <div class="card rv" style="--d:2;display:flex;flex-direction:column">
         <div class="ch">Random error — <span style="color:var(--moss)">more readings fix it</span></div>
         <ul class="bul sm">
           <li>Judging a dot at the <strong>edge of a leaf</strong> as sky or canopy</li>
@@ -3661,15 +3686,15 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <li>Wind moving foliage between bearings</li>
           <li>Reading a tape or a clinometer to the nearest whole unit</li>
         </ul>
-        <div class="callout moss" style="margin-top:22px">
+        <div class="callout moss" style="margin-top:auto">
           <span class="k">Property</span>
-          <p style="font-size:21px">Scatters <strong>around</strong> the true value. Averaging many readings brings the mean towards the truth.</p>
+          <p style="font-size:calc(21px * var(--tz,1))">Scatters <strong>around</strong> the true value. Averaging many readings brings the mean towards the truth.</p>
         </div>
       </div>
       <div class="card rv" style="--d:4">
         <div class="ch v">Systematic error — <span style="color:var(--vermilion)">more readings do not</span></div>
         <table class="dt xs" style="margin-top:6px">
-          <thead><tr><th>Source</th><th style="width:110px">Direction</th></tr></thead>
+          <thead><tr><th>Source</th><th style="width:200px">Direction</th></tr></thead>
           <tbody>
             <tr><td>Observer's head reflected inside the grid</td><td class="num" style="color:var(--vermilion)">too high</td></tr>
             <tr><td>Instrument not held level</td><td class="num">one-sided on slopes</td></tr>
@@ -3681,11 +3706,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </table>
         <div class="callout" style="margin-top:20px">
           <span class="k">Property</span>
-          <p style="font-size:21px">Sits to <strong>one side</strong> of the truth. A thousand readings taken with the head inside the grid give a thousand readings that are all too high.</p>
+          <p style="font-size:calc(21px * var(--tz,1))">Sits to <strong>one side</strong> of the truth. A thousand readings taken with the head inside the grid give a thousand readings that are all too high.</p>
         </div>
       </div>
     </div>
-    <div class="callout moss rv" style="--d:6;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout moss rv" style="--d:6;margin-top:auto">
       <span class="k">Good practice — every item on this list is free</span>
       <p>Level the instrument · keep your reflection outside the grid · read on four bearings · use several points per plot · place points by a <strong>rule, not by convenience</strong> · avoid direct sun · one observer per plot · record raw counts and the method · state the season. <strong>If you could remove one error, remove the sampling bias:</strong> instrument error is small and bounded; sampling bias is neither.</p>
     </div>
@@ -3730,7 +3755,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="numrow rv" style="--d:6"><div class="badge">5</div><div class="txt-sm">Dividing crown length by <strong>bole height</strong> instead of total height when computing live-crown ratio</div></div>
       <div class="numrow rv" style="--d:7"><div class="badge">10</div><div class="txt-sm">Reporting a canopy percentage with <strong>no method, no angle of view and no layers stated</strong></div></div>
     </div>
-    <div class="callout rv" style="--d:9;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:9;margin-top:auto">
       <p><strong>Number 10 is the one that persists longest into a career — because nobody marks it.</strong> A canopy figure without its method attached cannot be checked, compared or repeated, and is therefore not a measurement.</p>
     </div>
   </div>
@@ -3766,29 +3791,29 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="callout moss rv" style="--d:2;margin-bottom:20px">
       <span class="k">Aim</span>
-      <p style="font-size:21px">To carry out <strong>Bhutan&rsquo;s official canopy cover assessment</strong> on one 500 m<sup>2</sup> plot, and then to obtain a figure for the <strong>same plot</strong> by two comparative methods — so that the difference between the official number and the others is produced by your own hands.</p>
+      <p style="font-size:calc(21px * var(--tz,1))">To carry out <strong>Bhutan&rsquo;s official canopy cover assessment</strong> on one 500 m<sup>2</sup> plot, and then to obtain a figure for the <strong>same plot</strong> by two comparative methods — so that the difference between the official number and the others is produced by your own hands.</p>
     </div>
-    <div class="g3" style="height:calc(100% - 250px)">
+    <div class="g3" style="flex:1 1 auto;min-height:0">
       <div class="card rv" style="--d:3;display:flex;flex-direction:column">
-        <div class="ch v">Part A · one tree <span style="font-size:17px;color:var(--ink-faint);letter-spacing:.14em">Section A revision</span></div>
-        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:28px;height:28px;font-size:15px">1</div><div class="txt-sm" style="font-size:19px">Measure DBH over bark at the prescribed reference height, from the uphill side. Write the height used on the sheet.</div></div>
-        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:28px;height:28px;font-size:15px">2</div><div class="txt-sm" style="font-size:19px">Measure total height and bole height with a clinometer from a measured horizontal distance.</div></div>
-        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:28px;height:28px;font-size:15px">3</div><div class="txt-sm" style="font-size:19px">Each group records the <strong>crown base independently</strong> before comparing. The spread between groups is the lesson.</div></div>
-        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:28px;height:28px;font-size:15px">4</div><div class="txt-sm" style="font-size:19px">Measure four crown radii on the cardinal bearings with a vertical sighting device.</div></div>
-        <div class="numrow" style="margin-bottom:0"><div class="badge moss" style="width:28px;height:28px;font-size:15px">5</div><div class="txt-sm" style="font-size:19px">Compute crown length, live-crown ratio, crown midpoint height and crown projection area.</div></div>
+        <div class="ch v">Part A · one tree <span style="font-size:calc(17px * var(--tz,1));color:var(--ink-faint);letter-spacing:.14em">Section A revision</span></div>
+        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">1</div><div class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Measure DBH over bark at the prescribed reference height, from the uphill side. Write the height used on the sheet.</div></div>
+        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">2</div><div class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Measure total height and bole height with a clinometer from a measured horizontal distance.</div></div>
+        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">3</div><div class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Each group records the <strong>crown base independently</strong> before comparing. The spread between groups is the lesson.</div></div>
+        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">4</div><div class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Measure four crown radii on the cardinal bearings with a vertical sighting device.</div></div>
+        <div class="numrow" style="margin-bottom:0"><div class="badge moss" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">5</div><div class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Compute crown length, live-crown ratio, crown midpoint height and crown projection area.</div></div>
       </div>
       <div class="card moss rv" style="--d:5;display:flex;flex-direction:column">
-        <div class="ch">Part B · the official Bhutan procedure <span style="font-size:17px;color:#d8b76a;letter-spacing:.14em">FMID 2024</span></div>
-        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:28px;height:28px;font-size:15px">1</div><div class="txt-sm" style="font-size:19px">Establish a <strong>circular plot of 12.62 m radius</strong> — 500 m<sup>2</sup> — from the supplied plot centre.</div></div>
-        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:28px;height:28px;font-size:15px">2</div><div class="txt-sm" style="font-size:19px">Lay the <strong>2.5 m × 2.5 m grid</strong> from the pre-generated point layout. <strong>Do not choose your own points.</strong></div></div>
-        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:28px;height:28px;font-size:15px">3</div><div class="txt-sm" style="font-size:19px">Read <strong>89 systematic + 11 additional</strong> points with the <strong>GRS crown densitometer</strong>, the 11 from the <strong>quadrant assigned to your group</strong>.</div></div>
-        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:28px;height:28px;font-size:15px">4</div><div class="txt-sm" style="font-size:19px">Level, sight vertically, score <strong>1</strong> if more than half the inner black circle is canopy and <strong>0</strong> if not.</div></div>
-        <div class="numrow" style="margin-bottom:0"><div class="badge" style="width:28px;height:28px;font-size:15px">5</div><div class="txt-sm" style="font-size:19px">Total the 1s in the field. <strong>Canopy cover % = Σ1s ÷ 100 × 100.</strong> Then pool all groups: divide by 100 × number of plots.</div></div>
+        <div class="ch">Part B · the official Bhutan procedure <span style="font-size:calc(17px * var(--tz,1));color:#d8b76a;letter-spacing:.14em">FMID 2024</span></div>
+        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">1</div><div class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Establish a <strong>circular plot of 12.62 m radius</strong> — 500 m<sup>2</sup> — from the supplied plot centre.</div></div>
+        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">2</div><div class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Lay the <strong>2.5 m × 2.5 m grid</strong> from the pre-generated point layout. <strong>Do not choose your own points.</strong></div></div>
+        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">3</div><div class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Read <strong>89 systematic + 11 additional</strong> points with the <strong>GRS crown densitometer</strong>, the 11 from the <strong>quadrant assigned to your group</strong>.</div></div>
+        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">4</div><div class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Level, sight vertically, score <strong>1</strong> if more than half the inner black circle is canopy and <strong>0</strong> if not.</div></div>
+        <div class="numrow" style="margin-bottom:0"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">5</div><div class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Total the 1s in the field. <strong>Canopy cover % = Σ1s ÷ 100 × 100.</strong> Then pool all groups: divide by 100 × number of plots.</div></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:18px;min-height:0">
         <div class="card sunk rv" style="--d:7;flex:1;min-height:0">
           <div class="ch v">Part C · comparative methods, then reconcile</div>
-          <ul class="bul sm" style="font-size:19px">
+          <ul class="bul sm" style="font-size:calc(19px * var(--tz,1))">
             <li><strong>Ocular:</strong> estimate the class independently at plot centre, before anyone speaks</li>
             <li><strong>Spherical densiometer:</strong> five points, four bearings at each. <em>Comparative only</em></li>
             <li>Rank the three. The official figure should be <strong>lowest</strong>, the spherical-densiometer figure <strong>highest</strong>. If your order differs, <strong>explain it</strong></li>
@@ -3798,9 +3823,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
     </div>
-    <div class="callout rv" style="--d:10;position:absolute;left:0;right:0;bottom:0;padding:14px 22px">
+    <div class="callout rv" style="--d:10;margin-top:auto;padding:14px 22px">
       <span class="k">Report &middot; arrangements &middot; courtesy</span>
-      <p style="font-size:20px"><strong>Report:</strong> two pages &mdash; method, the official tally sheet, calculations in full, the three figures, the forest / high-forest classification, and why the three differ. <strong>Equipment:</strong> one GRS crown densitometer per group, plus a spherical densiometer for Part C; plot centres and point layouts are issued on the day. Obtain permission before entering community forest, <strong>keep off regeneration plots</strong>, and leave no marking paint on trees.</p>
+      <p style="font-size:calc(20px * var(--tz,1))"><strong>Report:</strong> two pages &mdash; method, the official tally sheet, calculations in full, the three figures, the forest / high-forest classification, and why the three differ. <strong>Equipment:</strong> one GRS crown densitometer per group, plus a spherical densiometer for Part C; plot centres and point layouts are issued on the day. Obtain permission before entering community forest, <strong>keep off regeneration plots</strong>, and leave no marking paint on trees.</p>
     </div>
   </div>
   <div class="pageno">47 / 57</div>
@@ -3830,7 +3855,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="card rv" style="--d:2;padding:18px 24px;margin-bottom:16px">
       <div class="label v">Header — the part professionals care about most</div>
-      <div class="mn" style="font-size:18px;color:var(--ink);margin-top:8px;line-height:1.62">
+      <div class="mn" style="font-size:calc(18px * var(--tz,1));color:var(--ink);margin-top:8px;line-height:1.62">
         Name of area ____________ &nbsp;·&nbsp; Plot no. ______ &nbsp;·&nbsp; Plot centre / grid ref. ____________ &nbsp;·&nbsp; Date ________ &nbsp;·&nbsp; Time ______<br>
         Method: <strong>FMID 2024 guidelines</strong> / comparative ______ &nbsp;·&nbsp; Plot: circular r = 12.62 m / rectangular ______ &nbsp;·&nbsp; Points read ______ &nbsp;·&nbsp; Random-point quadrant ______<br>
         Instrument ______________ &nbsp;·&nbsp; Layers included: trees only / all layers &nbsp;·&nbsp; DBH reference height used ______ m<br>
@@ -3838,7 +3863,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         Data recorder ____________ &nbsp;·&nbsp; Observer ____________ &nbsp;·&nbsp; Supervisor check ____________
       </div>
     </div>
-    <div class="g2" style="gap:30px;height:calc(100% - 250px)">
+    <div class="g2" style="gap:30px;flex:1 1 auto;min-height:0">
       <div>
         <div class="label rv" style="--d:4;margin-bottom:12px">Block 1 · tree level — one row per tree</div>
         <table class="dt xs rv" style="--d:4">
@@ -3867,10 +3892,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <tr class="hi"><td class="rh" colspan="9" style="text-align:right">Total 1s in this plot &nbsp;=</td><td></td></tr>
           </tbody>
         </table>
-        <p class="mono-sm rv" style="--d:6;margin-top:6px;font-size:17px">One sheet per plot; beyond 100 points, use a second sheet.</p>
+        <p class="mono-sm rv" style="--d:6;margin-top:6px;font-size:calc(17px * var(--tz,1))">One sheet per plot; beyond 100 points, use a second sheet.</p>
         <div class="card sunk rv" style="--d:7;margin-top:12px;padding:14px 20px">
           <div class="label v">Plot summary — computed in the field</div>
-          <div class="mn" style="font-size:17px;color:var(--ink);margin-top:6px;line-height:1.6">
+          <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--ink);margin-top:6px;line-height:1.6">
             <strong>Canopy cover % = Σ1s ÷ total points × 100 = ______ %</strong><br>
             Forest (&gt;10 %)? Y / N &nbsp;·&nbsp; High forest (&ge;40 %)? Y / N<br>
             Comparative — ocular ______ &nbsp;·&nbsp; spherical densiometer ______ %
@@ -3878,9 +3903,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
     </div>
-    <div class="callout rv" style="--d:9;position:absolute;left:0;right:0;bottom:0;padding:12px 22px">
+    <div class="callout rv" style="--d:9;margin-top:auto;padding:12px 22px">
       <span class="k">Two rules for any record that might later be questioned</span>
-      <p style="font-size:19px">The tally is written <strong>in ink and never overwritten</strong> — strike through, initial, and write the new value beside it. And compute the plot summary <strong>while the stand is still in front of you</strong>.</p>
+      <p style="font-size:calc(19px * var(--tz,1))">The tally is written <strong>in ink and never overwritten</strong> — strike through, initial, and write the new value beside it. And compute the plot summary <strong>while the stand is still in front of you</strong>.</p>
     </div>
   </div>
   <div class="pageno">48 / 57</div>
@@ -3940,7 +3965,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
     </div>
-    <div class="callout moss rv" style="--d:7;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout moss rv" style="--d:7;margin-top:auto">
       <p>Before writing anything, decide <strong>which of the three quantities each question is asking for.</strong> The commonest visible failure is starting to calculate before that decision has been made.</p>
     </div>
   </div>
@@ -3974,8 +3999,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="g2" style="row-gap:22px;column-gap:32px;height:100%">
       <div class="card rv" style="--d:2">
-        <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><div class="badge">1</div><div class="ch" style="margin:0;font-size:26px">Crown dimensions</div></div>
-        <div class="mn" style="font-size:19px;color:var(--ink);line-height:2.05">
+        <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><div class="badge">1</div><div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Crown dimensions</div></div>
+        <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--ink);line-height:2.05">
           CL = 18.4 − 6.9 = <strong style="color:var(--vermilion)">11.5 m</strong><br>
           LCR = 11.5 / 18.4 × 100 = <strong style="color:var(--vermilion)">62.5 %</strong><br>
           CH = 6.9 + 11.5/2 = 6.9 + 5.75 = <strong style="color:var(--vermilion)">12.65 m</strong><br>
@@ -3985,8 +4010,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <p class="txt-sm" style="margin-top:14px">Under convention 2 only the third figure changes — it would become 11.5 m.</p>
       </div>
       <div class="card rv" style="--d:3">
-        <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><div class="badge">2</div><div class="ch" style="margin:0;font-size:26px">Densiometer point</div></div>
-        <div class="mn" style="font-size:19px;color:var(--ink);line-height:2.05">
+        <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><div class="badge">2</div><div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Densiometer point</div></div>
+        <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--ink);line-height:2.05">
           mean = (41 + 38 + 44 + 45)/4 = 168/4 = <strong style="color:var(--vermilion)">42.0 dots</strong><br>
           open = 42.0 × 1.04 = <strong style="color:var(--vermilion)">43.68 %</strong><br>
           closure = 100 − 43.68 = <strong style="color:var(--vermilion)">56.32 %</strong><br>
@@ -3995,8 +4020,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <p class="txt-sm" style="margin-top:14px">A very different stand from worked example 3. Anyone who wrote 80 % from memory has just revealed it.</p>
       </div>
       <div class="card rv" style="--d:4">
-        <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><div class="badge">3</div><div class="ch" style="margin:0;font-size:26px">Cover and overlap</div></div>
-        <div class="mn" style="font-size:19px;color:var(--ink);line-height:2.05">
+        <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><div class="badge">3</div><div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Cover and overlap</div></div>
+        <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--ink);line-height:2.05">
           A = 0.05 ha = <strong style="color:var(--vermilion)">500 m<sup>2</sup></strong> &nbsp;<span style="color:var(--ink-faint)">← marks lost here</span><br>
           crown cover = 410/500 × 100 = <strong style="color:var(--vermilion)">82.0 %</strong><br>
           canopy cover = (410 − 96)/500 × 100 = <strong style="color:var(--vermilion)">62.8 %</strong><br>
@@ -4005,7 +4030,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <p class="txt-sm" style="margin-top:14px">Measured (62.8 %) is <strong>above</strong> the prediction (56.0 %) → less overlap than chance → trees <strong>more regularly spaced</strong> than random: a plantation, or a thinned stand.</p>
       </div>
       <div class="card moss rv" style="--d:5">
-        <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><div class="badge" style="background:var(--gold)">4</div><div class="ch" style="margin:0;font-size:26px">55 % versus 44 %</div></div>
+        <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><div class="badge" style="background:var(--gold)">4</div><div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">55 % versus 44 %</div></div>
         <ul class="bul sm">
           <li>The densiometer has a <strong>wide angle of view</strong>, so it measures closure, not vertical cover — and closure is always the larger</li>
           <li>It counts <strong>every twig, climber and shrub</strong> in the line of sight; crown mapping counts only mapped tree crowns</li>
@@ -4054,20 +4079,20 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit III &middot; Session 5</div>
-  <div class="body deep">
+  <div class="body deep srcfoot">
     <p class="lead rv" style="--d:2;margin-bottom:22px">Of everything in MEN 201, the number produced in this unit is the one that most directly <strong>becomes a legal decision</strong>.</p>
     <div class="g4" style="gap:22px;margin-bottom:24px">
-      <div class="card moss rv" style="--d:3"><div class="ch" style="font-size:22px">Forest classification</div><p class="txt-sm">Canopy cover classifies State Reserved Forest Land as <strong>forest or non-forest</strong>, and at 40 % and above as <strong>high forest</strong> — where forestry clearance <strong>shall not be issued</strong>.</p></div>
-      <div class="card rv" style="--d:4"><div class="ch" style="font-size:22px">National reporting</div><p class="txt-sm">The Constitution requires a minimum of <strong>60 % forest cover for all time</strong>. It is monitored by this quantity — which is why the method was standardised in 2024.</p></div>
-      <div class="card rv" style="--d:5"><div class="ch" style="font-size:22px">Habitat condition</div><p class="txt-sm">Canopy governs light at the forest floor, and with it <strong>regeneration, understorey composition, ground temperature and moisture</strong> — so it governs what can live there.</p></div>
-      <div class="card rv" style="--d:6"><div class="ch" style="font-size:22px">Watershed and climate</div><p class="txt-sm">Interception and throughfall depend on canopy. And canopy loss is among the <strong>first measurable signatures</strong> of drought stress, pest outbreak and windthrow.</p></div>
+      <div class="card moss rv" style="--d:3"><div class="ch" style="font-size:calc(22px * var(--tz,1))">Forest classification</div><p class="txt-sm">Canopy cover classifies State Reserved Forest Land as <strong>forest or non-forest</strong>, and at 40 % and above as <strong>high forest</strong> — where forestry clearance <strong>shall not be issued</strong>.</p></div>
+      <div class="card rv" style="--d:4"><div class="ch" style="font-size:calc(22px * var(--tz,1))">National reporting</div><p class="txt-sm">The Constitution requires a minimum of <strong>60 % forest cover for all time</strong>. It is monitored by this quantity — which is why the method was standardised in 2024.</p></div>
+      <div class="card rv" style="--d:5"><div class="ch" style="font-size:calc(22px * var(--tz,1))">Habitat condition</div><p class="txt-sm">Canopy governs light at the forest floor, and with it <strong>regeneration, understorey composition, ground temperature and moisture</strong> — so it governs what can live there.</p></div>
+      <div class="card rv" style="--d:6"><div class="ch" style="font-size:calc(22px * var(--tz,1))">Watershed and climate</div><p class="txt-sm">Interception and throughfall depend on canopy. And canopy loss is among the <strong>first measurable signatures</strong> of drought stress, pest outbreak and windthrow.</p></div>
     </div>
     <div class="g2" style="gap:32px">
-      <div class="callout moss rv" style="--d:7"><span class="k">Community forestry</span><p style="font-size:21px">A community-forest management plan has to describe stand condition, and canopy cover is the <strong>cheapest and most repeatable descriptor a group can collect for itself</strong>. Members can be trained on the GRS densitometer in an afternoon, and the record is theirs.</p></div>
-      <div class="callout rv" style="--d:8"><span class="k">Why one national method mattered</span><p style="font-size:21px">Before 2024 the same stand returned different figures in different Divisions, because offices used different instruments and different definitions. <strong>A standard method is not bureaucracy — it is what makes a measurement mean the same thing in Haa and in Trashigang.</strong></p></div>
+      <div class="callout moss rv" style="--d:7"><span class="k">Community forestry</span><p style="font-size:calc(21px * var(--tz,1))">A community-forest management plan has to describe stand condition, and canopy cover is the <strong>cheapest and most repeatable descriptor a group can collect for itself</strong>. Members can be trained on the GRS densitometer in an afternoon, and the record is theirs.</p></div>
+      <div class="callout rv" style="--d:8"><span class="k">Why one national method mattered</span><p style="font-size:calc(21px * var(--tz,1))">Before 2024 the same stand returned different figures in different Divisions, because offices used different instruments and different definitions. <strong>A standard method is not bureaucracy — it is what makes a measurement mean the same thing in Haa and in Trashigang.</strong></p></div>
     </div>
-  </div>
-  <div class="src">Constitution of the Kingdom of Bhutan, Art. 5 &middot; Forest and Nature Conservation Act of Bhutan 2023, s. 46 (2) &middot; FMID (2024) <em>Forest Canopy Cover Assessment Guidelines</em> &middot; National Forest Policy of Bhutan 2011</div>
+  <div class="src">Constitution of the Kingdom of Bhutan, Art. 5 &middot; Forest and Nature Conservation Act of Bhutan 2023, s. 46 (2) &middot; FMID (2024) <em>Forest Canopy Cover Assessment Guidelines</em> &middot; National Forest Policy of Bhutan 2011</div></div>
+  
   <div class="pageno">51 / 57</div>
 </section>
 
@@ -4089,15 +4114,15 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">CASE STUDY &middot; UNIT III</div>
-  <div class="body">
+  <div class="body srcfoot">
     <p class="txt rv" style="--d:2;margin-bottom:16px">The same 500 m<sup>2</sup> plot whose 24 stems were listed in Unit II. Now the <strong>canopy above them</strong>, by the official procedure.</p>
     <div class="g3" style="gap:24px;margin-bottom:20px">
-      <div class="card rv" style="--d:3"><div class="ch v" style="font-size:22px">The reading</div>
+      <div class="card rv" style="--d:3"><div class="ch v" style="font-size:calc(22px * var(--tz,1))">The reading</div>
         <div class="step"><div class="sl">Points read</div><div class="sv">89 systematic + 11</div></div>
         <div class="step"><div class="sl">Scored 1</div><div class="sv"><span class="hlt">68</span></div></div>
         <div class="step"><div class="sl">Scored 0</div><div class="sv">32</div></div>
       </div>
-      <div class="card rv" style="--d:4"><div class="ch v" style="font-size:22px">The arithmetic</div>
+      <div class="card rv" style="--d:4"><div class="ch v" style="font-size:calc(22px * var(--tz,1))">The arithmetic</div>
         <div class="formula sm" style="margin:8px 0 0">68 &divide; 100 &times; 100 = <strong>68 %</strong></div>
         <p class="txt-sm" style="margin-top:12px">With a hundred independent readings, every reading is one percentage point.</p>
       </div>
@@ -4113,8 +4138,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="callout rv" style="--d:6"><span class="k">68 % is not near the boundary — and that matters too</span><p>A plot at 38 % or 42 % would put the crew under real pressure. This one does not, and a crew should say so plainly: the classification is <strong>not marginal</strong>.</p></div>
       <div class="callout moss rv" style="--d:7"><span class="k">Carry this forward</span><p>Canopy cover describes the <strong>light reaching the floor</strong>, and so the regeneration, the understorey and the habitat. It is the one figure in this case study that has nothing to do with timber.</p></div>
     </div>
-  </div>
-  <div class="src">Hypothetical teaching data. Procedure: FMID (2024) Forest Canopy Cover Assessment Guidelines, section 4.1.1.</div>
+  <div class="src">Hypothetical teaching data. Procedure: FMID (2024) Forest Canopy Cover Assessment Guidelines, section 4.1.1.</div></div>
+  
   <div class="pageno">52 / 57</div>
 </section>
 
@@ -4141,8 +4166,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="g3" style="height:100%;align-items:stretch">
       <div class="card rv" style="--d:2">
         <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:14px">
-          <div style="font-family:var(--display);font-weight:600;font-size:49px;color:var(--moss);line-height:1">A</div>
-          <div class="ch" style="margin:0;font-size:27px">Terms related to crown</div>
+          <div style="font-family:var(--display);font-weight:600;font-size:calc(49px * var(--tz,1));color:var(--moss);line-height:1">A</div>
+          <div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Terms related to crown</div>
         </div>
         <ul class="bul sm">
           <li>The <strong>crown</strong> is the upper branchy part above the bole; the <strong>canopy</strong> is what many crowns form together</li>
@@ -4156,8 +4181,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="card rv" style="--d:4">
         <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:14px">
-          <div style="font-family:var(--display);font-weight:600;font-size:49px;color:var(--moss);line-height:1">B</div>
-          <div class="ch" style="margin:0;font-size:27px">Crown closure</div>
+          <div style="font-family:var(--display);font-weight:600;font-size:calc(49px * var(--tz,1));color:var(--moss);line-height:1">B</div>
+          <div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Crown closure</div>
         </div>
         <ul class="bul sm">
           <li><strong>Crown closure</strong> — crowns of dominant and co-dominant trees touching or overlapping, viewed horizontally</li>
@@ -4171,8 +4196,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="card rv" style="--d:6">
         <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:14px">
-          <div style="font-family:var(--display);font-weight:600;font-size:49px;color:var(--moss);line-height:1">C</div>
-          <div class="ch" style="margin:0;font-size:27px">Measuring canopy closure</div>
+          <div style="font-family:var(--display);font-weight:600;font-size:calc(49px * var(--tz,1));color:var(--moss);line-height:1">C</div>
+          <div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Measuring canopy closure</div>
         </div>
         <ul class="bul sm">
           <li>Ocular estimation is free and biased — <strong>calibrate, use classes, record the observer</strong></li>
@@ -4222,7 +4247,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="numrow rv" style="--d:6"><div class="badge">5</div><div class="txt-sm">Define live-crown ratio and explain why it matters in a thinning decision. Why can it not be recovered in conifers?</div></div>
       <div class="numrow rv" style="--d:7"><div class="badge moss">10</div><div class="txt-sm">A working plan requires a single canopy figure for a compartment. You have a densiometer figure and a lidar cover figure. Which do you report, and what else must go with it?</div></div>
     </div>
-    <div class="callout moss rv" style="--d:9;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout moss rv" style="--d:9;margin-top:auto">
       <p>Questions 1 to 5 are short answer. <strong>Questions 6 to 10 carry the most marks</strong> and require working or a reasoned argument. The answers are not on this slide deliberately — they are distributed through the deck, and finding them is the revision.</p>
     </div>
   </div>
@@ -4252,7 +4277,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
   <div class="body">
-    <div class="g2" style="gap:34px;height:calc(100% - 102px)">
+    <div class="g2" style="gap:34px;flex:1 1 auto;min-height:0">
       <div class="card rv" style="--d:2">
         <div class="ch">Read these — the papers behind this session</div>
         <ul class="bul sm">
@@ -4287,7 +4312,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
     </div>
-    <div class="callout rv" style="--d:7;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:7;margin-top:auto">
       <p>Where a Bhutanese convention could not be confirmed, this deck presents the general international convention and labels it as such. <strong>Students must follow the applicable Bhutanese field manual during official inventory work.</strong></p>
     </div>
   </div>
@@ -4328,8 +4353,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit III &middot; Session 5</div>
-  <div class="body">
-    <div style="display:grid;grid-template-columns:.78fr .62fr .60fr;gap:26px;height:100%">
+  <div class="body srcfoot">
+    <div style="display:grid;grid-template-columns:.78fr .62fr .60fr;gap:26px;flex:1 1 auto;min-height:0">
       <table class="dt sm rv" style="--d:3;align-self:start">
         <thead><tr><th style="width:74px">Symbol</th><th>Quantity</th><th style="width:96px">Unit</th></tr></thead>
         <tbody>
@@ -4348,36 +4373,36 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </table>
       <div style="display:flex;flex-direction:column;gap:18px;min-height:0">
         <div class="card moss rv" style="--d:4;padding:20px 22px">
-          <div class="ch" style="font-size:24px;margin-bottom:8px">Lower case is one tree.<br>Upper case is the stand.</div>
-          <p class="txt-sm" style="font-size:19px">That one rule resolves most of the confusion in the literature: <strong>g</strong> is the tree in front of you, <strong>G</strong> is the hectare it stands in. Likewise <strong>v</strong> and <strong>V</strong>.</p>
+          <div class="ch" style="font-size:calc(24px * var(--tz,1));margin-bottom:8px">Lower case is one tree.<br>Upper case is the stand.</div>
+          <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">That one rule resolves most of the confusion in the literature: <strong>g</strong> is the tree in front of you, <strong>G</strong> is the hectare it stands in. Likewise <strong>v</strong> and <strong>V</strong>.</p>
         </div>
         <div class="card rv" style="--d:5;padding:20px 22px">
-          <div class="ch v" style="font-size:21px;margin-bottom:8px">Two conversions that follow</div>
-          <div class="mn" style="font-size:20px;color:var(--moss);line-height:1.8">
+          <div class="ch v" style="font-size:calc(21px * var(--tz,1));margin-bottom:8px">Two conversions that follow</div>
+          <div class="mn" style="font-size:calc(20px * var(--tz,1));color:var(--moss);line-height:1.8">
             C = &pi;d &nbsp;&middot;&nbsp; d = C / &pi;<br>
             D<sub>ub</sub> = D<sub>ob</sub> &minus; 2t<br>
             G<sub>ub</sub> = G<sub>ob</sub> &minus; 2&pi;t
           </div>
-          <p class="txt-sm" style="margin-top:8px;font-size:19px">A diameter crosses bark <strong>twice</strong>. Subtract <strong>2t</strong>, never <em>t</em>.</p>
+          <p class="txt-sm" style="margin-top:8px;font-size:calc(19px * var(--tz,1))">A diameter crosses bark <strong>twice</strong>. Subtract <strong>2t</strong>, never <em>t</em>.</p>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:18px;min-height:0">
         <div class="card sunk rv" style="--d:6;padding:18px 22px">
-          <div class="ch v" style="font-size:21px;margin-bottom:8px">Crown terms &mdash; four names</div>
-          <p class="txt-sm" style="font-size:19px"><strong>Crown-base height</strong> ground to the base of the live crown &middot; <strong>crown length</strong> H &minus; crown-base height &middot; <strong>crown midpoint height</strong> ground to the crown midpoint &middot; <strong>live-crown ratio</strong> crown length &divide; H. The bare term <strong>&ldquo;crown height&rdquo; is not used</strong> &mdash; three incompatible meanings.</p>
+          <div class="ch v" style="font-size:calc(21px * var(--tz,1));margin-bottom:8px">Crown terms &mdash; four names</div>
+          <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))"><strong>Crown-base height</strong> ground to the base of the live crown &middot; <strong>crown length</strong> H &minus; crown-base height &middot; <strong>crown midpoint height</strong> ground to the crown midpoint &middot; <strong>live-crown ratio</strong> crown length &divide; H. The bare term <strong>&ldquo;crown height&rdquo; is not used</strong> &mdash; three incompatible meanings.</p>
         </div>
         <div class="card sunk rv" style="--d:7;padding:18px 22px">
-          <div class="ch v" style="font-size:21px;margin-bottom:8px">Spelling fixed for this module</div>
-          <p class="txt-sm" style="font-size:19px"><strong>relascope</strong> &middot; <strong>calliper</strong> &middot; <strong>Smythies&rsquo; hypsometer</strong> &middot; <strong>chir pine</strong> &middot; <strong>breast height</strong> &middot; <strong>over bark</strong> / <strong>under bark</strong> &middot; <strong>merchantable height</strong> &middot; <strong>bole height</strong></p>
+          <div class="ch v" style="font-size:calc(21px * var(--tz,1));margin-bottom:8px">Spelling fixed for this module</div>
+          <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))"><strong>relascope</strong> &middot; <strong>calliper</strong> &middot; <strong>Smythies&rsquo; hypsometer</strong> &middot; <strong>chir pine</strong> &middot; <strong>breast height</strong> &middot; <strong>over bark</strong> / <strong>under bark</strong> &middot; <strong>merchantable height</strong> &middot; <strong>bole height</strong></p>
         </div>
         <div class="callout rv" style="--d:8;padding:16px 20px">
           <span class="k">Not a symbol, but it belongs here</span>
-          <p style="font-size:19px"><strong>DBH reference height is protocol-dependent.</strong> Bhutan&rsquo;s Second NFI used <strong>1.37 m</strong>; many international manuals use <strong>1.30 m</strong>. Follow the applicable protocol and <strong>record the height used</strong>.</p>
+          <p style="font-size:calc(19px * var(--tz,1))"><strong>DBH reference height is protocol-dependent.</strong> Bhutan&rsquo;s Second NFI used <strong>1.37 m</strong>; many international manuals use <strong>1.30 m</strong>. Follow the applicable protocol and <strong>record the height used</strong>.</p>
         </div>
       </div>
     </div>
-  </div>
-  <div class="src">Notation fixed for MEN 201. Where a textbook or a published equation uses different symbols, translate into this table before you calculate.</div>
+  <div class="src">Notation fixed for MEN 201. Where a textbook or a published equation uses different symbols, translate into this table before you calculate.</div></div>
+  
   <div class="pageno">56 / 57</div>
 </section>
 
@@ -4413,11 +4438,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="rv" style="--d:1;margin-top:24px;width:120px;height:1px;background:var(--ink);opacity:.85"></div>
   </div>
   <div style="position:absolute;left:110px;top:290px;width:1030px">
-    <h1 class="rv" style="--d:2;font-size:116px">Measurement of<br><em>Crown Closure</em></h1>
+    <h1 class="rv" style="--d:2;font-size:calc(116px * var(--tz,1))">Measurement of<br><em>Crown Closure</em></h1>
     <div class="g2 rv" style="--d:4;margin-top:64px;max-width:880px;gap:40px">
       <div class="card">
         <div class="label v">Where to find things</div>
-        <div class="mn" style="font-size:21px;color:var(--ink);margin-top:14px;line-height:2">
+        <div class="mn" style="font-size:calc(21px * var(--tz,1));color:var(--ink);margin-top:14px;line-height:2">
           All seven units &middot; the contents page<br>
           Readings &middot; the supplementary folder<br>
           Practical sheets and dates &middot; the VLE
@@ -4425,7 +4450,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="card">
         <div class="label v">Tutor</div>
-        <div class="mn" style="font-size:21px;color:var(--ink);margin-top:14px;line-height:2">
+        <div class="mn" style="font-size:calc(21px * var(--tz,1));color:var(--ink);margin-top:14px;line-height:2">
           Wangdi<br>
           Senior Forestry Officer<br>
           Adjunct Lecturer<br>
@@ -4628,7 +4653,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
 /* Fallback only, for a deck with no HUD to dock into. */
 .tocback.loose{position:fixed;right:clamp(12px,1.6vw,26px);bottom:clamp(58px,6vw,76px);z-index:70;
-  font:500 12px/1 'JetBrains Mono',ui-monospace,monospace;
+  font:500 calc(12px * var(--tz,1))/1 'JetBrains Mono',ui-monospace,monospace;
   background:rgba(10,14,11,.72);border-color:rgba(255,255,255,.14);padding:9px 13px}
 
 body.editing .tocback,body.editing .tocsep{display:none}

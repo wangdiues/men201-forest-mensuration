@@ -19,6 +19,8 @@
 
 /* === DESIGN TOKENS === */
 :root{
+  /* type zoom - one knob for every size in this document */
+  --tz: 1.12;
   /* surfaces */
   --paper:        #f2efe6;
   --paper-card:   #faf9f4;
@@ -89,18 +91,18 @@ html,body{margin:0;padding:0;height:100%;overflow:hidden;background:var(--letter
    (top-right), a hairline baseline, and a page number.
    ========================================================================== */
 .head{position:absolute;left:92px;right:92px;top:70px}
-.eyebrow{font:500 19px/1 var(--mono);letter-spacing:.30em;text-transform:uppercase;
+.eyebrow{font:500 calc(19px * var(--tz,1))/1 var(--mono);letter-spacing:.30em;text-transform:uppercase;
   color:var(--vermilion)}
 .eyebrow.warn{color:var(--gold)}
 h2.title{margin:20px 0 0;font-family:var(--display);font-optical-sizing:auto;
-  font-weight:600;font-size:58px;line-height:1.05;letter-spacing:-.022em;color:var(--ink);
+  font-weight:600;font-size:calc(58px * var(--tz,1));line-height:1.05;letter-spacing:-.022em;color:var(--ink);
   max-width:1500px}
 h2.title em{font-style:italic;font-weight:400;color:var(--moss)}
 .head .hr{margin-top:24px;height:1px;background:var(--rule)}
 
-.runhead{position:absolute;right:92px;top:66px;font:400 17px/1.4 var(--mono);
+.runhead{position:absolute;right:92px;top:66px;font:400 calc(17px * var(--tz,1))/1.4 var(--mono);
   letter-spacing:.16em;color:var(--ink-faint);text-align:right}
-.pageno{position:absolute;right:92px;bottom:38px;font:500 18px/1 var(--mono);
+.pageno{position:absolute;right:92px;bottom:38px;font:500 calc(18px * var(--tz,1))/1 var(--mono);
   letter-spacing:.14em;color:var(--ink-faint)}
 .footrule{position:absolute;left:92px;right:92px;bottom:74px;height:1px;background:var(--rule-soft)}
 
@@ -111,35 +113,104 @@ h2.title em{font-style:italic;font-weight:400;color:var(--moss)}
 .slide a{color:var(--moss);text-decoration:none;
   border-bottom:1px solid rgba(47,81,64,.4);transition:color .18s ease,border-color .18s ease}
 .slide a:hover,.slide a:focus-visible{color:var(--vermilion);border-bottom-color:var(--vermilion)}
-.slide a::after{content:" ↗";font-size:.8em;color:var(--ink-faint);border:0}
-.src{position:absolute;left:92px;bottom:36px;font:400 17px/1.4 var(--mono);color:var(--ink-faint);
+.slide a::after{content:"\00a0↗";font-size:.8em;color:var(--ink-faint);border:0}
+.src{position:absolute;left:92px;bottom:36px;font:400 calc(17px * var(--tz,1))/1.4 var(--mono);color:var(--ink-faint);
   max-width:1400px;letter-spacing:.02em}
+
+/* .src is slide chrome: it is pinned to the page baseline, so an absolute
+   position resolves against .body. Written inside a panel it is a footnote to
+   that panel and must stay in flow there, or it leaves the card entirely and
+   lands on the far side of the slide. */
+.card .src,.calc .src,.callout .src,.q .src,.fig .src{position:static;max-width:none;margin-top:14px}
+
+/* A source note written at the end of a .body is a citation for the content
+   above it, not page chrome. It keeps the baseline the absolute version had,
+   but as a real block: content above it now has to make room, so a note that
+   wraps to three lines can no longer be landed on by the closing bar. */
+.body>.src{position:static;margin-top:auto;padding-top:14px;max-width:100%;left:auto;bottom:auto}
+.body>.src+.src{padding-top:4px}
+
+/* A body that carries its own source note reaches further down the page. The
+   note used to be absolute chrome on the page baseline, so that band below
+   the safe zone is exactly the room it now needs; the hairline that ruled it
+   off would cross the note, so it steps aside. */
+.body.srcfoot{bottom:60px}
+.body.srcfoot~.footrule{display:none}
+
+/* A block that asked for the whole band with height:100% leaves nothing for a
+   source note that now shares that column with it. In that company it takes
+   what is left instead. */
+.body.srcfoot>.fill{height:auto;flex:1 1 auto;min-height:0}
+
+/* The xs table variant carries phrases and formulae, not only numerals, so a
+   .num cell in one must be allowed to wrap: held on one line it widens the
+   table past the card that frames it. A long monospace value in a step row is
+   the same problem in a different primitive. */
+table.dt.xs td.num{white-space:normal;overflow-wrap:anywhere}
+.step .sv{overflow-wrap:anywhere}
+/* The densest step for that variant, bought from padding as everywhere else. */
+.slide.fit2 table.dt.xs td,.slide.fit2 table.dt.xs th{padding:6px 10px}
+
+
+
+
+
 
 /* Body region: the safe zone between chrome */
 .body{position:absolute;left:92px;right:92px;top:222px;bottom:104px}
+/* === VERTICAL RHYTHM ======================================================
+   The body band is a fixed height. A slide that sizes its rows to their own
+   content stops partway down the paper and reads as unfinished; a closing bar
+   pinned out of flow cannot hold the content above it off. The band is a flex
+   column: blocks marked .grow share the leftover height, and a closing bar
+   held down by margin-top:auto still sits on the baseline while occupying
+   real space that nothing above it can overrun.
+   ========================================================================== */
+.body{display:flex;flex-direction:column}
+.body>*{flex:0 0 auto}
+.body>.grow{flex:1 0 auto;min-height:0}
+.grow>.stack>*{flex:1 0 auto}
+/* Tables keep their natural rhythm and are never stretched: padding a table
+   out to a row height spaces its rows unevenly, and a scroll wrapper grown
+   past its last row is just an empty framed box. */
+.body>table.dt{align-self:start}
+.body>.table-wrap{align-self:start;max-width:100%}
+
 .body.tight{top:200px}
 .body.deep{top:266px}
 
 /* === PRIMITIVES === */
-.lead{font-family:var(--display);font-weight:400;font-size:34px;line-height:1.40;
+.lead{font-family:var(--display);font-weight:400;font-size:calc(34px * var(--tz,1));line-height:1.40;
   color:var(--ink);letter-spacing:-.005em}
 .lead strong{font-weight:600;color:var(--moss)}
 p{margin:0}
-.txt{font:400 24px/1.52 var(--body);color:var(--ink-soft)}
-.txt-sm{font:400 21px/1.48 var(--body);color:var(--ink-soft)}
-.mono-sm{font:400 18px/1.5 var(--mono);color:var(--ink-faint);letter-spacing:.02em}
+.txt{font:400 calc(24px * var(--tz,1))/1.52 var(--body);color:var(--ink-soft)}
+.txt-sm{font:400 calc(21px * var(--tz,1))/1.48 var(--body);color:var(--ink-soft)}
+.mono-sm{font:400 calc(18px * var(--tz,1))/1.5 var(--mono);color:var(--ink-faint);letter-spacing:.02em}
 
-.label{font:500 17px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--moss)}
+.label{font:500 calc(17px * var(--tz,1))/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--moss)}
 .label.v{color:var(--vermilion)}
 
 /* Cards — the paper leaf that sits on the graph paper */
 .card{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;
   padding:24px 28px;box-shadow:0 2px 0 rgba(20,28,24,.05),0 14px 34px rgba(20,28,24,.045)}
+
+/* === PANEL CONTAINMENT ====================================================
+   A panel is the shape of its own text. Where a card is stretched to a row
+   height rather than sized to its contents, anything that overruns it is read
+   against the graph paper - or against the closing bar - instead of against
+   the leaf that is supposed to be behind it. Clipping is what makes that
+   overrun visible to the type-zoom guard in assets/men201-type-zoom.js, which
+   then sizes the slide so it cannot happen. The clip is the alarm, not the
+   remedy: by the time a slide is on screen the guard has already fitted it.
+   ========================================================================== */
+.card,.callout,.q,.answer,.calc{overflow:hidden}
+
 .card.sunk{background:var(--paper-sunk);box-shadow:none}
 .card.moss{background:var(--moss);border-color:var(--moss);color:#eef2ea}
 .card.moss .label{color:#a9c9b3}
 .card.moss .txt,.card.moss .txt-sm{color:#d3decf}
-.card h3,.card .ch{margin:0 0 11px;font-family:var(--display);font-weight:600;font-size:28px;
+.card h3,.card .ch{margin:0 0 11px;font-family:var(--display);font-weight:600;font-size:calc(28px * var(--tz,1));
   line-height:1.2;color:var(--ink);letter-spacing:-.012em}
 .card.moss .ch{color:#fff}
 .card .ch.v{color:var(--vermilion)}
@@ -147,11 +218,11 @@ p{margin:0}
 /* Tick-mark bullet list */
 ul.bul{margin:0;padding:0;list-style:none}
 ul.bul li{position:relative;padding-left:30px;margin-bottom:9px;
-  font:400 23px/1.45 var(--body);color:var(--ink-soft)}
+  font:400 calc(23px * var(--tz,1))/1.45 var(--body);color:var(--ink-soft)}
 ul.bul li:last-child{margin-bottom:0}
 ul.bul li::before{content:"";position:absolute;left:0;top:.62em;width:11px;height:1.5px;
   background:var(--vermilion)}
-ul.bul.sm li{font-size:21px;margin-bottom:7px;padding-left:28px}
+ul.bul.sm li{font-size:calc(21px * var(--tz,1));margin-bottom:7px;padding-left:28px}
 ul.bul.sm li::before{width:9px}
 ul.bul li strong{color:var(--ink);font-weight:600}
 .card.moss ul.bul li{color:#d3decf}
@@ -161,19 +232,19 @@ ul.bul li strong{color:var(--ink);font-weight:600}
 /* Numbered badge lists */
 .numrow{display:flex;gap:16px;align-items:flex-start;margin-bottom:11px}
 .badge{flex:0 0 auto;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
-  font:700 17px/1 var(--mono);background:var(--vermilion);color:#fff}
+  font:700 calc(17px * var(--tz,1))/1 var(--mono);background:var(--vermilion);color:#fff}
 .badge.moss{background:var(--moss)}
 .badge.hollow{background:transparent;border:1.5px solid var(--moss);color:var(--moss)}
-.badge.lg{width:46px;height:46px;font-size:20px}
+.badge.lg{width:46px;height:46px;font-size:calc(20px * var(--tz,1))}
 
 /* Formula plates */
 .formula{background:var(--moss-wash);border:1px solid var(--moss-line);border-radius:3px;
   padding:17px 26px;text-align:center;
-  font-family:var(--display);font-weight:500;font-size:38px;line-height:1.2;color:var(--moss);
+  font-family:var(--display);font-weight:500;font-size:calc(38px * var(--tz,1));line-height:1.2;color:var(--moss);
   letter-spacing:.01em}
 .formula.v{background:var(--vermilion-wash);border-color:rgba(193,69,36,.3);color:var(--vermilion)}
-.formula.sm{font-size:28px;padding:16px 20px}
-.formula.lg{font-size:46px;padding:28px 32px}
+.formula.sm{font-size:calc(28px * var(--tz,1));padding:16px 20px}
+.formula.lg{font-size:calc(46px * var(--tz,1));padding:28px 32px}
 .formula .u{font-size:.55em;color:var(--ink-faint);display:block;margin-top:10px;
   font-family:var(--body);font-weight:400;letter-spacing:0}
 sub{font-size:.62em;vertical-align:-.22em}
@@ -184,35 +255,35 @@ sup{font-size:.62em;vertical-align:.42em}
 .callout{border-left:4px solid var(--vermilion);background:var(--vermilion-wash);
   padding:15px 22px;border-radius:0 3px 3px 0}
 .callout.moss{border-left-color:var(--moss);background:var(--moss-wash)}
-.callout .k{font:500 16px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
+.callout .k{font:500 calc(16px * var(--tz,1))/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
   color:var(--vermilion);display:block;margin-bottom:7px}
 .callout.moss .k{color:var(--moss)}
-.callout p{font:400 23px/1.42 var(--body);color:var(--ink)}
-.callout.sm p{font-size:21px}
+.callout p{font:400 calc(23px * var(--tz,1))/1.42 var(--body);color:var(--ink)}
+.callout.sm p{font-size:calc(21px * var(--tz,1))}
 
 /* Answer bar */
 .answer{background:var(--moss);color:#fff;border-radius:3px;padding:16px 28px;
   display:flex;align-items:baseline;gap:20px}
-.answer .k{font:500 17px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:#a9c9b3}
-.answer .v{font-family:var(--display);font-weight:600;font-size:36px;letter-spacing:-.01em}
-.answer .n{font:400 20px/1.4 var(--body);color:#c6d6c9}
+.answer .k{font:500 calc(17px * var(--tz,1))/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:#a9c9b3}
+.answer .v{font-family:var(--display);font-weight:600;font-size:calc(36px * var(--tz,1));letter-spacing:-.01em}
+.answer .n{font:400 calc(20px * var(--tz,1))/1.4 var(--body);color:#c6d6c9}
 
 /* Data tables */
 table.dt{width:100%;border-collapse:collapse;background:var(--paper-card);
-  border:1px solid var(--rule);font:400 21px/1.4 var(--body);color:var(--ink-soft)}
-table.dt th{background:var(--moss);color:#fff;font:600 19px/1.3 var(--body);
+  border:1px solid var(--rule);font:400 calc(21px * var(--tz,1))/1.4 var(--body);color:var(--ink-soft)}
+table.dt th{background:var(--moss);color:#fff;font:600 calc(19px * var(--tz,1))/1.3 var(--body);
   text-align:left;padding:11px 16px;letter-spacing:.01em;vertical-align:middle}
-table.dt th:first-child{font-family:var(--mono);font-size:14px;letter-spacing:.14em;
+table.dt th:first-child{font-family:var(--mono);font-size:calc(14px * var(--tz,1));letter-spacing:.14em;
   text-transform:uppercase;font-weight:500;color:#b6cdbd}
 table.dt td{padding:14px 16px;border-top:1px solid var(--rule-soft);vertical-align:top}
 table.dt tbody tr:nth-child(even){background:rgba(20,28,24,.022)}
 table.dt td.rh{font-weight:600;color:var(--ink);background:rgba(47,81,64,.05)}
-table.dt td.num{font-family:var(--mono);font-size:20px;color:var(--ink)}
-table.dt.sm{font-size:19px}
-table.dt.sm th{font-size:17px;padding:11px 13px}
+table.dt td.num{font-family:var(--mono);font-size:calc(20px * var(--tz,1));color:var(--ink)}
+table.dt.sm{font-size:calc(19px * var(--tz,1))}
+table.dt.sm th{font-size:calc(17px * var(--tz,1));padding:11px 13px}
 table.dt.sm td{padding:9px 13px}
-table.dt.xs{font-size:17px}
-table.dt.xs th{font-size:15px;padding:9px 10px}
+table.dt.xs{font-size:calc(17px * var(--tz,1))}
+table.dt.xs th{font-size:calc(15px * var(--tz,1));padding:9px 10px}
 table.dt.xs td{padding:7px 10px}
 table.dt tr.hi td{background:var(--vermilion-wash)}
 
@@ -233,23 +304,23 @@ table.dt tr.hi td{background:var(--vermilion-wash)}
 .step{display:grid;grid-template-columns:210px 1fr;gap:20px;align-items:center;
   padding:11px 0;border-top:1px solid var(--rule-soft)}
 .step:first-child{border-top:none}
-.step .sl{font:500 17px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--moss)}
-.step .sv{font-family:var(--mono);font-size:25px;color:var(--ink);letter-spacing:-.01em}
+.step .sl{font:500 calc(17px * var(--tz,1))/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--moss)}
+.step .sv{font-family:var(--mono);font-size:calc(25px * var(--tz,1));color:var(--ink);letter-spacing:-.01em}
 .step .sv .hlt{color:var(--vermilion)}
 .g3.wex11 .step{grid-template-columns:96px 1fr;gap:14px;padding:10px 0}
-.g3.wex11 .step .sv{font-size:19px}
+.g3.wex11 .step .sv{font-size:calc(19px * var(--tz,1))}
 
 /* Question cards */
 .q{display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:start;
   background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;padding:16px 20px}
-.q .qt{font:400 21px/1.4 var(--body);color:var(--ink)}
-.q .qm{margin-top:8px;font:500 16px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+.q .qt{font:400 calc(21px * var(--tz,1))/1.4 var(--body);color:var(--ink)}
+.q .qm{margin-top:8px;font:500 calc(16px * var(--tz,1))/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
   color:var(--ink-faint)}
-.q .qa{margin-top:8px;font:500 19px var(--mono);color:var(--moss)}
+.q .qa{margin-top:8px;font:500 calc(19px * var(--tz,1)) var(--mono);color:var(--moss)}
 
 /* Chips */
 .chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{font:500 17px/1 var(--mono);letter-spacing:.08em;color:var(--moss);
+.chip{font:500 calc(17px * var(--tz,1))/1 var(--mono);letter-spacing:.08em;color:var(--moss);
   border:1px solid var(--moss-line);background:var(--moss-wash);padding:9px 14px;border-radius:2px}
 .chip.v{color:var(--vermilion);border-color:rgba(193,69,36,.3);background:var(--vermilion-wash)}
 
@@ -257,36 +328,36 @@ table.dt tr.hi td{background:var(--vermilion-wash)}
 .fig{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;
   position:relative;overflow:hidden}
 .fig svg{display:block;width:100%;height:100%}
-.fig .cap{position:absolute;left:18px;bottom:14px;font:400 15px/1.35 var(--mono);
+.fig .cap{position:absolute;left:18px;bottom:14px;font:400 calc(15px * var(--tz,1))/1.35 var(--mono);
   color:var(--ink-faint);letter-spacing:.02em}
-.fignote{font:400 16px/1.45 var(--mono);color:var(--ink-faint);letter-spacing:.01em}
+.fignote{font:400 calc(16px * var(--tz,1))/1.45 var(--mono);color:var(--ink-faint);letter-spacing:.01em}
 
 /* === TITLE / SECTION SLIDES === */
 .cover{position:absolute;inset:0;background:var(--paper)}
 .cover .plate{position:absolute;right:0;top:0;width:720px;height:1080px;
   border-left:1px solid var(--rule);background:linear-gradient(180deg,rgba(47,81,64,.06),rgba(193,69,36,.05))}
 .cover .cframe{position:absolute;left:110px;top:300px;width:1030px}
-.cover .cunit{font:600 26px/1 var(--body);letter-spacing:.42em;text-transform:uppercase;color:var(--moss)}
+.cover .cunit{font:600 calc(26px * var(--tz,1))/1 var(--body);letter-spacing:.42em;text-transform:uppercase;color:var(--moss)}
 .cover h1{margin:22px 0 0;font-family:var(--display);font-optical-sizing:auto;font-weight:600;
-  font-size:128px;line-height:.93;letter-spacing:-.03em;color:var(--ink)}
+  font-size:calc(128px * var(--tz,1));line-height:.93;letter-spacing:-.03em;color:var(--ink)}
 .cover h1 em{font-style:italic;font-weight:300;color:var(--moss)}
-.cover .csub{margin-top:44px;font:400 26px/1.55 var(--body);color:var(--ink-soft);max-width:830px}
+.cover .csub{margin-top:44px;font:400 calc(26px * var(--tz,1))/1.55 var(--body);color:var(--ink-soft);max-width:830px}
 .cover .cmeta{position:absolute;left:110px;bottom:88px;display:flex;gap:60px}
-.cover .cmeta div{font:400 18px/1.65 var(--mono);color:var(--ink-soft);letter-spacing:.01em}
+.cover .cmeta div{font:400 calc(18px * var(--tz,1))/1.65 var(--mono);color:var(--ink-soft);letter-spacing:.01em}
 .cover .cmeta strong{display:block;color:var(--ink);font-weight:500}
 
 .sect{position:absolute;inset:0;background:var(--moss);overflow:hidden}
 .sect .rings{position:absolute;right:-180px;top:50%;transform:translateY(-50%);width:1000px;height:1000px;opacity:.5}
 .sect .sframe{position:absolute;left:130px;top:50%;transform:translateY(-50%);width:1150px}
-.sect .sltr{font-family:var(--display);font-weight:600;font-size:200px;line-height:.8;
+.sect .sltr{font-family:var(--display);font-weight:600;font-size:calc(200px * var(--tz,1));line-height:.8;
   color:rgba(255,255,255,.16);letter-spacing:-.04em}
-.sect h1{margin:16px 0 0;font-family:var(--display);font-weight:500;font-size:96px;line-height:1.0;
+.sect h1{margin:16px 0 0;font-family:var(--display);font-weight:500;font-size:calc(96px * var(--tz,1));line-height:1.0;
   letter-spacing:-.028em;color:#fdfcf7}
-.sect .ssub{margin-top:34px;font:400 25px/1.55 var(--body);color:#bcd2c2;max-width:960px}
+.sect .ssub{margin-top:34px;font:400 calc(25px * var(--tz,1))/1.55 var(--body);color:#bcd2c2;max-width:960px}
 .sect .srule{margin-top:34px;width:220px;height:2px;background:var(--gold)}
-.sect .srun{position:absolute;left:130px;top:70px;font:400 16px/1 var(--mono);letter-spacing:.24em;
+.sect .srun{position:absolute;left:130px;top:70px;font:400 calc(16px * var(--tz,1))/1 var(--mono);letter-spacing:.24em;
   color:rgba(255,255,255,.55);text-transform:uppercase}
-.sect .spage{position:absolute;right:92px;bottom:44px;font:500 16px var(--mono);
+.sect .spage{position:absolute;right:92px;bottom:44px;font:500 calc(16px * var(--tz,1)) var(--mono);
   letter-spacing:.14em;color:rgba(255,255,255,.5)}
 
 /* === MOTION === */
@@ -326,7 +397,7 @@ body.editing .editbtn{color:var(--vermilion);border-color:var(--vermilion)}
 body.editing .slide.active [contenteditable]:hover{outline:1px dashed var(--vermilion);outline-offset:3px}
 body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermilion);outline-offset:3px}
 .toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%);z-index:70;
-  font:500 13px/1 var(--mono);letter-spacing:.1em;color:#f2efe6;background:rgba(47,81,64,.95);
+  font:500 calc(13px * var(--tz,1))/1 var(--mono);letter-spacing:.1em;color:#f2efe6;background:rgba(47,81,64,.95);
   padding:12px 20px;border-radius:100px;opacity:0;pointer-events:none;transition:opacity .3s}
 .toast.on{opacity:1}
 /* === DENSITY OVERRIDE ======================================================
@@ -364,8 +435,52 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 .slide.fit2 .step{padding:6px 0}
 .slide.fit2 .numrow{margin-bottom:6px}
 .slide.fit2 .q{padding:11px 16px}
-.slide.refs ul.bul.sm li{font-size:19px;line-height:1.34;margin-bottom:5px}
+.slide.refs ul.bul.sm li{font-size:calc(19px * var(--tz,1));line-height:1.34;margin-bottom:5px}
 </style>
+<style id="overlap-fixes">
+.stage>.slide:nth-of-type(2) .g3{align-content:stretch;row-gap:22px!important}
+.stage>.slide:nth-of-type(2) .numrow{align-items:center;background:var(--paper-card);border:1px solid var(--rule);
+  border-radius:3px;padding:16px 20px;margin-bottom:0;box-shadow:0 2px 0 rgba(20,28,24,.05)}
+.stage>.slide:nth-of-type(2) .badge{width:48px;height:48px;font-size:calc(20px * var(--tz,1))}
+.stage>.slide:nth-of-type(2) .txt-sm{font-size:calc(22px * var(--tz,1))!important;line-height:1.4!important}
+.stage>.slide:nth-of-type(6) .fig svg{height:calc(100% - 42px)!important}
+.stage>.slide:nth-of-type(38) table.dt.sm{font-size:calc(21px * var(--tz,1))!important}
+.stage>.slide:nth-of-type(38) table.dt.sm td{padding:24px 18px!important}
+.stage>.slide:nth-of-type(38) table.dt.sm th{padding:16px 18px!important}
+.stage>.slide:nth-of-type(38) .callout p{font-size:calc(25px * var(--tz,1))!important}
+.stage>.slide:nth-of-type(41) .g3>.card:nth-child(3) .txt-sm{font-size:calc(25px * var(--tz,1))!important;line-height:1.55!important}
+.stage>.slide:nth-of-type(41) .g3>.card:nth-child(3) .callout p{font-size:calc(24px * var(--tz,1))!important;line-height:1.5!important}
+.stage>.slide:nth-of-type(41) .g3>.card:nth-child(3) .callout{padding:24px 26px!important}
+.stage>.slide:nth-of-type(47) .txt-sm{line-height:1.3!important}
+.stage>.slide:nth-of-type(47) .callout p{line-height:1.3!important}
+.stage>.slide:nth-of-type(51) .stack{gap:7px!important}
+.stage>.slide:nth-of-type(51) .stack .card{padding:10px 22px!important}
+.stage>.slide:nth-of-type(51) .stack .txt-sm{line-height:1.3!important}
+.stage>.slide:nth-of-type(51) .stack .bul.sm li{margin-bottom:3px!important}
+.stage>.slide:nth-of-type(51) .stack .ch{margin-bottom:4px!important;font-size:calc(25px * var(--tz,1))!important}
+.stage>.slide:nth-of-type(51) .callout{padding:10px 22px!important;margin-top:10px!important}
+.stage>.slide:nth-of-type(51) .callout p{line-height:1.3!important}
+.stage>.slide:nth-of-type(54) .body{top:210px!important}
+.stage>.slide:nth-of-type(54) .g2{gap:24px!important;margin-bottom:12px!important}
+.stage>.slide:nth-of-type(54) .g3{gap:16px!important}
+.stage>.slide:nth-of-type(54) .g3>.card{padding:10px 18px!important}
+.stage>.slide:nth-of-type(54) .g3 .txt-sm{margin-top:5px!important;line-height:1.25!important}
+.stage>.slide:nth-of-type(54) .callout{margin-top:8px!important;padding:8px 18px!important}
+.stage>.slide:nth-of-type(54) .callout .k{margin-bottom:3px!important}
+.stage>.slide:nth-of-type(54) .callout p{line-height:1.25!important}
+.stage>.slide:nth-of-type(54) .body>.src{padding-top:6px!important}
+.stage>.slide:nth-of-type(17) .body,.stage>.slide:nth-of-type(30) .body{top:266px!important}
+.stage>.slide:nth-of-type(46) .g2{grid-template-rows:repeat(5,1fr);row-gap:20px!important;flex:1 0 auto;min-height:0}
+.stage>.slide:nth-of-type(46) .numrow{align-items:center;background:var(--paper-card);border:1px solid var(--rule);
+  border-radius:3px;padding:16px 24px;margin-bottom:0;box-shadow:0 2px 0 rgba(20,28,24,.05)}
+.stage>.slide:nth-of-type(46) .badge{width:44px;height:44px;font-size:calc(19px * var(--tz,1))}
+.stage>.slide:nth-of-type(46) .txt-sm{font-size:calc(23px * var(--tz,1))!important;line-height:1.35!important}
+.stage>.slide:nth-of-type(60) .eyebrow{font-size:calc(12px * var(--tz,1))!important;letter-spacing:.12em!important}
+.stage>.slide:nth-of-type(61) .cmeta{bottom:12px!important;gap:20px!important}
+.stage>.slide:nth-of-type(61) .cmeta div{font-size:calc(13px * var(--tz,1))!important;line-height:1.2!important}
+</style>
+<script src="assets/men201-type-zoom.js" defer></script>
+<link rel="stylesheet" href="assets/men201-images.css">
 </head>
 <body>
 <div class="progress" id="prog"></div>
@@ -452,13 +567,13 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 -->
 <section class="slide" data-n="2">
   <div class="head">
-    <div class="eyebrow rv" style="--d:0">What you should be able to do by the end of this unit</div>
+    <div class="eyebrow rv" style="--d:0">By the end of this unit</div>
     <h2 class="title rv" style="--d:1">Learning <em>outcomes</em></h2>
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
-    <div class="g3" style="row-gap:20px">
+    <div class="g3 grow" style="row-gap:20px">
       <div class="numrow rv" style="--d:2"><div class="badge">1</div><div class="txt-sm"><strong style="color:var(--ink)">Define</strong> stem form and taper, and explain why taper varies between species, sites and stands</div></div>
       <div class="numrow rv" style="--d:3"><div class="badge">2</div><div class="txt-sm"><strong style="color:var(--ink)">Explain</strong> Metzger's girder theory and draw its silvicultural consequences for spacing and thinning</div></div>
       <div class="numrow rv" style="--d:4"><div class="badge">3</div><div class="txt-sm"><strong style="color:var(--ink)">Distinguish</strong> artificial, absolute and normal form factors, and state when each is used</div></div>
@@ -469,7 +584,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="numrow rv" style="--d:9"><div class="badge moss">8</div><div class="txt-sm"><strong style="color:var(--ink)">Classify</strong> volume tables by variables, scope and out-turn, and read one correctly</div></div>
       <div class="numrow rv" style="--d:10"><div class="badge moss">9</div><div class="txt-sm"><strong style="color:var(--ink)">Evaluate</strong> sources of error in volume estimation and apply basic quality control</div></div>
     </div>
-    <div class="callout rv" style="--d:11;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:11;margin-top:auto">
       <span class="k">Assessment link</span>
       <p>Every outcome above is examinable. Outcomes 4–7 will be tested as calculations — full working must be shown, not only the final answer.</p>
     </div>
@@ -508,9 +623,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="card rv" style="--d:6"><div class="ch">Rural timber allotment</div><p class="txt-sm">Household timber entitlements are issued in cubic feet, so the same tree must be convertible between m<sup>3</sup> and cft.</p></div>
       <div class="card moss rv" style="--d:7"><div class="ch">And what volume is <em>not</em></div><p class="txt-sm">Mensuration also estimates biomass, carbon, structure, habitat, regeneration, forest health, NWFP resources and watershed condition. <strong>Volume is one major variable, not the sole objective.</strong></p></div>
     </div>
-    <div class="callout moss rv" style="--d:8;position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:28px">
-      <div style="font-family:var(--display);font-weight:600;font-size:52px;color:var(--moss);line-height:1;letter-spacing:-.02em;flex:0 0 auto">69.71 %</div>
-      <p style="font-size:21px">Forest cover in Bhutan, as reported in the second National Forest Inventory. Every hectare of it is described, ultimately, by volume figures produced with the methods in this unit.</p>
+    <div class="callout moss rv" style="--d:8;margin-top:auto;display:flex;align-items:center;gap:28px">
+      <div style="font-family:var(--display);font-weight:600;font-size:calc(52px * var(--tz,1));color:var(--moss);line-height:1;letter-spacing:-.02em;flex:0 0 auto">69.71 %</div>
+      <p style="font-size:calc(21px * var(--tz,1))">Forest cover in Bhutan, as reported in the second National Forest Inventory. Every hectare of it is described, ultimately, by volume figures produced with the methods in this unit.</p>
     </div>
   </div>
   <div class="footrule"></div>
@@ -539,9 +654,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="g3 fill" style="align-items:stretch">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column">
-        <div style="font-family:var(--display);font-weight:600;font-size:116px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">A</div>
-        <div class="ch" style="margin-top:26px;font-size:36px">Tree stem form</div>
-        <p class="txt" style="font-size:22px">What shape is a stem, why, and how do we express that shape as a number?</p>
+        <div style="font-family:var(--display);font-weight:600;font-size:calc(116px * var(--tz,1));line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">A</div>
+        <div class="ch" style="margin-top:26px;font-size:calc(36px * var(--tz,1))">Tree stem form</div>
+        <p class="txt" style="font-size:calc(22px * var(--tz,1))">What shape is a stem, why, and how do we express that shape as a number?</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:26px">
           <span class="chip">Form</span><span class="chip">Taper</span><span class="chip">Metzger</span>
@@ -549,9 +664,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column">
-        <div style="font-family:var(--display);font-weight:600;font-size:116px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">B</div>
-        <div class="ch" style="margin-top:26px;font-size:36px">Volume of felled trees and logs</div>
-        <p class="txt" style="font-size:22px">Given a log I can touch and measure, what is its volume — and which formula should I use?</p>
+        <div style="font-family:var(--display);font-weight:600;font-size:calc(116px * var(--tz,1));line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">B</div>
+        <div class="ch" style="margin-top:26px;font-size:calc(36px * var(--tz,1))">Volume of felled trees and logs</div>
+        <p class="txt" style="font-size:calc(22px * var(--tz,1))">Given a log I can touch and measure, what is its volume — and which formula should I use?</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:26px">
           <span class="chip">Sectional areas</span><span class="chip">Smalian</span><span class="chip">Huber</span>
@@ -559,9 +674,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="card rv" style="--d:6;display:flex;flex-direction:column">
-        <div style="font-family:var(--display);font-weight:600;font-size:116px;line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">C</div>
-        <div class="ch" style="margin-top:26px;font-size:36px">Standing tree volume and volume tables</div>
-        <p class="txt" style="font-size:22px">Given a tree I cannot fell, how do I estimate its volume and how confident can I be?</p>
+        <div style="font-family:var(--display);font-weight:600;font-size:calc(116px * var(--tz,1));line-height:.8;color:var(--moss);opacity:.28;letter-spacing:-.04em">C</div>
+        <div class="ch" style="margin-top:26px;font-size:calc(36px * var(--tz,1))">Standing tree volume and volume tables</div>
+        <p class="txt" style="font-size:calc(22px * var(--tz,1))">Given a tree I cannot fell, how do I estimate its volume and how confident can I be?</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:26px">
           <span class="chip">Ocular</span><span class="chip">Dendrometers</span><span class="chip">Volume tables</span>
@@ -586,22 +701,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 -->
 <section class="slide" data-n="5">
   <div class="sect">
-    <div class="rings" aria-hidden="true">
-      <svg viewBox="0 0 1000 1000">
-        <g fill="none" stroke="#a8842c" stroke-opacity=".38">
-          <circle cx="500" cy="500" r="470" stroke-width="1"/>
-          <circle cx="504" cy="496" r="412" stroke-width="1.6"/>
-          <circle cx="497" cy="503" r="350" stroke-width="1"/>
-          <circle cx="505" cy="495" r="292" stroke-width="1.5"/>
-          <circle cx="498" cy="502" r="235" stroke-width="1"/>
-          <circle cx="503" cy="498" r="182" stroke-width="1.4"/>
-          <circle cx="500" cy="500" r="134" stroke-width="1"/>
-          <circle cx="501" cy="500" r="88" stroke-width="1.6"/>
-          <circle cx="500" cy="500" r="45" stroke-width="1"/>
-        </g>
-        <circle cx="500" cy="500" r="9" fill="#a8842c" fill-opacity=".6"/>
-      </svg>
-    </div>
+    <div class="rings men-divider-photo" role="img" aria-label="Forest landscape in Bhutan"><img src="assets/images/men201/divider-uv-s05.jpg" alt=""><span class="men-photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Chelela_to_Paro_road_views_during_LGFC_-_Bhutan_2019_(119).jpg">Vinayaraj · CC BY-SA 4.0</a></span></div>
     <div class="srun">MEN 201 · Forest Mensuration · Unit V</div>
     <div class="sframe">
       <div class="sltr rv" style="--d:0">A</div>
@@ -700,7 +800,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body deep">
     <div class="row rv" style="--d:2;gap:30px;align-items:center;margin-bottom:12px">
-      <p class="txt" style="flex:1;font-size:22px">The cross-sectional area of each solid changes with distance from the tip according to a single exponent, <strong style="color:var(--vermilion)">r</strong>. Everything else in this section follows from that.</p>
+      <p class="txt" style="flex:1;font-size:calc(22px * var(--tz,1))">The cross-sectional area of each solid changes with distance from the tip according to a single exponent, <strong style="color:var(--vermilion)">r</strong>. Everything else in this section follows from that.</p>
       <div class="formula sm" style="flex:0 0 460px;margin:0">S &nbsp;=&nbsp; k · x<sup>r</sup>
         <span class="u">x = distance from the tip &nbsp;·&nbsp; S = cross-sectional area</span>
       </div>
@@ -708,8 +808,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="g4" style="height:calc(100% - 112px)">
       <div class="card rv" style="--d:3;display:flex;flex-direction:column;padding:16px 20px">
         <div style="display:flex;align-items:baseline;justify-content:space-between">
-          <div class="ch" style="margin:0;font-size:26px">Cylinder</div>
-          <div class="mn" style="font-size:22px;color:var(--vermilion);font-weight:700">r = 0</div>
+          <div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Cylinder</div>
+          <div class="mn" style="font-size:calc(22px * var(--tz,1));color:var(--vermilion);font-weight:700">r = 0</div>
         </div>
         <div style="flex:1;min-height:0;margin:6px 0">
           <svg viewBox="0 0 240 300" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
@@ -718,12 +818,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <ellipse cx="120" cy="270" rx="60" ry="12" fill="none" stroke="#2f5140" stroke-width="2" stroke-dasharray="5 5"/>
           </svg>
         </div>
-        <p class="txt-sm" style="font-size:19px">No taper. No real stem, but the reference shape for the form factor.</p>
+        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">No taper. No real stem, but the reference shape for the form factor.</p>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column;padding:16px 20px">
         <div style="display:flex;align-items:baseline;justify-content:space-between">
-          <div class="ch" style="margin:0;font-size:26px">Paraboloid</div>
-          <div class="mn" style="font-size:22px;color:var(--vermilion);font-weight:700">r = 1</div>
+          <div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Paraboloid</div>
+          <div class="mn" style="font-size:calc(22px * var(--tz,1));color:var(--vermilion);font-weight:700">r = 1</div>
         </div>
         <div style="flex:1;min-height:0;margin:6px 0">
           <svg viewBox="0 0 240 300" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
@@ -732,12 +832,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <ellipse cx="120" cy="270" rx="60" ry="12" fill="none" stroke="#2f5140" stroke-width="2" stroke-dasharray="5 5"/>
           </svg>
         </div>
-        <p class="txt-sm" style="font-size:19px">Slight taper. The middle of most stems.</p>
+        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Slight taper. The middle of most stems.</p>
       </div>
       <div class="card rv" style="--d:5;display:flex;flex-direction:column;padding:16px 20px">
         <div style="display:flex;align-items:baseline;justify-content:space-between">
-          <div class="ch" style="margin:0;font-size:26px">Cone</div>
-          <div class="mn" style="font-size:22px;color:var(--vermilion);font-weight:700">r = 2</div>
+          <div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Cone</div>
+          <div class="mn" style="font-size:calc(22px * var(--tz,1));color:var(--vermilion);font-weight:700">r = 2</div>
         </div>
         <div style="flex:1;min-height:0;margin:6px 0">
           <svg viewBox="0 0 240 300" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
@@ -746,12 +846,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <ellipse cx="120" cy="270" rx="60" ry="12" fill="none" stroke="#2f5140" stroke-width="2" stroke-dasharray="5 5"/>
           </svg>
         </div>
-        <p class="txt-sm" style="font-size:19px">Steady taper. The top, above the crown base.</p>
+        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Steady taper. The top, above the crown base.</p>
       </div>
       <div class="card rv" style="--d:6;display:flex;flex-direction:column;padding:16px 20px">
         <div style="display:flex;align-items:baseline;justify-content:space-between">
-          <div class="ch" style="margin:0;font-size:26px">Neiloid</div>
-          <div class="mn" style="font-size:22px;color:var(--vermilion);font-weight:700">r = 3</div>
+          <div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Neiloid</div>
+          <div class="mn" style="font-size:calc(22px * var(--tz,1));color:var(--vermilion);font-weight:700">r = 3</div>
         </div>
         <div style="flex:1;min-height:0;margin:6px 0">
           <svg viewBox="0 0 240 300" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
@@ -760,7 +860,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <ellipse cx="120" cy="270" rx="60" ry="12" fill="none" stroke="#2f5140" stroke-width="2" stroke-dasharray="5 5"/>
           </svg>
         </div>
-        <p class="txt-sm" style="font-size:19px">Concave, flaring. The butt swell at the base.</p>
+        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Concave, flaring. The butt swell at the base.</p>
       </div>
     </div>
   </div>
@@ -974,30 +1074,30 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
-    <div class="g3" style="height:calc(100% - 96px);align-items:stretch">
+    <div class="g3" style="flex:1 1 auto;min-height:0;align-items:stretch">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column">
         <div class="badge lg">1</div>
         <div class="ch" style="margin-top:22px">Comparison of standard form ratios</div>
-        <p class="txt" style="font-size:21px">Reduce the shape of the stem to a single dimensionless ratio that can be tabulated, averaged and compared.</p>
+        <p class="txt" style="font-size:calc(21px * var(--tz,1))">Reduce the shape of the stem to a single dimensionless ratio that can be tabulated, averaged and compared.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:22px"><span class="chip">Form factor</span><span class="chip">Form quotient</span></div>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column">
         <div class="badge lg">2</div>
         <div class="ch" style="margin-top:22px">Classification of form based on form ratio</div>
-        <p class="txt" style="font-size:21px">Group trees into form classes — for example by absolute form quotient — so that one volume table can serve each class.</p>
+        <p class="txt" style="font-size:calc(21px * var(--tz,1))">Group trees into form classes — for example by absolute form quotient — so that one volume table can serve each class.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:22px"><span class="chip">Form class volume tables</span></div>
       </div>
       <div class="card sunk rv" style="--d:6;display:flex;flex-direction:column">
         <div class="badge lg hollow">3</div>
         <div class="ch" style="margin-top:22px">Compilation of taper tables and taper equations</div>
-        <p class="txt" style="font-size:21px">Record or model the diameter at successive heights, so the whole profile of the stem is described rather than a single number.</p>
+        <p class="txt" style="font-size:calc(21px * var(--tz,1))">Record or model the diameter at successive heights, so the whole profile of the stem is described rather than a single number.</p>
         <div style="flex:1"></div>
         <div class="chips" style="margin-top:22px"><span class="chip">Taper tables</span><span class="chip">Taper functions</span></div>
       </div>
     </div>
-    <div class="callout moss rv" style="--d:8;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout moss rv" style="--d:8;margin-top:auto">
       <p>Methods 1 and 2 are covered in detail in this unit. Method 3 belongs to taper modelling and is introduced only briefly.</p>
     </div>
   </div>
@@ -1042,7 +1142,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           </div>
           <div class="callout">
             <span class="k">Reading the number</span>
-            <p style="font-size:21px"><strong>f = 1</strong> means a perfect cylinder. <strong>f = 0.50</strong> means the tree holds half the wood of the cylinder that encloses it. Real stems mostly fall between <strong>0.35 and 0.60</strong>.</p>
+            <p style="font-size:calc(21px * var(--tz,1))"><strong>f = 1</strong> means a perfect cylinder. <strong>f = 0.50</strong> means the tree holds half the wood of the cylinder that encloses it. Real stems mostly fall between <strong>0.35 and 0.60</strong>.</p>
           </div>
         </div>
       </div>
@@ -1146,11 +1246,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <p class="lead rv" style="--d:2">A blue pine <em style="color:var(--ink-soft)">(Pinus wallichiana)</em> is felled in a plantation at Yusipang. Its stem volume, obtained by measuring every 2 m section, is <strong>1.35 m<sup>3</sup></strong>. Before felling, its DBH was <strong>40 cm</strong> and its total height <strong>22 m</strong>.</p>
         <div class="card sunk rv" style="--d:3">
           <div class="label">Given</div>
-          <div class="mn" style="font-size:27px;color:var(--ink);margin-top:12px">DBH = 40 cm &nbsp;&nbsp; h = 22 m &nbsp;&nbsp; V = 1.35 m<sup>3</sup></div>
+          <div class="mn" style="font-size:calc(27px * var(--tz,1));color:var(--ink);margin-top:12px">DBH = 40 cm &nbsp;&nbsp; h = 22 m &nbsp;&nbsp; V = 1.35 m<sup>3</sup></div>
         </div>
         <div class="card sunk rv" style="--d:4">
           <div class="label">Formula</div>
-          <div class="mn" style="font-size:25px;color:var(--ink);margin-top:12px">f = V / (S × h)</div>
+          <div class="mn" style="font-size:calc(25px * var(--tz,1));color:var(--ink);margin-top:12px">f = V / (S × h)</div>
           <p class="txt-sm" style="margin-top:10px">where S = 0.00007854 × D<sup>2</sup>, with D in cm and S in m<sup>2</sup></p>
         </div>
       </div>
@@ -1220,7 +1320,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <div class="step"><div class="sl">Form height</div><div class="sv">F<sub>h</sub> = 0.48831 × 22 = <span class="hlt">10.7428 m</span></div></div>
           <div class="step"><div class="sl">Check by the other route</div><div class="sv">F<sub>h</sub> = V / S = 1.35 / 0.125664 = <span class="hlt">10.7428 m</span></div></div>
           <div class="step"><div class="sl">Recover the volume</div><div class="sv">V = S × F<sub>h</sub> = 0.125664 × 10.7428</div></div>
-          <div class="step" style="border-top:1px solid var(--rule)"><div class="sl">Result</div><div class="sv" style="font-size:27px;color:var(--moss);font-weight:500">V = 1.3500 m<sup>3</sup> — matches the measured volume</div></div>
+          <div class="step" style="border-top:1px solid var(--rule)"><div class="sl">Result</div><div class="sv" style="font-size:calc(27px * var(--tz,1));color:var(--moss);font-weight:500">V = 1.3500 m<sup>3</sup> — matches the measured volume</div></div>
         </div>
         <div class="callout moss rv" style="--d:7;margin-top:22px">
           <p>Two independent routes to the same number is how you learn to trust the algebra.</p>
@@ -1262,10 +1362,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <div class="formula rv" style="--d:3">FQ &nbsp;=&nbsp; mid-diameter &nbsp;/&nbsp; DBH</div>
         <div class="callout rv" style="--d:4">
           <span class="k">The problem with the simple form quotient</span>
-          <p style="font-size:21px">For a tree whose total height is <strong>twice breast height</strong> &mdash; about 2.6 m &mdash; half the total height falls at breast height itself, so the mid-diameter <em>is</em> the DBH and <strong>FQ = 1</strong> whatever the tree&rsquo;s real shape. For shorter trees the mid-point falls <em>below</em> breast height and the geometry breaks down altogether. The ratio stops discriminating.</p>
+          <p style="font-size:calc(21px * var(--tz,1))">For a tree whose total height is <strong>twice breast height</strong> &mdash; about 2.6 m &mdash; half the total height falls at breast height itself, so the mid-diameter <em>is</em> the DBH and <strong>FQ = 1</strong> whatever the tree&rsquo;s real shape. For shorter trees the mid-point falls <em>below</em> breast height and the geometry breaks down altogether. The ratio stops discriminating.</p>
         </div>
         <div class="card rv" style="--d:5">
-          <div class="ch" style="font-size:26px;margin-bottom:10px">Absolute form quotient — the correction</div>
+          <div class="ch" style="font-size:calc(26px * var(--tz,1));margin-bottom:10px">Absolute form quotient — the correction</div>
           <div class="formula sm v" style="margin:0 0 12px">AFQ &nbsp;=&nbsp; diameter at half the height above breast height &nbsp;/&nbsp; DBH</div>
           <p class="txt-sm">Measured from breast height <strong>upward</strong>, not from the ground — this is the correction Schiffel's critics introduced.</p>
         </div>
@@ -1281,7 +1381,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             </g>
             <circle cx="230" cy="26" r="4" fill="#a8842c"/>
             <g font-family="JetBrains Mono, monospace" font-size="15">
-              <text x="348" y="414" fill="#c14524">DBH (breast height)</text>
+              <text x="446" y="405" text-anchor="end" fill="#c14524">DBH</text>
+              <text x="446" y="423" text-anchor="end" fill="#c14524">(breast height)</text>
               <text x="348" y="235" fill="#c14524">mid-height</text>
               <text x="348" y="253" fill="#c14524">diameter</text>
               <text x="242" y="22" fill="#a8842c">tip</text>
@@ -1329,12 +1430,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
     <p class="lead rv" style="--d:2;margin-bottom:26px">A standing hemlock <em style="color:var(--ink-soft)">(Tsuga dumosa)</em> has DBH = <strong>40 cm</strong> and total height = <strong>24 m</strong>. Using a relascope, the upper-stem diameters are read as <strong>26 cm at 12.0 m</strong> and <strong>25 cm at 12.65 m</strong>.</p>
-    <div class="g2" style="height:calc(100% - 200px)">
+    <div class="g2" style="flex:1 1 auto;min-height:0">
       <div class="card rv" style="--d:3">
         <div class="ch">Simple form quotient</div>
         <div class="step"><div class="sl">Mid-point of the tree</div><div class="sv">24 / 2 = 12.0 m above ground</div></div>
         <div class="step"><div class="sl">Diameter read there</div><div class="sv">26 cm</div></div>
-        <div class="step"><div class="sl">Ratio</div><div class="sv" style="color:var(--moss);font-size:29px">FQ = 26 / 40 = <span class="hlt">0.650</span></div></div>
+        <div class="step"><div class="sl">Ratio</div><div class="sv" style="color:var(--moss);font-size:calc(29px * var(--tz,1))">FQ = 26 / 40 = <span class="hlt">0.650</span></div></div>
       </div>
       <div class="card rv" style="--d:4">
         <div class="ch">Absolute form quotient</div>
@@ -1342,10 +1443,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <div class="step"><div class="sl">Half of that</div><div class="sv">22.7 / 2 = 11.35 m</div></div>
         <div class="step"><div class="sl">Measurement point</div><div class="sv">1.3 + 11.35 = 12.65 m above ground</div></div>
         <div class="step"><div class="sl">Diameter read there</div><div class="sv">25 cm</div></div>
-        <div class="step"><div class="sl">Ratio</div><div class="sv" style="color:var(--moss);font-size:29px">AFQ = 25 / 40 = <span class="hlt">0.625</span></div></div>
+        <div class="step"><div class="sl">Ratio</div><div class="sv" style="color:var(--moss);font-size:calc(29px * var(--tz,1))">AFQ = 25 / 40 = <span class="hlt">0.625</span></div></div>
       </div>
     </div>
-    <div class="answer rv" style="--d:6;position:absolute;left:0;right:0;bottom:0">
+    <div class="answer rv" style="--d:6;margin-top:auto">
       <span class="k">Answer</span>
       <span class="v">FQ = 0.650 &nbsp;·&nbsp; AFQ = 0.625</span>
       <span class="n">The absolute quotient is always the smaller of the two, because it is taken higher up the stem where the diameter is less.</span>
@@ -1376,8 +1477,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
-  <div class="body">
-    <div style="display:grid;grid-template-columns:1.15fr .85fr;gap:34px;height:100%">
+  <div class="body srcfoot">
+    <div style="display:grid;grid-template-columns:1.15fr .85fr;gap:34px;flex:1 1 auto;min-height:0">
       <div>
         <table class="dt sm rv" style="--d:2">
           <thead><tr><th>Species</th><th>Common name</th><th>Group</th><th style="text-align:right">Mean form factor f</th></tr></thead>
@@ -1396,21 +1497,21 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="stack sm">
         <div class="card rv" style="--d:3">
-          <div class="ch" style="font-size:25px">How these were obtained</div>
+          <div class="ch" style="font-size:calc(25px * var(--tz,1))">How these were obtained</div>
           <p class="txt-sm">395 felled trees, sectional volumes by Huber's formula, divided by the volume of the DBH cylinder. Form factors were then modelled with the Pollanschütz function.</p>
         </div>
         <div class="card rv" style="--d:4">
-          <div class="ch" style="font-size:25px">What the numbers say</div>
+          <div class="ch" style="font-size:calc(25px * var(--tz,1))">What the numbers say</div>
           <p class="txt-sm">Conifers hold their form better than broadleaves. The oaks fork low and spread into the crown, so a large share of their biomass never appears in the stem cylinder at all.</p>
         </div>
         <div class="callout rv" style="--d:5">
           <span class="k">Two cautions</span>
-          <p style="font-size:20px">Predicted form factors decline as DBH and height increase, and level off above about 60 cm DBH. This study measured DBH at <strong>1.37 m</strong>. <strong>DBH reference height is protocol-dependent</strong> &mdash; Bhutan&rsquo;s Second NFI used 1.37 m, many international manuals use 1.30 m &mdash; so check the convention before applying any published value.</p>
+          <p style="font-size:calc(20px * var(--tz,1))">Predicted form factors decline as DBH and height increase, and level off above about 60 cm DBH. This study measured DBH at <strong>1.37 m</strong>. <strong>DBH reference height is protocol-dependent</strong> &mdash; Bhutan&rsquo;s Second NFI used 1.37 m, many international manuals use 1.30 m &mdash; so check the convention before applying any published value.</p>
         </div>
       </div>
     </div>
-  </div>
-  <div class="src">Tenzin, Wangchuk &amp; Hasenauer (2016). Forestry, doi:10.1093/forestry/cpw044</div>
+  <div class="src">Tenzin, Wangchuk &amp; Hasenauer (2016). Forestry, doi:10.1093/forestry/cpw044</div></div>
+  
   <div class="pageno">18 / 61</div>
 </section>
 
@@ -1437,8 +1538,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
-  <div class="body deep">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;height:100%">
+  <div class="body deep srcfoot">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;flex:1 1 auto;min-height:0">
       <div class="stack">
         <p class="lead rv" style="--d:2">A fir <em style="color:var(--ink-soft)">(Abies densa)</em> in a Forest Management Unit at 3,200 m has DBH = <strong>55 cm</strong> and total height = <strong>28 m</strong>. No local volume table is available. Estimate its stem volume using the published mean form factor for the species, <strong>f = 0.493</strong>.</p>
         <div class="formula lg rv" style="--d:3">V &nbsp;=&nbsp; S &nbsp;×&nbsp; h &nbsp;×&nbsp; f
@@ -1463,8 +1564,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
     </div>
-  </div>
-  <div class="src">Form factor from Tenzin, Wangchuk &amp; Hasenauer (2016)</div>
+  <div class="src">Form factor from Tenzin, Wangchuk &amp; Hasenauer (2016)</div></div>
+  
   <div class="pageno">19 / 61</div>
 </section>
 
@@ -1492,7 +1593,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="g3 rv" style="--d:2;margin-bottom:26px">
       <div class="card">
-        <div class="ch" style="font-size:25px">Uses of the form factor</div>
+        <div class="ch" style="font-size:calc(25px * var(--tz,1))">Uses of the form factor</div>
         <ul class="bul sm">
           <li>Estimating the volume of standing trees, singly or by stand</li>
           <li>Studying the laws of growth — with form point and form quotient it describes how stem shape develops with age and treatment</li>
@@ -1500,7 +1601,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </ul>
       </div>
       <div class="card">
-        <div class="ch" style="font-size:25px">Kinds of form factor</div>
+        <div class="ch" style="font-size:calc(25px * var(--tz,1))">Kinds of form factor</div>
         <ul class="bul sm">
           <li><strong>Tree</strong> form factor — the whole tree including branches</li>
           <li><strong>Stem timber</strong> form factor — the merchantable stem only</li>
@@ -1509,17 +1610,17 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <p class="txt-sm" style="margin-top:12px;font-style:italic">Each answers a different commercial question.</p>
       </div>
       <div class="card sunk">
-        <div class="ch" style="font-size:25px">Taper tables — method 3</div>
+        <div class="ch" style="font-size:calc(25px * var(--tz,1))">Taper tables — method 3</div>
         <p class="txt-sm">A taper table lists diameter at successive heights for a species and size class. A taper equation does the same thing as a continuous function, so volume to any merchantable top can be integrated. Modern inventory increasingly uses these.</p>
       </div>
     </div>
     <div class="label v rv" style="--d:4;margin-bottom:14px">Check your understanding</div>
     <div class="g5 rv" style="--d:5">
-      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:17px">1</div><div class="qt" style="font-size:19px">State the difference between the artificial and the absolute form factor in one sentence each.</div></div>
-      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:17px">2</div><div class="qt" style="font-size:19px">A stem has f = 0.62. Is it more or less cylindrical than one with f = 0.45? Why?</div></div>
-      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:17px">3</div><div class="qt" style="font-size:19px">Explain, using Metzger's theory, why a roadside tree tapers more than the same species inside a closed stand.</div></div>
-      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:17px">4</div><div class="qt" style="font-size:19px">A tree has DBH 45 cm, height 26 m and f = 0.48. Calculate its volume.<span class="qa">1.985 m<sup>3</sup></span></div></div>
-      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:17px">5</div><div class="qt" style="font-size:19px">Why is the absolute form quotient always smaller than the simple form quotient for the same tree?</div></div>
+      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:calc(17px * var(--tz,1))">1</div><div class="qt" style="font-size:calc(19px * var(--tz,1))">State the difference between the artificial and the absolute form factor in one sentence each.</div></div>
+      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:calc(17px * var(--tz,1))">2</div><div class="qt" style="font-size:calc(19px * var(--tz,1))">A stem has f = 0.62. Is it more or less cylindrical than one with f = 0.45? Why?</div></div>
+      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:calc(17px * var(--tz,1))">3</div><div class="qt" style="font-size:calc(19px * var(--tz,1))">Explain, using Metzger's theory, why a roadside tree tapers more than the same species inside a closed stand.</div></div>
+      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:calc(17px * var(--tz,1))">4</div><div class="qt" style="font-size:calc(19px * var(--tz,1))">A tree has DBH 45 cm, height 26 m and f = 0.48. Calculate its volume.<span class="qa">1.985 m<sup>3</sup></span></div></div>
+      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:calc(17px * var(--tz,1))">5</div><div class="qt" style="font-size:calc(19px * var(--tz,1))">Why is the absolute form quotient always smaller than the simple form quotient for the same tree?</div></div>
     </div>
   </div>
   <div class="footrule"></div>
@@ -1538,18 +1639,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 -->
 <section class="slide" data-n="21">
   <div class="sect">
-    <div class="rings" aria-hidden="true">
-      <svg viewBox="0 0 1000 1000">
-        <g fill="none" stroke="#a8842c" stroke-opacity=".38">
-          <circle cx="500" cy="500" r="470" stroke-width="1"/><circle cx="504" cy="496" r="412" stroke-width="1.6"/>
-          <circle cx="497" cy="503" r="350" stroke-width="1"/><circle cx="505" cy="495" r="292" stroke-width="1.5"/>
-          <circle cx="498" cy="502" r="235" stroke-width="1"/><circle cx="503" cy="498" r="182" stroke-width="1.4"/>
-          <circle cx="500" cy="500" r="134" stroke-width="1"/><circle cx="501" cy="500" r="88" stroke-width="1.6"/>
-          <circle cx="500" cy="500" r="45" stroke-width="1"/>
-        </g>
-        <circle cx="500" cy="500" r="9" fill="#a8842c" fill-opacity=".6"/>
-      </svg>
-    </div>
+    <div class="rings men-divider-photo" role="img" aria-label="Forest landscape in Bhutan"><img src="assets/images/men201/divider-uv-s21.jpg" alt=""><span class="men-photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Chelela_to_Paro_road_views_during_LGFC_-_Bhutan_2019_(012).jpg">Vinayaraj · CC BY-SA 4.0</a></span></div>
     <div class="srun">MEN 201 · Forest Mensuration · Unit V</div>
     <div class="sframe">
       <div class="sltr rv" style="--d:0">B</div>
@@ -1585,7 +1675,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
-    <div class="g3" style="height:calc(100% - 92px);align-items:stretch">
+    <div class="g3" style="flex:1 1 auto;min-height:0;align-items:stretch">
       <div class="card rv" style="--d:2">
         <div class="ch">Volume of what?</div>
         <ul class="bul sm">
@@ -1618,7 +1708,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
     </div>
-    <div class="callout moss rv" style="--d:8;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout moss rv" style="--d:8;margin-top:auto">
       <p><strong>Volume is the most consequential single variable in this module</strong> &mdash; and it is one of several. Growing stock, biomass, carbon, structure, habitat, regeneration and forest health are all built from the same measurements.</p>
     </div>
   </div>
@@ -1647,7 +1737,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
-  <div class="body">
+  <div class="body srcfoot">
     <div class="fig rv" style="--d:2;height:230px;margin-bottom:24px">
       <svg viewBox="0 0 1720 230" preserveAspectRatio="none">
         <path d="M40 60 L40 170 C400 174 760 168 1080 150 C1330 136 1520 122 1660 112 L1660 118 C1520 132 1330 150 1080 168 C760 190 400 196 40 200 Z" fill="none"/>
@@ -1673,8 +1763,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="numrow rv" style="--d:8"><div class="badge moss">5</div><div><div class="label" style="margin-bottom:5px">Defect</div><p class="txt-sm">Rot, forks, spiral grain and sweep are cut out at the log stage, not later.</p></div></div>
       <div class="numrow rv" style="--d:9"><div class="badge moss">6</div><div><div class="label" style="margin-bottom:5px">Research</div><p class="txt-sm">Sectional measurement is how true volume is established for building volume equations.</p></div></div>
     </div>
-  </div>
-  <div class="src">Logs are generally kept to about 4 – 4.5 m, with exceptions for special products.</div>
+  <div class="src">Logs are generally kept to about 4 – 4.5 m, with exceptions for special products.</div></div>
+  
   <div class="pageno">23 / 61</div>
 </section>
 
@@ -1729,23 +1819,23 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="stack">
         <div class="card rv" style="--d:3">
           <div class="ch">Symbols</div>
-          <table style="width:100%;border-collapse:collapse;font:400 19px/1.5 var(--body);color:var(--ink-soft)">
-            <tr><td style="width:72px;padding:7px 0;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:22px">S</td><td>sectional area at the base of the tree</td></tr>
-            <tr><td style="padding:7px 0;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:22px">S₁</td><td>sectional area at the <strong>thick end</strong> of the log</td></tr>
-            <tr><td style="padding:7px 0;font-family:var(--mono);font-weight:700;color:var(--vermilion);font-size:22px">Sₘ</td><td>sectional area at the <strong>middle</strong> of the log</td></tr>
-            <tr><td style="padding:7px 0;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:22px">S₂</td><td>sectional area at the <strong>thin end</strong> of the log</td></tr>
-            <tr><td style="padding:7px 0;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:22px">l</td><td>length of the frustum, or height of the solid</td></tr>
+          <table style="width:100%;border-collapse:collapse;font:400 calc(19px * var(--tz,1))/1.5 var(--body);color:var(--ink-soft)">
+            <tr><td style="width:72px;padding:7px 0;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:calc(22px * var(--tz,1))">S</td><td>sectional area at the base of the tree</td></tr>
+            <tr><td style="padding:7px 0;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:calc(22px * var(--tz,1))">S₁</td><td>sectional area at the <strong>thick end</strong> of the log</td></tr>
+            <tr><td style="padding:7px 0;font-family:var(--mono);font-weight:700;color:var(--vermilion);font-size:calc(22px * var(--tz,1))">Sₘ</td><td>sectional area at the <strong>middle</strong> of the log</td></tr>
+            <tr><td style="padding:7px 0;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:calc(22px * var(--tz,1))">S₂</td><td>sectional area at the <strong>thin end</strong> of the log</td></tr>
+            <tr><td style="padding:7px 0;font-family:var(--mono);font-weight:700;color:var(--moss);font-size:calc(22px * var(--tz,1))">l</td><td>length of the frustum, or height of the solid</td></tr>
           </table>
         </div>
         <div class="card sunk rv" style="--d:4">
-          <div class="ch" style="font-size:25px">Frustum</div>
+          <div class="ch" style="font-size:calc(25px * var(--tz,1))">Frustum</div>
           <p class="txt-sm">A frustum is what remains of a solid when the tip is cut off by a plane parallel to the base — the basal part. <strong>Every log is a frustum.</strong> Only the very top piece of a tree is a complete solid with an intact tip.</p>
         </div>
         <div class="formula sm rv" style="--d:5">S &nbsp;=&nbsp; 0.00007854 × D<sup>2</sup>
           <span class="u">D in cm, S in m<sup>2</sup></span>
         </div>
         <div class="callout sm rv" style="--d:6">
-          <p style="font-size:20px">Diameters are taken <strong>over bark</strong> unless the log has been debarked; state which, every time.</p>
+          <p style="font-size:calc(20px * var(--tz,1))">Diameters are taken <strong>over bark</strong> unless the log has been debarked; state which, every time.</p>
         </div>
       </div>
     </div>
@@ -1875,54 +1965,54 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
     <div class="row rv" style="--d:2;gap:30px;align-items:stretch;margin-bottom:22px">
-      <p class="lead" style="flex:1;font-size:29px">A <strong>4.00 m</strong> spruce <em style="color:var(--ink-soft)">(Picea spinulosa)</em> log is measured over bark. Thick end <strong>46 cm</strong>, mid-point <strong>40 cm</strong>, thin end <strong>34 cm</strong>. Compute the volume by all three formulae and compare.</p>
+      <p class="lead" style="flex:1;font-size:calc(29px * var(--tz,1))">A <strong>4.00 m</strong> spruce <em style="color:var(--ink-soft)">(Picea spinulosa)</em> log is measured over bark. Thick end <strong>46 cm</strong>, mid-point <strong>40 cm</strong>, thin end <strong>34 cm</strong>. Compute the volume by all three formulae and compare.</p>
       <div class="card sunk" style="flex:0 0 520px;padding:20px 24px">
         <div class="label">Step 1 · sectional areas</div>
-        <div class="mn" style="font-size:19px;color:var(--ink);margin-top:10px;line-height:1.8">
+        <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--ink);margin-top:10px;line-height:1.8">
           S₁ = 0.00007854 × 46<sup>2</sup> = 0.166191 m<sup>2</sup><br>
           Sₘ = 0.00007854 × 40<sup>2</sup> = 0.125664 m<sup>2</sup><br>
           S₂ = 0.00007854 × 34<sup>2</sup> = 0.090792 m<sup>2</sup>
         </div>
       </div>
     </div>
-    <div class="g3" style="height:288px">
+    <div class="g3" style="flex:1 1 auto;min-height:288px">
       <div class="card rv" style="--d:3;display:flex;flex-direction:column">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
           <div class="ch" style="margin:0">Smalian</div>
-          <div class="mn" style="font-size:22px;font-weight:700;color:var(--vermilion)">+1.49 %</div>
+          <div class="mn" style="font-size:calc(22px * var(--tz,1));font-weight:700;color:var(--vermilion)">+1.49 %</div>
         </div>
-        <div class="mn" style="font-size:19px;color:var(--ink-soft);margin-top:14px;line-height:1.75">
+        <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--ink-soft);margin-top:14px;line-height:1.75">
           [(0.166191 + 0.090792) / 2] × 4.00<br>= (0.256983 / 2) × 4.00<br>= 0.128492 × 4.00
         </div>
         <div style="flex:1"></div>
-        <div style="font-family:var(--display);font-weight:600;font-size:38px;color:var(--moss);margin-top:14px">0.513965 m<sup>3</sup></div>
+        <div style="font-family:var(--display);font-weight:600;font-size:calc(38px * var(--tz,1));color:var(--moss);margin-top:14px">0.513965 m<sup>3</sup></div>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
           <div class="ch" style="margin:0">Huber</div>
-          <div class="mn" style="font-size:22px;font-weight:700;color:var(--vermilion)">−0.75 %</div>
+          <div class="mn" style="font-size:calc(22px * var(--tz,1));font-weight:700;color:var(--vermilion)">−0.75 %</div>
         </div>
-        <div class="mn" style="font-size:19px;color:var(--ink-soft);margin-top:14px;line-height:1.75">
+        <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--ink-soft);margin-top:14px;line-height:1.75">
           0.125664 × 4.00
         </div>
         <div style="flex:1"></div>
-        <div style="font-family:var(--display);font-weight:600;font-size:38px;color:var(--moss);margin-top:14px">0.502655 m<sup>3</sup></div>
+        <div style="font-family:var(--display);font-weight:600;font-size:calc(38px * var(--tz,1));color:var(--moss);margin-top:14px">0.502655 m<sup>3</sup></div>
       </div>
       <div class="card moss rv" style="--d:5;display:flex;flex-direction:column">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
           <div class="ch" style="margin:0">Newton</div>
-          <div class="mn" style="font-size:18px;font-weight:700;color:var(--gold);letter-spacing:.14em">REFERENCE</div>
+          <div class="mn" style="font-size:calc(17px * var(--tz,1));font-weight:700;color:var(--gold);letter-spacing:.14em">REFERENCE</div>
         </div>
-        <div class="mn" style="font-size:19px;color:#c6d6c9;margin-top:14px;line-height:1.75">
+        <div class="mn" style="font-size:calc(19px * var(--tz,1));color:#c6d6c9;margin-top:14px;line-height:1.75">
           [(0.166191 + 4(0.125664) + 0.090792) / 6] × 4.00<br>= (0.759639 / 6) × 4.00<br>= 0.126606 × 4.00
         </div>
         <div style="flex:1"></div>
-        <div style="font-family:var(--display);font-weight:600;font-size:38px;color:#fff;margin-top:14px">0.506426 m<sup>3</sup></div>
+        <div style="font-family:var(--display);font-weight:600;font-size:calc(38px * var(--tz,1));color:#fff;margin-top:14px">0.506426 m<sup>3</sup></div>
       </div>
     </div>
     <div class="callout rv" style="--d:7;margin-top:22px">
       <span class="k">Answer &nbsp;·&nbsp; Smalian 0.5140 m³ · Huber 0.5027 m³ · Newton 0.5064 m³</span>
-      <p style="font-size:21px">Taking Newton as the reference, Smalian is 1.49 % high and Huber 0.75 % low — Smalian's error is about twice Huber's, and in the opposite direction. On a single log this is small change. <strong>On 5,000 m<sup>3</sup> of annual harvest, a 1.5 % bias is 75 m<sup>3</sup>.</strong></p>
+      <p style="font-size:calc(21px * var(--tz,1))">Taking Newton as the reference, Smalian is 1.49 % high and Huber 0.75 % low — Smalian's error is about twice Huber's, and in the opposite direction. On a single log this is small change. <strong>On 5,000 m<sup>3</sup> of annual harvest, a 1.5 % bias is 75 m<sup>3</sup>.</strong></p>
     </div>
   </div>
   <div class="pageno">27 / 61</div>
@@ -2022,12 +2112,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <div class="card rv" style="--d:3">
           <div class="step"><div class="sl">The true volume</div><div class="sv">V = g<sup>2</sup> l / 4π</div></div>
           <div class="step"><div class="sl">Replace π with 4</div><div class="sv">V = g<sup>2</sup> l / ( 4 × 4 )</div></div>
-          <div class="step"><div class="sl">Simplify</div><div class="sv" style="color:var(--vermilion);font-size:29px">QGV = g<sup>2</sup> l / 16</div></div>
-          <div class="step"><div class="sl">Equivalently</div><div class="sv" style="color:var(--vermilion);font-size:29px">QGV = ( g / 4 )<sup>2</sup> × l</div></div>
+          <div class="step"><div class="sl">Simplify</div><div class="sv" style="color:var(--vermilion);font-size:calc(29px * var(--tz,1))">QGV = g<sup>2</sup> l / 16</div></div>
+          <div class="step"><div class="sl">Equivalently</div><div class="sv" style="color:var(--vermilion);font-size:calc(29px * var(--tz,1))">QGV = ( g / 4 )<sup>2</sup> × l</div></div>
         </div>
         <div class="card moss rv" style="--d:5;margin-top:24px">
           <div class="ch">How much is lost?</div>
-          <div class="mn" style="font-size:21px;color:#e6ede4;line-height:1.9">
+          <div class="mn" style="font-size:calc(21px * var(--tz,1));color:#e6ede4;line-height:1.9">
             TV / QGV = ( g<sup>2</sup>l / 4π ) ÷ ( g<sup>2</sup>l / 16 ) = 16 / 4π = 4 / π<br>
             <span style="color:var(--gold);font-weight:700">QGV / TV = π / 4 = 0.7854</span>
           </div>
@@ -2074,7 +2164,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
     <p class="lead rv" style="--d:2;margin-bottom:24px">A chir pine <em style="color:var(--ink-soft)">(Pinus roxburghii)</em> log is <strong>4.00 m</strong> long. Its girth at the mid-point, measured over bark with a tape, is <strong>125 cm</strong>.</p>
-    <div class="g2" style="height:calc(100% - 220px)">
+    <div class="g2" style="flex:1 1 auto;min-height:0">
       <div class="card rv" style="--d:3">
         <div class="ch v">True volume</div>
         <div class="step"><div class="sl">Convert units</div><div class="sv">g = 125 cm = 1.25 m</div></div>
@@ -2083,7 +2173,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <div class="step"><div class="sl">Denominator</div><div class="sv">4π = 12.566371</div></div>
         <div class="step"><div class="sl">Divide</div><div class="sv">1.5625 / 12.566371 = 0.124339</div></div>
         <div class="step"><div class="sl">Multiply by length</div><div class="sv">0.124339 × 4.00 = 0.497356</div></div>
-        <div class="step" style="border-top:1px solid var(--rule)"><div class="sl">Answer</div><div class="sv" style="font-size:29px;color:var(--moss);font-weight:500">V = 0.4974 m<sup>3</sup></div></div>
+        <div class="step" style="border-top:1px solid var(--rule)"><div class="sl">Answer</div><div class="sv" style="font-size:calc(29px * var(--tz,1));color:var(--moss);font-weight:500">V = 0.4974 m<sup>3</sup></div></div>
       </div>
       <div class="card sunk rv" style="--d:4">
         <div class="ch v">Quarter-girth volume</div>
@@ -2091,10 +2181,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <div class="step"><div class="sl">Formula</div><div class="sv">QGV = ( g / 4 )<sup>2</sup> × l</div></div>
         <div class="step"><div class="sl">Square it</div><div class="sv">0.3125<sup>2</sup> = 0.097656 m<sup>2</sup></div></div>
         <div class="step"><div class="sl">Multiply by length</div><div class="sv">0.097656 × 4.00 = 0.390625</div></div>
-        <div class="step" style="border-top:1px solid var(--rule)"><div class="sl">Answer</div><div class="sv" style="font-size:29px;color:var(--vermilion);font-weight:500">QGV = 0.3906 m<sup>3</sup></div></div>
+        <div class="step" style="border-top:1px solid var(--rule)"><div class="sl">Answer</div><div class="sv" style="font-size:calc(29px * var(--tz,1));color:var(--vermilion);font-weight:500">QGV = 0.3906 m<sup>3</sup></div></div>
       </div>
     </div>
-    <div class="answer rv" style="--d:6;position:absolute;left:0;right:0;bottom:0">
+    <div class="answer rv" style="--d:6;margin-top:auto">
       <span class="k">Ratio</span>
       <span class="v">QGV / TV = 0.7853</span>
       <span class="n">The quarter-girth figure is 78.5 % of the true volume. The difference, 0.1067 m<sup>3</sup> on this one log, is 21.5 % of its real content.</span>
@@ -2133,7 +2223,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <p class="txt rv" style="--d:2">The Department of Forest and Park Services expresses the true volume equation in a form field staff can use directly, with <strong style="color:var(--ink)">girth in inches</strong> and <strong style="color:var(--ink)">length in feet</strong>.</p>
         <div class="formula lg rv" style="--d:3">Volume (cft) &nbsp;=&nbsp; G<sup>2</sup> × L &nbsp;/&nbsp; 1809.5</div>
         <div class="card rv" style="--d:4">
-          <div class="ch" style="font-size:25px">Where the constant comes from</div>
+          <div class="ch" style="font-size:calc(25px * var(--tz,1))">Where the constant comes from</div>
           <ul class="bul sm">
             <li>The true volume equation is <span class="mn" style="color:var(--ink)">V = g<sup>2</sup> l / 4π</span></li>
             <li>Girth is now in inches but length in feet, so the two are not in the same unit</li>
@@ -2144,7 +2234,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
         <div class="callout rv" style="--d:5">
           <span class="k">Careful — this is the TRUE volume, not quarter girth</span>
-          <p style="font-size:21px">1809.5 already contains 4π. If a quarter-girth figure in cft is wanted, the divisor is <strong>144 × 16 = 2,304</strong> instead.</p>
+          <p style="font-size:calc(21px * var(--tz,1))">1809.5 already contains 4π. If a quarter-girth figure in cft is wanted, the divisor is <strong>144 × 16 = 2,304</strong> instead.</p>
         </div>
       </div>
       <div style="display:flex;flex-direction:column">
@@ -2197,14 +2287,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
     <p class="lead rv" style="--d:2;margin-bottom:22px">A log is measured at a depot. Mid-girth over bark = <strong>50 inches</strong>, length = <strong>12 feet</strong>. Compute the true volume in cubic feet, then verify the answer by working the same log in metric.</p>
-    <div class="g2" style="height:calc(100% - 220px)">
+    <div class="g2" style="flex:1 1 auto;min-height:0">
       <div class="card rv" style="--d:3">
         <div class="ch v">Route 1 · the field formula</div>
         <div class="step"><div class="sl">Formula</div><div class="sv">V = G<sup>2</sup> L / 1809.5</div></div>
         <div class="step"><div class="sl">Square the girth</div><div class="sv">50<sup>2</sup> = 2,500 in<sup>2</sup></div></div>
         <div class="step"><div class="sl">Multiply by length</div><div class="sv">2,500 × 12 = 30,000</div></div>
         <div class="step"><div class="sl">Divide</div><div class="sv">30,000 / 1809.5 = 16.5792</div></div>
-        <div class="step" style="border-top:1px solid var(--rule)"><div class="sl">Answer</div><div class="sv" style="font-size:29px;color:var(--moss);font-weight:500">V = 16.58 cft</div></div>
+        <div class="step" style="border-top:1px solid var(--rule)"><div class="sl">Answer</div><div class="sv" style="font-size:calc(29px * var(--tz,1));color:var(--moss);font-weight:500">V = 16.58 cft</div></div>
       </div>
       <div class="card sunk rv" style="--d:4">
         <div class="ch v">Route 2 · metric, then convert</div>
@@ -2214,10 +2304,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <div class="step"><div class="sl">Divide by 4π</div><div class="sv">1.6129 / 12.566371 = 0.128351</div></div>
         <div class="step"><div class="sl">Multiply by length</div><div class="sv">0.128351 × 3.6576 = 0.469446 m<sup>3</sup></div></div>
         <div class="step"><div class="sl">Convert to cft</div><div class="sv">0.469446 × 35.3147 = 16.5782</div></div>
-        <div class="step" style="border-top:1px solid var(--rule)"><div class="sl">Answer</div><div class="sv" style="font-size:29px;color:var(--moss);font-weight:500">V = 16.58 cft</div></div>
+        <div class="step" style="border-top:1px solid var(--rule)"><div class="sl">Answer</div><div class="sv" style="font-size:calc(29px * var(--tz,1));color:var(--moss);font-weight:500">V = 16.58 cft</div></div>
       </div>
     </div>
-    <div class="answer rv" style="--d:6;position:absolute;left:0;right:0;bottom:0">
+    <div class="answer rv" style="--d:6;margin-top:auto">
       <span class="k">Answer</span>
       <span class="v">16.58 cft = 0.4694 m<sup>3</sup></span>
       <span class="n">Two completely different routes agree to four significant figures. That agreement is the proof that 1809.5 is simply 4π × 144.</span>
@@ -2260,7 +2350,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <li>Under-bark diameter is obtained either by measuring a debarked log, or by subtracting <strong>twice</strong> the bark thickness</li>
         </ul>
         <div class="card rv" style="--d:4">
-          <div class="mn" style="font-size:27px;color:var(--moss);line-height:2;text-align:center">
+          <div class="mn" style="font-size:calc(27px * var(--tz,1));color:var(--moss);line-height:2;text-align:center">
             D<sub>ub</sub> &nbsp;=&nbsp; D<sub>ob</sub> &nbsp;−&nbsp; 2b<br>
             C<sub>ub</sub> &nbsp;=&nbsp; π × D<sub>ub</sub> &nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;&nbsp; C<sub>ub</sub> &nbsp;=&nbsp; C<sub>ob</sub> &nbsp;−&nbsp; 2πb
           </div>
@@ -2268,7 +2358,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
         <div class="callout moss rv" style="--d:6">
           <span class="k">Worked check</span>
-          <p style="font-size:21px">D<sub>ob</sub> = 42 cm, b = 1.5 cm. &nbsp;2b = 3 cm, so D<sub>ub</sub> = 39 cm.<br>
+          <p style="font-size:calc(21px * var(--tz,1))">D<sub>ob</sub> = 42 cm, b = 1.5 cm. &nbsp;2b = 3 cm, so D<sub>ub</sub> = 39 cm.<br>
           C<sub>ub</sub> = π × 39 = 122.5 cm, and C<sub>ob</sub> − 2πb = 131.9 − 9.4 = 122.5 cm. <strong>The two routes agree.</strong></p>
         </div>
       </div>
@@ -2344,38 +2434,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <div class="ch v">Worked example 8 · hypothetical</div>
           <div class="step"><div class="sl">Stack dimensions</div><div class="sv">4.0 m × 1.5 m × 1.2 m</div></div>
           <div class="step"><div class="sl">Stacked volume</div><div class="sv">4.0 × 1.5 × 1.2 = <span class="hlt">7.20 stacked m<sup>3</sup></span></div></div>
-          <div class="step"><div class="sl">Stacking factor 0.65</div><div class="sv" style="color:var(--moss);font-size:29px">solid volume = 7.20 × 0.65 = 4.68 m<sup>3</sup></div></div>
+          <div class="step"><div class="sl">Stacking factor 0.65</div><div class="sv" style="color:var(--moss);font-size:calc(29px * var(--tz,1))">solid volume = 7.20 × 0.65 = 4.68 m<sup>3</sup></div></div>
         </div>
       </div>
       <div class="fig rv" style="--d:4">
-        <svg viewBox="0 0 560 620" preserveAspectRatio="xMidYMid meet">
-          <!-- stack of billet ends -->
-          <g stroke="#2f5140" stroke-width="1.6" fill="#a8842c" fill-opacity=".2">
-            <circle cx="120" cy="440" r="26"/><circle cx="176" cy="442" r="30"/><circle cx="238" cy="438" r="24"/>
-            <circle cx="292" cy="444" r="28"/><circle cx="350" cy="438" r="25"/><circle cx="404" cy="443" r="29"/>
-            <circle cx="132" cy="384" r="28"/><circle cx="192" cy="382" r="24"/><circle cx="246" cy="386" r="29"/>
-            <circle cx="306" cy="382" r="25"/><circle cx="360" cy="385" r="27"/><circle cx="416" cy="383" r="23"/>
-            <circle cx="124" cy="330" r="25"/><circle cx="180" cy="328" r="29"/><circle cx="240" cy="332" r="24"/>
-            <circle cx="296" cy="327" r="27"/><circle cx="352" cy="331" r="26"/><circle cx="408" cy="329" r="28"/>
-            <circle cx="136" cy="276" r="27"/><circle cx="194" cy="274" r="25"/><circle cx="248" cy="278" r="28"/>
-            <circle cx="306" cy="273" r="24"/><circle cx="358" cy="277" r="29"/><circle cx="414" cy="275" r="25"/>
-          </g>
-          <rect x="92" y="244" width="352" height="228" fill="none" stroke="#c14524" stroke-width="2.2" stroke-dasharray="9 7"/>
-          <!-- dimensions -->
-          <g stroke="#141c18" stroke-opacity=".55" stroke-width="1.6">
-            <line x1="92" y1="510" x2="444" y2="510"/><line x1="92" y1="500" x2="92" y2="520"/><line x1="444" y1="500" x2="444" y2="520"/>
-            <line x1="60" y1="244" x2="60" y2="472"/><line x1="50" y1="244" x2="70" y2="244"/><line x1="50" y1="472" x2="70" y2="472"/>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="22" font-weight="700" fill="#141c18">
-            <text x="268" y="500" text-anchor="middle">L</text>
-            <text x="34" y="366" text-anchor="middle">H</text>
-          </g>
-          <g font-family="Public Sans, sans-serif" font-size="17" fill="#4a544c" text-anchor="middle">
-            <text x="280" y="562">The gaps between the billets are counted in a</text>
-            <text x="280" y="586">stacked measurement and must be removed</text>
-            <text x="280" y="610">before the figure is called solid volume.</text>
-          </g>
-        </svg>
+        <figure class="men-photo men-content-photo men-firewood-photo"><img src="assets/images/men201/stacked-firewood-visible-gaps.jpg" alt="Stacked firewood billets with visible air gaps"><figcaption>Stack volume includes the air spaces between billets; a stacking factor converts it to solid wood volume.</figcaption><span class="men-photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Brennholzstapel_aus_Buchenholz.JPG">4028mdk09 · CC BY-SA 3.0</a></span></figure>
       </div>
     </div>
   </div>
@@ -2431,7 +2494,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
         <p class="txt-sm">Submerge the piece in a graduated vessel. <strong>The volume of water displaced is the solid volume of the wood.</strong></p>
         <div class="callout moss sm" style="margin-top:14px">
-          <p style="font-size:20px">Worked check (hypothetical): the level rises from 2,400 cm<sup>3</sup> to 3,150 cm<sup>3</sup>, so V = 750 cm<sup>3</sup> = 0.00075 m<sup>3</sup>.</p>
+          <p style="font-size:calc(20px * var(--tz,1))">Worked check (hypothetical): the level rises from 2,400 cm<sup>3</sup> to 3,150 cm<sup>3</sup>, so V = 750 cm<sup>3</sup> = 0.00075 m<sup>3</sup>.</p>
         </div>
       </div>
       <div class="card rv" style="--d:5;display:flex;flex-direction:column">
@@ -2442,13 +2505,13 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <div class="formula lg v" style="margin-top:18px">Volume (cm<sup>3</sup>) &nbsp;=&nbsp; weight (g) &nbsp;/&nbsp; SG</div>
         <div class="card sunk" style="margin-top:18px;padding:20px 22px">
           <div class="label v">Worked check (hypothetical)</div>
-          <div class="mn" style="font-size:20px;color:var(--ink);margin-top:10px;line-height:1.8">
+          <div class="mn" style="font-size:calc(20px * var(--tz,1));color:var(--ink);margin-top:10px;line-height:1.8">
             a billet weighs 1,850 g, SG = 0.62<br>
             V = 1,850 / 0.62 = 2,983.9 cm<sup>3</sup> = 0.00298 m<sup>3</sup>
           </div>
         </div>
         <div class="callout sm" style="margin-top:16px">
-          <p style="font-size:20px">The weight and the specific gravity must refer to the <strong>SAME moisture condition</strong> — green weight with green density, or oven-dry with basic density. Mixing them is the standard error.</p>
+          <p style="font-size:calc(20px * var(--tz,1))">The weight and the specific gravity must refer to the <strong>SAME moisture condition</strong> — green weight with green density, or oven-dry with basic density. Mixing them is the standard error.</p>
         </div>
       </div>
     </div>
@@ -2480,14 +2543,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="g3 rv" style="--d:2;margin-bottom:26px">
       <div class="card">
-        <div class="ch" style="font-size:25px">Measurement of root wood</div>
+        <div class="ch" style="font-size:calc(25px * var(--tz,1))">Measurement of root wood</div>
         <ul class="bul sm">
           <li>Worth measuring only where the root is itself valuable. The classic examples in the older literature are <em>Dalbergia latifolia</em>, <em>Santalum album</em> and <em>Acacia catechu</em>.</li>
           <li>Roots are irregular; xylometry or the specific gravity method is normally used.</li>
         </ul>
       </div>
       <div class="card">
-        <div class="ch" style="font-size:25px">Measurement of charcoal</div>
+        <div class="ch" style="font-size:calc(25px * var(--tz,1))">Measurement of charcoal</div>
         <p class="txt-sm" style="margin-bottom:10px">Estimated from:</p>
         <ul class="bul sm">
           <li>the volume of the charcoal kiln</li>
@@ -2497,7 +2560,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </ul>
       </div>
       <div class="card sunk">
-        <div class="ch" style="font-size:25px">Choosing a method</div>
+        <div class="ch" style="font-size:calc(25px * var(--tz,1))">Choosing a method</div>
         <ul class="bul sm">
           <li>Match the effort to the value. A sawlog justifies three careful diameter readings. A load of branch wood does not.</li>
           <li><strong>The more valuable the product, the more direct the measurement should be.</strong></li>
@@ -2506,11 +2569,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     </div>
     <div class="label v rv" style="--d:4;margin-bottom:14px">Check your understanding</div>
     <div class="g5 rv" style="--d:5">
-      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:17px">1</div><div class="qt" style="font-size:19px">Why is Newton's formula more accurate than Smalian's, and why is Smalian's used more often?</div></div>
-      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:17px">2</div><div class="qt" style="font-size:19px">A 3 m log has end sections 0.20 m<sup>2</sup> and 0.12 m<sup>2</sup> and a mid section 0.155 m<sup>2</sup>. Calculate its volume by all three formulae.<span class="qa">0.480 · 0.465 · 0.470 m<sup>3</sup></span></div></div>
-      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:17px">3</div><div class="qt" style="font-size:19px">A quarter-girth measurement gives 0.62 m<sup>3</sup>. What is the true volume?<span class="qa">0.62 / 0.7854 = 0.789 m<sup>3</sup></span></div></div>
-      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:17px">4</div><div class="qt" style="font-size:19px">A log has mid-girth 44 inches and length 9 feet. Give its volume in cft and in m<sup>3</sup>.<span class="qa">9.63 cft · 0.273 m<sup>3</sup></span></div></div>
-      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:17px">5</div><div class="qt" style="font-size:19px">State two reasons why a stacked volume is larger than the solid volume of the same wood.</div></div>
+      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:calc(17px * var(--tz,1))">1</div><div class="qt" style="font-size:calc(19px * var(--tz,1))">Why is Newton's formula more accurate than Smalian's, and why is Smalian's used more often?</div></div>
+      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:calc(17px * var(--tz,1))">2</div><div class="qt" style="font-size:calc(19px * var(--tz,1))">A 3 m log has end sections 0.20 m<sup>2</sup> and 0.12 m<sup>2</sup> and a mid section 0.155 m<sup>2</sup>. Calculate its volume by all three formulae.<span class="qa">0.480 · 0.465 · 0.470 m<sup>3</sup></span></div></div>
+      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:calc(17px * var(--tz,1))">3</div><div class="qt" style="font-size:calc(19px * var(--tz,1))">A quarter-girth measurement gives 0.62 m<sup>3</sup>. What is the true volume?<span class="qa">0.62 / 0.7854 = 0.789 m<sup>3</sup></span></div></div>
+      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:calc(17px * var(--tz,1))">4</div><div class="qt" style="font-size:calc(19px * var(--tz,1))">A log has mid-girth 44 inches and length 9 feet. Give its volume in cft and in m<sup>3</sup>.<span class="qa">9.63 cft · 0.273 m<sup>3</sup></span></div></div>
+      <div class="q" style="grid-template-columns:34px 1fr;padding:16px 18px"><div class="badge" style="width:34px;height:34px;font-size:calc(17px * var(--tz,1))">5</div><div class="qt" style="font-size:calc(19px * var(--tz,1))">State two reasons why a stacked volume is larger than the solid volume of the same wood.</div></div>
     </div>
   </div>
   <div class="footrule"></div>
@@ -2529,18 +2592,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 -->
 <section class="slide" data-n="37">
   <div class="sect">
-    <div class="rings" aria-hidden="true">
-      <svg viewBox="0 0 1000 1000">
-        <g fill="none" stroke="#a8842c" stroke-opacity=".38">
-          <circle cx="500" cy="500" r="470" stroke-width="1"/><circle cx="504" cy="496" r="412" stroke-width="1.6"/>
-          <circle cx="497" cy="503" r="350" stroke-width="1"/><circle cx="505" cy="495" r="292" stroke-width="1.5"/>
-          <circle cx="498" cy="502" r="235" stroke-width="1"/><circle cx="503" cy="498" r="182" stroke-width="1.4"/>
-          <circle cx="500" cy="500" r="134" stroke-width="1"/><circle cx="501" cy="500" r="88" stroke-width="1.6"/>
-          <circle cx="500" cy="500" r="45" stroke-width="1"/>
-        </g>
-        <circle cx="500" cy="500" r="9" fill="#a8842c" fill-opacity=".6"/>
-      </svg>
-    </div>
+    <div class="rings men-divider-photo" role="img" aria-label="Forest landscape in Bhutan"><img src="assets/images/men201/divider-uv-s37.jpg" alt=""><span class="men-photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Chelela_to_Paro_road_views_during_LGFC_-_Bhutan_2019_(120).jpg">Vinayaraj · CC BY-SA 4.0</a></span></div>
     <div class="srun">MEN 201 · Forest Mensuration · Unit V</div>
     <div class="sframe">
       <div class="sltr rv" style="--d:0">C</div>
@@ -2585,7 +2637,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <tr class="hi"><td class="rh">4. Indirect measurement</td><td>Upper-stem diameters are read from the ground with an optical dendrometer such as the <strong>relascope</strong></td><td>No climbing; several heights measured quickly; reasonably accurate</td><td>Instrument cost and training; needs a clear line of sight through the canopy</td></tr>
       </tbody>
     </table>
-    <div class="callout moss rv" style="--d:4;margin-top:26px">
+    <div class="callout moss rv" style="--d:4;margin-top:auto">
       <span class="k">In routine Bhutanese practice</span>
       <p>Volume of standing trees is obtained from <strong>DBH and height using volume tables or volume equations</strong> — which is method 4's logic applied at the scale of a whole forest.</p>
     </div>
@@ -2619,14 +2671,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <p class="lead rv" style="--d:2;margin-bottom:26px">A volume table shows, for a given species, the <strong>average contents</strong> of trees, logs or sawn timber for one or more given dimensions.</p>
     <div class="g2 rv" style="--d:3;margin-bottom:26px">
       <div class="card">
-        <div class="ch" style="font-size:25px">The dimensions used</div>
-        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:32px;height:32px;font-size:17px">1</div><div class="txt-sm">DBH alone</div></div>
-        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:32px;height:32px;font-size:17px">2</div><div class="txt-sm">DBH and height</div></div>
-        <div class="numrow" style="margin-bottom:0"><div class="badge" style="width:32px;height:32px;font-size:17px">3</div><div class="txt-sm">DBH, height, and form or taper</div></div>
+        <div class="ch" style="font-size:calc(25px * var(--tz,1))">The dimensions used</div>
+        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:32px;height:32px;font-size:calc(17px * var(--tz,1))">1</div><div class="txt-sm">DBH alone</div></div>
+        <div class="numrow" style="margin-bottom:10px"><div class="badge" style="width:32px;height:32px;font-size:calc(17px * var(--tz,1))">2</div><div class="txt-sm">DBH and height</div></div>
+        <div class="numrow" style="margin-bottom:0"><div class="badge" style="width:32px;height:32px;font-size:calc(17px * var(--tz,1))">3</div><div class="txt-sm">DBH, height, and form or taper</div></div>
         <p class="txt-sm" style="margin-top:14px;font-style:italic;color:var(--vermilion)">Each additional variable buys accuracy and costs field time.</p>
       </div>
       <div class="card sunk">
-        <div class="ch" style="font-size:25px">The assumption underneath</div>
+        <div class="ch" style="font-size:calc(25px * var(--tz,1))">The assumption underneath</div>
         <p class="txt-sm">That trees of the same species with the same dimensions hold the same volume.</p>
         <p class="txt-sm" style="margin-top:12px">Tables are built from actual measurements of a large number of representative trees, so this assumption holds <strong>on average — not for any single tree</strong>.</p>
       </div>
@@ -2666,30 +2718,30 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
     <p class="txt rv" style="--d:2;margin-bottom:24px">Tree volume depends chiefly on three variables: <strong style="color:var(--ink)">diameter, height, and form</strong>. Which of them a table uses is decided by simplicity, speed of work, and the accuracy actually required.</p>
-    <div class="g3" style="height:calc(100% - 190px);align-items:stretch">
+    <div class="g3" style="flex:1 1 auto;min-height:0;align-items:stretch">
       <div class="card rv" style="--d:3;display:flex;flex-direction:column">
         <div style="display:flex;align-items:center;gap:16px"><div class="badge lg">1</div><div class="label">One variable</div></div>
-        <div class="ch" style="margin-top:20px;font-size:31px">Diameter only</div>
+        <div class="ch" style="margin-top:20px;font-size:calc(31px * var(--tz,1))">Diameter only</div>
         <p class="txt-sm">Adequate within a small locality or a single stand, where trees of a given diameter tend to share a similar height and form.</p>
         <div style="flex:1"></div>
-        <div class="callout sm" style="margin-top:18px"><p style="font-size:20px">Fastest. Least accurate. <strong>This is what a local volume table is.</strong></p></div>
+        <div class="callout sm" style="margin-top:18px"><p style="font-size:calc(20px * var(--tz,1))">Fastest. Least accurate. <strong>This is what a local volume table is.</strong></p></div>
       </div>
       <div class="card rv" style="--d:5;display:flex;flex-direction:column;border-color:var(--moss-line)">
         <div style="display:flex;align-items:center;gap:16px"><div class="badge lg moss">2</div><div class="label">Two variables</div></div>
-        <div class="ch" style="margin-top:20px;font-size:31px">Diameter and height</div>
+        <div class="ch" style="margin-top:20px;font-size:calc(31px * var(--tz,1))">Diameter and height</div>
         <p class="txt-sm">Necessary over larger areas, where locality factors vary and trees of the same diameter no longer share a height.</p>
         <div style="flex:1"></div>
-        <div class="callout moss sm" style="margin-top:18px"><p style="font-size:20px">The standard compromise. <strong>This is what a general volume table is.</strong></p></div>
+        <div class="callout moss sm" style="margin-top:18px"><p style="font-size:calc(20px * var(--tz,1))">The standard compromise. <strong>This is what a general volume table is.</strong></p></div>
       </div>
       <div class="card sunk rv" style="--d:7;display:flex;flex-direction:column">
         <div style="display:flex;align-items:center;gap:16px"><div class="badge lg hollow">3</div><div class="label">Three variables</div></div>
-        <div class="ch" style="margin-top:20px;font-size:31px">Diameter, height and form</div>
+        <div class="ch" style="margin-top:20px;font-size:calc(31px * var(--tz,1))">Diameter, height and form</div>
         <p class="txt-sm">The most accurate, but three field measurements per tree, and form is the hardest of the three to obtain.</p>
         <div style="flex:1"></div>
-        <div class="callout sm" style="margin-top:18px"><p style="font-size:20px">Expensive to build, slow to use. <strong>Rarely justified.</strong></p></div>
+        <div class="callout sm" style="margin-top:18px"><p style="font-size:calc(20px * var(--tz,1))">Expensive to build, slow to use. <strong>Rarely justified.</strong></p></div>
       </div>
     </div>
-    <div class="callout rv" style="--d:9;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:9;margin-top:auto">
       <span class="k">The decisive argument</span>
       <p>The whole purpose of a volume table is <strong>ease and rapidity</strong>. A table that demands three field measurements per tree has surrendered the advantage it was built to provide — which is why three-variable tables are rare in routine use.</p>
     </div>
@@ -2722,7 +2774,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="body">
     <div class="g3" style="height:100%;align-items:stretch">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column">
-        <div style="display:flex;align-items:center;gap:16px"><div class="badge lg">1</div><div class="ch" style="margin:0;font-size:27px">By number of variables used</div></div>
+        <div style="display:flex;align-items:center;gap:16px"><div class="badge lg">1</div><div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">By number of variables used</div></div>
         <div style="margin-top:20px">
           <p class="txt-sm" style="margin-bottom:14px"><strong style="color:var(--moss)">a) Single variable</strong> — usually diameter alone. Shows average volume by diameter class. Usable only in a small locality, so it is called a <strong>LOCAL</strong> volume table. Quick, because only DBH is measured.</p>
           <p class="txt-sm" style="margin-bottom:14px"><strong style="color:var(--moss)">b) Two variables</strong> — diameter and height. Shows average volume by diameter class and height class. Applicable to larger areas, so it is called a <strong>GENERAL</strong> volume table. Local tables are usually derived from it.</p>
@@ -2730,7 +2782,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column">
-        <div style="display:flex;align-items:center;gap:16px"><div class="badge lg">2</div><div class="ch" style="margin:0;font-size:27px">By scope of application</div></div>
+        <div style="display:flex;align-items:center;gap:16px"><div class="badge lg">2</div><div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">By scope of application</div></div>
         <div style="margin-top:20px">
           <p class="txt-sm" style="margin-bottom:14px"><strong style="color:var(--moss)">a) General volume table</strong> — based on the average volume of trees growing over a large geographic area; uses DBH and height; used to derive local tables.</p>
           <p class="txt-sm" style="margin-bottom:14px"><strong style="color:var(--moss)">b) Regional volume table</strong> — compiled from trees growing in one region; more limited application than a general table.</p>
@@ -2738,12 +2790,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="card sunk rv" style="--d:6;display:flex;flex-direction:column">
-        <div style="display:flex;align-items:center;gap:16px"><div class="badge lg hollow">3</div><div class="ch" style="margin:0;font-size:27px">By type of out-turn given</div></div>
+        <div style="display:flex;align-items:center;gap:16px"><div class="badge lg hollow">3</div><div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">By type of out-turn given</div></div>
         <div style="margin-top:20px">
           <p class="txt-sm" style="margin-bottom:16px">Tables may give <strong>total stem volume</strong>, <strong>merchantable volume</strong> to a stated top diameter, <strong>sawn timber out-turn</strong>, or <strong>volume by product class</strong> — sawlog, pole, firewood.</p>
         </div>
         <div style="flex:1"></div>
-        <div class="callout"><p style="font-size:21px">The out-turn convention must be read <strong>before</strong> the table is used. Two tables for the same species can differ by <strong>20 per cent</strong> simply because one is total and the other merchantable.</p></div>
+        <div class="callout"><p style="font-size:calc(21px * var(--tz,1))">The out-turn convention must be read <strong>before</strong> the table is used. Two tables for the same species can differ by <strong>20 per cent</strong> simply because one is total and the other merchantable.</p></div>
       </div>
     </div>
   </div>
@@ -2833,9 +2885,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="stack sm">
         <div class="card rv" style="--d:3">
-          <div class="ch v" style="font-size:26px">Worked example 9 · reading and interpolating</div>
+          <div class="ch v" style="font-size:calc(26px * var(--tz,1))">Worked example 9 · reading and interpolating</div>
           <p class="txt-sm" style="margin-bottom:12px">A tree has DBH 30 cm and height 26 m. The table has no 26 m column, so interpolate linearly between 23 m and 29 m.</p>
-          <div class="mn" style="font-size:19px;color:var(--ink);line-height:1.9">
+          <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--ink);line-height:1.9">
             At 23 m: 0.508 m<sup>3</sup> &nbsp;&nbsp; At 29 m: 0.661 m<sup>3</sup><br>
             Difference: 0.661 − 0.508 = 0.153 m<sup>3</sup> over 6 m<br>
             26 m is exactly halfway, so add half:<br>
@@ -2844,13 +2896,13 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           </div>
         </div>
         <div class="card sunk rv" style="--d:5">
-          <div class="ch" style="font-size:25px">Scaling to a stand</div>
+          <div class="ch" style="font-size:calc(25px * var(--tz,1))">Scaling to a stand</div>
           <p class="txt-sm">If the sample plot contains 40 trees in the 30 cm class at about 26 m tall:</p>
-          <div class="mn" style="font-size:21px;color:var(--moss);margin-top:8px">40 × 0.585 = 23.4 m<sup>3</sup> for that class.</div>
+          <div class="mn" style="font-size:calc(21px * var(--tz,1));color:var(--moss);margin-top:8px">40 × 0.585 = 23.4 m<sup>3</sup> for that class.</div>
         </div>
         <div class="callout rv" style="--d:6">
           <span class="k">Two warnings</span>
-          <p style="font-size:21px">Do not <strong>extrapolate</strong> beyond the table's range, and do not <strong>interpolate across a species boundary</strong>.</p>
+          <p style="font-size:calc(21px * var(--tz,1))">Do not <strong>extrapolate</strong> beyond the table's range, and do not <strong>interpolate across a species boundary</strong>.</p>
         </div>
       </div>
     </div>
@@ -2883,37 +2935,37 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
-    <div class="g4" style="height:calc(100% - 96px);align-items:stretch">
+    <div class="g4" style="flex:1 1 auto;min-height:0;align-items:stretch">
       <div class="card rv" style="--d:2;display:flex;flex-direction:column">
-        <div class="mn" style="font-size:29px;font-weight:700;color:var(--vermilion)">1976–1981</div>
-        <div class="ch" style="margin-top:16px;font-size:26px">Preinvestment Survey of Forest Resources</div>
+        <div class="mn" style="font-size:calc(29px * var(--tz,1));font-weight:700;color:var(--vermilion)">1976–1981</div>
+        <div class="ch" style="margin-top:16px;font-size:calc(26px * var(--tz,1))">Preinvestment Survey of Forest Resources</div>
         <p class="txt-sm">General volume equations and local volume tables were constructed for more than twenty species during the Preinvestment Survey of Forest Resources, carried out for Bhutan by the Government of India. Regression forms tried included V = a + bD<sup>2</sup>, polynomial forms in D, and logarithmic forms such as log V = a + b log D.</p>
         <div style="flex:1"></div>
-        <p class="mono-sm" style="margin-top:16px;font-size:16px">Report on Preinvestment Survey of Forest Resources in Southern Bhutan, Dehra Dun, 1981</p>
+        <p class="mono-sm" style="margin-top:16px;font-size:calc(16px * var(--tz,1))">Report on Preinvestment Survey of Forest Resources in Southern Bhutan, Dehra Dun, 1981</p>
       </div>
       <div class="card rv" style="--d:4;display:flex;flex-direction:column">
-        <div class="mn" style="font-size:29px;font-weight:700;color:var(--vermilion)">2005</div>
-        <div class="ch" style="margin-top:16px;font-size:26px">Local volume tables</div>
+        <div class="mn" style="font-size:calc(29px * var(--tz,1));font-weight:700;color:var(--vermilion)">2005</div>
+        <div class="ch" style="margin-top:16px;font-size:calc(26px * var(--tz,1))">Local volume tables</div>
         <p class="txt-sm">Local volume tables were developed by the Forest Resources Development Division, Department of Forests, and have since been applied in other parts of the country.</p>
         <div style="flex:1"></div>
-        <p class="mono-sm" style="margin-top:16px;font-size:16px">cited in Tenzin et al. (2016)</p>
+        <p class="mono-sm" style="margin-top:16px;font-size:calc(16px * var(--tz,1))">cited in Tenzin et al. (2016)</p>
       </div>
       <div class="card rv" style="--d:6;display:flex;flex-direction:column">
-        <div class="mn" style="font-size:29px;font-weight:700;color:var(--vermilion)">2016</div>
-        <div class="ch" style="margin-top:16px;font-size:26px">Form factor functions</div>
+        <div class="mn" style="font-size:calc(29px * var(--tz,1));font-weight:700;color:var(--vermilion)">2016</div>
+        <div class="ch" style="margin-top:16px;font-size:calc(26px * var(--tz,1))">Form factor functions</div>
         <p class="txt-sm">Form factor functions were fitted for nine commercial species from 395 felled trees, addressing known defects in the older equations — including negative predicted volumes for small trees of some species, and a single equation shared by two different species.</p>
         <div style="flex:1"></div>
-        <p class="mono-sm" style="margin-top:16px;font-size:16px">Tenzin, Wangchuk &amp; Hasenauer (2016), Forestry</p>
+        <p class="mono-sm" style="margin-top:16px;font-size:calc(16px * var(--tz,1))">Tenzin, Wangchuk &amp; Hasenauer (2016), Forestry</p>
       </div>
       <div class="card moss rv" style="--d:8;display:flex;flex-direction:column">
-        <div class="mn" style="font-size:29px;font-weight:700;color:var(--gold)">2021–2023</div>
-        <div class="ch" style="margin-top:16px;font-size:26px">Second National Forest Inventory</div>
+        <div class="mn" style="font-size:calc(29px * var(--tz,1));font-weight:700;color:var(--gold)">2021–2023</div>
+        <div class="ch" style="margin-top:16px;font-size:calc(26px * var(--tz,1))">Second National Forest Inventory</div>
         <p class="txt-sm">Field data were collected from cluster plots on a systematic 4 km × 4 km grid; results were published as the National Forest Inventory State of Forest Report.</p>
         <div style="flex:1"></div>
-        <p class="mono-sm" style="margin-top:16px;font-size:16px;color:#9fb3a5">National Forest Inventory Volume I: State of Forest Report, June 2023</p>
+        <p class="mono-sm" style="margin-top:16px;font-size:calc(16px * var(--tz,1));color:#9fb3a5">National Forest Inventory Volume I: State of Forest Report, June 2023</p>
       </div>
     </div>
-    <div class="callout rv" style="--d:10;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:10;margin-top:auto">
       <p>Before applying any of these in official work, <strong>confirm the current position with the Department of Forests and Park Services.</strong> Volume equations and inventory conventions are revised between inventory cycles.</p>
     </div>
   </div>
@@ -2943,7 +2995,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
-    <div class="g4" style="height:calc(100% - 150px);align-items:stretch">
+    <div class="g4" style="flex:1 1 auto;min-height:0;align-items:stretch">
       <div class="card rv" style="--d:2">
         <div class="ch v">Instrument</div>
         <ul class="bul sm">
@@ -2985,9 +3037,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </ul>
       </div>
     </div>
-    <div class="callout moss rv" style="--d:7;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout moss rv" style="--d:7;margin-top:auto">
       <span class="k">Reducing error</span>
-      <p style="font-size:21px">a written protocol · crew training and cross-checking · instrument calibration at the start of each day · marking the measurement point · repeat readings at right angles · independent re-measurement of 5–10 % of trees · range checks when data are entered</p>
+      <p style="font-size:calc(21px * var(--tz,1))">a written protocol · crew training and cross-checking · instrument calibration at the start of each day · marking the measurement point · repeat readings at right angles · independent re-measurement of 5–10 % of trees · range checks when data are entered</p>
     </div>
   </div>
   <div class="footrule"></div>
@@ -3030,7 +3082,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="numrow rv" style="--d:6"><div class="badge">5</div><div class="txt-sm">Dropping the geometric mean term √(S₁S₂) from the cone frustum formula</div></div>
       <div class="numrow rv" style="--d:7"><div class="badge">10</div><div class="txt-sm">Quoting a volume to four decimal places when the input was a species mean</div></div>
     </div>
-    <div class="callout rv" style="--d:9;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:9;margin-top:auto">
       <p><strong>Nine of these ten are arithmetic or convention errors, not conceptual ones.</strong> That is where the marks go.</p>
     </div>
   </div>
@@ -3062,42 +3114,42 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
-    <div class="callout moss rv" style="--d:2;margin-bottom:22px">
+    <div class="callout moss rv" style="--d:2;margin-bottom:16px;padding:12px 22px">
       <span class="k">Aim</span>
-      <p style="font-size:21px">To obtain the volume of one felled blue pine by sectional measurement, and to compare it with the volume the <strong>Department&rsquo;s Model 16 merchantable-volume equation</strong> predicts for the same tree from its DBH and height.</p>
+      <p style="font-size:calc(19px * var(--tz,1))">To obtain the volume of one felled blue pine by sectional measurement, and to compare it with the volume the <strong>Department&rsquo;s Model 16 merchantable-volume equation</strong> predicts for the same tree from its DBH and height.</p>
     </div>
-    <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:34px;height:calc(100% - 200px)">
-      <div class="card rv" style="--d:3">
+    <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:34px;flex:1 1 auto;min-height:0">
+      <div class="card rv" style="--d:3;padding:16px 24px">
         <div class="ch v">Part A · felled stem</div>
-        <div class="g2" style="gap:10px 24px">
-          <div class="numrow" style="margin:0"><div class="badge" style="width:30px;height:30px;font-size:16px">1</div><div class="txt-sm" style="font-size:19px">Before felling, measure and record DBH over bark <strong>at the reference height the exercise protocol prescribes</strong>, from the uphill side. Mark the point and write the height on the sheet.</div></div>
-          <div class="numrow" style="margin:0"><div class="badge" style="width:30px;height:30px;font-size:16px">5</div><div class="txt-sm" style="font-size:19px">In each section, measure the mid-diameter over bark, and bark thickness at two points.</div></div>
-          <div class="numrow" style="margin:0"><div class="badge" style="width:30px;height:30px;font-size:16px">2</div><div class="txt-sm" style="font-size:19px">Estimate total height with a clinometer from a measured horizontal distance. Record the distance and both angles.</div></div>
-          <div class="numrow" style="margin:0"><div class="badge" style="width:30px;height:30px;font-size:16px">6</div><div class="txt-sm" style="font-size:19px">Compute each section's volume by Huber's formula, and sum them for the true stem volume.</div></div>
-          <div class="numrow" style="margin:0"><div class="badge" style="width:30px;height:30px;font-size:16px">3</div><div class="txt-sm" style="font-size:19px">After felling, measure total length from the cut face to the tip.</div></div>
-          <div class="numrow" style="margin:0"><div class="badge" style="width:30px;height:30px;font-size:16px">7</div><div class="txt-sm" style="font-size:19px">Compute the same tree by <strong>Model 16</strong>: BA = &pi;d<sup>2</sup>/4 in m<sup>2</sup>, BAH = BA &times; h, then V = &minus;0.00094 + 0.42844&middot;BAH &minus; 0.00164&middot;g(BAH). Also compute V = S&middot;h&middot;f from the published form factor, as a third figure.</div></div>
-          <div class="numrow" style="margin:0"><div class="badge" style="width:30px;height:30px;font-size:16px">4</div><div class="txt-sm" style="font-size:19px">Crosscut, or mark out, sections of 2.0 m from the base.</div></div>
-          <div class="numrow" style="margin:0"><div class="badge" style="width:30px;height:30px;font-size:16px">8</div><div class="txt-sm" style="font-size:19px">Tabulate <strong>absolute</strong> and <strong>percentage</strong> differences against the sectional volume, and explain each &mdash; remembering that Model 16 predicts <strong>merchantable</strong> volume to a 10 cm top, so part of the gap is definition, not error.</div></div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div class="numrow" style="margin:0"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">1</div><div class="txt-sm" style="font-size:calc(17px * var(--tz,1))">Before felling, measure and record DBH over bark <strong>at the reference height the exercise protocol prescribes</strong>, from the uphill side. Mark the point and write the height on the sheet.</div></div>
+          <div class="numrow" style="margin:0"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">2</div><div class="txt-sm" style="font-size:calc(17px * var(--tz,1))">Estimate total height with a clinometer from a measured horizontal distance. Record the distance and both angles.</div></div>
+          <div class="numrow" style="margin:0"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">3</div><div class="txt-sm" style="font-size:calc(17px * var(--tz,1))">After felling, measure total length from the cut face to the tip.</div></div>
+          <div class="numrow" style="margin:0"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">4</div><div class="txt-sm" style="font-size:calc(17px * var(--tz,1))">Crosscut, or mark out, sections of 2.0 m from the base.</div></div>
+          <div class="numrow" style="margin:0"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">5</div><div class="txt-sm" style="font-size:calc(17px * var(--tz,1))">In each section, measure the mid-diameter over bark, and bark thickness at two points.</div></div>
+          <div class="numrow" style="margin:0"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">6</div><div class="txt-sm" style="font-size:calc(17px * var(--tz,1))">Compute each section's volume by Huber's formula, and sum them for the true stem volume.</div></div>
+          <div class="numrow" style="margin:0"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">7</div><div class="txt-sm" style="font-size:calc(17px * var(--tz,1))">Compute the same tree by <strong>Model 16</strong>: BA = &pi;d<sup>2</sup>/4 in m<sup>2</sup>, BAH = BA &times; h, then V = &minus;0.00094 + 0.42844&middot;BAH &minus; 0.00164&middot;g(BAH). Also compute V = S&middot;h&middot;f from the published form factor, as a third figure.</div></div>
+          <div class="numrow" style="margin:0"><div class="badge" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">8</div><div class="txt-sm" style="font-size:calc(17px * var(--tz,1))">Tabulate <strong>absolute</strong> and <strong>percentage</strong> differences against the sectional volume, and explain each &mdash; remembering that Model 16 predicts <strong>merchantable</strong> volume to a 10 cm top, so part of the gap is definition, not error.</div></div>
         </div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;flex-direction:column;gap:12px">
         <div class="card sunk rv" style="--d:5;flex:1">
           <div class="ch v">Part B · standing trees</div>
-          <div class="numrow" style="margin-bottom:9px"><div class="badge moss" style="width:30px;height:30px;font-size:16px">1</div><div class="txt-sm" style="font-size:19px">In a 20 m × 20 m plot, measure DBH on every tree of 10 cm and above.</div></div>
-          <div class="numrow" style="margin-bottom:9px"><div class="badge moss" style="width:30px;height:30px;font-size:16px">2</div><div class="txt-sm" style="font-size:19px">Measure total height on a sample of at least ten trees spanning the diameter range.</div></div>
-          <div class="numrow" style="margin-bottom:9px"><div class="badge moss" style="width:30px;height:30px;font-size:16px">3</div><div class="txt-sm" style="font-size:19px">Fit or sketch a height–diameter curve and read heights for the unmeasured trees.</div></div>
-          <div class="numrow" style="margin-bottom:9px"><div class="badge moss" style="width:30px;height:30px;font-size:16px">4</div><div class="txt-sm" style="font-size:19px">Compute each tree's volume using the species form factor, and total the plot.</div></div>
-          <div class="numrow" style="margin-bottom:0"><div class="badge moss" style="width:30px;height:30px;font-size:16px">5</div><div class="txt-sm" style="font-size:19px">Convert the plot total to a volume per hectare and state your assumptions.</div></div>
+          <div class="numrow" style="margin-bottom:6px"><div class="badge moss" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">1</div><div class="txt-sm" style="font-size:calc(17px * var(--tz,1))">In a 20 m × 20 m plot, measure DBH on every tree of 10 cm and above.</div></div>
+          <div class="numrow" style="margin-bottom:6px"><div class="badge moss" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">2</div><div class="txt-sm" style="font-size:calc(17px * var(--tz,1))">Measure total height on a sample of at least ten trees spanning the diameter range.</div></div>
+          <div class="numrow" style="margin-bottom:6px"><div class="badge moss" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">3</div><div class="txt-sm" style="font-size:calc(17px * var(--tz,1))">Fit or sketch a height–diameter curve and read heights for the unmeasured trees.</div></div>
+          <div class="numrow" style="margin-bottom:6px"><div class="badge moss" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">4</div><div class="txt-sm" style="font-size:calc(17px * var(--tz,1))">Compute each tree's volume using the species form factor, and total the plot.</div></div>
+          <div class="numrow" style="margin-bottom:0"><div class="badge moss" style="width:28px;height:28px;font-size:calc(15px * var(--tz,1))">5</div><div class="txt-sm" style="font-size:calc(17px * var(--tz,1))">Convert the plot total to a volume per hectare and state your assumptions.</div></div>
         </div>
-        <div class="card rv" style="--d:6;padding:20px 24px">
+        <div class="card rv" style="--d:6;padding:14px 20px">
           <div class="label">Report</div>
-          <p class="txt-sm" style="margin-top:8px">Two pages. Method, data sheet, calculations in full, the <strong>three</strong> volume figures, absolute and percentage differences against the sectional volume, and a paragraph separating <strong>definitional</strong> difference from <strong>model</strong> and <strong>measurement</strong> error. State whether your tree lies inside the equation&rsquo;s calibration range.</p>
+          <p class="txt-sm" style="margin-top:6px;font-size:calc(17px * var(--tz,1))">Two pages. Method, data sheet, calculations in full, the <strong>three</strong> volume figures, absolute and percentage differences against the sectional volume, and a paragraph separating <strong>definitional</strong> difference from <strong>model</strong> and <strong>measurement</strong> error. State whether your tree lies inside the equation&rsquo;s calibration range.</p>
         </div>
       </div>
     </div>
-    <div class="callout rv" style="--d:8;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:8;margin-top:auto;padding:12px 22px">
       <span class="k">Safety</span>
-      <p style="font-size:21px">Felling is carried out only by the authorised crew. <strong>Students remain at a minimum of two tree lengths</strong> until the tree is on the ground and the crew signals that it is safe to approach.</p>
+      <p style="font-size:calc(19px * var(--tz,1))">Felling is carried out only by the authorised crew. <strong>Students remain at a minimum of two tree lengths</strong> until the tree is on the ground and the crew signals that it is safe to approach.</p>
     </div>
   </div>
   <div class="pageno">47 / 61</div>
@@ -3187,14 +3239,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
-    <div class="stack sm" style="height:calc(100% - 76px)">
+    <div class="stack sm" style="flex:1 1 auto;min-height:0">
       <div class="q rv" style="--d:2"><div class="badge lg">1</div><div><div class="qt">A tree has DBH <strong>36 cm</strong> and total height <strong>21 m</strong>. Its measured stem volume is <strong>1.02 m<sup>3</sup></strong>.<br>Calculate the artificial form factor and the form height.</div><div class="qm">tests outcomes 3 and 4</div></div></div>
       <div class="q rv" style="--d:3"><div class="badge lg">2</div><div><div class="qt">A <strong>4.5 m</strong> log has a thick-end diameter of <strong>52 cm</strong>, a mid diameter of <strong>45 cm</strong> and a thin-end diameter of <strong>38 cm</strong>.<br>Compute its volume by Smalian's, Huber's and Newton's formulae and comment on the differences.</div><div class="qm">tests outcome 5</div></div></div>
       <div class="q rv" style="--d:4"><div class="badge lg">3</div><div><div class="qt">A log is <strong>5.0 m</strong> long with a mid-girth of <strong>140 cm</strong>.<br>Give its true volume and its quarter-girth volume, and state the percentage shortfall.</div><div class="qm">tests outcome 6</div></div></div>
       <div class="q rv" style="--d:5"><div class="badge lg">4</div><div><div class="qt">A blue pine has DBH <strong>48 cm</strong> and total height <strong>27 m</strong>. Use the published mean form factor for <em>Pinus wallichiana</em>, f = 0.548.<br>Estimate the stem volume in m<sup>3</sup> and in cubic feet.</div><div class="qm">tests outcome 7</div></div></div>
       <div class="q rv" style="--d:6"><div class="badge lg">5</div><div><div class="qt">A community forest holds <strong>260 blue pine</strong> of mean DBH <strong>32 cm</strong> and mean height <strong>20 m</strong> over <strong>12 hectares</strong>.<br>Estimate the growing stock per hectare, and give two reasons why the true figure will differ.</div><div class="qm">tests outcomes 7 and 9</div></div></div>
     </div>
-    <div class="callout rv" style="--d:8;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:8;margin-top:auto">
       <p><strong>Show every step.</strong> An answer without working scores zero, and an answer with working but an arithmetic slip scores most of the marks.</p>
     </div>
   </div>
@@ -3226,52 +3278,52 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
-    <div class="stack sm" style="height:calc(100% - 76px)">
+    <div class="stack sm" style="flex:1 1 auto;min-height:0">
       <div class="q rv" style="--d:2;grid-template-columns:46px 1fr 300px;align-items:center">
         <div class="badge lg">1</div>
-        <div class="mn" style="font-size:18px;color:var(--ink-soft);line-height:1.75">
+        <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--ink-soft);line-height:1.75">
           S = 0.00007854 × 36<sup>2</sup> = 0.00007854 × 1,296 = 0.101788 m<sup>2</sup><br>
           S h = 0.101788 × 21 = 2.137547 m<sup>3</sup><br>
           f = 1.02 / 2.137547 = 0.4772 &nbsp;·&nbsp; F<sub>h</sub> = 0.4772 × 21 = 10.021 m, check V/S = 1.02/0.101788 = 10.021 m
         </div>
-        <div style="font-family:var(--display);font-weight:600;font-size:28px;color:var(--moss);text-align:right">f = 0.477 · F<sub>h</sub> = 10.02 m</div>
+        <div style="font-family:var(--display);font-weight:600;font-size:calc(28px * var(--tz,1));color:var(--moss);text-align:right">f = 0.477 · F<sub>h</sub> = 10.02 m</div>
       </div>
       <div class="q rv" style="--d:3;grid-template-columns:46px 1fr 300px;align-items:center">
         <div class="badge lg">2</div>
-        <div class="mn" style="font-size:18px;color:var(--ink-soft);line-height:1.75">
+        <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--ink-soft);line-height:1.75">
           S₁ = 0.212372 &nbsp; Sₘ = 0.159043 &nbsp; S₂ = 0.113411 m<sup>2</sup><br>
           Smalian = [(0.212372 + 0.113411)/2] × 4.5 = 0.733012 m<sup>3</sup><br>
           Huber = 0.159043 × 4.5 = 0.715694 m<sup>3</sup> &nbsp;·&nbsp; Newton = [(0.212372 + 0.636172 + 0.113411)/6] × 4.5 = 0.721466 m<sup>3</sup>
         </div>
-        <div style="font-family:var(--display);font-weight:600;font-size:25px;color:var(--moss);text-align:right">Smalian +1.60 %<br>Huber −0.80 %<br><span style="font-family:var(--body);font-size:17px;font-weight:400;color:var(--ink-faint)">against Newton</span></div>
+        <div style="font-family:var(--display);font-weight:600;font-size:calc(25px * var(--tz,1));color:var(--moss);text-align:right">Smalian +1.60 %<br>Huber −0.80 %<br><span style="font-family:var(--body);font-size:calc(17px * var(--tz,1));font-weight:400;color:var(--ink-faint)">against Newton</span></div>
       </div>
       <div class="q rv" style="--d:4;grid-template-columns:46px 1fr 300px;align-items:center">
         <div class="badge lg">3</div>
-        <div class="mn" style="font-size:18px;color:var(--ink-soft);line-height:1.75">
+        <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--ink-soft);line-height:1.75">
           g = 1.40 m. &nbsp; TV = 1.40<sup>2</sup> / (4π) × 5.0 = 1.96 / 12.566371 × 5.0 = 0.155974 × 5.0 = 0.779872 m<sup>3</sup><br>
           QGV = (1.40 / 4)<sup>2</sup> × 5.0 = 0.35<sup>2</sup> × 5.0 = 0.1225 × 5.0 = 0.6125 m<sup>3</sup>
         </div>
-        <div style="font-family:var(--display);font-weight:600;font-size:25px;color:var(--moss);text-align:right">TV = 0.7799 m<sup>3</sup><br>QGV = 0.6125 m<sup>3</sup><br><span style="font-family:var(--body);font-size:17px;font-weight:400;color:var(--vermilion)">shortfall 21.5 %</span></div>
+        <div style="font-family:var(--display);font-weight:600;font-size:calc(25px * var(--tz,1));color:var(--moss);text-align:right">TV = 0.7799 m<sup>3</sup><br>QGV = 0.6125 m<sup>3</sup><br><span style="font-family:var(--body);font-size:calc(17px * var(--tz,1));font-weight:400;color:var(--vermilion)">shortfall 21.5 %</span></div>
       </div>
       <div class="q rv" style="--d:5;grid-template-columns:46px 1fr 300px;align-items:center">
         <div class="badge lg">4</div>
-        <div class="mn" style="font-size:18px;color:var(--ink-soft);line-height:1.75">
+        <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--ink-soft);line-height:1.75">
           S = 0.00007854 × 48<sup>2</sup> = 0.00007854 × 2,304 = 0.180956 m<sup>2</sup><br>
           S h = 0.180956 × 27 = 4.885812 m<sup>3</sup><br>
           V = 4.885812 × 0.548 = 2.677425 m<sup>3</sup> &nbsp;·&nbsp; in cubic feet: 2.677425 × 35.3147 = 94.55 cft
         </div>
-        <div style="font-family:var(--display);font-weight:600;font-size:28px;color:var(--moss);text-align:right">V = 2.677 m<sup>3</sup><br>= 94.6 cft</div>
+        <div style="font-family:var(--display);font-weight:600;font-size:calc(28px * var(--tz,1));color:var(--moss);text-align:right">V = 2.677 m<sup>3</sup><br>= 94.6 cft</div>
       </div>
       <div class="q rv" style="--d:6;grid-template-columns:46px 1fr 300px;align-items:center">
         <div class="badge lg">5</div>
-        <div class="mn" style="font-size:18px;color:var(--ink-soft);line-height:1.75">
+        <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--ink-soft);line-height:1.75">
           S = 0.00007854 × 32<sup>2</sup> = 0.080425 m<sup>2</sup>; &nbsp; S h = 1.608493; &nbsp; V per tree = 1.608493 × 0.548 = 0.881454 m<sup>3</sup><br>
           Stand = 260 × 0.881454 = 229.18 m<sup>3</sup> over 12 ha = 19.10 m<sup>3</sup> per ha
         </div>
-        <div style="font-family:var(--display);font-weight:600;font-size:28px;color:var(--moss);text-align:right">≈ 19 m<sup>3</sup> per ha</div>
+        <div style="font-family:var(--display);font-weight:600;font-size:calc(28px * var(--tz,1));color:var(--moss);text-align:right">≈ 19 m<sup>3</sup> per ha</div>
       </div>
     </div>
-    <div class="callout moss rv" style="--d:8;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout moss rv" style="--d:8;margin-top:auto">
       <p>All working carried to six decimal places and rounded once, at the end. Question 3's shortfall is exactly <strong>π/4</strong>, as it must be.</p>
     </div>
   </div>
@@ -3308,7 +3360,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
-    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:38px;height:calc(100% - 160px)">
+    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:38px;flex:1 1 auto;min-height:0">
       <div class="stack">
         <div class="card rv" style="--d:2">
           <div class="ch">Why it had to be built</div>
@@ -3339,21 +3391,21 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
         <div class="card rv" style="--d:7">
           <div class="ch v">g( ) is a restricted cubic spline — it lets the line bend without being told in advance what shape to take</div>
-          <div class="mn" style="font-size:20px;color:var(--ink);margin-top:12px;line-height:1.75">
+          <div class="mn" style="font-size:calc(20px * var(--tz,1));color:var(--ink);margin-top:12px;line-height:1.75">
             g(X) = (X−t<sub>1</sub>)<sup>3</sup><sub>+</sub> − (X−t<sub>2</sub>)<sup>3</sup><sub>+</sub> · (t<sub>3</sub>−t<sub>1</sub>)/(t<sub>3</sub>−t<sub>2</sub>) + (X−t<sub>3</sub>)<sup>3</sup><sub>+</sub> · (t<sub>2</sub>−t<sub>1</sub>)/(t<sub>3</sub>−t<sub>2</sub>)
           </div>
           <p class="txt-sm" style="margin-top:10px">( )<sub>+</sub> means <strong>cube it only if the bracket is positive, otherwise zero</strong>. The knots are the 10th, 50th and 90th percentiles of the predictor. BA = πd<sup>2</sup>/4 in m<sup>2</sup>; BAH = BA × h.</p>
         </div>
         <div class="card sunk rv" style="--d:8">
           <div class="ch v">The range it was fitted over — work inside it</div>
-          <div class="mn" style="font-size:20px;color:var(--ink);margin-top:10px;line-height:1.8">
+          <div class="mn" style="font-size:calc(20px * var(--tz,1));color:var(--ink);margin-top:10px;line-height:1.8">
             DBH 10.0 – 128.0 cm &nbsp;·&nbsp; height 4.6 – 61.3 m &nbsp;·&nbsp; volume 0.018 – 16.714 m<sup>3</sup><br>
             mean tree &nbsp;34.9 cm, &nbsp;18.7 m, &nbsp;1.52 m<sup>3</sup> &nbsp;·&nbsp; n = 249
           </div>
         </div>
       </div>
     </div>
-    <div class="callout rv" style="--d:10;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:10;margin-top:auto">
       <p>A table and an equation are the <strong>same relationship</strong> in two notations, and one rule governs both: work inside the range that was sampled and <strong>never extrapolate beyond it</strong>. The equation is the more honest of the two, because it states its range on the same page. <a href="supplementary/Volume_Equation_Pinus_wallichiana_2018.pdf" target="_blank" rel="noopener">FRMD 2018</a></p>
     </div>
   </div>
@@ -3387,21 +3439,21 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
-  <div class="body">
+  <div class="body srcfoot">
     <p class="lead rv" style="--d:2;margin-bottom:18px">Worked example 1's blue pine: <strong>DBH 40 cm</strong>, <strong>height 22 m</strong>, sectional stem volume <strong>1.35 m<sup>3</sup></strong>, form factor <strong>0.488</strong>.</p>
-    <div class="g3" style="height:calc(100% - 190px)">
+    <div class="g3" style="flex:1 1 auto;min-height:0;align-items:start">
       <div class="card rv" style="--d:3">
         <div class="ch v">1 · Sectional measurement</div>
-        <p class="txt-sm" style="margin-top:12px">Every 2 m section scaled and summed. The reference figure, because nothing in it is estimated.</p>
-        <div class="answer" style="margin-top:20px"><span class="k">Answer</span><span class="v">1.350 m<sup>3</sup></span></div>
-        <p class="txt-sm" style="margin-top:10px;color:var(--ink-faint)">total stem, over bark</p>
+        <p class="txt-sm" style="margin-top:14px;font-size:calc(23px * var(--tz,1));line-height:1.5">Every 2 m section scaled and summed. The reference figure, because nothing in it is estimated.</p>
+        <div class="answer" style="margin-top:26px"><span class="k">Answer</span><span class="v">1.350 m<sup>3</sup></span></div>
+        <p class="txt-sm" style="margin-top:14px;color:var(--ink-faint)">total stem, over bark</p>
       </div>
       <div class="card rv" style="--d:4">
         <div class="ch v">2 · Published mean form factor</div>
         <div class="step"><div class="sl">Basal area</div><div class="sv">π × 0.20<sup>2</sup> = 0.125664 m<sup>2</sup></div></div>
         <div class="step"><div class="sl">V = BA · h · f</div><div class="sv">0.125664 × 22 × <strong>0.548</strong></div></div>
-        <div class="answer" style="margin-top:16px"><span class="k">Answer</span><span class="v">1.515 m<sup>3</sup></span></div>
-        <p class="txt-sm" style="margin-top:10px;color:var(--ink-faint)">total stem, estimated from a species mean</p>
+        <div class="answer" style="margin-top:22px"><span class="k">Answer</span><span class="v">1.515 m<sup>3</sup></span></div>
+        <p class="txt-sm" style="margin-top:14px;color:var(--ink-faint)">total stem, estimated from a species mean</p>
       </div>
       <div class="card rv" style="--d:5">
         <div class="ch v">3 · The Department's Model 16</div>
@@ -3409,15 +3461,15 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <div class="step"><div class="sl">g(BAH)</div><div class="sv">17.0063 − 7.3365 = <span class="hlt">9.6698</span></div></div>
         <div class="step"><div class="sl">V</div><div class="sv">−0.00094 + 0.42844 × 2.7646 − 0.00164 × 9.6698</div></div>
         <div class="answer" style="margin-top:16px"><span class="k">Answer</span><span class="v">1.168 m<sup>3</sup></span></div>
-        <p class="txt-sm" style="margin-top:10px;color:var(--ink-faint)">merchantable, to a 10 cm top</p>
+        <p class="txt-sm" style="margin-top:10px;margin-bottom:14px;color:var(--ink-faint)">merchantable, to a 10 cm top</p>
       </div>
     </div>
-    <div class="callout moss rv" style="--d:7;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout moss rv" style="--d:7;margin-top:auto">
       <span class="k">"Which is the volume of this tree?" is a badly posed question</span>
-      <p style="font-size:21px">1 and 2 estimate <strong>total stem volume over bark</strong>; 3 estimates <strong>merchantable volume to a 10 cm top, branches excluded</strong>. The 0.18 m<sup>3</sup> between them is the top of the stem, which that standard discards — not error. <strong>Before comparing two volume figures, ask what each of them includes.</strong></p>
+      <p style="font-size:calc(21px * var(--tz,1))">1 and 2 estimate <strong>total stem volume over bark</strong>; 3 estimates <strong>merchantable volume to a 10 cm top, branches excluded</strong>. The 0.18 m<sup>3</sup> between them is the top of the stem, which that standard discards — not error. <strong>Before comparing two volume figures, ask what each of them includes.</strong></p>
     </div>
-  </div>
-  <div class="src">Coefficients and knots: FRMD (2018) · form factor: Tenzin, Wangchuk &amp; Hasenauer (2016)</div>
+  <div class="src">Coefficients and knots: FRMD (2018) · form factor: Tenzin, Wangchuk &amp; Hasenauer (2016)</div></div>
+  
   <div class="pageno">52 / 61</div>
 </section>
 <!-- ======================================================================
@@ -3467,11 +3519,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
-  <div class="body">
+  <div class="body srcfoot">
     <p class="txt rv" style="--d:2;margin-bottom:18px">A <em>Pinus wallichiana</em> from the study&rsquo;s own sample: <strong>DBH 54.1 cm</strong>, <strong>height 23.4 m</strong>, and a <strong>field-measured merchantable volume of 2.109 m<sup>3</sup></strong> obtained by sectional measurement. How well does each model reproduce it?</p>
-    <div class="g3 wex11" style="height:calc(100% - 208px)">
+    <div class="g3 wex11" style="flex:1 1 auto;min-height:0">
       <div class="card rv" style="--d:3;padding:24px 26px">
-        <div class="ch v" style="font-size:26px;margin-bottom:8px">Model 16 · height included</div>
+        <div class="ch v" style="font-size:calc(26px * var(--tz,1));margin-bottom:8px">Model 16 · height included</div>
         <div class="step"><div class="sl">BA</div><div class="sv">&pi; &times; 0.541<sup>2</sup>/4 = 0.229871 m<sup>2</sup></div></div>
         <div class="step"><div class="sl">BAH</div><div class="sv">0.229871 &times; 23.4 = 5.37898</div></div>
         <div class="step"><div class="sl">g(BAH)</div><div class="sv">139.474 &minus; 98.984 = 40.489</div></div>
@@ -3480,7 +3532,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <p class="txt-sm" style="margin-top:10px">Error against the felled tree: <strong style="color:var(--vermilion)">+6.1 %</strong></p>
       </div>
       <div class="card rv" style="--d:4;padding:24px 26px">
-        <div class="ch v" style="font-size:26px;margin-bottom:8px">Model 7 · diameter alone</div>
+        <div class="ch v" style="font-size:calc(26px * var(--tz,1));margin-bottom:8px">Model 7 · diameter alone</div>
         <div class="step"><div class="sl">BA</div><div class="sv">0.229871 m<sup>2</sup></div></div>
         <div class="step"><div class="sl">g(BA)</div><div class="sv">0.009244 &minus; 0.005606 = 0.003638</div></div>
         <div class="step"><div class="sl">V</div><div class="sv">&minus;0.0384 + 6.6383(0.229871)<br>+ 390.5079(0.003638)</div></div>
@@ -3489,7 +3541,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <p class="txt-sm" style="margin-top:8px;color:var(--ink-faint)">That gap is what <strong>one height measurement</strong> is worth.</p>
       </div>
       <div class="card moss rv" style="--d:5;padding:24px 26px">
-        <div class="ch" style="font-size:26px;margin-bottom:8px">Discuss, in this order</div>
+        <div class="ch" style="font-size:calc(26px * var(--tz,1));margin-bottom:8px">Discuss, in this order</div>
         <ul class="bul sm">
           <li>Is <strong>6.1 %</strong> acceptable for <strong>one tree</strong> — say, a rural timber allotment?</li>
           <li>Would the same 6.1 % be acceptable for a <strong>stand estimate</strong>?</li>
@@ -3498,12 +3550,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </ul>
       </div>
     </div>
-    <div class="callout rv" style="--d:7;position:absolute;left:0;right:0;bottom:0;padding:14px 22px">
+    <div class="callout rv" style="--d:7;margin-top:auto;padding:14px 22px">
       <span class="k">The answer to the third question governs the second</span>
-      <p style="font-size:20px">If the model is unbiased and this tree merely sits above the line, over- and under-estimates <strong>partly offset</strong> across many trees. If the model runs high for blue pine in this region, every tree is high and <strong>so is the stand total</strong> — summation does not repair a bias. One tree cannot tell you which case you are in.</p>
+      <p style="font-size:calc(20px * var(--tz,1))">If the model is unbiased and this tree merely sits above the line, over- and under-estimates <strong>partly offset</strong> across many trees. If the model runs high for blue pine in this region, every tree is high and <strong>so is the stand total</strong> — summation does not repair a bias. One tree cannot tell you which case you are in.</p>
     </div>
-  </div>
-  <div class="src">FRMD, DoFPS (2018). <em>Merchantable Volume Equation for Pinus wallichiana</em>, section 10 (demonstration of the selected models) and section 11 (model performance) &middot; <a href="supplementary/Volume_Equation_Pinus_wallichiana_2018.pdf" target="_blank" rel="noopener">filed with this module</a></div>
+  <div class="src">FRMD, DoFPS (2018). <em>Merchantable Volume Equation for Pinus wallichiana</em>, section 10 (demonstration of the selected models) and section 11 (model performance) &middot; <a href="supplementary/Volume_Equation_Pinus_wallichiana_2018.pdf" target="_blank" rel="noopener">filed with this module</a></div></div>
+  
   <div class="pageno">53 / 61</div>
 </section>
 
@@ -3541,7 +3593,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
-  <div class="body">
+  <div class="body srcfoot">
     <div class="g2" style="gap:34px;margin-bottom:24px">
       <div class="card rv" style="--d:2">
         <div class="ch v">The model domain — quote it with every figure</div>
@@ -3570,7 +3622,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <p class="txt-sm" style="margin-top:12px">A difference between two of these is <strong>not error</strong>. It is a difference of definition.</p>
         </div>
         <div class="card rv" style="--d:4">
-          <div class="ch v" style="font-size:25px">Potential regional bias</div>
+          <div class="ch v" style="font-size:calc(25px * var(--tz,1))">Potential regional bias</div>
           <p class="txt-sm">Eighty-six per cent of the fitting trees came from the <strong>western valleys</strong>. A blue pine in Bumthang or Trashigang may carry a different form for the same DBH and height. The equation will still return a number, and <strong>nothing in the arithmetic will warn you</strong>.</p>
         </div>
       </div>
@@ -3580,12 +3632,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="card sunk rv" style="--d:6"><div class="label v">Model uncertainty</div><p class="txt-sm" style="margin-top:10px">The equation has its own error, and it <strong>does not shrink</strong> when you measure more trees with it. Only a better model reduces it.</p></div>
       <div class="card sunk rv" style="--d:7"><div class="label v">Measurement uncertainty</div><p class="txt-sm" style="margin-top:10px">Errors in <em>d</em> and <em>h</em> propagate into BAH before the model sees them &mdash; and <em>d</em> enters <strong>squared</strong>.</p></div>
     </div>
-    <div class="callout moss rv" style="--d:9;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout moss rv" style="--d:9;margin-top:auto">
       <span class="k">What aggregation does and does not fix</span>
-      <p style="font-size:21px">Positive and negative <strong>random</strong> errors may partly offset in a sufficiently large sample. <strong>Shared model bias, site effects, species differences, measurement bias and extrapolation error can remain or accumulate.</strong> A stand total is not automatically more accurate than the trees it is built from.</p>
+      <p style="font-size:calc(21px * var(--tz,1))">Positive and negative <strong>random</strong> errors may partly offset in a sufficiently large sample. <strong>Shared model bias, site effects, species differences, measurement bias and extrapolation error can remain or accumulate.</strong> A stand total is not automatically more accurate than the trees it is built from.</p>
     </div>
-  </div>
-  <div class="src">FRMD, DoFPS (2018). <em>Merchantable Volume Equation for Pinus wallichiana</em>, sections 4–6 (data and merchantability standard) and 9–11 &middot; <a href="supplementary/Volume_Equation_Pinus_wallichiana_2018.pdf" target="_blank" rel="noopener">filed with this module</a></div>
+  <div class="src" style="max-width:1100px">FRMD, DoFPS (2018). <em>Merchantable Volume Equation for Pinus wallichiana</em>, sections 4–6 (data and merchantability standard) and 9–11 &middot; <a href="supplementary/Volume_Equation_Pinus_wallichiana_2018.pdf" target="_blank" rel="noopener">filed with this module</a></div></div>
+  
   <div class="pageno">54 / 61</div>
 </section>
 
@@ -3613,20 +3665,20 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
-  <div class="body">
+  <div class="body srcfoot">
     <p class="lead rv" style="--d:2;margin-bottom:24px">Volume is the mensuration variable with the most money, and the most law, attached to it.</p>
     <div class="g4" style="gap:24px;margin-bottom:26px">
-      <div class="card rv" style="--d:3"><div class="ch" style="font-size:24px">Rural timber allotment</div><p class="txt-sm">Household entitlements for house construction are issued as a <strong>volume of logs</strong>. That policy change is exactly why a merchantable-volume equation had to be built.</p></div>
-      <div class="card rv" style="--d:4"><div class="ch" style="font-size:24px">FMU planning</div><p class="txt-sm">The annual allowable cut in a Forest Management Unit working plan is a volume, and it is checked against growing stock and increment.</p></div>
-      <div class="card rv" style="--d:5"><div class="ch" style="font-size:24px">Local volume equations</div><p class="txt-sm">Species equations fitted on Bhutanese trees replace imported tables — and carry their own species, range and merchantability limits.</p></div>
-      <div class="card moss rv" style="--d:6"><div class="ch" style="font-size:24px">Merchantability</div><p class="txt-sm">What counts as usable wood is a <strong>policy definition</strong>, not a property of the tree. Change the top diameter and the volume changes without a single tree changing.</p></div>
+      <div class="card rv" style="--d:3"><div class="ch" style="font-size:calc(24px * var(--tz,1))">Rural timber allotment</div><p class="txt-sm">Household entitlements for house construction are issued as a <strong>volume of logs</strong>. That policy change is exactly why a merchantable-volume equation had to be built.</p></div>
+      <div class="card rv" style="--d:4"><div class="ch" style="font-size:calc(24px * var(--tz,1))">FMU planning</div><p class="txt-sm">The annual allowable cut in a Forest Management Unit working plan is a volume, and it is checked against growing stock and increment.</p></div>
+      <div class="card rv" style="--d:5"><div class="ch" style="font-size:calc(24px * var(--tz,1))">Local volume equations</div><p class="txt-sm">Species equations fitted on Bhutanese trees replace imported tables — and carry their own species, range and merchantability limits.</p></div>
+      <div class="card moss rv" style="--d:6"><div class="ch" style="font-size:calc(24px * var(--tz,1))">Merchantability</div><p class="txt-sm">What counts as usable wood is a <strong>policy definition</strong>, not a property of the tree. Change the top diameter and the volume changes without a single tree changing.</p></div>
     </div>
     <div class="g2" style="gap:32px">
-      <div class="callout moss rv" style="--d:7"><span class="k">Equity in allotment</span><p style="font-size:21px">A biased volume equation is not a technical curiosity. It decides how much timber a household receives and how much royalty the state collects. <strong>Ask who is disadvantaged when the model is wrong high, and who when it is wrong low.</strong></p></div>
-      <div class="callout rv" style="--d:8"><span class="k">The same measurements, other purposes</span><p style="font-size:21px">Stem measurement also feeds <strong>biomass and carbon accounting</strong>, deadwood and habitat-tree assessment, fuelwood and NWFP supply, and the monitoring of forest condition between inventories.</p></div>
+      <div class="callout moss rv" style="--d:7"><span class="k">Equity in allotment</span><p style="font-size:calc(21px * var(--tz,1))">A biased volume equation is not a technical curiosity. It decides how much timber a household receives and how much royalty the state collects. <strong>Ask who is disadvantaged when the model is wrong high, and who when it is wrong low.</strong></p></div>
+      <div class="callout rv" style="--d:8"><span class="k">The same measurements, other purposes</span><p style="font-size:calc(21px * var(--tz,1))">Stem measurement also feeds <strong>biomass and carbon accounting</strong>, deadwood and habitat-tree assessment, fuelwood and NWFP supply, and the monitoring of forest condition between inventories.</p></div>
     </div>
-  </div>
-  <div class="src">National Forest Policy of Bhutan 2011 &middot; Forest and Nature Conservation Act of Bhutan 2023 &middot; FRMD, DoFPS (2018), merchantable-volume equation for <em>Pinus wallichiana</em></div>
+  <div class="src">National Forest Policy of Bhutan 2011 &middot; Forest and Nature Conservation Act of Bhutan 2023 &middot; FRMD, DoFPS (2018), merchantable-volume equation for <em>Pinus wallichiana</em></div></div>
+  
   <div class="pageno">55 / 61</div>
 </section>
 
@@ -3653,8 +3705,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="g3" style="height:100%;align-items:stretch">
       <div class="card rv" style="--d:2">
         <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:14px">
-          <div style="font-family:var(--display);font-weight:600;font-size:49px;color:var(--moss);line-height:1">A</div>
-          <div class="ch" style="margin:0;font-size:27px">Stem form</div>
+          <div style="font-family:var(--display);font-weight:600;font-size:calc(49px * var(--tz,1));color:var(--moss);line-height:1">A</div>
+          <div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Stem form</div>
         </div>
         <ul class="bul sm">
           <li>Form is the rate of taper; taper varies with species, age, site and stand density</li>
@@ -3668,8 +3720,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="card rv" style="--d:4">
         <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:14px">
-          <div style="font-family:var(--display);font-weight:600;font-size:49px;color:var(--moss);line-height:1">B</div>
-          <div class="ch" style="margin:0;font-size:27px">Felled trees and logs</div>
+          <div style="font-family:var(--display);font-weight:600;font-size:calc(49px * var(--tz,1));color:var(--moss);line-height:1">B</div>
+          <div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Felled trees and logs</div>
         </div>
         <ul class="bul sm">
           <li>Every log is a <strong>frustum</strong>, so frustum formulae are what field work uses</li>
@@ -3684,8 +3736,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="card rv" style="--d:6">
         <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:14px">
-          <div style="font-family:var(--display);font-weight:600;font-size:49px;color:var(--moss);line-height:1">C</div>
-          <div class="ch" style="margin:0;font-size:27px">Standing trees and volume tables</div>
+          <div style="font-family:var(--display);font-weight:600;font-size:calc(49px * var(--tz,1));color:var(--moss);line-height:1">C</div>
+          <div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Standing trees and volume tables</div>
         </div>
         <ul class="bul sm">
           <li>Standing volume is estimated ocularly, semi-ocularly, by climbing, or with a dendrometer</li>
@@ -3735,7 +3787,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <div class="numrow rv" style="--d:6"><div class="badge">5</div><div class="txt-sm">Define form height, and show how it can be used to obtain stand volume from stand basal area.</div></div>
       <div class="numrow rv" style="--d:7"><div class="badge moss">10</div><div class="txt-sm">A volume table built in one Dzongkhag is used in another. State three ways this could go wrong.</div></div>
     </div>
-    <div class="callout moss rv" style="--d:9;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout moss rv" style="--d:9;margin-top:auto">
       <p>Questions 1 to 6 are short answer. <strong>Questions 7 to 10 carry the most marks</strong> and require working or a reasoned argument.</p>
     </div>
   </div>
@@ -3765,7 +3817,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit V</div>
   <div class="body">
-    <div class="g2" style="height:calc(100% - 92px);align-items:stretch">
+    <div class="g2" style="flex:1 1 auto;min-height:0;align-items:stretch">
       <div class="card rv" style="--d:2">
         <div class="ch">Bhutanese and regional sources — the ones that govern practice</div>
         <ul class="bul sm">
@@ -3789,7 +3841,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </ul>
       </div>
     </div>
-    <div class="callout rv" style="--d:6;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:6;margin-top:auto">
       <p>Where a Bhutanese convention could not be confirmed, this deck presents the general international convention and labels it as such. <strong>Students must follow the applicable Bhutanese field manual during official inventory work.</strong></p>
     </div>
   </div>
@@ -3818,7 +3870,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">CASE STUDY &middot; UNIT V</div>
-  <div class="body">
+  <div class="body srcfoot">
     <p class="txt rv" style="--d:2;margin-bottom:18px">Tree 24 of the plot &mdash; the largest, and the one a marking officer would look at first. <strong>DBH 57.6 cm, height 27.8 m.</strong></p>
     <div class="g2" style="gap:30px;margin-bottom:20px">
       <div class="card rv" style="--d:3">
@@ -3840,8 +3892,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
     </div>
     <div class="callout moss rv" style="--d:7"><span class="k">Carry this forward</span><p>This one tree holds roughly <strong>3 m<sup>3</sup></strong>. Unit VI does not sum 24 such calculations &mdash; it takes a different route through basal area and crop height &mdash; and the two answers will not be identical. Knowing <em>why</em> is the point of the next step.</p></div>
-  </div>
-  <div class="src">Hypothetical tree, real equation: FRMD, DoFPS (2018), Model 16. The tree lies inside the fitted range of 10&ndash;128 cm DBH.</div>
+  <div class="src">Hypothetical tree, real equation: FRMD, DoFPS (2018), Model 16. The tree lies inside the fitted range of 10&ndash;128 cm DBH.</div></div>
+  
   <div class="pageno">59 / 61</div>
 </section>
 
@@ -3875,8 +3927,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit V</div>
-  <div class="body">
-    <div style="display:grid;grid-template-columns:.78fr .62fr .60fr;gap:26px;height:100%">
+  <div class="body srcfoot">
+    <div style="display:grid;grid-template-columns:.78fr .62fr .60fr;gap:26px;flex:1 1 auto;min-height:0">
       <table class="dt sm rv" style="--d:3;align-self:start">
         <thead><tr><th style="width:74px">Symbol</th><th>Quantity</th><th style="width:96px">Unit</th></tr></thead>
         <tbody>
@@ -3895,36 +3947,36 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </table>
       <div style="display:flex;flex-direction:column;gap:18px;min-height:0">
         <div class="card moss rv" style="--d:4;padding:20px 22px">
-          <div class="ch" style="font-size:24px;margin-bottom:8px">Lower case is one tree.<br>Upper case is the stand.</div>
-          <p class="txt-sm" style="font-size:19px">That one rule resolves most of the confusion in the literature: <strong>g</strong> is the tree in front of you, <strong>G</strong> is the hectare it stands in. Likewise <strong>v</strong> and <strong>V</strong>.</p>
+          <div class="ch" style="font-size:calc(24px * var(--tz,1));margin-bottom:8px">Lower case is one tree.<br>Upper case is the stand.</div>
+          <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">That one rule resolves most of the confusion in the literature: <strong>g</strong> is the tree in front of you, <strong>G</strong> is the hectare it stands in. Likewise <strong>v</strong> and <strong>V</strong>.</p>
         </div>
         <div class="card rv" style="--d:5;padding:20px 22px">
-          <div class="ch v" style="font-size:21px;margin-bottom:8px">Two conversions that follow</div>
-          <div class="mn" style="font-size:20px;color:var(--moss);line-height:1.8">
+          <div class="ch v" style="font-size:calc(21px * var(--tz,1));margin-bottom:8px">Two conversions that follow</div>
+          <div class="mn" style="font-size:calc(20px * var(--tz,1));color:var(--moss);line-height:1.8">
             C = &pi;d &nbsp;&middot;&nbsp; d = C / &pi;<br>
             D<sub>ub</sub> = D<sub>ob</sub> &minus; 2t<br>
             G<sub>ub</sub> = G<sub>ob</sub> &minus; 2&pi;t
           </div>
-          <p class="txt-sm" style="margin-top:8px;font-size:19px">A diameter crosses bark <strong>twice</strong>. Subtract <strong>2t</strong>, never <em>t</em>.</p>
+          <p class="txt-sm" style="margin-top:8px;font-size:calc(19px * var(--tz,1))">A diameter crosses bark <strong>twice</strong>. Subtract <strong>2t</strong>, never <em>t</em>.</p>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:18px;min-height:0">
         <div class="card sunk rv" style="--d:6;padding:18px 22px">
-          <div class="ch v" style="font-size:21px;margin-bottom:8px">Crown terms &mdash; four names</div>
-          <p class="txt-sm" style="font-size:19px"><strong>Crown-base height</strong> ground to the base of the live crown &middot; <strong>crown length</strong> H &minus; crown-base height &middot; <strong>crown midpoint height</strong> ground to the crown midpoint &middot; <strong>live-crown ratio</strong> crown length &divide; H. The bare term <strong>&ldquo;crown height&rdquo; is not used</strong> &mdash; three incompatible meanings.</p>
+          <div class="ch v" style="font-size:calc(21px * var(--tz,1));margin-bottom:8px">Crown terms &mdash; four names</div>
+          <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))"><strong>Crown-base height</strong> ground to the base of the live crown &middot; <strong>crown length</strong> H &minus; crown-base height &middot; <strong>crown midpoint height</strong> ground to the crown midpoint &middot; <strong>live-crown ratio</strong> crown length &divide; H. The bare term <strong>&ldquo;crown height&rdquo; is not used</strong> &mdash; three incompatible meanings.</p>
         </div>
         <div class="card sunk rv" style="--d:7;padding:18px 22px">
-          <div class="ch v" style="font-size:21px;margin-bottom:8px">Spelling fixed for this module</div>
-          <p class="txt-sm" style="font-size:19px"><strong>relascope</strong> &middot; <strong>calliper</strong> &middot; <strong>Smythies&rsquo; hypsometer</strong> &middot; <strong>chir pine</strong> &middot; <strong>breast height</strong> &middot; <strong>over bark</strong> / <strong>under bark</strong> &middot; <strong>merchantable height</strong> &middot; <strong>bole height</strong></p>
+          <div class="ch v" style="font-size:calc(21px * var(--tz,1));margin-bottom:8px">Spelling fixed for this module</div>
+          <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))"><strong>relascope</strong> &middot; <strong>calliper</strong> &middot; <strong>Smythies&rsquo; hypsometer</strong> &middot; <strong>chir pine</strong> &middot; <strong>breast height</strong> &middot; <strong>over bark</strong> / <strong>under bark</strong> &middot; <strong>merchantable height</strong> &middot; <strong>bole height</strong></p>
         </div>
         <div class="callout rv" style="--d:8;padding:16px 20px">
           <span class="k">Not a symbol, but it belongs here</span>
-          <p style="font-size:19px"><strong>DBH reference height is protocol-dependent.</strong> Bhutan&rsquo;s Second NFI used <strong>1.37 m</strong>; many international manuals use <strong>1.30 m</strong>. Follow the applicable protocol and <strong>record the height used</strong>.</p>
+          <p style="font-size:calc(19px * var(--tz,1))"><strong>DBH reference height is protocol-dependent.</strong> Bhutan&rsquo;s Second NFI used <strong>1.37 m</strong>; many international manuals use <strong>1.30 m</strong>. Follow the applicable protocol and <strong>record the height used</strong>.</p>
         </div>
       </div>
     </div>
-  </div>
-  <div class="src">Notation fixed for MEN 201. Where a textbook or a published equation uses different symbols, translate into this table before you calculate.</div>
+  <div class="src">Notation fixed for MEN 201. Where a textbook or a published equation uses different symbols, translate into this table before you calculate.</div></div>
+  
   <div class="pageno">60 / 61</div>
 </section>
 
@@ -3951,11 +4003,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="rv" style="--d:1;margin-top:24px;width:120px;height:1px;background:var(--ink);opacity:.85"></div>
   </div>
   <div style="position:absolute;left:110px;top:290px;width:1030px">
-    <h1 class="rv" style="--d:2;font-size:116px">Measurement of<br><em>Tree Volume</em></h1>
+    <h1 class="rv" style="--d:2;font-size:calc(116px * var(--tz,1))">Measurement of<br><em>Tree Volume</em></h1>
     <div class="g2 rv" style="--d:4;margin-top:64px;max-width:880px;gap:40px">
       <div class="card">
         <div class="label v">Where to find things</div>
-        <div class="mn" style="font-size:21px;color:var(--ink);margin-top:14px;line-height:2">
+        <div class="mn" style="font-size:calc(21px * var(--tz,1));color:var(--ink);margin-top:14px;line-height:2">
           All seven units &middot; the contents page<br>
           Readings &middot; the supplementary folder<br>
           Practical sheets and dates &middot; the VLE
@@ -3963,7 +4015,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="card">
         <div class="label v">Tutor</div>
-        <div class="mn" style="font-size:21px;color:var(--ink);margin-top:14px;line-height:2">
+        <div class="mn" style="font-size:calc(21px * var(--tz,1));color:var(--ink);margin-top:14px;line-height:2">
           Wangdi<br>
           Senior Forestry Officer<br>
           Adjunct Lecturer<br>
@@ -4166,7 +4218,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
 /* Fallback only, for a deck with no HUD to dock into. */
 .tocback.loose{position:fixed;right:clamp(12px,1.6vw,26px);bottom:clamp(58px,6vw,76px);z-index:70;
-  font:500 12px/1 'JetBrains Mono',ui-monospace,monospace;
+  font:500 calc(12px * var(--tz,1))/1 'JetBrains Mono',ui-monospace,monospace;
   background:rgba(10,14,11,.72);border-color:rgba(255,255,255,.14);padding:9px 13px}
 
 body.editing .tocback,body.editing .tocsep{display:none}

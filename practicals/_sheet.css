@@ -8,6 +8,8 @@
 @page { size: A4 portrait; margin: 10mm 11mm; }
 
 :root{
+  /* type zoom - one knob for every size in this document */
+  --tz: 1.06;
   --ink:#141c18; --soft:#41493f; --faint:#6f7a6e;
   --moss:#2f5140; --verm:#c14524;
   --rule:#b9c0b6; --rule-soft:#d8ddd5; --fill:#f1f3ef;
@@ -16,7 +18,7 @@
 *{box-sizing:border-box}
 html{background:#3a3f3a}
 body{margin:0;background:#3a3f3a;color:var(--ink);
-  font:9.5pt/1.28 "Public Sans","Segoe UI",Arial,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  font:calc(9.5pt * var(--tz,1))/1.28 "Public Sans","Segoe UI",Arial,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 
 .sheet{width:210mm;min-height:297mm;margin:14px auto;padding:11mm 11mm;background:#fff;
   box-shadow:0 10px 40px rgba(0,0,0,.45)}
@@ -24,65 +26,69 @@ body{margin:0;background:#3a3f3a;color:var(--ink);
 /* ---- masthead ---------------------------------------------------------- */
 .mast{display:flex;justify-content:space-between;align-items:flex-end;
   border-bottom:2px solid var(--moss);padding-bottom:5px;margin-bottom:9px}
-.mast .who{font:600 8pt/1.3 "JetBrains Mono",Consolas,monospace;letter-spacing:.14em;
+.mast .who{font:600 calc(8pt * var(--tz,1))/1.3 "JetBrains Mono",Consolas,monospace;letter-spacing:.14em;
   text-transform:uppercase;color:var(--verm)}
-.mast h1{margin:2px 0 0;font:700 14pt/1.1 "Public Sans",Arial,sans-serif;letter-spacing:-.01em}
-.mast .unit{font:600 8pt/1.3 "JetBrains Mono",Consolas,monospace;letter-spacing:.12em;
+.mast h1{margin:2px 0 0;font:700 calc(14pt * var(--tz,1))/1.1 "Public Sans",Arial,sans-serif;letter-spacing:-.01em}
+.mast .unit{font:600 calc(8pt * var(--tz,1))/1.3 "JetBrains Mono",Consolas,monospace;letter-spacing:.12em;
   text-transform:uppercase;color:var(--faint);text-align:right}
 
 .aim{background:var(--fill);border-left:3px solid var(--moss);padding:5px 8px;margin-bottom:7px;
-  font-size:8.8pt;line-height:1.3}
+  font-size:calc(8.8pt * var(--tz,1));line-height:1.3}
 .aim b{color:var(--moss)}
 
 /* ---- header field block ------------------------------------------------ */
 .hdr{border:1px solid var(--rule);padding:5px 8px;margin-bottom:7px;
-  font:8.2pt/1.85 "JetBrains Mono",Consolas,monospace}
+  font:calc(8.2pt * var(--tz,1))/1.85 "JetBrains Mono",Consolas,monospace}
 .hdr .u{display:inline-block;border-bottom:1px solid var(--ink);min-width:34mm}
 .hdr .u.s{min-width:20mm}
 .hdr .u.l{min-width:58mm}
 
-h2{margin:6px 0 3px;font:700 9.5pt/1.2 "Public Sans",Arial,sans-serif;
+h2{margin:6px 0 3px;font:700 calc(9.5pt * var(--tz,1))/1.2 "Public Sans",Arial,sans-serif;
   text-transform:uppercase;letter-spacing:.08em;color:var(--moss)}
-h2 span{float:right;font-weight:400;text-transform:none;letter-spacing:0;color:var(--faint);font-size:9pt}
+h2 span{float:right;font-weight:400;text-transform:none;letter-spacing:0;color:var(--faint);font-size:calc(9pt * var(--tz,1))}
 
-ol.steps{margin:0 0 6px;padding-left:15px;font-size:8.8pt}
+ol.steps{margin:0 0 6px;padding-left:15px;font-size:calc(8.8pt * var(--tz,1))}
 ol.steps li{margin-bottom:1px}
-ul.plain{margin:0 0 8px;padding-left:14px;font-size:9.5pt}
+ul.plain{margin:0 0 8px;padding-left:14px;font-size:calc(9.5pt * var(--tz,1))}
 ul.plain li{margin-bottom:2px}
 
 /* ---- tables ------------------------------------------------------------ */
-table{width:100%;border-collapse:collapse;font-size:8.4pt}
-th{background:var(--moss);color:#fff;font-weight:600;font-size:8pt;letter-spacing:.03em;
+table{width:100%;border-collapse:collapse;font-size:calc(8.4pt * var(--tz,1))}
+th{background:var(--moss);color:#fff;font-weight:600;font-size:calc(8pt * var(--tz,1));letter-spacing:.03em;
   padding:4px 3px;border:1px solid var(--moss);text-align:center}
 td{border:1px solid var(--rule);padding:0;height:5.8mm;text-align:center}
-td.lab{background:var(--fill);font-weight:600;text-align:left;padding-left:4px;font-size:8.5pt}
+td.lab{background:var(--fill);font-weight:600;text-align:left;padding-left:4px;font-size:calc(8.5pt * var(--tz,1))}
 tr.tot td{background:var(--fill);font-weight:700;height:5.8mm}
 table.tight td{height:4.9mm}
-table.tally td{height:4.15mm;font-size:7.5pt}
-table.tally td.n{background:var(--fill);font:600 7.5pt "JetBrains Mono",Consolas,monospace;width:7mm}
+table.tally td{height:4.15mm;font-size:calc(7.5pt * var(--tz,1))}
+table.tally td.n{background:var(--fill);font:600 calc(7.5pt * var(--tz,1)) "JetBrains Mono",Consolas,monospace;width:7mm}
 
-.note{font-size:8pt;color:var(--soft);margin:3px 0 6px}
+.note{font-size:calc(8pt * var(--tz,1));color:var(--soft);margin:3px 0 6px}
 .note b{color:var(--verm)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:9px}
 .three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
 
-.qc{border:1px solid var(--verm);background:#fdf4f1;padding:5px 8px;margin-top:7px;font-size:8.2pt;line-height:1.32}
+.qc{border:1px solid var(--verm);background:#fdf4f1;padding:5px 8px;margin-top:7px;font-size:calc(8.2pt * var(--tz,1));line-height:1.32}
 .qc b{color:var(--verm)}
 
 .sign{margin-top:7px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;
-  font:8.4pt/2.0 "JetBrains Mono",Consolas,monospace}
+  font:calc(8.4pt * var(--tz,1))/2.0 "JetBrains Mono",Consolas,monospace}
 .sign .u{display:inline-block;border-bottom:1px solid var(--ink);min-width:28mm}
 
 .foot{margin-top:7px;padding-top:4px;border-top:1px solid var(--rule-soft);
-  font-size:8pt;color:var(--faint);display:flex;justify-content:space-between}
+  font-size:calc(8pt * var(--tz,1));color:var(--faint);display:flex;justify-content:space-between}
 
 .pagebreak{page-break-before:always}
 
 @media print{
+  /* On paper the sheet is read at arm's length, not from the back of a room,
+     and it has to stay on one page with room to write. Print takes the type
+     at the size it was drawn for. */
+  :root{--tz:1}
   html,body{background:#fff}
   .sheet{margin:0;padding:0;width:auto;min-height:0;box-shadow:none}
   .noprint{display:none}
 }
-.noprint{max-width:210mm;margin:14px auto 0;color:#cfd6cd;font-size:9pt;
+.noprint{max-width:210mm;margin:14px auto 0;color:#cfd6cd;font-size:calc(9pt * var(--tz,1));
   font-family:"JetBrains Mono",Consolas,monospace}
 .noprint a{color:#e9b39f}

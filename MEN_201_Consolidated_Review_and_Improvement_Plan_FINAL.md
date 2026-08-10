@@ -1204,11 +1204,11 @@ Add an acknowledgement slide near the beginning or end of the course and include
 **Recommended acknowledgement**
 
 > **Acknowledgement**  
-> The course developer gratefully acknowledges **Laxmi Sagr, Associate Lecturer, College of Natural Resources**, for sharing teaching materials previously used for the same Forest Mensuration course. Selected concepts and materials were reviewed, adapted, expanded, and contextualized for the present MEN 201 course.
+> The course developer gratefully acknowledges **Laxmi Sagar, Associate Lecturer, College of Natural Resources**, for sharing teaching materials previously used for the same Forest Mensuration course. Selected concepts and materials were reviewed, adapted, expanded, and contextualized for the present MEN 201 course.
 
 Where a particular diagram, table, exercise, explanation, or slide is directly adapted from the shared materials, include a specific source note on that slide or in the corresponding lecture-note section, for example:
 
-> *Adapted from teaching materials shared by Laxmi Sagr, Associate Lecturer, College of Natural Resources.*
+> *Adapted from teaching materials shared by Laxmi Sagar, Associate Lecturer, College of Natural Resources.*
 
 Acknowledgement of the overall contribution does **not** replace proper citation of original books, manuals, reports, research papers, photographs, diagrams, equations, tables, or datasets used within the shared teaching materials.
 
@@ -1220,7 +1220,7 @@ Acknowledgement of the overall contribution does **not** replace proper citation
 4. Remove class timers, timetable information, break schedules, and session-duration indicators.
 5. Maintain lecturer-only material separately in speaker notes, lesson plans, or a lecturer guide.
 6. Develop coordinated student-facing lecture notes for Units I–VII.
-7. Add an acknowledgement slide crediting Laxmi Sagr.
+7. Add an acknowledgement slide crediting Laxmi Sagar.
 8. Add specific adaptation notes where individual materials are directly derived from the shared teaching materials.
 9. Retain proper citations to original publications and source materials.
 10. Ensure consistent terminology, notation, units, formulas, and Bhutan-specific procedures across the complete MEN 201 teaching package.
@@ -1277,7 +1277,7 @@ Complete after the third pass: 4 (seven unit notes and the calculation handbook 
 6. Keep lecturer-only instructions in speaker notes, lesson plans, or a separate lecturer guide.
 7. Create field-practical sheets and data sheets.
 8. Develop Excel calculators for Bhutan volume and biomass equations.
-9. Add an acknowledgement slide crediting Laxmi Sagr, Associate Lecturer, College of Natural Resources.
+9. Add an acknowledgement slide crediting Laxmi Sagar, Associate Lecturer, College of Natural Resources.
 10. Add specific adaptation notes where individual teaching materials are directly adapted from the shared materials.
 11. Retain proper citations to original publications, manuals, reports, photographs, diagrams, equations, and datasets.
 12. Retain the complete PDFs as technical references rather than copying their tables onto slides.

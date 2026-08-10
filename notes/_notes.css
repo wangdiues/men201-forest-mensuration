@@ -9,8 +9,13 @@
 @page{ size:A4 portrait; margin:16mm 15mm 14mm; }
 
 :root{
+  /* type zoom - one knob for every size in this document */
+  --tz: 1;
   --paper:#f7f5ef; --card:#fffdf8; --sunk:#eeece3;
-  --ink:#141c18; --soft:#414a42; --faint:#6f7a6e;
+  /* --faint is the lightest ink, but it still carries running text at 13px in
+     the masthead meta, equation units and section footers - so it has to clear
+     4.5:1 on every surface it lands on, --sunk included. */
+  --ink:#141c18; --soft:#414a42; --faint:#5f6b5e;
   --moss:#2f5140; --moss-wash:rgba(47,81,64,.07); --moss-line:rgba(47,81,64,.25);
   --verm:#c14524; --verm-wash:rgba(193,69,36,.075);
   --gold:#a8842c;
@@ -23,40 +28,40 @@
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);
-  font:400 17px/1.62 var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  font:400 calc(17px * var(--tz,1))/1.62 var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 
 /* ---- shell ------------------------------------------------------------- */
-.wrap{max-width:880px;margin:0 auto;padding:0 26px}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
 
-.mast{border-bottom:2px solid var(--moss);padding:34px 0 18px;margin-bottom:8px}
-.mast .kicker{font:500 12px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--verm)}
-.mast h1{margin:14px 0 0;font-family:var(--display);font-weight:600;font-size:44px;line-height:1.08;
+.mast{border-bottom:2px solid var(--moss);padding:24px 0 15px;margin-bottom:8px}
+.mast .kicker{font:500 calc(12px * var(--tz,1))/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--verm)}
+.mast h1{margin:10px 0 0;font-family:var(--display);font-weight:600;font-size:calc(36px * var(--tz,1));line-height:1.12;
   letter-spacing:-.022em}
 .mast h1 em{font-style:italic;font-weight:400;color:var(--moss)}
-.mast .sub{margin:12px 0 0;font-size:18px;color:var(--soft);max-width:640px}
-.mast .meta{margin-top:16px;font:400 13px/1.7 var(--mono);color:var(--faint)}
+.mast .sub{margin:9px 0 0;font-size:calc(17px * var(--tz,1));line-height:1.58;color:var(--soft);max-width:680px}
+.mast .meta{margin-top:12px;font:400 calc(13px * var(--tz,1))/1.6 var(--mono);color:var(--faint)}
 .mast .meta a{color:var(--moss)}
 
 /* ---- contents ---------------------------------------------------------- */
-.toc{background:var(--sunk);border-left:3px solid var(--moss);padding:18px 22px;margin:26px 0 34px}
-.toc h2{margin:0 0 10px;font:500 12px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--moss)}
-.toc ol{margin:0;padding-left:20px;columns:2;column-gap:30px;font-size:15.5px}
+.toc{background:var(--sunk);border-left:3px solid var(--moss);padding:14px 18px;margin:22px 0 26px}
+.toc h2{margin:0 0 10px;font:500 calc(12px * var(--tz,1))/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--moss)}
+.toc ol{margin:0;padding-left:20px;columns:2;column-gap:30px;font-size:calc(15.5px * var(--tz,1))}
 .toc li{margin-bottom:5px;break-inside:avoid}
 .toc a{color:var(--soft);text-decoration:none;border-bottom:1px solid transparent}
 .toc a:hover{color:var(--verm);border-bottom-color:var(--verm)}
 
 /* ---- headings ---------------------------------------------------------- */
-h2.sec{margin:44px 0 4px;padding-top:16px;border-top:1px solid var(--rule);
-  font-family:var(--display);font-weight:600;font-size:29px;line-height:1.2;letter-spacing:-.015em}
-h2.sec .n{display:block;font:500 12px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
+h2.sec{margin:34px 0 5px;padding-top:12px;border-top:1px solid var(--rule);
+  font-family:var(--display);font-weight:600;font-size:calc(27px * var(--tz,1));line-height:1.22;letter-spacing:-.015em}
+h2.sec .n{display:block;font:500 calc(12px * var(--tz,1))/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
   color:var(--verm);margin-bottom:9px}
-h3{margin:28px 0 6px;font-family:var(--display);font-weight:600;font-size:21px;line-height:1.25}
-h4{margin:20px 0 4px;font:600 16px/1.35 var(--body);color:var(--moss)}
-p{margin:0 0 13px}
-p.lead{font-size:19px;line-height:1.55;color:var(--soft)}
+h3{margin:22px 0 6px;font-family:var(--display);font-weight:600;font-size:calc(20px * var(--tz,1));line-height:1.28}
+h4{margin:20px 0 4px;font:600 calc(16px * var(--tz,1))/1.35 var(--body);color:var(--moss)}
+p{margin:0 0 11px}
+p.lead{font-size:calc(17px * var(--tz,1));line-height:1.62;color:var(--soft)}
 
-ul,ol{margin:0 0 14px;padding-left:22px}
-li{margin-bottom:6px}
+ul,ol{margin:0 0 13px;padding-left:22px}
+li{margin-bottom:5px}
 li::marker{color:var(--verm)}
 ol li::marker{color:var(--moss);font-weight:600}
 strong{font-weight:600}
@@ -65,44 +70,44 @@ a{color:var(--moss)}
 
 /* ---- blocks ------------------------------------------------------------ */
 .def{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--moss);
-  padding:14px 18px;margin:16px 0;border-radius:0 3px 3px 0}
+  padding:12px 16px;margin:15px 0;border-radius:0 3px 3px 0}
 .def dt{font-weight:600;color:var(--moss)}
 .def dd{margin:0 0 10px;color:var(--soft)}
 .def dd:last-child{margin-bottom:0}
 
-.note{background:var(--verm-wash);border-left:3px solid var(--verm);padding:13px 18px;margin:18px 0;
+.note{background:var(--verm-wash);border-left:3px solid var(--verm);padding:12px 16px;margin:16px 0;
   border-radius:0 3px 3px 0}
-.note .k{display:block;font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;
+.note .k{display:block;font:500 calc(11px * var(--tz,1))/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;
   color:var(--verm);margin-bottom:7px}
 .note p:last-child{margin-bottom:0}
 
-.bhutan{background:var(--moss-wash);border-left:3px solid var(--moss);padding:13px 18px;margin:18px 0;
+.bhutan{background:var(--moss-wash);border-left:3px solid var(--moss);padding:12px 16px;margin:16px 0;
   border-radius:0 3px 3px 0}
-.bhutan .k{display:block;font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;
+.bhutan .k{display:block;font:500 calc(11px * var(--tz,1))/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;
   color:var(--moss);margin-bottom:7px}
 .bhutan p:last-child{margin-bottom:0}
 
 .eq{background:var(--card);border:1px solid var(--moss-line);border-radius:3px;
-  padding:14px 18px;margin:16px 0;text-align:center;
-  font-family:var(--display);font-weight:500;font-size:23px;color:var(--moss)}
-.eq .u{display:block;margin-top:8px;font:400 13.5px/1.45 var(--body);color:var(--faint)}
-.eq.sm{font-size:19px}
+  padding:13px 16px;margin:15px 0;text-align:center;overflow-wrap:anywhere;
+  font-family:var(--display);font-weight:500;font-size:calc(22px * var(--tz,1));line-height:1.35;color:var(--moss)}
+.eq .u{display:block;margin-top:8px;font:400 calc(13.5px * var(--tz,1))/1.45 var(--body);color:var(--faint)}
+.eq.sm{font-size:calc(19px * var(--tz,1))}
 
-.worked{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:16px 20px;margin:20px 0}
-.worked .h{font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--verm);
+.worked{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:14px 18px;margin:18px 0}
+.worked .h{font:500 calc(11px * var(--tz,1))/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--verm);
   margin-bottom:10px}
 .worked table{margin:0}
 .worked .ans{margin-top:12px;background:var(--moss);color:#fff;border-radius:3px;padding:9px 14px;
-  font-family:var(--display);font-weight:600;font-size:19px}
+  font-family:var(--display);font-weight:600;font-size:calc(19px * var(--tz,1))}
 
-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px;background:var(--card)}
-th{background:var(--moss);color:#fff;text-align:left;padding:8px 10px;font:600 13.5px/1.3 var(--body)}
-td{padding:7px 10px;border-top:1px solid var(--rule-soft);vertical-align:top}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:calc(15px * var(--tz,1));line-height:1.45;background:var(--card)}
+th{background:var(--moss);color:#fff;text-align:left;padding:7px 8px;font:600 calc(14px * var(--tz,1))/1.35 var(--body)}
+td{padding:6px 8px;border-top:1px solid var(--rule-soft);vertical-align:top}
 tbody tr:nth-child(even){background:rgba(20,28,24,.02)}
-td.n,th.n{text-align:right;font-family:var(--mono);font-size:14px}
+td.n,th.n{text-align:right;font-family:var(--mono);font-size:calc(14px * var(--tz,1))}
 td.rh{font-weight:600}
-table.sm{font-size:13.5px}
-table.sm th{font-size:12.5px;padding:6px 8px}
+table.sm{font-size:calc(14px * var(--tz,1))}
+table.sm th{font-size:calc(13.5px * var(--tz,1));padding:6px 8px}
 table.sm td{padding:5px 8px}
 
 code,.m{font-family:var(--mono);font-size:.92em;background:rgba(47,81,64,.07);padding:1px 5px;border-radius:2px}
@@ -111,32 +116,55 @@ code,.m{font-family:var(--mono);font-size:.92em;background:rgba(47,81,64,.07);pa
 .qs{counter-reset:q}
 .qs li{margin-bottom:10px}
 
-.foot{margin:56px 0 0;padding:16px 0 40px;border-top:2px solid var(--moss);
-  font:400 13px/1.65 var(--mono);color:var(--faint);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot{margin:46px 0 0;padding:14px 0 32px;border-top:2px solid var(--moss);
+  font:400 calc(13px * var(--tz,1))/1.65 var(--mono);color:var(--faint);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .foot a{color:var(--moss)}
 
-.pill{display:inline-block;font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+.pill{display:inline-block;font:500 calc(11px * var(--tz,1))/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
   color:var(--moss);border:1px solid var(--moss-line);background:var(--moss-wash);
   padding:5px 9px;border-radius:2px;margin:0 5px 5px 0}
 
-.scroll{overflow-x:auto}
+.scroll{max-width:100%;margin:15px 0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.scroll > table{min-width:620px;margin:0}
+
+/* Compact source lists without making normal study text smaller. */
+h2#refs + ul{font-size:calc(13.5px * var(--tz,1));line-height:1.58;color:var(--soft)}
+h2#refs + ul li{margin-bottom:6px}
+
+/* The handbook remains compact, while mathematical notation keeps its size. */
+.handbook-page .worked{padding:13px 16px;margin:16px 0}
+.handbook-page .worked .ans{font-size:calc(18px * var(--tz,1))}
+.handbook-page table{margin:13px 0}
 
 @media (max-width:620px){
-  body{font-size:16px}
-  .mast h1{font-size:32px}
-  h2.sec{font-size:24px}
+  body{font-size:calc(16px * var(--tz,1))}
+  .mast h1{font-size:calc(30px * var(--tz,1))}
+  .mast .sub{font-size:calc(16px * var(--tz,1))}
+  h2.sec{font-size:calc(24px * var(--tz,1))}
+  h3{font-size:calc(19px * var(--tz,1))}
+  .wrap{padding:0 18px}
+  .mast{padding-top:20px}
+  .toc{padding:15px 16px}
   .toc ol{columns:1}
-  .eq{font-size:19px}
+  .eq{font-size:calc(19px * var(--tz,1))}
+  .worked{padding:12px 14px}
 }
 
 @media print{
-  body{background:#fff;font-size:10.5pt;line-height:1.45}
+  body{background:#fff;font-size:calc(10.5pt * var(--tz,1));line-height:1.45}
   .wrap{max-width:none;padding:0}
   .noprint{display:none}
-  .mast h1{font-size:24pt}
-  h2.sec{font-size:15pt;page-break-after:avoid;margin-top:20pt}
+  .mast h1{font-size:calc(24pt * var(--tz,1))}
+  h2.sec{font-size:calc(15pt * var(--tz,1));page-break-after:avoid;margin-top:20pt}
   h3,h4{page-break-after:avoid}
-  .worked,.def,.note,.bhutan,.eq,table{page-break-inside:avoid}
+  p,li{orphans:3;widows:3}
+  .worked,.note,.bhutan,.eq,table{page-break-inside:avoid}
+  .def{page-break-inside:auto}
+  .scroll{overflow:visible}
+  .scroll > table{min-width:0}
+  .foot{margin-top:12pt;padding:8pt 0 0;font-size:8.5pt;line-height:1.35;
+    gap:8pt;flex-wrap:nowrap;page-break-inside:avoid}
+  .notes-index .foot{display:none}
   a{color:inherit;text-decoration:none}
   .toc{page-break-after:always}
 }

@@ -143,6 +143,7 @@ Google Fonts stylesheet. Open `index.html` and pick a unit, or open a unit file 
 | <kbd>Esc</kbd> <kbd>C</kbd> | Leave the deck and return to the contents page |
 | <kbd>E</kbd> | Edit slide text in place — <kbd>Ctrl</kbd>+<kbd>S</kbd> saves, <kbd>Esc</kbd> leaves edit mode |
 | <kbd>O</kbd> <kbd>?</kbd> | Slide index, keyboard shortcuts — Unit II only |
+| <kbd>+</kbd> <kbd>−</kbd> <kbd>0</kbd> | Larger text, smaller text, back to the standard size |
 
 No deck carries a class timer or a timetable. Class hours, practical dates and room allocation
 live on the VLE, where they can be changed without editing a slide.
@@ -157,6 +158,25 @@ deck looks the same on a laptop as on the projector. Press <kbd>F11</kbd> for fu
 only — the file is unchanged and no one else sees them. To publish a correction, edit the HTML
 and push.
 
+## Text size
+
+Every type size in the module — decks, notes, handbook, field sheets — is written as a multiple
+of one token, `--tz`, declared in the `:root` block of each document. The decks ship at 1.12,
+the notes and the contents page a little lower, the printed field sheets lower again, and print
+takes the field sheets at their drawn size so they stay on one page.
+
+<kbd>+</kbd> and <kbd>−</kbd> move the whole package up or down in five per cent steps. The
+setting is remembered per browser and carries from one document to the next, so a lecturer sets
+it once for a room rather than per file.
+
+A deck cannot simply grow: the stage is a fixed 1920 × 1080 canvas, so larger type has to come
+out of the layout's own space. `assets/men201-type-zoom.js` therefore measures each slide and
+steps `--tz` back down on any slide that would end up clipped — about one slide in seven, a few
+of them all the way back to their drawn size. No slide is ever made tighter than it was written.
+`node tools/check-fit.mjs` re-runs that check over every slide of every deck in a headless
+browser; `node tools/type-scale.mjs` re-applies the rewrite after new sizes are hand-written
+into a file.
+
 ## Editing
 
 Everything is hand-written HTML and CSS in one file per unit. The design tokens live in the
@@ -168,7 +188,7 @@ means updating the matching `href`.
 
 ## Acknowledgement
 
-The course developer gratefully acknowledges **Laxmi Sagr, Associate Lecturer, College of Natural
+The course developer gratefully acknowledges **Laxmi Sagar, Associate Lecturer, College of Natural
 Resources**, for sharing teaching materials previously used for the same Forest Mensuration course.
 Selected concepts and materials were reviewed, adapted, expanded and contextualized for the present
 MEN 201 course.

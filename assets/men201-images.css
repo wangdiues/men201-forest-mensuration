@@ -1,0 +1,170 @@
+.men-divider-photo {
+  right: 0 !important;
+  top: 0 !important;
+  width: 48% !important;
+  height: 100% !important;
+  transform: none !important;
+  opacity: 1 !important;
+  overflow: hidden;
+  background: #1f382d;
+}
+.men-divider-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #2f5140 0%, rgba(47,81,64,.82) 18%, rgba(47,81,64,.16) 68%, rgba(20,28,24,.18) 100%);
+  pointer-events: none;
+}
+.men-divider-photo > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: saturate(.82) contrast(1.04) brightness(.86);
+}
+.men-photo,
+.men-content-photo {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  background: #dfe9df;
+  border: 1px solid rgba(47,81,64,.22);
+}
+.men-photo > img,
+.men-content-photo > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.men-photo-credit {
+  position: absolute;
+  z-index: 3;
+  right: 8px;
+  bottom: 7px;
+  max-width: calc(100% - 16px);
+  padding: 4px 7px;
+  border-radius: 3px;
+  background: rgba(20,28,24,.82);
+  color: #fff;
+  font: 500 10px/1.25 "JetBrains Mono", monospace;
+  letter-spacing: .01em;
+  text-align: right;
+}
+.men-photo-credit a { color: inherit; text-decoration: none; }
+.men-divider-photo .men-photo-credit {
+  top: 22px;
+  right: 22px;
+  bottom: auto;
+  max-width: 78%;
+  font-size: 8px;
+}
+.men-firewood-photo { width: 100%; height: 100%; min-height: 560px; }
+.men-firewood-photo > img { object-position: center; }
+.men-firewood-photo figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 12px 14px 36px;
+  background: linear-gradient(transparent, rgba(20,28,24,.9));
+  color: #fff;
+  font: 500 14px/1.25 "Public Sans", sans-serif;
+}
+.men-rings-photo { width: 100%; height: 100%; min-height: 430px; }
+.men-rings-photo > img { object-fit: cover; }
+.men-hemi-photo { width: 100%; height: 100%; min-height: 0; background:#101511; }
+.men-hemi-photo > img { object-fit: contain; }
+.men-hemi-threshold > img { filter: grayscale(1) contrast(7); }
+.men-uav-photo { width: 100%; height: 160px; margin: 8px 0 12px; }
+.men-uav-photo > img { object-fit: cover; }
+.men-uav-photo.contain > img { object-fit: contain; background:#eef0e7; }
+
+@media print {
+  .men-photo-credit { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* === COVER PLATE PHOTOGRAPH ===============================================
+   A cover's plate is the full-height column on the right of the title. Where a
+   real photograph replaces the drawn plate, it fills that column and carries a
+   scrim so the credit stays legible over any part of the frame. The gradient
+   runs from the paper edge inwards, so the photograph meets the title column
+   without a hard seam. */
+.men-plate-photo {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #1f382d;
+}
+.men-plate-photo > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(.88) contrast(1.03);
+}
+.men-plate-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(242,239,230,.96) 0%, rgba(242,239,230,.38) 12%, rgba(242,239,230,0) 30%),
+    linear-gradient(0deg, rgba(20,28,24,.88) 0%, rgba(20,28,24,.72) 12%, rgba(20,28,24,0) 42%);
+}
+/* The deck HUD floats over the bottom-right of the stage, which is exactly
+   where a cover plate sits. The caption clears it rather than hiding under it. */
+.men-plate-photo figcaption {
+  position: absolute;
+  z-index: 3;
+  left: 34px;
+  right: 34px;
+  bottom: 104px;
+  color: #fff;
+  font: 400 calc(16px * var(--tz, 1))/1.5 "Public Sans", sans-serif;
+  text-shadow: 0 1px 4px rgba(20, 28, 24, .85);
+}
+.men-plate-photo figcaption .cred {
+  display: block;
+  margin-top: 7px;
+  font: 400 calc(13px * var(--tz, 1))/1.4 "JetBrains Mono", monospace;
+  letter-spacing: .02em;
+  color: #d6ded6;
+}
+
+/* === IN-BODY PHOTOGRAPH ===================================================
+   A photograph used as one cell of a slide's grid. It takes the height the row
+   gives it rather than a height of its own, so the row stays level with the
+   cards beside it and the crop - never the aspect ratio - absorbs the
+   difference. */
+.men-body-photo {
+  position: relative;
+  align-self: stretch;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(47, 81, 64, .22);
+  border-radius: 3px;
+  background: #dfe9df;
+}
+.men-body-photo > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.men-body-photo figcaption {
+  position: absolute;
+  z-index: 3;
+  inset: auto 0 0;
+  padding: 14px 18px 16px;
+  background: linear-gradient(transparent, rgba(20, 28, 24, .88) 42%);
+  color: #fff;
+  font: 400 calc(18px * var(--tz, 1))/1.4 "Public Sans", sans-serif;
+}
+.men-body-photo .men-photo-credit {
+  right: 10px;
+  bottom: auto;
+  top: 10px;
+  font-size: calc(11px * var(--tz, 1));
+}
+.men-body-photo.has-caption .men-photo-credit { top: 10px; bottom: auto; }

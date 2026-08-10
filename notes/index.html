@@ -10,21 +10,27 @@
 <link rel="stylesheet" href="_notes.css">
 <style>
 .units{list-style:none;margin:0;padding:0}
-.units li{margin:0 0 14px}
+.units li{margin:0 0 10px}
 .units a.card{display:block;background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--moss);
-  border-radius:0 3px 3px 0;padding:16px 20px;text-decoration:none;color:inherit;
+  border-radius:0 3px 3px 0;padding:12px 16px;text-decoration:none;color:inherit;
   transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease}
 .units a.card:hover{border-left-color:var(--verm);box-shadow:0 6px 18px rgba(20,28,24,.07);transform:translateY(-1px)}
-.units .no{font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--verm)}
-.units .ti{margin:8px 0 4px;font-family:var(--display);font-weight:600;font-size:22px;line-height:1.2}
-.units .de{margin:0;font-size:15.5px;color:var(--soft)}
-.units .se{float:right;font:500 11px/1 var(--mono);letter-spacing:.14em;color:var(--faint)}
+.units .no{font:500 calc(11px * var(--tz,1))/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--verm)}
+.units .ti{margin:6px 0 3px;font-family:var(--display);font-weight:600;font-size:calc(20px * var(--tz,1));line-height:1.26}
+.units .de{margin:0;font-size:calc(15px * var(--tz,1));line-height:1.55;color:var(--soft)}
+.units .se{float:right;font:500 calc(11px * var(--tz,1))/1 var(--mono);letter-spacing:.14em;color:var(--faint)}
 .hand a.card{border-left-color:var(--verm)}
 .hand a.card:hover{border-left-color:var(--moss)}
+@media (max-width:620px){
+  .units a.card{padding:13px 14px}
+  .units .ti{font-size:calc(19px * var(--tz,1))}
+  .units .se{float:none;display:block;margin-bottom:7px}
+}
 @media print{.units a.card{border:1px solid #ccc}}
 </style>
+<script src="../assets/men201-type-zoom.js" defer></script>
 </head>
-<body>
+<body class="notes-index">
 <div class="wrap">
 
 <header class="mast">
@@ -122,7 +128,7 @@ guidance, practice questions, a summary, and references.</p>
 
 <div class="bhutan">
   <span class="k">Acknowledgement</span>
-  <p>The course developer gratefully acknowledges <strong>Laxmi Sagr, Associate Lecturer, College of Natural
+  <p>The course developer gratefully acknowledges <strong>Laxmi Sagar, Associate Lecturer, College of Natural
     Resources</strong>, for sharing teaching materials previously used for the same Forest Mensuration course.
     Selected concepts and materials were reviewed, adapted, expanded and contextualized for the present
     MEN 201 course. Acknowledgement of the overall contribution does not replace proper citation of the

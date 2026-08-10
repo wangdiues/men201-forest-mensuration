@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MEN 201 · Forest Mensuration — Teaching decks</title>
-<meta name="description" content="MEN 201 Forest Mensuration: the full module descriptor plus seven teaching decks covering the discipline, diameter and girth, crown closure, tree height, tree volume, measurement of the crop, and age and growth, with student lecture notes, a calculation handbook, Excel calculators, printable field sheets and six supplementary readings including both volumes of the Second National Forest Inventory. BSc in Forestry, College of Natural Resources, Royal University of Bhutan.">
+<meta name="description" content="MEN 201 Forest Mensuration: the module descriptor, seven core teaching decks and four supplementary modules covering inventory, digital data, biomass and carbon, and remote technologies, with notes, calculators, field sheets and Bhutan forestry readings. BSc Forestry, College of Natural Resources, Royal University of Bhutan.">
 <meta name="author" content="Wangdi — Senior Forestry Officer, Forest Resources Planning and Management Division; Adjunct Lecturer">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f2efe6'/%3E%3Crect x='13' y='3' width='6' height='26' fill='none' stroke='%232f5140' stroke-width='1.6'/%3E%3Cpath d='M13 8h6M13 13h6M13 18h6M13 23h6' stroke='%232f5140' stroke-width='1.6'/%3E%3Cpath d='M5 16h7' stroke='%23c14524' stroke-width='2'/%3E%3C/svg%3E">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="MEN 201 · Forest Mensuration">
-<meta property="og:description" content="Seven teaching decks and the module descriptor — 412 slides — plus student lecture notes, a calculation handbook, two Excel calculators and three printable field sheets, for BSc Forestry at the College of Natural Resources, Royal University of Bhutan.">
+<meta property="og:description" content="Eleven teaching decks and the module descriptor — 522 slides — plus student notes, a calculation handbook, calculators, field sheets and Bhutan forestry readings for BSc Forestry at the College of Natural Resources, Royal University of Bhutan.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
 <style>
 /* ==========================================================================
    MEN 201 · FOREST MENSURATION — CONTENTS
-   The front matter of the field notebook the seven decks are pages of.
+   The front matter of the field notebook the eleven decks are pages of.
    Same tokens, same three faces, same two accents as every unit deck, so
    the site reads as one continuous document.
 
@@ -32,6 +32,8 @@
 
 /* === TOKENS (inherited from the decks) === */
 :root{
+  /* type zoom - one knob for every size in this document */
+  --tz: 1.10;
   --paper:      #f2efe6;
   --paper-card: #faf9f4;
   --paper-sunk: #e9e5d9;
@@ -65,7 +67,7 @@
 html{scroll-behavior:smooth}
 body{
   margin:0;background:var(--paper);color:var(--ink);
-  font-family:var(--body);font-size:17px;line-height:1.6;
+  font-family:var(--body);font-size:calc(17px * var(--tz,1));line-height:1.6;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
   /* graph-paper substrate, identical geometry to the deck slides */
   background-image:
@@ -84,7 +86,7 @@ a{color:inherit}
 
 /* Skip link — the register is long and keyboard-driven. */
 .skip{position:absolute;left:-9999px;top:0;z-index:99;
-  font:500 13px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  font:500 calc(13px * var(--tz,1))/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
   background:var(--ink);color:var(--paper);padding:14px 18px;text-decoration:none}
 .skip:focus{left:var(--gut);top:14px}
 
@@ -93,7 +95,7 @@ a{color:inherit}
   backdrop-filter:blur(6px);position:sticky;top:0;z-index:20}
 .runhead .wrap{display:flex;align-items:baseline;justify-content:space-between;
   gap:16px;padding-top:14px;padding-bottom:13px;
-  font:500 12px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
+  font:500 calc(12px * var(--tz,1))/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
   color:var(--ink-faint)}
 .runhead b{color:var(--moss);font-weight:700}
 .runhead .r{text-align:right;letter-spacing:.16em}
@@ -119,11 +121,11 @@ h1 em{font-style:italic;font-weight:300;color:var(--moss)}
   gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 .tally div{flex:1 1 150px;padding:18px 0 16px;border-right:1px solid var(--rule-soft)}
 .tally div:last-child{border-right:0}
-.tally dt{font:500 11px/1 var(--mono);letter-spacing:.20em;text-transform:uppercase;
+.tally dt{font:500 calc(11px * var(--tz,1))/1 var(--mono);letter-spacing:.20em;text-transform:uppercase;
   color:var(--ink-faint);margin:0}
 .tally dd{margin:9px 0 0;font-family:var(--display);font-weight:500;
   font-size:clamp(24px,2.6vw,33px);line-height:1;letter-spacing:-.02em;color:var(--moss)}
-.tally dd small{font-family:var(--body);font-size:14px;font-weight:400;
+.tally dd small{font-family:var(--body);font-size:calc(14px * var(--tz,1));font-weight:400;
   letter-spacing:0;color:var(--ink-faint)}
 .tally dd a{text-decoration:none;border-bottom:1px solid var(--moss-line)}
 .tally dd a:hover{color:var(--vermilion);border-bottom-color:var(--vermilion)}
@@ -135,7 +137,7 @@ h1 em{font-style:italic;font-weight:300;color:var(--moss)}
   margin-left:calc(var(--staff-w) + 34px)}
 .register-head h2{margin:0;font-family:var(--display);font-weight:600;
   font-size:clamp(19px,2vw,24px);letter-spacing:-.01em;color:var(--ink)}
-.register-head span{font:500 11px/1 var(--mono);letter-spacing:.20em;
+.register-head span{font:500 calc(11px * var(--tz,1))/1 var(--mono);letter-spacing:.20em;
   text-transform:uppercase;color:var(--ink-faint)}
 
 .reg-body{position:relative;display:grid;
@@ -162,7 +164,7 @@ h1 em{font-style:italic;font-weight:300;color:var(--moss)}
 .index::after{content:"";position:absolute;right:0;top:-6px;
   border:6px solid transparent;border-right-color:var(--vermilion);border-left:0}
 .index i{position:absolute;left:calc(var(--staff-w) + 2px);top:-30px;
-  font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--vermilion);font-style:normal}
+  font:700 calc(11px * var(--tz,1))/1 var(--mono);letter-spacing:.14em;color:var(--vermilion);font-style:normal}
 
 /* --- unit rows ---------------------------------------------------------- */
 .units{list-style:none;margin:0;padding:0}
@@ -188,7 +190,7 @@ h1 em{font-style:italic;font-weight:300;color:var(--moss)}
 .u-link::after{content:"";position:absolute;inset:0;z-index:1}
 .u-over{position:relative;z-index:2}
 
-.u-no{font:700 12px/1 var(--mono);letter-spacing:.22em;color:var(--vermilion);
+.u-no{font:700 calc(12px * var(--tz,1))/1 var(--mono);letter-spacing:.22em;color:var(--vermilion);
   text-transform:uppercase}
 .u-no .sess{color:var(--ink-faint);font-weight:400;letter-spacing:.14em;margin-left:14px}
 
@@ -207,16 +209,16 @@ h1 em{font-style:italic;font-weight:300;color:var(--moss)}
    It mirrors the left column line for line — the extent sits on the eyebrow
    line, the quantity on the title line — so the register reads across. */
 .u-meta{border-left:1px solid var(--rule-soft);padding-left:clamp(16px,2vw,28px)}
-.u-count{margin:0;font:500 11px/1 var(--mono);letter-spacing:.20em;
+.u-count{margin:0;font:500 calc(11px * var(--tz,1))/1 var(--mono);letter-spacing:.20em;
   text-transform:uppercase;color:var(--ink-faint)}
 .u-si{margin:13px 0 0;font-family:var(--display);font-weight:500;
   font-size:clamp(21px,2.1vw,27px);line-height:1.14;letter-spacing:-.015em;color:var(--moss)}
-.u-unit{margin:7px 0 0;font:400 13px/1.4 var(--mono);letter-spacing:.10em;color:var(--ink-faint)}
-.u-tutor{margin:15px 0 0;font:400 12px/1.5 var(--mono);letter-spacing:.06em;color:var(--ink-faint)}
+.u-unit{margin:7px 0 0;font:400 calc(13px * var(--tz,1))/1.4 var(--mono);letter-spacing:.10em;color:var(--ink-faint)}
+.u-tutor{margin:15px 0 0;font:400 calc(12px * var(--tz,1))/1.5 var(--mono);letter-spacing:.06em;color:var(--ink-faint)}
 
 /* The presentation the deck was built from, kept on Google Slides. */
 .u-src{margin:16px 0 0}
-.u-src a{font:500 11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+.u-src a{font:500 calc(11px * var(--tz,1))/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;
   color:var(--moss);text-decoration:none;border-bottom:1px solid var(--moss-line);
   padding-bottom:2px;transition:color .2s ease,border-color .2s ease}
 .u-src a:hover,.u-src a:focus-visible{color:var(--vermilion);border-bottom-color:var(--vermilion)}
@@ -260,21 +262,21 @@ h1 em{font-style:italic;font-weight:300;color:var(--moss)}
 .ref:hover,.ref:focus-visible{background:var(--moss-wash)}
 .ref:hover::before,.ref:focus-visible::before{width:3px}
 
-.ref-src{font:500 11px/1.5 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+.ref-src{font:500 calc(11px * var(--tz,1))/1.5 var(--mono);letter-spacing:.16em;text-transform:uppercase;
   color:var(--ink-faint)}
 .ref-title{margin:12px 0 0;font-family:var(--display);font-optical-sizing:auto;
   font-weight:500;font-size:clamp(20px,2.1vw,26px);line-height:1.14;
   letter-spacing:-.018em;color:var(--ink);transition:color .22s ease}
 .ref-title em{font-style:italic;font-weight:400}
 .ref:hover .ref-title,.ref:focus-visible .ref-title{color:var(--moss)}
-.ref-note{margin:13px 0 0;font-size:15px;line-height:1.6;color:var(--ink-soft)}
+.ref-note{margin:13px 0 0;font-size:calc(15px * var(--tz,1));line-height:1.6;color:var(--ink-soft)}
 .ref-note b{font-weight:600;color:var(--ink)}
 
 .ref-foot{margin:auto 0 0;padding-top:18px;display:flex;flex-wrap:wrap;
   align-items:baseline;justify-content:space-between;gap:8px 18px}
-.ref-units{font:700 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;
+.ref-units{font:700 calc(11px * var(--tz,1))/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;
   color:var(--vermilion)}
-.ref-file{font:400 11px/1 var(--mono);letter-spacing:.12em;color:var(--ink-faint)}
+.ref-file{font:400 calc(11px * var(--tz,1))/1 var(--mono);letter-spacing:.12em;color:var(--ink-faint)}
 .ref-file::before{content:"↓ ";color:var(--moss)}
 
 /* === RUNNING THE DECKS ==================================================== */
@@ -293,10 +295,10 @@ h1 em{font-style:italic;font-weight:300;color:var(--moss)}
 @media (max-width:560px){.keys{grid-template-columns:1fr}}
 .keys li{background:var(--paper-card);padding:20px 22px 22px}
 .keys .k{display:flex;flex-wrap:wrap;gap:6px}
-kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
+kbd{font:500 calc(12px * var(--tz,1))/1 var(--mono);letter-spacing:.06em;color:var(--ink);
   background:var(--paper-sunk);border:1px solid var(--rule);
   border-bottom-width:2px;border-radius:4px;padding:7px 9px;white-space:nowrap}
-.keys .d{margin-top:13px;font-size:15px;line-height:1.5;color:var(--ink-soft)}
+.keys .d{margin-top:13px;font-size:calc(15px * var(--tz,1));line-height:1.5;color:var(--ink-soft)}
 
 .note{margin-top:clamp(28px,4vw,40px);padding:20px 24px;background:var(--vermilion-wash);
   border-left:3px solid var(--vermilion);max-width:74ch}
@@ -308,13 +310,13 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
   padding:clamp(38px,5vw,58px) 0 clamp(44px,6vw,66px)}
 .colophon .wrap{display:grid;gap:clamp(24px,4vw,56px);
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
-.colophon h3{margin:0 0 12px;font:500 11px/1 var(--mono);letter-spacing:.22em;
+.colophon h3{margin:0 0 12px;font:500 calc(11px * var(--tz,1))/1 var(--mono);letter-spacing:.22em;
   text-transform:uppercase;color:var(--ink-faint)}
-.colophon p{font-size:15px;line-height:1.65;color:var(--ink-soft)}
+.colophon p{font-size:calc(15px * var(--tz,1));line-height:1.65;color:var(--ink-soft)}
 .colophon a{color:var(--moss);text-decoration:none;
   border-bottom:1px solid var(--moss-line)}
 .colophon a:hover{color:var(--vermilion);border-bottom-color:var(--vermilion)}
-.colophon .sig{font-family:var(--display);font-size:19px;color:var(--ink);
+.colophon .sig{font-family:var(--display);font-size:calc(19px * var(--tz,1));color:var(--ink);
   letter-spacing:-.01em;margin-bottom:4px}
 .colophon .stack{margin-top:12px}
 
@@ -324,6 +326,7 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
   *,*::before,*::after{transition-duration:.001ms !important;animation-duration:.001ms !important}
 }
 </style>
+<script src="assets/men201-type-zoom.js" defer></script>
 </head>
 <body>
 
@@ -340,13 +343,13 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
   <div class="wrap">
     <p class="eyebrow">Module MEN 201 · Teaching decks · Year 2026–2027</p>
     <h1>Forest <em>Mensuration</em></h1>
-    <p class="lede">Seven decks, in teaching order, on measuring the forest: <strong>what a tree is,
-      in numbers</strong> — its diameter, its crown, its height, its volume — then the crop it
-      belongs to, and finally how both change with time.</p>
+    <p class="lede">Eleven decks in teaching order: seven core units on <strong>measuring trees,
+      stands and change</strong>, followed by four supplementary modules that extend those
+      measurements into inventory, digital data, carbon and remote forest monitoring.</p>
 
     <dl class="tally">
-      <div><dt>Units</dt><dd>7 <small>+ descriptor</small></dd></div>
-      <div><dt>Slides</dt><dd>412</dd></div>
+      <div><dt>Units</dt><dd>11 <small>+ descriptor</small></dd></div>
+      <div><dt>Slides</dt><dd>522</dd></div>
       <div><dt>Notes</dt><dd><a href="#notes">7 <small>+ handbook</small></a></dd></div>
       <div><dt>Readings</dt><dd><a href="#readings">6 <small>PDF</small></a></dd></div>
     </dl>
@@ -379,7 +382,7 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
                 equipment, field safety and data quality</p>
             </div>
             <div class="u-meta">
-              <p class="u-count">27 slides</p>
+              <p class="u-count">28 slides</p>
               <p class="u-si">The terms</p>
               <p class="u-unit">12 credits · 120 h</p>
             </div>
@@ -506,6 +509,74 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
           </div>
         </li>
 
+        <li>
+          <div class="unit" data-numeral="VIII" data-href="MEN201_Unit_VIII_Forest_Inventory_and_Sampling.html">
+            <div>
+              <p class="u-no">Unit VIII <span class="sess">Supplementary module</span></p>
+              <h3 class="u-title"><a class="u-link" href="MEN201_Unit_VIII_Forest_Inventory_and_Sampling.html">Forest Inventory and Sampling</a></h3>
+              <p class="u-topics">Inventory objectives and types · Census and sampling ·
+                <b>Simple random, systematic, stratified and cluster designs</b> · Fixed-area plots ·
+                Expansion factors and stand calculations · Inventory error · Practical 9</p>
+            </div>
+            <div class="u-meta">
+              <p class="u-count">30 slides</p>
+              <p class="u-si">Plot → population</p>
+              <p class="u-unit">trees/ha · m²/ha · m³/ha</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="unit" data-numeral="IX" data-href="MEN201_Unit_IX_Digital_Forest_Mensuration_and_Data_Management.html">
+            <div>
+              <p class="u-no">Unit IX <span class="sess">Supplementary module</span></p>
+              <h3 class="u-title"><a class="u-link" href="MEN201_Unit_IX_Digital_Forest_Mensuration_and_Data_Management.html">Digital Forest Mensuration and Data Management</a></h3>
+              <p class="u-topics">GPS/GNSS plot location and navigation · Modern instruments ·
+                <b>Mobile field forms and validation</b> · Spreadsheet structure, cleaning,
+                summaries, documentation and backup · Practicals 10 and 12</p>
+            </div>
+            <div class="u-meta">
+              <p class="u-count">25 slides</p>
+              <p class="u-si">Field data → evidence</p>
+              <p class="u-unit">coordinates · codes · quality</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="unit" data-numeral="X" data-href="MEN201_Unit_X_Forest_Biomass_and_Carbon_Estimation.html">
+            <div>
+              <p class="u-no">Unit X <span class="sess">Supplementary module</span></p>
+              <h3 class="u-title"><a class="u-link" href="MEN201_Unit_X_Forest_Biomass_and_Carbon_Estimation.html">Forest Biomass and Carbon Estimation</a></h3>
+              <p class="u-topics">Biomass pools and methods · <b>Published allometric equations</b> ·
+                Bhutan <em>Pinus wallichiana</em> worked example · Plot and hectare expansion ·
+                Carbon fraction and CO₂ equivalent · Uncertainty · Practical 11</p>
+            </div>
+            <div class="u-meta">
+              <p class="u-count">25 slides</p>
+              <p class="u-si">Biomass → C → CO₂e</p>
+              <p class="u-unit">kg/tree · t/ha</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="unit" data-numeral="XI" data-href="MEN201_Unit_XI_Remote_and_Emerging_Technologies_in_Forest_Mensuration.html">
+            <div>
+              <p class="u-no">Unit XI <span class="sess">Supplementary module</span></p>
+              <h3 class="u-title"><a class="u-link" href="MEN201_Unit_XI_Remote_and_Emerging_Technologies_in_Forest_Mensuration.html">Remote and Emerging Technologies in Forest Mensuration</a></h3>
+              <p class="u-topics">Passive and active remote sensing · Satellite forest monitoring ·
+                UAV imagery and photogrammetry · <b>LiDAR point clouds and canopy-height models</b> ·
+                GIS, AI, ethics and field validation · Integrated Practical 13</p>
+            </div>
+            <div class="u-meta">
+              <p class="u-count">30 slides</p>
+              <p class="u-si">Field → space &amp; time</p>
+              <p class="u-unit">pixels · points · maps</p>
+            </div>
+          </div>
+        </li>
+
       </ol>
     </div>
   </div>
@@ -608,7 +679,7 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
 
       <li>
         <a class="ref" href="notes/index.html">
-          <p class="ref-src">Seven units · one structure</p>
+          <p class="ref-src">Seven core units · one structure</p>
           <h3 class="ref-title">The notes — Units I to VII</h3>
           <p class="ref-note">Each unit follows the same thirteen parts: learning outcomes, key
             terminology, the major concepts, the equations and what every symbol means, step-by-step
@@ -622,7 +693,7 @@ kbd{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);
         <a class="ref" href="notes/MEN201_Calculation_Handbook.html">
           <p class="ref-src">One handbook · twenty sections</p>
           <h3 class="ref-title">Calculation handbook</h3>
-          <p class="ref-note">Notation and unit conversions, a formula sheet for all seven units,
+          <p class="ref-note">Notation and unit conversions, a formula sheet for all seven core units,
             derivations of the four solids, the quarter-girth ratio, the spacing factor, the six sine
             cases and the culmination of the m.a.i, a step-by-step spline evaluation, the
             <b>complete coefficient tables</b> for the national volume and biomass equations, the

@@ -1242,7 +1242,7 @@ Students must:
 
 # Acknowledgement
 
-The course developer gratefully acknowledges **Laxmi Sagr, Associate Lecturer, College of Natural
+The course developer gratefully acknowledges **Laxmi Sagar, Associate Lecturer, College of Natural
 Resources**, for sharing teaching materials previously used for the same Forest Mensuration course.
 Selected concepts and materials were reviewed, adapted, expanded, and contextualized for the
 present MEN 201 course.

@@ -21,6 +21,8 @@
 
 /* === DESIGN TOKENS === */
 :root{
+  /* type zoom - one knob for every size in this document */
+  --tz: 1.12;
   /* surfaces */
   --paper:        #f2efe6;
   --paper-card:   #faf9f4;
@@ -91,18 +93,18 @@ html,body{margin:0;padding:0;height:100%;overflow:hidden;background:var(--letter
    (top-right), a hairline baseline, and a page number.
    ========================================================================== */
 .head{position:absolute;left:92px;right:92px;top:70px}
-.eyebrow{font:500 17px/1 var(--mono);letter-spacing:.30em;text-transform:uppercase;
-  color:var(--vermilion)}
+.eyebrow{font:500 calc(14px * var(--tz,1))/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--vermilion);max-width:1300px;display:block}
 .eyebrow.warn{color:var(--gold)}
 h2.title{margin:20px 0 0;font-family:var(--display);font-optical-sizing:auto;
-  font-weight:600;font-size:52px;line-height:1.05;letter-spacing:-.022em;color:var(--ink);
+  font-weight:600;font-size:calc(52px * var(--tz,1));line-height:1.05;letter-spacing:-.022em;color:var(--ink);
   max-width:1420px}
 h2.title em{font-style:italic;font-weight:400;color:var(--moss)}
 .head .hr{margin-top:24px;height:1px;background:var(--rule)}
 
-.runhead{position:absolute;right:92px;top:70px;font:400 15px/1 var(--mono);
+.runhead{position:absolute;right:92px;top:70px;font:400 calc(15px * var(--tz,1))/1 var(--mono);
   letter-spacing:.16em;color:var(--ink-faint);text-align:right}
-.pageno{position:absolute;right:92px;bottom:40px;font:500 16px/1 var(--mono);
+.pageno{position:absolute;right:92px;bottom:40px;font:500 calc(16px * var(--tz,1))/1 var(--mono);
   letter-spacing:.14em;color:var(--ink-faint)}
 .footrule{position:absolute;left:92px;right:92px;bottom:74px;height:1px;background:var(--rule-soft)}
 
@@ -113,35 +115,104 @@ h2.title em{font-style:italic;font-weight:400;color:var(--moss)}
 .slide a{color:var(--moss);text-decoration:none;
   border-bottom:1px solid rgba(47,81,64,.4);transition:color .18s ease,border-color .18s ease}
 .slide a:hover,.slide a:focus-visible{color:var(--vermilion);border-bottom-color:var(--vermilion)}
-.slide a::after{content:" ↗";font-size:.8em;color:var(--ink-faint);border:0}
-.src{position:absolute;left:92px;bottom:38px;font:400 15px/1.4 var(--mono);color:var(--ink-faint);
+.slide a::after{content:"\00a0↗";font-size:.8em;color:var(--ink-faint);border:0}
+.src{position:absolute;left:92px;bottom:38px;font:400 calc(15px * var(--tz,1))/1.4 var(--mono);color:var(--ink-faint);
   max-width:1400px;letter-spacing:.02em}
+
+/* .src is slide chrome: it is pinned to the page baseline, so an absolute
+   position resolves against .body. Written inside a panel it is a footnote to
+   that panel and must stay in flow there, or it leaves the card entirely and
+   lands on the far side of the slide. */
+.card .src,.calc .src,.callout .src,.q .src,.fig .src{position:static;max-width:none;margin-top:14px}
+
+/* A source note written at the end of a .body is a citation for the content
+   above it, not page chrome. It keeps the baseline the absolute version had,
+   but as a real block: content above it now has to make room, so a note that
+   wraps to three lines can no longer be landed on by the closing bar. */
+.body>.src{position:static;margin-top:auto;padding-top:14px;max-width:100%;left:auto;bottom:auto}
+.body>.src+.src{padding-top:4px}
+
+/* A body that carries its own source note reaches further down the page. The
+   note used to be absolute chrome on the page baseline, so that band below
+   the safe zone is exactly the room it now needs; the hairline that ruled it
+   off would cross the note, so it steps aside. */
+.body.srcfoot{bottom:60px}
+.body.srcfoot~.footrule{display:none}
+
+/* A block that asked for the whole band with height:100% leaves nothing for a
+   source note that now shares that column with it. In that company it takes
+   what is left instead. */
+.body.srcfoot>.fill{height:auto;flex:1 1 auto;min-height:0}
+
+/* The xs table variant carries phrases and formulae, not only numerals, so a
+   .num cell in one must be allowed to wrap: held on one line it widens the
+   table past the card that frames it. A long monospace value in a step row is
+   the same problem in a different primitive. */
+table.dt.xs td.num{white-space:normal;overflow-wrap:anywhere}
+.step .sv{overflow-wrap:anywhere}
+/* The densest step for that variant, bought from padding as everywhere else. */
+.slide.fit2 table.dt.xs td,.slide.fit2 table.dt.xs th{padding:6px 10px}
+
+
+
+
+
 
 /* Body region: the safe zone between chrome */
 .body{position:absolute;left:92px;right:92px;top:222px;bottom:104px}
+/* === VERTICAL RHYTHM ======================================================
+   The body band is a fixed height. A slide that sizes its rows to their own
+   content stops partway down the paper and reads as unfinished; a closing bar
+   pinned out of flow cannot hold the content above it off. The band is a flex
+   column: blocks marked .grow share the leftover height, and a closing bar
+   held down by margin-top:auto still sits on the baseline while occupying
+   real space that nothing above it can overrun.
+   ========================================================================== */
+.body{display:flex;flex-direction:column}
+.body>*{flex:0 0 auto}
+.body>.grow{flex:1 0 auto;min-height:0}
+.grow>.stack>*{flex:1 0 auto}
+/* Tables keep their natural rhythm and are never stretched: padding a table
+   out to a row height spaces its rows unevenly, and a scroll wrapper grown
+   past its last row is just an empty framed box. */
+.body>table.dt{align-self:start}
+.body>.table-wrap{align-self:start;max-width:100%}
+
 .body.tight{top:200px}
 .body.deep{top:266px}
 
 /* === PRIMITIVES === */
-.lead{font-family:var(--display);font-weight:400;font-size:30px;line-height:1.42;
+.lead{font-family:var(--display);font-weight:400;font-size:calc(30px * var(--tz,1));line-height:1.42;
   color:var(--ink);letter-spacing:-.005em}
 .lead strong{font-weight:600;color:var(--moss)}
 p{margin:0}
-.txt{font:400 21px/1.55 var(--body);color:var(--ink-soft)}
-.txt-sm{font:400 18px/1.5 var(--body);color:var(--ink-soft)}
-.mono-sm{font:400 16px/1.5 var(--mono);color:var(--ink-faint);letter-spacing:.02em}
+.txt{font:400 calc(21px * var(--tz,1))/1.55 var(--body);color:var(--ink-soft)}
+.txt-sm{font:400 calc(18px * var(--tz,1))/1.5 var(--body);color:var(--ink-soft)}
+.mono-sm{font:400 calc(16px * var(--tz,1))/1.5 var(--mono);color:var(--ink-faint);letter-spacing:.02em}
 
-.label{font:500 15px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--moss)}
+.label{font:500 calc(15px * var(--tz,1))/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--moss)}
 .label.v{color:var(--vermilion)}
 
 /* Cards — the paper leaf that sits on the graph paper */
 .card{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;
   padding:30px 32px;box-shadow:0 2px 0 rgba(20,28,24,.05),0 14px 34px rgba(20,28,24,.045)}
+
+/* === PANEL CONTAINMENT ====================================================
+   A panel is the shape of its own text. Where a card is stretched to a row
+   height rather than sized to its contents, anything that overruns it is read
+   against the graph paper - or against the closing bar - instead of against
+   the leaf that is supposed to be behind it. Clipping is what makes that
+   overrun visible to the type-zoom guard in assets/men201-type-zoom.js, which
+   then sizes the slide so it cannot happen. The clip is the alarm, not the
+   remedy: by the time a slide is on screen the guard has already fitted it.
+   ========================================================================== */
+.card,.callout,.q,.answer,.calc{overflow:hidden}
+
 .card.sunk{background:var(--paper-sunk);box-shadow:none}
 .card.moss{background:var(--moss);border-color:var(--moss);color:#eef2ea}
 .card.moss .label{color:#a9c9b3}
 .card.moss .txt,.card.moss .txt-sm{color:#d3decf}
-.card h3,.card .ch{margin:0 0 14px;font-family:var(--display);font-weight:600;font-size:26px;
+.card h3,.card .ch{margin:0 0 14px;font-family:var(--display);font-weight:600;font-size:calc(26px * var(--tz,1));
   line-height:1.2;color:var(--ink);letter-spacing:-.012em}
 .card.moss .ch{color:#fff}
 .card .ch.v{color:var(--vermilion)}
@@ -149,11 +220,11 @@ p{margin:0}
 /* Tick-mark bullet list */
 ul.bul{margin:0;padding:0;list-style:none}
 ul.bul li{position:relative;padding-left:30px;margin-bottom:11px;
-  font:400 20px/1.48 var(--body);color:var(--ink-soft)}
+  font:400 calc(20px * var(--tz,1))/1.48 var(--body);color:var(--ink-soft)}
 ul.bul li:last-child{margin-bottom:0}
 ul.bul li::before{content:"";position:absolute;left:0;top:.62em;width:11px;height:1.5px;
   background:var(--vermilion)}
-ul.bul.sm li{font-size:18px;margin-bottom:8px;padding-left:26px}
+ul.bul.sm li{font-size:calc(18px * var(--tz,1));margin-bottom:8px;padding-left:26px}
 ul.bul.sm li::before{width:9px}
 ul.bul li strong{color:var(--ink);font-weight:600}
 .card.moss ul.bul li{color:#d3decf}
@@ -163,19 +234,19 @@ ul.bul li strong{color:var(--ink);font-weight:600}
 /* Numbered badge lists */
 .numrow{display:flex;gap:18px;align-items:flex-start;margin-bottom:14px}
 .badge{flex:0 0 auto;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
-  font:700 17px/1 var(--mono);background:var(--vermilion);color:#fff}
+  font:700 calc(17px * var(--tz,1))/1 var(--mono);background:var(--vermilion);color:#fff}
 .badge.moss{background:var(--moss)}
 .badge.hollow{background:transparent;border:1.5px solid var(--moss);color:var(--moss)}
-.badge.lg{width:46px;height:46px;font-size:20px}
+.badge.lg{width:46px;height:46px;font-size:calc(20px * var(--tz,1))}
 
 /* Formula plates */
 .formula{background:var(--moss-wash);border:1px solid var(--moss-line);border-radius:3px;
   padding:22px 28px;text-align:center;
-  font-family:var(--display);font-weight:500;font-size:38px;line-height:1.2;color:var(--moss);
+  font-family:var(--display);font-weight:500;font-size:calc(38px * var(--tz,1));line-height:1.2;color:var(--moss);
   letter-spacing:.01em}
 .formula.v{background:var(--vermilion-wash);border-color:rgba(193,69,36,.3);color:var(--vermilion)}
-.formula.sm{font-size:28px;padding:16px 20px}
-.formula.lg{font-size:46px;padding:28px 32px}
+.formula.sm{font-size:calc(28px * var(--tz,1));padding:16px 20px}
+.formula.lg{font-size:calc(46px * var(--tz,1));padding:28px 32px}
 .formula .u{font-size:.55em;color:var(--ink-faint);display:block;margin-top:10px;
   font-family:var(--body);font-weight:400;letter-spacing:0}
 sub{font-size:.62em;vertical-align:-.22em}
@@ -186,35 +257,35 @@ sup{font-size:.62em;vertical-align:.42em}
 .callout{border-left:4px solid var(--vermilion);background:var(--vermilion-wash);
   padding:18px 24px;border-radius:0 3px 3px 0}
 .callout.moss{border-left-color:var(--moss);background:var(--moss-wash)}
-.callout .k{font:500 14px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
+.callout .k{font:500 calc(14px * var(--tz,1))/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
   color:var(--vermilion);display:block;margin-bottom:9px}
 .callout.moss .k{color:var(--moss)}
-.callout p{font:400 20px/1.45 var(--body);color:var(--ink)}
-.callout.sm p{font-size:18px}
+.callout p{font:400 calc(20px * var(--tz,1))/1.45 var(--body);color:var(--ink)}
+.callout.sm p{font-size:calc(18px * var(--tz,1))}
 
 /* Answer bar */
 .answer{background:var(--moss);color:#fff;border-radius:3px;padding:20px 30px;
   display:flex;align-items:baseline;gap:20px}
-.answer .k{font:500 15px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:#a9c9b3}
-.answer .v{font-family:var(--display);font-weight:600;font-size:32px;letter-spacing:-.01em}
-.answer .n{font:400 18px/1.4 var(--body);color:#c6d6c9}
+.answer .k{font:500 calc(15px * var(--tz,1))/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:#a9c9b3}
+.answer .v{font-family:var(--display);font-weight:600;font-size:calc(32px * var(--tz,1));letter-spacing:-.01em}
+.answer .n{font:400 calc(18px * var(--tz,1))/1.4 var(--body);color:#c6d6c9}
 
 /* Data tables */
 table.dt{width:100%;border-collapse:collapse;background:var(--paper-card);
-  border:1px solid var(--rule);font:400 19px/1.4 var(--body);color:var(--ink-soft)}
-table.dt th{background:var(--moss);color:#fff;font:600 17px/1.3 var(--body);
+  border:1px solid var(--rule);font:400 calc(19px * var(--tz,1))/1.4 var(--body);color:var(--ink-soft)}
+table.dt th{background:var(--moss);color:#fff;font:600 calc(17px * var(--tz,1))/1.3 var(--body);
   text-align:left;padding:14px 16px;letter-spacing:.01em;vertical-align:middle}
-table.dt th:first-child{font-family:var(--mono);font-size:14px;letter-spacing:.14em;
+table.dt th:first-child{font-family:var(--mono);font-size:calc(14px * var(--tz,1));letter-spacing:.14em;
   text-transform:uppercase;font-weight:500;color:#b6cdbd}
 table.dt td{padding:18px 16px;border-top:1px solid var(--rule-soft);vertical-align:top}
 table.dt tbody tr:nth-child(even){background:rgba(20,28,24,.022)}
 table.dt td.rh{font-weight:600;color:var(--ink);background:rgba(47,81,64,.05)}
-table.dt td.num{font-family:var(--mono);font-size:18px;color:var(--ink)}
-table.dt.sm{font-size:17px}
-table.dt.sm th{font-size:15px;padding:11px 13px}
+table.dt td.num{font-family:var(--mono);font-size:calc(18px * var(--tz,1));color:var(--ink)}
+table.dt.sm{font-size:calc(17px * var(--tz,1))}
+table.dt.sm th{font-size:calc(15px * var(--tz,1));padding:11px 13px}
 table.dt.sm td{padding:9px 13px}
-table.dt.xs{font-size:15px}
-table.dt.xs th{font-size:13px;padding:9px 10px}
+table.dt.xs{font-size:calc(15px * var(--tz,1))}
+table.dt.xs th{font-size:calc(13px * var(--tz,1));padding:9px 10px}
 table.dt.xs td{padding:7px 10px}
 table.dt tr.hi td{background:var(--vermilion-wash)}
 
@@ -242,21 +313,21 @@ table.dt tr.hi td{background:var(--vermilion-wash)}
 .step{display:grid;grid-template-columns:230px 1fr;gap:22px;align-items:center;
   padding:14px 0;border-top:1px solid var(--rule-soft)}
 .step:first-child{border-top:none}
-.step .sl{font:500 15px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--moss)}
-.step .sv{font-family:var(--mono);font-size:22px;color:var(--ink);letter-spacing:-.01em}
+.step .sl{font:500 calc(15px * var(--tz,1))/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--moss)}
+.step .sv{font-family:var(--mono);font-size:calc(22px * var(--tz,1));color:var(--ink);letter-spacing:-.01em}
 .step .sv .hlt{color:var(--vermilion)}
 
 /* Question cards */
 .q{display:grid;grid-template-columns:46px 1fr;gap:18px;align-items:start;
   background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;padding:20px 22px}
-.q .qt{font:400 19px/1.42 var(--body);color:var(--ink)}
-.q .qm{margin-top:8px;font:500 14px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+.q .qt{font:400 calc(19px * var(--tz,1))/1.42 var(--body);color:var(--ink)}
+.q .qm{margin-top:8px;font:500 calc(14px * var(--tz,1))/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
   color:var(--ink-faint)}
-.q .qa{margin-top:8px;font:500 17px var(--mono);color:var(--moss)}
+.q .qa{margin-top:8px;font:500 calc(17px * var(--tz,1)) var(--mono);color:var(--moss)}
 
 /* Chips */
 .chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{font:500 15px/1 var(--mono);letter-spacing:.08em;color:var(--moss);
+.chip{font:500 calc(15px * var(--tz,1))/1 var(--mono);letter-spacing:.08em;color:var(--moss);
   border:1px solid var(--moss-line);background:var(--moss-wash);padding:9px 14px;border-radius:2px}
 .chip.v{color:var(--vermilion);border-color:rgba(193,69,36,.3);background:var(--vermilion-wash)}
 
@@ -267,36 +338,36 @@ table.dt tr.hi td{background:var(--vermilion-wash)}
 .fig{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;
   position:relative;overflow:hidden;padding-bottom:32px;min-height:0}
 .fig svg{display:block;width:100%;height:100%}
-.fig .cap{position:absolute;left:18px;bottom:9px;font:400 15px/1.35 var(--mono);
+.fig .cap{position:absolute;left:18px;bottom:9px;font:400 calc(15px * var(--tz,1))/1.35 var(--mono);
   color:var(--ink-faint);letter-spacing:.02em}
-.fignote{font:400 16px/1.45 var(--mono);color:var(--ink-faint);letter-spacing:.01em}
+.fignote{font:400 calc(16px * var(--tz,1))/1.45 var(--mono);color:var(--ink-faint);letter-spacing:.01em}
 
 /* === TITLE / SECTION SLIDES === */
 .cover{position:absolute;inset:0;background:var(--paper)}
 .cover .plate{position:absolute;right:0;top:0;width:720px;height:1080px;
   border-left:1px solid var(--rule);background:linear-gradient(180deg,rgba(47,81,64,.06),rgba(193,69,36,.05))}
 .cover .cframe{position:absolute;left:110px;top:300px;width:1030px}
-.cover .cunit{font:600 26px/1 var(--body);letter-spacing:.42em;text-transform:uppercase;color:var(--moss)}
+.cover .cunit{font:600 calc(26px * var(--tz,1))/1 var(--body);letter-spacing:.42em;text-transform:uppercase;color:var(--moss)}
 .cover h1{margin:22px 0 0;font-family:var(--display);font-optical-sizing:auto;font-weight:600;
-  font-size:128px;line-height:.93;letter-spacing:-.03em;color:var(--ink)}
+  font-size:calc(128px * var(--tz,1));line-height:.93;letter-spacing:-.03em;color:var(--ink)}
 .cover h1 em{font-style:italic;font-weight:300;color:var(--moss)}
-.cover .csub{margin-top:44px;font:400 26px/1.55 var(--body);color:var(--ink-soft);max-width:830px}
+.cover .csub{margin-top:44px;font:400 calc(26px * var(--tz,1))/1.55 var(--body);color:var(--ink-soft);max-width:830px}
 .cover .cmeta{position:absolute;left:110px;bottom:88px;display:flex;gap:60px}
-.cover .cmeta div{font:400 18px/1.65 var(--mono);color:var(--ink-soft);letter-spacing:.01em}
+.cover .cmeta div{font:400 calc(18px * var(--tz,1))/1.65 var(--mono);color:var(--ink-soft);letter-spacing:.01em}
 .cover .cmeta strong{display:block;color:var(--ink);font-weight:500}
 
 .sect{position:absolute;inset:0;background:var(--moss);overflow:hidden}
 .sect .rings{position:absolute;right:-180px;top:50%;transform:translateY(-50%);width:1000px;height:1000px;opacity:.5}
 .sect .sframe{position:absolute;left:130px;top:50%;transform:translateY(-50%);width:1150px}
-.sect .sltr{font-family:var(--display);font-weight:600;font-size:200px;line-height:.8;
+.sect .sltr{font-family:var(--display);font-weight:600;font-size:calc(200px * var(--tz,1));line-height:.8;
   color:rgba(255,255,255,.16);letter-spacing:-.04em}
-.sect h1{margin:16px 0 0;font-family:var(--display);font-weight:500;font-size:96px;line-height:1.0;
+.sect h1{margin:16px 0 0;font-family:var(--display);font-weight:500;font-size:calc(96px * var(--tz,1));line-height:1.0;
   letter-spacing:-.028em;color:#fdfcf7}
-.sect .ssub{margin-top:34px;font:400 25px/1.55 var(--body);color:#bcd2c2;max-width:960px}
+.sect .ssub{margin-top:34px;font:400 calc(25px * var(--tz,1))/1.55 var(--body);color:#bcd2c2;max-width:960px}
 .sect .srule{margin-top:34px;width:220px;height:2px;background:var(--gold)}
-.sect .srun{position:absolute;left:130px;top:70px;font:400 16px/1 var(--mono);letter-spacing:.24em;
+.sect .srun{position:absolute;left:130px;top:70px;font:400 calc(16px * var(--tz,1))/1 var(--mono);letter-spacing:.24em;
   color:rgba(255,255,255,.55);text-transform:uppercase}
-.sect .spage{position:absolute;right:92px;bottom:44px;font:500 16px var(--mono);
+.sect .spage{position:absolute;right:92px;bottom:44px;font:500 calc(16px * var(--tz,1)) var(--mono);
   letter-spacing:.14em;color:rgba(255,255,255,.5)}
 
 /* === MOTION === */
@@ -336,10 +407,70 @@ body.editing .editbtn{color:var(--vermilion);border-color:var(--vermilion)}
 body.editing .slide.active [contenteditable]:hover{outline:1px dashed var(--vermilion);outline-offset:3px}
 body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermilion);outline-offset:3px}
 .toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%);z-index:70;
-  font:500 13px/1 var(--mono);letter-spacing:.1em;color:#f2efe6;background:rgba(47,81,64,.95);
+  font:500 calc(13px * var(--tz,1))/1 var(--mono);letter-spacing:.1em;color:#f2efe6;background:rgba(47,81,64,.95);
   padding:12px 20px;border-radius:100px;opacity:0;pointer-events:none;transition:opacity .3s}
 .toast.on{opacity:1}
+
+/* === DENSITY OVERRIDE ======================================================
+   The type scale was raised across the module for readability from the back of
+   the room. On the densest slides that costs vertical space, and it is bought
+   back here from padding and gaps - never from font size.
+   `fit` is the normal step; `fit2` is for the few slides that need more.
+   The runtime in assets/men201-type-zoom.js applies these before it will
+   consider making any word on a slide smaller.
+   ========================================================================== */
+.slide.fit .card{padding:18px 22px}
+.slide.fit .callout{padding:12px 20px}
+.slide.fit .callout .k{margin-bottom:5px}
+.slide.fit .stack{gap:14px}
+.slide.fit .stack.sm{gap:10px}
+.slide.fit ul.bul li{margin-bottom:7px}
+.slide.fit ul.bul.sm li{margin-bottom:5px}
+.slide.fit .card h3,.slide.fit .card .ch,.slide.fit .ch{margin-bottom:8px}
+.slide.fit .formula{padding:13px 22px}
+.slide.fit .formula.sm{padding:11px 18px}
+.slide.fit table.dt td{padding:10px 14px}
+.slide.fit table.dt th{padding:9px 14px}
+.slide.fit .step{padding:8px 0}
+.slide.fit .numrow{margin-bottom:8px}
+.slide.fit .q{padding:13px 18px}
+.slide.fit .answer{padding:13px 24px}
+.slide.fit2 .card{padding:14px 20px}
+.slide.fit2 .callout{padding:10px 18px}
+.slide.fit2 .stack{gap:11px}
+.slide.fit2 .stack.sm{gap:8px}
+.slide.fit2 ul.bul li{margin-bottom:5px}
+.slide.fit2 ul.bul.sm li{margin-bottom:4px}
+.slide.fit2 .card h3,.slide.fit2 .card .ch,.slide.fit2 .ch{margin-bottom:6px}
+.slide.fit2 .formula{padding:10px 20px}
+.slide.fit2 table.dt td{padding:8px 12px}
+.slide.fit2 table.dt th{padding:7px 12px}
+.slide.fit2 .step{padding:6px 0}
+.slide.fit2 .numrow{margin-bottom:6px}
+.slide.fit2 .q{padding:11px 16px}
 </style>
+<style id="overlap-fixes">
+.unit10-tbl table.dt td{padding:27px 18px}
+.numrow-txt{font-size:calc(20px * var(--tz,1));line-height:1.6}
+/* Learning-outcome / practical numbered lists (slides 4, 5, 20, 21): two
+   independent flex columns, each item divided by a hairline and its own
+   generous padding, so growth and slack are spent on deliberate row space
+   instead of one shared grid distributing gaps unevenly across columns. */
+.outlist{display:flex;gap:34px;flex:1 1 auto;min-height:0}
+.outlist .outcol{flex:1 1 0;min-width:0;display:flex;flex-direction:column;min-height:0;justify-content:space-between}
+.outlist .numrow{margin:0;gap:20px;padding:22px 0;border-top:1px solid var(--rule-soft)}
+.outlist .numrow:first-child{border-top:none;padding-top:0}
+.outlist .numrow:last-child{padding-bottom:0}
+/* Slide 21 carries 3 items in its first column against 2 in its second;
+   space-between would stretch the shorter column's pair to the extremes.
+   Centering them with a fixed generous gap reads as a deliberate pairing
+   rather than a stretched-out short list. */
+.stage>.slide[data-n="21"] .outcol:nth-child(2){justify-content:center;gap:64px}
+.stage>.slide[data-n="17"] .body.deep{top:308px}
+ul.reading-list{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:space-between}
+ul.reading-list li{margin-bottom:0 !important}
+</style>
+<script src="assets/men201-type-zoom.js" defer></script>
 </head>
 <body>
 <div class="progress" id="prog"></div>
@@ -426,22 +557,22 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Module descriptor</div>
   <div class="body">
-    <div class="g4" style="gap:26px;height:150px;margin-bottom:26px">
+    <div class="g4" style="gap:26px;min-height:150px;margin-bottom:26px">
       <div class="card sunk rv" style="--d:2"><div class="label v">Programme</div>
-        <div class="mn" style="font-size:19px;color:var(--ink);margin-top:10px;line-height:1.5">BSc in Forestry<br>College of Natural Resources</div></div>
+        <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--ink);margin-top:10px;line-height:1.5">BSc in Forestry<br>College of Natural Resources</div></div>
       <div class="card sunk rv" style="--d:3"><div class="label v">Credit value</div>
-        <div class="mn" style="font-size:19px;color:var(--ink);margin-top:10px;line-height:1.5">12 credits<br>120 hours in total</div></div>
+        <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--ink);margin-top:10px;line-height:1.5">12 credits<br>120 hours in total</div></div>
       <div class="card sunk rv" style="--d:4"><div class="label v">Module tutor</div>
-        <div class="mn" style="font-size:19px;color:var(--ink);margin-top:10px;line-height:1.5">Wangdi<br>Adjunct Lecturer</div></div>
+        <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--ink);margin-top:10px;line-height:1.5">Wangdi<br>Adjunct Lecturer</div></div>
       <div class="card sunk rv" style="--d:5"><div class="label v">Descriptor status</div>
-        <div class="mn" style="font-size:19px;color:var(--ink);margin-top:10px;line-height:1.5">Revised with<br>supplementary modules</div></div>
+        <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--ink);margin-top:10px;line-height:1.5">Revised with<br>supplementary modules</div></div>
     </div>
-    <div class="g2" style="gap:34px">
-      <div class="card rv" style="--d:6">
+    <div class="g2" style="gap:34px;flex:1 1 auto;min-height:0">
+      <div class="card rv" style="--d:6;display:flex;flex-direction:column;justify-content:center">
         <div class="ch">General objective</div>
         <p class="txt-sm">To make students <strong>competent in measuring</strong> tree diameter, girth, crown characteristics, height, bark thickness, volume, age, growth, and stand-level parameters — for felled and for standing trees.</p>
       </div>
-      <div class="card moss rv" style="--d:7">
+      <div class="card moss rv" style="--d:7;display:flex;flex-direction:column;justify-content:center">
         <div class="ch">Pre-requisite</div>
         <p class="txt-sm">None. The module assumes no prior measurement training, and begins with units, geometry and the meaning of accuracy before any instrument is handled.</p>
       </div>
@@ -510,16 +641,20 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Module descriptor</div>
   <div class="body">
-    <div class="g2" style="row-gap:14px;column-gap:34px">
-      <div class="numrow rv" style="--d:2"><div class="badge">1</div><div class="txt-sm">Explain the definition, scope, objectives and applications of forest mensuration.</div></div>
-      <div class="numrow rv" style="--d:3"><div class="badge moss">6</div><div class="txt-sm">Assess canopy cover using Bhutan&rsquo;s <strong>Forest Canopy Cover Assessment Guidelines 2024</strong> and the GRS crown densitometer, compare the result with visual and spherical-densiometer estimates, and express all three as percentages.</div></div>
-      <div class="numrow rv" style="--d:3"><div class="badge">2</div><div class="txt-sm">Measure the height, girth, bark thickness, diameter, crown characteristics and volume of trees and logs.</div></div>
-      <div class="numrow rv" style="--d:4"><div class="badge moss">7</div><div class="txt-sm">Calculate the volume of standing trees, logs and sawn timber using appropriate methods and formulae.</div></div>
-      <div class="numrow rv" style="--d:4"><div class="badge">3</div><div class="txt-sm">Correctly handle and maintain instruments used for measuring diameter, girth, height, bark thickness and crown closure.</div></div>
-      <div class="numrow rv" style="--d:5"><div class="badge moss">8</div><div class="txt-sm">Use general and local volume tables to estimate the volume of individual trees and forest stands.</div></div>
-      <div class="numrow rv" style="--d:5"><div class="badge">4</div><div class="txt-sm">Identify, evaluate and minimise sources of error in forest measurements.</div></div>
-      <div class="numrow rv" style="--d:6"><div class="badge moss">9</div><div class="txt-sm">Measure tree and timber defects, and calculate cull percentage and net usable volume.</div></div>
-      <div class="numrow rv" style="--d:6"><div class="badge">5</div><div class="txt-sm">Classify trees into appropriate girth and diameter classes.</div></div>
+    <div class="outlist">
+      <div class="outcol">
+        <div class="numrow rv" style="--d:2"><div class="badge lg">1</div><div class="txt-sm numrow-txt">Explain the definition, scope, objectives and applications of forest mensuration.</div></div>
+        <div class="numrow rv" style="--d:3"><div class="badge lg">2</div><div class="txt-sm numrow-txt">Measure the height, girth, bark thickness, diameter, crown characteristics and volume of trees and logs.</div></div>
+        <div class="numrow rv" style="--d:4"><div class="badge lg">3</div><div class="txt-sm numrow-txt">Correctly handle and maintain instruments used for measuring diameter, girth, height, bark thickness and crown closure.</div></div>
+        <div class="numrow rv" style="--d:5"><div class="badge lg">4</div><div class="txt-sm numrow-txt">Identify, evaluate and minimise sources of error in forest measurements.</div></div>
+        <div class="numrow rv" style="--d:6"><div class="badge lg">5</div><div class="txt-sm numrow-txt">Classify trees into appropriate girth and diameter classes.</div></div>
+      </div>
+      <div class="outcol">
+        <div class="numrow rv" style="--d:3"><div class="badge moss lg">6</div><div class="txt-sm numrow-txt">Assess canopy cover using Bhutan&rsquo;s <strong>Forest Canopy Cover Assessment Guidelines 2024</strong> and the GRS crown densitometer, compare the result with visual and spherical-densiometer estimates, and express all three as percentages.</div></div>
+        <div class="numrow rv" style="--d:4"><div class="badge moss lg">7</div><div class="txt-sm numrow-txt">Calculate the volume of standing trees, logs and sawn timber using appropriate methods and formulae.</div></div>
+        <div class="numrow rv" style="--d:5"><div class="badge moss lg">8</div><div class="txt-sm numrow-txt">Use general and local volume tables to estimate the volume of individual trees and forest stands.</div></div>
+        <div class="numrow rv" style="--d:6"><div class="badge moss lg">9</div><div class="txt-sm numrow-txt">Measure tree and timber defects, and calculate cull percentage and net usable volume.</div></div>
+      </div>
     </div>
   </div>
   <div class="footrule"></div>
@@ -537,16 +672,20 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Module descriptor</div>
   <div class="body">
-    <div class="g2" style="row-gap:14px;column-gap:34px">
-      <div class="numrow rv" style="--d:2"><div class="badge">10</div><div class="txt-sm">Determine the age of standing and felled trees using appropriate methods.</div></div>
-      <div class="numrow rv" style="--d:3"><div class="badge moss">15</div><div class="txt-sm">Organise, clean, summarise, analyse, interpret and present forest mensuration data.</div></div>
-      <div class="numrow rv" style="--d:3"><div class="badge">11</div><div class="txt-sm">Calculate tree growth and increment, including current annual, periodic annual and mean annual increment.</div></div>
-      <div class="numrow rv" style="--d:4"><div class="badge moss">16</div><div class="txt-sm">Estimate above-ground biomass and forest carbon stocks using appropriate equations and conversion factors.</div></div>
-      <div class="numrow rv" style="--d:4"><div class="badge">12</div><div class="txt-sm">Establish basic forest inventory sample plots using appropriate sampling methods.</div></div>
-      <div class="numrow rv" style="--d:5"><div class="badge moss">17</div><div class="txt-sm">Explain the applications and limitations of remote sensing, drones, LiDAR, GIS and other emerging technologies.</div></div>
-      <div class="numrow rv" style="--d:5"><div class="badge">13</div><div class="txt-sm">Calculate stand parameters — trees per hectare, mean diameter, mean height, basal area, stocking and stand volume.</div></div>
-      <div class="numrow rv" style="--d:6"><div class="badge moss">18</div><div class="txt-sm">Prepare and present a basic technical forest inventory report.</div></div>
-      <div class="numrow rv" style="--d:6"><div class="badge">14</div><div class="txt-sm">Use GPS/GNSS, laser-based instruments, mobile applications and spreadsheet software for measurement and data management.</div></div>
+    <div class="outlist">
+      <div class="outcol">
+        <div class="numrow rv" style="--d:2"><div class="badge lg">10</div><div class="txt-sm numrow-txt">Determine the age of standing and felled trees using appropriate methods.</div></div>
+        <div class="numrow rv" style="--d:3"><div class="badge lg">11</div><div class="txt-sm numrow-txt">Calculate tree growth and increment, including current annual, periodic annual and mean annual increment.</div></div>
+        <div class="numrow rv" style="--d:4"><div class="badge lg">12</div><div class="txt-sm numrow-txt">Establish basic forest inventory sample plots using appropriate sampling methods.</div></div>
+        <div class="numrow rv" style="--d:5"><div class="badge lg">13</div><div class="txt-sm numrow-txt">Calculate stand parameters — trees per hectare, mean diameter, mean height, basal area, stocking and stand volume.</div></div>
+        <div class="numrow rv" style="--d:6"><div class="badge lg">14</div><div class="txt-sm numrow-txt">Use GPS/GNSS, laser-based instruments, mobile applications and spreadsheet software for measurement and data management.</div></div>
+      </div>
+      <div class="outcol">
+        <div class="numrow rv" style="--d:3"><div class="badge moss lg">15</div><div class="txt-sm numrow-txt">Organise, clean, summarise, analyse, interpret and present forest mensuration data.</div></div>
+        <div class="numrow rv" style="--d:4"><div class="badge moss lg">16</div><div class="txt-sm numrow-txt">Estimate above-ground biomass and forest carbon stocks using appropriate equations and conversion factors.</div></div>
+        <div class="numrow rv" style="--d:5"><div class="badge moss lg">17</div><div class="txt-sm numrow-txt">Explain the applications and limitations of remote sensing, drones, LiDAR, GIS and other emerging technologies.</div></div>
+        <div class="numrow rv" style="--d:6"><div class="badge moss lg">18</div><div class="txt-sm numrow-txt">Prepare and present a basic technical forest inventory report.</div></div>
+      </div>
     </div>
   </div>
   <div class="footrule"></div>
@@ -579,7 +718,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </table>
         <p class="txt-sm" style="margin-top:14px">The allocation may be adjusted to institutional credit requirements and the approved academic calendar.</p>
       </div>
-      <div class="card rv" style="--d:5">
+      <div class="card rv" style="--d:5;display:flex;flex-direction:column;justify-content:center">
         <div class="ch">The module is delivered through</div>
         <ul class="bul sm">
           <li>Lectures and classroom exercises</li>
@@ -592,7 +731,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </ul>
       </div>
     </div>
-    <div class="callout moss rv" style="--d:7;margin-top:24px">
+    <div class="callout moss rv" style="--d:7;margin-top:auto">
       <p>Students learn the <strong>fundamental principles of measurement first</strong>, then apply them in forest stands. The emphasis throughout is the connection between theory, field measurement, data analysis and practical forest management.</p>
     </div>
   </div>
@@ -611,21 +750,21 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Module descriptor</div>
   <div class="body">
-    <div class="g3" style="gap:28px;height:250px">
-      <div class="card rv" style="--d:2">
+    <div class="g3" style="gap:28px;flex:1 1 auto;min-height:0;align-items:stretch">
+      <div class="card rv" style="--d:2;display:flex;flex-direction:column">
         <div class="ch v">A · Individual practical</div>
         <p class="txt-sm" style="margin-top:10px">Tree measurement, undertaken individually on the CNR campus or another suitable forest area.</p>
-        <div class="answer" style="margin-top:18px"><span class="k">Weight</span><span class="v">30 %</span></div>
+        <div class="answer" style="margin-top:auto"><span class="k">Weight</span><span class="v">30 %</span></div>
       </div>
-      <div class="card rv" style="--d:3">
+      <div class="card rv" style="--d:3;display:flex;flex-direction:column">
         <div class="ch v">B · Group practical</div>
         <p class="txt-sm" style="margin-top:10px">Canopy cover, in groups of about five, following the national 2024 procedure, with the spherical densiometer and visual estimation as comparative methods.</p>
-        <div class="answer" style="margin-top:18px"><span class="k">Weight</span><span class="v">30 %</span></div>
+        <div class="answer" style="margin-top:auto"><span class="k">Weight</span><span class="v">30 %</span></div>
       </div>
-      <div class="card rv" style="--d:4">
+      <div class="card rv" style="--d:4;display:flex;flex-direction:column">
         <div class="ch v">C · Semester-end examination</div>
         <p class="txt-sm" style="margin-top:10px">A written paper of two hours, marked out of 100 and converted to 40 per cent of the module mark.</p>
-        <div class="answer" style="margin-top:18px"><span class="k">Weight</span><span class="v">40 %</span></div>
+        <div class="answer" style="margin-top:auto"><span class="k">Weight</span><span class="v">40 %</span></div>
       </div>
     </div>
     <div class="callout rv" style="--d:6;margin-top:28px">
@@ -651,7 +790,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Module descriptor</div>
   <div class="body">
-    <div class="g3" style="gap:28px;height:calc(100% - 118px)">
+    <div class="g3" style="gap:28px;flex:1 1 auto;min-height:0">
       <div class="card rv" style="--d:2">
         <div class="ch v">1 · Height by clinometer &nbsp;— 10 marks</div>
         <ul class="bul sm">
@@ -688,7 +827,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </ul>
       </div>
     </div>
-    <div class="callout moss rv" style="--d:7;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout moss rv" style="--d:7;margin-top:auto">
       <p>Where laser-based equipment is unavailable, part 2 may be conducted using <strong>another approved height-measurement method or a demonstration dataset</strong>.</p>
     </div>
   </div>
@@ -706,7 +845,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Module descriptor</div>
   <div class="body">
-    <div class="g3" style="gap:28px;height:calc(100% - 118px)">
+    <div class="g3" style="gap:28px;flex:1 1 auto;min-height:0">
       <div class="card rv" style="--d:2">
         <div class="ch v">1 · Assessment design &nbsp;— 10 marks</div>
         <ul class="bul sm">
@@ -743,7 +882,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </ul>
       </div>
     </div>
-    <div class="callout rv" style="--d:7;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:7;margin-top:auto">
       <p>Both the individual work and the coordination of the group are marked. <strong>Part 3 assesses the group as a group</strong> — participation and coordination carry marks alongside technique.</p>
     </div>
   </div>
@@ -761,8 +900,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Module descriptor</div>
   <div class="body">
-    <div class="g2" style="gap:34px">
-      <div>
+    <div class="g2 unit10-tbl" style="gap:34px;flex:1 1 auto;min-height:0;align-items:stretch">
+      <div style="display:flex;flex-direction:column">
         <div class="label rv" style="--d:2;margin-bottom:12px">Core — the approved subject matter</div>
         <table class="dt sm rv" style="--d:2">
           <tbody>
@@ -776,7 +915,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           </tbody>
         </table>
       </div>
-      <div>
+      <div style="display:flex;flex-direction:column">
         <div class="label rv" style="--d:4;margin-bottom:12px">Supplementary — enrichment components</div>
         <table class="dt sm rv" style="--d:4">
           <tbody>
@@ -786,7 +925,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <tr><td class="rh">XI</td><td>Remote and Emerging Technologies</td></tr>
           </tbody>
         </table>
-        <div class="card moss rv" style="--d:6;margin-top:22px">
+        <div class="card moss rv" style="--d:6;margin-top:auto;padding-top:26px;padding-bottom:26px">
           <div class="ch">How the two relate</div>
           <p class="txt-sm">The supplementary units are introduced <strong>after</strong> students can measure individual trees. They connect traditional methods to current inventory and monitoring practice, and must not reduce the time given to fundamental skills.</p>
         </div>
@@ -856,25 +995,27 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Module descriptor</div>
   <div class="body">
-    <div class="g3" style="gap:28px;height:100%">
-      <div class="card rv" style="--d:2">
-        <div class="ch v">Terms and purpose</div>
-        <ul class="bul sm">
-          <li>Crown; crown width; crown diameter; crown length; crown depth; crown ratio; crown projection; crown area; crown class; <strong>crown closure; canopy cover; canopy openness</strong></li>
-          <li>Objectives and importance of crown measurement</li>
-          <li>Applications — forest density, competition, wildlife habitat, regeneration, stand condition, growth, ecological monitoring</li>
-        </ul>
-      </div>
-      <div class="card rv" style="--d:3">
-        <div class="ch v">Crown width and crown ratio</div>
-        <ul class="bul sm">
-          <li>Measurement along the longest crown axis</li>
-          <li>Measurement along the perpendicular axis</li>
-          <li>Mean crown diameter</li>
-          <li>Crown projection area</li>
-          <li>Total tree height; height to the base of the live crown</li>
-          <li>Live-crown length and <strong>live-crown ratio</strong></li>
-        </ul>
+    <div class="g3" style="grid-template-columns:1fr 1.32fr;gap:28px;height:100%">
+      <div style="display:flex;flex-direction:column;gap:28px">
+        <div class="card rv" style="--d:2;flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:center">
+          <div class="ch v">Terms and purpose</div>
+          <ul class="bul">
+            <li>Crown; crown width; crown diameter; crown length; crown depth; crown ratio; crown projection; crown area; crown class; <strong>crown closure; canopy cover; canopy openness</strong></li>
+            <li>Objectives and importance of crown measurement</li>
+            <li>Applications — forest density, competition, wildlife habitat, regeneration, stand condition, growth, ecological monitoring</li>
+          </ul>
+        </div>
+        <div class="card rv" style="--d:3;flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:center">
+          <div class="ch v">Crown width and crown ratio</div>
+          <ul class="bul">
+            <li>Measurement along the longest crown axis</li>
+            <li>Measurement along the perpendicular axis</li>
+            <li>Mean crown diameter</li>
+            <li>Crown projection area</li>
+            <li>Total tree height; height to the base of the live crown</li>
+            <li>Live-crown length and <strong>live-crown ratio</strong></li>
+          </ul>
+        </div>
       </div>
       <div class="card rv" style="--d:4">
         <div class="ch v">Canopy cover and crown-closure measurement</div>
@@ -1122,7 +1263,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Module descriptor</div>
-  <div class="body">
+  <div class="body deep">
     <div class="g4" style="gap:24px;height:100%">
       <div class="card rv" style="--d:2">
         <div class="ch v">GPS and GNSS</div>
@@ -1306,15 +1447,19 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Module descriptor</div>
   <div class="body">
-    <div class="g2" style="row-gap:14px;column-gap:34px">
-      <div class="numrow rv" style="--d:2"><div class="badge">1</div><div class="txt-sm"><strong>Diameter and girth.</strong> Diameter tape, calliper and linear tape; breast-height rules; different stem and terrain conditions; girth to diameter; compare instruments; sources of error; approved field form.</div></div>
-      <div class="numrow rv" style="--d:3"><div class="badge moss">5</div><div class="txt-sm"><strong>Canopy cover &mdash; the national procedure.</strong> Establish the 12.62 m plot from a supplied centre; lay the pre-generated 2.5 m grid; record 89 + 11 points with the GRS crown densitometer; calculate cover for one plot and pooled; classify as forest / high forest. <em>Comparative:</em> hold and level the spherical densiometer, record in the required directions, and make an independent visual estimate; compare all three, explain the differences; short technical report.</div></div>
-      <div class="numrow rv" style="--d:3"><div class="badge">2</div><div class="txt-sm"><strong>Bark thickness.</strong> Identify measurement points; use a bark gauge; double bark thickness; diameter and girth over and under bark; sources of error.</div></div>
-      <div class="numrow rv" style="--d:4"><div class="badge moss">6</div><div class="txt-sm"><strong>Log volume.</strong> Length, large-end, small-end and mid-diameters; Huber's, Smalian's, Newton's and quarter-girth formulae; compare the volumes and explain the differences.</div></div>
-      <div class="numrow rv" style="--d:4"><div class="badge">3</div><div class="txt-sm"><strong>Tree height.</strong> Clinometer, tape, hypsometer, and laser rangefinder or digital hypsometer where available; observation positions; horizontal distance; repeat and compare; discuss error.</div></div>
-      <div class="numrow rv" style="--d:5"><div class="badge moss">7</div><div class="txt-sm"><strong>Standing-tree volume.</strong> Diameter and height; select a form factor; individual-tree and merchantable volume; over and under bark; use a volume table and compare.</div></div>
-      <div class="numrow rv" style="--d:5"><div class="badge">4</div><div class="txt-sm"><strong>Crown characteristics.</strong> Crown width on two axes; mean crown diameter and projection area; height to the live crown base; live-crown length and ratio; classify by crown position.</div></div>
-      <div class="numrow rv" style="--d:6"><div class="badge moss">8</div><div class="txt-sm"><strong>Tree age and increment.</strong> Age from stump sections or visible rings; increment borer where available; handle and label cores; diameter increment, CAI, PAI and MAI; limitations and error.</div></div>
+    <div class="outlist">
+      <div class="outcol">
+        <div class="numrow rv" style="--d:2"><div class="badge lg">1</div><div class="txt-sm numrow-txt"><strong>Diameter and girth.</strong> Diameter tape, calliper and linear tape; breast-height rules; different stem and terrain conditions; girth to diameter; compare instruments; sources of error; approved field form.</div></div>
+        <div class="numrow rv" style="--d:3"><div class="badge lg">2</div><div class="txt-sm numrow-txt"><strong>Bark thickness.</strong> Identify measurement points; use a bark gauge; double bark thickness; diameter and girth over and under bark; sources of error.</div></div>
+        <div class="numrow rv" style="--d:4"><div class="badge lg">3</div><div class="txt-sm numrow-txt"><strong>Tree height.</strong> Clinometer, tape, hypsometer, and laser rangefinder or digital hypsometer where available; observation positions; horizontal distance; repeat and compare; discuss error.</div></div>
+        <div class="numrow rv" style="--d:5"><div class="badge lg">4</div><div class="txt-sm numrow-txt"><strong>Crown characteristics.</strong> Crown width on two axes; mean crown diameter and projection area; height to the live crown base; live-crown length and ratio; classify by crown position.</div></div>
+      </div>
+      <div class="outcol">
+        <div class="numrow rv" style="--d:3"><div class="badge moss lg">5</div><div class="txt-sm numrow-txt"><strong>Canopy cover &mdash; the national procedure.</strong> Establish the 12.62 m plot from a supplied centre; lay the pre-generated 2.5 m grid; record 89 + 11 points with the GRS crown densitometer; calculate cover for one plot and pooled; classify as forest / high forest. <em>Comparative:</em> hold and level the spherical densiometer, record in the required directions, and make an independent visual estimate; compare all three, explain the differences; short technical report.</div></div>
+        <div class="numrow rv" style="--d:4"><div class="badge moss lg">6</div><div class="txt-sm numrow-txt"><strong>Log volume.</strong> Length, large-end, small-end and mid-diameters; Huber's, Smalian's, Newton's and quarter-girth formulae; compare the volumes and explain the differences.</div></div>
+        <div class="numrow rv" style="--d:5"><div class="badge moss lg">7</div><div class="txt-sm numrow-txt"><strong>Standing-tree volume.</strong> Diameter and height; select a form factor; individual-tree and merchantable volume; over and under bark; use a volume table and compare.</div></div>
+        <div class="numrow rv" style="--d:6"><div class="badge moss lg">8</div><div class="txt-sm numrow-txt"><strong>Tree age and increment.</strong> Age from stump sections or visible rings; increment borer where available; handle and label cores; diameter increment, CAI, PAI and MAI; limitations and error.</div></div>
+      </div>
     </div>
   </div>
   <div class="footrule"></div>
@@ -1332,12 +1477,16 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Module descriptor</div>
   <div class="body">
-    <div class="g2" style="row-gap:14px;column-gap:34px">
-      <div class="numrow rv" style="--d:2"><div class="badge">9</div><div class="txt-sm"><strong>Basic forest inventory.</strong> Define the objective and select a design; plot size and shape; establish a fixed-area plot; GPS coordinates where available; number and identify trees; measure diameter, height, crown variables and defects; calculate trees per hectare, mean diameter, mean height, basal area per hectare and stand volume; interpret.</div></div>
-      <div class="numrow rv" style="--d:3"><div class="badge moss">12</div><div class="txt-sm"><strong>GPS/GNSS plot location and navigation.</strong> Configure a receiver and record coordinates; save waypoints and navigate to a plot; record tracks and a simple boundary; compare repeated observations and identify what affects positional accuracy.</div></div>
-      <div class="numrow rv" style="--d:3"><div class="badge">10</div><div class="txt-sm"><strong>Digital data collection and analysis.</strong> Prepare a digital or spreadsheet field form; create plot, tree and species codes; enter measurements; apply validation rules; check missing values, outliers and duplicates; calculate tree and stand variables; summary tables and graphs; save, back up and document.</div></div>
-      <div class="numrow rv" style="--d:4"><div class="badge moss">13</div><div class="txt-sm"><strong>Integrated forest mensuration project.</strong> In groups: define the objective and population; select a sampling method and establish plots; record locations; identify species and measure diameter, height, bark, crown, closure and defects; calculate stand parameters, biomass and carbon; enter, clean and analyse; tables, graphs and a plot map; interpret limitations and uncertainty; write and present a technical inventory report.</div></div>
-      <div class="numrow rv" style="--d:4"><div class="badge">11</div><div class="txt-sm"><strong>Biomass and carbon estimation.</strong> Select an allometric equation and identify the variables required; individual-tree and plot-level above-ground biomass; expansion factors and biomass per hectare; below-ground biomass where appropriate; convert to carbon stock and carbon-dioxide equivalent; discuss uncertainty.</div></div>
+    <div class="outlist">
+      <div class="outcol">
+        <div class="numrow rv" style="--d:2"><div class="badge lg">9</div><div class="txt-sm numrow-txt"><strong>Basic forest inventory.</strong> Define the objective and select a design; plot size and shape; establish a fixed-area plot; GPS coordinates where available; number and identify trees; measure diameter, height, crown variables and defects; calculate trees per hectare, mean diameter, mean height, basal area per hectare and stand volume; interpret.</div></div>
+        <div class="numrow rv" style="--d:3"><div class="badge lg">10</div><div class="txt-sm numrow-txt"><strong>Digital data collection and analysis.</strong> Prepare a digital or spreadsheet field form; create plot, tree and species codes; enter measurements; apply validation rules; check missing values, outliers and duplicates; calculate tree and stand variables; summary tables and graphs; save, back up and document.</div></div>
+        <div class="numrow rv" style="--d:4"><div class="badge lg">11</div><div class="txt-sm numrow-txt"><strong>Biomass and carbon estimation.</strong> Select an allometric equation and identify the variables required; individual-tree and plot-level above-ground biomass; expansion factors and biomass per hectare; below-ground biomass where appropriate; convert to carbon stock and carbon-dioxide equivalent; discuss uncertainty.</div></div>
+      </div>
+      <div class="outcol">
+        <div class="numrow rv" style="--d:3"><div class="badge moss lg">12</div><div class="txt-sm numrow-txt"><strong>GPS/GNSS plot location and navigation.</strong> Configure a receiver and record coordinates; save waypoints and navigate to a plot; record tracks and a simple boundary; compare repeated observations and identify what affects positional accuracy.</div></div>
+        <div class="numrow rv" style="--d:4"><div class="badge moss lg">13</div><div class="txt-sm numrow-txt"><strong>Integrated forest mensuration project.</strong> In groups: define the objective and population; select a sampling method and establish plots; record locations; identify species and measure diameter, height, bark, crown, closure and defects; calculate stand parameters, biomass and carbon; enter, clean and analyse; tables, graphs and a plot map; interpret limitations and uncertainty; write and present a technical inventory report.</div></div>
+      </div>
     </div>
   </div>
   <div class="footrule"></div>
@@ -1399,9 +1548,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="runhead">MEN 201 · Forest Mensuration<br>Module descriptor</div>
   <div class="body">
     <div class="g2" style="gap:34px">
-      <div class="card rv" style="--d:2">
+      <div class="card rv" style="--d:2;display:flex;flex-direction:column">
         <div class="ch">Essential reading</div>
-        <ul class="bul sm">
+        <ul class="bul reading-list">
           <li><strong>Chaturvedi, A. N. and Khanna, L. S. (1982).</strong> Forest Mensuration. International Book Distributors, Dehra Dun.</li>
           <li><strong>Kershaw, J. A., Ducey, M. J., Beers, T. W. and Husch, B. (2017).</strong> Forest Mensuration, 5th edition. Wiley Blackwell.</li>
           <li><strong>West, P. W. (2014).</strong> Tree and Forest Measurement, 3rd edition. Springer.</li>
@@ -1445,7 +1594,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Module descriptor</div>
   <div class="body">
-    <div class="g3" style="gap:28px;height:calc(100% - 128px)">
+    <div class="g3" style="gap:28px;flex:1 1 auto;min-height:0">
       <div class="card rv" style="--d:2">
         <div class="ch v">Core equipment</div>
         <ul class="bul sm">
@@ -1482,7 +1631,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <p class="txt-sm" style="margin-top:12px">Where an older textbook or an earlier set of notes teaches the relascope or the wedge prism, that is why neither is assessed in this module.</p>
       </div>
     </div>
-    <div class="callout rv" style="--d:7;position:absolute;left:0;right:0;bottom:0">
+    <div class="callout rv" style="--d:7;margin-top:auto">
       <p>Where equipment is unavailable, lecturers may use <strong>demonstrations, sample datasets, photographs, videos, case studies or previously collected information</strong> in its place.</p>
     </div>
   </div>
@@ -1553,9 +1702,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="runhead">MEN 201 · Forest Mensuration<br>Module descriptor</div>
   <div class="body">
     <div class="g3" style="gap:26px;height:100%">
-      <div class="card rv" style="--d:2">
+      <div class="card rv" style="--d:2;display:flex;flex-direction:column">
         <div class="ch v">Status and priority</div>
-        <ul class="bul sm">
+        <ul class="bul sm reading-list">
           <li>Units VIII to XI are <strong>supplementary enrichment components</strong></li>
           <li>They connect traditional mensuration to current inventory and monitoring practice</li>
           <li>Their inclusion must not reduce the time needed to develop competence in fundamental tree-measurement skills</li>
@@ -1563,9 +1712,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <li>Inventory exercises should emphasise <strong>fixed-area sample plots</strong></li>
         </ul>
       </div>
-      <div class="card rv" style="--d:3">
+      <div class="card rv" style="--d:3;display:flex;flex-direction:column">
         <div class="ch v">Instruments</div>
-        <ul class="bul sm">
+        <ul class="bul sm reading-list">
           <li>The relascope and wedge prism are <strong>not included</strong> in the revised module</li>
           <li>Canopy cover assessment follows the <strong>Forest Canopy Cover Assessment Guidelines 2024</strong> using the <strong>GRS crown densitometer</strong>; the spherical densiometer is retained as a comparative instrument</li>
           <li>Laser rangefinders and digital hypsometers may supplement clinometer-based height measurement</li>
@@ -1600,20 +1749,20 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 &middot; Module Descriptor</div>
   <div class="body">
-    <div style="max-width:1300px">
+    <div style="display:flex;flex-direction:column;flex:1 1 auto;min-height:0">
       <div class="card moss rv" style="--d:2">
-        <p class="lead" style="color:#eef2ea;font-size:29px">The course developer gratefully acknowledges <strong style="color:#fff">Laxmi Sagr, Associate Lecturer, College of Natural Resources</strong>, for sharing teaching materials previously used for the same Forest Mensuration course.</p>
-        <p class="txt" style="margin-top:20px;color:#d3decf">Selected concepts and materials were reviewed, adapted, expanded and contextualized for the present MEN 201 course.</p>
+        <p class="lead" style="color:#eef2ea;font-size:calc(29px * var(--tz,1));max-width:1300px">The course developer gratefully acknowledges <strong style="color:#fff">Laxmi Sagar, Associate Lecturer, College of Natural Resources</strong>, for sharing teaching materials previously used for the same Forest Mensuration course.</p>
+        <p class="txt" style="margin-top:20px;color:#d3decf;max-width:1300px">Selected concepts and materials were reviewed, adapted, expanded and contextualized for the present MEN 201 course.</p>
       </div>
-      <div class="g2 rv" style="--d:4;margin-top:28px;gap:30px">
+      <div class="g2 rv" style="--d:4;margin-top:auto;gap:30px">
         <div class="card sunk">
           <div class="label v">Where a specific item is adapted</div>
           <p class="txt-sm" style="margin-top:12px">The slide, or the corresponding section of the student lecture notes, carries its own note:</p>
-          <p class="txt-sm" style="margin-top:12px;font-style:italic;color:var(--moss)">&ldquo;Adapted from teaching materials shared by Laxmi Sagr, Associate Lecturer, College of Natural Resources.&rdquo;</p>
+          <p class="txt-sm" style="margin-top:12px;font-style:italic;color:var(--moss)">&ldquo;Adapted from teaching materials shared by Laxmi Sagar, Associate Lecturer, College of Natural Resources.&rdquo;</p>
         </div>
         <div class="callout">
           <span class="k">What acknowledgement does not replace</span>
-          <p style="font-size:19px">Acknowledging a contribution does <strong>not</strong> replace proper citation of the original books, manuals, reports, research papers, photographs, diagrams, equations, tables or datasets used within the shared materials. Those are cited <strong>where they are used</strong>.</p>
+          <p style="font-size:calc(19px * var(--tz,1))">Acknowledging a contribution does <strong>not</strong> replace proper citation of the original books, manuals, reports, research papers, photographs, diagrams, equations, tables or datasets used within the shared materials. Those are cited <strong>where they are used</strong>.</p>
         </div>
       </div>
     </div>
@@ -1642,12 +1791,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="eyebrow rv" style="--d:0">MEN 201 · Forest Mensuration · Module descriptor</div>
     <div class="rv" style="--d:1;margin-top:24px;width:120px;height:1px;background:var(--ink);opacity:.85"></div>
   </div>
-  <div style="position:absolute;left:110px;top:280px;width:1040px">
-    <h1 class="rv" style="--d:2;font-size:96px">Module revision<br><em>information</em></h1>
-    <div class="g2 rv" style="--d:4;margin-top:56px;max-width:940px;gap:40px">
+  <div style="position:absolute;left:110px;top:170px;width:1060px">
+    <h1 class="rv" style="--d:2;font-size:calc(84px * var(--tz,1))">Module revision<br><em>information</em></h1>
+    <div class="g2 rv" style="--d:4;margin-top:44px;max-width:1040px;gap:36px;align-items:start;grid-template-columns:0.78fr 1fr">
       <div class="card">
         <div class="label v">Dates</div>
-        <div class="mn" style="font-size:19px;color:var(--ink);margin-top:14px;line-height:2">
+        <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--ink);margin-top:14px;line-height:1.85">
           Original descriptor &nbsp; March 2022<br>
           Supplementary revision &nbsp; 07/08/2026<br>
           Revised by &nbsp; Wangdi
@@ -1655,7 +1804,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="card">
         <div class="label v">What the revision changed</div>
-        <div class="mn" style="font-size:18px;color:var(--ink);margin-top:14px;line-height:1.9">
+        <div class="mn" style="font-size:calc(18px * var(--tz,1));color:var(--ink);margin-top:14px;line-height:1.62">
           Added &nbsp; current inventory methods<br>
           Added &nbsp; digital data management<br>
           Added &nbsp; biomass and carbon<br>
@@ -1866,7 +2015,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
 /* Fallback only, for a deck with no HUD to dock into. */
 .tocback.loose{position:fixed;right:clamp(12px,1.6vw,26px);bottom:clamp(58px,6vw,76px);z-index:70;
-  font:500 12px/1 'JetBrains Mono',ui-monospace,monospace;
+  font:500 calc(12px * var(--tz,1))/1 'JetBrains Mono',ui-monospace,monospace;
   background:rgba(10,14,11,.72);border-color:rgba(255,255,255,.14);padding:9px 13px}
 
 body.editing .tocback,body.editing .tocsep{display:none}

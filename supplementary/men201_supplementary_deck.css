@@ -1,0 +1,551 @@
+/* ==========================================================================
+   MEN 201 · SUPPLEMENTARY UNITS VIII–XI — "FIELD NOTEBOOK"
+   A fixed 1920×1080 stage, scaled uniformly to the viewport.
+
+   This is Unit VII's stylesheet, factored into one file that the four
+   supplementary decks share. The design system is carried over unchanged from
+   Units V–VII so the module reads as one continuous set of notes: graph-paper
+   substrate, technical annotation in monospace, editorial serif for voice, and
+   exactly two accents (moss green for structure, vermilion for signal).
+
+   Every type size is authored at the same value as Units I–VII. The earlier
+   draft of this sheet ran one to three pixels smaller on almost every
+   primitive, which is invisible in isolation but reads as a different document
+   the moment a lecturer moves from Unit VII to Unit VIII in the same session.
+   ========================================================================== */
+
+/* === DESIGN TOKENS === */
+:root{
+  /* type zoom - one knob for every size in this document */
+  --tz: 1.12;
+  /* surfaces */
+  --paper:        #f2efe6;
+  --paper-card:   #faf9f4;
+  --paper-sunk:   #e9e5d9;
+  --letterbox:    #141815;
+
+  /* ink */
+  --ink:          #141c18;
+  --ink-soft:     #4a544c;
+  --ink-faint:    #7b857c;
+
+  /* accents */
+  --moss:         #2f5140;
+  --moss-mid:     #4a7a5f;
+  --moss-wash:    rgba(47,81,64,.075);
+  --moss-line:    rgba(47,81,64,.28);
+  --vermilion:    #c14524;
+  --vermilion-wash: rgba(193,69,36,.08);
+  --gold:         #a8842c;
+
+  /* lines */
+  --rule:         rgba(20,28,24,.16);
+  --rule-soft:    rgba(20,28,24,.09);
+  --grid-major:   rgba(20,28,24,.055);
+  --grid-minor:   rgba(20,28,24,.028);
+
+  /* type */
+  --display: 'Fraunces', Georgia, serif;
+  --body:    'Public Sans', 'Helvetica Neue', sans-serif;
+  --mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  /* Cover display size. Units I–VII all set two short lines and can carry the
+     full 128px. Three of these four titles are longer, so the size is a token
+     the cover slide can step down without touching anything else. */
+  --cover-h1: 128px;
+}
+
+/* === RESET + FIXED STAGE (non-negotiable base) === */
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%;overflow:hidden;background:var(--letterbox);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+button,input,select{font:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+
+/* Keyboard users reach the slides without tabbing the whole HUD first. */
+.skip{position:fixed;left:-9999px;top:12px;z-index:100;background:var(--ink);color:#fff;
+  padding:12px 16px;font:600 calc(15px * var(--tz,1)) var(--mono)}
+.skip:focus{left:12px}
+
+.deck-viewport{position:fixed;inset:0;overflow:hidden}
+
+/* The stage is centred by explicit positioning, NOT by flex/grid alignment:
+   grid and flex clamp an oversized item to `start` rather than centring it,
+   which would push the scaled stage off the right and bottom edges. */
+.stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;
+  transform-origin:center center;
+  transform:translate(-50%,-50%) scale(var(--s,1));
+  background:var(--paper);box-shadow:0 40px 120px rgba(0,0,0,.55)}
+
+/* Slides are switched with visibility/opacity — never display:none,
+   so that inner flex/grid layout rules cannot resurrect hidden slides. */
+.slide{position:absolute;inset:0;visibility:hidden;opacity:0;pointer-events:none;
+  transition:opacity .42s ease;overflow:hidden;background:var(--paper)}
+.slide.active{visibility:visible;opacity:1;pointer-events:auto}
+
+/* === SUBSTRATE: graph paper + vignette === */
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(var(--grid-major) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),
+    linear-gradient(var(--grid-minor) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);
+  background-size:80px 80px,80px 80px,16px 16px,16px 16px}
+.slide::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(130% 100% at 15% 0%,transparent 45%,rgba(20,28,24,.07) 100%)}
+.slide > *{position:relative;z-index:2}
+
+/* === SLIDE CHROME =========================================================
+   Every content slide carries: eyebrow + title (top-left), running head
+   (top-right), a hairline baseline, and a page number.
+   ========================================================================== */
+.head{position:absolute;left:92px;right:92px;top:70px}
+.eyebrow{font:500 calc(19px * var(--tz,1))/1 var(--mono);letter-spacing:.30em;text-transform:uppercase;
+  color:var(--vermilion)}
+.eyebrow.warn{color:var(--gold)}
+h2.title{margin:20px 0 0;font-family:var(--display);font-optical-sizing:auto;
+  font-weight:600;font-size:calc(58px * var(--tz,1));line-height:1.05;letter-spacing:-.022em;color:var(--ink);
+  max-width:1500px}
+h2.title em{font-style:italic;font-weight:400;color:var(--moss)}
+.head .hr{margin-top:24px;height:1px;background:var(--rule)}
+
+.runhead{position:absolute;right:92px;top:66px;font:400 calc(17px * var(--tz,1))/1.4 var(--mono);
+  letter-spacing:.16em;color:var(--ink-faint);text-align:right}
+.pageno{position:absolute;right:92px;bottom:38px;font:500 calc(18px * var(--tz,1))/1 var(--mono);
+  letter-spacing:.14em;color:var(--ink-faint)}
+.footrule{position:absolute;left:92px;right:92px;bottom:74px;height:1px;background:var(--rule-soft)}
+
+/* Links inside a slide. Rare by design - they point at the supplementary
+   readings filed beside the decks - so they are marked with the moss rule
+   rather than a full underline, and the runtime stops a click on one from
+   also turning the page. */
+.slide a{color:var(--moss);text-decoration:none;
+  border-bottom:1px solid rgba(47,81,64,.4);transition:color .18s ease,border-color .18s ease}
+.slide a:hover,.slide a:focus-visible{color:var(--vermilion);border-bottom-color:var(--vermilion)}
+.slide a::after{content:" ↗";font-size:.8em;color:var(--ink-faint);border:0}
+.src{position:absolute;left:92px;bottom:36px;font:400 calc(17px * var(--tz,1))/1.4 var(--mono);color:var(--ink-faint);
+  max-width:1400px;letter-spacing:.02em}
+
+/* .src is slide chrome: it is pinned to the page baseline, so an absolute
+   position resolves against .body. Written inside a panel it is a footnote to
+   that panel and must stay in flow there, or it leaves the card entirely and
+   lands on the far side of the slide. */
+.card .src,.calc .src,.callout .src,.q .src,.fig .src{position:static;max-width:none;margin-top:14px}
+
+/* A source note written at the end of a .body is a citation for the content
+   above it, not page chrome. It keeps the baseline the absolute version had,
+   but as a real block: content above it now has to make room, so a note that
+   wraps to three lines can no longer be landed on by the closing bar. */
+.body>.src{position:static;margin-top:auto;padding-top:14px;max-width:100%;left:auto;bottom:auto}
+.body>.src+.src{padding-top:4px}
+
+/* A body that carries its own source note reaches further down the page. The
+   note used to be absolute chrome on the page baseline, so that band below
+   the safe zone is exactly the room it now needs; the hairline that ruled it
+   off would cross the note, so it steps aside. */
+.body.srcfoot{bottom:86px}
+.body.srcfoot~.footrule{display:none}
+
+/* A block that asked for the whole band with height:100% leaves nothing for a
+   source note that now shares that column with it. In that company it takes
+   what is left instead. */
+.body.srcfoot>.fill{height:auto;flex:1 1 auto;min-height:0}
+
+/* The xs table variant carries phrases and formulae, not only numerals, so a
+   .num cell in one must be allowed to wrap: held on one line it widens the
+   table past the card that frames it. A long monospace value in a step row is
+   the same problem in a different primitive. */
+table.dt.xs td.num{white-space:normal;overflow-wrap:anywhere}
+.step .sv{overflow-wrap:anywhere}
+/* The densest step for that variant, bought from padding as everywhere else. */
+.slide.fit2 table.dt.xs td,.slide.fit2 table.dt.xs th{padding:6px 10px}
+
+
+
+
+
+
+/* Body region: the safe zone between chrome */
+.body{position:absolute;left:92px;right:92px;top:222px;bottom:104px}
+.body.tight{top:200px}
+.body.deep{top:266px}
+
+/* === PRIMITIVES === */
+.lead{font-family:var(--display);font-weight:400;font-size:calc(34px * var(--tz,1));line-height:1.40;
+  color:var(--ink);letter-spacing:-.005em}
+.lead strong{font-weight:600;color:var(--moss)}
+p{margin:0}
+.txt{font:400 calc(24px * var(--tz,1))/1.52 var(--body);color:var(--ink-soft)}
+.txt-sm{font:400 calc(21px * var(--tz,1))/1.48 var(--body);color:var(--ink-soft)}
+.mono-sm{font:400 calc(18px * var(--tz,1))/1.5 var(--mono);color:var(--ink-faint);letter-spacing:.02em}
+
+.label{font:500 calc(17px * var(--tz,1))/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--moss)}
+.label.v{color:var(--vermilion)}
+
+/* Cards — the paper leaf that sits on the graph paper */
+.card{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;
+  padding:24px 28px;box-shadow:0 2px 0 rgba(20,28,24,.05),0 14px 34px rgba(20,28,24,.045)}
+
+/* === PANEL CONTAINMENT ====================================================
+   A panel is the shape of its own text. Where a card is stretched to a row
+   height rather than sized to its contents, anything that overruns it is read
+   against the graph paper - or against the closing bar - instead of against
+   the leaf that is supposed to be behind it. Clipping is what makes that
+   overrun visible to the type-zoom guard in assets/men201-type-zoom.js, which
+   then sizes the slide so it cannot happen. The clip is the alarm, not the
+   remedy: by the time a slide is on screen the guard has already fitted it.
+   ========================================================================== */
+.card,.callout,.q,.answer,.calc{overflow:hidden}
+
+.card.sunk{background:var(--paper-sunk);box-shadow:none}
+.card.moss{background:var(--moss);border-color:var(--moss);color:#eef2ea}
+.card.moss .label{color:#a9c9b3}
+.card.moss .txt,.card.moss .txt-sm{color:#d3decf}
+.card h3,.card .ch{margin:0 0 11px;font-family:var(--display);font-weight:600;font-size:calc(28px * var(--tz,1));
+  line-height:1.2;color:var(--ink);letter-spacing:-.012em}
+.card.moss .ch{color:#fff}
+.card .ch.v{color:var(--vermilion)}
+/* Section headings also appear outside a card in these decks. */
+.ch{margin:0 0 11px;font-family:var(--display);font-weight:600;font-size:calc(28px * var(--tz,1));
+  line-height:1.2;color:var(--ink);letter-spacing:-.012em}
+
+/* Tick-mark bullet list */
+ul.bul{margin:0;padding:0;list-style:none}
+ul.bul li{position:relative;padding-left:30px;margin-bottom:9px;
+  font:400 calc(23px * var(--tz,1))/1.45 var(--body);color:var(--ink-soft)}
+ul.bul li:last-child{margin-bottom:0}
+ul.bul li::before{content:"";position:absolute;left:0;top:.62em;width:11px;height:1.5px;
+  background:var(--vermilion)}
+ul.bul.sm li{font-size:calc(21px * var(--tz,1));margin-bottom:7px;padding-left:28px}
+ul.bul.sm li::before{width:9px}
+ul.bul li strong{color:var(--ink);font-weight:600}
+.card.moss ul.bul li{color:#d3decf}
+.card.moss ul.bul li::before{background:var(--gold)}
+.card.moss ul.bul li strong{color:#fff}
+
+/* Numbered badge lists */
+.numrow{display:flex;gap:16px;align-items:flex-start;margin-bottom:11px}
+.badge{flex:0 0 auto;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  font:700 calc(17px * var(--tz,1))/1 var(--mono);background:var(--vermilion);color:#fff}
+.badge.moss{background:var(--moss)}
+.badge.hollow{background:transparent;border:1.5px solid var(--moss);color:var(--moss)}
+.badge.lg{width:46px;height:46px;font-size:calc(20px * var(--tz,1))}
+
+/* Formula plates */
+.formula{background:var(--moss-wash);border:1px solid var(--moss-line);border-radius:3px;
+  padding:17px 26px;text-align:center;
+  font-family:var(--display);font-weight:500;font-size:calc(38px * var(--tz,1));line-height:1.2;color:var(--moss);
+  letter-spacing:.01em}
+.formula.v{background:var(--vermilion-wash);border-color:rgba(193,69,36,.3);color:var(--vermilion)}
+.formula.sm{font-size:calc(28px * var(--tz,1));padding:16px 20px}
+.formula.lg{font-size:calc(46px * var(--tz,1));padding:28px 32px}
+.formula .u{font-size:.55em;color:var(--ink-faint);display:block;margin-top:10px;
+  font-family:var(--body);font-weight:400;letter-spacing:0}
+sub{font-size:.62em;vertical-align:-.22em}
+sup{font-size:.62em;vertical-align:.42em}
+.mn{font-family:var(--mono);font-size:.86em;letter-spacing:-.01em}
+
+/* Inline fraction, for formulae that need a true numerator over denominator */
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;
+  margin:0 .18em;line-height:1.18}
+.frac .n{border-bottom:1.5px solid currentColor;padding:0 .35em .06em}
+.frac .d{padding:.06em .35em 0}
+
+/* Callout — the "so what" bar */
+.callout{border-left:4px solid var(--vermilion);background:var(--vermilion-wash);
+  padding:15px 22px;border-radius:0 3px 3px 0}
+.callout.moss{border-left-color:var(--moss);background:var(--moss-wash)}
+.callout .k{font:500 calc(16px * var(--tz,1))/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--vermilion);display:block;margin-bottom:7px}
+.callout.moss .k{color:var(--moss)}
+.callout p{font:400 calc(23px * var(--tz,1))/1.42 var(--body);color:var(--ink)}
+.callout.sm p{font-size:calc(21px * var(--tz,1))}
+
+/* Answer bar */
+.answer{background:var(--moss);color:#fff;border-radius:3px;padding:16px 28px;
+  display:flex;align-items:baseline;gap:20px}
+.answer .k{font:500 calc(17px * var(--tz,1))/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:#a9c9b3}
+.answer .v{font-family:var(--display);font-weight:600;font-size:calc(36px * var(--tz,1));letter-spacing:-.01em}
+.answer .n{font:400 calc(20px * var(--tz,1))/1.4 var(--body);color:#c6d6c9}
+
+/* Data tables */
+.table-wrap{max-height:100%;overflow:auto;border:1px solid var(--rule);background:var(--paper-card)}
+.table-wrap table.dt{border:0}
+table.dt{width:100%;border-collapse:collapse;background:var(--paper-card);
+  border:1px solid var(--rule);font:400 calc(21px * var(--tz,1))/1.4 var(--body);color:var(--ink-soft)}
+table.dt th{background:var(--moss);color:#fff;font:600 calc(19px * var(--tz,1))/1.3 var(--body);
+  text-align:left;padding:11px 16px;letter-spacing:.01em;vertical-align:middle}
+table.dt th:first-child{font-family:var(--mono);font-size:calc(14px * var(--tz,1));letter-spacing:.14em;
+  text-transform:uppercase;font-weight:500;color:#b6cdbd}
+table.dt td{padding:14px 16px;border-top:1px solid var(--rule-soft);vertical-align:top}
+table.dt tbody tr:nth-child(even){background:rgba(20,28,24,.022)}
+table.dt td.rh{font-weight:600;color:var(--ink);background:rgba(47,81,64,.05)}
+table.dt td.num{font-family:var(--mono);font-size:calc(20px * var(--tz,1));color:var(--ink);white-space:nowrap}
+table.dt.sm{font-size:calc(19px * var(--tz,1))}
+table.dt.sm th{font-size:calc(17px * var(--tz,1));padding:11px 13px}
+table.dt.sm td{padding:9px 13px}
+table.dt.xs{font-size:calc(17px * var(--tz,1))}
+table.dt.xs th{font-size:calc(15px * var(--tz,1));padding:9px 10px}
+table.dt.xs td{padding:7px 10px}
+table.dt tr.hi td{background:var(--vermilion-wash)}
+table.dt tr.tot td{background:rgba(47,81,64,.10);font-weight:600;color:var(--ink);
+  border-top:1.5px solid var(--moss-line)}
+table.dt td.c,table.dt th.c{text-align:center}
+
+/* Layout helpers */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
+.gcols{display:grid;gap:28px}
+.stack{display:flex;flex-direction:column;gap:22px}
+.stack.sm{gap:13px}
+.row{display:flex;gap:24px}
+.fill{height:100%}
+.between{justify-content:space-between}
+.center{text-align:center}
+.scroll{height:100%;overflow:auto;padding-right:8px}
+
+/* === VERTICAL RHYTHM ======================================================
+   The body band is a fixed height. A slide that sizes its rows to their own
+   content stops partway down the paper and reads as unfinished next to the
+   rest of the module, which fills the band. Blocks marked .grow share the
+   leftover height between them, and each card then centres its contents
+   inside the height it is given.
+
+   flex:1 0 auto - grow into slack, never shrink below content - so a slide
+   that already fills its band comes out of this rule unchanged, and no card
+   can be squeezed smaller than the words inside it.
+
+   Where a body holds a single grid the deck already says .fill (height:100%);
+   that keeps working and needs no .grow. .grow is the version that also works
+   when the grid shares the band with a callout, a table or a second grid.
+   ========================================================================== */
+.body{display:flex;flex-direction:column}
+.body>*{flex:0 0 auto}
+.body>.grow{flex:1 0 auto;min-height:0}
+/* Contents stay on a common top baseline, so the headings across a four-card
+   row line up and each card simply grows below them. Centring each card's
+   own contents instead - the row heights differ - leaves the headings ragged
+   at four different heights, which reads as an accident rather than a grid. */
+.grow>.stack>*{flex:1 0 auto}
+/* A calculator is one full-width panel with no sibling headings to line up
+   against, so it centres its form in the height it is given rather than
+   leaving the whole slack below the result. */
+.calc.grow{display:flex;flex-direction:column;justify-content:center}
+/* Tables keep their natural rhythm and are never stretched: padding a table
+   out to a row height spaces its rows unevenly against a neighbouring table,
+   and a scroll wrapper grown past its last row is just an empty framed box. */
+.body>table.dt{align-self:start}
+
+/* Step chain for worked examples */
+.step{display:grid;grid-template-columns:210px 1fr;gap:20px;align-items:center;
+  padding:11px 0;border-top:1px solid var(--rule-soft)}
+.step:first-child{border-top:none}
+.step .sl{font:500 calc(17px * var(--tz,1))/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--moss)}
+.step .sv{font-family:var(--mono);font-size:calc(25px * var(--tz,1));color:var(--ink);letter-spacing:-.01em}
+.step .sv .hlt{color:var(--vermilion)}
+.step.sm{padding:10px 0}
+.step.sm .sv{font-size:calc(19px * var(--tz,1))}
+/* Step rows sitting on a moss card need inverted rule + label colours,
+   otherwise the dark-on-dark defaults above become unreadable. */
+.card.moss .step{border-top-color:rgba(255,255,255,.17)}
+.card.moss .step .sl{color:#d8b76a}
+.card.moss .step .sv{color:#fff}
+
+/* Question cards */
+.q{display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:start;
+  background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;padding:16px 20px}
+.q .qt{font:400 calc(21px * var(--tz,1))/1.4 var(--body);color:var(--ink)}
+.q .qm{margin-top:8px;font:500 calc(16px * var(--tz,1))/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-faint)}
+.q .qa{margin-top:8px;font:500 calc(19px * var(--tz,1)) var(--mono);color:var(--moss)}
+
+/* Chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{font:500 calc(17px * var(--tz,1))/1 var(--mono);letter-spacing:.08em;color:var(--moss);
+  border:1px solid var(--moss-line);background:var(--moss-wash);padding:9px 14px;border-radius:2px}
+.chip.v{color:var(--vermilion);border-color:rgba(193,69,36,.3);background:var(--vermilion-wash)}
+
+/* Figure frames for SVG plates */
+.fig{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;
+  position:relative;overflow:hidden}
+.fig svg{display:block;width:100%;height:100%}
+.fig .cap{position:absolute;left:18px;bottom:14px;font:400 calc(15px * var(--tz,1))/1.35 var(--mono);
+  color:var(--ink-faint);letter-spacing:.02em}
+.fignote{font:400 calc(16px * var(--tz,1))/1.45 var(--mono);color:var(--ink-faint);letter-spacing:.01em}
+
+/* Process chain — the one primitive these four units add to the module.
+   Same paper leaf and vermilion signal as everything else. */
+.workflow{display:flex;align-items:stretch;gap:10px}
+.workflow .node{flex:1;background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;
+  padding:18px 14px;text-align:center;font:600 calc(20px * var(--tz,1))/1.3 var(--body);color:var(--ink)}
+.workflow .node small{display:block;margin-top:6px;font:400 calc(15px * var(--tz,1))/1.3 var(--mono);
+  color:var(--ink-faint)}
+.workflow .arrow{align-self:center;color:var(--vermilion);font:700 calc(28px * var(--tz,1)) var(--mono)}
+
+/* Student calculators — also new here, built from the same card and rule. */
+.calc{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;padding:22px 26px}
+.calc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.field label{display:block;font:600 calc(15px * var(--tz,1))/1.3 var(--mono);letter-spacing:.08em;
+  color:var(--moss);margin-bottom:7px}
+.field input,.field select{width:100%;border:1px solid var(--rule);background:#fff;color:var(--ink);
+  padding:12px 13px;font:500 calc(19px * var(--tz,1)) var(--mono);border-radius:2px}
+.field input:invalid{border-color:var(--vermilion)}
+.calc button{border:0;background:var(--vermilion);color:#fff;padding:12px 18px;
+  font:700 calc(16px * var(--tz,1))/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+  border-radius:2px;cursor:pointer}
+.calc button:hover{background:#a8391c}
+.calc button.secondary{background:var(--moss)}
+.result{background:var(--moss-wash);border-left:4px solid var(--moss);padding:14px 18px;min-height:74px;
+  font:500 calc(18px * var(--tz,1))/1.45 var(--mono);color:var(--ink)}
+.error{color:var(--vermilion);font-weight:700}
+
+/* === TITLE / SECTION SLIDES === */
+.cover{position:absolute;inset:0;background:var(--paper)}
+.cover .plate{position:absolute;right:0;top:0;width:720px;height:1080px;
+  border-left:1px solid var(--rule);background:linear-gradient(180deg,rgba(47,81,64,.06),rgba(193,69,36,.05))}
+.cover .plate svg{display:block;width:100%;height:100%}
+.cover .cframe{position:absolute;left:110px;top:300px;width:1030px}
+.cover .cunit{font:600 calc(26px * var(--tz,1))/1 var(--body);letter-spacing:.42em;text-transform:uppercase;color:var(--moss)}
+.cover h1{margin:22px 0 0;font-family:var(--display);font-optical-sizing:auto;font-weight:600;
+  font-size:calc(var(--cover-h1) * var(--tz,1));line-height:.93;letter-spacing:-.03em;color:var(--ink)}
+.cover h1 em{font-style:italic;font-weight:300;color:var(--moss)}
+.cover .csub{margin-top:44px;font:400 calc(26px * var(--tz,1))/1.55 var(--body);color:var(--ink-soft);max-width:830px}
+.cover .cmeta{position:absolute;left:110px;bottom:88px;display:flex;gap:60px}
+.cover .cmeta div{font:400 calc(18px * var(--tz,1))/1.65 var(--mono);color:var(--ink-soft);letter-spacing:.01em}
+.cover .cmeta strong{display:block;color:var(--ink);font-weight:500}
+
+.sect{position:absolute;inset:0;background:var(--moss);overflow:hidden}
+.sect::before,.sect::after{display:none}
+.sect .sframe{position:absolute;left:130px;top:50%;transform:translateY(-50%);width:1150px}
+.sect .sltr{font-family:var(--display);font-weight:600;font-size:calc(200px * var(--tz,1));line-height:.8;
+  color:rgba(255,255,255,.16);letter-spacing:-.04em}
+.sect h1{margin:16px 0 0;font-family:var(--display);font-weight:500;font-size:calc(96px * var(--tz,1));line-height:1.0;
+  letter-spacing:-.028em;color:#fdfcf7}
+.sect .ssub{margin-top:34px;font:400 calc(25px * var(--tz,1))/1.55 var(--body);color:#bcd2c2;max-width:960px}
+.sect .srule{margin-top:34px;width:220px;height:2px;background:var(--gold)}
+.sect .srun{position:absolute;left:130px;top:70px;font:400 calc(16px * var(--tz,1))/1 var(--mono);letter-spacing:.24em;
+  color:rgba(255,255,255,.55);text-transform:uppercase}
+.sect .spage{position:absolute;right:92px;bottom:44px;font:500 calc(16px * var(--tz,1)) var(--mono);
+  letter-spacing:.14em;color:rgba(255,255,255,.5)}
+
+/* === MOTION === */
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes draw{from{stroke-dashoffset:var(--len,1200)}to{stroke-dashoffset:0}}
+.slide.active .rv{animation:rise .62s cubic-bezier(.22,.72,.28,1) both;
+  animation-delay:calc(var(--d,0) * 78ms)}
+.slide.active .fd{animation:fade .8s ease both;animation-delay:calc(var(--d,0) * 78ms)}
+.slide.active .drw{stroke-dasharray:var(--len,1200);animation:draw 1.5s ease .25s both}
+
+@media (prefers-reduced-motion: reduce){
+  .slide{transition:none}
+  .slide.active .rv,.slide.active .fd,.slide.active .drw{animation:none!important}
+  .slide.active .drw{stroke-dasharray:none}
+}
+
+/* === DECK UI (outside the stage — clamp is allowed here) === */
+.progress{position:fixed;left:0;top:0;height:3px;background:var(--vermilion);z-index:60;
+  width:0;transition:width .3s ease}
+.hud{position:fixed;right:clamp(12px,1.6vw,26px);bottom:clamp(12px,1.6vw,26px);z-index:60;
+  display:flex;align-items:center;gap:clamp(8px,1vw,14px);
+  font:500 clamp(11px,1.05vw,14px)/1 var(--mono);letter-spacing:.14em;color:#8e9a90;
+  background:rgba(10,14,11,.72);border:1px solid rgba(255,255,255,.12);
+  padding:clamp(7px,.8vw,11px) clamp(11px,1.2vw,16px);border-radius:100px;
+  backdrop-filter:blur(6px);user-select:none}
+.hud b{color:#f2efe6;font-weight:600}
+.hud button{all:unset;cursor:pointer;color:#8e9a90;padding:0 4px;font-size:1.1em;line-height:1}
+.hud button:hover{color:#f2efe6}
+.editbtn{position:fixed;left:clamp(12px,1.6vw,26px);top:clamp(12px,1.6vw,26px);z-index:60;
+  font:500 clamp(10px,.95vw,12px)/1 var(--mono);letter-spacing:.16em;color:#8e9a90;
+  background:rgba(10,14,11,.6);border:1px solid rgba(255,255,255,.1);
+  padding:8px 12px;border-radius:100px;opacity:0;transition:opacity .25s ease;cursor:pointer;
+  user-select:none}
+.editbtn:hover,body.editing .editbtn{opacity:1}
+body.editing .editbtn{color:var(--vermilion);border-color:var(--vermilion)}
+body.editing .slide.active [contenteditable]:hover{outline:1px dashed var(--vermilion);outline-offset:3px}
+body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermilion);outline-offset:3px}
+.toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%);z-index:70;
+  font:500 calc(13px * var(--tz,1))/1 var(--mono);letter-spacing:.1em;color:#f2efe6;background:rgba(47,81,64,.95);
+  padding:12px 20px;border-radius:100px;opacity:0;pointer-events:none;transition:opacity .3s}
+.toast.on{opacity:1}
+
+/* The way back to the module contents, and the link on to the next unit.
+   Both dock inside the HUD rather than floating over a slide: at exactly 16:9
+   the stage fills the viewport and a corner badge would land on the running
+   head, while the HUD is already positioned clear of slide content. */
+.tocback{color:#b1bab2;text-decoration:none;text-transform:uppercase;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:7px;padding:4px 7px;border-radius:100px;
+  border:0!important;font:inherit;letter-spacing:.08em}
+.tocback:hover,.tocback:focus-visible{color:#fff;background:rgba(255,255,255,.12)}
+.tocback::after{content:none!important}
+.tocback kbd{font:inherit;font-size:.85em;letter-spacing:.08em;color:#c2ccc2;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);
+  border-radius:4px;padding:3px 5px}
+.tocback.end{color:#fff;background:#c14524;border-color:#c14524}
+.tocback.end kbd{color:#fff;background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.36)}
+.tocsep{width:1px;align-self:stretch;background:rgba(255,255,255,.16);margin:0 2px}
+.unitnext{color:#c2ccc2;text-decoration:none;border:0!important;
+  font:inherit;letter-spacing:.08em;white-space:nowrap;padding:4px 7px;border-radius:100px}
+.unitnext:hover,.unitnext:focus-visible{color:#fff;background:rgba(255,255,255,.12)}
+.unitnext::after{content:none!important}
+.unitnext[aria-disabled="true"]{opacity:.35;pointer-events:none}
+body.editing .tocback,body.editing .tocsep,body.editing .unitnext{display:none}
+
+/* === DENSITY OVERRIDE ======================================================
+   The type scale was raised across the module for readability from the back of
+   the room. On the densest slides that costs vertical space, and it is bought
+   back here from padding and gaps - never from font size.
+   `fit` is the normal step; `fit2` is for the few slides that need more.
+
+   This is the rule the first draft of these four decks broke: its .fit and
+   .fit2 stepped the type itself down to 16-19px, so a dense supplementary
+   slide was set two sizes below the equivalent slide in Unit VI. Anything a
+   slide cannot pay for out of padding is handled at runtime instead, by the
+   per-slide --tz guard in assets/men201-type-zoom.js.
+   ========================================================================== */
+.slide.fit .card{padding:18px 22px}
+.slide.fit .callout{padding:12px 20px}
+.slide.fit .callout .k{margin-bottom:5px}
+.slide.fit .stack{gap:14px}
+.slide.fit .stack.sm{gap:10px}
+.slide.fit ul.bul li{margin-bottom:7px}
+.slide.fit ul.bul.sm li{margin-bottom:5px}
+.slide.fit .card h3,.slide.fit .card .ch,.slide.fit .ch{margin-bottom:8px}
+.slide.fit .formula{padding:13px 22px}
+.slide.fit .formula.sm{padding:11px 18px}
+.slide.fit table.dt td{padding:10px 14px}
+.slide.fit table.dt th{padding:9px 14px}
+.slide.fit .step{padding:8px 0}
+.slide.fit .numrow{margin-bottom:8px}
+.slide.fit .q{padding:13px 18px}
+.slide.fit .answer{padding:13px 24px}
+.slide.fit .workflow .node{padding:14px 12px}
+.slide.fit .calc{padding:18px 22px}
+.slide.fit2 .card{padding:14px 20px}
+.slide.fit2 .callout{padding:10px 18px}
+.slide.fit2 .stack{gap:11px}
+.slide.fit2 .stack.sm{gap:8px}
+.slide.fit2 ul.bul li{margin-bottom:5px}
+.slide.fit2 ul.bul.sm li{margin-bottom:4px}
+.slide.fit2 .card h3,.slide.fit2 .card .ch,.slide.fit2 .ch{margin-bottom:6px}
+.slide.fit2 .formula{padding:10px 20px}
+.slide.fit2 table.dt td{padding:8px 12px}
+.slide.fit2 table.dt th{padding:7px 12px}
+.slide.fit2 .step{padding:6px 0}
+.slide.fit2 .numrow{margin-bottom:6px}
+.slide.fit2 .q{padding:11px 16px}
+.slide.fit2 .workflow .node{padding:11px 10px}
+.slide.fit2 .calc{padding:14px 20px}
+
+@media print{
+  html,body{height:auto;overflow:visible;background:#fff}
+  .deck-viewport{position:static;overflow:visible}
+  .stage{position:static;width:auto;height:auto;transform:none!important;box-shadow:none}
+  .slide,.slide.active{position:relative;visibility:visible;opacity:1;pointer-events:auto;
+    width:13.333in;height:7.5in;page-break-after:always;break-after:page;overflow:hidden;
+    transform:scale(.667);transform-origin:top left;margin-bottom:-2.5in}
+  .progress,.hud,.skip,.editbtn,.toast,.tocback,.tocsep,.unitnext{display:none!important}
+  .slide.active .rv,.slide.active .fd,.slide.active .drw{animation:none!important}
+}

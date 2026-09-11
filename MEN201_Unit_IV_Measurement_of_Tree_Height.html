@@ -338,9 +338,70 @@ table.dt tr.hi td{background:var(--vermilion-wash)}
 .fig{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;
   position:relative;overflow:hidden}
 .fig svg{display:block;width:100%;height:100%}
+.fig img{display:block;width:100%;height:100%;object-fit:contain;background:var(--paper-card)}
 .fig .cap{position:absolute;left:18px;bottom:14px;font:400 calc(17px * var(--tz,1))/1.35 var(--mono);
   color:var(--ink-faint);letter-spacing:.02em}
 .fignote{font:400 calc(18px * var(--tz,1))/1.45 var(--mono);color:var(--ink-faint);letter-spacing:.01em}
+
+/* === SCROLLING BODY (case-derivation slides 26-29, 39-44) ================
+   A full derivation page is taller than the fixed 1920x1080 frame. .scroll
+   is the escape hatch men201-type-zoom.js already exempts from its spill/
+   collision measurements (see framesOf/spill/collision), so a slide that
+   needs it is never fought over by the auto-fitter - it just scrolls. */
+.body.scroll{display:block;overflow-y:auto;overflow-x:hidden;padding-right:14px}
+.body.scroll::-webkit-scrollbar{width:8px}
+.body.scroll::-webkit-scrollbar-track{background:transparent}
+.body.scroll::-webkit-scrollbar-thumb{background:var(--rule);border-radius:4px}
+.body.scroll::-webkit-scrollbar-thumb:hover{background:var(--moss-line)}
+.body.scroll{scrollbar-width:thin;scrollbar-color:var(--rule) transparent}
+.body.scroll::after{content:"";position:sticky;display:block;left:0;right:0;bottom:0;height:40px;
+  margin-top:-40px;pointer-events:none;background:linear-gradient(to bottom,rgba(242,239,230,0),var(--paper))}
+
+/* === CASE-DERIVATION PAGES ================================================
+   Scoped port of height_enhanced/{SineMethod HTML,tanmethod_HTML}/style.css:
+   same design system (identical --paper/--ink/--moss/--gold/--rule/--display/
+   --body/--mono tokens), resized from that sheet's viewport-relative
+   clamp() scale onto this deck's own calc(<n>px * var(--tz,1)) scale so it
+   grows/shrinks with the stage transform and the type-zoom control, and
+   every selector is namespaced under .case-doc so it can never collide
+   with this deck's own .label/.step/.card/.section-shaped classes.
+   ========================================================================== */
+.case-doc{padding:4px 2px 30px}
+.case-doc .derivation-layout{display:grid;grid-template-columns:minmax(280px,38%) 1fr;
+  gap:calc(30px * var(--tz,1));align-items:start}
+.case-doc .diagram-rail{position:sticky;top:0;display:flex;flex-direction:column;
+  gap:calc(12px * var(--tz,1));min-width:0}
+.case-doc .diagram-rail img{display:block;width:100%;margin:0;border:1px solid var(--rule);
+  border-radius:3px;box-shadow:0 2px 0 rgba(20,28,24,.05),0 14px 34px rgba(20,28,24,.045)}
+.case-doc .caption{font:400 calc(16px * var(--tz,1))/1.4 var(--mono);color:var(--ink-faint);
+  letter-spacing:.01em;margin:0}
+.case-doc .derivation-content{min-width:0}
+.case-doc .section{margin:0 0 calc(24px * var(--tz,1))}
+.case-doc .section:last-child{margin-bottom:0}
+.case-doc .section-num{display:block;font:700 calc(14px * var(--tz,1))/1 var(--mono);
+  text-transform:uppercase;letter-spacing:.1em;color:var(--moss);margin-bottom:4px}
+.case-doc h2{font-family:var(--display);font-weight:600;font-size:calc(27px * var(--tz,1));
+  line-height:1.15;color:var(--ink);border-left:4px solid var(--gold);padding-left:12px;margin:0 0 10px}
+.case-doc h3{font-family:var(--display);font-weight:600;font-size:calc(21px * var(--tz,1));
+  line-height:1.2;color:var(--ink);margin:16px 0 8px}
+.case-doc p{font:400 calc(19px * var(--tz,1))/1.5 var(--body);color:var(--ink-soft);margin:0 0 8px}
+.case-doc ul,.case-doc ol{margin:6px 0 6px 22px;padding:0}
+.case-doc li{font:400 calc(19px * var(--tz,1))/1.48 var(--body);color:var(--ink-soft);margin-bottom:4px}
+.case-doc strong{color:var(--ink);font-weight:600}
+.case-doc em{font-style:italic}
+.case-doc .formula-box{background:var(--paper-sunk);border-left:4px solid var(--moss);
+  border-radius:0 3px 3px 0;padding:calc(12px * var(--tz,1)) calc(16px * var(--tz,1));
+  margin:calc(12px * var(--tz,1)) 0;font-size:calc(22px * var(--tz,1));overflow-x:auto}
+.case-doc .formula-box .label{display:block;font:700 calc(13px * var(--tz,1))/1 var(--mono);
+  text-transform:uppercase;letter-spacing:.08em;color:var(--moss);margin-bottom:6px}
+.case-doc .concept-box{background:var(--moss-wash);border-left:4px solid var(--gold);
+  border-radius:0 3px 3px 0;padding:calc(12px * var(--tz,1)) calc(16px * var(--tz,1));
+  margin:calc(12px * var(--tz,1)) 0;font:400 calc(18px * var(--tz,1))/1.48 var(--body);color:var(--ink-soft)}
+.case-doc .concept-box .label{display:block;font:700 calc(13px * var(--tz,1))/1 var(--mono);
+  text-transform:uppercase;letter-spacing:.06em;color:var(--moss);margin-bottom:6px}
+.case-doc mjx-container[display="true"]{margin:.35em 0!important}
+@container (max-width:640px){.case-doc .derivation-layout{grid-template-columns:1fr}
+  .case-doc .diagram-rail{position:static}}
 
 /* === TITLE / SECTION SLIDES === */
 .cover{position:absolute;inset:0;background:var(--paper)}
@@ -445,6 +506,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 .slide.fit2 .step{padding:6px 0}
 .slide.fit2 .numrow{margin-bottom:6px}
 .slide.fit2 .q{padding:11px 16px}
+.mapped-image-host{position:relative!important;overflow:hidden!important}
+.mapped-slide-image{display:block;width:100%;height:100%;max-width:100%;max-height:100%;margin:0;object-fit:contain}
 </style>
 <style id="overlap-fixes">
 .stage>.slide:nth-of-type(2) .g3{align-content:stretch;row-gap:26px!important}
@@ -469,6 +532,31 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 </style>
 <script src="assets/men201-type-zoom.js" defer></script>
 <link rel="stylesheet" href="assets/men201-images.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+/* The ported case-derivation slides (26-29, 39-44) carry LaTeX typeset by
+   MathJax above. MathJax renders asynchronously, but the deck's own
+   type-zoom fitter (assets/men201-type-zoom.js) measures a slide the
+   moment it gains .active — possibly before MathJax has replaced the raw
+   markup. Once MathJax settles, force a re-measure of whichever slide is
+   on screen by re-toggling .active, the same signal the fitter already
+   watches for. */
+(function () {
+  function refit() {
+    var stage = document.getElementById('stage');
+    var active = stage && stage.querySelector('.slide.active');
+    if (!active) return;
+    active.classList.remove('active');
+    void active.offsetWidth;
+    active.classList.add('active');
+  }
+  if (window.MathJax && MathJax.startup && MathJax.startup.promise) {
+    MathJax.startup.promise.then(refit);
+  } else {
+    window.addEventListener('load', function () { setTimeout(refit, 300); });
+  }
+})();
+</script>
 </head>
 <body>
 <div class="progress" id="prog"></div>
@@ -490,8 +578,9 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Housekeeping: the unit runs over roughly three contact sessions plus a field practical. Tell students to bring a scientific calculator to every session - this unit is trigonometry-heavy and cannot be followed by listening alone.
 -->
-<section class="slide cover" data-n="1">
+<section class="slide cover" data-n="1" data-fit-max="1.12">
   <div class="plate">
+    <div style="display:none" aria-hidden="true">
     <svg viewBox="0 0 720 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs>
         <linearGradient id="crownFill" x1="0" y1="0" x2="0" y2="1">
@@ -527,9 +616,14 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <text x="200" y="838">bole ht.</text>
       </g>
       <g font-family="JetBrains Mono, monospace" font-size="15" fill="#7b857c">
-        <text x="404" y="1004">h = D &middot; tan &#952; + eye height</text>
+        <text x="404" y="965">h = D &middot; tan &#952; + eye height</text>
       </g>
     </svg>
+    </div>
+    <figure class="men-plate-photo">
+      <img src="Improvements/unit 4/1.png" style="object-position:50% 45%" alt="An annotated forest photo of a tall conifer marking total height and bole height, the two measurements this unit defines" loading="eager" decoding="async" class="mapped-slide-image">
+      <figcaption>Total height and bole height, marked on a real stem &mdash; the two quantities Section A defines precisely.</figcaption>
+    </figure>
   </div>
   <div style="position:absolute;left:110px;top:96px">
     <div class="eyebrow rv" style="--d:0">MEN 201 &middot; Forest Mensuration</div>
@@ -743,6 +837,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="fig rv" style="--d:4">
+        <div style="display:none" aria-hidden="true">
         <svg viewBox="0 0 760 620" preserveAspectRatio="xMidYMid meet">
           <!-- vertical tree, straight-line height equals stem length -->
           <path d="M200 60 L250 180 L228 180 L282 280 L256 280 L318 380 L170 380 L232 280 L206 280 L260 180 L238 180 Z"
@@ -770,6 +865,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <text x="86" y="46">h</text><text x="466" y="76">h</text>
           </g>
         </svg>
+        </div>
+        <img src="Improvements/unit 4/2.png" alt="Side-by-side photos of a vertical tree, where height equals stem length, and a leaning tree, where height is less than stem length" loading="lazy" decoding="async" class="mapped-slide-image">
         <div class="cap">Vertical and leaning stems of identical length</div>
       </div>
     </div>
@@ -953,7 +1050,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
   <div class="body tight">
-    <div class="fig rv" style="--d:2;height:100%">
+    <div class="fig rv mapped-image-host" style="--d:2;height:100%"><img class="mapped-slide-image" src="Improvements/unit 4/3.png" alt="A single conifer annotated with six vertically stacked height measurements — total height, bole height, commercial bole, standard timber bole, stump, crown length and crown-base height — plus diameter over bark at breast height" loading="lazy" decoding="async">
+      <div style="display:none" aria-hidden="true">
       <svg viewBox="0 0 1700 700" preserveAspectRatio="xMidYMid meet">
         <!-- crown -->
         <path d="M1120 40 L1210 190 L1178 190 L1268 300 L1232 300 L1330 400
@@ -1021,6 +1119,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <text x="880" y="662">ground level</text>
         </g>
       </svg>
+      </div>
       <div class="cap">The order of the marks up the stem varies between trees &mdash; the definitions do not</div>
     </div>
   </div>
@@ -1207,8 +1306,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <p>Every experienced forester estimates ocularly before raising an instrument. The estimate is not a substitute for measurement &mdash; it is the check that catches a gross instrument blunder on the spot.</p>
         </div>
       </div>
-      <div class="fig rv" style="--d:4">
-        <svg viewBox="0 0 820 700" preserveAspectRatio="xMidYMid meet">
+      <div class="fig rv mapped-image-host" style="--d:4"><img class="mapped-slide-image" src="Improvements/unit 4/4.png" alt="A field photograph of an observer sighting up a tree using a marked pole as a visual scale, counting seven pole-lengths (7 × 1.5 m) to estimate a height of 10.5 m" loading="lazy" decoding="async">
+        <div style="display:none" aria-hidden="true"><svg viewBox="0 0 820 700" preserveAspectRatio="xMidYMid meet">
           <!-- observer -->
           <g stroke="#2f5140" stroke-width="2.4" fill="none" stroke-linecap="round">
             <circle cx="110" cy="470" r="18" fill="#2f5140" fill-opacity=".2"/>
@@ -1251,7 +1350,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <g font-family="JetBrains Mono, monospace" font-size="16" fill="#2f5140">
             <text x="560" y="668">pole = 1.5 m</text>
           </g>
-        </svg>
+        </svg></div>
         <div class="cap">Counting pole lengths up the stem</div>
       </div>
     </div>
@@ -1380,8 +1479,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <p>The method is <strong>not possible without sunshine</strong> &mdash; so not under canopy, not in mist, not on an overcast day. And it is <strong>not easy on inconvenient terrain</strong>, because a shadow falling across broken or sloping ground is no longer the true base of the triangle.</p>
         </div>
       </div>
-      <div class="fig rv" style="--d:4">
-        <svg viewBox="0 0 820 700" preserveAspectRatio="xMidYMid meet">
+      <div class="fig rv mapped-image-host" style="--d:4"><img class="mapped-slide-image" src="Improvements/unit 4/5.png" alt="A field photograph split into two: a tall conifer's shadow and a marked pole's shadow cast by the same sunlight, both measured to find the tree's height by similar triangles" loading="lazy" decoding="async">
+        <div style="display:none" aria-hidden="true"><svg viewBox="0 0 820 700" preserveAspectRatio="xMidYMid meet">
           <!-- sun rays -->
           <g stroke="#a8842c" stroke-width="1.4" stroke-dasharray="8 8" opacity=".8">
             <line x1="140" y1="60" x2="470" y2="470"/>
@@ -1424,7 +1523,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <text x="40" y="622">Parallel rays + two vertical objects</text>
             <text x="40" y="654">= two similar right-angled triangles</text>
           </g>
-        </svg>
+        </svg></div>
         <div class="cap">Both shadows measured at the same moment</div>
       </div>
     </div>
@@ -1974,63 +2073,65 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
-  <div class="body">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:34px;height:100%">
-      <div class="stack sm">
-        <div class="formula sm rv" style="--d:2">tan &#952; = <span class="frac"><span class="n">Opposite &mdash; tree height, BC</span><span class="d">Adjacent &mdash; horizontal distance, AB</span></span></div>
-        <div class="formula lg rv" style="--d:3">BC &nbsp;=&nbsp; AB &middot; tan &#952; &nbsp;+&nbsp; eye height
-          <span class="u">the instrument sits at the eye, not on the ground &mdash; add the eye height back</span>
+  <div class="body scroll">
+    <div class="case-doc">
+      <div class="derivation-layout">
+        <aside class="diagram-rail">
+          <img src="assets/images/men201/tan-case-level-ground.png" alt="Observer on level ground sighting a tree top through a clinometer">
+          <p class="caption">Right triangle with the right angle at eye height; the stump below eye level is added separately as h.</p>
+        </aside>
+        <div class="derivation-content">
+          <section class="section">
+            <span class="section-num">Section 1</span>
+            <h2>Purpose</h2>
+            <p>Find total tree height when the observer stands on <strong>flat, level ground</strong> &mdash; the base of the tree and the observer's feet are at the same elevation. Only one angle needs measuring.</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 2</span>
+            <h2>Geometry and Notation</h2>
+            <p>Let:</p>
+            <ul>
+              <li>\(A\) = observer's eye</li>
+              <li>\(C\) = tree top</li>
+              <li>\(B\) = the point on the trunk exactly at eye height (not the tree's physical base)</li>
+              <li>\(AB\) = horizontal distance from observer to tree, exactly as labelled on the diagram</li>
+              <li>\(h\) = observer's eye height above the ground</li>
+              <li>\(\theta\) = angle of elevation from the horizontal to the tree top</li>
+              <li>\(H\) = total tree height (the quantity we want) &mdash; not to be confused with \(AB\), the horizontal distance</li>
+            </ul>
+            <p>The right angle sits at \(B\), where the horizontal sight line meets the vertical trunk. \(BC\) is the height of the tree <em>above</em> eye level; the tree's true base sits \(h\) <em>below</em> \(B\), directly beneath the observer's eye.</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 3</span>
+            <h2>Step-by-Step Derivation</h2>
+            <h3>Step 1 &mdash; Identify the geometry</h3>
+            <p>On level ground there is only <strong>one right triangle</strong>: \(ABC\), right-angled at \(B\). The adjacent side is the horizontal distance \(AB\); the opposite side is \(BC\), the height above eye level; the hypotenuse is the line of sight to the top. Total tree height splits into two pieces: the part above eye level (\(BC\)) and the part below it (\(h\)).</p>
+            <h3>Step 2 &mdash; The part above eye level</h3>
+            <div class="formula-box">
+              $$ \tan\theta = \frac{BC}{AB} \qquad\Rightarrow\qquad \boxed{BC = AB\tan\theta} $$
+            </div>
+            <h3>Step 3 &mdash; The part below eye level</h3>
+            <p>On level ground the tree's base sits at the observer's own foot elevation &mdash; directly \(h\) below eye height. No angle is needed for this part; it's a straight linear correction read off the observer's own height.</p>
+            <div class="concept-box">
+              <span class="label">Teaching insight</span>
+              \(h\) is <strong>not a tangent component</strong> &mdash; it's a direct additive correction, because the tangent calculation only reaches down to eye level, never below it. Level ground is the <em>only</em> one of the four cases where eye height survives as its own separate term; in every sloping case it gets absorbed into a difference or sum of two tangents instead.
+            </div>
+            <h3>Step 4 &mdash; Combine the two parts</h3>
+            <div class="formula-box">
+              $$ H = BC + h $$
+              $$ \boxed{H = AB\tan\theta + h} $$
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 4</span>
+            <h2>Final Formula</h2>
+            <div class="formula-box">
+              <span class="label">FINAL FORMULA &mdash; Case 1</span>
+              $$ H = AB\tan\theta + h $$
+            </div>
+            <p>Applicable when the ground is <strong>level</strong> and the observer's feet are at the same elevation as the tree base. Measure \(AB\), \(\theta\), and the observer's own eye height \(h\).</p>
+          </section>
         </div>
-        <ul class="bul rv" style="--d:4">
-          <li>Measure the <strong>horizontal</strong> distance to the tree &mdash; not the slope distance</li>
-          <li>Read the angle of elevation <strong>&#952;</strong> to the tip</li>
-          <li>Multiply, then add eye height (about <strong>1.5 m</strong>)</li>
-        </ul>
-        <div style="flex:1"></div>
-        <div class="callout rv" style="--d:6">
-          <span class="k">Where to stand</span>
-          <p>Stand at roughly the height of the tree, so the angle is near 45&deg;. Too close and a small angle error explodes; too far and the tip cannot be seen through the canopy.</p>
-        </div>
-      </div>
-      <div class="fig rv" style="--d:5">
-        <svg viewBox="0 0 820 640" preserveAspectRatio="xMidYMid meet">
-          <!-- triangle -->
-          <path d="M90 470 L640 470 L640 90 Z" fill="#2f5140" fill-opacity=".07" stroke="#141c18" stroke-width="2.2"/>
-          <path d="M640 440 L610 440 L610 470" fill="none" stroke="#141c18" stroke-width="1.6"/>
-          <path d="M138 470 A48 48 0 0 0 126 437" fill="none" stroke="#c14524" stroke-width="2.4"/>
-          <text x="152" y="456" font-family="JetBrains Mono, monospace" font-size="24" fill="#c14524">&#952;</text>
-          <!-- tree -->
-          <path d="M640 90 L688 200 L666 200 L720 300 L696 300 L756 390 L524 390 L584 300 L560 300 L614 200 L592 200 Z"
-                fill="#2f5140" fill-opacity=".16" stroke="#2f5140" stroke-width="1.6"/>
-          <rect x="628" y="370" width="24" height="150" fill="#2f5140" fill-opacity=".28" stroke="#2f5140" stroke-width="1.3"/>
-          <!-- observer -->
-          <g stroke="#2f5140" stroke-width="2.4" fill="none" stroke-linecap="round">
-            <circle cx="90" cy="452" r="14" fill="#2f5140" fill-opacity=".2"/>
-            <path d="M90 466 L90 500 M90 500 L74 520 M90 500 L106 520"/>
-          </g>
-          <line x1="50" y1="520" x2="790" y2="520" stroke="#141c18" stroke-width="1.5" stroke-opacity=".5"/>
-          <line x1="90" y1="470" x2="90" y2="520" stroke="#c14524" stroke-width="1.6"/>
-          <!-- dimensions -->
-          <g stroke="#c14524" stroke-width="1.4">
-            <line x1="90" y1="566" x2="640" y2="566"/>
-            <line x1="90" y1="558" x2="90" y2="574"/><line x1="640" y1="558" x2="640" y2="574"/>
-          </g>
-          <g stroke="#2f5140" stroke-width="1.4">
-            <line x1="784" y1="90" x2="784" y2="470"/>
-            <line x1="776" y1="90" x2="792" y2="90"/><line x1="776" y1="470" x2="792" y2="470"/>
-          </g>
-          <g font-family="Public Sans, sans-serif" font-size="25" font-weight="600" fill="#141c18">
-            <text x="58" y="462">A</text><text x="654" y="500">B</text><text x="654" y="82">C</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="19" fill="#c14524">
-            <text x="365" y="602" text-anchor="middle">AB &mdash; horizontal distance</text>
-            <text x="40" y="502">eye ht</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="19" fill="#2f5140">
-            <text x="760" y="286" transform="rotate(-90 760 286)" text-anchor="middle">BC</text>
-          </g>
-        </svg>
-        <div class="cap">Eye height must be added back to BC</div>
       </div>
     </div>
   </div>
@@ -2061,67 +2162,74 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
-  <div class="body">
-    <div style="display:grid;grid-template-columns:1.02fr .98fr;gap:32px;height:100%">
-      <div class="stack sm">
-        <div class="card rv" style="--d:2">
-          <div class="label v">Derivation</div>
-          <div class="step sm" style="margin-top:8px"><div class="sl">Split the height</div><div class="sv">AB = AD + DB</div></div>
-          <div class="step sm"><div class="sl">Each part by tangent</div><div class="sv">= ED tan &#945; + ED tan &#946;</div></div>
-          <div class="step sm"><div class="sl">Factorise</div><div class="sv">AB = ED (tan &#945; + tan &#946;)</div></div>
-          <div class="step sm"><div class="sl">ED is hard to measure</div><div class="sv">cos &#946; = ED / EB &nbsp;&rarr;&nbsp; ED = EB cos &#946;</div></div>
+  <div class="body scroll">
+    <div class="case-doc">
+      <div class="derivation-layout">
+        <aside class="diagram-rail">
+          <img src="assets/images/men201/tan-case-sloping-eye-between.png" alt="Observer on a slope with eye level between the tree top and base, horizontal line intersecting the trunk">
+          <p class="caption">The horizontal ED intersects the trunk at D, between A (top) and B (base). One angle is elevation, one is depression.</p>
+        </aside>
+        <div class="derivation-content">
+          <section class="section">
+            <span class="section-num">Section 1</span>
+            <h2>Purpose</h2>
+            <p>Find tree height when the observer stands on a slope at an elevation <strong>between the tree top and the tree base</strong> &mdash; the most common sloping-ground situation, where the horizontal line of sight cuts straight through the trunk.</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 2</span>
+            <h2>Geometry and Notation</h2>
+            <p>Let:</p>
+            <ul>
+              <li>\(A\) = tree top (above the observer)</li>
+              <li>\(B\) = tree base (below the observer)</li>
+              <li>\(E\) = observer's eye, on the slope, between the elevations of the top and base</li>
+              <li>\(D\) = point where the horizontal line through \(E\) meets the trunk, between \(A\) and \(B\); \(ED\) is the horizontal distance, exactly as labelled on the diagram</li>
+              <li>\(\alpha\) = angle of elevation to the tree top (above horizontal)</li>
+              <li>\(\beta\) = angle of depression to the tree base (below horizontal)</li>
+            </ul>
+            <p>The horizontal line \(ED\) cleanly splits the tree into an upper segment (\(AD\), above eye level) and a lower segment (\(DB\), below eye level) &mdash; the two right triangles \(EDA\) and \(EDB\) sit on <strong>opposite</strong> sides of the horizontal.</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 3</span>
+            <h2>Step-by-Step Derivation</h2>
+            <h3>Step 1 &mdash; Identify the geometry</h3>
+            <p>Two right triangles share the adjacent side \(ED\) and a right angle at \(D\): triangle \(EDA\) above the horizontal (angle \(\alpha\), elevation), and triangle \(EDB\) below it (angle \(\beta\), depression).</p>
+            <h3>Step 2 &mdash; Height above eye level</h3>
+            <div class="formula-box">
+              $$ \tan\alpha = \frac{AD}{ED} \qquad\Rightarrow\qquad \boxed{AD = ED\tan\alpha} $$
+            </div>
+            <h3>Step 3 &mdash; Depth below eye level</h3>
+            <div class="formula-box">
+              $$ \tan\beta = \frac{DB}{ED} \qquad\Rightarrow\qquad \boxed{DB = ED\tan\beta} $$
+            </div>
+            <div class="concept-box">
+              <span class="label">Sign logic</span>
+              \(AD\) and \(DB\) lie on <strong>opposite</strong> sides of the horizontal reference &mdash; one measures upward, the other downward from the same point \(D\). Distances measured outward in opposite directions from a shared point add, they don't subtract. This is the mirror image of Cases 2 and 3, where both points sat on the same side and the components subtracted instead.
+            </div>
+            <h3>Step 4 &mdash; Combine the two components</h3>
+            <div class="formula-box">
+              $$ AB = AD + DB = ED\tan\alpha + ED\tan\beta $$
+              $$ \boxed{AB = ED(\tan\alpha + \tan\beta)} $$
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 4</span>
+            <h2>Final Formula</h2>
+            <div class="formula-box">
+              <span class="label">FINAL FORMULA &mdash; Case 4</span>
+              $$ AB = ED(\tan\alpha + \tan\beta) $$
+            </div>
+            <p>Applicable on <strong>sloping ground</strong> where the observer's eye level sits between the tree top and base, so the horizontal line of sight intersects the trunk. Measure the horizontal distance \(ED\), the elevation \(\alpha\) to the top, and the depression \(\beta\) to the base.</p>
+            <div class="concept-box">
+              <span class="label">Field note &mdash; if you only have a slope reading</span>
+              A horizontal distance is not always available directly (tape dragged along a slope, no laser rangefinder with a horizontal mode). If instead you measure the <strong>slope distance</strong> \(EB\) to the base, \(ED\) and \(EB\) are the adjacent side and hypotenuse of the same right triangle at \(\beta\), so:
+              $$ \cos\beta = \frac{ED}{EB} \qquad\Rightarrow\qquad \boxed{ED = EB\cos\beta} $$
+              Substituting into the final formula:
+              $$ \boxed{AB = EB\cos\beta\,(\tan\alpha+\tan\beta)} $$
+              This is the form used in the Section C summary table.
+            </div>
+          </section>
         </div>
-        <div class="formula lg rv" style="--d:3">AB = EB &middot; cos &#946; (tan &#945; + tan &#946;)
-          <span class="u">&#945; = elevation to the top &middot; &#946; = depression to the base &middot; EB = slope distance to the base</span>
-        </div>
-        <div style="flex:1"></div>
-        <div class="callout moss rv" style="--d:5">
-          <span class="k">Why the tangents add</span>
-          <p>The eye sits between the two ends of the tree, so part of the height is above the horizontal and part below it. The two parts are <strong>added</strong>. No eye-height correction is needed &mdash; the depression angle already measures the drop to the base.</p>
-        </div>
-      </div>
-      <div class="fig rv" style="--d:4">
-        <svg viewBox="0 0 820 640" preserveAspectRatio="xMidYMid meet">
-          <!-- horizontal from eye -->
-          <line x1="70" y1="300" x2="700" y2="300" stroke="#c14524" stroke-width="1.6" stroke-dasharray="8 7"/>
-          <!-- sight lines -->
-          <line x1="70" y1="300" x2="620" y2="90" stroke="#141c18" stroke-width="2.2"/>
-          <line x1="70" y1="300" x2="640" y2="510" stroke="#141c18" stroke-width="2.2"/>
-          <!-- tree AB -->
-          <line x1="620" y1="90" x2="640" y2="510" stroke="#2f5140" stroke-width="6" stroke-linecap="round"/>
-          <line x1="628" y1="300" x2="700" y2="300" stroke="#141c18" stroke-width="1" stroke-opacity=".4"/>
-          <!-- right angle at D -->
-          <path d="M600 300 L600 274 L628 274" fill="none" stroke="#141c18" stroke-width="1.5"/>
-          <!-- angles -->
-          <path d="M132 300 A62 62 0 0 0 122 276" fill="none" stroke="#c14524" stroke-width="2.4"/>
-          <path d="M132 300 A62 62 0 0 1 124 324" fill="none" stroke="#2f5140" stroke-width="2.4"/>
-          <!-- eye -->
-          <circle cx="70" cy="300" r="10" fill="#2f5140"/>
-          <!-- ground slope -->
-          <path d="M40 340 L700 550" stroke="#141c18" stroke-width="1.4" stroke-opacity=".35" stroke-dasharray="3 6"/>
-          <g font-family="Public Sans, sans-serif" font-size="25" font-weight="600" fill="#141c18">
-            <text x="42" y="290">E</text><text x="632" y="80">A</text><text x="652" y="536">B</text><text x="712" y="308">D</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="23">
-            <text x="146" y="288" fill="#c14524">&#945;</text>
-            <text x="146" y="332" fill="#2f5140">&#946;</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="18" fill="#7b857c">
-            <text x="330" y="176" transform="rotate(-21 330 176)">line of sight to top</text>
-            <text x="300" y="428" transform="rotate(20 300 428)">EB &mdash; slope distance to base</text>
-            <text x="350" y="292">ED &mdash; horizontal</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="19" fill="#2f5140">
-            <text x="690" y="196">AD</text><text x="690" y="420">DB</text>
-          </g>
-          <g stroke="#2f5140" stroke-width="1.3">
-            <line x1="672" y1="90" x2="672" y2="300"/>
-            <line x1="664" y1="90" x2="680" y2="90"/><line x1="664" y1="300" x2="680" y2="300"/>
-            <line x1="672" y1="300" x2="672" y2="510"/>
-            <line x1="664" y1="510" x2="680" y2="510"/>
-          </g>
-        </svg>
-        <div class="cap">&#945; above the horizontal, &#946; below it</div>
       </div>
     </div>
   </div>
@@ -2150,59 +2258,75 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
-  <div class="body">
-    <div style="display:grid;grid-template-columns:1.02fr .98fr;gap:32px;height:100%">
-      <div class="stack sm">
-        <div class="card rv" style="--d:2">
-          <div class="label v">Derivation</div>
-          <div class="step sm" style="margin-top:8px"><div class="sl">Difference, not sum</div><div class="sv">AB = AD &minus; BD</div></div>
-          <div class="step sm"><div class="sl">Each part by tangent</div><div class="sv">= ED tan &#945; &minus; ED tan &#946;</div></div>
-          <div class="step sm"><div class="sl">Factorise</div><div class="sv">AB = ED (tan &#945; &minus; tan &#946;)</div></div>
-          <div class="step sm"><div class="sl">ED not possible to measure</div><div class="sv">ED = EB cos &#946;</div></div>
+  <div class="body scroll">
+    <div class="case-doc">
+      <div class="derivation-layout">
+        <aside class="diagram-rail">
+          <img src="assets/images/men201/tan-case-eye-below-base.png" alt="Observer standing downslope below the tree base, sighting both the top and base upward">
+          <p class="caption">Both A (top) and B (base) lie above the horizontal ED. &#945; to the top is larger than &#946; to the base.</p>
+        </aside>
+        <div class="derivation-content">
+          <section class="section">
+            <span class="section-num">Section 1</span>
+            <h2>Purpose</h2>
+            <p>Find tree height when the observer stands <strong>downslope, below the tree base</strong> &mdash; so both the top and the base are above eye level, and both sighted angles are elevations.</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 2</span>
+            <h2>Geometry and Notation</h2>
+            <p>Let:</p>
+            <ul>
+              <li>\(A\) = tree top</li>
+              <li>\(B\) = tree base</li>
+              <li>\(E\) = observer's eye (downslope, below the base)</li>
+              <li>\(D\) = horizontal projection of \(E\) onto the vertical line through the tree; \(ED\) is the horizontal distance, exactly as labelled on the diagram</li>
+              <li>\(\alpha\) = angle of elevation to the tree top (the larger angle)</li>
+              <li>\(\beta\) = angle of elevation to the tree base (the smaller angle)</li>
+            </ul>
+            <p>Both \(A\) and \(B\) sit above the horizontal line \(ED\), so both angles are elevations, with \(\alpha > \beta\) since the top is farther above eye level than the base.</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 3</span>
+            <h2>Step-by-Step Derivation</h2>
+            <h3>Step 1 &mdash; Identify the geometry</h3>
+            <p>Two right triangles share the same adjacent side \(ED\) and a right angle at \(D\): triangle \(EDA\) (to the top, angle \(\alpha\)) and triangle \(EDB\) (to the base, angle \(\beta\)). Both lie on the <strong>same side</strong> of the horizontal &mdash; above it.</p>
+            <h3>Step 2 &mdash; Height from eye to top</h3>
+            <div class="formula-box">
+              $$ \tan\alpha = \frac{AD}{ED} \qquad\Rightarrow\qquad \boxed{AD = ED\tan\alpha} $$
+            </div>
+            <h3>Step 3 &mdash; Height from eye to base</h3>
+            <div class="formula-box">
+              $$ \tan\beta = \frac{BD}{ED} \qquad\Rightarrow\qquad \boxed{BD = ED\tan\beta} $$
+            </div>
+            <div class="concept-box">
+              <span class="label">Sign logic</span>
+              Both points lie <strong>above</strong> the observer, on the same side of the horizontal &mdash; so their heights subtract rather than add. \(\alpha > \beta\) guarantees \(AD > BD\), so the result stays positive.
+            </div>
+            <h3>Step 4 &mdash; Combine the two components</h3>
+            <p>Tree height is the gap between the two heights above eye level, not their sum:</p>
+            <div class="formula-box">
+              $$ AB = AD - BD = ED\tan\alpha - ED\tan\beta $$
+              $$ \boxed{AB = ED(\tan\alpha - \tan\beta)} $$
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 4</span>
+            <h2>Final Formula</h2>
+            <div class="formula-box">
+              <span class="label">FINAL FORMULA &mdash; Case 2</span>
+              $$ AB = ED(\tan\alpha - \tan\beta) \qquad (\alpha > \beta) $$
+            </div>
+            <p>Applicable when the observer is <strong>downslope, below the tree base</strong> &mdash; both angles are elevations. Measure the horizontal distance \(ED\), not the slope distance \(EB\).</p>
+            <div class="concept-box">
+              <span class="label">Field note &mdash; if you only have a slope reading</span>
+              If a horizontal tape isn't practical &mdash; the base is hard to see behind undergrowth or the lip of the slope, and you can only sight a slope distance \(EB\) &mdash; use the right triangle at \(\beta\), where \(ED\) is adjacent and \(EB\) is the hypotenuse:
+              $$ \cos\beta = \frac{ED}{EB} \qquad\Rightarrow\qquad \boxed{ED = EB\cos\beta} $$
+              Substituting into the final formula:
+              $$ \boxed{AB = EB\cos\beta\,(\tan\alpha-\tan\beta)} $$
+              This is the form used in the Section C summary table. If &#946; cannot be read at all because the base is hidden, move along the contour until both ends are visible &mdash; that is a legitimate field decision, not cheating.
+            </div>
+          </section>
         </div>
-        <div class="formula lg rv" style="--d:3">AB = EB &middot; cos &#946; (tan &#945; &minus; tan &#946;)
-          <span class="u">both &#945; and &#946; are angles of <strong>elevation</strong> &mdash; the whole tree is above your horizontal</span>
-        </div>
-        <div style="flex:1"></div>
-        <div class="callout rv" style="--d:5">
-          <span class="k">Field warning</span>
-          <p>Standing below a tree on a steep bank often hides the base behind undergrowth or the lip of the slope. If the base cannot be seen, &#946; cannot be read. <strong>Move along the contour</strong> until both ends are visible &mdash; that is a legitimate field decision, not cheating.</p>
-        </div>
-      </div>
-      <div class="fig rv" style="--d:4">
-        <svg viewBox="0 0 820 640" preserveAspectRatio="xMidYMid meet">
-          <line x1="70" y1="470" x2="700" y2="470" stroke="#c14524" stroke-width="1.6" stroke-dasharray="8 7"/>
-          <line x1="70" y1="470" x2="620" y2="120" stroke="#141c18" stroke-width="2.2"/>
-          <line x1="70" y1="470" x2="642" y2="330" stroke="#141c18" stroke-width="2.2"/>
-          <line x1="620" y1="120" x2="642" y2="330" stroke="#2f5140" stroke-width="6" stroke-linecap="round"/>
-          <line x1="642" y1="330" x2="660" y2="470" stroke="#141c18" stroke-width="1" stroke-opacity=".4" stroke-dasharray="4 5"/>
-          <path d="M634 470 L634 444 L660 444" fill="none" stroke="#141c18" stroke-width="1.5"/>
-          <path d="M132 470 A62 62 0 0 0 118 442" fill="none" stroke="#c14524" stroke-width="2.4"/>
-          <path d="M162 470 A92 92 0 0 0 158 447" fill="none" stroke="#2f5140" stroke-width="2.4"/>
-          <circle cx="70" cy="470" r="10" fill="#2f5140"/>
-          <path d="M30 520 L700 300" stroke="#141c18" stroke-width="1.4" stroke-opacity=".3" stroke-dasharray="3 6"/>
-          <g font-family="Public Sans, sans-serif" font-size="25" font-weight="600" fill="#141c18">
-            <text x="42" y="460">E</text><text x="632" y="110">A</text><text x="656" y="326">B</text><text x="672" y="490">D</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="23">
-            <text x="150" y="446" fill="#c14524">&#945;</text>
-            <text x="182" y="462" fill="#2f5140">&#946;</text>
-          </g>
-          <g stroke="#2f5140" stroke-width="1.3">
-            <line x1="706" y1="120" x2="706" y2="470"/>
-            <line x1="698" y1="120" x2="714" y2="120"/><line x1="698" y1="470" x2="714" y2="470"/>
-            <line x1="770" y1="330" x2="770" y2="470"/>
-            <line x1="762" y1="330" x2="778" y2="330"/><line x1="762" y1="470" x2="778" y2="470"/>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="19" fill="#2f5140">
-            <text x="726" y="300">AD</text><text x="790" y="410">BD</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="18" fill="#7b857c">
-            <text x="250" y="400" transform="rotate(-14 250 400)">EB &mdash; slope distance to base</text>
-            <text x="330" y="462">ED &mdash; horizontal</text>
-          </g>
-        </svg>
-        <div class="cap">The horizontal line passes below the base, so the tangents subtract</div>
       </div>
     </div>
   </div>
@@ -2231,59 +2355,75 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
-  <div class="body">
-    <div style="display:grid;grid-template-columns:1.02fr .98fr;gap:32px;height:100%">
-      <div class="stack sm">
-        <div class="card rv" style="--d:2">
-          <div class="label v">Derivation</div>
-          <div class="step sm" style="margin-top:8px"><div class="sl">Difference, reversed</div><div class="sv">AB = BD &minus; AD</div></div>
-          <div class="step sm"><div class="sl">Each part by tangent</div><div class="sv">= ED tan &#946; &minus; ED tan &#945;</div></div>
-          <div class="step sm"><div class="sl">Factorise</div><div class="sv">AB = ED (tan &#946; &minus; tan &#945;)</div></div>
-          <div class="step sm"><div class="sl">Substitute</div><div class="sv">ED = EB cos &#946;</div></div>
+  <div class="body scroll">
+    <div class="case-doc">
+      <div class="derivation-layout">
+        <aside class="diagram-rail">
+          <img src="assets/images/men201/tan-case-eye-above-base.png" alt="Observer standing upslope above the tree, sighting both the top and base downward">
+          <p class="caption">Both A (top) and B (base) lie below the horizontal ED. &#946; to the base is larger than &#945; to the top.</p>
+        </aside>
+        <div class="derivation-content">
+          <section class="section">
+            <span class="section-num">Section 1</span>
+            <h2>Purpose</h2>
+            <p>Find tree height when the observer stands <strong>well upslope, above the entire tree</strong> &mdash; both the top and the base are below eye level, and both sighted angles are depressions.</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 2</span>
+            <h2>Geometry and Notation</h2>
+            <p>Let:</p>
+            <ul>
+              <li>\(A\) = tree top</li>
+              <li>\(B\) = tree base</li>
+              <li>\(E\) = observer's eye (upslope, above both top and base)</li>
+              <li>\(D\) = horizontal projection of \(E\) onto the vertical line through the tree; \(ED\) is the horizontal distance, exactly as labelled on the diagram</li>
+              <li>\(\alpha\) = angle of depression to the tree top (the smaller angle)</li>
+              <li>\(\beta\) = angle of depression to the tree base (the larger angle)</li>
+            </ul>
+            <p>Both \(A\) and \(B\) sit below the horizontal line \(ED\), so both angles are depressions, with \(\beta > \alpha\) since the base is farther below eye level than the top.</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 3</span>
+            <h2>Step-by-Step Derivation</h2>
+            <h3>Step 1 &mdash; Identify the geometry</h3>
+            <p>Two right triangles share the same adjacent side \(ED\) and a right angle at \(D\): triangle \(EDA\) (to the top, angle \(\alpha\)) and triangle \(EDB\) (to the base, angle \(\beta\)). Both lie on the <strong>same side</strong> of the horizontal &mdash; below it.</p>
+            <h3>Step 2 &mdash; Drop from eye to top</h3>
+            <div class="formula-box">
+              $$ \tan\alpha = \frac{AD}{ED} \qquad\Rightarrow\qquad \boxed{AD = ED\tan\alpha} $$
+            </div>
+            <h3>Step 3 &mdash; Drop from eye to base</h3>
+            <div class="formula-box">
+              $$ \tan\beta = \frac{BD}{ED} \qquad\Rightarrow\qquad \boxed{BD = ED\tan\beta} $$
+            </div>
+            <div class="concept-box">
+              <span class="label">Sign logic</span>
+              Both points lie <strong>below</strong> the observer, on the same side of the horizontal &mdash; so their drops subtract rather than add. \(\beta > \alpha\) guarantees \(BD > AD\), so the result stays positive.
+            </div>
+            <h3>Step 4 &mdash; Combine the two components</h3>
+            <p>Tree height is the gap between the two drops below eye level, not their sum:</p>
+            <div class="formula-box">
+              $$ AB = BD - AD = ED\tan\beta - ED\tan\alpha $$
+              $$ \boxed{AB = ED(\tan\beta - \tan\alpha)} $$
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 4</span>
+            <h2>Final Formula</h2>
+            <div class="formula-box">
+              <span class="label">FINAL FORMULA &mdash; Case 3</span>
+              $$ AB = ED(\tan\beta - \tan\alpha) \qquad (\beta > \alpha) $$
+            </div>
+            <p>Applicable when the observer is <strong>upslope, above both</strong> the tree top and base &mdash; both angles are depressions. Measure the horizontal distance \(ED\), not the slope distance \(EB\). This is the road-and-hillside case &mdash; the commonest in Bhutan.</p>
+            <div class="concept-box">
+              <span class="label">Field note &mdash; if you only have a slope reading</span>
+              With only a slope distance \(EB\) to the base, use the right triangle at \(\beta\), where \(ED\) is adjacent and \(EB\) is the hypotenuse:
+              $$ \cos\beta = \frac{ED}{EB} \qquad\Rightarrow\qquad \boxed{ED = EB\cos\beta} $$
+              Substituting into the final formula:
+              $$ \boxed{AB = EB\cos\beta\,(\tan\beta-\tan\alpha)} $$
+              This is the form used in the Section C summary table. Self-check: a negative result means the two angles were subtracted the wrong way round &mdash; the target the instrument pointed <em>further down</em> to reach comes first.
+            </div>
+          </section>
         </div>
-        <div class="formula lg rv" style="--d:3">AB = EB &middot; cos &#946; (tan &#946; &minus; tan &#945;)
-          <span class="u">both angles are <strong>depressions</strong> &mdash; &#946; to the base is the steeper of the two</span>
-        </div>
-        <div style="flex:1"></div>
-        <div class="callout rv" style="--d:5">
-          <span class="k">Self-check rule</span>
-          <p>If your formula returns a <strong>negative height</strong>, you have subtracted the wrong way round. Ask which target the instrument had to point <em>further down</em> to reach &mdash; that angle is the one that comes first.</p>
-        </div>
-      </div>
-      <div class="fig rv" style="--d:4">
-        <svg viewBox="0 0 820 640" preserveAspectRatio="xMidYMid meet">
-          <line x1="70" y1="120" x2="700" y2="120" stroke="#c14524" stroke-width="1.6" stroke-dasharray="8 7"/>
-          <line x1="70" y1="120" x2="620" y2="260" stroke="#141c18" stroke-width="2.2"/>
-          <line x1="70" y1="120" x2="644" y2="510" stroke="#141c18" stroke-width="2.2"/>
-          <line x1="620" y1="260" x2="644" y2="510" stroke="#2f5140" stroke-width="6" stroke-linecap="round"/>
-          <line x1="620" y1="260" x2="660" y2="120" stroke="#141c18" stroke-width="1" stroke-opacity=".4" stroke-dasharray="4 5"/>
-          <path d="M636 120 L636 146 L662 146" fill="none" stroke="#141c18" stroke-width="1.5"/>
-          <path d="M132 120 A62 62 0 0 1 146 138" fill="none" stroke="#c14524" stroke-width="2.4"/>
-          <path d="M162 120 A92 92 0 0 1 190 178" fill="none" stroke="#2f5140" stroke-width="2.4"/>
-          <circle cx="70" cy="120" r="10" fill="#2f5140"/>
-          <path d="M30 160 L700 560" stroke="#141c18" stroke-width="1.4" stroke-opacity=".3" stroke-dasharray="3 6"/>
-          <g font-family="Public Sans, sans-serif" font-size="25" font-weight="600" fill="#141c18">
-            <text x="42" y="112">E</text><text x="632" y="252">A</text><text x="658" y="530">B</text><text x="672" y="112">D</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="23">
-            <text x="148" y="164" fill="#c14524">&#945;</text>
-            <text x="196" y="214" fill="#2f5140">&#946;</text>
-          </g>
-          <g stroke="#2f5140" stroke-width="1.3">
-            <line x1="708" y1="120" x2="708" y2="510"/>
-            <line x1="700" y1="120" x2="716" y2="120"/><line x1="700" y1="510" x2="716" y2="510"/>
-            <line x1="772" y1="120" x2="772" y2="260"/>
-            <line x1="764" y1="120" x2="780" y2="120"/><line x1="764" y1="260" x2="780" y2="260"/>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="19" fill="#2f5140">
-            <text x="726" y="330">BD</text><text x="792" y="200">AD</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="18" fill="#7b857c">
-            <text x="250" y="290" transform="rotate(34 250 290)">EB &mdash; slope distance to base</text>
-            <text x="340" y="112">ED &mdash; horizontal</text>
-          </g>
-        </svg>
-        <div class="cap">The road-and-hillside case &mdash; the commonest in Bhutan</div>
       </div>
     </div>
   </div>
@@ -2317,7 +2457,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <table class="dt sm rv" style="--d:2">
         <thead><tr><th style="width:70px">Case</th><th style="width:280px">What you see</th><th style="width:230px">Angles you read</th><th>Formula</th><th style="width:230px">Eye height?</th></tr></thead>
         <tbody>
-          <tr><td class="num">a</td><td class="rh">Level ground, tip above the eye, base at your feet</td><td>One elevation, &#952;</td><td class="num">h = D &middot; tan &#952; + eye height</td><td>Yes &mdash; add it</td></tr>
+          <tr><td class="num">a</td><td class="rh">Level ground, tip above the eye, base at your feet</td><td>One elevation, &#952;</td><td class="num">H = AB &middot; tan &#952; + eye height</td><td>Yes &mdash; add it</td></tr>
           <tr class="hi"><td class="num">b</td><td class="rh">Slope, horizontal line passes <strong>through</strong> the tree</td><td>Elevation &#945; to top<br>Depression &#946; to base</td><td class="num">AB = EB cos &#946; (tan &#945; + tan &#946;)</td><td>No &mdash; already included</td></tr>
           <tr><td class="num">c</td><td class="rh">Eye <strong>below</strong> the base &mdash; whole tree above the horizontal</td><td>Elevation &#945; to top<br>Elevation &#946; to base</td><td class="num">AB = EB cos &#946; (tan &#945; &minus; tan &#946;)</td><td>No &mdash; already included</td></tr>
           <tr><td class="num">d</td><td class="rh">Eye <strong>above</strong> the base &mdash; whole tree below the horizontal</td><td>Depression &#945; to top<br>Depression &#946; to base</td><td class="num">AB = EB cos &#946; (tan &#946; &minus; tan &#945;)</td><td>No &mdash; already included</td></tr>
@@ -2367,7 +2507,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <div class="card rv" style="--d:2">
           <div class="label v">Given</div>
           <div class="chips" style="margin-top:16px">
-            <div class="chip">horizontal distance D = 20.0 m</div>
+            <div class="chip">horizontal distance AB = 20.0 m</div>
             <div class="chip">elevation to tip &#952; = 38&deg;</div>
             <div class="chip">eye height = 1.5 m</div>
           </div>
@@ -2376,7 +2516,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <div class="step rv" style="--d:3"><div class="sl">Step 1 &middot; Ratio</div><div class="sv">tan 38&deg; = 0.7813</div></div>
           <div class="step rv" style="--d:4"><div class="sl">Step 2 &middot; Above the eye</div><div class="sv">20.0 &times; 0.7813 = 15.63 m</div></div>
           <div class="step rv" style="--d:5"><div class="sl">Step 3 &middot; Add eye height</div><div class="sv">15.63 + 1.50 = <span class="hlt">17.13 m</span></div></div>
-          <div class="step rv" style="--d:6"><div class="sl">Step 4 &middot; Round once</div><div class="sv"><span class="hlt">h = 17.1 m</span></div></div>
+          <div class="step rv" style="--d:6"><div class="sl">Step 4 &middot; Round once</div><div class="sv"><span class="hlt">H = 17.1 m</span></div></div>
         </div>
         <div class="answer rv" style="--d:7;margin-top:22px">
           <span class="k">Height</span><span class="v">17.1 m</span>
@@ -2690,38 +2830,15 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
-  <div class="body">
-    <div class="stack">
-      <div class="g2">
-        <div class="card rv" style="--d:2">
-          <div class="label v">Tool 1 &middot; The sine law</div>
-          <p class="txt-sm" style="margin-top:10px">In <em>any</em> triangle the sines of the angles are proportional to the opposite sides. No right angle is required &mdash; which is exactly why it copes with a leaning tree.</p>
-          <div class="formula sm" style="margin-top:14px">
-            <span class="frac"><span class="n">sin &#8736;ABC</span><span class="d">AC</span></span> =
-            <span class="frac"><span class="n">sin &#8736;ACB</span><span class="d">AB</span></span> =
-            <span class="frac"><span class="n">sin &#8736;CAB</span><span class="d">BC</span></span>
-          </div>
-        </div>
-        <div class="card rv" style="--d:3">
-          <div class="label v">Tool 2 &middot; The exterior angle</div>
-          <p class="txt-sm" style="margin-top:10px">An exterior angle equals the <strong>sum of the two opposite interior angles</strong>. This is how we reach angles inside the leaning-tree triangle that cannot be measured directly.</p>
-          <div class="formula sm" style="margin-top:14px">&#8736;ACD &nbsp;=&nbsp; &#8736;BAC &nbsp;+&nbsp; &#8736;ABC</div>
-        </div>
-      </div>
-      <div class="g2">
-        <div class="card rv" style="--d:4">
-          <div class="label v">Tool 3 &middot; Angle sum</div>
-          <div class="formula sm" style="margin-top:14px">&#8736;A + &#8736;B + &#8736;C = 180&deg;</div>
-        </div>
-        <div class="card rv" style="--d:5">
-          <div class="label v">Tool 4 &middot; Complementary relations</div>
-          <div class="formula sm" style="margin-top:14px">sin (90 &minus; &#952;) = cos &#952; &nbsp;&middot;&nbsp; sin (90 + &#952;) = cos &#952;</div>
-        </div>
-      </div>
-      <div class="callout moss rv" style="--d:6">
-        <span class="k">Read this before the six cases</span>
-        <p>Every formula ahead is these four tools applied in a different order. A student who can <strong>use the tools</strong> does not need to memorise six formulae &mdash; and a student who cannot will not be saved by memorising them.</p>
-      </div>
+  <div class="body" style="align-items:center;justify-content:center">
+    <!-- Boxed at ~2/3 of the source PNG's native 1672x941px, not stretched to
+         fill the panel: past that scale the raster starts upscaling beyond
+         its own pixel density (worse once the stage itself is scaled up for
+         a larger window, or the browser is running at a HiDPI/125-150%
+         display scale) and reads as blurred, unlike the deck's hand-drawn
+         SVG plates which stay crisp at any size. -->
+    <div class="fig rv" style="--d:2;width:1115px;height:627px;flex:0 0 auto">
+      <img src="assets/images/men201/BaseSINe.png" alt="Four tools, six formulae: the sine law, the exterior angle rule, angle sum, and complementary sine/cosine relations, each shown with a labelled triangle">
     </div>
   </div>
   <div class="footrule"></div>
@@ -2838,52 +2955,108 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
-  <div class="body">
-    <div style="display:grid;grid-template-columns:1.04fr .96fr;gap:32px;height:100%">
-      <div class="stack sm">
-        <div class="card rv" style="--d:2">
-          <div class="label v">Derivation &mdash; &#952; = angle CAB</div>
-          <div class="step sm" style="margin-top:6px"><div class="sl">Angle at the eye</div><div class="sv">&#8736;AEB = &#945; + &#946;</div></div>
-          <div class="step sm"><div class="sl">Exterior angle rule</div><div class="sv">&#8736;EAB = &#8736;ACB + &#8736;ABC</div></div>
-          <div class="step sm"><div class="sl">Substitute</div><div class="sv">= (90 &minus; &#945;) + &#952; = 90 &minus; (&#945; &minus; &#952;)</div></div>
-          <div class="step sm"><div class="sl">Master equation</div><div class="sv">AB = EB sin(&#945;+&#946;) / sin[90 &minus; (&#945;&minus;&#952;)]</div></div>
-          <div class="step sm"><div class="sl">sin(90 &minus; &#952;) = cos &#952;</div><div class="sv"><span class="hlt">denominator &rarr; cos (&#945; &minus; &#952;)</span></div></div>
+  <div class="body scroll">
+    <div class="case-doc">
+      <div class="derivation-layout">
+        <aside class="diagram-rail">
+          <img src="assets/images/men201/sine-case-1a-lean-toward-between.png" alt="Case 1A diagram: observer between the tree base and top, tree leaning towards the observer">
+          <p class="caption">Geometric configuration used for the sine-law derivation.</p>
+          <img src="assets/images/men201/sine-case-1a-lean-toward-between-detail.png" alt="Zoomed breakdown of the 90-degree angle at B into theta, angle ABE, and beta">
+          <p class="caption">Zoomed check on the 90&deg; split at B, with &#952; = 10&deg;, &#946; = 15&deg;.</p>
+        </aside>
+        <div class="derivation-content">
+          <section class="section">
+            <span class="section-num">Section 1</span>
+            <h2>Purpose</h2>
+            <p>This derivation explains the angle at the tree base \(B\) for the case where the tree leans <strong>toward the observer</strong> and the observer's eye lies between the tree base and top.</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 2</span>
+            <h2>Geometry and Notation</h2>
+            <p>Let:</p>
+            <ul>
+              <li>\(A\) = tree tip</li>
+              <li>\(B\) = tree base</li>
+              <li>\(E\) = observer's eye</li>
+              <li>\(AB\) = true stem length</li>
+              <li>\(BE\) = slope distance / line of sight from the tree base to the observer</li>
+              <li>\(\beta\) = angle of depression from the observer to the tree base</li>
+              <li>\(\theta\) = angle of stem lean from the vertical</li>
+              <li>\(BC\) = vertical reference line through the tree base</li>
+              <li>\(BH\) = auxiliary horizontal line through \(B\), drawn parallel to \(ED\)</li>
+            </ul>
+            <p>Because \(BC\) is vertical and \(BH\) is horizontal,</p>
+            <div class="formula-box">
+              <span class="label">Perpendicular reference</span>
+              $$ BC \perp BH \quad \Rightarrow \quad \boxed{\angle CBH = 90^\circ} $$
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 3</span>
+            <h2>Step-by-Step Derivation</h2>
+            <h3>Step 1 &mdash; Identify the three parts of the 90&deg; angle</h3>
+            <p>At point \(B\), the angle from the vertical line \(BC\) to the horizontal line \(BH\) is \(90^\circ\). That \(90^\circ\) angle is divided into three smaller angles:</p>
+            <ol>
+              <li>\(\theta\): between the vertical \(BC\) and the leaning stem \(BA\)</li>
+              <li>\(\angle ABE\): between the stem \(BA\) and the line \(BE\)</li>
+              <li>\(\beta\): between the line \(BE\) and the horizontal \(BH\)</li>
+            </ol>
+            <div class="formula-box">
+              <span class="label">Angle breakdown at B</span>
+              $$ \boxed{\theta + \angle ABE + \beta = 90^\circ} $$
+            </div>
+            <p class="caption">See the zoomed panel alongside for a worked check of this split with &#952; = 10&deg;, &#946; = 15&deg;.</p>
+            <h3>Step 2 &mdash; Rearrange for \(\angle ABE\)</h3>
+            <p>Subtract \(\theta\) and \(\beta\) from both sides:</p>
+            <div class="formula-box">
+              <span class="label">Base angle</span>
+              $$ \boxed{\angle ABE = 90^\circ - \beta - \theta} $$
+            </div>
+            <h3>Why \(\beta\) appears at \(B\)</h3>
+            <p>The auxiliary line \(BH\) is drawn parallel to \(ED\):</p>
+            <div class="formula-box">
+              $$ BH \parallel ED $$
+            </div>
+            <p>The line \(BE\) crosses both horizontal lines, so it makes the same acute angle with each horizontal. Therefore, the angle between \(BE\) and \(BH\) at \(B\) is also \(\beta\).</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 4</span>
+            <h2>Angle Explanation</h2>
+            <div class="concept-box">
+              <span class="label">Key insight</span>
+              The observer angle \(\angle AEB = \alpha + \beta\), where \(\alpha\) is the elevation to the top. The base angle \(\angle ABE = 90^\circ - \beta - \theta\). By the triangle angle sum, \(\angle EAB = 90^\circ - \alpha + \theta = 90^\circ - (\alpha - \theta)\).
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 5</span>
+            <h2>Sine-Law Calculation</h2>
+            <p>The sine law for triangle \(AEB\):</p>
+            <div class="formula-box">
+              $$ \frac{AB}{\sin\angle AEB} = \frac{BE}{\sin\angle EAB} $$
+            </div>
+            <p>Substitute the angles:</p>
+            <div class="formula-box">
+              $$ \frac{AB}{\sin(\alpha+\beta)} = \frac{BE}{\sin(90^\circ-\alpha+\theta)} $$
+            </div>
+            <p>Using \(\sin(90^\circ - x) = \cos x\) with \(x = \alpha - \theta\):</p>
+            <div class="formula-box">
+              $$ \sin(90^\circ-\alpha+\theta) = \cos(\alpha-\theta) $$
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 6</span>
+            <h2>Final Formula</h2>
+            <div class="formula-box">
+              <span class="label">FINAL FORMULA &mdash; Case 1A</span>
+              $$ AB = \frac{BE\sin(\alpha+\beta)}{\cos(\alpha-\theta)} $$
+            </div>
+            <p>Applicable when the observer is between the base and top and the tree leans <strong>toward</strong> the observer.</p>
+            <div class="concept-box">
+              <span class="label">Check the limit</span>
+              Put \(\theta = 0\) for a vertical tree and the formula becomes \(BE\sin(\alpha+\beta)/\cos\alpha\) &mdash; the tangent-method answer written in sine form. The sine method <em>contains</em> the tangent method.
+            </div>
+          </section>
         </div>
-        <div class="formula lg v rv" style="--d:3">AB &nbsp;=&nbsp; <span class="frac"><span class="n">EB &middot; sin (&#945; + &#946;)</span><span class="d">cos (&#945; &minus; &#952;)</span></span></div>
-        <div style="flex:1"></div>
-        <div class="callout moss rv" style="--d:5">
-          <span class="k">Check the limit</span>
-          <p>Put <strong>&#952; = 0</strong> for a vertical tree and the formula becomes EB sin(&#945;+&#946;) / cos &#945; &mdash; which is the tangent-method answer written in sine form. The sine method <em>contains</em> the tangent method.</p>
-        </div>
-      </div>
-      <div class="fig rv" style="--d:4">
-        <svg viewBox="0 0 820 640" preserveAspectRatio="xMidYMid meet">
-          <line x1="70" y1="300" x2="720" y2="300" stroke="#c14524" stroke-width="1.5" stroke-dasharray="8 7"/>
-          <line x1="70" y1="300" x2="660" y2="110" stroke="#c14524" stroke-width="2"/>
-          <line x1="70" y1="300" x2="660" y2="510" stroke="#141c18" stroke-width="2"/>
-          <line x1="660" y1="110" x2="660" y2="510" stroke="#4a7a5f" stroke-width="1.6" stroke-dasharray="6 6"/>
-          <line x1="560" y1="142" x2="660" y2="510" stroke="#2f5140" stroke-width="7" stroke-linecap="round"/>
-          <path d="M634 300 L634 274 L660 274" fill="none" stroke="#141c18" stroke-width="1.5"/>
-          <path d="M132 300 A62 62 0 0 0 122 280" fill="none" stroke="#c14524" stroke-width="2.2"/>
-          <path d="M132 300 A62 62 0 0 1 124 320" fill="none" stroke="#2f5140" stroke-width="2.2"/>
-          <path d="M660 168 A58 58 0 0 0 606 128" fill="none" stroke="#a8842c" stroke-width="2"/>
-          <path d="M586 198 A56 56 0 0 0 612 178" fill="none" stroke="#a8842c" stroke-width="2.2"/>
-          <circle cx="70" cy="300" r="10" fill="#2f5140"/>
-          <g font-family="Public Sans, sans-serif" font-size="25" font-weight="600" fill="#141c18">
-            <text x="42" y="292">E</text><text x="518" y="136">A</text><text x="674" y="534">B</text>
-            <text x="674" y="104">C</text><text x="732" y="292">D</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="23">
-            <text x="146" y="290" fill="#c14524">&#945;</text>
-            <text x="146" y="330" fill="#2f5140">&#946;</text>
-            <text x="592" y="228" fill="#a8842c">&#952;</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="17" fill="#7b857c">
-            <text x="606" y="164">90&minus;&#945;</text>
-            <text x="250" y="430" transform="rotate(19 250 430)">EB</text>
-          </g>
-        </svg>
-        <div class="cap">Tip nearer the observer than the base</div>
       </div>
     </div>
   </div>
@@ -2914,51 +3087,94 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
-  <div class="body">
-    <div style="display:grid;grid-template-columns:1.04fr .96fr;gap:32px;height:100%">
-      <div class="stack sm">
-        <div class="card rv" style="--d:2">
-          <div class="label v">Derivation &mdash; &#952; = angle CBA</div>
-          <div class="step sm" style="margin-top:6px"><div class="sl">Angle at the eye</div><div class="sv">&#8736;AEB = &#945; &minus; &#946; &nbsp;<span style="color:var(--ink-faint)">(both elevations)</span></div></div>
-          <div class="step sm"><div class="sl">Exterior angle rule</div><div class="sv">&#8736;EAB = (90 &minus; &#945;) + &#952;</div></div>
-          <div class="step sm"><div class="sl">Rewrite</div><div class="sv">= 90 &minus; (&#945; &minus; &#952;)</div></div>
-          <div class="step sm"><div class="sl">Master equation</div><div class="sv">AB = EB sin(&#945;&minus;&#946;) / sin[90 &minus; (&#945;&minus;&#952;)]</div></div>
+  <div class="body scroll">
+    <div class="case-doc">
+      <div class="derivation-layout">
+        <aside class="diagram-rail">
+          <img src="assets/images/men201/sine-case-1b-lean-toward-below.png" alt="Case 1B diagram: observer below both the tree base and top, tree leaning toward the observer">
+          <p class="caption">Geometric configuration used for the sine-law derivation.</p>
+        </aside>
+        <div class="derivation-content">
+          <section class="section">
+            <span class="section-num">Section 1</span>
+            <h2>Purpose</h2>
+            <p>This derivation gives the actual stem length \(AB\) when the observer is <strong>below both the tree base and tree top</strong>, both sight lines are elevation lines, and the tree leans <strong>toward the observer</strong> by angle \(\theta\) from the vertical.</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 2</span>
+            <h2>Geometry and Notation</h2>
+            <ul>
+              <li>\(A\) = top of tree</li>
+              <li>\(B\) = base of tree</li>
+              <li>\(E\) = observer</li>
+              <li>\(AB\) = actual tree length</li>
+              <li>\(EB\) = measured slope distance from observer to tree base</li>
+              <li>\(\alpha\) = elevation angle from \(E\) to top \(A\)</li>
+              <li>\(\beta\) = elevation angle from \(E\) to base \(B\)</li>
+              <li>\(\theta\) = lean angle of the tree from the vertical</li>
+            </ul>
+            <p>The observer is below both \(A\) and \(B\), so both sight lines \(EA\) and \(EB\) are above the horizontal.</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 3</span>
+            <h2>Step-by-Step Derivation</h2>
+            <h3>Step 1 &mdash; Observer angle \(\angle AEB\)</h3>
+            <p>From \(E\): \(EA\) makes angle \(\alpha\) with the horizontal; \(EB\) makes angle \(\beta\) with the horizontal. The angle between the sight lines is the difference:</p>
+            <div class="formula-box">
+              <span class="label">Observer angle</span>
+              $$ \boxed{\angle AEB = \alpha - \beta} $$
+            </div>
+            <h3>Step 2 &mdash; Angle between \(AE\) and vertical</h3>
+            <p>The sight line \(AE\) makes angle \(\alpha\) with the horizontal. Since horizontal and vertical are perpendicular:</p>
+            <div class="formula-box">
+              $$ \boxed{\text{angle between } AE \text{ and vertical} = 90^\circ - \alpha} $$
+            </div>
+            <h3>Step 3 &mdash; Account for tree lean toward observer</h3>
+            <p>The tree leans toward the observer by \(\theta\). The interior angle between \(AE\) and \(AB\) becomes the sum of \(90^\circ - \alpha\) and \(\theta\):</p>
+            <div class="formula-box">
+              <span class="label">Top interior angle</span>
+              $$ \boxed{\angle EAB = 90^\circ - \alpha + \theta = 90^\circ - (\alpha - \theta)} $$
+            </div>
+            <h3>Step 4 &mdash; Apply the sine rule</h3>
+            <div class="formula-box">
+              $$ \frac{AB}{\sin(\alpha-\beta)} = \frac{EB}{\sin[90^\circ-(\alpha-\theta)]} $$
+            </div>
+            <h3>Step 5 &mdash; Complementary-angle identity</h3>
+            <p>Using \(\sin(90^\circ - x) = \cos x\) with \(x = \alpha - \theta\):</p>
+            <div class="formula-box">
+              $$ \sin[90^\circ-(\alpha-\theta)] = \cos(\alpha-\theta) $$
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 4</span>
+            <h2>Angle Explanation</h2>
+            <div class="concept-box">
+              <span class="label">Why the difference?</span>
+              Because both sight lines are elevation angles above the same horizontal, the observer angle is the difference \(\alpha - \beta\) (with \(\alpha > \beta\) because the top is higher). The lean toward the observer <strong>adds</strong> \(\theta\) to the top interior angle.
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 5</span>
+            <h2>Sine-Law Calculation</h2>
+            <p>Substituting the identity into the sine rule:</p>
+            <div class="formula-box">
+              $$ AB = EB \frac{\sin(\alpha-\beta)}{\cos(\alpha-\theta)} $$
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 6</span>
+            <h2>Final Formula</h2>
+            <div class="formula-box">
+              <span class="label">FINAL FORMULA &mdash; Case 1B</span>
+              $$ AB = EB \frac{\sin(\alpha-\beta)}{\cos(\alpha-\theta)} $$
+            </div>
+            <p>Applicable when the observer is <strong>below both</strong> the base and top and the tree leans <strong>toward</strong> the observer.</p>
+            <div class="concept-box">
+              <span class="label">The rule behind the table</span>
+              The <strong>numerator</strong> depends on where the observer stands. The <strong>denominator</strong> depends on how the tree leans. Once you see that, the six-case table on Slide 45 becomes predictable rather than memorised.
+            </div>
+          </section>
         </div>
-        <div class="formula lg v rv" style="--d:3">AB &nbsp;=&nbsp; <span class="frac"><span class="n">EB &middot; sin (&#945; &minus; &#946;)</span><span class="d">cos (&#945; &minus; &#952;)</span></span></div>
-        <div style="flex:1"></div>
-        <div class="callout moss rv" style="--d:5">
-          <span class="k">The rule behind the table</span>
-          <p>The <strong>numerator</strong> depends on where the observer stands. The <strong>denominator</strong> depends on how the tree leans. Once you see that, the six-case table on Slide 45 becomes predictable rather than memorised.</p>
-        </div>
-      </div>
-      <div class="fig rv" style="--d:4">
-        <svg viewBox="0 0 820 640" preserveAspectRatio="xMidYMid meet">
-          <line x1="70" y1="480" x2="720" y2="480" stroke="#c14524" stroke-width="1.5" stroke-dasharray="8 7"/>
-          <line x1="70" y1="480" x2="660" y2="90" stroke="#c14524" stroke-width="2"/>
-          <line x1="70" y1="480" x2="660" y2="400" stroke="#141c18" stroke-width="2"/>
-          <line x1="660" y1="90" x2="660" y2="400" stroke="#4a7a5f" stroke-width="1.6" stroke-dasharray="6 6"/>
-          <line x1="560" y1="156" x2="660" y2="400" stroke="#2f5140" stroke-width="7" stroke-linecap="round"/>
-          <path d="M634 480 L634 454 L660 454" fill="none" stroke="#141c18" stroke-width="1.5"/>
-          <path d="M132 480 A62 62 0 0 0 116 442" fill="none" stroke="#c14524" stroke-width="2.2"/>
-          <path d="M168 480 A98 98 0 0 0 164 468" fill="none" stroke="#2f5140" stroke-width="2.4"/>
-          <path d="M660 148 A58 58 0 0 0 610 116" fill="none" stroke="#a8842c" stroke-width="2"/>
-          <path d="M636 352 A56 56 0 0 0 660 342" fill="none" stroke="#a8842c" stroke-width="2.2"/>
-          <circle cx="70" cy="480" r="10" fill="#2f5140"/>
-          <g font-family="Public Sans, sans-serif" font-size="25" font-weight="600" fill="#141c18">
-            <text x="42" y="472">E</text><text x="518" y="150">A</text><text x="674" y="418">B</text>
-            <text x="674" y="84">C</text><text x="732" y="472">D</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="23">
-            <text x="150" y="450" fill="#c14524">&#945;</text>
-            <text x="188" y="472" fill="#2f5140">&#946;</text>
-            <text x="612" y="342" fill="#a8842c">&#952;</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="17" fill="#7b857c">
-            <text x="606" y="144">90&minus;&#945;</text>
-            <text x="270" y="452" transform="rotate(-8 270 452)">EB</text>
-          </g>
-        </svg>
-        <div class="cap">Both sight lines above the horizontal</div>
       </div>
     </div>
   </div>
@@ -2989,51 +3205,94 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
-  <div class="body">
-    <div style="display:grid;grid-template-columns:1.04fr .96fr;gap:32px;height:100%">
-      <div class="stack sm">
-        <div class="card rv" style="--d:2">
-          <div class="label v">Derivation &mdash; &#952; = angle ABC</div>
-          <div class="step sm" style="margin-top:6px"><div class="sl">Angle at the eye</div><div class="sv">&#8736;AEB = &#946; &minus; &#945; &nbsp;<span style="color:var(--ink-faint)">(both depressions)</span></div></div>
-          <div class="step sm"><div class="sl">&#8736;ACB is itself exterior</div><div class="sv">&#8736;ACB = &#8736;EDC + &#8736;CED = 90 + &#945;</div></div>
-          <div class="step sm"><div class="sl">Exterior angle rule</div><div class="sv">&#8736;EAB = &#8736;ACB + &#8736;ABC = 90 + &#945; + &#952;</div></div>
-          <div class="step sm"><div class="sl">sin(90 + &#952;) = cos &#952;</div><div class="sv"><span class="hlt">denominator &rarr; cos (&#945; + &#952;)</span></div></div>
+  <div class="body scroll">
+    <div class="case-doc">
+      <div class="derivation-layout">
+        <aside class="diagram-rail">
+          <img src="assets/images/men201/sine-case-1c-lean-toward-above.png" alt="Case 1C diagram: observer above both the tree top and base, tree leaning toward the observer">
+          <p class="caption">Geometric configuration used for the sine-law derivation. The road-cutting case &mdash; where the tangent method overestimates most.</p>
+        </aside>
+        <div class="derivation-content">
+          <section class="section">
+            <span class="section-num">Section 1</span>
+            <h2>Purpose</h2>
+            <p>This derivation gives the actual stem length \(AB\) when the observer is <strong>above both the tree top and the tree base</strong>, both sight lines are depression lines, and the tree leans <strong>toward the observer</strong> by \(\theta\) from the vertical.</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 2</span>
+            <h2>Geometry and Notation</h2>
+            <ul>
+              <li>\(A\) = tree top</li>
+              <li>\(B\) = tree base</li>
+              <li>\(E\) = observer's eye</li>
+              <li>\(AB\) = actual stem length</li>
+              <li>\(EB\) = measured slope distance from observer to tree base</li>
+              <li>\(\alpha\) = angle of depression from \(E\) to the tree top \(A\)</li>
+              <li>\(\beta\) = angle of depression from \(E\) to the tree base \(B\)</li>
+              <li>\(\theta\) = angle of stem lean from the vertical</li>
+            </ul>
+            <p>Because the observer is above both \(A\) and \(B\), both \(EA\) and \(EB\) lie below the horizontal through \(E\). Normally \(\beta > \alpha\).</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 3</span>
+            <h2>Step-by-Step Derivation</h2>
+            <h3>Step 1 &mdash; Observer angle \(\angle AEB\)</h3>
+            <p>Both sight lines lie below the horizontal. \(EA\) is depressed by \(\alpha\); \(EB\) is depressed by \(\beta\). The angle between them is the difference:</p>
+            <div class="formula-box">
+              <span class="label">Observer angle</span>
+              $$ \boxed{\angle AEB = \beta - \alpha} $$
+            </div>
+            <h3>Step 2 &mdash; Relate sight line \(AE\) to vertical</h3>
+            <p>For this observer-above geometry, the interior angle at \(A\) between the sight line \(AE\) and a downward vertical reference is:</p>
+            <div class="formula-box">
+              <span class="label">Reference angle at A</span>
+              $$ 90^\circ + \alpha $$
+            </div>
+            <h3>Step 3 &mdash; Account for lean toward observer</h3>
+            <p>The lean \(\theta\) increases the interior angle between \(AE\) and \(AB\) by \(\theta\):</p>
+            <div class="formula-box">
+              <span class="label">Top interior angle</span>
+              $$ \boxed{\angle EAB = 90^\circ + \alpha + \theta = 90^\circ + (\alpha + \theta)} $$
+            </div>
+            <h3>Step 4 &mdash; Apply sine rule</h3>
+            <div class="formula-box">
+              $$ \frac{AB}{\sin(\beta-\alpha)} = \frac{EB}{\sin(90^\circ+\alpha+\theta)} $$
+            </div>
+            <h3>Step 5 &mdash; Trigonometric simplification</h3>
+            <p>Use \(\sin(90^\circ + x) = \cos x\) with \(x = \alpha + \theta\):</p>
+            <div class="formula-box">
+              $$ \sin(90^\circ+\alpha+\theta) = \cos(\alpha+\theta) $$
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 4</span>
+            <h2>Angle Explanation</h2>
+            <div class="concept-box">
+              <span class="label">Observer-above pattern</span>
+              When above both points, both angles are depression angles and \(\beta > \alpha\). The observer angle is \(\beta - \alpha\). The lean <strong>toward</strong> the observer <strong>adds</strong> \(\theta\) to the top interior angle, giving \(90^\circ + \alpha + \theta\). Using \(\sin(90^\circ+x) = \cos x\), the denominator becomes \(\cos(\alpha+\theta)\).
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 5</span>
+            <h2>Sine-Law Calculation</h2>
+            <div class="formula-box">
+              $$ AB = EB \frac{\sin(\beta-\alpha)}{\cos(\alpha+\theta)} $$
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 6</span>
+            <h2>Final Formula</h2>
+            <div class="formula-box">
+              <span class="label">FINAL FORMULA &mdash; Case 1C</span>
+              $$ AB = EB \frac{\sin(\beta-\alpha)}{\cos(\alpha+\theta)} $$
+            </div>
+            <p>Applicable when the observer is <strong>above both</strong> the base and top and the tree leans <strong>toward</strong> the observer.</p>
+            <div class="concept-box">
+              <span class="label">Watch the sign</span>
+              This case carries a <strong>plus</strong> inside the cosine where Cases 1A and 1B carried a minus. That is not an inconsistency &mdash; it is what the flipped geometry produces when the eye rises above the whole tree.
+            </div>
+          </section>
         </div>
-        <div class="formula lg v rv" style="--d:3">AB &nbsp;=&nbsp; <span class="frac"><span class="n">EB &middot; sin (&#946; &minus; &#945;)</span><span class="d">cos (&#945; + &#952;)</span></span></div>
-        <div style="flex:1"></div>
-        <div class="callout rv" style="--d:5">
-          <span class="k">Watch the sign</span>
-          <p>This case carries a <strong>plus</strong> inside the cosine where cases 1a and 1b carried a minus. That is not an inconsistency &mdash; it is what the flipped geometry produces when the eye rises above the whole tree.</p>
-        </div>
-      </div>
-      <div class="fig rv" style="--d:4">
-        <svg viewBox="0 0 820 640" preserveAspectRatio="xMidYMid meet">
-          <line x1="70" y1="110" x2="720" y2="110" stroke="#c14524" stroke-width="1.5" stroke-dasharray="8 7"/>
-          <line x1="70" y1="110" x2="662" y2="340" stroke="#c14524" stroke-width="2"/>
-          <line x1="70" y1="110" x2="660" y2="530" stroke="#141c18" stroke-width="2"/>
-          <line x1="660" y1="340" x2="660" y2="530" stroke="#4a7a5f" stroke-width="1.6" stroke-dasharray="6 6"/>
-          <line x1="560" y1="300" x2="660" y2="530" stroke="#2f5140" stroke-width="7" stroke-linecap="round"/>
-          <path d="M634 110 L634 136 L660 136" fill="none" stroke="#141c18" stroke-width="1.5"/>
-          <path d="M132 110 A62 62 0 0 1 148 134" fill="none" stroke="#c14524" stroke-width="2.2"/>
-          <path d="M168 110 A98 98 0 0 1 202 178" fill="none" stroke="#2f5140" stroke-width="2.4"/>
-          <path d="M604 344 A52 52 0 0 0 622 306" fill="none" stroke="#a8842c" stroke-width="2"/>
-          <path d="M636 482 A56 56 0 0 1 660 472" fill="none" stroke="#a8842c" stroke-width="2.2"/>
-          <circle cx="70" cy="110" r="10" fill="#2f5140"/>
-          <g font-family="Public Sans, sans-serif" font-size="25" font-weight="600" fill="#141c18">
-            <text x="42" y="102">E</text><text x="518" y="296">A</text><text x="674" y="552">B</text>
-            <text x="676" y="336">C</text><text x="732" y="102">D</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="23">
-            <text x="150" y="156" fill="#c14524">&#945;</text>
-            <text x="200" y="212" fill="#2f5140">&#946;</text>
-            <text x="608" y="480" fill="#a8842c">&#952;</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="17" fill="#7b857c">
-            <text x="598" y="376">90&minus;&#945;</text>
-            <text x="300" y="300" transform="rotate(35 300 300)">EB</text>
-          </g>
-        </svg>
-        <div class="cap">The road-cutting case &mdash; where tangent overestimates most</div>
       </div>
     </div>
   </div>
@@ -3062,52 +3321,92 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
-  <div class="body">
-    <div style="display:grid;grid-template-columns:1.04fr .96fr;gap:32px;height:100%">
-      <div class="stack sm">
-        <div class="card rv" style="--d:2">
-          <div class="label v">Derivation &mdash; &#952; = angle CBA</div>
-          <div class="step sm" style="margin-top:6px"><div class="sl">Angle at the eye</div><div class="sv">&#8736;AEB = &#945; + &#946;</div></div>
-          <div class="step sm"><div class="sl">Exterior angle at C</div><div class="sv">&#8736;ECB = &#8736;CAB + &#8736;CBA</div></div>
-          <div class="step sm"><div class="sl">Substitute</div><div class="sv">90 &minus; &#945; = &#8736;CAB + &#952;</div></div>
-          <div class="step sm"><div class="sl">Solve</div><div class="sv">&#8736;CAB = 90 &minus; (&#945; + &#952;) = &#8736;EAB</div></div>
-          <div class="step sm"><div class="sl">sin(90 &minus; &#952;) = cos &#952;</div><div class="sv"><span class="hlt">denominator &rarr; cos (&#945; + &#952;)</span></div></div>
+  <div class="body scroll">
+    <div class="case-doc">
+      <div class="derivation-layout">
+        <aside class="diagram-rail">
+          <img src="assets/images/men201/sine-case-2a-lean-away-between.png" alt="Case 2A diagram: observer between the tree base and top, tree leaning away from the observer">
+          <p class="caption">Geometric configuration used for the sine-law derivation. Tip further from the observer than the base.</p>
+        </aside>
+        <div class="derivation-content">
+          <section class="section">
+            <span class="section-num">Section 1</span>
+            <h2>Purpose</h2>
+            <p>This derivation gives the actual stem length \(AB\) when the observer's eye is <strong>between the elevation of the tree base and tree top</strong>, the sight line to the top is an elevation angle, the sight line to the base is a depression angle, and the tree leans <strong>away from the observer</strong> by \(\theta\) from the vertical.</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 2</span>
+            <h2>Geometry and Notation</h2>
+            <ul>
+              <li>\(A\) = tree top</li>
+              <li>\(B\) = tree base</li>
+              <li>\(E\) = observer's eye</li>
+              <li>\(AB\) = actual stem length</li>
+              <li>\(EB\) = measured slope distance</li>
+              <li>\(\alpha\) = elevation angle from \(E\) to top \(A\)</li>
+              <li>\(\beta\) = depression angle from \(E\) to base \(B\)</li>
+              <li>\(\theta\) = lean angle from vertical</li>
+            </ul>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 3</span>
+            <h2>Step-by-Step Derivation</h2>
+            <h3>Step 1 &mdash; Observer angle \(\angle AEB\)</h3>
+            <p>The top sight line \(EA\) lies \(\alpha\) above the horizontal; the base sight line \(EB\) lies \(\beta\) below the horizontal. The full interior angle between the two sight lines is the sum (horizontal lies between them):</p>
+            <div class="formula-box">
+              <span class="label">Observer angle</span>
+              $$ \boxed{\angle AEB = \alpha + \beta} $$
+            </div>
+            <h3>Step 2 &mdash; Angle between \(AE\) and vertical</h3>
+            <p>The line \(EA\) makes angle \(\alpha\) with the horizontal. Since vertical and horizontal are perpendicular:</p>
+            <div class="formula-box">
+              $$ \boxed{\text{angle between } AE \text{ and vertical} = 90^\circ - \alpha} $$
+            </div>
+            <h3>Step 3 &mdash; Account for lean away</h3>
+            <p>The stem leans <strong>away</strong> from the observer by \(\theta\). This <strong>reduces</strong> the interior top angle by \(\theta\):</p>
+            <div class="formula-box">
+              <span class="label">Top interior angle</span>
+              $$ \boxed{\angle EAB = 90^\circ - \alpha - \theta = 90^\circ - (\alpha + \theta)} $$
+            </div>
+            <h3>Step 4 &mdash; Apply sine rule</h3>
+            <div class="formula-box">
+              $$ \frac{AB}{\sin(\alpha+\beta)} = \frac{EB}{\sin[90^\circ-(\alpha+\theta)]} $$
+            </div>
+            <h3>Step 5 &mdash; Complementary identity</h3>
+            <p>Using \(\sin(90^\circ - x) = \cos x\) with \(x = \alpha + \theta\):</p>
+            <div class="formula-box">
+              $$ \sin[90^\circ-(\alpha+\theta)] = \cos(\alpha+\theta) $$
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 4</span>
+            <h2>Angle Explanation</h2>
+            <div class="concept-box">
+              <span class="label">Away-from-observer effect</span>
+              When the tree leans away, the stem moves away from the sight line \(AE\). This reduces the interior angle at \(A\) by \(\theta\), giving \(90^\circ - \alpha - \theta\). The identity \(\sin(90^\circ-x) = \cos x\) turns the denominator into \(\cos(\alpha+\theta)\).
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 5</span>
+            <h2>Sine-Law Calculation</h2>
+            <div class="formula-box">
+              $$ AB = EB \frac{\sin(\alpha+\beta)}{\cos(\alpha+\theta)} $$
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 6</span>
+            <h2>Final Formula</h2>
+            <div class="formula-box">
+              <span class="label">FINAL FORMULA &mdash; Case 2A</span>
+              $$ AB = EB \frac{\sin(\alpha+\beta)}{\cos(\alpha+\theta)} $$
+            </div>
+            <p>Applicable when the observer is <strong>between</strong> the base and top and the tree leans <strong>away</strong> from the observer.</p>
+            <div class="concept-box">
+              <span class="label">Compare with Case 1A</span>
+              Same numerator, flipped sign in the denominator. Leaning <strong>towards</strong> gives \(\alpha - \theta\); leaning <strong>away</strong> gives \(\alpha + \theta\). A bigger denominator means a smaller height &mdash; which matches the physical fact that a tree leaning away is further off than it looks.
+            </div>
+          </section>
         </div>
-        <div class="formula lg v rv" style="--d:3">AB &nbsp;=&nbsp; <span class="frac"><span class="n">EB &middot; sin (&#945; + &#946;)</span><span class="d">cos (&#945; + &#952;)</span></span></div>
-        <div style="flex:1"></div>
-        <div class="callout moss rv" style="--d:5">
-          <span class="k">Compare with case 1a</span>
-          <p>Same numerator, flipped sign in the denominator. Leaning <strong>towards</strong> gives &#945; &minus; &#952;; leaning <strong>away</strong> gives &#945; + &#952;. A bigger denominator means a smaller height &mdash; which matches the physical fact that a tree leaning away is further off than it looks.</p>
-        </div>
-      </div>
-      <div class="fig rv" style="--d:4">
-        <svg viewBox="0 0 820 640" preserveAspectRatio="xMidYMid meet">
-          <line x1="70" y1="300" x2="740" y2="300" stroke="#c14524" stroke-width="1.5" stroke-dasharray="8 7"/>
-          <line x1="70" y1="300" x2="690" y2="110" stroke="#c14524" stroke-width="2"/>
-          <line x1="70" y1="300" x2="560" y2="500" stroke="#141c18" stroke-width="2"/>
-          <line x1="560" y1="147" x2="560" y2="500" stroke="#4a7a5f" stroke-width="1.6" stroke-dasharray="6 6"/>
-          <line x1="690" y1="110" x2="560" y2="500" stroke="#2f5140" stroke-width="7" stroke-linecap="round"/>
-          <path d="M534 300 L534 274 L560 274" fill="none" stroke="#141c18" stroke-width="1.5"/>
-          <path d="M132 300 A62 62 0 0 0 122 281" fill="none" stroke="#c14524" stroke-width="2.2"/>
-          <path d="M132 300 A62 62 0 0 1 125 324" fill="none" stroke="#2f5140" stroke-width="2.2"/>
-          <path d="M560 202 A56 56 0 0 0 606 178" fill="none" stroke="#a8842c" stroke-width="2"/>
-          <path d="M560 444 A56 56 0 0 0 578 448" fill="none" stroke="#a8842c" stroke-width="2.2"/>
-          <circle cx="70" cy="300" r="10" fill="#2f5140"/>
-          <g font-family="Public Sans, sans-serif" font-size="25" font-weight="600" fill="#141c18">
-            <text x="42" y="292">E</text><text x="704" y="104">A</text><text x="572" y="526">B</text>
-            <text x="524" y="142">C</text><text x="752" y="292">D</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="23">
-            <text x="146" y="290" fill="#c14524">&#945;</text>
-            <text x="146" y="330" fill="#2f5140">&#946;</text>
-            <text x="586" y="432" fill="#a8842c">&#952;</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="17" fill="#7b857c">
-            <text x="576" y="190">90&minus;&#945;</text>
-            <text x="240" y="418" transform="rotate(22 240 418)">EB</text>
-          </g>
-        </svg>
-        <div class="cap">Tip further from the observer than the base</div>
       </div>
     </div>
   </div>
@@ -3136,51 +3435,92 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
-  <div class="body">
-    <div style="display:grid;grid-template-columns:1.04fr .96fr;gap:32px;height:100%">
-      <div class="stack sm">
-        <div class="card rv" style="--d:2">
-          <div class="label v">Derivation &mdash; &#952; = angle CBA</div>
-          <div class="step sm" style="margin-top:6px"><div class="sl">Angle at the eye</div><div class="sv">&#8736;AEB = &#945; &minus; &#946; &nbsp;<span style="color:var(--ink-faint)">(both elevations)</span></div></div>
-          <div class="step sm"><div class="sl">Exterior angle at C</div><div class="sv">90 &minus; &#945; = &#8736;CAB + &#952;</div></div>
-          <div class="step sm"><div class="sl">Solve</div><div class="sv">&#8736;CAB = 90 &minus; (&#945; + &#952;) = &#8736;EAB</div></div>
-          <div class="step sm"><div class="sl">Master equation</div><div class="sv">AB = EB sin(&#945;&minus;&#946;) / sin[90 &minus; (&#945;+&#952;)]</div></div>
+  <div class="body scroll">
+    <div class="case-doc">
+      <div class="derivation-layout">
+        <aside class="diagram-rail">
+          <img src="assets/images/men201/sine-case-2b-lean-away-below.png" alt="Case 2B diagram: observer below both the tree base and top, tree leaning away from the observer">
+          <p class="caption">Geometric configuration used for the sine-law derivation. The valley-floor case.</p>
+        </aside>
+        <div class="derivation-content">
+          <section class="section">
+            <span class="section-num">Section 1</span>
+            <h2>Purpose</h2>
+            <p>This derivation gives the actual stem length \(AB\) when the observer is <strong>below both the tree base and tree top</strong>, both sight lines are elevation lines, and the tree leans <strong>away from the observer</strong> by \(\theta\) from the vertical.</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 2</span>
+            <h2>Geometry and Notation</h2>
+            <ul>
+              <li>\(A\) = tree top</li>
+              <li>\(B\) = tree base</li>
+              <li>\(E\) = observer</li>
+              <li>\(AB\) = actual stem length</li>
+              <li>\(EB\) = measured slope distance</li>
+              <li>\(\alpha\) = elevation angle to top \(A\)</li>
+              <li>\(\beta\) = elevation angle to base \(B\)</li>
+              <li>\(\theta\) = lean angle from vertical</li>
+            </ul>
+            <p>Because the observer is below both \(A\) and \(B\), \(\alpha > \beta\).</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 3</span>
+            <h2>Step-by-Step Derivation</h2>
+            <h3>Step 1 &mdash; Observer angle \(\angle AEB\)</h3>
+            <p>Both sight lines are above the horizontal. \(EA\) makes angle \(\alpha\); \(EB\) makes angle \(\beta\). The angle between them is the difference:</p>
+            <div class="formula-box">
+              <span class="label">Observer angle</span>
+              $$ \boxed{\angle AEB = \alpha - \beta} $$
+            </div>
+            <h3>Step 2 &mdash; Angle between \(AE\) and vertical</h3>
+            <p>Since \(AE\) makes angle \(\alpha\) with the horizontal, the angle to vertical is:</p>
+            <div class="formula-box">
+              $$ \boxed{90^\circ - \alpha} $$
+            </div>
+            <h3>Step 3 &mdash; Lean away reduces top angle</h3>
+            <p>The tree leans away by \(\theta\), reducing the interior angle at \(A\):</p>
+            <div class="formula-box">
+              <span class="label">Top interior angle</span>
+              $$ \boxed{\angle EAB = 90^\circ - \alpha - \theta = 90^\circ - (\alpha + \theta)} $$
+            </div>
+            <h3>Step 4 &mdash; Sine rule and simplification</h3>
+            <div class="formula-box">
+              $$ \frac{AB}{\sin(\alpha-\beta)} = \frac{EB}{\sin[90^\circ-(\alpha+\theta)]} $$
+            </div>
+            <p>Using \(\sin(90^\circ - x) = \cos x\):</p>
+            <div class="formula-box">
+              $$ \sin[90^\circ-(\alpha+\theta)] = \cos(\alpha+\theta) $$
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 4</span>
+            <h2>Angle Explanation</h2>
+            <div class="concept-box">
+              <span class="label">Below + away pattern</span>
+              Below both points gives observer angle \(\alpha - \beta\). Lean away subtracts \(\theta\) from the vertical reference angle, giving \(90^\circ - (\alpha + \theta)\). The complementary identity turns this to \(\cos(\alpha+\theta)\) in the denominator.
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 5</span>
+            <h2>Sine-Law Calculation</h2>
+            <div class="formula-box">
+              $$ AB = EB \frac{\sin(\alpha-\beta)}{\cos(\alpha+\theta)} $$
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 6</span>
+            <h2>Final Formula</h2>
+            <div class="formula-box">
+              <span class="label">FINAL FORMULA &mdash; Case 2B</span>
+              $$ AB = EB \frac{\sin(\alpha-\beta)}{\cos(\alpha+\theta)} $$
+            </div>
+            <p>Applicable when the observer is <strong>below both</strong> the base and top and the tree leans <strong>away</strong> from the observer.</p>
+            <div class="concept-box">
+              <span class="label">Why this one matters most</span>
+              Standing on the valley floor is the most comfortable position, so it is the position crews default to. If nobody checks for lean, the tangent method <strong>under-measures systematically across a whole inventory</strong>.
+            </div>
+          </section>
         </div>
-        <div class="formula lg v rv" style="--d:3">AB &nbsp;=&nbsp; <span class="frac"><span class="n">EB &middot; sin (&#945; &minus; &#946;)</span><span class="d">cos (&#945; + &#952;)</span></span></div>
-        <div style="flex:1"></div>
-        <div class="callout rv" style="--d:5">
-          <span class="k">Why this one matters most</span>
-          <p>Standing on the valley floor is the most comfortable position, so it is the position crews default to. If nobody checks for lean, the tangent method <strong>under-measures systematically across a whole inventory</strong>.</p>
-        </div>
-      </div>
-      <div class="fig rv" style="--d:4">
-        <svg viewBox="0 0 820 640" preserveAspectRatio="xMidYMid meet">
-          <line x1="70" y1="480" x2="740" y2="480" stroke="#c14524" stroke-width="1.5" stroke-dasharray="8 7"/>
-          <line x1="70" y1="480" x2="690" y2="120" stroke="#c14524" stroke-width="2"/>
-          <line x1="70" y1="480" x2="560" y2="390" stroke="#141c18" stroke-width="2"/>
-          <line x1="560" y1="191" x2="560" y2="390" stroke="#4a7a5f" stroke-width="1.6" stroke-dasharray="6 6"/>
-          <line x1="690" y1="120" x2="560" y2="390" stroke="#2f5140" stroke-width="7" stroke-linecap="round"/>
-          <path d="M534 480 L534 454 L560 454" fill="none" stroke="#141c18" stroke-width="1.5"/>
-          <path d="M132 480 A62 62 0 0 0 116 444" fill="none" stroke="#c14524" stroke-width="2.2"/>
-          <path d="M168 480 A98 98 0 0 0 166 462" fill="none" stroke="#2f5140" stroke-width="2.4"/>
-          <path d="M560 246 A56 56 0 0 0 604 220" fill="none" stroke="#a8842c" stroke-width="2"/>
-          <path d="M560 334 A56 56 0 0 0 586 344" fill="none" stroke="#a8842c" stroke-width="2.2"/>
-          <circle cx="70" cy="480" r="10" fill="#2f5140"/>
-          <g font-family="Public Sans, sans-serif" font-size="25" font-weight="600" fill="#141c18">
-            <text x="704" y="114">A</text><text x="572" y="414">B</text>
-            <text x="524" y="186">C</text><text x="752" y="472">D</text><text x="42" y="472">E</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="23">
-            <text x="150" y="452" fill="#c14524">&#945;</text>
-            <text x="190" y="472" fill="#2f5140">&#946;</text>
-            <text x="592" y="332" fill="#a8842c">&#952;</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="17" fill="#7b857c">
-            <text x="576" y="234">90&minus;&#945;</text>
-            <text x="250" y="452" transform="rotate(-10 250 452)">EB</text>
-          </g>
-        </svg>
-        <div class="cap">The valley-floor case</div>
       </div>
     </div>
   </div>
@@ -3211,52 +3551,94 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV</div>
-  <div class="body">
-    <div style="display:grid;grid-template-columns:1.04fr .96fr;gap:32px;height:100%">
-      <div class="stack sm">
-        <div class="card rv" style="--d:2">
-          <div class="label v">Derivation &mdash; &#952; = angle CBA</div>
-          <div class="step sm" style="margin-top:6px"><div class="sl">Angle at the eye</div><div class="sv">&#8736;AEB = &#946; &minus; &#945; &nbsp;<span style="color:var(--ink-faint)">(both depressions)</span></div></div>
-          <div class="step sm"><div class="sl">Vertically opposite</div><div class="sv">&#8736;ECD = 90 &minus; &#945; = &#8736;ACB</div></div>
-          <div class="step sm"><div class="sl">Angle sum = 180&deg;</div><div class="sv">&#8736;CAB = 180 &minus; (90 &minus; &#945; + &#952;)</div></div>
-          <div class="step sm"><div class="sl">Simplify</div><div class="sv">&#8736;CAB = 90 + (&#945; &minus; &#952;) = &#8736;EAB</div></div>
-          <div class="step sm"><div class="sl">sin(90 + &#952;) = cos &#952;</div><div class="sv"><span class="hlt">denominator &rarr; cos (&#945; &minus; &#952;)</span></div></div>
+  <div class="body scroll">
+    <div class="case-doc">
+      <div class="derivation-layout">
+        <aside class="diagram-rail">
+          <img src="assets/images/men201/sine-case-2c-lean-away-above.png" alt="Case 2C diagram: observer above both the tree top and base, tree leaning away from the observer">
+          <p class="caption">Geometric configuration used for the sine-law derivation. Vertically opposite angles at C.</p>
+        </aside>
+        <div class="derivation-content">
+          <section class="section">
+            <span class="section-num">Section 1</span>
+            <h2>Purpose</h2>
+            <p>This derivation gives the actual stem length \(AB\) when the observer is <strong>above both the tree top and the tree base</strong>, both sight lines are depression lines, and the tree leans <strong>away from the observer</strong> by \(\theta\) from the vertical.</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 2</span>
+            <h2>Geometry and Notation</h2>
+            <ul>
+              <li>\(A\) = tree top</li>
+              <li>\(B\) = tree base</li>
+              <li>\(E\) = observer's eye</li>
+              <li>\(AB\) = actual stem length</li>
+              <li>\(EB\) = measured slope distance</li>
+              <li>\(\alpha\) = depression angle to top \(A\)</li>
+              <li>\(\beta\) = depression angle to base \(B\) (\(\beta > \alpha\))</li>
+              <li>\(\theta\) = lean angle from vertical</li>
+            </ul>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 3</span>
+            <h2>Step-by-Step Derivation</h2>
+            <h3>Step 1 &mdash; Observer angle \(\angle AEB\)</h3>
+            <p>Both sight lines lie below the horizontal. \(EA\) depressed by \(\alpha\); \(EB\) depressed by \(\beta\) (with \(\beta > \alpha\)). The angle between them is the difference:</p>
+            <div class="formula-box">
+              <span class="label">Observer angle</span>
+              $$ \boxed{\angle AEB = \beta - \alpha} $$
+            </div>
+            <h3>Step 2 &mdash; Angle between \(AE\) and vertical</h3>
+            <p>For observer-above geometry, the interior angle from sight line \(AE\) to downward vertical is:</p>
+            <div class="formula-box">
+              <span class="label">Reference angle at A</span>
+              $$ 90^\circ + \alpha $$
+            </div>
+            <h3>Step 3 &mdash; Lean away reduces interior angle</h3>
+            <p>The lean away from the observer reduces the interior angle at \(A\) by \(\theta\):</p>
+            <div class="formula-box">
+              <span class="label">Top interior angle</span>
+              $$ \boxed{\angle EAB = 90^\circ + \alpha - \theta = 90^\circ - (\theta - \alpha)} $$
+            </div>
+            <h3>Step 4 &mdash; Apply sine rule</h3>
+            <div class="formula-box">
+              $$ \frac{AB}{\sin(\beta-\alpha)} = \frac{EB}{\sin(90^\circ+\alpha-\theta)} $$
+            </div>
+            <h3>Step 5 &mdash; Simplify denominator</h3>
+            <p>Using \(\sin(90^\circ + x) = \cos x\) with \(x = \alpha - \theta\):</p>
+            <div class="formula-box">
+              $$ \sin(90^\circ+\alpha-\theta) = \cos(\alpha-\theta) $$
+            </div>
+            <p>Because cosine is even, \(\cos(\alpha-\theta) = \cos(\theta-\alpha)\).</p>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 4</span>
+            <h2>Angle Explanation</h2>
+            <div class="concept-box">
+              <span class="label">Above + away pattern</span>
+              Above both points gives observer angle \(\beta - \alpha\). Lean away reduces the top interior angle from \(90^\circ + \alpha\) to \(90^\circ + \alpha - \theta\). The sine identity turns \(\sin(90^\circ+\alpha-\theta)\) into \(\cos(\alpha-\theta)\), which by evenness equals \(\cos(\theta-\alpha)\).
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 5</span>
+            <h2>Sine-Law Calculation</h2>
+            <div class="formula-box">
+              $$ AB = EB \frac{\sin(\beta-\alpha)}{\cos(\alpha-\theta)} $$
+            </div>
+          </section>
+          <section class="section">
+            <span class="section-num">Section 6</span>
+            <h2>Final Formula</h2>
+            <div class="formula-box">
+              <span class="label">FINAL FORMULA &mdash; Case 2C</span>
+              $$ AB = EB \frac{\sin(\beta-\alpha)}{\cos(\alpha-\theta)} $$
+            </div>
+            <p>Applicable when the observer is <strong>above both</strong> the base and top and the tree leans <strong>away</strong> from the observer.</p>
+            <div class="concept-box">
+              <span class="label">A note on the printed formula</span>
+              Some printed versions of this derivation carry <strong>cos(\(\alpha+\theta\))</strong> in the final box. Step 5 above &mdash; \(\sin(90^\circ+\alpha-\theta)\) &mdash; gives \(\cos(\alpha-\theta)\), and the symmetry of the other five cases agrees. Derive it, do not copy it.
+            </div>
+          </section>
         </div>
-        <div class="formula lg v rv" style="--d:3">AB &nbsp;=&nbsp; <span class="frac"><span class="n">EB &middot; sin (&#946; &minus; &#945;)</span><span class="d">cos (&#945; &minus; &#952;)</span></span></div>
-        <div style="flex:1"></div>
-        <div class="callout rv" style="--d:5">
-          <span class="k">A note on the printed formula</span>
-          <p>Some printed versions of this derivation carry <strong>cos (&#945; + &#952;)</strong> in the final box. The step above &mdash; sin[90 + (&#945; &minus; &#952;)] &mdash; gives cos (&#945; &minus; &#952;), and the symmetry of the other five cases agrees. Derive it, do not copy it.</p>
-        </div>
-      </div>
-      <div class="fig rv" style="--d:4">
-        <svg viewBox="0 0 820 640" preserveAspectRatio="xMidYMid meet">
-          <line x1="70" y1="110" x2="740" y2="110" stroke="#c14524" stroke-width="1.5" stroke-dasharray="8 7"/>
-          <line x1="70" y1="110" x2="700" y2="300" stroke="#c14524" stroke-width="2"/>
-          <line x1="70" y1="110" x2="560" y2="520" stroke="#141c18" stroke-width="2"/>
-          <line x1="560" y1="258" x2="560" y2="520" stroke="#4a7a5f" stroke-width="1.6" stroke-dasharray="6 6"/>
-          <line x1="700" y1="300" x2="560" y2="520" stroke="#2f5140" stroke-width="7" stroke-linecap="round"/>
-          <path d="M534 110 L534 136 L560 136" fill="none" stroke="#141c18" stroke-width="1.5"/>
-          <path d="M132 110 A62 62 0 0 1 148 128" fill="none" stroke="#c14524" stroke-width="2.2"/>
-          <path d="M168 110 A98 98 0 0 1 202 182" fill="none" stroke="#2f5140" stroke-width="2.4"/>
-          <path d="M560 312 A56 56 0 0 0 596 288" fill="none" stroke="#a8842c" stroke-width="2"/>
-          <path d="M560 464 A56 56 0 0 0 588 476" fill="none" stroke="#a8842c" stroke-width="2.2"/>
-          <circle cx="70" cy="110" r="10" fill="#2f5140"/>
-          <g font-family="Public Sans, sans-serif" font-size="25" font-weight="600" fill="#141c18">
-            <text x="714" y="294">A</text><text x="572" y="546">B</text>
-            <text x="524" y="254">C</text><text x="752" y="102">D</text><text x="42" y="102">E</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="23">
-            <text x="150" y="152" fill="#c14524">&#945;</text>
-            <text x="200" y="214" fill="#2f5140">&#946;</text>
-            <text x="594" y="464" fill="#a8842c">&#952;</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="17" fill="#7b857c">
-            <text x="576" y="300">90&minus;&#945;</text>
-            <text x="240" y="286" transform="rotate(40 240 286)">EB</text>
-          </g>
-        </svg>
-        <div class="cap">Vertically opposite angles at C</div>
       </div>
     </div>
   </div>
@@ -4101,8 +4483,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 <!-- ======================================================================
      SLIDE 57 — CLOSING COVER
      ====================================================================== -->
-<section class="slide cover" data-n="60">
+<section class="slide cover" data-n="60" data-fit-max="1.12">
   <div class="plate">
+    <figure class="men-plate-photo">
+      <img class="mapped-slide-image" src="Improvements/unit 4/6.webp" alt="An aerial view of a forested hillside in Bhutan, a dense canopy of varied tree crowns rising up the slope" loading="eager" decoding="async">
+    </figure>
+    <div style="display:none" aria-hidden="true">
     <svg viewBox="0 0 720 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <g fill="none" stroke="#2f5140" stroke-opacity=".35">
         <circle cx="360" cy="540" r="400" stroke-width="1"/><circle cx="364" cy="536" r="348" stroke-width="1.5"/>
@@ -4113,6 +4499,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </g>
       <circle cx="360" cy="540" r="8" fill="#c14524" fill-opacity=".55"/>
     </svg>
+    </div>
   </div>
   <div style="position:absolute;left:110px;top:96px">
     <div class="eyebrow rv" style="--d:0">MEN 201 &middot; Forest Mensuration &middot; Unit IV</div>
@@ -4153,6 +4540,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <button id="prev" title="Previous (&larr;)">&lsaquo;</button>
   <span><b id="cur">1</b> / <span id="tot">60</span></span>
   <button id="next" title="Next (&rarr;)">&rsaquo;</button>
+  <button id="fullscreen" title="Full screen (F)">&#x26F6;</button>
 </div>
 
 <script>
@@ -4201,6 +4589,25 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   document.getElementById('next').addEventListener('click', next);
   document.getElementById('prev').addEventListener('click', prev);
 
+  /* --- FULL SCREEN -------------------------------------------------------
+     Requests fullscreen on the viewport itself (not just the stage) so the
+     browser chrome disappears and fit() then scales the 1920x1080 canvas up
+     to the entire screen, edge to edge. */
+  const viewport = document.querySelector('.deck-viewport');
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      (viewport.requestFullscreen || viewport.webkitRequestFullscreen || function(){}).call(viewport);
+    } else {
+      (document.exitFullscreen || document.webkitExitFullscreen || function(){}).call(document);
+    }
+  }
+  const fsBtn = document.getElementById('fullscreen');
+  fsBtn.addEventListener('click', toggleFullscreen);
+  document.addEventListener('fullscreenchange', () => {
+    fsBtn.innerHTML = document.fullscreenElement ? '&#x2715;' : '&#x26F6;';
+    fit();
+  });
+
   document.addEventListener('keydown', (e) => {
     if (document.body.classList.contains('editing')) {
       // In edit mode only Escape and Ctrl+S are deck shortcuts.
@@ -4214,6 +4621,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       case 'Home': e.preventDefault(); show(0); break;
       case 'End':  e.preventDefault(); show(slides.length - 1); break;
       case 'e': case 'E': toggleEdit(true); break;
+      case 'f': case 'F': toggleFullscreen(); break;
     }
   });
 
@@ -4338,7 +4746,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   background:rgba(10,14,11,.72);border-color:rgba(255,255,255,.14);padding:9px 13px}
 
 body.editing .tocback,body.editing .tocsep{display:none}
-@media print{.tocback,.tocsep{display:none}}
+@page{size:20in 11.25in;margin:0}
+@media print{html,body{overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible}.stage{position:static;width:1920px;height:auto;transform:none;box-shadow:none}.slide{position:relative;width:1920px;height:1080px;visibility:visible;opacity:1;pointer-events:auto;page-break-after:always}.slide:has(.body.scroll){height:auto;min-height:1080px}.body.scroll{position:static;overflow:visible;height:auto;max-height:none;margin:240px 92px 120px;padding-right:0}.body.scroll::after{display:none}.rv{opacity:1!important;transform:none!important}.progress,.progtrack,.stick,.hud,.editbtn,.toast,.ovl,.tocback,.tocsep{display:none!important}}
 </style>
 <script>
 (function(){

@@ -38,6 +38,14 @@ All photographs below were downloaded from Wikimedia Commons and validated as pu
 | `assets/images/men201/girth-measurement-biomass.jpg` | Unit X, slide 1 (cover plate) | North Sullivan Photography, CSIRO | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_2671_Measuring_the_girth_of_a_Radiata_Pine.jpg) |
 | `assets/images/men201/terrestrial-laser-scanner.jpg` | Unit XI, slide 1 (cover plate) | Ekrem Canli | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Terrestrial_laserscanner.jpg) |
 
+## Other sourced images (not Wikimedia/CC-verified)
+
+Supplied directly by the module tutor rather than sourced from Wikimedia Commons. Not independently checked against the CC-verification process above; usage rights are the supplier's responsibility.
+
+| Local asset | Slide use | Credit | License | Source |
+|---|---|---|---|---|
+| `Improvements/Unit 6/Cover image.jpg` | Unit VI, slide 1 (cover plate) | Mongabay | Not verified | Supplied by tutor |
+
 ## Retained vector artwork
 
 Technical diagrams, equations, measurement geometry, instrument schematics, workflow graphics, charts and other explanatory vectors remain as inline SVG because their labels, precision and visual clarity are better preserved in vector form. Where no exact open-license photograph matched the teaching point—such as bark gauges, spherical densiometer operation, matched forest-change imagery and a defensible canopy-height model—the original SVG was intentionally retained.

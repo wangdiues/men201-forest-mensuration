@@ -1,3 +1,15 @@
 # Scratch from preparing the supplementary readings: extracted PDF text and
 # page renders used to write the summaries. Not part of the site.
 tmp/
+
+# Claude Code session/tool state - not project content.
+.claude/
+.impeccable/
+
+# Pre-edit snapshots taken before risky changes. Git history is the real
+# backup; these are working scratch and can grow very large.
+backups/
+
+# Original 4K source video (242MB) - exceeds GitHub's 100MB push limit.
+# The site uses the compressed 1080p version (12-web.mp4) instead.
+Improvements/Unit 5/12.mp4

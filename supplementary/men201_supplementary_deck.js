@@ -55,6 +55,35 @@
   document.getElementById('next').addEventListener('click', next);
   document.getElementById('prev').addEventListener('click', prev);
 
+  /* --- FULL SCREEN --------------------------------------------------------
+     Requests fullscreen on the viewport itself (not just the stage) so the
+     browser chrome disappears and fit() then scales the 1920x1080 canvas up
+     to the entire screen, edge to edge. The button is created here rather
+     than in each deck's markup, since this runtime is the one place shared
+     by all four decks. */
+  const viewport = document.querySelector('.deck-viewport');
+  function toggleFullscreen() {
+    if (!viewport) return;
+    if (!document.fullscreenElement) {
+      (viewport.requestFullscreen || viewport.webkitRequestFullscreen || function () {}).call(viewport);
+    } else {
+      (document.exitFullscreen || document.webkitExitFullscreen || function () {}).call(document);
+    }
+  }
+  const fsBtn = document.createElement('button');
+  fsBtn.id = 'fullscreen';
+  fsBtn.type = 'button';
+  fsBtn.title = 'Full screen (F)';
+  fsBtn.setAttribute('aria-label', 'Full screen');
+  fsBtn.innerHTML = '&#x26F6;';
+  fsBtn.addEventListener('click', toggleFullscreen);
+  const nextBtn = document.getElementById('next');
+  if (nextBtn) nextBtn.insertAdjacentElement('afterend', fsBtn);
+  document.addEventListener('fullscreenchange', () => {
+    fsBtn.innerHTML = document.fullscreenElement ? '&#x2715;' : '&#x26F6;';
+    fit();
+  });
+
   document.addEventListener('keydown', (e) => {
     if (document.body.classList.contains('editing')) {
       // In edit mode only Escape and Ctrl+S are deck shortcuts.
@@ -72,6 +101,7 @@
       case 'Home': e.preventDefault(); show(0); break;
       case 'End':  e.preventDefault(); show(slides.length - 1); break;
       case 'e': case 'E': toggleEdit(true); break;
+      case 'f': case 'F': toggleFullscreen(); break;
       case 'Escape': case 'c': case 'C':
         // In script-requested fullscreen the first Esc should only exit
         // fullscreen; a second press then leaves the deck.

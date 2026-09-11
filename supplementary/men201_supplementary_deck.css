@@ -539,13 +539,14 @@ body.editing .tocback,body.editing .tocsep,body.editing .unitnext{display:none}
 .slide.fit2 .workflow .node{padding:11px 10px}
 .slide.fit2 .calc{padding:14px 20px}
 
+@page{size:20in 11.25in;margin:0}
 @media print{
   html,body{height:auto;overflow:visible;background:#fff}
   .deck-viewport{position:static;overflow:visible}
-  .stage{position:static;width:auto;height:auto;transform:none!important;box-shadow:none}
-  .slide,.slide.active{position:relative;visibility:visible;opacity:1;pointer-events:auto;
-    width:13.333in;height:7.5in;page-break-after:always;break-after:page;overflow:hidden;
-    transform:scale(.667);transform-origin:top left;margin-bottom:-2.5in}
-  .progress,.hud,.skip,.editbtn,.toast,.tocback,.tocsep,.unitnext{display:none!important}
-  .slide.active .rv,.slide.active .fd,.slide.active .drw{animation:none!important}
+  .stage{position:static;width:1920px;height:auto;transform:none!important;box-shadow:none}
+  .slide,.slide.active{position:relative;width:1920px;height:1080px;visibility:visible;opacity:1;
+    pointer-events:auto;page-break-after:always;break-after:page;overflow:hidden;
+    transform:none;margin-bottom:0}
+  .progress,.progtrack,.stick,.hud,.skip,.editbtn,.toast,.ovl,.tocback,.tocsep,.unitnext{display:none!important}
+  .rv,.slide.active .rv,.slide.active .fd,.slide.active .drw{opacity:1!important;transform:none!important;animation:none!important}
 }

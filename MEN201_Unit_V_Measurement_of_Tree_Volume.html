@@ -436,6 +436,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 .slide.fit2 .numrow{margin-bottom:6px}
 .slide.fit2 .q{padding:11px 16px}
 .slide.refs ul.bul.sm li{font-size:calc(19px * var(--tz,1));line-height:1.34;margin-bottom:5px}
+.mapped-image-host{position:relative!important;overflow:hidden!important}
+.mapped-slide-image{display:block;width:100%;height:100%;max-width:100%;max-height:100%;margin:0;object-fit:contain}
 </style>
 <style id="overlap-fixes">
 .stage>.slide:nth-of-type(2) .g3{align-content:stretch;row-gap:22px!important}
@@ -504,6 +506,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 -->
 <section class="slide cover" data-n="1">
   <div class="plate">
+    <div style="display:none" aria-hidden="true">
     <svg viewBox="0 0 720 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs>
         <linearGradient id="stemFill" x1="0" y1="0" x2="0" y2="1">
@@ -536,6 +539,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <text x="132" y="150" font-family="JetBrains Mono, monospace" font-size="15" fill="#c14524">S × h</text>
       <text x="112" y="712" font-family="JetBrains Mono, monospace" font-size="15" fill="#2f5140">V = g · h · f</text>
     </svg>
+    </div>
+    <figure class="men-plate-photo">
+      <img src="Improvements/Unit 5/1.png" style="object-position:50% 30%" alt="A tall conifer photographed from its base looking up the trunk, the stem this unit's volume formulae describe" loading="eager" decoding="async" class="mapped-slide-image">
+      <figcaption>One stem, reduced to a form factor and a height &mdash; the whole of this unit in one tree.</figcaption>
+    </figure>
   </div>
   <div style="position:absolute;left:110px;top:96px">
     <div class="eyebrow rv" style="--d:0">MEN 201 · Forest Mensuration</div>
@@ -749,8 +757,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <span class="u">basal area × height × form factor — the equation the whole unit is building towards</span>
         </div>
       </div>
-      <div class="fig rv" style="--d:4">
-        <svg viewBox="0 0 820 700" preserveAspectRatio="xMidYMid meet">
+      <div class="fig rv mapped-image-host" style="--d:4"><img class="mapped-slide-image" src="Improvements/Unit 5/2.png" alt="Two full pine trees of the same base diameter and total height, one boxed to show little taper and more usable wood, the other heavy taper and less usable wood" loading="lazy" decoding="async">
+        <div style="display:none" aria-hidden="true"><svg viewBox="0 0 820 700" preserveAspectRatio="xMidYMid meet">
           <!-- little taper -->
           <path d="M200 60 C206 220 210 400 216 520 C220 600 246 640 276 668 L124 668 C154 640 180 600 184 520 C190 400 194 220 200 60 Z" fill="#2f5140" fill-opacity=".14" stroke="#2f5140" stroke-width="1.8"/>
           <rect x="122" y="60" width="156" height="608" fill="none" stroke="#c14524" stroke-width="1.4" stroke-dasharray="7 7" opacity=".55"/>
@@ -768,7 +776,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <text x="200" y="696">more usable wood</text>
             <text x="600" y="696">less usable wood</text>
           </g>
-        </svg>
+        </svg></div>
         <div class="cap">Same base diameter, same total height</div>
       </div>
     </div>
@@ -799,17 +807,20 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body deep">
-    <div class="row rv" style="--d:2;gap:30px;align-items:center;margin-bottom:12px">
+    <div class="fig rv" style="--d:2;height:calc(170px * var(--tz,1));margin-bottom:14px;overflow:hidden">
+      <img class="mapped-slide-image" src="Improvements/Unit 5/3.png" alt="Four tree stems in a forest, each outlined to show the shape it approximates &mdash; a cylinder, a paraboloid, a cone and a flaring neiloid, with their form factors marked" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:50% 35%">
+    </div>
+    <div class="row rv" style="--d:3;gap:30px;align-items:center;margin-bottom:12px">
       <p class="txt" style="flex:1;font-size:calc(22px * var(--tz,1))">The cross-sectional area of each solid changes with distance from the tip according to a single exponent, <strong style="color:var(--vermilion)">r</strong>. Everything else in this section follows from that.</p>
       <div class="formula sm" style="flex:0 0 460px;margin:0">S &nbsp;=&nbsp; k · x<sup>r</sup>
         <span class="u">x = distance from the tip &nbsp;·&nbsp; S = cross-sectional area</span>
       </div>
     </div>
-    <div class="g4" style="height:calc(100% - 112px)">
-      <div class="card rv" style="--d:3;display:flex;flex-direction:column;padding:16px 20px">
+    <div class="g4" style="height:calc(100% - 296px)">
+      <div class="card rv" style="--d:4;display:flex;flex-direction:column;padding:12px 16px">
         <div style="display:flex;align-items:baseline;justify-content:space-between">
-          <div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Cylinder</div>
-          <div class="mn" style="font-size:calc(22px * var(--tz,1));color:var(--vermilion);font-weight:700">r = 0</div>
+          <div class="ch" style="margin:0;font-size:calc(22px * var(--tz,1))">Cylinder</div>
+          <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--vermilion);font-weight:700">r = 0</div>
         </div>
         <div style="flex:1;min-height:0;margin:6px 0">
           <svg viewBox="0 0 240 300" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
@@ -818,12 +829,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <ellipse cx="120" cy="270" rx="60" ry="12" fill="none" stroke="#2f5140" stroke-width="2" stroke-dasharray="5 5"/>
           </svg>
         </div>
-        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">No taper. No real stem, but the reference shape for the form factor.</p>
+        <p class="txt-sm" style="font-size:calc(17px * var(--tz,1))">No taper. No real stem, but the reference shape for the form factor.</p>
       </div>
-      <div class="card rv" style="--d:4;display:flex;flex-direction:column;padding:16px 20px">
+      <div class="card rv" style="--d:5;display:flex;flex-direction:column;padding:12px 16px">
         <div style="display:flex;align-items:baseline;justify-content:space-between">
-          <div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Paraboloid</div>
-          <div class="mn" style="font-size:calc(22px * var(--tz,1));color:var(--vermilion);font-weight:700">r = 1</div>
+          <div class="ch" style="margin:0;font-size:calc(22px * var(--tz,1))">Paraboloid</div>
+          <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--vermilion);font-weight:700">r = 1</div>
         </div>
         <div style="flex:1;min-height:0;margin:6px 0">
           <svg viewBox="0 0 240 300" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
@@ -832,12 +843,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <ellipse cx="120" cy="270" rx="60" ry="12" fill="none" stroke="#2f5140" stroke-width="2" stroke-dasharray="5 5"/>
           </svg>
         </div>
-        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Slight taper. The middle of most stems.</p>
+        <p class="txt-sm" style="font-size:calc(17px * var(--tz,1))">Slight taper. The middle of most stems.</p>
       </div>
-      <div class="card rv" style="--d:5;display:flex;flex-direction:column;padding:16px 20px">
+      <div class="card rv" style="--d:6;display:flex;flex-direction:column;padding:12px 16px">
         <div style="display:flex;align-items:baseline;justify-content:space-between">
-          <div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Cone</div>
-          <div class="mn" style="font-size:calc(22px * var(--tz,1));color:var(--vermilion);font-weight:700">r = 2</div>
+          <div class="ch" style="margin:0;font-size:calc(22px * var(--tz,1))">Cone</div>
+          <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--vermilion);font-weight:700">r = 2</div>
         </div>
         <div style="flex:1;min-height:0;margin:6px 0">
           <svg viewBox="0 0 240 300" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
@@ -846,12 +857,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <ellipse cx="120" cy="270" rx="60" ry="12" fill="none" stroke="#2f5140" stroke-width="2" stroke-dasharray="5 5"/>
           </svg>
         </div>
-        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Steady taper. The top, above the crown base.</p>
+        <p class="txt-sm" style="font-size:calc(17px * var(--tz,1))">Steady taper. The top, above the crown base.</p>
       </div>
-      <div class="card rv" style="--d:6;display:flex;flex-direction:column;padding:16px 20px">
+      <div class="card rv" style="--d:7;display:flex;flex-direction:column;padding:12px 16px">
         <div style="display:flex;align-items:baseline;justify-content:space-between">
-          <div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Neiloid</div>
-          <div class="mn" style="font-size:calc(22px * var(--tz,1));color:var(--vermilion);font-weight:700">r = 3</div>
+          <div class="ch" style="margin:0;font-size:calc(22px * var(--tz,1))">Neiloid</div>
+          <div class="mn" style="font-size:calc(19px * var(--tz,1));color:var(--vermilion);font-weight:700">r = 3</div>
         </div>
         <div style="flex:1;min-height:0;margin:6px 0">
           <svg viewBox="0 0 240 300" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
@@ -860,7 +871,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <ellipse cx="120" cy="270" rx="60" ry="12" fill="none" stroke="#2f5140" stroke-width="2" stroke-dasharray="5 5"/>
           </svg>
         </div>
-        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Concave, flaring. The butt swell at the base.</p>
+        <p class="txt-sm" style="font-size:calc(17px * var(--tz,1))">Concave, flaring. The butt swell at the base.</p>
       </div>
     </div>
   </div>
@@ -891,8 +902,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
     <div style="display:grid;grid-template-columns:640px 1fr;gap:36px;height:100%">
-      <div class="fig rv" style="--d:2">
-        <svg viewBox="0 0 640 700" preserveAspectRatio="xMidYMid meet">
+      <div class="fig rv mapped-image-host" style="--d:2"><img class="mapped-slide-image" src="Improvements/Unit 5/4.png" alt="A single tall conifer stem divided by dashed lines into three zones — a cone-shaped top, a paraboloid merchantable middle, and a flared neiloid base" loading="lazy" decoding="async">
+        <div style="display:none" aria-hidden="true"><svg viewBox="0 0 640 700" preserveAspectRatio="xMidYMid meet">
           <!-- full stem profile -->
           <path d="M300 30 C312 150 322 260 332 380 C342 490 352 560 368 610 C382 652 412 672 448 682 L152 682 C188 672 218 652 232 610 C248 560 258 490 268 380 C278 260 288 150 300 30 Z"
                 fill="#2f5140" fill-opacity=".13" stroke="#2f5140" stroke-width="2"/>
@@ -912,7 +923,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <text x="486" y="674">butt swell, lowest 1–2 m</text>
           </g>
           <line x1="152" y1="690" x2="448" y2="690" stroke="#141c18" stroke-opacity=".35" stroke-width="1.5"/>
-        </svg>
+        </svg></div>
         <div class="cap">Boundaries are not sharp and not at fixed heights</div>
       </div>
       <div class="stack">
@@ -969,8 +980,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <div class="numrow rv" style="--d:8"><div class="badge moss">6</div><div class="txt-sm">The result is a tapering stem of roughly uniform resistance to breakage</div></div>
         </div>
       </div>
-      <div class="fig rv" style="--d:4">
-        <svg viewBox="0 0 560 700" preserveAspectRatio="xMidYMid meet">
+      <div class="fig rv mapped-image-host" style="--d:4"><img class="mapped-slide-image" src="Improvements/Unit 5/5.png" alt="A tall conifer in a bending wind, annotated to show the mechanical loading the stem must resist along its length, illustrating Metzger's girder theory of stem taper" loading="lazy" decoding="async">
+        <div style="display:none" aria-hidden="true"><svg viewBox="0 0 560 700" preserveAspectRatio="xMidYMid meet">
           <!-- crown -->
           <ellipse cx="250" cy="120" rx="112" ry="80" fill="#2f5140" fill-opacity=".2" stroke="#2f5140" stroke-width="1.6"/>
           <text x="250" y="126" font-family="JetBrains Mono, monospace" font-size="16" fill="#2f5140" text-anchor="middle">crown</text>
@@ -997,7 +1008,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <line x1="380" y1="676" x2="362" y2="694"/><line x1="420" y1="676" x2="402" y2="694"/>
             <line x1="460" y1="676" x2="442" y2="694"/>
           </g>
-        </svg>
+        </svg></div>
       </div>
     </div>
   </div>
@@ -1146,8 +1157,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           </div>
         </div>
       </div>
-      <div class="fig rv" style="--d:5">
-        <svg viewBox="0 0 520 640" preserveAspectRatio="xMidYMid meet">
+      <div class="fig rv mapped-image-host" style="--d:5"><img class="mapped-slide-image" src="Improvements/Unit 5/6.png" alt="A tree trunk with a dashed cylinder drawn around it, labelled to compare the enclosing cylinder (s × h) with the actual, tapering stem volume" loading="lazy" decoding="async">
+        <div style="display:none" aria-hidden="true"><svg viewBox="0 0 520 640" preserveAspectRatio="xMidYMid meet">
           <rect x="150" y="50" width="220" height="500" fill="none" stroke="#c14524" stroke-width="2" stroke-dasharray="9 8"/>
           <path d="M260 50 C268 180 278 320 292 430 C302 500 322 534 350 550 L170 550 C198 534 218 500 228 430 C242 320 252 180 260 50 Z"
                 fill="#2f5140" fill-opacity=".2" stroke="#2f5140" stroke-width="2"/>
@@ -1162,7 +1173,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <text x="260" y="608">The stem sits inside the dashed cylinder.</text>
             <text x="260" y="630">f is how much of it the stem fills.</text>
           </g>
-        </svg>
+        </svg></div>
       </div>
     </div>
   </div>
@@ -1371,8 +1382,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:22px">
-        <div class="fig rv" style="--d:4;flex:1">
-          <svg viewBox="0 0 460 480" preserveAspectRatio="xMidYMid meet">
+        <div class="fig rv mapped-image-host" style="--d:4;flex:1"><img class="mapped-slide-image" src="Improvements/Unit 5/7.png" alt="A leaning conifer with dashed lines marking the tip, mid-height diameter and DBH at breast height, enclosed in a dashed cylinder outline" loading="lazy" decoding="async">
+          <div style="display:none" aria-hidden="true"><svg viewBox="0 0 460 480" preserveAspectRatio="xMidYMid meet">
             <path d="M230 26 C238 140 248 260 262 350 C270 404 288 428 310 440 L150 440 C172 428 190 404 198 350 C212 260 222 140 230 26 Z"
                   fill="#2f5140" fill-opacity=".15" stroke="#2f5140" stroke-width="2"/>
             <g stroke="#c14524" stroke-width="1.8">
@@ -1388,7 +1399,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
               <text x="242" y="22" fill="#a8842c">tip</text>
             </g>
             <line x1="150" y1="452" x2="310" y2="452" stroke="#141c18" stroke-opacity=".3"/>
-          </svg>
+          </svg></div>
         </div>
         <div class="card sunk rv" style="--d:6;padding:20px 24px">
           <div class="label v">What is it for?</div>
@@ -1738,8 +1749,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body srcfoot">
-    <div class="fig rv" style="--d:2;height:230px;margin-bottom:24px">
-      <svg viewBox="0 0 1720 230" preserveAspectRatio="none">
+    <div class="fig rv mapped-image-host" style="--d:2;height:230px;margin-bottom:24px"><img class="mapped-slide-image" src="Improvements/Unit 5/8.png" alt="A felled log lying in a forest, divided by dashed red lines into four labelled segments: butt log, 2nd log, 3rd log, and top or small wood" loading="lazy" decoding="async">
+      <div style="display:none" aria-hidden="true"><svg viewBox="0 0 1720 230" preserveAspectRatio="none">
         <path d="M40 60 L40 170 C400 174 760 168 1080 150 C1330 136 1520 122 1660 112 L1660 118 C1520 132 1330 150 1080 168 C760 190 400 196 40 200 Z" fill="none"/>
         <path d="M40 44 C420 40 800 52 1120 72 C1360 88 1540 100 1662 108 L1662 122 C1540 130 1360 142 1120 158 C800 178 420 190 40 186 Z"
               fill="#2f5140" fill-opacity=".14" stroke="#2f5140" stroke-width="2"/>
@@ -1752,7 +1763,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <text x="235" y="222">BUTT LOG</text><text x="625" y="222">2ND LOG</text>
           <text x="1015" y="222">3RD LOG</text><text x="1436" y="222">TOP / SMALL WOOD</text>
         </g>
-      </svg>
+      </svg></div>
     </div>
     <p class="lead rv" style="--d:3;margin-bottom:22px">A whole stem is not measured as one solid. It is <strong>crosscut</strong>, and each log is measured separately.</p>
     <div class="g3" style="row-gap:20px">
@@ -1793,8 +1804,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
     <div style="display:grid;grid-template-columns:1.05fr .95fr;gap:36px;height:100%">
-      <div class="fig rv" style="--d:2">
-        <svg viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet">
+      <div class="fig rv mapped-image-host" style="--d:2"><img class="mapped-slide-image" src="Improvements/Unit 5/10.png" alt="A log lying on the forest floor with its two end faces circled and labelled S₁ and S₂, a middle cross-section circled and labelled Sₘ, and its length labelled l" loading="lazy" decoding="async">
+        <div style="display:none" aria-hidden="true"><svg viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet">
           <!-- frustum body -->
           <path d="M170 150 C 170 130 250 118 330 118 C 410 118 490 130 490 150 L640 250 C640 236 690 228 740 228 C 790 228 826 236 826 250 L826 330 C826 344 790 352 740 352 C690 352 640 344 640 330 L490 430 C490 450 410 462 330 462 C250 462 170 450 170 430 Z" fill="none"/>
           <!-- simplified: side profile of a frustum -->
@@ -1814,7 +1825,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             <line x1="200" y1="490" x2="200" y2="510"/><line x1="640" y1="490" x2="640" y2="510"/>
           </g>
           <text x="420" y="532" font-family="JetBrains Mono, monospace" font-size="19" fill="#141c18" text-anchor="middle">l  =  length of the log</text>
-        </svg>
+        </svg></div>
       </div>
       <div class="stack">
         <div class="card rv" style="--d:3">
@@ -2362,8 +2373,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           C<sub>ub</sub> = π × 39 = 122.5 cm, and C<sub>ob</sub> − 2πb = 131.9 − 9.4 = 122.5 cm. <strong>The two routes agree.</strong></p>
         </div>
       </div>
-      <div class="fig rv" style="--d:5">
-        <svg viewBox="0 0 450 560" preserveAspectRatio="xMidYMid meet">
+      <div class="fig rv mapped-image-host" style="--d:5"><img class="mapped-slide-image" src="Improvements/Unit 5/9.png" alt="A log cross-section showing bark and wood, with a red dashed line labelled Dob for diameter over bark and a green dashed line labelled Dub for diameter under bark" loading="lazy" decoding="async">
+        <div style="display:none" aria-hidden="true"><svg viewBox="0 0 450 560" preserveAspectRatio="xMidYMid meet">
           <circle cx="225" cy="250" r="185" fill="#a8842c" fill-opacity=".3" stroke="#a8842c" stroke-width="2"/>
           <circle cx="225" cy="250" r="152" fill="#f2efe6" stroke="#2f5140" stroke-width="2"/>
           <g fill="none" stroke="#2f5140" stroke-opacity=".22">
@@ -2390,7 +2401,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           </g>
           <rect x="150" y="452" width="22" height="22" fill="#a8842c" fill-opacity=".3" stroke="#a8842c"/>
           <rect x="150" y="482" width="22" height="22" fill="#f2efe6" stroke="#2f5140"/>
-        </svg>
+        </svg></div>
       </div>
     </div>
   </div>
@@ -2470,11 +2481,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
-    <p class="txt rv" style="--d:2;margin-bottom:24px">Where the product is valuable enough to justify the effort, solid volume can be measured <strong style="color:var(--ink)">directly</strong> rather than derived from a stack.</p>
+    <div class="fig rv mapped-image-host" style="--d:2;height:calc(170px * var(--tz,1));margin-bottom:14px"><img class="mapped-slide-image" src="Improvements/Unit 5/11.png" alt="A demonstration of water displacement: an empty graduated vessel beside the same vessel with a wood block submerged, the water level risen from a dashed mark to a solid red line" loading="lazy" decoding="async"></div>
+    <p class="txt rv" style="--d:3;margin-bottom:14px">Where the product is valuable enough to justify the effort, solid volume can be measured <strong style="color:var(--ink)">directly</strong> rather than derived from a stack.</p>
     <div class="g2" style="align-items:start">
-      <div class="card rv" style="--d:3;display:flex;flex-direction:column">
+      <div class="card rv" style="--d:4;display:flex;flex-direction:column;padding:18px 22px">
         <div class="ch">1. Xylometric method — water displacement</div>
-        <div style="height:330px;display:flex;gap:20px;align-items:center;justify-content:center">
+        <div style="height:200px;display:flex;gap:20px;align-items:center;justify-content:center">
           <svg viewBox="0 0 420 300" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
             <!-- before -->
             <path d="M40 40 L40 260 L170 260 L170 40" fill="none" stroke="#2f5140" stroke-width="2.4"/>
@@ -2497,21 +2509,21 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <p style="font-size:calc(20px * var(--tz,1))">Worked check (hypothetical): the level rises from 2,400 cm<sup>3</sup> to 3,150 cm<sup>3</sup>, so V = 750 cm<sup>3</sup> = 0.00075 m<sup>3</sup>.</p>
         </div>
       </div>
-      <div class="card rv" style="--d:5;display:flex;flex-direction:column">
+      <div class="card rv" style="--d:6;display:flex;flex-direction:column;padding:18px 22px">
         <div class="ch">2. Specific gravity method — weigh it</div>
-        <div class="formula sm" style="margin-top:6px">SG &nbsp;=&nbsp; weight of wood / weight of an equal volume of water
+        <div class="formula sm" style="margin-top:6px;font-size:calc(22px * var(--tz,1));padding:11px 16px">SG &nbsp;=&nbsp; weight of wood / weight of an equal volume of water
           <span class="u">= density of wood / density of water</span>
         </div>
-        <div class="formula lg v" style="margin-top:18px">Volume (cm<sup>3</sup>) &nbsp;=&nbsp; weight (g) &nbsp;/&nbsp; SG</div>
-        <div class="card sunk" style="margin-top:18px;padding:20px 22px">
+        <div class="formula lg v" style="margin-top:10px;font-size:calc(32px * var(--tz,1));padding:16px 20px">Volume (cm<sup>3</sup>) &nbsp;=&nbsp; weight (g) &nbsp;/&nbsp; SG</div>
+        <div class="card sunk" style="margin-top:10px;padding:14px 18px">
           <div class="label v">Worked check (hypothetical)</div>
-          <div class="mn" style="font-size:calc(20px * var(--tz,1));color:var(--ink);margin-top:10px;line-height:1.8">
+          <div class="mn" style="font-size:calc(18px * var(--tz,1));color:var(--ink);margin-top:6px;line-height:1.5">
             a billet weighs 1,850 g, SG = 0.62<br>
             V = 1,850 / 0.62 = 2,983.9 cm<sup>3</sup> = 0.00298 m<sup>3</sup>
           </div>
         </div>
-        <div class="callout sm" style="margin-top:16px">
-          <p style="font-size:calc(20px * var(--tz,1))">The weight and the specific gravity must refer to the <strong>SAME moisture condition</strong> — green weight with green density, or oven-dry with basic density. Mixing them is the standard error.</p>
+        <div class="callout sm" style="margin-top:10px">
+          <p style="font-size:calc(18px * var(--tz,1))">The weight and the specific gravity must refer to the <strong>SAME moisture condition</strong> — green weight with green density, or oven-dry with basic density. Mixing them is the standard error.</p>
         </div>
       </div>
     </div>
@@ -3985,22 +3997,40 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
      
      Invite questions by email rather than by phone, and set the expectation that a question about a calculation should come with the student's own attempt attached.
 -->
-<section class="slide cover" data-n="61">
-  <div class="plate">
-    <svg viewBox="0 0 720 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <g fill="none" stroke="#2f5140" stroke-opacity=".35">
-        <circle cx="360" cy="540" r="400" stroke-width="1"/><circle cx="364" cy="536" r="348" stroke-width="1.5"/>
-        <circle cx="357" cy="543" r="296" stroke-width="1"/><circle cx="365" cy="535" r="246" stroke-width="1.4"/>
-        <circle cx="358" cy="542" r="198" stroke-width="1"/><circle cx="363" cy="538" r="152" stroke-width="1.4"/>
-        <circle cx="360" cy="540" r="110" stroke-width="1"/><circle cx="361" cy="540" r="72" stroke-width="1.5"/>
-        <circle cx="360" cy="540" r="36" stroke-width="1"/>
-      </g>
-      <circle cx="360" cy="540" r="8" fill="#c14524" fill-opacity=".55"/>
-    </svg>
+<section class="slide cover" data-n="61"><style>
+  [data-n="61"] .rule-line{background:rgba(255,255,255,.85)!important}
+  [data-n="61"] h1{color:#fff!important;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+  [data-n="61"] h1 em{color:#bcd8c4!important}
+  [data-n="61"] .cmeta div{color:#e6e9e3!important}
+  [data-n="61"] .cmeta strong{color:#fff!important}
+  [data-n="61"] .pageno{color:#e6e9e3!important}
+</style>
+  <div style="position:absolute;inset:0;overflow:hidden;background:#1f382d">
+    <video autoplay muted loop playsinline preload="auto" style="width:100%;height:100%;object-fit:cover;object-position:50% 45%">
+      <source src="Improvements/Unit 5/12-web.mp4" type="video/mp4">
+    </video>
+    <div style="position:absolute;inset:0;background:linear-gradient(105deg, rgba(15,20,17,.88) 0%, rgba(15,20,17,.74) 40%, rgba(15,20,17,.42) 68%, rgba(15,20,17,.14) 100%)"></div>
+  </div>
+  <div style="display:none" aria-hidden="true">
+    <div class="plate">
+      <figure class="men-plate-photo">
+        <img class="mapped-slide-image" src="Improvements/Unit 5/12.jpg" alt="An aerial view of a densely forested hillside, a varied canopy of tree crowns in mixed shades of green" loading="eager" decoding="async">
+      </figure>
+      <svg viewBox="0 0 720 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <g fill="none" stroke="#2f5140" stroke-opacity=".35">
+          <circle cx="360" cy="540" r="400" stroke-width="1"/><circle cx="364" cy="536" r="348" stroke-width="1.5"/>
+          <circle cx="357" cy="543" r="296" stroke-width="1"/><circle cx="365" cy="535" r="246" stroke-width="1.4"/>
+          <circle cx="358" cy="542" r="198" stroke-width="1"/><circle cx="363" cy="538" r="152" stroke-width="1.4"/>
+          <circle cx="360" cy="540" r="110" stroke-width="1"/><circle cx="361" cy="540" r="72" stroke-width="1.5"/>
+          <circle cx="360" cy="540" r="36" stroke-width="1"/>
+        </g>
+        <circle cx="360" cy="540" r="8" fill="#c14524" fill-opacity=".55"/>
+      </svg>
+    </div>
   </div>
   <div style="position:absolute;left:110px;top:96px">
     <div class="eyebrow rv" style="--d:0">MEN 201 · Forest Mensuration · Unit V</div>
-    <div class="rv" style="--d:1;margin-top:24px;width:120px;height:1px;background:var(--ink);opacity:.85"></div>
+    <div class="rule-line rv" style="--d:1;margin-top:24px;width:120px;height:1px;background:var(--ink);opacity:.85"></div>
   </div>
   <div style="position:absolute;left:110px;top:290px;width:1030px">
     <h1 class="rv" style="--d:2;font-size:calc(116px * var(--tz,1))">Measurement of<br><em>Tree Volume</em></h1>
@@ -4037,6 +4067,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <button id="prev" title="Previous (←)">‹</button>
   <span><b id="cur">1</b> / <span id="tot">61</span></span>
   <button id="next" title="Next (→)">›</button>
+  <button id="fullscreen" title="Full screen (F)">&#x26F6;</button>
 </div>
 
 <script>
@@ -4085,6 +4116,25 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   document.getElementById('next').addEventListener('click', next);
   document.getElementById('prev').addEventListener('click', prev);
 
+  /* --- FULL SCREEN -------------------------------------------------------
+     Requests fullscreen on the viewport itself (not just the stage) so the
+     browser chrome disappears and fit() then scales the 1920x1080 canvas up
+     to the entire screen, edge to edge. */
+  const viewport = document.querySelector('.deck-viewport');
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      (viewport.requestFullscreen || viewport.webkitRequestFullscreen || function(){}).call(viewport);
+    } else {
+      (document.exitFullscreen || document.webkitExitFullscreen || function(){}).call(document);
+    }
+  }
+  const fsBtn = document.getElementById('fullscreen');
+  fsBtn.addEventListener('click', toggleFullscreen);
+  document.addEventListener('fullscreenchange', () => {
+    fsBtn.innerHTML = document.fullscreenElement ? '&#x2715;' : '&#x26F6;';
+    fit();
+  });
+
   document.addEventListener('keydown', (e) => {
     if (document.body.classList.contains('editing')) {
       // In edit mode only Escape and Ctrl+S are deck shortcuts.
@@ -4098,6 +4148,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       case 'Home': e.preventDefault(); show(0); break;
       case 'End':  e.preventDefault(); show(slides.length - 1); break;
       case 'e': case 'E': toggleEdit(true); break;
+      case 'f': case 'F': toggleFullscreen(); break;
     }
   });
 
@@ -4222,7 +4273,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   background:rgba(10,14,11,.72);border-color:rgba(255,255,255,.14);padding:9px 13px}
 
 body.editing .tocback,body.editing .tocsep{display:none}
-@media print{.tocback,.tocsep{display:none}}
+@page{size:20in 11.25in;margin:0}
+@media print{html,body{overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible}.stage{position:static;width:1920px;height:auto;transform:none;box-shadow:none}.slide{position:relative;width:1920px;height:1080px;visibility:visible;opacity:1;pointer-events:auto;page-break-after:always}.rv{opacity:1!important;transform:none!important}.progress,.progtrack,.stick,.hud,.editbtn,.toast,.ovl,.tocback,.tocsep{display:none!important}}
 </style>
 <script>
 (function(){

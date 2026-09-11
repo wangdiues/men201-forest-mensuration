@@ -343,6 +343,8 @@ table.dt td.c,table.dt th.c{text-align:center}
 .fig{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;
   position:relative;overflow:hidden}
 .fig svg{display:block;width:100%;height:100%}
+.fig img{display:block;width:100%;height:100%;object-fit:contain;background:var(--paper-card)}
+.mapped-slide-image{display:block;width:100%;height:100%;max-width:100%;max-height:100%;margin:0;object-fit:contain}
 .fig .cap{position:absolute;left:18px;bottom:14px;font:400 calc(15px * var(--tz,1))/1.35 var(--mono);
   color:var(--ink-faint);letter-spacing:.02em}
 .fignote{font:400 calc(16px * var(--tz,1))/1.45 var(--mono);color:var(--ink-faint);letter-spacing:.01em}
@@ -450,6 +452,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 .slide.fit2 .step{padding:6px 0}
 .slide.fit2 .numrow{margin-bottom:6px}
 .slide.fit2 .q{padding:11px 16px}
+.mapped-image-host{position:relative!important;overflow:hidden!important}
 </style>
 <style id="overlap-fixes">
 .stage>.slide:nth-of-type(48) .body>.g2,.stage>.slide:nth-of-type(51) .body>.g2,.stage>.slide:nth-of-type(54) .body>.g2,.stage>.slide:nth-of-type(55) .body>.g3{max-height:calc(100% - 115px)!important}
@@ -487,38 +490,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 -->
 <section class="slide cover" data-n="1">
   <div class="plate">
-    <svg viewBox="0 0 720 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs>
-        <linearGradient id="discFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#2f5140" stop-opacity=".26"/>
-          <stop offset="1" stop-color="#2f5140" stop-opacity=".08"/>
-        </linearGradient>
-      </defs>
-      <!-- Plan view of a stand: every stem reduced to the disc it cuts at
-           breast height. The sum of those discs, per hectare, is the whole
-           of Section A. -->
-      <rect class="fd" style="--d:5" x="86" y="150" width="548" height="780" fill="none"
-            stroke="#c14524" stroke-width="1.6" stroke-dasharray="9 9" opacity=".7"/>
-      <g class="fd" style="--d:6" fill="url(#discFill)" stroke="#2f5140" stroke-width="1.6">
-        <circle cx="176" cy="238" r="42"/><circle cx="318" cy="206" r="24"/>
-        <circle cx="452" cy="262" r="33"/><circle cx="560" cy="212" r="17"/>
-        <circle cx="146" cy="392" r="20"/><circle cx="286" cy="374" r="48"/>
-        <circle cx="424" cy="416" r="15"/><circle cx="548" cy="366" r="29"/>
-        <circle cx="196" cy="546" r="35"/><circle cx="342" cy="530" r="19"/>
-        <circle cx="470" cy="574" r="44"/><circle cx="578" cy="512" r="13"/>
-        <circle cx="152" cy="700" r="27"/><circle cx="292" cy="684" r="38"/>
-        <circle cx="436" cy="726" r="21"/><circle cx="566" cy="668" r="31"/>
-        <circle cx="188" cy="852" r="16"/><circle cx="330" cy="836" r="30"/>
-        <circle cx="474" cy="874" r="25"/><circle cx="582" cy="820" r="40"/>
-      </g>
-      <g stroke="#141c18" stroke-width="1" opacity=".38">
-        <line x1="86" y1="930" x2="634" y2="930"/>
-        <line x1="86" y1="920" x2="86" y2="940"/><line x1="634" y1="920" x2="634" y2="940"/>
-      </g>
-      <text x="360" y="966" font-family="JetBrains Mono, monospace" font-size="16" fill="#7b857c" text-anchor="middle">one sample plot</text>
-      <text x="112" y="128" font-family="JetBrains Mono, monospace" font-size="15" fill="#c14524">G = Σ ( π d² / 4 )</text>
-      <text x="112" y="1012" font-family="JetBrains Mono, monospace" font-size="15" fill="#2f5140">V = G · h · f</text>
-    </svg>
+    <figure class="men-plate-photo">
+      <img class="mapped-slide-image" src="Improvements/Unit 6/Cover image.jpg" style="object-position:71% 50%" alt="Aerial view straight down into a mixed-species forest canopy, crowns of varying size and one flowering crown in magenta" loading="eager" decoding="async">
+      <figcaption>Every crown in this canopy contributes to the stand's basal area, volume and crop diameter &mdash; no single tree tells the story alone.<span class="cred">Mongabay</span></figcaption>
+    </figure>
   </div>
   <div style="position:absolute;left:110px;top:96px">
     <div class="eyebrow rv" style="--d:0">MEN 201 · Forest Mensuration</div>
@@ -824,36 +799,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         <div style="flex:1"></div>
         <div class="callout rv" style="--d:7"><span class="k">The commonest error in this unit</span><p>Writing m<sup>2</sup> when the answer is a stand figure. If the question says <strong>per hectare</strong>, the unit must say per hectare.</p></div>
       </div>
-      <div class="fig rv" style="--d:4">
-        <svg viewBox="0 0 760 700" preserveAspectRatio="xMidYMid meet">
-          <!-- ground -->
-          <line x1="60" y1="620" x2="700" y2="620" stroke="#141c18" stroke-opacity=".5" stroke-width="2"/>
-          <!-- stem with butt flare, cut at breast height -->
-          <path d="M262 300 C258 400 250 500 232 620 L410 620 C398 500 392 400 390 300 Z"
-                fill="#2f5140" fill-opacity=".13" stroke="#2f5140" stroke-width="2"/>
-          <path d="M264 150 C262 210 262 260 262 300 L390 300 C390 260 390 210 388 150 Z"
-                fill="#2f5140" fill-opacity=".07" stroke="#2f5140" stroke-width="1.6" stroke-dasharray="6 6"/>
-          <!-- the disc at breast height -->
-          <ellipse cx="326" cy="300" rx="64" ry="20" fill="#c14524" fill-opacity=".35" stroke="#c14524" stroke-width="2.4"/>
-          <!-- breast height dimension -->
-          <g stroke="#141c18" stroke-opacity=".55" stroke-width="1.6">
-            <line x1="500" y1="300" x2="500" y2="620"/>
-            <line x1="490" y1="300" x2="510" y2="300"/><line x1="490" y1="620" x2="510" y2="620"/>
-            <line x1="390" y1="300" x2="500" y2="300" stroke-dasharray="4 5"/>
-          </g>
-          <text x="520" y="460" font-family="JetBrains Mono, monospace" font-size="21" fill="#141c18">breast height</text>
-          <text x="130" y="292" font-family="JetBrains Mono, monospace" font-size="20" font-weight="700" fill="#c14524">basal</text>
-          <text x="130" y="318" font-family="JetBrains Mono, monospace" font-size="20" font-weight="700" fill="#c14524">area</text>
-          <line x1="196" y1="300" x2="262" y2="300" stroke="#c14524" stroke-width="1.6"/>
-          <!-- disc detail, drawn face-on -->
-          <circle cx="600" cy="150" r="72" fill="#c14524" fill-opacity=".2" stroke="#c14524" stroke-width="2.4"/>
-          <line x1="528" y1="150" x2="672" y2="150" stroke="#141c18" stroke-opacity=".6" stroke-width="1.6"/>
-          <text x="600" y="140" font-family="JetBrains Mono, monospace" font-size="18" fill="#141c18" text-anchor="middle">d</text>
-          <text x="600" y="262" font-family="JetBrains Mono, monospace" font-size="18" fill="#2f5140" text-anchor="middle">g = π d² / 4</text>
-          <!-- butt flare caution -->
-          <text x="120" y="600" font-family="JetBrains Mono, monospace" font-size="15" fill="#7b857c">butt flare</text>
-          <path d="M180 594 C210 594 224 606 232 618" fill="none" stroke="#7b857c" stroke-width="1.2"/>
-        </svg>
+      <div class="fig rv mapped-image-host" style="--d:4"><img class="mapped-slide-image" src="Improvements/Unit 6/Basal Area.png" alt="A forest photograph of a tree trunk with its basal-area cross-section highlighted at breast height, an inset diagram showing the disc and the formula g = πd²/4, and the butt flare marked below" loading="lazy" decoding="async" style="position:absolute;inset:0;margin:auto;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain">
+        <img src="assets/images/men201/unit-vi-basal-area-diagram.png" alt="A tree trunk with the basal-area cross-section highlighted at breast height, butt flare labelled at the base, and an inset disc showing diameter d and the formula g equals pi d squared over 4">
         <div class="cap">The disc a stem would expose if cut at breast height</div>
       </div>
     </div>
@@ -1058,65 +1005,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit VI</div>
   <div class="body srcfoot">
-    <div class="fig rv" style="--d:2;height:560px;margin-bottom:24px">
-      <svg viewBox="0 0 1720 555" preserveAspectRatio="xMidYMid meet">
-        <!-- Plot outlines and their stems share one transform per plot, so the
-             whole plot scales as a unit: original artwork was drawn about
-             (cx,196) at r=146 and is mapped here to (cx,300) at r=195. -->
-        <g font-family="JetBrains Mono, monospace" font-size="21" font-weight="500" fill="#2f5140" text-anchor="middle">
-          <text x="230" y="44">DBH 15 cm</text><text x="660" y="44">DBH 25 cm</text>
-          <text x="1090" y="44">DBH 35 cm</text><text x="1520" y="44">DBH 45 cm</text>
-        </g>
-        <g font-family="JetBrains Mono, monospace" font-size="19" fill="#c14524" text-anchor="middle">
-          <text x="230" y="540">≈ 1 700 trees / ha</text><text x="660" y="540">≈ 610 trees / ha</text>
-          <text x="1090" y="540">≈ 310 trees / ha</text><text x="1520" y="540">≈ 190 trees / ha</text>
-        </g>
-        <!-- plot 1: many small stems -->
-        <g transform="translate(230,300) scale(1.3356) translate(-230,-196)">
-          <circle cx="230" cy="196" r="146" fill="none" stroke="#141c18" stroke-opacity=".45" stroke-width="1.2"/>
-          <g fill="#2f5140" fill-opacity=".55">
-            <circle cx="168" cy="98" r="4"/><circle cx="214" cy="86" r="4"/><circle cx="268" cy="96" r="4"/><circle cx="312" cy="118" r="4"/>
-            <circle cx="132" cy="132" r="4"/><circle cx="182" cy="128" r="4"/><circle cx="232" cy="124" r="4"/><circle cx="284" cy="136" r="4"/><circle cx="330" cy="152" r="4"/>
-            <circle cx="112" cy="168" r="4"/><circle cx="158" cy="166" r="4"/><circle cx="206" cy="160" r="4"/><circle cx="256" cy="164" r="4"/><circle cx="302" cy="176" r="4"/><circle cx="344" cy="188" r="4"/>
-            <circle cx="106" cy="204" r="4"/><circle cx="150" cy="200" r="4"/><circle cx="198" cy="196" r="4"/><circle cx="248" cy="200" r="4"/><circle cx="296" cy="210" r="4"/><circle cx="342" cy="222" r="4"/>
-            <circle cx="118" cy="240" r="4"/><circle cx="164" cy="236" r="4"/><circle cx="212" cy="232" r="4"/><circle cx="262" cy="238" r="4"/><circle cx="308" cy="246" r="4"/>
-            <circle cx="142" cy="274" r="4"/><circle cx="190" cy="268" r="4"/><circle cx="238" cy="270" r="4"/><circle cx="286" cy="278" r="4"/>
-            <circle cx="176" cy="306" r="4"/><circle cx="226" cy="302" r="4"/><circle cx="272" cy="308" r="4"/>
-            <circle cx="146" cy="106" r="4"/><circle cx="296" cy="88" r="4"/><circle cx="122" cy="290" r="4"/><circle cx="318" cy="288" r="4"/>
-            <circle cx="196" cy="322" r="4"/><circle cx="248" cy="320" r="4"/>
-          </g>
-        </g>
-        <!-- plot 2 -->
-        <g transform="translate(660,300) scale(1.3356) translate(-660,-196)">
-          <circle cx="660" cy="196" r="146" fill="none" stroke="#141c18" stroke-opacity=".45" stroke-width="1.2"/>
-          <g fill="#2f5140" fill-opacity=".55">
-            <circle cx="608" cy="104" r="6.7"/><circle cx="686" cy="94" r="6.7"/><circle cx="742" cy="122" r="6.7"/>
-            <circle cx="560" cy="146" r="6.7"/><circle cx="638" cy="150" r="6.7"/><circle cx="712" cy="160" r="6.7"/><circle cx="770" cy="176" r="6.7"/>
-            <circle cx="540" cy="196" r="6.7"/><circle cx="614" cy="200" r="6.7"/><circle cx="688" cy="206" r="6.7"/><circle cx="758" cy="222" r="6.7"/>
-            <circle cx="562" cy="246" r="6.7"/><circle cx="636" cy="248" r="6.7"/><circle cx="710" cy="254" r="6.7"/>
-            <circle cx="602" cy="292" r="6.7"/><circle cx="676" cy="296" r="6.7"/>
-          </g>
-        </g>
-        <!-- plot 3 -->
-        <g transform="translate(1090,300) scale(1.3356) translate(-1090,-196)">
-          <circle cx="1090" cy="196" r="146" fill="none" stroke="#141c18" stroke-opacity=".45" stroke-width="1.2"/>
-          <g fill="#2f5140" fill-opacity=".55">
-            <circle cx="1046" cy="112" r="9.4"/><circle cx="1132" cy="124" r="9.4"/>
-            <circle cx="1000" cy="172" r="9.4"/><circle cx="1090" cy="176" r="9.4"/><circle cx="1176" cy="188" r="9.4"/>
-            <circle cx="1030" cy="238" r="9.4"/><circle cx="1116" cy="242" r="9.4"/>
-            <circle cx="1076" cy="292" r="9.4"/>
-          </g>
-        </g>
-        <!-- plot 4 -->
-        <g transform="translate(1520,300) scale(1.3356) translate(-1520,-196)">
-          <circle cx="1520" cy="196" r="146" fill="none" stroke="#141c18" stroke-opacity=".45" stroke-width="1.2"/>
-          <g fill="#2f5140" fill-opacity=".55">
-            <circle cx="1486" cy="130" r="12.1"/><circle cx="1572" cy="146" r="12.1"/>
-            <circle cx="1444" cy="204" r="12.1"/><circle cx="1530" cy="212" r="12.1"/>
-            <circle cx="1594" cy="252" r="12.1"/>
-          </g>
-        </g>
-      </svg>
+    <div class="fig rv mapped-image-host" style="--d:2;width:1448px;height:483px;margin:0 auto 101px"><img class="mapped-slide-image" src="Improvements/Unit 6/Trees.png" alt="Four circular sample plots of equal basal area (30 m²/ha) shown as scaled dots, containing very different numbers of stems from about 1,700 trees per hectare at 15 cm DBH down to about 190 at 45 cm DBH" loading="lazy" decoding="async" style="position:absolute;inset:0;margin:auto;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain">
     </div>
     <div class="g2" style="gap:34px">
       <div class="callout rv" style="--d:4"><span class="k">All four stands carry 30 m<sup>2</sup>/ha</span><p>A seventeen-fold difference in stem number, and no difference at all in basal area stocking.</p></div>
@@ -1472,6 +1361,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </div>
       <div class="stack">
         <div class="fig rv" style="--d:5;height:352px">
+          <div style="display:none" aria-hidden="true">
           <svg viewBox="0 0 820 352" preserveAspectRatio="xMidYMid meet">
             <!-- sweep circle -->
             <circle cx="410" cy="180" r="150" fill="none" stroke="#141c18" stroke-opacity=".18" stroke-width="1.4" stroke-dasharray="6 8"/>
@@ -1505,6 +1395,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
               <text x="790" y="344" fill="#141c18" text-anchor="end">one sweep · N = 4</text>
             </g>
           </svg>
+          </div>
+          <img class="mapped-slide-image" src="Improvements/Unit 6/3.png" alt="Aerial view of a sample point with a surveyor at the plot centre, radius lines running out to four in-plot trees and one out-of-plot tree beyond the dashed plot boundary" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:contain">
         </div>
         <div class="card sunk rv" style="--d:6">
           <div class="ch" style="font-size:calc(24px * var(--tz,1))">Choosing the gauge</div>
@@ -4290,22 +4182,35 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Note for the tutor: fill in the contact details before delivering the unit.
 -->
-<section class="slide cover" data-n="63">
-  <div class="plate">
-    <svg viewBox="0 0 720 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <g fill="none" stroke="#2f5140" stroke-opacity=".35">
-        <circle cx="360" cy="540" r="400" stroke-width="1"/><circle cx="364" cy="536" r="348" stroke-width="1.5"/>
-        <circle cx="357" cy="543" r="296" stroke-width="1"/><circle cx="365" cy="535" r="246" stroke-width="1.4"/>
-        <circle cx="358" cy="542" r="198" stroke-width="1"/><circle cx="363" cy="538" r="152" stroke-width="1.4"/>
-        <circle cx="360" cy="540" r="110" stroke-width="1"/><circle cx="361" cy="540" r="72" stroke-width="1.5"/>
-        <circle cx="360" cy="540" r="36" stroke-width="1"/>
-      </g>
-      <circle cx="360" cy="540" r="8" fill="#c14524" fill-opacity=".55"/>
-    </svg>
+<section class="slide cover" data-n="63"><style>
+  [data-n="63"] .rule-line{background:rgba(255,255,255,.85)!important}
+  [data-n="63"] h1{color:#fff!important;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+  [data-n="63"] h1 em{color:#bcd8c4!important}
+  [data-n="63"] .cmeta div{color:#e6e9e3!important}
+  [data-n="63"] .cmeta strong{color:#fff!important}
+  [data-n="63"] .pageno{color:#e6e9e3!important}
+</style>
+  <div style="position:absolute;inset:0;overflow:hidden;background:#1f382d">
+    <img src="Improvements/Unit 6/6-canopy-background.jpeg" alt="An aerial view of a lush tropical forest canopy, palm fronds and broadleaf tree crowns densely packed together" loading="eager" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:50% 40%">
+    <div style="position:absolute;inset:0;background:linear-gradient(105deg, rgba(15,20,17,.88) 0%, rgba(15,20,17,.74) 40%, rgba(15,20,17,.42) 68%, rgba(15,20,17,.14) 100%)"></div>
+  </div>
+  <div style="display:none" aria-hidden="true">
+    <div class="plate">
+      <svg viewBox="0 0 720 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <g fill="none" stroke="#2f5140" stroke-opacity=".35">
+          <circle cx="360" cy="540" r="400" stroke-width="1"/><circle cx="364" cy="536" r="348" stroke-width="1.5"/>
+          <circle cx="357" cy="543" r="296" stroke-width="1"/><circle cx="365" cy="535" r="246" stroke-width="1.4"/>
+          <circle cx="358" cy="542" r="198" stroke-width="1"/><circle cx="363" cy="538" r="152" stroke-width="1.4"/>
+          <circle cx="360" cy="540" r="110" stroke-width="1"/><circle cx="361" cy="540" r="72" stroke-width="1.5"/>
+          <circle cx="360" cy="540" r="36" stroke-width="1"/>
+        </g>
+        <circle cx="360" cy="540" r="8" fill="#c14524" fill-opacity=".55"/>
+      </svg>
+    </div>
   </div>
   <div style="position:absolute;left:110px;top:96px">
     <div class="eyebrow rv" style="--d:0">MEN 201 · Forest Mensuration · Unit VI</div>
-    <div class="rv" style="--d:1;margin-top:24px;width:120px;height:1px;background:var(--ink);opacity:.85"></div>
+    <div class="rule-line rv" style="--d:1;margin-top:24px;width:120px;height:1px;background:var(--ink);opacity:.85"></div>
   </div>
   <div style="position:absolute;left:110px;top:290px;width:1030px">
     <h1 class="rv" style="--d:2;font-size:calc(116px * var(--tz,1))">Measurement of<br><em>the Crop</em></h1>
@@ -4342,6 +4247,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <button id="prev" title="Previous (←)">‹</button>
   <span><b id="cur">1</b> / <span id="tot">63</span></span>
   <button id="next" title="Next (→)">›</button>
+  <button id="fullscreen" title="Full screen (F)">&#x26F6;</button>
 </div>
 
 <script>
@@ -4390,6 +4296,25 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   document.getElementById('next').addEventListener('click', next);
   document.getElementById('prev').addEventListener('click', prev);
 
+  /* --- FULL SCREEN -------------------------------------------------------
+     Requests fullscreen on the viewport itself (not just the stage) so the
+     browser chrome disappears and fit() then scales the 1920x1080 canvas up
+     to the entire screen, edge to edge. */
+  const viewport = document.querySelector('.deck-viewport');
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      (viewport.requestFullscreen || viewport.webkitRequestFullscreen || function(){}).call(viewport);
+    } else {
+      (document.exitFullscreen || document.webkitExitFullscreen || function(){}).call(document);
+    }
+  }
+  const fsBtn = document.getElementById('fullscreen');
+  fsBtn.addEventListener('click', toggleFullscreen);
+  document.addEventListener('fullscreenchange', () => {
+    fsBtn.innerHTML = document.fullscreenElement ? '&#x2715;' : '&#x26F6;';
+    fit();
+  });
+
   document.addEventListener('keydown', (e) => {
     if (document.body.classList.contains('editing')) {
       // In edit mode only Escape and Ctrl+S are deck shortcuts.
@@ -4403,6 +4328,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       case 'Home': e.preventDefault(); show(0); break;
       case 'End':  e.preventDefault(); show(slides.length - 1); break;
       case 'e': case 'E': toggleEdit(true); break;
+      case 'f': case 'F': toggleFullscreen(); break;
     }
   });
 
@@ -4527,7 +4453,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   background:rgba(10,14,11,.72);border-color:rgba(255,255,255,.14);padding:9px 13px}
 
 body.editing .tocback,body.editing .tocsep{display:none}
-@media print{.tocback,.tocsep{display:none}}
+@page{size:20in 11.25in;margin:0}
+@media print{html,body{overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible}.stage{position:static;width:1920px;height:auto;transform:none;box-shadow:none}.slide{position:relative;width:1920px;height:1080px;visibility:visible;opacity:1;pointer-events:auto;page-break-after:always}.rv{opacity:1!important;transform:none!important}.progress,.progtrack,.stick,.hud,.editbtn,.toast,.ovl,.tocback,.tocsep{display:none!important}}
 </style>
 <script>
 (function(){

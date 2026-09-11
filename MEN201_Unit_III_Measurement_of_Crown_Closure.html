@@ -341,6 +341,30 @@ table.dt tr.hi td{background:var(--vermilion-wash)}
   color:var(--ink-faint);letter-spacing:.02em}
 .fignote{font:400 calc(16px * var(--tz,1))/1.45 var(--mono);color:var(--ink-faint);letter-spacing:.01em}
 
+/* === RASTER PLATES IN .fig ================================================
+   .fig was authored for the deck's own hand-drawn SVG plates, which stay
+   crisp at any size. A photo/infographic PNG doesn't - past its native pixel
+   count it visibly upscales (worse once the stage itself is scaled up for a
+   larger window, or the browser runs at a HiDPI/125-150% display scale), so
+   it's sized to its own native resolution rather than stretched to fill. */
+.fig img{display:block;width:100%;height:100%;object-fit:contain;background:var(--paper-card)}
+.mapped-slide-image{display:block;width:100%;height:100%;max-width:100%;max-height:100%;margin:0;object-fit:contain}
+
+/* === SCROLLING BODY (slide 42 — one image per method, full size) =========
+   Four dense infographics don't fit one fixed 1920x1080 frame at a legible
+   size. .scroll is the escape hatch men201-type-zoom.js already exempts from
+   its spill/collision measurements (see framesOf/spill/collision), so a
+   slide that needs it is never fought over by the auto-fitter - it just
+   scrolls. */
+.body.scroll{display:block;overflow-y:auto;overflow-x:hidden;padding-right:14px}
+.body.scroll::-webkit-scrollbar{width:8px}
+.body.scroll::-webkit-scrollbar-track{background:transparent}
+.body.scroll::-webkit-scrollbar-thumb{background:var(--rule);border-radius:4px}
+.body.scroll::-webkit-scrollbar-thumb:hover{background:var(--moss-line)}
+.body.scroll{scrollbar-width:thin;scrollbar-color:var(--rule) transparent}
+.body.scroll::after{content:"";position:sticky;display:block;left:0;right:0;bottom:0;height:40px;
+  margin-top:-40px;pointer-events:none;background:linear-gradient(to bottom,rgba(242,239,230,0),var(--paper))}
+
 /* === TITLE / SECTION SLIDES === */
 .cover{position:absolute;inset:0;background:var(--paper)}
 .cover .plate{position:absolute;right:0;top:0;width:720px;height:1080px;
@@ -445,16 +469,15 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 .slide.fit2 .numrow{margin-bottom:6px}
 .slide.fit2 .q{padding:11px 16px}
 .slide.refs ul.bul.sm li{font-size:calc(19px * var(--tz,1));line-height:1.34;margin-bottom:5px}
+.mapped-image-host{position:relative!important;overflow:hidden!important}
 </style>
 <style id="overlap-fixes">
 .stage>.slide:nth-of-type(26) .body{top:222px!important}
 .stage>.slide:nth-of-type(10) .body>.g3{height:calc(100% - 220px)!important}
-.stage>.slide:nth-of-type(13) .body>.g3{max-height:420px!important}
-.stage>.slide:nth-of-type(14) .body>.g4{max-height:280px!important}
 .stage>.slide:nth-of-type(31) .body>.g2,.stage>.slide:nth-of-type(32) .body>.g2,.stage>.slide:nth-of-type(45) .body>.g2,.stage>.slide:nth-of-type(55) .body>.g2{max-height:calc(100% - 120px)!important}
 .stage>.slide:nth-of-type(34) .body>.g5,.stage>.slide:nth-of-type(47) .body>.g3{max-height:calc(100% - 120px)!important}
-.stage>.slide:nth-of-type(10) .callout,.stage>.slide:nth-of-type(13) .callout,.stage>.slide:nth-of-type(14) .callout,.stage>.slide:nth-of-type(15) .callout,.stage>.slide:nth-of-type(26) .callout,.stage>.slide:nth-of-type(31) .callout,.stage>.slide:nth-of-type(32) .callout,.stage>.slide:nth-of-type(34) .callout,.stage>.slide:nth-of-type(45) .callout,.stage>.slide:nth-of-type(47) .callout,.stage>.slide:nth-of-type(55) .callout{padding:10px 20px!important}
-.stage>.slide:nth-of-type(10) .callout p,.stage>.slide:nth-of-type(13) .callout p,.stage>.slide:nth-of-type(14) .callout p,.stage>.slide:nth-of-type(15) .callout p,.stage>.slide:nth-of-type(26) .callout p,.stage>.slide:nth-of-type(31) .callout p,.stage>.slide:nth-of-type(32) .callout p,.stage>.slide:nth-of-type(34) .callout p,.stage>.slide:nth-of-type(45) .callout p,.stage>.slide:nth-of-type(47) .callout p,.stage>.slide:nth-of-type(55) .callout p{font-size:calc(16px * var(--tz,1))!important;line-height:1.3!important}
+.stage>.slide:nth-of-type(10) .callout,.stage>.slide:nth-of-type(15) .callout,.stage>.slide:nth-of-type(26) .callout,.stage>.slide:nth-of-type(31) .callout,.stage>.slide:nth-of-type(32) .callout,.stage>.slide:nth-of-type(34) .callout,.stage>.slide:nth-of-type(45) .callout,.stage>.slide:nth-of-type(47) .callout,.stage>.slide:nth-of-type(55) .callout{padding:10px 20px!important}
+.stage>.slide:nth-of-type(10) .callout p,.stage>.slide:nth-of-type(15) .callout p,.stage>.slide:nth-of-type(26) .callout p,.stage>.slide:nth-of-type(31) .callout p,.stage>.slide:nth-of-type(32) .callout p,.stage>.slide:nth-of-type(34) .callout p,.stage>.slide:nth-of-type(45) .callout p,.stage>.slide:nth-of-type(47) .callout p,.stage>.slide:nth-of-type(55) .callout p{font-size:calc(16px * var(--tz,1))!important;line-height:1.3!important}
 .stage>.slide:nth-of-type(10) .eyebrow,.stage>.slide:nth-of-type(14) .eyebrow,.stage>.slide:nth-of-type(21) .eyebrow,.stage>.slide:nth-of-type(24) .eyebrow,.stage>.slide:nth-of-type(30) .eyebrow,.stage>.slide:nth-of-type(34) .eyebrow,.stage>.slide:nth-of-type(35) .eyebrow,.stage>.slide:nth-of-type(36) .eyebrow,.stage>.slide:nth-of-type(37) .eyebrow,.stage>.slide:nth-of-type(38) .eyebrow,.stage>.slide:nth-of-type(39) .eyebrow,.stage>.slide:nth-of-type(41) .eyebrow,.stage>.slide:nth-of-type(42) .eyebrow,.stage>.slide:nth-of-type(43) .eyebrow,.stage>.slide:nth-of-type(46) .eyebrow,.stage>.slide:nth-of-type(48) .eyebrow,.stage>.slide:nth-of-type(56) .eyebrow{font-size:calc(12px * var(--tz,1))!important;letter-spacing:.12em!important}
 .stage>.slide:nth-of-type(57) .cmeta{bottom:12px!important;gap:20px!important}
 .stage>.slide:nth-of-type(57) .cmeta div{font-size:calc(13px * var(--tz,1))!important;line-height:1.2!important}
@@ -488,7 +511,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 -->
 <section class="slide cover" data-n="1">
   <div class="plate">
-    <svg viewBox="0 0 720 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <svg viewBox="0 0 720 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="display:none">
       <defs>
         <clipPath id="skyDisc"><circle cx="360" cy="420" r="288"/></clipPath>
         <linearGradient id="crownFill" x1="0" y1="0" x2="0" y2="1">
@@ -544,6 +567,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       </g>
       <text x="70" y="1042" font-family="JetBrains Mono, monospace" font-size="15" fill="#7b857c">canopy plane · crowns touching and overlapping</text>
     </svg>
+    <figure class="men-plate-photo">
+      <img class="mapped-slide-image" src="Improvements/unit 3/1.png" alt="Upward hemispherical view into a forest canopy showing overlapping tree crowns and gaps of open sky" loading="eager" decoding="async">
+      <figcaption>Looking straight up: the sky disc partly obscured by overlapping crowns &mdash; the picture this whole unit is about.</figcaption>
+    </figure>
   </div>
   <div style="position:absolute;left:110px;top:96px">
     <div class="eyebrow rv" style="--d:0">MEN 201 · Forest Mensuration</div>
@@ -731,7 +758,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Ask the class why the crown, not the stem, is the part we measure when we want to know how a forest works. Answer: because the stem is a record of past growth, while the crown is the machinery of present growth.
 -->
-<section class="slide" data-n="6">
+<section class="slide fit fit2" data-n="6">
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Section A · Orientation</div>
     <h2 class="title rv" style="--d:1">The crown is the tree's <em>working machinery</em></h2>
@@ -755,7 +782,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="fig rv" style="--d:4">
-        <svg viewBox="0 0 820 700" preserveAspectRatio="xMidYMid meet">
+        <svg viewBox="0 0 820 700" preserveAspectRatio="xMidYMid meet" style="display:none">
           <!-- one crown -->
           <g>
             <ellipse cx="200" cy="200" rx="120" ry="96" fill="#2f5140" fill-opacity=".18" stroke="#2f5140" stroke-width="2"/>
@@ -786,6 +813,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <text x="410" y="600" font-family="Public Sans, sans-serif" font-size="20" fill="#141c18" text-anchor="middle">The canopy is the uppermost layer of vegetation</text>
           <text x="410" y="630" font-family="Public Sans, sans-serif" font-size="20" fill="#141c18" text-anchor="middle">formed by the crowns of trees</text>
         </svg>
+        <img class="mapped-slide-image" src="Improvements/unit 3/2.png" alt="Side-by-side photo comparison: one tree's crown outlined on the left labelled 'one tree', several overlapping crowns of a stand outlined on the right labelled 'many trees together', illustrating crown versus canopy" loading="lazy" decoding="async">
         <div class="cap">Tree level · stand level</div>
       </div>
     </div>
@@ -930,7 +958,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Ask a checking question before moving on: if total height is 24 m and bole height is 10 m, what is the crown midpoint height? The answer is 17 m, not 14 m and not 7 m. If more than a third of the class gets it wrong, do the next slide slowly.
 -->
-<section class="slide" data-n="9">
+<section class="slide fit fit2" data-n="9"><style>
+  [data-n="9"] .txt{font-size:calc(20px * var(--tz,1)) !important}
+  [data-n="9"] .card{padding:10px 16px !important}
+  [data-n="9"] .callout{padding:8px 16px !important}
+  [data-n="9"] .callout p{font-size:calc(18px * var(--tz,1)) !important}
+</style>
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Section A · The plate — learn to redraw this</div>
     <h2 class="title rv" style="--d:1">Every crown term on <em>one tree</em></h2>
@@ -939,8 +972,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
   <div class="body">
     <div style="display:grid;grid-template-columns:1.28fr .72fr;gap:34px;height:100%">
-      <div class="fig rv" style="--d:2">
-        <svg viewBox="0 0 900 660" preserveAspectRatio="xMidYMid meet">
+      <div class="fig rv mapped-image-host" style="--d:2"><img class="mapped-slide-image" src="Improvements/unit 3/3.png" alt="An annotated tree diagram marking total height, crown height, crown width, bole height, and the ground-level vertical projection of the crown, with the levels a hypsometer must find" loading="lazy" decoding="async">
+        <div style="display:none" aria-hidden="true"><svg viewBox="0 0 900 660" preserveAspectRatio="xMidYMid meet">
           <!-- ground -->
           <line x1="60" y1="560" x2="840" y2="560" stroke="#141c18" stroke-opacity=".45" stroke-width="2"/>
           <!-- vertical crown projection onto the ground -->
@@ -1005,7 +1038,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <circle cx="348" cy="92" r="4" fill="#c14524"/>
           <circle cx="348" cy="242" r="4" fill="#c14524"/>
           <circle cx="348" cy="392" r="4" fill="#c14524"/>
-        </svg>
+        </svg></div>
         <div class="cap">Levels marked with a dot are the ones a hypsometer must find</div>
       </div>
       <div class="stack sm">
@@ -1140,7 +1173,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Practical tips worth saying aloud: on a slope, always measure DBH and sight from the uphill side and use horizontal distance; on a leaning tree the tip is not above the base, so measure from a station perpendicular to the lean; and in dense stands the crown base of the subject tree is easily confused with a branch of its neighbour, so walk in and look up before recording.
 -->
-<section class="slide" data-n="11">
+<section class="slide fit fit2" data-n="11"><style>
+  [data-n="11"] .txt{font-size:calc(20px * var(--tz,1)) !important}
+  [data-n="11"] .card{padding:10px 16px !important}
+  [data-n="11"] .callout{padding:8px 16px !important}
+  [data-n="11"] .callout p{font-size:calc(18px * var(--tz,1)) !important}
+</style>
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Section A · Field procedure</div>
     <h2 class="title rv" style="--d:1">Measuring the <em>vertical</em> crown dimensions</h2>
@@ -1165,8 +1203,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="stack sm">
-        <div class="fig rv" style="--d:4;flex:1">
-          <svg viewBox="0 0 620 480" preserveAspectRatio="xMidYMid meet">
+        <div class="fig rv mapped-image-host" style="--d:4;flex:1"><img class="mapped-slide-image" src="Improvements/unit 3/4.png" alt="A field photograph of an observer sighting a tree's tip, crown base and horizontal distance with dashed angle lines from a single station" loading="lazy" decoding="async">
+          <div style="display:none" aria-hidden="true"><svg viewBox="0 0 620 480" preserveAspectRatio="xMidYMid meet">
             <line x1="40" y1="410" x2="580" y2="410" stroke="#141c18" stroke-opacity=".4" stroke-width="1.5"/>
             <!-- tree -->
             <ellipse cx="430" cy="150" rx="92" ry="98" fill="#2f5140" fill-opacity=".18" stroke="#2f5140" stroke-width="1.8"/>
@@ -1193,7 +1231,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
               <text x="446" y="406">base of tree</text>
             </g>
             <text x="110" y="330" font-family="Public Sans, sans-serif" font-size="16" fill="#4a544c" text-anchor="middle">three readings</text>
-          </svg>
+          </svg></div>
           <div class="cap">One station · three angles · two subtractions</div>
         </div>
         <div class="card sunk rv" style="--d:7;padding:20px 24px">
@@ -1227,7 +1265,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Finally, tie it forward: the crown projection area of every tree in a plot is the raw material for the crown cover calculation in Section B.
 -->
-<section class="slide" data-n="12">
+<section class="slide fit fit2" data-n="12"><style>
+  [data-n="12"] .txt{font-size:calc(17px * var(--tz,1)) !important;line-height:1.35 !important}
+  [data-n="12"] .card{padding:6px 14px !important}
+</style>
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Section A · Field procedure — and the bridge into Section B</div>
     <h2 class="title rv" style="--d:1">Crown diameter and <em>crown projection area</em></h2>
@@ -1251,8 +1292,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="stack sm">
-        <div class="fig rv" style="--d:4;flex:1">
-          <svg viewBox="0 0 660 460" preserveAspectRatio="xMidYMid meet">
+        <div class="fig rv mapped-image-host" style="--d:4;flex:1"><img class="mapped-slide-image" src="Improvements/unit 3/5.png" alt="An aerial view of a tree crown with two perpendicular red diameter lines through its centre and a dashed circle showing the fitted crown projection area against the real lobed outline" loading="lazy" decoding="async">
+          <div style="display:none" aria-hidden="true"><svg viewBox="0 0 660 460" preserveAspectRatio="xMidYMid meet">
             <!-- lobed real crown outline -->
             <path d="M330 60 C400 66 452 96 470 146 C520 166 528 226 494 262
                      C500 316 456 356 400 356 C368 392 288 396 254 362
@@ -1278,7 +1319,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
               <text x="560" y="150">fitted</text><text x="560" y="172">circle</text>
               <text x="60" y="330">real</text><text x="60" y="352">outline</text>
             </g>
-          </svg>
+          </svg></div>
           <div class="cap">Two perpendicular diameters · averaged · treated as a circle</div>
         </div>
         <div class="callout rv" style="--d:7">
@@ -1308,72 +1349,63 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Finally connect it to this session's main subject: a stand of low crown-ratio trees can still have high canopy closure, because closure counts the area covered, not the depth of crown behind it. Two stands with identical closure can have completely different vigour. Closure is a horizontal measure; crown ratio is a vertical one. You need both.
 -->
-<section class="slide" data-n="13">
+<section class="slide" data-n="13"><style>
+  [data-n="13"] .callout{padding:7px 16px !important}
+  [data-n="13"] .callout .k{font-size:calc(17px * var(--tz,1)) !important}
+  [data-n="13"] .callout p{font-size:calc(17px * var(--tz,1)) !important;margin-top:2px !important}
+</style>
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Section A · The derived variable foresters actually use</div>
     <h2 class="title rv" style="--d:1">Live-crown ratio and <em>tree vigour</em></h2>
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
-  <div class="body deep">
-    <div class="row rv" style="--d:2;gap:30px;align-items:center;margin-bottom:24px">
-      <p class="txt" style="flex:1;font-size:calc(22px * var(--tz,1))">Crown length expressed as a percentage of total height. It is <strong>dimensionless</strong>, which is what makes a sapling comparable with a mature tree.</p>
-      <div class="formula sm" style="flex:0 0 500px;margin:0">LCR &nbsp;=&nbsp; ( CL / H ) × 100
-        <span class="u">crown length ÷ total height, as a percentage</span>
+  <div class="body" style="display:flex;flex-direction:column">
+    <p class="txt-sm rv" style="--d:2;font-size:calc(18px * var(--tz,1));margin:0 0 12px;flex:0 0 auto">Crown length expressed as a percentage of total height. It is <strong>dimensionless</strong>, which is what makes a sapling comparable with a mature tree.</p>
+    <div style="display:flex;gap:26px;flex:1 1 auto;min-height:0">
+      <div class="g3 rv" style="--d:3;display:flex;align-items:flex-start;gap:18px;flex:1 1 auto;min-width:0">
+        <div class="card" style="flex:1 1 0;min-width:0;padding:0;overflow:hidden">
+          <div style="background:var(--moss-wash);border-bottom:1px solid var(--rule);padding:7px 16px;display:flex;justify-content:space-between;align-items:baseline">
+            <span class="ch" style="margin:0;font-size:calc(21px * var(--tz,1));color:var(--moss)">Long crown</span>
+            <span class="mn" style="font-size:calc(17px * var(--tz,1));font-weight:700;color:var(--moss)">LCR &gt; 50 %</span>
+          </div>
+          <img src="Improvements/unit 3/6-long.png" alt="A tall pine with a long, deep crown, live crown length and total height marked" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+          <p class="txt-sm" style="margin:0;padding:7px 16px 9px;font-size:calc(17px * var(--tz,1))">Large factory, small stem to feed. Vigorous, responds well to release, wind-firm.</p>
+        </div>
+        <div class="card" style="flex:1 1 0;min-width:0;padding:0;overflow:hidden">
+          <div style="background:rgba(168,132,44,.09);border-bottom:1px solid var(--rule);padding:7px 16px;display:flex;justify-content:space-between;align-items:baseline">
+            <span class="ch" style="margin:0;font-size:calc(21px * var(--tz,1));color:var(--gold)">Moderate</span>
+            <span class="mn" style="font-size:calc(17px * var(--tz,1));font-weight:700;color:var(--gold)">30 – 50 %</span>
+          </div>
+          <img src="Improvements/unit 3/6-moderate.png" alt="A pine with a moderate crown, typical of a managed even-aged stand approaching first thinning, live crown length and total height marked" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+          <p class="txt-sm" style="margin:0;padding:7px 16px 9px;font-size:calc(17px * var(--tz,1))">Normal for a managed even-aged stand approaching first thinning. Watch it.</p>
+        </div>
+        <div class="card" style="flex:1 1 0;min-width:0;padding:0;overflow:hidden">
+          <div style="background:var(--vermilion-wash);border-bottom:1px solid var(--rule);padding:7px 16px;display:flex;justify-content:space-between;align-items:baseline">
+            <span class="ch" style="margin:0;font-size:calc(21px * var(--tz,1));color:var(--vermilion)">Short crown</span>
+            <span class="mn" style="font-size:calc(17px * var(--tz,1));font-weight:700;color:var(--vermilion)">LCR &lt; 30 %</span>
+          </div>
+          <img src="Improvements/unit 3/6-short.png" alt="A tall, thin pine with a short crown that has been long-shaded, live crown length and total height marked" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+          <p class="txt-sm" style="margin:0;padding:7px 16px 9px;font-size:calc(17px * var(--tz,1))">Long-shaded, branches shed. Poor response to release; at risk of snow break and windthrow.</p>
+        </div>
       </div>
-    </div>
-    <div class="g3" style="flex:1 1 auto;min-height:0">
-      <div class="card rv" style="--d:3;display:flex;flex-direction:column">
-        <div style="display:flex;justify-content:space-between;align-items:baseline">
-          <div class="ch" style="margin:0">Long crown</div>
-          <div class="mn" style="font-size:calc(22px * var(--tz,1));font-weight:700;color:var(--moss)">LCR &gt; 50 %</div>
+      <div class="rv" style="--d:9;flex:0 0 380px;display:flex;flex-direction:column;justify-content:space-between">
+        <div class="formula sm" style="margin:0;padding:12px 18px;display:flex;align-items:center;gap:12px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:var(--moss)"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="7" y1="7" x2="17" y2="7"/><circle cx="7.5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="16.5" cy="12" r="1"/><circle cx="7.5" cy="16" r="1"/><circle cx="12" cy="16" r="1"/><circle cx="16.5" cy="16" r="1"/></svg>
+          <div>LCR &nbsp;=&nbsp; ( CL / H ) × 100
+            <span class="u">crown length ÷ total height, as a percentage</span>
+          </div>
         </div>
-        <div style="flex:1;min-height:0;margin:14px 0">
-          <svg viewBox="0 0 220 210" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
-            <line x1="20" y1="188" x2="200" y2="188" stroke="#4a544c" stroke-opacity=".5" stroke-width="1.5"/>
-            <path d="M110 14 C150 60 168 118 176 154 L44 154 C52 118 70 60 110 14 Z" fill="#2f5140" fill-opacity=".22" stroke="#2f5140" stroke-width="1.8"/>
-            <line x1="110" y1="154" x2="110" y2="188" stroke="#2f5140" stroke-width="6"/>
-          </svg>
+        <div class="callout" style="display:flex;gap:12px;align-items:flex-start">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px;color:var(--vermilion)"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.472c.63.62 1 1.2 1 2.528h6c0-1.328.37-1.909 1-2.528A6 6 0 0 0 12 3Z"/></svg>
+          <div><span class="k">Crown ratio is not recoverable in conifers</span>
+          <p>A shed branch does not grow back. A thinning delayed until the crop trees are at 20 % has been <strong>delayed too long</strong> — thinning is preventive, not curative.</p></div>
         </div>
-        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Large factory, small stem to feed. Vigorous, responds well to release, wind-firm.</p>
-      </div>
-      <div class="card rv" style="--d:5;display:flex;flex-direction:column">
-        <div style="display:flex;justify-content:space-between;align-items:baseline">
-          <div class="ch" style="margin:0">Moderate</div>
-          <div class="mn" style="font-size:calc(22px * var(--tz,1));font-weight:700;color:var(--gold)">30 – 50 %</div>
+        <div class="callout moss" style="display:flex;gap:12px;align-items:flex-start">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px;color:var(--moss)"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+          <div><span class="k">Why this belongs in a session on closure</span>
+          <p>Closure counts <strong>area covered</strong>, not depth of crown behind it. Two stands with identical closure can differ completely in vigour.</p></div>
         </div>
-        <div style="flex:1;min-height:0;margin:14px 0">
-          <svg viewBox="0 0 220 210" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
-            <line x1="20" y1="188" x2="200" y2="188" stroke="#4a544c" stroke-opacity=".5" stroke-width="1.5"/>
-            <path d="M110 14 C142 48 156 86 162 110 L58 110 C64 86 78 48 110 14 Z" fill="#2f5140" fill-opacity=".22" stroke="#2f5140" stroke-width="1.8"/>
-            <line x1="110" y1="110" x2="110" y2="188" stroke="#2f5140" stroke-width="6"/>
-          </svg>
-        </div>
-        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Normal for a managed even-aged stand approaching first thinning. Watch it.</p>
-      </div>
-      <div class="card rv" style="--d:7;display:flex;flex-direction:column">
-        <div style="display:flex;justify-content:space-between;align-items:baseline">
-          <div class="ch" style="margin:0">Short crown</div>
-          <div class="mn" style="font-size:calc(22px * var(--tz,1));font-weight:700;color:var(--vermilion)">LCR &lt; 30 %</div>
-        </div>
-        <div style="flex:1;min-height:0;margin:14px 0">
-          <svg viewBox="0 0 220 210" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
-            <line x1="20" y1="188" x2="200" y2="188" stroke="#4a544c" stroke-opacity=".5" stroke-width="1.5"/>
-            <path d="M110 14 C132 34 142 54 146 70 L74 70 C78 54 88 34 110 14 Z" fill="#c14524" fill-opacity=".16" stroke="#c14524" stroke-width="1.8"/>
-            <line x1="110" y1="70" x2="110" y2="188" stroke="#2f5140" stroke-width="6"/>
-          </svg>
-        </div>
-        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Long-shaded, branches shed. Poor response to release; at risk of snow break and windthrow.</p>
-      </div>
-    </div>
-    <div class="g2 rv" style="--d:9;margin-top:auto;gap:28px">
-      <div class="callout">
-        <span class="k">Crown ratio is not recoverable in conifers</span>
-        <p style="font-size:calc(21px * var(--tz,1))">A shed branch does not grow back. A thinning delayed until the crop trees are at 20 % has been <strong>delayed too long</strong> — thinning is preventive, not curative.</p>
-      </div>
-      <div class="callout moss">
-        <span class="k">Why this belongs in a session on closure</span>
-        <p style="font-size:calc(21px * var(--tz,1))">Closure counts <strong>area covered</strong>, not depth of crown behind it. Two stands with identical closure can differ completely in vigour.</p>
       </div>
     </div>
   </div>
@@ -1402,43 +1434,31 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
-  <div class="body">
-    <div class="fig rv" style="--d:2;height:330px;margin-bottom:24px">
-      <svg viewBox="0 0 1560 330" preserveAspectRatio="xMidYMid meet">
-        <line x1="40" y1="298" x2="1520" y2="298" stroke="#141c18" stroke-opacity=".4" stroke-width="2"/>
-        <line x1="40" y1="96" x2="1520" y2="96" stroke="#c14524" stroke-opacity=".55" stroke-width="1.4" stroke-dasharray="9 9"/>
-        <text x="1512" y="86" font-family="JetBrains Mono, monospace" font-size="16" fill="#c14524" text-anchor="end">GENERAL CANOPY LEVEL</text>
-        <!-- dominant -->
-        <g><ellipse cx="230" cy="88" rx="112" ry="72" fill="#2f5140" fill-opacity=".26" stroke="#2f5140" stroke-width="2"/>
-           <line x1="230" y1="160" x2="230" y2="298" stroke="#2f5140" stroke-width="10" stroke-opacity=".75"/></g>
-        <!-- codominant -->
-        <g><ellipse cx="560" cy="132" rx="104" ry="62" fill="#2f5140" fill-opacity=".22" stroke="#2f5140" stroke-width="2"/>
-           <line x1="560" y1="194" x2="560" y2="298" stroke="#2f5140" stroke-width="9" stroke-opacity=".7"/></g>
-        <g><ellipse cx="770" cy="128" rx="98" ry="58" fill="#2f5140" fill-opacity=".22" stroke="#2f5140" stroke-width="2"/>
-           <line x1="770" y1="186" x2="770" y2="298" stroke="#2f5140" stroke-width="9" stroke-opacity=".7"/></g>
-        <!-- intermediate -->
-        <g><ellipse cx="1050" cy="184" rx="72" ry="46" fill="#a8842c" fill-opacity=".22" stroke="#a8842c" stroke-width="2"/>
-           <line x1="1050" y1="230" x2="1050" y2="298" stroke="#a8842c" stroke-width="7" stroke-opacity=".8"/></g>
-        <!-- suppressed -->
-        <g><ellipse cx="1320" cy="238" rx="56" ry="34" fill="#c14524" fill-opacity=".18" stroke="#c14524" stroke-width="2"/>
-           <line x1="1320" y1="272" x2="1320" y2="298" stroke="#c14524" stroke-width="6" stroke-opacity=".8"/></g>
-        <g font-family="JetBrains Mono, monospace" font-size="17" text-anchor="middle">
-          <text x="230" y="326" fill="#2f5140">DOMINANT</text>
-          <text x="665" y="326" fill="#2f5140">CO-DOMINANT</text>
-          <text x="1050" y="326" fill="#a8842c">INTERMEDIATE</text>
-          <text x="1320" y="326" fill="#c14524">SUPPRESSED</text>
-        </g>
-      </svg>
+  <div class="body" style="display:flex;flex-direction:column;justify-content:center">
+    <div class="g4 rv" style="--d:2;flex:0 0 auto;gap:22px">
+      <div class="card" style="padding:0;overflow:hidden;border-top:5px solid var(--moss);display:flex;flex-direction:column">
+        <img src="Improvements/unit 3/Dominant.png" alt="A tall pine standing above the general canopy level, its crown circled and labelled dominant" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+        <p class="txt-sm" style="margin:0;padding:14px 18px 16px;font-size:calc(17px * var(--tz,1))">Crown above the general canopy level. Light from <strong>above and all sides</strong>.</p>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden;border-top:5px solid var(--moss);display:flex;flex-direction:column">
+        <img src="Improvements/unit 3/Codominant.png" alt="A tree whose crown forms part of the unbroken general canopy level among its neighbours, circled and labelled co-dominant" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+        <p class="txt-sm" style="margin:0;padding:14px 18px 16px;font-size:calc(17px * var(--tz,1))">Crown <strong>forms</strong> the general canopy level. Light from above only; crowded at the sides.</p>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden;border-top:5px solid var(--gold);display:flex;flex-direction:column">
+        <img src="Improvements/unit 3/Intermediate.png" alt="A shorter tree squeezed between taller neighbours, its crown below the general canopy level, circled and labelled intermediate" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+        <p class="txt-sm" style="margin:0;padding:14px 18px 16px;font-size:calc(17px * var(--tz,1))">Squeezed into the canopy. A little light from above, none from the side.</p>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden;border-top:5px solid var(--vermilion);display:flex;flex-direction:column">
+        <img src="Improvements/unit 3/Suppressed.png" alt="A small tree entirely beneath the general canopy level, its crown circled and labelled suppressed" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+        <p class="txt-sm" style="margin:0;padding:14px 18px 16px;font-size:calc(17px * var(--tz,1))">Entirely <strong>below</strong> the canopy. Only filtered light. Also called overtopped.</p>
+      </div>
     </div>
-    <div class="g4" style="flex:1 1 auto;min-height:0">
-      <div class="card rv" style="--d:3;padding:22px 24px"><div class="ch" style="font-size:calc(25px * var(--tz,1))">Dominant</div><p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Crown above the general canopy level. Light from <strong>above and all sides</strong>.</p></div>
-      <div class="card rv" style="--d:4;padding:22px 24px"><div class="ch" style="font-size:calc(25px * var(--tz,1))">Co-dominant</div><p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Crown <strong>forms</strong> the general canopy level. Light from above only; crowded at the sides.</p></div>
-      <div class="card rv" style="--d:5;padding:22px 24px"><div class="ch" style="font-size:calc(25px * var(--tz,1))">Intermediate</div><p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Squeezed into the canopy. A little light from above, none from the side.</p></div>
-      <div class="card rv" style="--d:6;padding:22px 24px"><div class="ch" style="font-size:calc(25px * var(--tz,1))">Suppressed</div><p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Entirely <strong>below</strong> the canopy. Only filtered light. Also called overtopped.</p></div>
-    </div>
-    <div class="callout rv" style="--d:8;margin-top:auto">
-      <span class="k">Why you needed this before Section B</span>
-      <p><strong>Crown closure is defined on dominant and co-dominant crowns</strong> — the trees that form the canopy. A densiometer, however, cannot tell one crown class from another, and counts intermediates too. That alone makes the two numbers differ.</p>
+    <div class="callout rv" style="--d:8;margin-top:40px;display:flex;gap:16px;align-items:flex-start;padding:20px 26px">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px;color:var(--vermilion)"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.472c.63.62 1 1.2 1 2.528h6c0-1.328.37-1.909 1-2.528A6 6 0 0 0 12 3Z"/></svg>
+      <div>
+        <span class="k" style="font-size:calc(18px * var(--tz,1))">Why you needed this before Section B</span>
+        <p style="font-size:calc(19px * var(--tz,1));margin-top:6px"><strong>Crown closure is defined on dominant and co-dominant crowns</strong> — the trees that form the canopy. A densiometer, however, cannot tell one crown class from another, and counts intermediates too. That alone makes the two numbers differ.</p>
+      </div>
     </div>
   </div>
   <div class="footrule"></div>
@@ -1471,37 +1491,37 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
   <div class="body">
-    <div class="row rv" style="--d:2;gap:30px;align-items:stretch;margin-bottom:20px">
-      <p class="lead" style="flex:1;font-size:calc(28px * var(--tz,1))">A blue pine <em style="color:var(--ink-soft)">(Pinus wallichiana)</em> is measured. <strong>Total height 24.6 m</strong>; <strong>bole height 9.8 m</strong>; crown diameter <strong>6.4 m</strong> north–south and <strong>5.2 m</strong> east–west. Find the crown length, live-crown ratio, crown height, mean crown diameter and crown projection area.</p>
-      <div class="card sunk" style="flex:0 0 400px;padding:20px 24px">
+    <div class="row rv" style="--d:2;gap:24px;align-items:stretch;margin-bottom:12px">
+      <p class="lead sm" style="flex:1;font-size:calc(22px * var(--tz,1))">A blue pine <em style="color:var(--ink-soft)">(Pinus wallichiana)</em> is measured. <strong>Total height 24.6 m</strong>; <strong>bole height 9.8 m</strong>; crown diameter <strong>6.4 m</strong> north–south and <strong>5.2 m</strong> east–west. Find the crown length, live-crown ratio, crown height, mean crown diameter and crown projection area.</p>
+      <div class="card sunk" style="flex:0 0 340px;padding:14px 20px">
         <div class="label">Given</div>
-        <div class="mn" style="font-size:calc(20px * var(--tz,1));color:var(--ink);margin-top:12px;line-height:2">
+        <div class="mn" style="font-size:calc(17px * var(--tz,1));color:var(--ink);margin-top:8px;line-height:1.7">
           H &nbsp;= 24.6 m<br>
           BH = 9.8 m<br>
           CD<sub>NS</sub> = 6.4 m &nbsp; CD<sub>EW</sub> = 5.2 m
         </div>
       </div>
     </div>
-    <div class="card rv" style="--d:3;padding:8px 32px 12px">
-      <div class="step"><div class="sl">1 · Crown length</div><div class="sv">CL = H − BH = 24.6 − 9.8 = <span class="hlt">14.8 m</span></div></div>
-      <div class="step"><div class="sl">2 · Live-crown ratio</div><div class="sv">LCR = (14.8 / 24.6) × 100 = 0.60163 × 100 = <span class="hlt">60.2 %</span></div></div>
-      <div class="step"><div class="sl">3 · Crown midpoint ht</div><div class="sv">CH = BH + CL/2 = 9.8 + 7.4 = <span class="hlt">17.2 m</span></div></div>
-      <div class="step"><div class="sl">4 · Mean crown diameter</div><div class="sv">CD&#772; = (6.4 + 5.2) / 2 = <span class="hlt">5.8 m</span></div></div>
-      <div class="step"><div class="sl">5 · Projection area</div><div class="sv">CPA = π (5.8/2)<sup>2</sup> = π × 2.9<sup>2</sup> = π × 8.41 = <span class="hlt">26.42 m<sup>2</sup></span></div></div>
+    <div class="card rv" style="--d:4;padding:6px 28px 8px">
+      <div class="step sm"><div class="sl">1 · Crown length</div><div class="sv">CL = H − BH = 24.6 − 9.8 = <span class="hlt">14.8 m</span></div></div>
+      <div class="step sm"><div class="sl">2 · Live-crown ratio</div><div class="sv">LCR = (14.8 / 24.6) × 100 = 0.60163 × 100 = <span class="hlt">60.2 %</span></div></div>
+      <div class="step sm"><div class="sl">3 · Crown midpoint ht</div><div class="sv">CH = BH + CL/2 = 9.8 + 7.4 = <span class="hlt">17.2 m</span></div></div>
+      <div class="step sm"><div class="sl">4 · Mean crown diameter</div><div class="sv">CD&#772; = (6.4 + 5.2) / 2 = <span class="hlt">5.8 m</span></div></div>
+      <div class="step sm"><div class="sl">5 · Projection area</div><div class="sv">CPA = π (5.8/2)<sup>2</sup> = π × 2.9<sup>2</sup> = π × 8.41 = <span class="hlt">26.42 m<sup>2</sup></span></div></div>
     </div>
-    <div class="g2 rv" style="--d:6;margin-top:20px;gap:28px">
+    <div class="g2 rv" style="--d:6;margin-top:12px;gap:24px">
       <div class="answer">
         <span class="k">Answer</span>
         <span class="v">14.8 m · 60.2 % · 17.2 m · 26.42 m<sup>2</sup></span>
       </div>
-      <div class="callout">
+      <div class="callout" style="padding:12px 16px">
         <span class="k">Two errors the marker expects to see</span>
-        <p style="font-size:calc(21px * var(--tz,1))">Dividing crown length by <strong>bole</strong> height in step 2, and forgetting to add bole height back in step 3 — which gives 7.4 m instead of 17.2 m.</p>
+        <p style="font-size:calc(18px * var(--tz,1))">Dividing crown length by <strong>bole</strong> height in step 2, and forgetting to add bole height back in step 3 — which gives 7.4 m instead of 17.2 m.</p>
       </div>
     </div>
-    <div class="callout moss rv" style="--d:8;margin-top:auto">
+    <div class="callout moss rv" style="--d:8;margin-top:auto;padding:12px 16px">
       <span class="k">Interpretation — never leave a number unread</span>
-      <p>A live-crown ratio of 60 % on a blue pine is a <strong>vigorous tree with a full crown</strong>: a good crop tree, worth marking to retain at the next thinning. The two crown diameters differ by more than 20 %, which is normal where a tree has a close neighbour on one side — and is exactly why two perpendicular axes are the minimum.</p>
+      <p style="font-size:calc(18px * var(--tz,1))">A live-crown ratio of 60 % on a blue pine is a <strong>vigorous tree with a full crown</strong>: a good crop tree, worth marking to retain at the next thinning. The two crown diameters differ by more than 20 %, which is normal where a tree has a close neighbour on one side — and is exactly why two perpendicular axes are the minimum.</p>
     </div>
   </div>
   <div class="pageno">15 / 57</div>
@@ -1598,38 +1618,41 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 -->
 <section class="slide" data-n="18">
   <div class="head">
-    <div class="eyebrow rv" style="--d:0">Section B · The examinable core — copy all three before discussing them</div>
+    <div class="eyebrow rv" style="--d:0;max-width:1240px">Section B · The examinable core — copy all three before discussing them</div>
     <h2 class="title rv" style="--d:1">Three definitions that are <em>not</em> the same thing</h2>
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
-  <div class="body">
-    <div class="stack" style="gap:26px">
-      <div class="card rv" style="--d:2">
-        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px">
-          <div class="ch" style="margin:0;font-size:calc(34px * var(--tz,1))">Crown Closure</div>
-          <div class="mn" style="font-size:calc(18px * var(--tz,1));color:var(--vermilion);letter-spacing:.14em">VIEWED HORIZONTALLY</div>
+  <div class="body" style="display:flex;flex-direction:column;justify-content:center">
+    <div class="stack" style="gap:20px">
+      <div class="card rv" style="--d:3;padding:22px 30px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px">
+          <div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Crown Closure</div>
+          <div class="mn" style="font-size:calc(16px * var(--tz,1));color:var(--vermilion);letter-spacing:.14em">VIEWED HORIZONTALLY</div>
         </div>
-        <p class="txt" style="font-size:calc(26px * var(--tz,1))">The proportion of forest area where the <strong style="color:var(--moss)">crowns</strong> of dominant and co-dominant trees <strong style="color:var(--moss)">touch or overlap</strong> when viewed horizontally.</p>
+        <p class="txt-sm" style="font-size:calc(21px * var(--tz,1))">The proportion of forest area where the <strong style="color:var(--moss)">crowns</strong> of dominant and co-dominant trees <strong style="color:var(--moss)">touch or overlap</strong> when viewed horizontally.</p>
       </div>
-      <div class="card rv" style="--d:4">
-        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px">
-          <div class="ch" style="margin:0;font-size:calc(34px * var(--tz,1))">Canopy Cover &nbsp;/&nbsp; Crown Cover</div>
-          <div class="mn" style="font-size:calc(18px * var(--tz,1));color:var(--vermilion);letter-spacing:.14em">VIEWED FROM ABOVE</div>
+      <div class="card rv" style="--d:4;padding:22px 30px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px">
+          <div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Canopy Cover &nbsp;/&nbsp; Crown Cover</div>
+          <div class="mn" style="font-size:calc(16px * var(--tz,1));color:var(--vermilion);letter-spacing:.14em">VIEWED FROM ABOVE</div>
         </div>
-        <p class="txt" style="font-size:calc(26px * var(--tz,1))">The percentage of <strong style="color:var(--moss)">ground area covered</strong> by the <strong style="color:var(--moss)">vertical projection</strong> of tree crowns, including all vegetation layers (trees, shrubs, and so on).</p>
+        <p class="txt-sm" style="font-size:calc(21px * var(--tz,1))">The percentage of <strong style="color:var(--moss)">ground area covered</strong> by the <strong style="color:var(--moss)">vertical projection</strong> of tree crowns, including all vegetation layers (trees, shrubs, and so on).</p>
       </div>
-      <div class="card rv" style="--d:6">
-        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px">
-          <div class="ch" style="margin:0;font-size:calc(34px * var(--tz,1))">Canopy Closure</div>
-          <div class="mn" style="font-size:calc(18px * var(--tz,1));color:var(--vermilion);letter-spacing:.14em">VIEWED FROM BELOW</div>
+      <div class="card rv" style="--d:5;padding:22px 30px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px">
+          <div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Canopy Closure</div>
+          <div class="mn" style="font-size:calc(16px * var(--tz,1));color:var(--vermilion);letter-spacing:.14em">VIEWED FROM BELOW</div>
         </div>
-        <p class="txt" style="font-size:calc(26px * var(--tz,1))">The proportion of the <strong style="color:var(--moss)">sky obscured by foliage</strong> when viewed from the forest floor.</p>
+        <p class="txt-sm" style="font-size:calc(21px * var(--tz,1))">The proportion of the <strong style="color:var(--moss)">sky obscured by foliage</strong> when viewed from the forest floor.</p>
       </div>
     </div>
-    <div class="callout rv" style="--d:8;margin-top:auto">
-      <span class="k">The structure that makes them memorable</span>
-      <p>They differ in <strong>where the observer stands and which way they look</strong>: crowns against each other, horizontally · the ground seen from directly above · the sky seen from the forest floor. Three viewpoints, three numbers.</p>
+    <div class="callout rv" style="--d:8;margin-top:36px;padding:20px 26px;display:flex;gap:16px;align-items:flex-start">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px;color:var(--vermilion)"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.472c.63.62 1 1.2 1 2.528h6c0-1.328.37-1.909 1-2.528A6 6 0 0 0 12 3Z"/></svg>
+      <div>
+        <span class="k">The structure that makes them memorable</span>
+        <p style="font-size:calc(19px * var(--tz,1));margin-top:6px">They differ in <strong>where the observer stands and which way they look</strong>: crowns against each other, horizontally · the ground seen from directly above · the sky seen from the forest floor. Three viewpoints, three numbers.</p>
+      </div>
     </div>
   </div>
   <div class="footrule"></div>
@@ -1650,7 +1673,12 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      The silvicultural reading: crown closure is really a statement about whether the trees have taken up the site. Canopy closure in the silvicultural sense - "the stand has closed canopy" - is a milestone in stand development, the point after which competition begins, height growth accelerates and diameter growth slows, and self-pruning starts. In a Bhutanese blue pine plantation at 2.5 m spacing that milestone typically arrives within the first decade. If the class asks for a figure, be honest that it depends on spacing, site and species.
 -->
-<section class="slide" data-n="19">
+<section class="slide fit fit2" data-n="19"><style>
+  [data-n="19"] .txt{font-size:calc(18px * var(--tz,1)) !important}
+  [data-n="19"] .card{padding:8px 14px !important}
+  [data-n="19"] .callout{padding:8px 14px !important}
+  [data-n="19"] .callout p{font-size:calc(17px * var(--tz,1)) !important}
+</style>
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Section B · Definition 1, unpacked</div>
     <h2 class="title rv" style="--d:1">Crown closure — <em>are the crowns joined up?</em></h2>
@@ -1675,8 +1703,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="stack sm">
-        <div class="fig rv" style="--d:4;flex:1">
-          <svg viewBox="0 0 640 420" preserveAspectRatio="xMidYMid meet">
+        <div class="fig rv mapped-image-host" style="--d:4;flex:1"><img class="mapped-slide-image" src="Improvements/unit 3/8.png" alt="Two photographs contrasted: an open stand where crowns are free-standing with visible gaps, and a closed stand where neighbouring crowns touch and overlap at marked contact points" loading="lazy" decoding="async">
+          <div style="display:none" aria-hidden="true"><svg viewBox="0 0 640 420" preserveAspectRatio="xMidYMid meet">
             <text x="20" y="28" font-family="JetBrains Mono, monospace" font-size="16" fill="#c14524">OPEN — crowns free-standing</text>
             <line x1="20" y1="176" x2="620" y2="176" stroke="#141c18" stroke-opacity=".35" stroke-width="1.4"/>
             <g fill="#2f5140" fill-opacity=".2" stroke="#2f5140" stroke-width="1.8">
@@ -1706,7 +1734,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
               <circle cx="172" cy="317" r="13"/><circle cx="308" cy="317" r="13"/><circle cx="443" cy="318" r="13"/>
             </g>
             <text x="600" y="292" font-family="JetBrains Mono, monospace" font-size="14" fill="#c14524" text-anchor="end">contact points</text>
-          </svg>
+          </svg></div>
           <div class="cap">Closure describes the continuity of the canopy layer</div>
         </div>
         <div class="callout moss rv" style="--d:7">
@@ -1762,8 +1790,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <p>Canopy cover <strong>can never exceed 100 %</strong>. Ground is either covered or it is not; covering it twice does not cover it more.</p>
         </div>
       </div>
-      <div class="fig rv" style="--d:5">
-        <svg viewBox="0 0 660 660" preserveAspectRatio="xMidYMid meet">
+      <div class="fig rv mapped-image-host" style="--d:5"><img class="mapped-slide-image" src="Improvements/unit 3/9.png" alt="A row of trees photographed from the side with dashed vertical lines marking the strictly vertical projection of each crown onto a highlighted strip of covered ground below" loading="lazy" decoding="async">
+        <div style="display:none" aria-hidden="true"><svg viewBox="0 0 660 660" preserveAspectRatio="xMidYMid meet">
           <!-- sun rays -->
           <g stroke="#a8842c" stroke-width="1.4" stroke-dasharray="5 7" opacity=".85">
             <line x1="90" y1="30" x2="90" y2="200"/><line x1="190" y1="30" x2="190" y2="150"/>
@@ -1803,7 +1831,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <text x="330" y="546" font-family="Public Sans, sans-serif" font-size="18" fill="#4a544c" text-anchor="middle">The overlap between the middle two crowns</text>
           <text x="330" y="574" font-family="Public Sans, sans-serif" font-size="18" fill="#4a544c" text-anchor="middle">is counted <tspan font-weight="600">once</tspan>, not twice</text>
           <text x="330" y="620" font-family="Public Sans, sans-serif" font-size="18" fill="#141c18" text-anchor="middle">Cover here ≈ 80 % of the ground shown</text>
-        </svg>
+        </svg></div>
         <div class="cap">Ground under the vertical projection of the crowns, counted once</div>
       </div>
     </div>
@@ -1853,8 +1881,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
       </div>
       <div class="stack sm">
-        <div class="fig rv" style="--d:4;flex:1">
-          <svg viewBox="0 0 660 500" preserveAspectRatio="xMidYMid meet">
+        <div class="fig rv mapped-image-host" style="--d:4;flex:1"><img class="mapped-slide-image" src="Improvements/unit 3/11.png" alt="A fisheye photograph looking straight up from the forest floor, showing a hemisphere of sky partly blocked by surrounding tree crowns, with lines marking the observer's angular field of view" loading="lazy" decoding="async">
+          <div style="display:none" aria-hidden="true"><svg viewBox="0 0 660 500" preserveAspectRatio="xMidYMid meet">
             <!-- sky hemisphere -->
             <path d="M40 400 A290 290 0 0 1 620 400 Z" fill="#dfe7e2" fill-opacity=".6" stroke="#2f5140" stroke-width="1.6"/>
             <line x1="40" y1="400" x2="620" y2="400" stroke="#141c18" stroke-opacity=".45" stroke-width="2"/>
@@ -1882,7 +1910,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
             </g>
             <text x="330" y="440" font-family="JetBrains Mono, monospace" font-size="17" fill="#c14524" text-anchor="middle">OBSERVER ON THE FOREST FLOOR</text>
             <text x="330" y="476" font-family="Public Sans, sans-serif" font-size="18" fill="#4a544c" text-anchor="middle">Closure = blocked fraction of this hemisphere</text>
-          </svg>
+          </svg></div>
           <div class="cap">The wider the accepted cone, the larger the closure figure</div>
         </div>
         <div class="card sunk rv" style="--d:7;padding:20px 24px">
@@ -1970,78 +1998,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
   <div class="body">
-    <div class="g3" style="flex:1 1 auto;min-height:0">
-      <div class="card rv" style="--d:2;display:flex;flex-direction:column">
-        <div class="ch">Canopy cover / crown cover</div>
-        <div style="flex:1;min-height:0;margin:6px 0 12px">
-          <svg viewBox="0 0 300 250" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
-            <g stroke="#a8842c" stroke-width="1.2" stroke-dasharray="4 6" opacity=".8">
-              <line x1="80" y1="8" x2="80" y2="60"/><line x1="150" y1="8" x2="150" y2="46"/><line x1="220" y1="8" x2="220" y2="60"/>
-            </g>
-            <path d="M70 76 A82 60 0 0 1 230 76 Z" fill="#2f5140" fill-opacity=".28" stroke="#2f5140" stroke-width="2"/>
-            <line x1="150" y1="76" x2="150" y2="182" stroke="#2f5140" stroke-width="3.5"/>
-            <line x1="30" y1="196" x2="270" y2="196" stroke="#141c18" stroke-opacity=".4" stroke-width="1.6"/>
-            <ellipse cx="150" cy="196" rx="80" ry="13" fill="#c14524" fill-opacity=".26" stroke="#c14524" stroke-width="1.6" stroke-dasharray="5 5"/>
-            <g stroke="#c14524" stroke-width="1.1" stroke-dasharray="5 5">
-              <line x1="68" y1="76" x2="68" y2="192"/><line x1="232" y1="76" x2="232" y2="192"/>
-            </g>
-            <text x="150" y="232" font-family="JetBrains Mono, monospace" font-size="16" fill="#c14524" text-anchor="middle">THE SHADOW BELOW</text>
-          </svg>
-        </div>
-        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Imagine holding a large umbrella over your head. The <strong>shadow it casts below</strong> is the vertical projection.</p>
-        <div style="flex:1"></div>
-        <div class="callout moss sm" style="margin-top:14px"><p style="font-size:calc(19px * var(--tz,1))">Ground area covered by foliage when viewed <strong>from above</strong></p></div>
-      </div>
-
-      <div class="card rv" style="--d:4;display:flex;flex-direction:column">
-        <div class="ch">Canopy closure</div>
-        <div style="flex:1;min-height:0;margin:6px 0 12px">
-          <svg viewBox="0 0 300 250" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
-            <path d="M24 178 A126 126 0 0 1 276 178 Z" fill="#dfe7e2" fill-opacity=".8" stroke="#2f5140" stroke-width="1.6"/>
-            <g fill="#2f5140" fill-opacity=".34" stroke="#2f5140" stroke-width="1.4">
-              <ellipse cx="150" cy="88" rx="62" ry="26"/>
-              <ellipse cx="58" cy="146" rx="42" ry="20"/>
-              <ellipse cx="238" cy="140" rx="44" ry="22"/>
-            </g>
-            <line x1="24" y1="178" x2="276" y2="178" stroke="#141c18" stroke-opacity=".4" stroke-width="1.6"/>
-            <circle cx="150" cy="178" r="7" fill="#c14524"/>
-            <g stroke="#c14524" stroke-width="1" stroke-opacity=".6">
-              <line x1="150" y1="178" x2="150" y2="56"/><line x1="150" y1="178" x2="62" y2="92"/><line x1="150" y1="178" x2="238" y2="92"/>
-            </g>
-            <text x="150" y="212" font-family="JetBrains Mono, monospace" font-size="16" fill="#c14524" text-anchor="middle">LOOKING UP</text>
-            <text x="150" y="236" font-family="Public Sans, sans-serif" font-size="15" fill="#4a544c" text-anchor="middle">sky blocked, in every direction</text>
-          </svg>
-        </div>
-        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Imagine lying on your back in a forest and looking up. The <strong>amount of sky blocked</strong> by leaves and branches.</p>
-        <div style="flex:1"></div>
-        <div class="callout moss sm" style="margin-top:14px"><p style="font-size:calc(19px * var(--tz,1))">Sky obscured by foliage when viewed <strong>from the forest floor</strong></p></div>
-      </div>
-
-      <div class="card rv" style="--d:6;display:flex;flex-direction:column">
-        <div class="ch">Crown closure</div>
-        <div style="flex:1;min-height:0;margin:6px 0 12px">
-          <svg viewBox="0 0 300 250" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
-            <g fill="#2f5140" fill-opacity=".24" stroke="#2f5140" stroke-width="1.8">
-              <path d="M18 96 A62 46 0 0 1 142 96 Z"/>
-              <path d="M84 74 A62 46 0 0 1 208 74 Z"/>
-              <path d="M158 96 A62 46 0 0 1 282 96 Z"/>
-            </g>
-            <g stroke="#2f5140" stroke-width="3" stroke-opacity=".8">
-              <line x1="80" y1="96" x2="80" y2="182"/><line x1="146" y1="74" x2="146" y2="182"/><line x1="220" y1="96" x2="220" y2="182"/>
-            </g>
-            <line x1="20" y1="196" x2="280" y2="196" stroke="#141c18" stroke-opacity=".4" stroke-width="1.6"/>
-            <g fill="none" stroke="#c14524" stroke-width="2.2">
-              <ellipse cx="113" cy="86" rx="17" ry="15"/><ellipse cx="183" cy="86" rx="17" ry="15"/>
-            </g>
-            <text x="150" y="232" font-family="JetBrains Mono, monospace" font-size="16" fill="#c14524" text-anchor="middle">WHERE THEY OVERLAP</text>
-          </svg>
-        </div>
-        <p class="txt-sm" style="font-size:calc(19px * var(--tz,1))">Imagine a group of people holding umbrellas close together. The <strong>overlap between umbrellas</strong> shows how much the crowns touch.</p>
-        <div style="flex:1"></div>
-        <div class="callout moss sm" style="margin-top:14px"><p style="font-size:calc(19px * var(--tz,1))">Horizontal <strong>overlap</strong> of dominant tree crowns</p></div>
-      </div>
+    <div class="mapped-image-host rv" style="--d:2;flex:0 0 auto;height:604px;width:1321px;max-width:100%;margin:0 auto">
+      <img class="mapped-slide-image" src="Improvements/unit 3/10.png" alt="Three panels comparing canopy cover/crown cover (a single tree's shadow projected on the ground), canopy closure (looking straight up through the canopy at the sky), and crown closure (a line of trees with their crowns overlapping), each with a small diagram and a note on what the measure is used for" loading="lazy" decoding="async">
     </div>
-    <div class="callout rv" style="--d:8;margin-top:auto">
+    <div class="callout rv" style="--d:8;margin-top:24px">
       <span class="k">Push the analogy one step further</span>
       <p>If ten people huddle together with overlapping umbrellas, is the shadow on the ground ten umbrella-areas? <strong>No.</strong> The gap between "ten umbrella areas" and the actual shadow is the overlap correction — the arithmetic on slide 25.</p>
     </div>
@@ -2072,64 +2032,26 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
   <div class="body">
-    <div class="fig rv" style="--d:2;height:430px;margin-bottom:24px">
-      <svg viewBox="0 0 1560 430" preserveAspectRatio="xMidYMid meet">
-        <!-- observer above -->
-        <g stroke="#a8842c" stroke-width="1.3" stroke-dasharray="5 7">
-          <line x1="200" y1="24" x2="200" y2="120"/><line x1="420" y1="24" x2="420" y2="106"/>
-          <line x1="640" y1="24" x2="640" y2="118"/><line x1="860" y1="24" x2="860" y2="110"/>
-          <line x1="1080" y1="24" x2="1080" y2="122"/><line x1="1300" y1="24" x2="1300" y2="112"/>
-        </g>
-        <text x="60" y="34" font-family="JetBrains Mono, monospace" font-size="16" fill="#a8842c">OBSERVER ABOVE — sees vertical projections</text>
-        <!-- crowns -->
-        <g fill="#2f5140" fill-opacity=".22" stroke="#2f5140" stroke-width="2">
-          <ellipse cx="230" cy="164" rx="132" ry="52"/>
-          <ellipse cx="510" cy="146" rx="146" ry="56"/>
-          <ellipse cx="800" cy="168" rx="126" ry="50"/>
-          <ellipse cx="1080" cy="152" rx="140" ry="54"/>
-          <ellipse cx="1350" cy="170" rx="118" ry="48"/>
-        </g>
-        <g stroke="#2f5140" stroke-width="9" stroke-opacity=".65">
-          <line x1="230" y1="216" x2="230" y2="342"/><line x1="510" y1="202" x2="510" y2="342"/>
-          <line x1="800" y1="218" x2="800" y2="342"/><line x1="1080" y1="206" x2="1080" y2="342"/>
-          <line x1="1350" y1="218" x2="1350" y2="342"/>
-        </g>
-        <!-- ground -->
-        <line x1="40" y1="342" x2="1520" y2="342" stroke="#141c18" stroke-opacity=".45" stroke-width="2"/>
-        <!-- projections -->
-        <g fill="#c14524" fill-opacity=".2">
-          <rect x="98" y="342" width="264" height="22"/><rect x="364" y="342" width="292" height="22"/>
-          <rect x="674" y="342" width="252" height="22"/><rect x="940" y="342" width="280" height="22"/>
-          <rect x="1232" y="342" width="236" height="22"/>
-        </g>
-        <!-- observer below with oblique rays -->
-        <circle cx="640" cy="342" r="9" fill="#c14524"/>
-        <g stroke="#c14524" stroke-width="1.1" stroke-opacity=".65">
-          <line x1="640" y1="342" x2="640" y2="120"/><line x1="640" y1="342" x2="330" y2="150"/>
-          <line x1="640" y1="342" x2="960" y2="160"/><line x1="640" y1="342" x2="150" y2="212"/>
-          <line x1="640" y1="342" x2="1180" y2="196"/><line x1="640" y1="342" x2="1420" y2="230"/>
-        </g>
-        <text x="640" y="392" font-family="JetBrains Mono, monospace" font-size="16" fill="#c14524" text-anchor="middle">OBSERVER BELOW — sees crowns obliquely in every direction</text>
-        <text x="1520" y="418" font-family="Public Sans, sans-serif" font-size="17" fill="#4a544c" text-anchor="end">Distant crowns block sky without covering the observer's ground</text>
-      </svg>
+    <div class="mapped-image-host rv" style="--d:2;height:520px;width:1393px;max-width:100%;margin:0 auto 16px">
+      <img class="mapped-slide-image" src="Improvements/unit 3/12.png" alt="An observer on the forest floor sighting up at five tree crowns; dashed lines mark the sight lines to each crown, one straight overhead and the rest oblique, with the covered ground beneath each crown and the uncovered gaps between them marked along the ground" loading="lazy" decoding="async">
     </div>
-    <div class="g3" style="flex:1 1 auto;min-height:0">
-      <div class="card rv" style="--d:4;padding:22px 26px">
-        <div style="display:flex;justify-content:space-between;align-items:baseline"><div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Canopy cover</div><div class="mn" style="font-size:calc(25px * var(--tz,1));font-weight:700;color:var(--moss)">smallest</div></div>
-        <p class="txt-sm" style="margin-top:10px;font-size:calc(19px * var(--tz,1))">Counts each patch of ground once, however many crowns are above it.</p>
+    <div class="g3" style="flex:0 0 auto;gap:20px">
+      <div class="card rv" style="--d:4;padding:16px 22px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><div class="ch" style="margin:0;font-size:calc(24px * var(--tz,1))">Canopy cover</div><div class="mn" style="font-size:calc(22px * var(--tz,1));font-weight:700;color:var(--moss)">smallest</div></div>
+        <p class="txt-sm" style="margin-top:8px;font-size:calc(17px * var(--tz,1))">Counts each patch of ground once, however many crowns are above it.</p>
       </div>
-      <div class="card rv" style="--d:5;padding:22px 26px">
-        <div style="display:flex;justify-content:space-between;align-items:baseline"><div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Crown closure</div><div class="mn" style="font-size:calc(25px * var(--tz,1));font-weight:700;color:var(--gold)">between</div></div>
-        <p class="txt-sm" style="margin-top:10px;font-size:calc(19px * var(--tz,1))">Counts only canopy-forming crowns, but treats them as a joined-up sheet.</p>
+      <div class="card rv" style="--d:5;padding:16px 22px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><div class="ch" style="margin:0;font-size:calc(24px * var(--tz,1))">Crown closure</div><div class="mn" style="font-size:calc(22px * var(--tz,1));font-weight:700;color:var(--gold)">between</div></div>
+        <p class="txt-sm" style="margin-top:8px;font-size:calc(17px * var(--tz,1))">Counts only canopy-forming crowns, but treats them as a joined-up sheet.</p>
       </div>
-      <div class="card rv" style="--d:6;padding:22px 26px">
-        <div style="display:flex;justify-content:space-between;align-items:baseline"><div class="ch" style="margin:0;font-size:calc(26px * var(--tz,1))">Canopy closure</div><div class="mn" style="font-size:calc(25px * var(--tz,1));font-weight:700;color:var(--vermilion)">largest</div></div>
-        <p class="txt-sm" style="margin-top:10px;font-size:calc(19px * var(--tz,1))">Distant crowns block sky obliquely; twigs, climbers and shrubs all count.</p>
+      <div class="card rv" style="--d:6;padding:16px 22px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><div class="ch" style="margin:0;font-size:calc(24px * var(--tz,1))">Canopy closure</div><div class="mn" style="font-size:calc(22px * var(--tz,1));font-weight:700;color:var(--vermilion)">largest</div></div>
+        <p class="txt-sm" style="margin-top:8px;font-size:calc(17px * var(--tz,1))">Distant crowns block sky obliquely; twigs, climbers and shrubs all count.</p>
       </div>
     </div>
-    <div class="callout moss rv" style="--d:8;margin-top:auto">
+    <div class="callout moss rv" style="--d:8;margin-top:16px;padding:12px 18px">
       <span class="k">The rule, and its caveat</span>
-      <p>On most stands <span class="mn">canopy closure &gt; crown closure &gt; canopy cover</span>. In a very open stand the three <strong>converge</strong>, because there is little oblique blocking and little overlap. They diverge most in tall, dense stands — where the measurement matters most.</p>
+      <p style="font-size:calc(17px * var(--tz,1))">On most stands <span class="mn">canopy closure &gt; crown closure &gt; canopy cover</span>. In a very open stand the three <strong>converge</strong>, because there is little oblique blocking and little overlap. They diverge most in tall, dense stands — where the measurement matters most.</p>
     </div>
   </div>
   <div class="footrule"></div>
@@ -3467,14 +3389,17 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
     <div class="hr"></div>
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit III · Session 5</div>
-  <div class="body">
-    <div class="g2" style="row-gap:24px;column-gap:32px;flex:1 1 auto;min-height:0">
+  <div class="body scroll">
+    <div class="stack" style="gap:24px">
       <div class="card rv" style="--d:2;padding:24px 28px">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
           <div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Line intercept</div>
           <div class="mn" style="font-size:calc(18px * var(--tz,1));color:var(--vermilion)">length ÷ length</div>
         </div>
         <p class="txt-sm" style="margin-top:10px">Run a tape along a straight line and record the length lying beneath crown projections. <span class="mn">Cover = intercepted length / total length × 100.</span> Slow, needs a vertical sighting device — and it is the method against which many others are validated.</p>
+      </div>
+      <div class="fig rv" style="--d:2;width:965px;height:724px;margin:0 auto;padding-bottom:0">
+        <img src="assets/images/men201/Line_Intercept_method.png" alt="Line intercept method: a tape run along the ground records the length lying beneath crown projections; canopy cover = intercepted length / total length × 100">
       </div>
       <div class="card rv" style="--d:3;padding:24px 28px">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
@@ -3483,12 +3408,18 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
         <p class="txt-sm" style="margin-top:10px">A levelled tube with a cross-hair, sighted vertically at regular points along a transect. Hit or miss at each. <strong>The standard error follows from binomial theory</strong>, so the number of points needed for a stated precision can be computed in advance.</p>
       </div>
+      <div class="fig rv" style="--d:3;width:965px;height:724px;margin:0 auto;padding-bottom:0">
+        <img src="assets/images/men201/Point_Intercept.png" alt="Point intercept / sighting tube method: a levelled tube with a cross-hair is sighted vertically at fixed points along a transect, recording canopy hit or sky miss at each; canopy cover = hits / total points × 100">
+      </div>
       <div class="card rv" style="--d:4;padding:24px 28px">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
           <div class="ch" style="margin:0;font-size:calc(27px * var(--tz,1))">Moosehorn</div>
           <div class="mn" style="font-size:calc(18px * var(--tz,1));color:var(--vermilion)">narrow angle</div>
         </div>
         <p class="txt-sm" style="margin-top:10px">A periscope-like tube with a grid of dots viewed against the canopy, sighted vertically. Because its angle of view is <strong>narrow</strong>, unlike the densiometer it genuinely approximates <strong>vertical canopy cover</strong>.</p>
+      </div>
+      <div class="fig rv" style="--d:4;width:965px;height:724px;margin:0 auto;padding-bottom:0">
+        <img src="assets/images/men201/Moosehorn.png" alt="Moosehorn: a periscope-like tube with a narrow angle of view, giving a vertical reading that better approximates vertical canopy cover than a wider-angle instrument">
       </div>
       <div class="card rv" style="--d:5;padding:24px 28px">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
@@ -3497,15 +3428,18 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
         </div>
         <p class="txt-sm" style="margin-top:10px">A transparent sheet of dots held at arm's length, or laid over an aerial photograph. This is how cover was measured over large areas before digital imagery — and modern pixel counting is simply a <strong>very fine dot grid</strong>.</p>
       </div>
-    </div>
-    <div class="g2 rv" style="--d:7;margin-top:auto;gap:28px">
-      <div class="callout moss">
-        <span class="k">The shared virtue</span>
-        <p style="font-size:calc(21px * var(--tz,1))">No judgement of "how much" — only a series of <strong>yes-or-no decisions</strong>, which are far more repeatable between observers than proportion estimates.</p>
+      <div class="fig rv" style="--d:5;width:965px;height:724px;margin:0 auto;padding-bottom:0">
+        <img src="assets/images/men201/Canopy_grid.png" alt="Canopy scope / dot grid: a transparent grid of dots is held at arm's length against the canopy; canopy cover = canopy dots / total dots × 100">
       </div>
-      <div class="callout">
-        <span class="k">Worth knowing when the budget is tight</span>
-        <p style="font-size:calc(21px * var(--tz,1))">A <strong>canopy scope and a sighting tube can be built in the department workshop this afternoon</strong> from a transparent sheet and a length of pipe.</p>
+      <div class="g2 rv" style="--d:7;gap:28px">
+        <div class="callout moss">
+          <span class="k">The shared virtue</span>
+          <p style="font-size:calc(21px * var(--tz,1))">No judgement of "how much" — only a series of <strong>yes-or-no decisions</strong>, which are far more repeatable between observers than proportion estimates.</p>
+        </div>
+        <div class="callout">
+          <span class="k">Worth knowing when the budget is tight</span>
+          <p style="font-size:calc(21px * var(--tz,1))">A <strong>canopy scope and a sighting tube can be built in the department workshop this afternoon</strong> from a transparent sheet and a length of pipe.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -4415,6 +4349,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 -->
 <section class="slide cover" data-n="57">
   <div class="plate">
+    <figure class="men-plate-photo">
+      <img class="mapped-slide-image" src="Improvements/unit 3/13.jpg" alt="A misty rainforest canopy in Bhutan, dark storm clouds over forested ridges, one broad-crowned tree rising above the surrounding canopy" loading="eager" decoding="async">
+    </figure>
+    <div style="display:none" aria-hidden="true">
     <svg viewBox="0 0 720 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs><clipPath id="closeDisc"><circle cx="360" cy="540" r="330"/></clipPath></defs>
       <circle cx="360" cy="540" r="330" fill="#dfe7e2" fill-opacity=".45" stroke="#2f5140" stroke-width="1.6"/>
@@ -4432,6 +4370,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       <g stroke="#c14524" stroke-opacity=".4"><line x1="360" y1="210" x2="360" y2="870"/><line x1="30" y1="540" x2="690" y2="540"/></g>
       <circle cx="360" cy="540" r="7" fill="#c14524" fill-opacity=".7"/>
     </svg>
+    </div>
   </div>
   <div style="position:absolute;left:110px;top:96px">
     <div class="eyebrow rv" style="--d:0">MEN 201 · Forest Mensuration · Unit III · Session 5</div>
@@ -4472,6 +4411,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <button id="prev" title="Previous (←)">‹</button>
   <span><b id="cur">1</b> / <span id="tot">57</span></span>
   <button id="next" title="Next (→)">›</button>
+  <button id="fullscreen" title="Full screen (F)">&#x26F6;</button>
 </div>
 
 <script>
@@ -4520,6 +4460,25 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   document.getElementById('next').addEventListener('click', next);
   document.getElementById('prev').addEventListener('click', prev);
 
+  /* --- FULL SCREEN -------------------------------------------------------
+     Requests fullscreen on the viewport itself (not just the stage) so the
+     browser chrome disappears and fit() then scales the 1920x1080 canvas up
+     to the entire screen, edge to edge. */
+  const viewport = document.querySelector('.deck-viewport');
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      (viewport.requestFullscreen || viewport.webkitRequestFullscreen || function(){}).call(viewport);
+    } else {
+      (document.exitFullscreen || document.webkitExitFullscreen || function(){}).call(document);
+    }
+  }
+  const fsBtn = document.getElementById('fullscreen');
+  fsBtn.addEventListener('click', toggleFullscreen);
+  document.addEventListener('fullscreenchange', () => {
+    fsBtn.innerHTML = document.fullscreenElement ? '&#x2715;' : '&#x26F6;';
+    fit();
+  });
+
   document.addEventListener('keydown', (e) => {
     if (document.body.classList.contains('editing')) {
       // In edit mode only Escape and Ctrl+S are deck shortcuts.
@@ -4533,6 +4492,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
       case 'Home': e.preventDefault(); show(0); break;
       case 'End':  e.preventDefault(); show(slides.length - 1); break;
       case 'e': case 'E': toggleEdit(true); break;
+      case 'f': case 'F': toggleFullscreen(); break;
     }
   });
 
@@ -4657,7 +4617,8 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   background:rgba(10,14,11,.72);border-color:rgba(255,255,255,.14);padding:9px 13px}
 
 body.editing .tocback,body.editing .tocsep{display:none}
-@media print{.tocback,.tocsep{display:none}}
+@page{size:20in 11.25in;margin:0}
+@media print{html,body{overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible}.stage{position:static;width:1920px;height:auto;transform:none;box-shadow:none}.slide{position:relative;width:1920px;height:1080px;visibility:visible;opacity:1;pointer-events:auto;page-break-after:always}.slide:has(.body.scroll){height:auto;min-height:1080px}.body.scroll{position:static;overflow:visible;height:auto;max-height:none;margin:240px 92px 120px;padding-right:0}.body.scroll::after{display:none}.rv{opacity:1!important;transform:none!important}.progress,.progtrack,.stick,.hud,.editbtn,.toast,.ovl,.tocback,.tocsep{display:none!important}}
 </style>
 <script>
 (function(){

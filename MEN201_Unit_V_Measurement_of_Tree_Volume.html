@@ -446,6 +446,15 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 .stage>.slide:nth-of-type(2) .badge{width:48px;height:48px;font-size:calc(20px * var(--tz,1))}
 .stage>.slide:nth-of-type(2) .txt-sm{font-size:calc(22px * var(--tz,1))!important;line-height:1.4!important}
 .stage>.slide:nth-of-type(6) .fig svg{height:calc(100% - 42px)!important}
+.stage>.slide:nth-of-type(15) .card{padding:11px 18px!important}
+.stage>.slide:nth-of-type(15) .step{grid-template-columns:170px 1fr;gap:12px;padding:4px 0!important}
+.stage>.slide:nth-of-type(15) .step .sl{font-size:calc(14px * var(--tz,1))!important;line-height:1.2!important}
+.stage>.slide:nth-of-type(15) .step .sv{font-size:calc(21px * var(--tz,1))!important;line-height:1.25!important}
+.stage>.slide:nth-of-type(15) .answer{padding:10px 18px!important;gap:14px!important}
+.stage>.slide:nth-of-type(15) .answer .v{font-size:calc(30px * var(--tz,1))!important}
+.stage>.slide:nth-of-type(15) .answer .n{font-size:calc(18px * var(--tz,1))!important;line-height:1.25!important}
+.stage>.slide:nth-of-type(15) .callout{padding:9px 18px!important}
+.stage>.slide:nth-of-type(15) .callout p{line-height:1.3!important}
 .stage>.slide:nth-of-type(38) table.dt.sm{font-size:calc(21px * var(--tz,1))!important}
 .stage>.slide:nth-of-type(38) table.dt.sm td{padding:24px 18px!important}
 .stage>.slide:nth-of-type(38) table.dt.sm th{padding:16px 18px!important}
@@ -467,6 +476,10 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 .stage>.slide:nth-of-type(54) .g3{gap:16px!important}
 .stage>.slide:nth-of-type(54) .g3>.card{padding:10px 18px!important}
 .stage>.slide:nth-of-type(54) .g3 .txt-sm{margin-top:5px!important;line-height:1.25!important}
+.stage>.slide:nth-of-type(54) table.dt.sm{font-size:calc(17px * var(--tz,1))!important;line-height:1.25!important}
+.stage>.slide:nth-of-type(54) table.dt.sm td{padding:5px 10px!important}
+.stage>.slide:nth-of-type(54) .stack .card{padding:10px 18px!important}
+.stage>.slide:nth-of-type(54) .stack .txt-sm,.stage>.slide:nth-of-type(54) .stack ul.bul.sm li{font-size:calc(18px * var(--tz,1))!important;line-height:1.28!important}
 .stage>.slide:nth-of-type(54) .callout{margin-top:8px!important;padding:8px 18px!important}
 .stage>.slide:nth-of-type(54) .callout .k{margin-bottom:3px!important}
 .stage>.slide:nth-of-type(54) .callout p{line-height:1.25!important}
@@ -480,6 +493,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 .stage>.slide:nth-of-type(60) .eyebrow{font-size:calc(12px * var(--tz,1))!important;letter-spacing:.12em!important}
 .stage>.slide:nth-of-type(61) .cmeta{bottom:12px!important;gap:20px!important}
 .stage>.slide:nth-of-type(61) .cmeta div{font-size:calc(13px * var(--tz,1))!important;line-height:1.2!important}
+.stage>.slide:nth-of-type(58) .card{padding:12px 18px!important}
+.stage>.slide:nth-of-type(58) ul.bul.sm li{font-size:calc(16px * var(--tz,1))!important;line-height:1.25!important;margin-bottom:4px!important}
+.stage>.slide:nth-of-type(58) .card .ch{font-size:calc(23px * var(--tz,1))!important;margin-bottom:6px!important}
+.stage>.slide:nth-of-type(58) .callout{padding:9px 18px!important}
+.stage>.slide:nth-of-type(58) .callout p{font-size:calc(19px * var(--tz,1))!important;line-height:1.25!important}
 </style>
 <script src="assets/men201-type-zoom.js" defer></script>
 <link rel="stylesheet" href="assets/men201-images.css">
@@ -1171,7 +1189,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
      
      Question for the class: a stand has basal area 28 m2 per hectare and a mean form height of 11.5 m. What is the volume per hectare? Answer: 322 m3 per hectare.
 -->
-<section class="slide" data-n="15">
+<section class="slide fit fit2" data-n="15">
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Section A · A useful shortcut</div>
     <h2 class="title rv" style="--d:1">Form <em>height</em></h2>
@@ -1179,33 +1197,42 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;height:100%">
-      <div class="stack">
-        <p class="lead rv" style="--d:2"><strong>Form height</strong> is the product of the form factor and the total height of the tree. It is the height of a cylinder of basal area S that would hold exactly the volume of the tree.</p>
-        <div class="row rv" style="--d:3;align-items:center;gap:16px">
-          <div class="formula sm" style="flex:1;margin:0">f = V / (S × h)</div>
-          <div class="mono-sm" style="flex:0 0 auto">rearranging</div>
-          <div class="formula sm" style="flex:1;margin:0">F<sub>h</sub> = f × h = V / S</div>
+    <div class="g2" style="gap:32px;height:100%">
+      <div class="stack sm">
+        <div class="card sunk rv" style="--d:2">
+          <div class="label">1 · Meaning</div>
+          <p class="txt" style="margin-top:10px">Imagine reshaping the tree into a cylinder with the <strong>same basal area</strong> and the <strong>same amount of wood</strong>. The height of that cylinder is the <strong style="color:var(--moss)">form height</strong>.</p>
         </div>
-        <div class="formula lg v rv" style="--d:4">V &nbsp;=&nbsp; S &nbsp;×&nbsp; F<sub>h</sub></div>
-        <ul class="bul rv" style="--d:5">
-          <li>Volume becomes a straight multiplication of basal area by a single number</li>
-          <li>Form height is measured in <strong>metres</strong>, unlike the dimensionless form factor</li>
-          <li>Stand volume per hectare = stand basal area per hectare × mean form height</li>
-          <li>It tells us how far it is reasonable to assume that volume is proportional to basal area</li>
-        </ul>
+        <div class="callout moss rv" style="--d:3">
+          <span class="k">Picture the idea</span>
+          <p>If a 22 m tree has <strong>f = 0.488</strong>, it contains the same wood as a full cylinder only about <strong>10.74 m tall</strong>.</p>
+        </div>
+        <div class="card rv" style="--d:4">
+          <div class="label v">2 · Derive the shortcut</div>
+          <div class="step" style="margin-top:8px"><div class="sl">Start with form factor</div><div class="sv">f = <span style="display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1"><span style="border-bottom:1.5px solid currentColor;padding:0 6px 3px">V</span><span style="padding-top:3px">S × h</span></span></div></div>
+          <div class="step"><div class="sl">Rearrange for volume</div><div class="sv">V = f × h × S</div></div>
+          <div class="step"><div class="sl">Define form height</div><div class="sv">F<sub>h</sub> = f × h</div></div>
+          <div class="step"><div class="sl">Replace f × h by F<sub>h</sub></div><div class="sv">V = F<sub>h</sub> × S</div></div>
+          <div class="step"><div class="sl">Rearrange for form height</div><div class="sv">F<sub>h</sub> = <span style="display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1"><span style="border-bottom:1.5px solid currentColor;padding:0 6px 3px">V</span><span style="padding-top:3px">S</span></span></div></div>
+          <p class="txt-sm" style="margin-top:8px"><strong>Remember:</strong> f is dimensionless, while F<sub>h</sub> is measured in metres.</p>
+        </div>
       </div>
-      <div style="display:flex;flex-direction:column">
+      <div style="display:flex;flex-direction:column;min-height:0">
         <div class="card rv" style="--d:4;flex:1">
-          <div class="ch v">Worked example 2 · continuing from Example 1</div>
-          <div class="step"><div class="sl">Given</div><div class="sv">f = 0.48831, h = 22 m, S = 0.125664 m<sup>2</sup></div></div>
-          <div class="step"><div class="sl">Form height</div><div class="sv">F<sub>h</sub> = 0.48831 × 22 = <span class="hlt">10.7428 m</span></div></div>
-          <div class="step"><div class="sl">Check by the other route</div><div class="sv">F<sub>h</sub> = V / S = 1.35 / 0.125664 = <span class="hlt">10.7428 m</span></div></div>
-          <div class="step"><div class="sl">Recover the volume</div><div class="sv">V = S × F<sub>h</sub> = 0.125664 × 10.7428</div></div>
-          <div class="step" style="border-top:1px solid var(--rule)"><div class="sl">Result</div><div class="sv" style="font-size:calc(27px * var(--tz,1));color:var(--moss);font-weight:500">V = 1.3500 m<sup>3</sup> — matches the measured volume</div></div>
+          <div class="ch v">3 · Worked example 2 — continuing from Example 1</div>
+          <div class="step"><div class="sl">Given</div><div class="sv">f = 0.48831; h = 22 m;<br>S = 0.125664 m<sup>2</sup>; V = 1.35 m<sup>3</sup></div></div>
+          <div class="step"><div class="sl">Find form height</div><div class="sv">F<sub>h</sub> = f × h<br>= 0.48831 × 22<br>= <span class="hlt">10.7428 m</span></div></div>
+          <div class="step"><div class="sl">Check another way</div><div class="sv">F<sub>h</sub> = V / S<br>= 1.35 / 0.125664<br>= <span class="hlt">10.7428 m</span></div></div>
+          <div class="step"><div class="sl">Recover volume</div><div class="sv">V = S × F<sub>h</sub><br>= 0.125664 × 10.7428<br>= <span class="hlt">1.3500 m<sup>3</sup></span></div></div>
         </div>
-        <div class="callout moss rv" style="--d:7;margin-top:22px">
-          <p>Two independent routes to the same number is how you learn to trust the algebra.</p>
+        <div class="answer rv" style="--d:6;margin-top:12px">
+          <span class="k">Answer</span>
+          <span class="v">F<sub>h</sub> = 10.74 m</span>
+          <span class="n">Both routes agree, and the original volume is recovered.</span>
+        </div>
+        <div class="callout moss rv" style="--d:7;margin-top:10px">
+          <span class="k">Inventory shortcut</span>
+          <p style="font-size:calc(20px * var(--tz,1))">For a stand with BA = 28 m<sup>2</sup>/ha and mean F<sub>h</sub> = 11.5 m: volume = 28 × 11.5 = <strong>322 m<sup>3</sup>/ha</strong>.</p>
         </div>
       </div>
     </div>
@@ -1238,7 +1265,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   </div>
   <div class="runhead">MEN 201 · Forest Mensuration<br>Unit V</div>
   <div class="body">
-    <div style="display:grid;grid-template-columns:1fr 480px;gap:36px;height:100%">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 650px;gap:30px;height:100%">
       <div class="stack">
         <p class="lead rv" style="--d:2">The <strong>form quotient</strong> is the ratio of the mid-diameter of the stem to the diameter at breast height. Schiffel argued that taper — and therefore volume — depends chiefly on this ratio.</p>
         <div class="formula rv" style="--d:3">FQ &nbsp;=&nbsp; mid-diameter &nbsp;/&nbsp; DBH</div>
@@ -1250,18 +1277,11 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
           <div class="ch" style="font-size:calc(26px * var(--tz,1));margin-bottom:10px">Absolute form quotient — the correction</div>
           <div class="formula sm v" style="margin:0 0 12px">AFQ &nbsp;=&nbsp; diameter at half the height above breast height &nbsp;/&nbsp; DBH</div>
           <p class="txt-sm">Measured from breast height <strong>upward</strong>, not from the ground — this is the correction Schiffel's critics introduced.</p>
+          <p class="mono-sm" style="margin-top:8px"><strong style="color:var(--moss)">Use:</strong> one upper diameter describes taper; greater taper means less wood for the same DBH. This is the basis of form-class volume tables.</p>
         </div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:22px">
-        <div class="fig rv mapped-image-host" style="--d:4;align-self:center;width:min(100%,415px);height:auto;aspect-ratio:1187/1325"><img class="mapped-slide-image" src="Improvements/Unit 5/7.png" alt="A leaning conifer with dashed lines marking the tip, mid-height diameter and DBH at breast height, enclosed in a dashed cylinder outline" loading="lazy" decoding="async">
-        </div>
-        <div class="card sunk rv" style="--d:6;padding:20px 24px">
-          <div class="label v">What is it for?</div>
-          <ul class="bul sm" style="margin-top:12px">
-            <li>Describes stem form with one upper measurement</li>
-            <li>More taper, less wood for the same DBH</li>
-            <li>The basis of form-class volume tables</li>
-          </ul>
+      <div style="display:flex;min-width:0;min-height:0;justify-content:flex-end">
+        <div class="fig rv mapped-image-host" style="--d:4;width:100%;height:100%;max-width:650px"><img class="mapped-slide-image" src="Improvements/Unit 5/7.png" alt="A large, clearly labelled conifer showing the tip, mid-height diameter and DBH at breast height, enclosed by a dashed reference cylinder" loading="eager" decoding="async">
         </div>
       </div>
     </div>
@@ -1985,7 +2005,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
      
      Second variant for the board: girth 160 cm, length 3.5 m. TV = 2.56 / 12.566371 = 0.203718, times 3.5 = 0.713 m3. QGV = 0.40 squared = 0.16, times 3.5 = 0.560 m3. Ratio 0.785.
 -->
-<section class="slide" data-n="30">
+<section class="slide fit fit2" data-n="30">
   <div class="head">
     <div class="eyebrow warn rv" style="--d:0">Hypothetical data — for teaching purposes only</div>
     <h2 class="title rv" style="--d:1">Worked example 6 · <em>True volume against quarter-girth volume</em></h2>
@@ -3217,7 +3237,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
 
      Ask them which model they would use to scale a rural timber allotment, and to justify it. The right answer involves measuring the height.
 -->
-<section class="slide" data-n="52">
+<section class="slide fit fit2" data-n="52">
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Section C · One tree, three methods — and three different questions</div>
     <h2 class="title rv" style="--d:1">Worked example 10 · <em>the same blue pine, three ways</em></h2>
@@ -3371,7 +3391,7 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
      uncertainty when you scale a plot to a forest. A volume figure reported without any of the
      three is a number, not a result.
 -->
-<section class="slide">
+<section class="slide fit fit2">
   <div class="head">
     <div class="eyebrow rv" style="--d:0">Bhutan research equation · the boundary of the answer</div>
     <h2 class="title rv" style="--d:1">Validity and <em>limitations</em> of the Bhutan model</h2>

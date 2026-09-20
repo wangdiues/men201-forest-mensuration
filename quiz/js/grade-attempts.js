@@ -415,7 +415,7 @@ async function mergeManual(docSnap) {
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_MODEL = "gemini-3.6-flash";
 const NVIDIA_API_KEY = process.env.NVIDIA_API_KEY;
-const NVIDIA_MODEL = "nvidia/nemotron-3-super-120b-a12b";
+const NVIDIA_MODEL = "openai/gpt-oss-20b";
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const OPENROUTER_MODEL = "openrouter/free";
 
@@ -483,7 +483,13 @@ async function callGemini(items) {
 
 // Shared caller for OpenAI-compatible chat-completions APIs (NVIDIA NIM,
 // OpenRouter both implement this shape).
+//
+// max_tokens is scaled to the batch size: reasoning models (e.g. NVIDIA's
+// openai/gpt-oss-20b) spend tokens on an internal reasoning trace before
+// the actual JSON answer, and a fixed low cap can leave `content` empty —
+// seen directly while testing this integration.
 async function callOpenAICompatible(label, baseUrl, apiKey, model, items, extraHeaders = {}) {
+  const maxTokens = Math.min(16000, 1200 + items.length * 500);
   const res = await fetch(`${baseUrl}/chat/completions`, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}`, ...extraHeaders },
@@ -494,6 +500,7 @@ async function callOpenAICompatible(label, baseUrl, apiKey, model, items, extraH
         { role: "user", content: JSON.stringify(items, null, 2) },
       ],
       response_format: { type: "json_object" },
+      max_tokens: maxTokens,
     }),
   });
   if (!res.ok) {

@@ -13,3 +13,13 @@ backups/
 # Original 4K source video (242MB) - exceeds GitHub's 100MB push limit.
 # The site uses the compressed 1080p version (12-web.mp4) instead.
 Improvements/Unit 5/12.mp4
+
+# Firebase Admin SDK service account credential - never commit.
+serviceAccountKey.json
+
+# Node dependencies (root + functions) and Firebase emulator local state.
+node_modules/
+firestore-debug.log
+ui-debug.log
+firebase-debug.log
+.firebase/

@@ -1,0 +1,8 @@
+{
+  "name": "men201-quiz",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "firebase-admin": "^14.4.0"
+  }
+}

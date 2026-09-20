@@ -6,12 +6,12 @@ import { getAuth, connectAuthEmulator } from "https://www.gstatic.com/firebasejs
 import { getFirestore, connectFirestoreEmulator } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "PASTE_API_KEY",
+  apiKey: "AIzaSyCgKI6kgcjNXYg9ZkFlUK-gOXMPW3nB-XA",
   authDomain: "men201-quiz.firebaseapp.com",
   projectId: "men201-quiz",
-  storageBucket: "men201-quiz.appspot.com",
-  messagingSenderId: "PASTE_MESSAGING_SENDER_ID",
-  appId: "PASTE_APP_ID",
+  storageBucket: "men201-quiz.firebasestorage.app",
+  messagingSenderId: "519062450761",
+  appId: "1:519062450761:web:31ea6ccd28d2b865510598",
 };
 
 // True when served by `firebase emulators:start` locally. The real config

@@ -25,7 +25,6 @@ import {
   BLOOM_LEVELS,
   selectForSections,
   gradeQuestion,
-  strengthsImprovements,
   shuffle,
 } from "./bloom.js";
 import { FORMATS, formatOf } from "./formats.js";
@@ -312,53 +311,24 @@ async function renderUnit(app, user, unit) {
   }
   const assessments = await loadAssessmentsForUnit(unit.id);
   const quiz = assessments.find((a) => a.kind === "quiz");
-  const assessment = assessments.find((a) => a.kind === "assessment");
 
-  // learning outcomes from the course document (if seeded)
-  let outcomes = [];
-  try {
-    const cSnap = await getDoc(doc(db, "courses", "men201"));
-    if (cSnap.exists()) {
-      const uRow = (cSnap.data().units || []).find((x) => x.id === unit.id);
-      outcomes = (uRow && uRow.outcomes) || [];
-    }
-  } catch {
-    /* outcomes optional */
-  }
-
-  // my attempts for this unit (performance analysis)
+  // my completed attempts at this unit's quiz
   const mySnap = await getDocs(
     query(collection(db, "attempts"), where("userId", "==", user.uid), where("unit", "==", unit.id), where("status", "==", "complete"), orderBy("submittedAt", "desc"), limit(50))
   );
-  const mine = mySnap.docs.map((d) => d.data());
-  const agg = {};
-  mine.forEach((a) => {
-    const bd = a.finalBloomBreakdown || a.bloomBreakdown || {};
-    BLOOM_LEVELS.forEach((lv) => {
-      const r = bd[lv];
-      if (!r) return;
-      const row = (agg[lv] = agg[lv] || { earned: 0, available: 0 });
-      row.earned += r.earned;
-      row.available += r.available;
-    });
-  });
-  const unitBloom = {};
-  BLOOM_LEVELS.forEach((lv) => {
-    const r = agg[lv];
-    if (r && r.available > 0) unitBloom[lv] = { earned: r.earned, available: r.available, percent: Math.round((10000 * r.earned) / r.available) / 100 };
-  });
-  const latest = mine[0];
-  const si = latest ? strengthsImprovements(latest.finalBloomBreakdown || latest.bloomBreakdown || {}) : { strengths: [], improvements: [] };
+  const mine = mySnap.docs.map((d) => ({ id: d.id, ...d.data() }));
 
-  const attemptLine = (a) => {
-    if (!a) return `<p class="muted">Not yet published.</p>`;
-    const used = mine.filter((x) => x.assessmentId === a.id).length;
-    const best = Math.max(0, ...mine.filter((x) => x.assessmentId === a.id).map((x) => x.percent || 0));
-    const left = Math.max(0, a.attemptsAllowed - used);
+  const quizSection = (() => {
+    if (!quiz) return `<p class="muted">Not yet published.</p>`;
+    const used = mine.filter((x) => x.assessmentId === quiz.id);
+    const left = Math.max(0, quiz.attemptsAllowed - used.length);
+    const action = left > 0
+      ? `<a class="btn" href="take.html?aid=${quiz.id}">Start quiz</a>`
+      : `<a class="btn" href="result.html?tid=${used[0].id}">View your grade →</a>`;
     return `
-      <p class="muted">${esc(a.title)} · ${a.totalMarks} marks · ${left} of ${a.attemptsAllowed} attempts left${best ? ` · best ${best}%` : ""}</p>
-      ${left > 0 ? `<a class="btn" href="take.html?aid=${a.id}">Start ${a.kind}</a>` : `<span class="tag">attempts used</span>`}`;
-  };
+      <p class="muted">${esc(quiz.title)} · ${quiz.totalMarks} marks · ${left} of ${quiz.attemptsAllowed} attempts left</p>
+      ${action}`;
+  })();
 
   app.innerHTML = `
   <div class="mast">
@@ -367,42 +337,8 @@ async function renderUnit(app, user, unit) {
   </div>
 
   <section class="card">
-    <h2>1 · Learning materials</h2>
-    <ul class="matlist">
-      <li><a href="../${esc(unit.deck)}" target="_blank" rel="noopener">Unit deck (slides) →</a></li>
-      ${unit.notes ? `<li><a href="../${esc(unit.notes)}" target="_blank" rel="noopener">Lecture notes →</a></li>` : ""}
-      <li><a href="../notes/MEN201_Calculation_Handbook.html" target="_blank" rel="noopener">Calculation handbook →</a></li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h2>2 · Learning outcomes</h2>
-    ${outcomes.length ? `<ul class="outcomes">${outcomes.map((o) => `<li>${esc(o)}</li>`).join("")}</ul>` : `<p class="muted">See the unit deck and notes — the outcomes for this unit are listed there.</p>`}
-  </section>
-
-  <section class="card">
-    <h2>3 · Practice questions</h2>
-    <p class="muted">Unlimited, instant feedback, not recorded against your score.</p>
-    <a class="btn" href="take.html?mode=practice&u=${unit.id}">Start practice</a>
-  </section>
-
-  <section class="card">
-    <h2>4 · Unit quiz</h2>
-    ${attemptLine(quiz)}
-  </section>
-
-  <section class="card">
-    <h2>5 · Unit assessment</h2>
-    ${attemptLine(assessment)}
-  </section>
-
-  <section class="card">
-    <h2>6 · Performance analysis</h2>
-    ${mine.length ? levelBars(unitBloom) : `<p class="muted">Complete the quiz or assessment to see your per-level performance here.</p>`}
-    ${latest ? `<div class="si">
-      ${si.strengths.length ? `<p><b>Strength:</b> ${esc(si.strengths[0])}</p>` : ""}
-      ${si.improvements.length ? `<p><b>Improvement:</b> ${esc(si.improvements[0])}</p>` : ""}
-    </div>` : ""}
+    <h2>Unit quiz</h2>
+    ${quizSection}
   </section>`;
 }
 

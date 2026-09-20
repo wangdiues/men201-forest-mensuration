@@ -26,6 +26,8 @@ jobs:
         env:
           FIREBASE_SA_KEY_JSON: ${{ secrets.FIREBASE_SA_KEY_JSON }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           key_path="$RUNNER_TEMP/sa-key.json"
           echo "$FIREBASE_SA_KEY_JSON" > "$key_path"

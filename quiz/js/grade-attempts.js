@@ -398,7 +398,7 @@ async function mergeManual(docSnap) {
   await bumpStats(after.assessmentId, after.userId, { perLevel, perTopic, perQ, percent, bloom: merged });
 }
 
-// ---------------------------------------------------------------- ③ AI grade (Gemini)
+// ---------------------------------------------------------------- ③ AI grade
 //
 // Grades the written (short-answer/long-answer) items that gradeSubmitted()
 // left at "awaiting-manual", using the question's own modelAnswer + rubric
@@ -406,9 +406,26 @@ async function mergeManual(docSnap) {
 // tutor would via teacher-grade.js, so mergeManual() below finishes the
 // attempt exactly as it would for a human-graded one. A tutor can still
 // override any of this later through teacher.html.
+//
+// Tries providers in order — Gemini, then NVIDIA NIM, then OpenRouter's
+// free-model router — falling through to the next on any error (bad
+// response, rate limit, capacity). Only if every configured provider fails
+// does the attempt stay at "awaiting-manual" for the next scheduled run.
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_MODEL = "gemini-3.6-flash";
+const NVIDIA_API_KEY = process.env.NVIDIA_API_KEY;
+const NVIDIA_MODEL = "nvidia/nemotron-3-super-120b-a12b";
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
+const OPENROUTER_MODEL = "openrouter/free";
+
+const GRADING_SYSTEM_PROMPT =
+  "You are grading forest-mensuration exam answers against a marking rubric. " +
+  "For each item, award marks strictly out of maxMarks, based on how many rubric points the " +
+  "student's answer substantively satisfies — grade the substance, not the wording; a correct " +
+  "answer phrased differently from modelAnswer still earns full credit for the point it covers. " +
+  "Award 0 for a blank or nonsensical answer. Give one brief sentence of feedback per item. " +
+  "Return grades for every qid given, in the same order.";
 
 const GEMINI_SCHEMA = {
   type: "OBJECT",
@@ -429,18 +446,21 @@ const GEMINI_SCHEMA = {
   required: ["grades"],
 };
 
-async function callGemini(items) {
-  const prompt = [
-    "You are grading forest-mensuration exam answers against a marking rubric.",
-    "For each item, award marks strictly out of maxMarks, based on how many rubric points the",
-    "student's answer substantively satisfies — grade the substance, not the wording; a correct",
-    "answer phrased differently from modelAnswer still earns full credit for the point it covers.",
-    "Award 0 for a blank or nonsensical answer. Give one brief sentence of feedback per item.",
-    "Return grades for every qid given, in the same order.",
-    "",
-    JSON.stringify(items, null, 2),
-  ].join("\n");
+// Free/open models don't always obey response_format perfectly — strip
+// markdown fences or leading prose and grab the first {...} block.
+function parseGradesJson(text) {
+  let s = text.trim();
+  const fence = /```(?:json)?\s*([\s\S]*?)```/.exec(s);
+  if (fence) s = fence[1].trim();
+  const start = s.indexOf("{");
+  const end = s.lastIndexOf("}");
+  if (start >= 0 && end > start) s = s.slice(start, end + 1);
+  const parsed = JSON.parse(s);
+  return parsed.grades || [];
+}
 
+async function callGemini(items) {
+  const prompt = `${GRADING_SYSTEM_PROMPT}\n\n${JSON.stringify(items, null, 2)}`;
   const res = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
     {
@@ -458,7 +478,58 @@ async function callGemini(items) {
   const data = await res.json();
   const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
   if (!text) throw new Error("Gemini returned no content");
-  return JSON.parse(text).grades || [];
+  return parseGradesJson(text);
+}
+
+// Shared caller for OpenAI-compatible chat-completions APIs (NVIDIA NIM,
+// OpenRouter both implement this shape).
+async function callOpenAICompatible(label, baseUrl, apiKey, model, items, extraHeaders = {}) {
+  const res = await fetch(`${baseUrl}/chat/completions`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}`, ...extraHeaders },
+    body: JSON.stringify({
+      model,
+      messages: [
+        { role: "system", content: `${GRADING_SYSTEM_PROMPT} Reply with ONLY a JSON object of the exact form {"grades":[{"qid":string,"marks":number,"feedback":string}, ...]} — no prose, no markdown fences.` },
+        { role: "user", content: JSON.stringify(items, null, 2) },
+      ],
+      response_format: { type: "json_object" },
+    }),
+  });
+  if (!res.ok) {
+    throw new Error(`${label} API error ${res.status}: ${(await res.text()).slice(0, 500)}`);
+  }
+  const data = await res.json();
+  const text = data.choices?.[0]?.message?.content;
+  if (!text) throw new Error(`${label} returned no content`);
+  return parseGradesJson(text);
+}
+
+const callNvidia = (items) => callOpenAICompatible("NVIDIA NIM", "https://integrate.api.nvidia.com/v1", NVIDIA_API_KEY, NVIDIA_MODEL, items);
+const callOpenRouter = (items) =>
+  callOpenAICompatible("OpenRouter", "https://openrouter.ai/api/v1", OPENROUTER_API_KEY, OPENROUTER_MODEL, items, {
+    "HTTP-Referer": "https://men201-quiz.web.app",
+    "X-Title": "MEN201 quiz grading",
+  });
+
+async function gradeWithFallback(items) {
+  const providers = [
+    GEMINI_API_KEY && { name: "gemini", fn: callGemini },
+    NVIDIA_API_KEY && { name: "nvidia", fn: callNvidia },
+    OPENROUTER_API_KEY && { name: "openrouter", fn: callOpenRouter },
+  ].filter(Boolean);
+  if (!providers.length) throw new Error("No AI grading provider is configured");
+
+  const errors = [];
+  for (const p of providers) {
+    try {
+      const grades = await p.fn(items);
+      return { provider: p.name, grades };
+    } catch (err) {
+      errors.push(`${p.name}: ${err.message}`);
+    }
+  }
+  throw new Error(`All AI grading providers failed — ${errors.join(" | ")}`);
 }
 
 async function aiGradeManual(docSnap) {
@@ -483,7 +554,7 @@ async function aiGradeManual(docSnap) {
     };
   });
 
-  const grades = await callGemini(items);
+  const { provider, grades } = await gradeWithFallback(items);
   const byQid = {};
   grades.forEach((g) => (byQid[g.qid] = g));
 
@@ -499,7 +570,7 @@ async function aiGradeManual(docSnap) {
   await docSnap.ref.update({
     manualGrading,
     status: "complete",
-    gradedBy: "ai:gemini",
+    gradedBy: `ai:${provider}`,
     gradedAt: FieldValue.serverTimestamp(),
   });
 }
@@ -513,7 +584,7 @@ async function main() {
   }
 
   let aiGraded = 0;
-  if (GEMINI_API_KEY) {
+  if (GEMINI_API_KEY || NVIDIA_API_KEY || OPENROUTER_API_KEY) {
     const awaitingSnap = await db.collection("attempts").where("status", "==", "awaiting-manual").get();
     for (const docSnap of awaitingSnap.docs) {
       try {

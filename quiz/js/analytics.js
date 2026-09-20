@@ -15,7 +15,7 @@ export function unitWisePerformance(assessments, statsMap) {
       const s = statsMap[a.id] || {};
       const row = (byUnit[a.unit] = byUnit[a.unit] || {
         unit: a.unit,
-        title: a.kind === "exam" ? "Module examination" : UNITS.find((u) => u.id === a.unit)?.title || a.unit,
+        title: a.kind === "exam" ? "Mock module examination" : UNITS.find((u) => u.id === a.unit)?.title || a.unit,
         assessments: [],
         studentCount: 0,
         avgPercent: 0,

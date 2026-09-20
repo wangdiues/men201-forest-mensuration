@@ -255,7 +255,7 @@ async function renderLanding(app, user, profile) {
         ? `<a class="btn primary" href="take.html?aid=${x.id}">Sit the paper</a>`
         : `<a class="btn" href="result.html?tid=${mine[0].id}">View your result →</a>`;
       return `<section class="card exam-card">
-        <p class="eyebrow">Module examination</p>
+        <p class="eyebrow">Mock module examination</p>
         <h2>${esc(x.title)}</h2>
         <p class="muted">${esc(x.description || "")}</p>
         <p class="exam-rules">${esc(rules)}</p>
@@ -323,7 +323,7 @@ async function renderUnit(app, user, unit) {
     const used = mine.filter((x) => x.assessmentId === quiz.id);
     const left = Math.max(0, quiz.attemptsAllowed - used.length);
     const action = left > 0
-      ? `<a class="btn" href="take.html?aid=${quiz.id}">Start quiz</a>`
+      ? `<a class="btn" href="take.html?aid=${quiz.id}">Start test</a>`
       : `<a class="btn" href="result.html?tid=${used[0].id}">View your grade →</a>`;
     return `
       <p class="muted">${esc(quiz.title)} · ${quiz.totalMarks} marks · ${left} of ${quiz.attemptsAllowed} attempts left</p>
@@ -337,7 +337,7 @@ async function renderUnit(app, user, unit) {
   </div>
 
   <section class="card">
-    <h2>Unit quiz</h2>
+    <h2>Unit test</h2>
     ${quizSection}
   </section>`;
 }
@@ -390,9 +390,10 @@ export async function initTake() {
           const latest = usedSnap.docs
             .map((d) => ({ id: d.id, ...d.data() }))
             .sort((a, b) => (b.submittedAt && b.submittedAt.toMillis ? b.submittedAt.toMillis() : 0) - (a.submittedAt && a.submittedAt.toMillis ? a.submittedAt.toMillis() : 0))[0];
+          const kindWord = assessment.kind === "exam" ? "mock module examination" : assessment.kind === "quiz" ? "test" : "assessment";
           app.innerHTML = `<div class="card notice">
-            <p>You have used all ${assessment.attemptsAllowed} attempt(s) for this ${esc(assessment.kind || "assessment")}.</p>
-            <p>${latest ? `<a class="btn" href="result.html?tid=${latest.id}">View your result →</a>` : ""} ${assessment.kind === "exam" ? `<a class="btn" href="index.html">Quiz home</a>` : `<a class="btn" href="unit.html?u=${esc(assessment.unit)}">Unit ${esc(assessment.unit)} module</a>`}</p></div>`;
+            <p>You have used all ${assessment.attemptsAllowed} attempt(s) for this ${esc(kindWord)}.</p>
+            <p>${latest ? `<a class="btn" href="result.html?tid=${latest.id}">View your result →</a>` : ""} ${assessment.kind === "exam" ? `<a class="btn" href="index.html">Home</a>` : `<a class="btn" href="unit.html?u=${esc(assessment.unit)}">Unit ${esc(assessment.unit)} module</a>`}</p></div>`;
           return;
         }
         const bank = assessment.bank ? await loadPaperBank(assessment.bank) : await loadBank(assessment.unit);
@@ -691,7 +692,7 @@ async function renderResult(app, user, tid, profile) {
   <div class="mast">
     <p class="eyebrow">${esc(assessment.title || "Assessment")}</p>
     <h1>${pending ? "Result — partially graded" : "Result"}</h1>
-    <p class="muted">${fmtDate(attempt.submittedAt)} · ${attempt.unit === "Module" ? "Module examination" : `Unit ${esc(attempt.unit)}`}</p>
+    <p class="muted">${fmtDate(attempt.submittedAt)} · ${attempt.unit === "Module" ? "Mock module examination" : `Unit ${esc(attempt.unit)}`}</p>
   </div>
 
   <section class="card scorecard">

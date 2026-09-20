@@ -86,7 +86,7 @@ export function renderPaper(items, assessment, candidate, dateText) {
 
   const isExam = assessment.kind === "exam";
   const headline = isExam
-    ? `<h1>Module Examination</h1>
+    ? `<h1>Mock Module Examination</h1>
        <p class="paper-kind">Units I to XI — the whole module in one paper</p>`
     : `<h1>Unit ${esc(assessment.unit)} · ${esc(unitTitle(assessment))}</h1>
        <p class="paper-kind">Test your understanding — Unit ${esc(unitWord)} paper</p>`;
@@ -122,7 +122,7 @@ export function renderPaper(items, assessment, candidate, dateText) {
 }
 
 function unitTitle(assessment) {
-  // "Unit I — Introduction to Forest Mensuration: Quiz" -> "Introduction to Forest Mensuration"
+  // "Unit I — Introduction to Forest Mensuration: Test" -> "Introduction to Forest Mensuration"
   const m = /—\s*(.+?)(?::\s*[^:]*)?$/.exec(assessment.title || "");
   return m ? m[1].trim() : assessment.title || "";
 }

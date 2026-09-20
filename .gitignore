@@ -27,3 +27,9 @@ firebase-debug.log
 # API keys - never commit.
 Gemini_API_Key.txt
 *.key
+
+# Other AI coding tools state
+.kilo/
+
+# Cloudflare Worker local build/dev state - not part of the deployed Worker.
+cf-relay/.wrangler/

@@ -398,12 +398,131 @@ async function mergeManual(docSnap) {
   await bumpStats(after.assessmentId, after.userId, { perLevel, perTopic, perQ, percent, bloom: merged });
 }
 
+// ---------------------------------------------------------------- ③ AI grade (Gemini)
+//
+// Grades the written (short-answer/long-answer) items that gradeSubmitted()
+// left at "awaiting-manual", using the question's own modelAnswer + rubric
+// as the grading standard. Writes the same manualGrading shape a human
+// tutor would via teacher-grade.js, so mergeManual() below finishes the
+// attempt exactly as it would for a human-graded one. A tutor can still
+// override any of this later through teacher.html.
+
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GEMINI_MODEL = "gemini-2.5-flash";
+
+const GEMINI_SCHEMA = {
+  type: "OBJECT",
+  properties: {
+    grades: {
+      type: "ARRAY",
+      items: {
+        type: "OBJECT",
+        properties: {
+          qid: { type: "STRING" },
+          marks: { type: "NUMBER" },
+          feedback: { type: "STRING" },
+        },
+        required: ["qid", "marks", "feedback"],
+      },
+    },
+  },
+  required: ["grades"],
+};
+
+async function callGemini(items) {
+  const prompt = [
+    "You are grading forest-mensuration exam answers against a marking rubric.",
+    "For each item, award marks strictly out of maxMarks, based on how many rubric points the",
+    "student's answer substantively satisfies — grade the substance, not the wording; a correct",
+    "answer phrased differently from modelAnswer still earns full credit for the point it covers.",
+    "Award 0 for a blank or nonsensical answer. Give one brief sentence of feedback per item.",
+    "Return grades for every qid given, in the same order.",
+    "",
+    JSON.stringify(items, null, 2),
+  ].join("\n");
+
+  const res = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: { responseMimeType: "application/json", responseSchema: GEMINI_SCHEMA },
+      }),
+    }
+  );
+  if (!res.ok) {
+    throw new Error(`Gemini API error ${res.status}: ${(await res.text()).slice(0, 500)}`);
+  }
+  const data = await res.json();
+  const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+  if (!text) throw new Error("Gemini returned no content");
+  return JSON.parse(text).grades || [];
+}
+
+async function aiGradeManual(docSnap) {
+  const attempt = docSnap.data();
+  const { questions, sections } = await loadContext(attempt);
+
+  const manualItems = (attempt.answers || []).filter((a) => {
+    const q = questions[a.qid];
+    return q && q.autoGraded === false;
+  });
+  if (!manualItems.length) return;
+
+  const items = manualItems.map((a) => {
+    const q = questions[a.qid];
+    return {
+      qid: a.qid,
+      maxMarks: weightFor(sections, a.section, q),
+      question: q.question,
+      rubric: q.rubric || [],
+      modelAnswer: q.modelAnswer || "",
+      studentAnswer: a.givenText || "(no answer)",
+    };
+  });
+
+  const grades = await callGemini(items);
+  const byQid = {};
+  grades.forEach((g) => (byQid[g.qid] = g));
+
+  const manualGrading = manualItems.map((a) => {
+    const q = questions[a.qid];
+    const max = weightFor(sections, a.section, q);
+    const g = byQid[a.qid];
+    const marks = g ? Math.max(0, Math.min(max, Number(g.marks) || 0)) : 0;
+    const feedback = g && g.feedback ? String(g.feedback).slice(0, 500) : "";
+    return feedback ? { qid: a.qid, section: a.section, marks, feedback } : { qid: a.qid, section: a.section, marks };
+  });
+
+  await docSnap.ref.update({
+    manualGrading,
+    status: "complete",
+    gradedBy: "ai:gemini",
+    gradedAt: FieldValue.serverTimestamp(),
+  });
+}
+
 // ---------------------------------------------------------------- main
 
 async function main() {
   const submittedSnap = await db.collection("attempts").where("status", "==", "submitted").get();
   for (const docSnap of submittedSnap.docs) {
     await gradeSubmitted(docSnap);
+  }
+
+  let aiGraded = 0;
+  if (GEMINI_API_KEY) {
+    const awaitingSnap = await db.collection("attempts").where("status", "==", "awaiting-manual").get();
+    for (const docSnap of awaitingSnap.docs) {
+      try {
+        await aiGradeManual(docSnap);
+        aiGraded++;
+      } catch (err) {
+        console.error(`AI grading failed for attempt ${docSnap.id}, will retry next run: ${err.message}`);
+      }
+    }
   }
 
   const completeSnap = await db.collection("attempts").where("status", "==", "complete").get();
@@ -416,7 +535,9 @@ async function main() {
     }
   }
 
-  console.log(`Graded ${submittedSnap.size} newly submitted attempt(s), merged ${merged} manually-graded attempt(s).`);
+  console.log(
+    `Graded ${submittedSnap.size} newly submitted attempt(s), AI-graded ${aiGraded} written attempt(s), merged ${merged} attempt(s) to a final score.`
+  );
 }
 
 await main();

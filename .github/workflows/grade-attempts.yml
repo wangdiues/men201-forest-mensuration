@@ -19,7 +19,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: quiz
-        run: npm install firebase-admin
+        run: npm ci
 
       - name: Grade attempts
         working-directory: quiz

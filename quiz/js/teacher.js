@@ -445,8 +445,14 @@ function renderAssessments(el, data) {
 }
 
 function renderExport(el, data) {
-  const assessOptions = data.assessments
-    .map((a) => `<option value="${a.id}">${esc(a.title)}</option>`)
+  // Assessments with actual student data float to the top, so the default
+  // (first) option in the dropdown isn't one nobody has attempted yet —
+  // downloading without picking anything used to silently produce a
+  // header-only CSV for whichever assessment happened to sort first.
+  const studentCount = (a) => (data.statsMap[a.id] && data.statsMap[a.id].studentCount) || 0;
+  const assessOptions = [...data.assessments]
+    .sort((a, b) => studentCount(b) - studentCount(a))
+    .map((a) => `<option value="${a.id}">${esc(a.title)} (${studentCount(a)} student${studentCount(a) === 1 ? "" : "s"})</option>`)
     .join("");
 
   el.innerHTML = `

@@ -1,0 +1,516 @@
+[
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "protocol", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "In Bhutan's national forest protocol, DBH is measured over bark at what height above the ground?",
+    "options": ["1.0 m", "1.37 m", "1.5 m", "2.0 m"], "answer": 1,
+    "explanation": "The Second National Forest Inventory protocol specifies over-bark DBH at 1.37 m (4.5 ft).",
+    "learningOutcome": "Recall the national DBH measurement height.", "active": true
+  },
+  {
+    "unit": "II", "topic": "instruments", "subtopic": "diameter-tape", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "Which instrument is most appropriate for measuring the diameter of a standing tree with a 30 cm stem?",
+    "options": ["Diameter tape", "Calipers", "Hypsometer", "Clinometer"], "answer": 0,
+    "explanation": "A diameter (girth) tape is the standard instrument for standing stems of this size; calipers suit small stems.",
+    "learningOutcome": "Select the correct instrument for a given stem size.", "active": true
+  },
+  {
+    "unit": "II", "topic": "girth", "subtopic": "definition", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "Girth is the ___ of the stem measured at breast height.",
+    "options": ["diameter", "circumference", "volume", "height"], "answer": 1,
+    "explanation": "Girth is the full circumference; diameter is the straight-line distance across the stem.",
+    "learningOutcome": "Recall the definition of girth.", "active": true
+  },
+  {
+    "unit": "II", "topic": "instruments", "subtopic": "diameter-tape", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "A diameter tape (girth tape) is calibrated so that, when wrapped around the stem, it reads ___ directly.",
+    "options": ["girth in cm", "diameter in cm", "height in m", "volume in m³"], "answer": 1,
+    "explanation": "The tape's markings are divided by π during manufacture, so the reading at the zero point is the diameter.",
+    "learningOutcome": "Recall how a diameter tape is calibrated.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "protocol", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "In the Bhutan Second NFI protocol, trees are included in the inventory from a DBH of ___",
+    "options": ["5 cm", "10 cm", "20 cm", "50 cm"], "answer": 1,
+    "explanation": "The national protocol counts trees from 10 cm DBH (saplings from 5 cm).",
+    "learningOutcome": "Recall the national inclusion threshold for trees.", "active": true
+  },
+  {
+    "unit": "II", "topic": "instruments", "subtopic": "identification", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "Which of the following is NOT an instrument for measuring stem diameter?",
+    "options": ["Diameter tape", "Calipers", "Dendrometer", "Hypsometer"], "answer": 3,
+    "explanation": "A hypsometer estimates tree height; the others all measure diameter.",
+    "learningOutcome": "Distinguish diameter instruments from height instruments.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "protocol", "questionType": "true-false", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "In Bhutan's national protocol, DBH is measured under bark.",
+    "answer": 1,
+    "explanation": "The protocol specifies OVER-bark measurement; removing bark would add time and error.",
+    "learningOutcome": "Recall the over-bark convention.", "active": true
+  },
+  {
+    "unit": "II", "topic": "girth", "subtopic": "conversion", "questionType": "true-false", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "Diameter and girth at the same height are related by D = G / π.",
+    "answer": 0,
+    "explanation": "Since G = πD, dividing the girth by π gives the diameter.",
+    "learningOutcome": "Recall the girth–diameter relationship.", "active": true
+  },
+  {
+    "unit": "II", "topic": "instruments", "subtopic": "identification", "questionType": "true-false", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "A hypsometer is used to measure tree diameter.",
+    "answer": 1,
+    "explanation": "A hypsometer estimates tree height, not diameter.",
+    "learningOutcome": "Recall the purpose of a hypsometer.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "forks", "questionType": "true-false", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Medium", "marks": 1,
+    "question": "When a fork or large branch lies within 30 cm of the 1.37 m position, the standard practice is to measure slightly below it.",
+    "answer": 0,
+    "explanation": "The measurement is shifted just below the obstruction (or above, per the governing manual) and the actual height recorded.",
+    "learningOutcome": "Recall the obstruction rule for DBH height.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "terminology", "questionType": "fill-blank", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "DBH stands for diameter at ___ height.",
+    "answer": ["breast"],
+    "explanation": "DBH = diameter at breast height, the standard 1.37 m position.",
+    "learningOutcome": "Recall the DBH abbreviation.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "protocol", "questionType": "fill-blank", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "In the Bhutan protocol, DBH is measured at a height of ___ m above the ground.",
+    "answer": ["1.37", "1.37 m"],
+    "explanation": "1.37 m (4.5 ft) is the national standard height.",
+    "learningOutcome": "Recall the national DBH height.", "active": true
+  },
+  {
+    "unit": "II", "topic": "girth", "subtopic": "formula", "questionType": "fill-blank", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "Girth = π × ___.",
+    "answer": ["diameter", "dbh", "d"],
+    "explanation": "Girth is the circumference: G = πD.",
+    "learningOutcome": "Recall the girth formula.", "active": true
+  },
+  {
+    "unit": "II", "topic": "bark", "subtopic": "definition", "questionType": "fill-blank", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Medium", "marks": 1,
+    "question": "Bark thickness is the radial distance from the outer bark surface to the ___.",
+    "answer": ["cambium", "inner bark"],
+    "explanation": "Bark thickness is measured from the outer surface to the inner bark / cambium boundary.",
+    "learningOutcome": "Recall what bark thickness measures.", "active": true
+  },
+  {
+    "unit": "II", "topic": "instruments", "subtopic": "matching", "questionType": "matching", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "Match each instrument to its use.",
+    "pairs": [
+      { "left": "Diameter tape", "right": "Reads diameter directly when wrapped around the stem" },
+      { "left": "Calipers", "right": "Direct diameter measurement of small stems (under ~15 cm)" },
+      { "left": "Hypsometer", "right": "Estimates tree height" },
+      { "left": "Clinometer", "right": "Measures vertical angles for height estimation" }
+    ],
+    "explanation": "Each instrument has one primary role; the diameter tape's calibration makes it the plot workhorse.",
+    "learningOutcome": "Match instruments to their measurement roles.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "rationale", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Understand", "difficulty": "Easy", "marks": 1,
+    "question": "Why is DBH measured at breast height rather than at the base of the stem?",
+    "options": [
+      "To avoid distortion from roots, buttressing and stem swelling",
+      "Because the tape is 1.37 m long",
+      "Trees are shorter below 1.37 m",
+      "To match the surveyor's height"
+    ],
+    "answer": 0,
+    "explanation": "Stems are irregular near the ground; a fixed, accessible height standardises the measurement across trees and crews.",
+    "learningOutcome": "Explain the rationale for the breast-height standard.", "active": true
+  },
+  {
+    "unit": "II", "topic": "bark", "subtopic": "over-bark", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Understand", "difficulty": "Easy", "marks": 1,
+    "question": "What does 'over-bark' DBH mean?",
+    "options": [
+      "The diameter including the bark",
+      "The diameter after removing the bark",
+      "A diameter measured only on one side of the bark",
+      "The average of over-bark and under-bark readings"
+    ],
+    "answer": 0,
+    "explanation": "Over-bark means the bark is left in place; it is faster and avoids the error of bark removal.",
+    "learningOutcome": "Interpret the term over-bark.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "obstructions", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Understand", "difficulty": "Medium", "marks": 1,
+    "question": "If a tree's stem is swollen (buttressed) at the 1.37 m position, the correct response is to measure ___",
+    "options": [
+      "at the base instead",
+      "slightly above the swelling, within 30 cm, and record the actual height",
+      "at the fork",
+      "at any convenient height"
+    ],
+    "answer": 1,
+    "explanation": "The obstruction rule shifts the measurement just above (or below) the swelling, within 30 cm, with the height noted.",
+    "learningOutcome": "Apply the obstruction rule conceptually.", "active": true
+  },
+  {
+    "unit": "II", "topic": "bark", "subtopic": "trends", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Understand", "difficulty": "Medium", "marks": 1,
+    "question": "Compared with a 10 cm tree, a 50 cm tree of the same species will generally have ___",
+    "options": ["thinner bark", "thicker bark", "the same bark thickness", "no bark"],
+    "answer": 1,
+    "explanation": "Bark thickens with stem diameter and age; conversion between over- and under-bark must account for it.",
+    "learningOutcome": "Explain how bark thickness varies with size.", "active": true
+  },
+  {
+    "unit": "II", "topic": "instruments", "subtopic": "comparison", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Understand", "difficulty": "Easy", "marks": 1,
+    "question": "The difference between a diameter tape and an ordinary cloth tape is that the diameter tape ___",
+    "options": [
+      "is longer",
+      "is calibrated to read diameter (girth ÷ π)",
+      "is cheaper",
+      "measures height"
+    ],
+    "answer": 1,
+    "explanation": "Both measure circumference; the diameter tape's scale is pre-divided by π.",
+    "learningOutcome": "Compare the two tape types.", "active": true
+  },
+  {
+    "unit": "II", "topic": "girth", "subtopic": "technique", "questionType": "image-mcq", "autoGraded": true,
+    "bloomLevel": "Understand", "difficulty": "Medium", "marks": 1,
+    "question": "In this girth measurement, why is the tape held taut and horizontal around the stem?",
+    "image": "assets/images/men201/girth-measurement-biomass.jpg",
+    "options": [
+      "To keep the measurement at a constant height",
+      "To read the diameter directly",
+      "To avoid stem compression and tape sag",
+      "To match the national protocol exactly"
+    ],
+    "answer": 2,
+    "explanation": "A slack tape compresses the stem and sags, both of which bias the reading; a taut, level wrap gives a true circumference.",
+    "learningOutcome": "Interpret a measurement diagram and explain technique.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "rationale", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Understand", "difficulty": "Medium", "marks": 1,
+    "question": "Explain why DBH is measured at breast height rather than at the base of the stem.",
+    "modelAnswer": "A fixed height standardises the measurement across trees and crews, and avoids the irregular stem shape near the ground (roots, buttressing, swelling).",
+    "rubric": [
+      { "point": "Standardisation across trees and crews", "marks": 1 },
+      { "point": "Avoids roots / buttressing / stem swelling", "marks": 1 }
+    ],
+    "explanation": "Both standardisation and stem irregularity are the two key reasons.",
+    "learningOutcome": "Explain the breast-height convention.", "active": true
+  },
+  {
+    "unit": "II", "topic": "bark", "subtopic": "over-bark", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Understand", "difficulty": "Medium", "marks": 1,
+    "question": "Explain the difference between over-bark and under-bark diameter, and why the national protocol uses over-bark.",
+    "modelAnswer": "Over-bark includes the bark; under-bark excludes it. Over-bark is standard because it is faster and avoids the error and labour of bark removal, and because all national data are comparable when measured the same way.",
+    "rubric": [
+      { "point": "Defines over-bark vs under-bark correctly", "marks": 1 },
+      { "point": "Justifies over-bark (speed / error avoidance / comparability)", "marks": 1 }
+    ],
+    "explanation": "The definition and the practical justification are both required.",
+    "learningOutcome": "Explain over-bark vs under-bark measurement.", "active": true
+  },
+  {
+    "unit": "II", "topic": "girth", "subtopic": "conversion", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Easy", "marks": 1,
+    "question": "A tree's girth at 1.37 m is 106.8 cm. Calculate the DBH in cm.",
+    "answer": 33.99, "tolerance": { "mode": "absolute", "value": 0.5 }, "units": "cm",
+    "explanation": "D = G/π = 106.8 / 3.1416 ≈ 34.0 cm.",
+    "learningOutcome": "Apply D = G/π.", "active": true
+  },
+  {
+    "unit": "II", "topic": "girth", "subtopic": "conversion", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Easy", "marks": 1,
+    "question": "A tree's girth at breast height is 125.7 cm. What is the DBH in cm?",
+    "answer": 40.0, "tolerance": { "mode": "absolute", "value": 0.5 }, "units": "cm",
+    "explanation": "D = 125.7 / π ≈ 40.0 cm.",
+    "learningOutcome": "Apply D = G/π.", "active": true
+  },
+  {
+    "unit": "II", "topic": "girth", "subtopic": "conversion", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Easy", "marks": 1,
+    "question": "A tree's DBH is 30 cm. What is its girth at breast height in cm?",
+    "answer": 94.25, "tolerance": { "mode": "absolute", "value": 0.5 }, "units": "cm",
+    "explanation": "G = πD = 3.1416 × 30 ≈ 94.2 cm.",
+    "learningOutcome": "Apply G = πD.", "active": true
+  },
+  {
+    "unit": "II", "topic": "girth", "subtopic": "conversion", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Easy", "marks": 1,
+    "question": "A tree's DBH is 40 cm. What is its girth in cm?",
+    "answer": 125.66, "tolerance": { "mode": "absolute", "value": 0.5 }, "units": "cm",
+    "explanation": "G = π × 40 ≈ 125.7 cm.",
+    "learningOutcome": "Apply G = πD.", "active": true
+  },
+  {
+    "unit": "II", "topic": "basal-area", "subtopic": "formula", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 1,
+    "question": "A tree's DBH is 30 cm. Calculate its basal area in m².",
+    "answer": 0.0707, "tolerance": { "mode": "relative", "value": 0.01 }, "units": "m²",
+    "explanation": "BA = πD²/4 = π × 0.30² / 4 ≈ 0.0707 m².",
+    "learningOutcome": "Apply the basal area formula with unit conversion.", "active": true
+  },
+  {
+    "unit": "II", "topic": "basal-area", "subtopic": "formula", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 1,
+    "question": "A tree's DBH is 50 cm. Calculate its basal area in m².",
+    "answer": 0.1963, "tolerance": { "mode": "relative", "value": 0.01 }, "units": "m²",
+    "explanation": "BA = π × 0.50² / 4 ≈ 0.1963 m².",
+    "learningOutcome": "Apply the basal area formula.", "active": true
+  },
+  {
+    "unit": "II", "topic": "basal-area", "subtopic": "formula", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 1,
+    "question": "A tree's DBH is 20 cm. Calculate its basal area in cm².",
+    "answer": 314.16, "tolerance": { "mode": "absolute", "value": 2 }, "units": "cm²",
+    "explanation": "BA = π × 20² / 4 ≈ 314.2 cm².",
+    "learningOutcome": "Apply the basal area formula in cm².", "active": true
+  },
+  {
+    "unit": "II", "topic": "girth", "subtopic": "quarter-girth", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Hard", "marks": 1,
+    "question": "A tree has girth 94.2 cm and height 10 m. Using the quarter-girth formula V = (G/4)² × H with G in metres, estimate the volume in m³.",
+    "answer": 0.553, "tolerance": { "mode": "relative", "value": 0.02 }, "units": "m³",
+    "explanation": "G = 0.942 m; (0.942/4)² × 10 ≈ 0.0553 × 10 ≈ 0.553 m³.",
+    "learningOutcome": "Apply the quarter-girth volume formula.", "active": true
+  },
+  {
+    "unit": "II", "topic": "bark", "subtopic": "conversion", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 1,
+    "question": "A tree's over-bark DBH is 32 cm and the average bark thickness is 0.8 cm on each side. What is the under-bark diameter?",
+    "answer": 30.4, "tolerance": { "mode": "absolute", "value": 0.1 }, "units": "cm",
+    "explanation": "Under-bark D = over-bark D − 2 × bark thickness = 32 − 1.6 = 30.4 cm.",
+    "learningOutcome": "Convert over-bark to under-bark diameter.", "active": true
+  },
+  {
+    "unit": "II", "topic": "bark", "subtopic": "conversion", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 1,
+    "question": "A tree's under-bark diameter is 28 cm and the bark thickness is 1.0 cm on each side. What is the over-bark diameter?",
+    "answer": 30.0, "tolerance": { "mode": "absolute", "value": 0.1 }, "units": "cm",
+    "explanation": "Over-bark D = under-bark D + 2 × bark thickness = 28 + 2 = 30 cm.",
+    "learningOutcome": "Convert under-bark to over-bark diameter.", "active": true
+  },
+  {
+    "unit": "II", "topic": "girth", "subtopic": "quarter-girth", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Easy", "marks": 1,
+    "question": "A tree's girth is 157 cm. What is the quarter-girth (G/4) in cm?",
+    "answer": 39.25, "tolerance": { "mode": "absolute", "value": 0.1 }, "units": "cm",
+    "explanation": "157 / 4 = 39.25 cm.",
+    "learningOutcome": "Apply the quarter-girth relation.", "active": true
+  },
+  {
+    "unit": "II", "topic": "girth", "subtopic": "proportion", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 1,
+    "question": "Two trees have girths of 62.8 cm and 125.7 cm. What is the ratio of the second tree's DBH to the first tree's DBH?",
+    "answer": 2.0, "tolerance": { "mode": "absolute", "value": 0.05 },
+    "explanation": "DBHs are 20 cm and 40 cm; the ratio is 40/20 = 2.0 (diameter scales linearly with girth).",
+    "learningOutcome": "Apply proportionality of girth and diameter.", "active": true
+  },
+  {
+    "unit": "II", "topic": "basal-area", "subtopic": "formula", "questionType": "fill-blank", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Easy", "marks": 1,
+    "question": "The formula for basal area is BA = π × D² / ___.",
+    "answer": ["4"],
+    "explanation": "Basal area is the cross-sectional area of a circle: πD²/4.",
+    "learningOutcome": "Complete the basal area formula.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "conversions", "questionType": "multi-response", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 1,
+    "question": "Which of the following conversions are correct? Select all that apply.",
+    "options": [
+      "Girth 94.2 cm → DBH 30 cm",
+      "DBH 20 cm → girth 62.8 cm",
+      "DBH 30 cm → basal area 0.0707 m²",
+      "DBH 40 cm → basal area 0.196 m²"
+    ],
+    "answer": [0, 1, 2],
+    "explanation": "The first three check out (94.2/π=30; π×20=62.8; π×0.3²/4=0.0707). For 40 cm, BA = π×0.4²/4 = 0.1257 m², not 0.196.",
+    "learningOutcome": "Verify girth/diameter/basal-area conversions.", "active": true
+  },
+  {
+    "unit": "II", "topic": "girth", "subtopic": "estimation", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Easy", "marks": 1,
+    "question": "A tree's girth at 1.37 m is 75.4 cm. What is the approximate DBH?",
+    "options": ["20 cm", "24 cm", "28 cm", "32 cm"], "answer": 1,
+    "explanation": "D = 75.4 / π ≈ 24.0 cm.",
+    "learningOutcome": "Estimate DBH from girth quickly.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "error-analysis", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Analyze", "difficulty": "Medium", "marks": 1,
+    "question": "A student measures the same tree's DBH as 32.4 cm with a diameter tape and 33.8 cm with calipers. The most likely explanation is:",
+    "options": [
+      "The tape slipped, was not held square, or compressed the bark",
+      "Calipers are always wrong",
+      "The tree grew 1.4 cm between the two measurements",
+      "Both readings are correct within tolerance"
+    ],
+    "answer": 0,
+    "explanation": "A 1.4 cm gap on a 32 cm stem points to tape technique (slip, angle, compression), not instrument failure or growth.",
+    "learningOutcome": "Analyse a discrepancy between two measurements.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "bias", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Analyze", "difficulty": "Medium", "marks": 1,
+    "question": "A crew's mean DBH over 100 trees is 2.1 cm higher than a re-measured subset of 20 trees. The most likely explanation is:",
+    "options": [
+      "Random scatter in individual readings",
+      "A systematic bias in tape handling",
+      "The trees grew during the survey",
+      "The subset was measured at a different height by design"
+    ],
+    "answer": 1,
+    "explanation": "A consistent offset across many trees indicates a systematic (bias) error, not random scatter.",
+    "learningOutcome": "Distinguish systematic from random error in field data.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "error-types", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Analyze", "difficulty": "Medium", "marks": 1,
+    "question": "Which of the following is a source of RANDOM (not systematic) error in DBH measurement?",
+    "options": [
+      "A tape that consistently sags when wrapped",
+      "A habit of rounding readings up",
+      "Individual variation in reading the scale",
+      "Using the wrong measurement height"
+    ],
+    "answer": 2,
+    "explanation": "Scale-reading variation scatters around the true value; the others all push readings in one direction (bias).",
+    "learningOutcome": "Classify error sources as random or systematic.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "case-study", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Analyze", "difficulty": "Hard", "marks": 1,
+    "question": "On a steep slope, a crew measures DBH with the tape held vertical (parallel to the trunk) instead of horizontal. The measured girth will be:",
+    "options": [
+      "too large, because the tape follows a longer elliptical path",
+      "too small, because the tape follows a shorter path",
+      "unchanged",
+      "randomly high or low"
+    ],
+    "answer": 0,
+    "explanation": "A vertical wrap around a sloping stem traces an ellipse longer than the true horizontal circumference, biasing girth (and hence DBH) high.",
+    "learningOutcome": "Analyse the geometric effect of tape orientation on slopes.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "error-types", "questionType": "multi-response", "autoGraded": true,
+    "bloomLevel": "Analyze", "difficulty": "Medium", "marks": 1,
+    "question": "Which of these are sources of SYSTEMATIC (not random) error in DBH measurement? Select all that apply.",
+    "options": [
+      "A tape that consistently sags when wrapped around the stem",
+      "A habit of rounding readings up",
+      "Tree movement in wind during the reading",
+      "Individual variation in reading the scale"
+    ],
+    "answer": [0, 1],
+    "explanation": "Consistent sag and a rounding habit both bias every reading in the same direction; wind movement and scale-reading variation scatter readings.",
+    "learningOutcome": "Separate systematic from random error sources.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "error-analysis", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Analyze", "difficulty": "Hard", "marks": 1,
+    "question": "A field crew's DBH readings are consistently 1–2 cm higher than a calibrated check on the same trees. Identify two likely sources of systematic error and state how each would be corrected.",
+    "modelAnswer": "Examples: (1) tape not held taut / sagging — hold the tape taut and level; (2) measuring at the wrong height or over-bark/under-bark inconsistency — standardise to 1.37 m over bark; (3) a worn or stretched tape — recalibrate or replace it.",
+    "rubric": [
+      { "point": "Identifies a plausible systematic source (e.g. tape sag, wrong height, worn tape)", "marks": 1 },
+      { "point": "States the matching correction", "marks": 1 }
+    ],
+    "explanation": "Any two valid source–correction pairs earn full marks.",
+    "learningOutcome": "Diagnose and correct systematic field error.", "active": true
+  },
+  {
+    "unit": "II", "topic": "instruments", "subtopic": "selection", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Evaluate", "difficulty": "Medium", "marks": 1,
+    "question": "For a 12 cm stem, which instrument gives the most reliable DBH?",
+    "options": ["Diameter tape", "Calipers", "Cloth tape with D = G/π", "Hypsometer"], "answer": 1,
+    "explanation": "On small stems the tape's relative error (slip, angle, compression) is large; calipers give a direct, repeatable reading.",
+    "learningOutcome": "Judge instrument suitability for a stem size.", "active": true
+  },
+  {
+    "unit": "II", "topic": "instruments", "subtopic": "selection", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Evaluate", "difficulty": "Medium", "marks": 1,
+    "question": "For a large plot of 2,000 trees, a forester chooses between a diameter tape and a cloth tape with D = G/π. The diameter tape is the better choice because it ___",
+    "options": [
+      "removes one manual division by π and the rounding error that comes with it",
+      "is cheaper",
+      "also measures height",
+      "is required by law"
+    ],
+    "answer": 0,
+    "explanation": "The built-in π calibration removes a repeated manual calculation and its rounding error across thousands of trees.",
+    "learningOutcome": "Justify instrument choice for large-scale work.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "obstructions", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Evaluate", "difficulty": "Medium", "marks": 1,
+    "question": "A stem has a large burl exactly at the 1.37 m position. The best judgment is to measure ___",
+    "options": [
+      "at 1.37 m through the burl",
+      "slightly below or above the burl, within 30 cm, and record the actual height",
+      "at the base",
+      "at the top of the burl"
+    ],
+    "answer": 1,
+    "explanation": "The obstruction rule keeps the measurement close to the standard height while avoiding the deformed section, with the height recorded.",
+    "learningOutcome": "Judge how to handle stem obstructions at DBH height.", "active": true
+  },
+  {
+    "unit": "II", "topic": "bark", "subtopic": "judgment", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Evaluate", "difficulty": "Hard", "marks": 1,
+    "question": "A student argues that measuring under-bark diameter is more 'accurate' because it removes the bark. Evaluate this claim for a national inventory and justify your position.",
+    "modelAnswer": "Under-bark removes a variable (bark thickness) but adds labour and its own errors (where to stop, how to smooth), and breaks comparability with all national over-bark data. For an inventory, standardisation and speed outweigh the marginal precision gain, so over-bark is the correct choice.",
+    "rubric": [
+      { "point": "Notes that under-bark adds its own errors / labour", "marks": 1 },
+      { "point": "Argues from comparability / standardisation to prefer over-bark", "marks": 1 }
+    ],
+    "explanation": "A strong answer weighs error, labour and comparability.",
+    "learningOutcome": "Evaluate a measurement-method claim with evidence.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "protocol-design", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Create", "difficulty": "Hard", "marks": 1,
+    "question": "You are designing a DBH measurement protocol for a new field crew. Which set of steps best minimises systematic error?",
+    "options": [
+      "Measure at any height that is easy to reach",
+      "Hold the tape taut and horizontal at 1.37 m over bark; record the actual height when an obstruction forces a shift; cross-check 10 % of readings with calipers",
+      "Measure under bark for all trees",
+      "Use the same tape for all trees without checking it"
+    ],
+    "answer": 1,
+    "explanation": "Only option B fixes the height, the technique, the obstruction rule and adds a verification step — the four controls that remove systematic error.",
+    "learningOutcome": "Design a measurement protocol with error controls.", "active": true
+  },
+  {
+    "unit": "II", "topic": "dbh", "subtopic": "protocol-design", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Create", "difficulty": "Hard", "marks": 1,
+    "question": "Develop a five-step field protocol for measuring DBH with a diameter tape that minimises systematic error.",
+    "modelAnswer": "1) Check/calibrate the tape before the season. 2) Hold the tape taut and horizontal at 1.37 m over bark. 3) Apply the obstruction rule (shift within 30 cm and record the height). 4) Standardise the reading position (zero mark read at eye level). 5) Cross-check a sample of stems with calipers.",
+    "rubric": [
+      { "point": "Tape check / calibration step", "marks": 1 },
+      { "point": "Taut, horizontal, 1.37 m over bark", "marks": 1 },
+      { "point": "Obstruction rule with recorded height", "marks": 1 },
+      { "point": "Standardised reading position", "marks": 1 },
+      { "point": "Verification / cross-check step", "marks": 1 }
+    ],
+    "explanation": "Each step addresses one known source of systematic error.",
+    "learningOutcome": "Develop a complete field measurement protocol.", "active": true
+  }
+]

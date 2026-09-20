@@ -2,288 +2,462 @@
   {
     "unit": "I", "topic": "definition", "subtopic": "scope", "questionType": "mcq", "autoGraded": true,
     "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
-    "question": "Forest mensuration is the determination of the dimensions, form, volume, age and increment of single trees, stands or whole woods, either standing or after felling. This definition comes from which Latin root?",
-    "options": ["metrum", "mensura", "metiri", "mensuratio"], "answer": 1,
-    "explanation": "Forest mensuration comes from the Latin 'mensura', meaning a measure.", "learningOutcome": "Recall the Latin root of forest mensuration.", "active": true
+    "question": "Forest mensuration is the science of:",
+    "options": ["Measuring forest resources", "Protecting wildlife only", "Managing forest fires only", "Studying forest insects only"],
+    "answer": 0,
+    "explanation": "Forest mensuration is the science of measuring forest resources — trees, forests and forest products.",
+    "learningOutcome": "Recall what forest mensuration is.", "active": true
   },
   {
-    "unit": "I", "topic": "definition", "subtopic": "verb", "questionType": "fill-blank", "autoGraded": true,
+    "unit": "I", "topic": "definition", "subtopic": "scope", "questionType": "fill-blank", "autoGraded": true,
     "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
-    "question": "Forest mensuration is the ___ of the dimensions, form, volume, age and increment of single trees, stands or whole woods, either standing or after felling.",
-    "answer": ["determination"], "explanation": "This is the verbatim definition that must be memorized.", "learningOutcome": "Recall the exact definition of forest mensuration.", "active": true
+    "question": "Forest mensuration deals with measurement of ___, forests and forest products.",
+    "answer": ["trees", "tree"],
+    "explanation": "The three objects of measurement are trees, forests and forest products.",
+    "learningOutcome": "Recall the three objects of forest mensuration.", "active": true
   },
   {
-    "unit": "I", "topic": "measurement", "subtopic": "kinds", "questionType": "mcq", "autoGraded": true,
+    "unit": "I", "topic": "definition", "subtopic": "scope", "questionType": "true-false", "autoGraded": true,
     "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
-    "question": "Which of the following is NOT one of the four kinds of measurement that forest mensuration deals with?",
-    "options": ["Linear", "Area", "Volume", "Temperature"], "answer": 3,
-    "explanation": "Forest mensuration deals with linear, area, volume and weight measurement, not temperature.", "learningOutcome": "Name the four kinds of measurement forest mensuration deals with.", "active": true
+    "question": "Forest mensuration includes measurement of tree diameter, height and volume.",
+    "answer": 0,
+    "explanation": "True — diameter, height and volume are the core tree measurements of the module.",
+    "learningOutcome": "Recall the core tree measurements.", "active": true
   },
   {
-    "unit": "I", "topic": "measurement", "subtopic": "units", "questionType": "matching", "autoGraded": true,
+    "unit": "I", "topic": "definition", "subtopic": "definition", "questionType": "short-answer", "autoGraded": false,
     "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
-    "question": "Match each kind of measurement with its typical unit.",
-    "pairs": [
-      { "left": "Linear", "right": "cm, m" },
-      { "left": "Area", "right": "m², ha" },
-      { "left": "Volume", "right": "m³" },
-      { "left": "Weight", "right": "kg, Mg" }
-    ],
-    "explanation": "Linear measurements use cm/m, area uses m²/ha, volume uses m³, and weight uses kg/Mg.", "learningOutcome": "Match measurement types to their typical units.", "active": true
+    "question": "Define forest mensuration.",
+    "modelAnswer": "Forest mensuration is the science and art of measuring trees, forests and forest products.",
+    "rubric": [{ "point": "Science and art of measuring trees, forests and forest products", "marks": 1 }],
+    "learningOutcome": "State the definition of forest mensuration.", "active": true
   },
   {
-    "unit": "I", "topic": "objectives", "subtopic": "list", "questionType": "multi-response", "autoGraded": true,
+    "unit": "I", "topic": "definition", "subtopic": "scope", "questionType": "mcq", "autoGraded": true,
     "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
-    "question": "Which of the following are objectives of forest mensuration? Select all that apply.",
-    "options": [
-      "Basis of sale",
-      "Basis for management", 
-      "Research",
-      "Planning",
-      "Entertainment",
-      "Conservation"
-    ],
-    "answer": [0, 1, 2, 3],
-    "explanation": "The four objectives of forest mensuration are basis of sale, basis for management, research, and planning.", "learningOutcome": "List the four objectives of forest mensuration.", "active": true
+    "question": "Which of the following is NOT a common measurement in forest mensuration?",
+    "options": ["Tree diameter", "Tree height", "Tree volume", "Soil pH only"],
+    "answer": 3,
+    "explanation": "Soil pH belongs to soil science; diameter, height and volume are mensuration's standard measurements.",
+    "learningOutcome": "Recognise the common measurements of forest mensuration.", "active": true
   },
   {
-    "unit": "I", "topic": "objectives", "subtopic": "sequence", "questionType": "fill-blank", "autoGraded": true,
+    "unit": "I", "topic": "importance", "subtopic": "management", "questionType": "fill-blank", "autoGraded": true,
     "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
-    "question": "The four objectives of forest mensuration run forward in time: sale is now, management is the plan period, research is the coming decades, and planning is the projects not yet begun. This describes the __ __ of the objectives.",
-    "answer": ["temporal", "ordering"],
-    "explanation": "The objectives have a temporal ordering that runs forward in time.", "learningOutcome": "Describe the temporal ordering of the four objectives.", "active": true
+    "question": "The measurement of forest resources provides quantitative information for forest ___.",
+    "answer": ["management", "forest management"],
+    "explanation": "Measurement exists to inform forest management.",
+    "learningOutcome": "Recall the purpose of forest measurement.", "active": true
   },
   {
-    "unit": "I", "topic": "accuracy", "subtopic": "definition", "questionType": "mcq", "autoGraded": true,
+    "unit": "I", "topic": "importance", "subtopic": "scope", "questionType": "true-false", "autoGraded": true,
     "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
-    "question": "Accuracy in forest mensuration is defined as:",
-    "options": [
-      "Closeness of repeated measurements to each other",
-      "Closeness of a measurement to the true value", 
-      "The ability to reproduce measurements",
-      "Freedom from mistakes"
-    ],
+    "question": "Forest mensuration is important only for timber production.",
     "answer": 1,
-    "explanation": "Accuracy is closeness of a measurement to the true value, degraded by systematic error.", "learningOutcome": "Define accuracy in forest mensuration.", "active": true
+    "explanation": "False — it also serves biomass, carbon, biodiversity, watershed and many other management objectives.",
+    "learningOutcome": "Recall that mensuration serves more than timber.", "active": true
   },
   {
-    "unit": "I", "topic": "accuracy", "subtopic": "precision", "questionType": "mcq", "autoGraded": true,
+    "unit": "I", "topic": "importance", "subtopic": "purpose", "questionType": "mcq", "autoGraded": true,
     "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
-    "question": "Precision in forest mensuration is defined as:",
-    "options": [
-      "Closeness of a measurement to the true value",
-      "Closeness of repeated measurements to each other",
-      "Freedom from systematic error",
-      "The use of calibrated instruments"
-    ],
-    "answer": 1,
-    "explanation": "Precision is closeness of repeated measurements to each other, degraded by random error.", "learningOutcome": "Define precision in forest mensuration.", "active": true
+    "question": "The main purpose of forest measurement is to obtain:",
+    "options": ["Reliable information about forest resources", "Weather prediction only", "Wildlife photographs", "Soil classification only"],
+    "answer": 0,
+    "explanation": "Measurement produces reliable, quantitative information about forest resources.",
+    "learningOutcome": "Recall the main purpose of forest measurement.", "active": true
   },
   {
-    "unit": "I", "topic": "error", "subtopic": "types", "questionType": "mcq", "autoGraded": true,
+    "unit": "I", "topic": "accuracy_precision", "subtopic": "accuracy", "questionType": "short-answer", "autoGraded": false,
     "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
-    "question": "Random error in forest mensuration:",
-    "options": [
-      "Does not average out with more measurements",
-      "Is the same size and sign every time",
-      "Varies in size and sign from reading to reading and averages to about zero",
-      "Can only be corrected by changing the procedure"
-    ],
-    "answer": 2,
-    "explanation": "Random error varies in size and sign from reading to reading, averages to about zero, and cancels as the number of readings grows.", "learningOutcome": "Describe characteristics of random error.", "active": true
+    "question": "Define accuracy.",
+    "modelAnswer": "Accuracy is the closeness of a measurement to the true or accepted value.",
+    "rubric": [{ "point": "Closeness of a measurement to the true (accepted) value", "marks": 1 }],
+    "learningOutcome": "Define accuracy.", "active": true
   },
   {
-    "unit": "I", "topic": "error", "subtopic": "systematic", "questionType": "mcq", "autoGraded": true,
+    "unit": "I", "topic": "accuracy_precision", "subtopic": "precision", "questionType": "short-answer", "autoGraded": false,
     "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
-    "question": "Systematic error (bias) in forest mensuration:",
-    "options": [
-      "Averages out with more measurements",
-      "Has a value of zero",
-      "Is the same size and the same sign every time",
-      "Is caused by natural variation"
-    ],
-    "answer": 2,
-    "explanation": "Systematic error is the same size and the same sign every time. It does not cancel — it survives averaging intact.", "learningOutcome": "Describe characteristics of systematic error.", "active": true
+    "question": "Define precision.",
+    "modelAnswer": "Precision is the closeness of repeated measurements to each other.",
+    "rubric": [{ "point": "Closeness of repeated measurements to each other", "marks": 1 }],
+    "learningOutcome": "Define precision.", "active": true
   },
+
   {
-    "unit": "I", "topic": "error", "subtopic": "reasons", "questionType": "multi-response", "autoGraded": true,
-    "bloomLevel": "Understand", "difficulty": "Medium", "marks": 2,
-    "question": "Which of the following are reasons why only relative accuracy is attainable in forest mensuration? Select all that apply.",
-    "options": [
-      "The characteristics of trees",
-      "Varying methods and conditions of felling and conversion",
-      "Instruments and the conditions of their use",
-      "The biological character of the forest",
-      "The use to which the measurement is to be put",
-      "Cost",
-      "All of the above",
-      "None of the above"
-    ],
-    "answer": [0, 1, 2, 3, 4, 5],
-    "explanation": "All six listed factors contribute to why only relative accuracy is attainable: tree characteristics, felling/conversion methods, instrument conditions, forest biology, measurement use, and cost.", "learningOutcome": "Name and explain the six reasons only relative accuracy is attainable.", "active": true
-  },
-  {
-    "unit": "I", "topic": "error", "subtopic": "example", "questionType": "numerical", "autoGraded": true,
-    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 2,
-    "question": "A crew's five readings of a 40.0 cm stem are 43.1, 43.0, 43.2, 43.1, and 43.0 cm. What is the mean diameter reading?",
-    "answer": 43.08, "tolerance": { "mode": "absolute", "value": 0.05 }, "units": "cm",
-    "explanation": "Mean = (43.1 + 43.0 + 43.2 + 43.1 + 43.0) / 5 = 215.4 / 5 = 43.08 cm.", "learningOutcome": "Calculate mean diameter from a set of readings.", "active": true
-  },
-  {
-    "unit": "I", "topic": "error", "subtopic": "classification", "questionType": "numerical", "autoGraded": true,
-    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 2,
-    "question": "A crew's five readings of a 40.0 cm stem are 43.1, 43.0, 43.2, 43.1, and 43.0 cm. What is the absolute error in the mean diameter reading?",
-    "answer": 3.08, "tolerance": { "mode": "absolute", "value": 0.05 }, "units": "cm",
-    "explanation": "True value is 40.0 cm, mean reading is 43.08 cm, so absolute error = |43.08 - 40.0| = 3.08 cm.", "learningOutcome": "Calculate absolute error from measurements.", "active": true
-  },
-  {
-    "unit": "I", "topic": "error", "subtopic": "precision_accuracy", "questionType": "short-answer", "autoGraded": false,
-    "bloomLevel": "Analyze", "difficulty": "Medium", "marks": 2,
-    "question": "Classify the following set of readings on both precision and accuracy counts: 43.1, 43.0, 43.2, 43.1, and 43.0 cm for a 40.0 cm stem. State what you would do about it.",
-    "modelAnswer": "The readings are precise (tight cluster) but not accurate (cluster is in the wrong place). More readings will not help because the error is systematic. Calibration, correction, or changing the procedure is needed.",
+    "unit": "I", "topic": "importance", "subtopic": "forestry", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Understand", "difficulty": "Easy", "marks": 2,
+    "question": "Explain the importance of forest mensuration in forestry.",
+    "modelAnswer": "It provides information about forest resources and supports planning, inventory and management decisions.",
     "rubric": [
-      { "point": "Identifies readings as precise but not accurate", "marks": 1 },
-      { "point": "Recognizes systematic error that won't be fixed by more readings", "marks": 1 },
-      { "point": "Recommends calibration/correction/procedure change", "marks": 1 }
+      { "point": "Provides quantitative information about forest resources", "marks": 1 },
+      { "point": "Supports planning, inventory and management decisions", "marks": 1 }
     ],
-    "explanation": "Readings show good precision (agreement with each other) but poor accuracy (agreement with true value), indicating systematic error.", "learningOutcome": "Distinguish precision from accuracy and classify a set of readings on both counts.", "active": true
+    "learningOutcome": "Explain why forest mensuration matters in forestry.", "active": true
   },
   {
-    "unit": "I", "topic": "bhutan", "subtopic": "constitution", "questionType": "mcq", "autoGraded": true,
-    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
-    "question": "Article 5 of the Bhutanese Constitution requires a minimum of what percentage of Bhutan's total land to be under forest cover for all time to come?",
-    "options": ["50%", "55%", "60%", "65%"], "answer": 2,
-    "explanation": "Article 5 of the Constitution requires a minimum of sixty per cent of Bhutan's total land under forest cover for all time to come.", "learningOutcome": "Recall the constitutional forest cover requirement for Bhutan.", "active": true
-  },
-  {
-    "unit": "I", "topic": "bhutan", "subtopic": "nfI", "questionType": "mcq", "autoGraded": true,
-    "bloomLevel": "Remember", "difficulty": "Medium", "marks": 1,
-    "question": "Forest cover at the Second National Forest Inventory was 69.71% (State of Forest Report 2023). This figure:",
-    "options": [
-      "Is below the constitutional minimum",
-      "Meets the constitutional minimum",
-      "Exceeds the constitutional minimum",
-      "Is irrelevant to the constitutional requirement"
-    ],
-    "answer": 2,
-    "explanation": "69.71% exceeds the constitutional minimum of 60% forest cover.", "learningOutcome": "Interpret national forest inventory results in relation to constitutional requirements.", "active": true
-  },
-  {
-    "unit": "I", "topic": "professional", "subtopic": "judgement", "questionType": "mcq", "autoGraded": true,
-    "bloomLevel": "Evaluate", "difficulty": "Medium", "marks": 2,
-    "question": "The statement 'In forest mensuration, absolute accuracy is neither necessary nor desirable' is best justified by:",
-    "options": [
-      "Foresters are lazy and don't want to work hard",
-      "Equipment limitations prevent perfect measurements",
-      "The cost of increasing accuracy often exceeds the benefits gained",
-      "All measurements in forestry are inherently unreliable"
-    ],
-    "answer": 2,
-    "explanation": "Accuracy is bought with time, people and instruments, and the budget is finite. Doubling precision costs about four times as much effort.", "learningOutcome": "Justify the claim that absolute accuracy is neither necessary nor desirable in forestry.", "active": true
-  },
-  {
-    "unit": "I", "topic": "professional", "subtopic": "question", "questionType": "mcq", "autoGraded": true,
-    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 2,
-    "question": "A forester is asked: 'How accurate does this particular job need to be, and what will that cost?' This question relates to:",
-    "options": [
-      "Determining the constitutional forest cover requirement",
-      "Calculating the volume of a single tree",
-      "Professional judgement about accuracy requirements and costs",
-      "Selecting appropriate measurement instruments"
-    ],
-    "answer": 2,
-    "explanation": "The right question is never 'how accurate can I be?' but 'how accurate does this particular job need to be, and what will that cost?'", "learningOutcome": "Frame the importance of mensuration as the practical questions it answers.", "active": true
-  },
-  {
-    "unit": "I", "topic": "measurement", "subtopic": "error_propagation", "questionType": "numerical", "autoGraded": true,
-    "bloomLevel": "Apply", "difficulty": "Hard", "marks": 2,
-    "question": "If a diameter measurement has a 1% error, approximately what is the resulting error in basal area calculation?",
-    "options": ["1%", "2%", "3%", "4%"], "answer": 1,
-    "explanation": "A 1% error in diameter becomes about a 2% error in basal area because basal area is proportional to diameter squared.", "learningOutcome": "Explain why a 1% error in diameter does not stay a 1% error in volume calculations.", "active": true
-  },
-  {
-    "unit": "I", "topic": "measurement", "subtopic": "volume_error", "questionType": "numerical", "autoGraded": true,
-    "bloomLevel": "Apply", "difficulty": "Hard", "marks": 2,
-    "question": "If a diameter measurement has a 1% error, approximately what is the resulting error in volume calculation?",
-    "options": ["1%", "2%", "3%", "4%"], "answer": 2,
-    "explanation": "A 1% error in diameter becomes about a 2% error in basal area and in every volume figure built on it, because volume is proportional to basal area times height.", "learningOutcome": "Explain why a 1% error in diameter does not stay a 1% error in volume calculations.", "active": true
-  },
-  {
-    "unit": "I", "topic": "definition", "subtopic": "verbatim", "questionType": "short-answer", "autoGraded": false,
-    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 2,
-    "question": "State the definition of forest mensuration in full, and give the Latin root of the word.",
-    "modelAnswer": "Forest mensuration is the determination of the dimensions, form, volume, age and increment of single trees, stands or whole woods, either standing or after felling. The Latin root is 'mensura'.",
+    "unit": "I", "topic": "accuracy_precision", "subtopic": "difference", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Understand", "difficulty": "Easy", "marks": 2,
+    "question": "Differentiate between accuracy and precision.",
+    "modelAnswer": "Accuracy describes closeness to the true value, while precision describes consistency among repeated measurements.",
     "rubric": [
-      { "point": "States the complete definition correctly", "marks": 1 },
-      { "point": "Gives the correct Latin root 'mensura'", "marks": 1 }
+      { "point": "Accuracy: closeness to the true value", "marks": 1 },
+      { "point": "Precision: consistency among repeated measurements", "marks": 1 }
     ],
-    "explanation": "This definition must be reproduced verbatim as it is examinable word for word.", "learningOutcome": "State the definition of forest mensuration and the Latin root of the word.", "active": true
+    "learningOutcome": "Distinguish accuracy from precision.", "active": true
   },
   {
-    "unit": "I", "topic": "measurement", "subtopic": "four_kinds", "questionType": "short-answer", "autoGraded": false,
-    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 2,
-    "question": "Name the four kinds of measurement forest mensuration deals with, giving the dimension and one forestry example of each.",
-    "modelAnswer": "Linear (L): diameter, girth, height, bark thickness; Area (L²): basal area, crown projection area, plot area; Volume (L³): stem volume, growing stock; Weight (M): biomass, carbon.",
+    "unit": "I", "topic": "importance", "subtopic": "decisions", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Understand", "difficulty": "Easy", "marks": 2,
+    "question": "Why is measurement important before making forest management decisions?",
+    "modelAnswer": "Because management requires reliable information about forest quantity, condition and resources.",
     "rubric": [
-      { "point": "Names all four kinds with correct dimensions", "marks": 2 },
-      { "point": "Gives at least one example for each kind", "marks": 0 }
+      { "point": "Decisions need reliable information", "marks": 1 },
+      { "point": "Names what is needed: quantity, condition and resources", "marks": 1 }
     ],
-    "explanation": "The four kinds are linear (L), area (L²), volume (L³), and weight (M).", "learningOutcome": "Name the four kinds of measurement forest mensuration deals with.", "active": true
+    "learningOutcome": "Explain why measurement precedes management decisions.", "active": true
   },
   {
-    "unit": "I", "topic": "objectives", "subtopic": "list_explain", "questionType": "short-answer", "autoGraded": false,
-    "bloomLevel": "Understand", "difficulty": "Medium", "marks": 2,
-    "question": "List the four objectives of forest mensuration and describe what each delivers.",
-    "modelAnswer": "The four objectives are: 1) Basis of sale - royalty, auction price and contract value are charged on measured volume; 2) Basis for management - working plan prescribes what may be felled and what must be left; 3) Research - volume equations, form-factor functions, growth models and yield tables are built from carefully measured trees; 4) Planning - investment in roads, mills and processing depends on knowing what the resource contains and how fast it is growing.",
+    "unit": "I", "topic": "accuracy_precision", "subtopic": "repeats", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Understand", "difficulty": "Easy", "marks": 2,
+    "question": "Explain why repeated measurements are conducted in forest mensuration.",
+    "modelAnswer": "Repeated measurements help assess precision and reduce uncertainty.",
     "rubric": [
-      { "point": "Lists all four objectives correctly", "marks": 0.5 },
-      { "point": "Describes what basis of sale delivers", "marks": 0.5 },
-      { "point": "Describes what basis for management delivers", "marks": 0.5 },
-      { "point": "Describes what research delivers", "marks": 0.5 },
-      { "point": "Describes what planning delivers", "marks": 0.5 }
+      { "point": "Repeats reveal precision", "marks": 1 },
+      { "point": "Repeats reduce uncertainty", "marks": 1 }
     ],
-    "explanation": "The four objectives run forward in time: sale (now), management (plan period), research (coming decades), planning (projects not yet begun).", "learningOutcome": "List the four objectives of forest mensuration and describe what each delivers.", "active": true
+    "learningOutcome": "Explain the role of repeated measurements.", "active": true
   },
   {
-    "unit": "I", "topic": "professional", "subtopic": "accuracy_necessary", "questionType": "short-answer", "autoGraded": false,
-    "bloomLevel": "Evaluate", "difficulty": "Medium", "marks": 2,
-    "question": "Explain why absolute accuracy is neither necessary nor desirable in forest mensuration using at least four of the six reasons.",
-    "modelAnswer": "Absolute accuracy is neither necessary nor desirable because: 1) Trees are not perfect solids of revolution (they're elliptical, fluted, etc.); 2) Felling and conversion methods vary, changing what counts as merchantable; 3) Instruments have limits and are affected by user technique and conditions; 4) Forests grow and change during measurement; 5) Different uses require different accuracy levels (reconnaissance vs timber sale); 6) Accuracy costs increase exponentially with precision gains.",
+    "unit": "I", "topic": "inventory", "subtopic": "relationship", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Understand", "difficulty": "Easy", "marks": 2,
+    "question": "Describe the relationship between forest inventory and forest mensuration.",
+    "modelAnswer": "Forest mensuration provides the measurements needed for forest inventory and resource assessment.",
     "rubric": [
-      { "point": "Mentions tree characteristics", "marks": 0.5 },
-      { "point": "Mentions felling/conversion variation", "marks": 0.5 },
-      { "point": "Mentions instrument limitations", "marks": 0.5 },
-      { "point": "Mentions forest biology changes", "marks": 0.5 },
-      { "point": "Mentions use-dependent accuracy needs", "marks": 0.5 },
-      { "point": "Mentions cost considerations", "marks": 0.5 }
+      { "point": "Mensuration supplies the measurements", "marks": 1 },
+      { "point": "Inventory uses them for resource assessment", "marks": 1 }
     ],
-    "explanation": "Any four of the six reasons with proper explanation earns full marks.", "learningOutcome": "Justify the statement that absolute accuracy is neither necessary nor desirable.", "active": true
+    "learningOutcome": "Relate mensuration to forest inventory.", "active": true
   },
   {
-    "unit": "I", "topic": "professional", "subtopic": "precision_vs_accuracy", "questionType": "short-answer", "autoGraded": false,
-    "bloomLevel": "Analyze", "difficulty": "Medium", "marks": 2,
-    "question": "Distinguish precision from accuracy and explain why random error cancels but bias does not.",
-    "modelAnswer": "Precision is closeness of repeated measurements to each other (affected by random error). Accuracy is closeness of a measurement to the true value (affected by systematic error). Random error varies in size and sign, averages to zero, and cancels with more measurements. Systematic error (bias) is the same size and sign every time, does not cancel, and survives averaging intact.",
+    "unit": "I", "topic": "standardisation", "subtopic": "methods", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Understand", "difficulty": "Easy", "marks": 2,
+    "question": "Explain why standardized measurement methods are important.",
+    "modelAnswer": "They ensure consistency and allow comparison among different measurements and surveys.",
     "rubric": [
-      { "point": "Correctly defines precision", "marks": 0.5 },
-      { "point": "Correctly defines accuracy", "marks": 0.5 },
-      { "point": "Explains why random error cancels", "marks": 0.5 },
-      { "point": "Explains why bias does not cancel", "marks": 0.5 }
+      { "point": "Consistency between measurements", "marks": 1 },
+      { "point": "Comparability between surveys", "marks": 1 }
     ],
-    "explanation": "Random error cancels because it varies in sign; systematic error persists because it's always the same sign.", "learningOutcome": "Distinguish precision from accuracy and classify a set of readings on both counts.", "active": true
+    "learningOutcome": "Explain the value of standardized methods.", "active": true
   },
   {
-    "unit": "I", "topic": "professional", "subtopic": "judgement_call", "questionType": "short-answer", "autoGraded": false,
-    "bloomLevel": "Create", "difficulty": "Hard", "marks": 2,
-    "question": "Develop a professional judgement framework for determining how much accuracy a given piece of forest work actually deserves.",
-    "modelAnswer": "Consider: 1) The purpose of the measurement (sale requires high accuracy, reconnaissance needs less); 2) Characteristics of the trees and forest stand; 3) Available instruments and their precision limits; 4) Time and budget constraints; 5) Skill level of the measurers; 6) Whether systematic errors can be corrected through calibration or procedure changes.",
+    "unit": "I", "topic": "accuracy_precision", "subtopic": "systematic_error", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Understand", "difficulty": "Easy", "marks": 2,
+    "question": "A measurement can be precise but inaccurate. Explain with an example.",
+    "modelAnswer": "Repeated measurements may give similar values but all may differ from the actual value due to systematic error — for example a tape that reads 2 cm high gives tightly clustered readings that are all too large.",
     "rubric": [
-      { "point": "Considers purpose/use of measurement", "marks": 0.4 },
-      { "point": "Addresses tree/forest characteristics", "marks": 0.4 },
-      { "point": "Includes instrument and personnel factors", "marks": 0.4 },
-      { "point": "Mentions time/budget constraints", "marks": 0.4 },
-      { "point": "Addresses error correction possibilities", "marks": 0.4 }
+      { "point": "Similar repeated values that all miss the true value (systematic error)", "marks": 1 },
+      { "point": "Gives a concrete example", "marks": 1 }
     ],
-    "explanation": "Professional judgement balances accuracy needs against costs and limitations.", "learningOutcome": "Decide how much accuracy a given piece of forest work actually deserves.", "active": true
+    "learningOutcome": "Explain precise-but-inaccurate measurement with an example.", "active": true
+  },
+  {
+    "unit": "I", "topic": "sustainability", "subtopic": "support", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Understand", "difficulty": "Easy", "marks": 2,
+    "question": "Explain how forest mensuration supports sustainable forest management.",
+    "modelAnswer": "It provides the data needed for monitoring resources, planning utilization and maintaining sustainability.",
+    "rubric": [
+      { "point": "Data for monitoring resources", "marks": 1 },
+      { "point": "Data for planning utilization within sustainable limits", "marks": 1 }
+    ],
+    "learningOutcome": "Explain mensuration's role in sustainable management.", "active": true
+  },
+
+  {
+    "unit": "I", "topic": "accuracy_precision", "subtopic": "classify_readings", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 4,
+    "question": "A forester measures a tree diameter five times and obtains: 45.1, 45.2, 45.1, 45.2 and 45.1 cm. The actual diameter is 48 cm. Determine whether the measurements are accurate or precise.",
+    "modelAnswer": "The measurements are precise but not accurate: the five readings agree closely with each other (range 0.1 cm) but all lie about 2.9 cm below the true value of 48 cm.",
+    "rubric": [
+      { "point": "States the readings are precise, with evidence (close agreement)", "marks": 2 },
+      { "point": "States they are not accurate, with evidence (all ~2.9 cm below 48 cm)", "marks": 2 }
+    ],
+    "learningOutcome": "Classify a set of readings on accuracy and precision.", "active": true
+  },
+  {
+    "unit": "I", "topic": "planning", "subtopic": "timber", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 4,
+    "question": "A forest manager wants to estimate timber availability in an area. List three measurements required.",
+    "modelAnswer": "Diameter, height and volume (with volume derived from diameter and height, and the number of trees per unit area).",
+    "rubric": [
+      { "point": "Diameter", "marks": 1 },
+      { "point": "Height", "marks": 1 },
+      { "point": "Volume", "marks": 1 },
+      { "point": "Links the measurements to estimating timber availability", "marks": 1 }
+    ],
+    "learningOutcome": "Select the measurements needed to estimate timber availability.", "active": true
+  },
+  {
+    "unit": "I", "topic": "volume", "subtopic": "estimation", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 4,
+    "question": "Explain how tree diameter and height measurements can be used to estimate tree volume.",
+    "modelAnswer": "Diameter indicates stem size (basal area) and height indicates the tree's dimension along the stem; together they enter volume equations or volume tables to estimate stem volume.",
+    "rubric": [
+      { "point": "Diameter gives stem cross-section / basal area", "marks": 1 },
+      { "point": "Height gives the stem's length dimension", "marks": 1 },
+      { "point": "Combined in a volume equation or table", "marks": 2 }
+    ],
+    "learningOutcome": "Apply diameter and height to volume estimation.", "active": true
+  },
+  {
+    "unit": "I", "topic": "standardisation", "subtopic": "reliability", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 4,
+    "question": "A survey team obtains different results from different measuring methods. Suggest one way to improve reliability.",
+    "modelAnswer": "Use one standardized method with proper, calibrated instruments and a written protocol that every team member follows.",
+    "rubric": [
+      { "point": "Standardize the method / protocol", "marks": 2 },
+      { "point": "Use proper (calibrated) instruments", "marks": 2 }
+    ],
+    "learningOutcome": "Propose a way to improve measurement reliability.", "active": true
+  },
+  {
+    "unit": "I", "topic": "inventory", "subtopic": "sampling", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 4,
+    "question": "A forest inventory requires measurements from many trees. Explain why sampling is useful.",
+    "modelAnswer": "Sampling reduces the time and cost of measuring every tree while still providing reliable estimates of forest characteristics.",
+    "rubric": [
+      { "point": "Reduces time", "marks": 1 },
+      { "point": "Reduces cost", "marks": 1 },
+      { "point": "Still provides estimates of the forest's characteristics", "marks": 2 }
+    ],
+    "learningOutcome": "Explain why sampling is used in inventory.", "active": true
+  },
+  {
+    "unit": "I", "topic": "standardisation", "subtopic": "units", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 4,
+    "question": "A student records measurements without units. Explain why this creates problems.",
+    "modelAnswer": "Without units the numbers cannot be interpreted or compared correctly — 45 could be centimetres or inches — and any later calculation may be wrong.",
+    "rubric": [
+      { "point": "Values cannot be interpreted", "marks": 2 },
+      { "point": "Values cannot be compared or used in calculations correctly", "marks": 2 }
+    ],
+    "learningOutcome": "Explain the consequence of recording without units.", "active": true
+  },
+  {
+    "unit": "I", "topic": "errors", "subtopic": "consequences", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 4,
+    "question": "Explain how errors in measurements can affect forest management decisions.",
+    "modelAnswer": "Incorrect measurements lead to wrong estimates of growing stock, growth or yield, and therefore to poor management decisions such as over- or under-harvesting.",
+    "rubric": [
+      { "point": "Errors produce wrong estimates", "marks": 2 },
+      { "point": "Wrong estimates lead to poor decisions, with an example", "marks": 2 }
+    ],
+    "learningOutcome": "Trace measurement error through to management decisions.", "active": true
+  },
+  {
+    "unit": "I", "topic": "standardisation", "subtopic": "teams", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 4,
+    "question": "A forester wants consistent measurements between two survey teams. What should be done?",
+    "modelAnswer": "Provide both teams with the same standard procedures and train them together so that they measure the same way.",
+    "rubric": [
+      { "point": "Standard procedures shared by both teams", "marks": 2 },
+      { "point": "Training so both apply them the same way", "marks": 2 }
+    ],
+    "learningOutcome": "Propose how to make two teams measure consistently.", "active": true
+  },
+
+  {
+    "unit": "I", "topic": "accuracy_precision", "subtopic": "two_teams", "questionType": "long-answer", "autoGraded": false,
+    "bloomLevel": "Analyze", "difficulty": "Medium", "marks": 5,
+    "question": "Two teams measure the same trees. Team A obtains very similar values but consistently higher values. Team B obtains scattered values around the true value. Analyze the results.",
+    "modelAnswer": "Team A is precise but affected by systematic error (bias): its readings agree with each other but are all high. Team B has lower precision (random error) but may be more accurate, because its readings scatter around the true value.",
+    "rubric": [
+      { "point": "Team A: precise", "marks": 1 },
+      { "point": "Team A: systematic error / bias", "marks": 1 },
+      { "point": "Team B: lower precision (random error)", "marks": 1 },
+      { "point": "Team B: possibly better accuracy", "marks": 1 },
+      { "point": "Uses the terms correctly and compares the two", "marks": 1 }
+    ],
+    "learningOutcome": "Analyze two sets of readings for precision, accuracy and error type.", "active": true
+  },
+  {
+    "unit": "I", "topic": "errors", "subtopic": "causes", "questionType": "long-answer", "autoGraded": false,
+    "bloomLevel": "Analyze", "difficulty": "Medium", "marks": 5,
+    "question": "Identify possible causes of inaccurate forest measurements.",
+    "modelAnswer": "Instrument error (faulty or uncalibrated tools), observer error (reading or recording mistakes), incorrect method or protocol, and environmental conditions such as slope, wind or poor visibility.",
+    "rubric": [
+      { "point": "Instrument error", "marks": 1 },
+      { "point": "Observer error", "marks": 1 },
+      { "point": "Incorrect method", "marks": 1 },
+      { "point": "Environmental conditions", "marks": 1 },
+      { "point": "Explains at least one cause with an example", "marks": 1 }
+    ],
+    "learningOutcome": "Identify sources of inaccuracy in field measurement.", "active": true
+  },
+  {
+    "unit": "I", "topic": "definition", "subtopic": "science_and_skill", "questionType": "long-answer", "autoGraded": false,
+    "bloomLevel": "Analyze", "difficulty": "Medium", "marks": 5,
+    "question": "Analyze why forest mensuration requires both scientific methods and field skills.",
+    "modelAnswer": "Scientific methods (sound sampling, correct formulas, calibrated instruments) ensure accuracy and validity, while field skills ensure the data are actually collected correctly under real conditions — on slopes, in dense stands, in poor weather. Either without the other produces unreliable results.",
+    "rubric": [
+      { "point": "Scientific methods ensure accuracy / validity", "marks": 2 },
+      { "point": "Field skills ensure correct data collection under real conditions", "marks": 2 },
+      { "point": "Explains why one without the other fails", "marks": 1 }
+    ],
+    "learningOutcome": "Analyze the dual nature of forest mensuration.", "active": true
+  },
+  {
+    "unit": "I", "topic": "inventory", "subtopic": "variation", "questionType": "long-answer", "autoGraded": false,
+    "bloomLevel": "Analyze", "difficulty": "Medium", "marks": 5,
+    "question": "A forest inventory produces different estimates every year. What factors should be examined?",
+    "modelAnswer": "The methods used, the instruments and their calibration, the sampling design (plot number, size and location), measurement errors, and the field procedures followed by the crews — as well as whether real change in the forest explains part of the difference.",
+    "rubric": [
+      { "point": "Methods", "marks": 1 },
+      { "point": "Instruments", "marks": 1 },
+      { "point": "Sampling design", "marks": 1 },
+      { "point": "Measurement errors and field procedures", "marks": 1 },
+      { "point": "Considers real change versus measurement artefact", "marks": 1 }
+    ],
+    "learningOutcome": "Analyze possible causes of year-to-year inventory variation.", "active": true
+  },
+  {
+    "unit": "I", "topic": "errors", "subtopic": "random_vs_systematic", "questionType": "long-answer", "autoGraded": false,
+    "bloomLevel": "Analyze", "difficulty": "Medium", "marks": 5,
+    "question": "Compare the effects of random errors and systematic errors in forest measurements.",
+    "modelAnswer": "Random errors scatter readings above and below the true value; they reduce precision but tend to cancel with more measurements. Systematic errors push every reading the same way; they create a consistent bias that more measurements cannot remove — only calibration or a change of method can.",
+    "rubric": [
+      { "point": "Random errors create variation / reduce precision", "marks": 1 },
+      { "point": "Random errors tend to cancel with more readings", "marks": 1 },
+      { "point": "Systematic errors create consistent bias", "marks": 1 },
+      { "point": "Systematic errors are not removed by more readings", "marks": 1 },
+      { "point": "Compares the two directly", "marks": 1 }
+    ],
+    "learningOutcome": "Compare random and systematic error.", "active": true
+  },
+
+  {
+    "unit": "I", "topic": "importance", "subtopic": "accurate_data", "questionType": "long-answer", "autoGraded": false,
+    "bloomLevel": "Evaluate", "difficulty": "Hard", "marks": 5,
+    "question": "Evaluate the importance of accurate measurements in forest resource management.",
+    "modelAnswer": "Accurate measurements underpin every management decision: they improve planning (how much can be harvested), monitoring (whether the forest is changing), and sustainable utilization (keeping removals within growth). Inaccurate data can make a sustainable plan unsustainable without anyone noticing.",
+    "rubric": [
+      { "point": "Planning", "marks": 1 },
+      { "point": "Monitoring", "marks": 1 },
+      { "point": "Sustainable utilization", "marks": 1 },
+      { "point": "Weighs the consequence of inaccuracy", "marks": 1 },
+      { "point": "Reaches a justified judgement", "marks": 1 }
+    ],
+    "learningOutcome": "Evaluate the importance of accurate measurement.", "active": true
+  },
+  {
+    "unit": "I", "topic": "planning", "subtopic": "rough_estimates", "questionType": "long-answer", "autoGraded": false,
+    "bloomLevel": "Evaluate", "difficulty": "Hard", "marks": 5,
+    "question": "A manager suggests reducing measurement effort by using rough estimates only. Evaluate this approach.",
+    "modelAnswer": "Rough estimates save time and money and may be acceptable for low-stakes reconnaissance, but they reduce reliability; for decisions such as harvest planning or carbon reporting the resulting errors can be costly. A better approach is to match measurement effort to the decision's importance.",
+    "rubric": [
+      { "point": "Advantage: saves time and cost", "marks": 1 },
+      { "point": "Disadvantage: reduced reliability", "marks": 1 },
+      { "point": "Consequence for decisions", "marks": 1 },
+      { "point": "Considers when rough estimates are acceptable", "marks": 1 },
+      { "point": "Reaches a justified judgement", "marks": 1 }
+    ],
+    "learningOutcome": "Evaluate a proposal to rely on rough estimates.", "active": true
+  },
+  {
+    "unit": "I", "topic": "accuracy_precision", "subtopic": "precision_alone", "questionType": "long-answer", "autoGraded": false,
+    "bloomLevel": "Evaluate", "difficulty": "Hard", "marks": 5,
+    "question": "Evaluate why precision alone is not sufficient for forest measurement.",
+    "modelAnswer": "Precision only shows that repeated readings agree with each other. Measurements must also be close to the true value; a consistent error (bias) can make every reading agree and still be wrong, so precise results can produce confidently wrong estimates. Both precision and accuracy are needed.",
+    "rubric": [
+      { "point": "Precision means agreement among readings only", "marks": 1 },
+      { "point": "Measurements must also be close to the true value", "marks": 1 },
+      { "point": "Consistent (systematic) error can hide inside precise readings", "marks": 1 },
+      { "point": "Consequence: confidently wrong results", "marks": 1 },
+      { "point": "Concludes that both are required", "marks": 1 }
+    ],
+    "learningOutcome": "Evaluate the limits of precision as a quality measure.", "active": true
+  },
+
+  {
+    "unit": "I", "topic": "planning", "subtopic": "measurement_plan", "questionType": "long-answer", "autoGraded": false,
+    "bloomLevel": "Create", "difficulty": "Hard", "marks": 5,
+    "question": "Design a simple forest measurement plan for a new forest area.",
+    "modelAnswer": "State the objectives (e.g. estimate growing stock); select the measurements (diameter, height, species, number of trees); choose a sampling approach (e.g. systematic plots on a grid); describe how data are recorded (standard field sheet with units); and include quality control (calibrated instruments, repeat checks, trained crews).",
+    "rubric": [
+      { "point": "Identifies objectives", "marks": 1 },
+      { "point": "Selects measurements", "marks": 1 },
+      { "point": "Selects a sampling approach", "marks": 1 },
+      { "point": "Describes the recording method", "marks": 1 },
+      { "point": "Includes quality control", "marks": 1 }
+    ],
+    "learningOutcome": "Design a basic forest measurement plan.", "active": true
+  },
+  {
+    "unit": "I", "topic": "errors", "subtopic": "accuracy_checklist", "questionType": "long-answer", "autoGraded": false,
+    "bloomLevel": "Create", "difficulty": "Hard", "marks": 5,
+    "question": "Develop a checklist for improving accuracy during forest measurements.",
+    "modelAnswer": "Proper, calibrated instruments; correct methods and protocol; units recorded with every value; trained observers; and checking of data in the field and after entry.",
+    "rubric": [
+      { "point": "Proper instruments", "marks": 1 },
+      { "point": "Correct methods", "marks": 1 },
+      { "point": "Unit recording", "marks": 1 },
+      { "point": "Observer training", "marks": 1 },
+      { "point": "Data checking", "marks": 1 }
+    ],
+    "learningOutcome": "Create a checklist for accurate measurement.", "active": true
+  },
+  {
+    "unit": "I", "topic": "errors", "subtopic": "field_procedure", "questionType": "long-answer", "autoGraded": false,
+    "bloomLevel": "Create", "difficulty": "Hard", "marks": 5,
+    "question": "Design a field procedure to minimize measurement errors.",
+    "modelAnswer": "Follow a written standard protocol; calibrate instruments before each day; take repeated measurements on a subset of trees; document every reading with units, tree number and observer; and run quality checks on the completed sheets before leaving the plot.",
+    "rubric": [
+      { "point": "Standard protocol", "marks": 1 },
+      { "point": "Calibration", "marks": 1 },
+      { "point": "Repeated measurements", "marks": 1 },
+      { "point": "Proper documentation", "marks": 1 },
+      { "point": "Quality checking", "marks": 1 }
+    ],
+    "learningOutcome": "Design an error-minimizing field procedure.", "active": true
+  },
+  {
+    "unit": "I", "topic": "importance", "subtopic": "explain_to_students", "questionType": "long-answer", "autoGraded": false,
+    "bloomLevel": "Create", "difficulty": "Hard", "marks": 5,
+    "question": "Prepare a short explanation for new forestry students on why mensuration is important.",
+    "modelAnswer": "Define mensuration (measuring trees, forests and forest products), explain its importance (reliable information for decisions), give its applications (inventory, growth and yield, harvest planning, carbon), illustrate with examples (estimating timber volume in a compartment), and relate it to management (sustainable harvest within growth).",
+    "rubric": [
+      { "point": "Definition", "marks": 1 },
+      { "point": "Importance", "marks": 1 },
+      { "point": "Applications", "marks": 1 },
+      { "point": "Examples", "marks": 1 },
+      { "point": "Management relevance", "marks": 1 }
+    ],
+    "learningOutcome": "Create an explanation of mensuration's importance for beginners.", "active": true
+  },
+  {
+    "unit": "I", "topic": "accuracy_precision", "subtopic": "comparison_table", "questionType": "long-answer", "autoGraded": false,
+    "bloomLevel": "Create", "difficulty": "Hard", "marks": 5,
+    "question": "Create a comparison table showing accuracy versus precision.",
+    "modelAnswer": "Rows such as: Definition (closeness to true value vs closeness of repeats to each other); Error type (systematic vs random); Improved by (calibration vs more readings); Example (all readings 2 cm high vs readings scattered ±1 cm); Interpretation (can be precise yet inaccurate, and vice versa).",
+    "rubric": [
+      { "point": "Correct definitions of both", "marks": 2 },
+      { "point": "Differences clearly contrasted", "marks": 1 },
+      { "point": "Examples", "marks": 1 },
+      { "point": "Interpretation of the contrast", "marks": 1 }
+    ],
+    "learningOutcome": "Create a comparison of accuracy and precision.", "active": true
+  },
+  {
+    "unit": "I", "topic": "sustainability", "subtopic": "data_plan", "questionType": "long-answer", "autoGraded": false,
+    "bloomLevel": "Create", "difficulty": "Hard", "marks": 5,
+    "question": "Develop a brief plan showing how forest mensuration data can support sustainable forest management.",
+    "modelAnswer": "Resource assessment (inventory of growing stock); monitoring (repeat measurement to track growth and change); planning (setting harvest levels from growth data); decision support (choosing treatments from the evidence); and the sustainability link (keeping removals within measured increment).",
+    "rubric": [
+      { "point": "Resource assessment", "marks": 1 },
+      { "point": "Monitoring", "marks": 1 },
+      { "point": "Planning", "marks": 1 },
+      { "point": "Decision support", "marks": 1 },
+      { "point": "Sustainability link", "marks": 1 }
+    ],
+    "learningOutcome": "Create a plan linking mensuration data to sustainable management.", "active": true
   }
 ]

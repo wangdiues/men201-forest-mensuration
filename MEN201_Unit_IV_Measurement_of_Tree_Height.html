@@ -5469,6 +5469,30 @@ body.editing .slide.active [contenteditable]:focus{outline:2px solid var(--vermi
   <div class="pageno">62 / 62</div>
 </section>
 
+<!-- uq:slide -->
+<!-- ======================================================================
+     TEST YOUR UNDERSTANDING — the Unit IV paper, sat here on the last slide.
+     The frame loads the quiz app (quiz/take.html) only when this slide is
+     reached, so opening the deck never contacts Firebase. Students sign in
+     inside the frame; the paper shows its full marks, time and pass mark, and
+     results are recorded against the student's account.
+     ====================================================================== -->
+<section class="slide uq" data-n="uq" aria-labelledby="uq-title-IV">
+  <div class="head">
+    <div class="eyebrow rv" style="--d:0">Unit IV &middot; end of unit</div>
+    <h2 class="title rv" style="--d:1" id="uq-title-IV">Test your <em>understanding</em></h2>
+    <div class="hr"></div>
+  </div>
+  <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IV &middot; Paper</div>
+  <div class="body">
+    <p class="txt-sm rv" style="--d:2;margin:0 0 14px">The unit paper: full marks, time allowed and pass mark are printed on the sheet. Sign in, answer, submit once. <a href="quiz/take.html?aid=unit-iv-quiz" target="_blank" rel="noopener">Open the paper in its own tab</a></p>
+    <div class="uq-wrap rv" style="--d:3">
+      <iframe class="uq-frame" data-src="quiz/take.html?aid=unit-iv-quiz" title="Unit IV paper"></iframe>
+    </div>
+  </div>
+  <div class="pageno"></div>
+</section>
+<!-- /uq:slide -->
 </div><!-- /.stage -->
 </div><!-- /.deck-viewport -->
 
@@ -5731,5 +5755,37 @@ body.editing .tocback,body.editing .tocsep{display:none}
   sync();
 })();
 </script>
+<!-- uq:loader -->
+<!-- === TEST YOUR UNDERSTANDING · frame loader ============================
+     The last slide's frame carries data-src, not src: the quiz app and the
+     Firebase SDK behind it are fetched the first time the slide is shown,
+     never on opening the deck. Clicks and keys inside the frame stay in the
+     frame, so answering can't turn the page. The frame is laid out at 1/1.6
+     of its slot and scaled back up, so the paper inside gets a narrower page
+     and larger type once the 1920px stage has been shrunk to a laptop screen.
+     ====================================================================== -->
+<style>
+.uq .body{display:flex;flex-direction:column}
+.uq .body>.uq-wrap{flex:1 1 auto;min-height:0;position:relative;overflow:hidden;
+  border:1px solid var(--rule,rgba(20,28,24,.16));border-radius:3px;background:#fff;
+  box-shadow:0 2px 0 rgba(20,28,24,.05),0 14px 34px rgba(20,28,24,.045)}
+.uq-frame{position:absolute;left:0;top:0;width:calc(100% / 1.6);height:calc(100% / 1.6);
+  transform:scale(1.6);transform-origin:0 0;border:0;background:#fff}
+@media print{.uq-wrap{display:none}}
+</style>
+<script>
+(function(){
+  var slide = document.querySelector('.slide.uq');
+  var frame = slide && slide.querySelector('.uq-frame[data-src]');
+  if (!frame) return;
+  function load(){
+    if (!slide.classList.contains('active') || frame.src) return;
+    frame.src = frame.getAttribute('data-src');
+  }
+  new MutationObserver(load).observe(slide, {attributes:true, attributeFilter:['class']});
+  load();
+})();
+</script>
+<!-- /uq:loader -->
 </body>
 </html>

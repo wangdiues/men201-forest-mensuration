@@ -1,0 +1,523 @@
+[
+  {
+    "unit": "IV", "topic": "height", "subtopic": "definitions", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "Total tree height is measured from ___ to the tip of the leading shoot.",
+    "options": ["breast height", "ground level", "the crown point", "instrument height"], "answer": 1,
+    "explanation": "Total height runs from ground level to the tip of the leading shoot.",
+    "learningOutcome": "Recall the definition of total height.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "height", "subtopic": "definitions", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "Bole height is measured from the ground to ___",
+    "options": ["the tip of the leading shoot", "the first crown-forming branch (living or dead)", "the base of the live crown only", "1.37 m"], "answer": 1,
+    "explanation": "Bole height stops at the first crown-forming branch, whether living or dead.",
+    "learningOutcome": "Distinguish bole height from total height.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "height", "subtopic": "definitions", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "Crown-base height is measured to the base of the ___ crown.",
+    "options": ["dead", "live", "commercial", "upper"], "answer": 1,
+    "explanation": "Crown-base height stops at the base of the live crown, unlike bole height.",
+    "learningOutcome": "Recall crown-base height definition.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "height", "subtopic": "definitions", "questionType": "true-false", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "On a tree with dead branches kept low on the stem, bole height is usually shorter than crown-base height.",
+    "answer": 0,
+    "explanation": "Bole height stops at the first crown-forming branch (living or dead); crown-base height stops at the live crown base, which is higher.",
+    "learningOutcome": "Compare bole height and crown-base height.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "height", "subtopic": "definitions", "questionType": "fill-blank", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "Live-crown ratio = crown length ÷ ___",
+    "answer": ["total height", "total tree height", "height"],
+    "explanation": "Live-crown ratio divides crown length by total height.",
+    "learningOutcome": "Recall the live-crown ratio formula.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "instruments", "subtopic": "hypsometer", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "Which instrument measures vertical angles to estimate tree height?",
+    "options": ["Diameter tape", "Clinometer or hypsometer", "Spherical densiometer", "Increment borer"], "answer": 1,
+    "explanation": "Clinometers and hypsometers measure vertical angles used in height methods.",
+    "learningOutcome": "Identify height-measurement instruments.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "tangent-method", "questionType": "fill-blank", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "On level ground, the tangent method formula is h = D tan θ + ___",
+    "answer": ["eye height", "instrument height", "observer height"],
+    "explanation": "Eye height is added only in the level-ground tangent formula.",
+    "learningOutcome": "Recall the level-ground tangent formula.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "shadow-method", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "The shadow method relies on the principle of ___",
+    "options": ["random sampling", "similar triangles", "basal area", "form factor"], "answer": 1,
+    "explanation": "Shadow heights form similar triangles with a known pole.",
+    "learningOutcome": "Recall the principle behind the shadow method.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "sine-method", "questionType": "true-false", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "The sine method is preferred over the tangent method when the tree leans significantly.",
+    "answer": 0,
+    "explanation": "Leaning stems violate tangent-method assumptions; the sine method handles lean.",
+    "learningOutcome": "Recall when to switch to the sine method.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "ocular", "questionType": "true-false", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "Ocular estimation of height should be used as the primary inventory measurement without calibration.",
+    "answer": 1,
+    "explanation": "Ocular estimation is useful as a check but is systematically poor without calibration.",
+    "learningOutcome": "Recall appropriate use of ocular estimation.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "instruments", "subtopic": "matching", "questionType": "matching", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "Match each height method with its key requirement.",
+    "pairs": [
+      { "left": "Shadow method", "right": "Sunlit, open conditions; measure all shadows within minutes" },
+      { "left": "Tangent method (level ground)", "right": "Add eye height to D tan θ" },
+      { "left": "Sine method", "right": "Measure angle at top and base; handles lean" },
+      { "left": "Single-pole method", "right": "Known pole length held vertical at the tree" }
+    ],
+    "explanation": "Each method has distinct field requirements.",
+    "learningOutcome": "Match height methods to their assumptions.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "errors", "subtopic": "types", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Medium", "marks": 1,
+    "question": "A 2° error in reading the elevation angle to the tree top is best classified as ___",
+    "options": ["random error that averages out", "systematic error if the clinometer is miscalibrated", "always negligible", "only affects diameter"], "answer": 1,
+    "explanation": "Instrument miscalibration biases every reading the same way — systematic error.",
+    "learningOutcome": "Classify height measurement errors.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "classes", "subtopic": "height-classes", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Medium", "marks": 1,
+    "question": "Height classes for trees above 15 m in Bhutan typically use a class width of ___",
+    "options": ["1 m", "3 m", "10 m", "30 cm"], "answer": 1,
+    "explanation": "From 15 m upward the 3 m series applies (15–18, 18–21, …).",
+    "learningOutcome": "Recall standard height class widths.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "slope", "questionType": "fill-blank", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Medium", "marks": 1,
+    "question": "When the eye is between top and base on sloping ground, eye height is ___ added at the end.",
+    "answer": ["not", "never", "no"],
+    "explanation": "The slope formula already accounts for eye-to-base drop via the depression angle.",
+    "learningOutcome": "Recall when eye height is omitted.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "height", "subtopic": "volume-link", "questionType": "true-false", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "A 10% error in tree height produces approximately a 10% error in stem volume.",
+    "answer": 0,
+    "explanation": "Volume is linear in height for a given diameter — a 10% height error is a 10% volume error.",
+    "learningOutcome": "Recall the height–volume error relationship.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "shadow-method", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Understand", "difficulty": "Medium", "marks": 1,
+    "question": "Why can the shadow method not be used inside a closed broadleaf stand at midday?",
+    "modelAnswer": "The tree's shadow is blocked or fragmented by neighbouring crowns, so the full shadow length cannot be measured on the ground. Dappled shade also makes the shadow edge ambiguous.",
+    "rubric": [
+      { "point": "Shadow blocked or incomplete under closed canopy", "marks": 1 },
+      { "point": "Ambiguous shadow edge / unsuitable conditions", "marks": 1 }
+    ],
+    "explanation": "Open, sunlit conditions are required.",
+    "learningOutcome": "Explain limitations of the shadow method.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "slope", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Understand", "difficulty": "Medium", "marks": 1,
+    "question": "You measure on a slope with the eye between top and base and add 1.5 m eye height at the end. What have you done wrong?",
+    "modelAnswer": "Eye height must not be added when using the sloping-ground formula with the eye between top and base — the depression angle to the base already measures the drop from eye to base.",
+    "rubric": [
+      { "point": "States eye height should not be added in this case", "marks": 1 },
+      { "point": "Explains that β already accounts for eye-to-base drop", "marks": 1 }
+    ],
+    "explanation": "Adding eye height double-counts the base offset.",
+    "learningOutcome": "Explain correct eye-height use on slopes.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "height", "subtopic": "definitions", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Understand", "difficulty": "Medium", "marks": 1,
+    "question": "A tree has dead branches low on the stem and green branches only near the top. Which is greater — bole height or crown-base height? Explain briefly.",
+    "modelAnswer": "Crown-base height is greater. Bole height stops at the first crown-forming branch (including dead ones low on the stem); crown-base height stops at the base of the live crown, which is higher up.",
+    "rubric": [
+      { "point": "Correctly identifies crown-base height as greater", "marks": 1 },
+      { "point": "Explains the different stopping points (dead branch vs live crown base)", "marks": 1 }
+    ],
+    "explanation": "Dead retained branches shorten bole height relative to crown-base height.",
+    "learningOutcome": "Explain differences among height definitions.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "tangent-method", "questionType": "image-mcq", "autoGraded": true,
+    "bloomLevel": "Understand", "difficulty": "Medium", "marks": 1,
+    "question": "In this tangent-method setup on level ground, what does the measured tangent height represent?",
+    "image": "assets/images/men201/Tan_Q1.png",
+    "options": [
+      "The vertical distance from the instrument's line of sight to the taut line at the tree top",
+      "The horizontal distance to the tree",
+      "The total tree height including eye height",
+      "The DBH at breast height"
+    ],
+    "answer": 0,
+    "explanation": "Tangent height is the vertical offset from the horizontal line of sight to the top sight line.",
+    "learningOutcome": "Interpret a tangent-method field diagram.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "lean", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Understand", "difficulty": "Medium", "marks": 1,
+    "question": "A tree leans towards the observer and you use the tangent method. Your height estimate will be ___",
+    "options": ["too large", "too small", "unaffected", "exactly correct"], "answer": 0,
+    "explanation": "Lean towards the observer brings the top closer horizontally, inflating the calculated height.",
+    "learningOutcome": "Predict bias when tangent method is misapplied to leaning trees.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "errors", "subtopic": "systematic", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Understand", "difficulty": "Medium", "marks": 1,
+    "question": "Which statement about systematic height errors is correct?",
+    "options": [
+      "They average out if enough trees are measured",
+      "They bias every reading in the same direction and do not average out",
+      "They only affect random samples",
+      "They are always smaller than random errors"
+    ],
+    "answer": 1,
+    "explanation": "Systematic errors persist in the mean; only random errors cancel with replication.",
+    "learningOutcome": "Explain systematic vs random error in height work.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "classes", "subtopic": "comparison", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Understand", "difficulty": "Medium", "marks": 1,
+    "question": "Explain why height classes broaden with height faster than diameter classes broaden with diameter.",
+    "modelAnswer": "Height measurement error grows with tree size (angle and distance sensitivity), and height varies more across stands than diameter at a given age. Wider classes at greater heights keep class width above measurement error and reflect natural spread.",
+    "rubric": [
+      { "point": "Links wider classes to greater measurement error or variability at larger sizes", "marks": 1 },
+      { "point": "Contrasts with tighter diameter class rules / data density", "marks": 1 }
+    ],
+    "explanation": "Class width must exceed measurement error and reflect data density.",
+    "learningOutcome": "Explain height class design.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "tangent-method", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 1,
+    "question": "Tangent method on level ground: horizontal distance 30 m, angle to top 45°, instrument height 1.6 m. Calculate total tree height (m).",
+    "answer": 31.6,
+    "tolerance": { "mode": "absolute", "value": 0.2 },
+    "units": "m",
+    "explanation": "h = D tan θ + eye height = 30 × tan 45° + 1.6 = 30 + 1.6 = 31.6 m.",
+    "learningOutcome": "Apply the level-ground tangent method.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "tangent-method", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 1,
+    "question": "Horizontal distance 25.0 m, elevation angle to tip 41°, eye height 1.6 m (level ground). Total tree height (m)?",
+    "answer": 23.3,
+    "tolerance": { "mode": "absolute", "value": 0.2 },
+    "units": "m",
+    "explanation": "h = 25.0 × tan 41° + 1.6 = 21.732 + 1.6 = 23.3 m.",
+    "learningOutcome": "Apply tangent method with clinometer angle.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "slope", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Hard", "marks": 1,
+    "question": "Sloping ground, eye between top and base: slope distance EB = 22.0 m, elevation to top α = 29°, depression to base β = 9°. Tree height AB (m)?",
+    "answer": 15.5,
+    "tolerance": { "mode": "absolute", "value": 0.2 },
+    "units": "m",
+    "explanation": "AB = EB cos β (tan α + tan β) = 21.729 × 0.712693 ≈ 15.5 m. No eye height added.",
+    "learningOutcome": "Apply the sloping-ground tangent formula.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "shadow-method", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Easy", "marks": 1,
+    "question": "Shadow method: pole height 2.0 m, pole shadow 1.6 m, tree shadow 14.4 m. Tree height (m)?",
+    "answer": 18.0,
+    "tolerance": { "mode": "absolute", "value": 0.1 },
+    "units": "m",
+    "explanation": "h = 2.0 × 14.4 ÷ 1.6 = 18.0 m.",
+    "learningOutcome": "Apply the shadow method formula.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "tangent-method", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Hard", "marks": 1,
+    "question": "If the angle in the previous 41° example were misread as 43°, the height would be 24.9 m. What is the error (m) from the correct 23.3 m?",
+    "answer": 1.6,
+    "tolerance": { "mode": "absolute", "value": 0.1 },
+    "units": "m",
+    "explanation": "24.9 − 23.3 = 1.6 m (about 6.8% of height) from a 2° angle error.",
+    "learningOutcome": "Quantify sensitivity to angle reading error.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "classes", "subtopic": "assignment", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 1,
+    "question": "A tree is exactly 50.0 cm DBH and 24.8 m tall. Using Bhutan class rules, the height class lower bound (m) is ___",
+    "answer": 24,
+    "tolerance": { "mode": "absolute", "value": 0.1 },
+    "units": "m",
+    "explanation": "24.8 m falls in the 24–27 m class (3 m series from 15 m); lower bound 24 m.",
+    "learningOutcome": "Assign height classes correctly.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "eye-below-base", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Hard", "marks": 1,
+    "question": "Eye below base on slope: EB = 20 m, α = 35°, β = 12°. Use AB = EB cos β (tan α − tan β). Height (m)?",
+    "answer": 10.2,
+    "tolerance": { "mode": "absolute", "value": 0.3 },
+    "units": "m",
+    "explanation": "AB = 20 × cos 12° × (tan 35° − tan 12°) ≈ 10.2 m.",
+    "learningOutcome": "Apply eye-below-base slope formula.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "sine-method", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Hard", "marks": 1,
+    "question": "Sine method: EB = 18 m, angle at top = 48°, angle at base = 102° (interior angle at eye). Height AB = EB × sin(top angle) / sin(base angle). AB (m)?",
+    "answer": 13.4,
+    "tolerance": { "mode": "absolute", "value": 0.3 },
+    "units": "m",
+    "explanation": "AB = 18 × sin 48° / sin 102° ≈ 13.4 m.",
+    "learningOutcome": "Apply the sine method formula.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "lean", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Analyze", "difficulty": "Medium", "marks": 1,
+    "question": "You stand on a ridge; the tree is below you and leans away. Which method and case applies?",
+    "options": [
+      "Tangent method on level ground with eye height added",
+      "Sine method — observer above base and top, tree leaning away",
+      "Shadow method only",
+      "Ocular estimation without instruments"
+    ],
+    "answer": 1,
+    "explanation": "Lean away from an elevated observer is a sine-method case; tangent assumptions fail.",
+    "learningOutcome": "Select the correct method for lean and observer position.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "errors", "subtopic": "error-types", "questionType": "multi-response", "autoGraded": true,
+    "bloomLevel": "Analyze", "difficulty": "Medium", "marks": 1,
+    "question": "Which are sources of SYSTEMATIC error in height measurement? Select all that apply.",
+    "options": [
+      "Clinometer zero not checked before the day's work",
+      "Misreading the angle by ±1° on different trees",
+      "Consistently measuring slope distance instead of horizontal distance without correction",
+      "Wind moving the tree top during reading"
+    ],
+    "answer": [0, 2],
+    "explanation": "Uncorrected zero and always using slope distance bias every reading; ±1° scatter and wind are random.",
+    "learningOutcome": "Separate systematic from random height errors.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "sampling", "subtopic": "partial-measurement", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Analyze", "difficulty": "Medium", "marks": 1,
+    "question": "An inventory reports mean height 21.7 m for a stand but only 12 of 90 trees were measured for height. What must the report also state?",
+    "options": [
+      "Nothing — the mean is valid",
+      "That height was subsampled and how those trees were selected",
+      "Only the DBH of unmeasured trees",
+      "The form factor used"
+    ],
+    "answer": 1,
+    "explanation": "Partial height measurement requires documenting the subsample design so the mean can be interpreted.",
+    "learningOutcome": "Analyse reporting requirements for partial height data.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "case-study", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Analyze", "difficulty": "Hard", "marks": 1,
+    "question": "A crew's mean height is 2 m higher than a check plot re-measured by a supervisor using a laser hypsometer. Most likely explanation?",
+    "options": [
+      "Random scatter that will average out",
+      "Systematic bias — e.g. not holding horizontal distance, wrong eye-height rule, or miscalibrated clinometer",
+      "Trees grew 2 m overnight",
+      "Laser hypsometers always read low"
+    ],
+    "answer": 1,
+    "explanation": "A consistent 2 m shift across the sample indicates systematic procedure or instrument error.",
+    "learningOutcome": "Diagnose systematic bias in height data.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "errors", "subtopic": "angle-sensitivity", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Analyze", "difficulty": "Hard", "marks": 1,
+    "question": "Explain why a small angle error near the top of a tall tree produces a larger height error than the same error on a short tree (same distance).",
+    "modelAnswer": "Height above eye is D tan θ; the derivative dh/dθ = D sec² θ increases with θ. Taller trees have larger angles to the top, so the same Δθ produces a larger Δh.",
+    "rubric": [
+      { "point": "Links height to tan θ (or similar)", "marks": 1 },
+      { "point": "Explains greater sensitivity at larger angles / taller trees", "marks": 1 }
+    ],
+    "explanation": "Sensitivity grows with elevation angle.",
+    "learningOutcome": "Analyse angle sensitivity in height calculation.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "selection", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Evaluate", "difficulty": "Medium", "marks": 1,
+    "question": "For a national inventory on moderate slopes with occasional lean, the best default field method is ___",
+    "options": [
+      "Ocular estimation only",
+      "Tangent method with horizontal distance and correct slope/eye-height rules; sine method when lean is significant",
+      "Shadow method in all stands",
+      "Single-pole method for every tree"
+    ],
+    "answer": 1,
+    "explanation": "Tangent with proper slope corrections is efficient; switch to sine when lean invalidates tangent assumptions.",
+    "learningOutcome": "Evaluate method choice for inventory conditions.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "laser", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Evaluate", "difficulty": "Medium", "marks": 1,
+    "question": "A laser hypsometer returns height directly. The main advantage over manual clinometer work is ___",
+    "options": [
+      "It eliminates all error",
+      "It reduces random reading error and speeds measurement while still requiring correct target selection",
+      "It works without line of sight",
+      "It replaces DBH measurement"
+    ],
+    "answer": 1,
+    "explanation": "Laser devices reduce angle/distance reading error but still need correct top/base identification.",
+    "learningOutcome": "Evaluate electronic height instruments.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "protocol-judgment", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Evaluate", "difficulty": "Hard", "marks": 1,
+    "question": "Evaluate whether eye height should be added when measuring with a laser hypsometer that reports 'height above instrument'.",
+    "modelAnswer": "If the device reports height above the instrument, add instrument height only when the reported value is to the top above eye level and the total from ground is required — follow the manufacturer definition. Do not double-add if the device already returns total height from ground.",
+    "rubric": [
+      { "point": "Checks what the instrument output represents", "marks": 1 },
+      { "point": "Avoids double-counting eye/instrument height", "marks": 1 }
+    ],
+    "explanation": "Always match the field protocol to the instrument's output definition.",
+    "learningOutcome": "Evaluate protocol against instrument specifications.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "protocol-design", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Create", "difficulty": "Hard", "marks": 1,
+    "question": "Which five-step protocol best minimises systematic error in tangent-method height measurement?",
+    "options": [
+      "Measure at any distance; estimate angle; skip eye height on slopes",
+      "Level baseline; use horizontal distance; apply correct slope formula; record instrument height; replicate 10% of trees",
+      "Use slope distance always; add eye height in every case",
+      "Measure only short trees to avoid angle error"
+    ],
+    "answer": 1,
+    "explanation": "Horizontal distance, correct slope/eye-height rules, and verification replicate controls systematic error.",
+    "learningOutcome": "Design a field protocol for height measurement.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "field-protocol", "questionType": "short-answer", "autoGraded": false,
+    "bloomLevel": "Create", "difficulty": "Hard", "marks": 1,
+    "question": "Develop a five-step field protocol for tangent-method height measurement that minimises systematic error.",
+    "modelAnswer": "1) Check clinometer zero and tape/baseline. 2) Measure horizontal (or correct slope) distance to stem. 3) Read top and base angles; apply the correct slope case (add eye height only on level ground). 4) Identify the correct top shoot and base point consistently. 5) Replicate and cross-check a sample with a second method or observer.",
+    "rubric": [
+      { "point": "Instrument / baseline check", "marks": 1 },
+      { "point": "Horizontal distance or slope correction", "marks": 1 },
+      { "point": "Correct angle readings and eye-height rule", "marks": 1 },
+      { "point": "Consistent top/base identification", "marks": 1 },
+      { "point": "Replication or QC step", "marks": 1 }
+    ],
+    "explanation": "Each step targets a known systematic error source.",
+    "learningOutcome": "Create a complete height measurement protocol.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "classes", "subtopic": "assignment", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Easy", "marks": 1,
+    "question": "A tree with DBH 50.0 cm falls in diameter class ___",
+    "options": ["40–50", "50–60", "45–55", "50–55"], "answer": 1,
+    "explanation": "At exactly 50 cm the 10 cm rule places the tree in 50–60 cm.",
+    "learningOutcome": "Assign DBH classes at boundary values.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "single-pole", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "The single-pole method requires a pole of ___ length held vertically at the tree.",
+    "options": ["unknown", "known", "random", "maximum"], "answer": 1,
+    "explanation": "Similar-triangle proportion requires a known pole length.",
+    "learningOutcome": "Recall the single-pole method requirement.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "height", "subtopic": "commercial", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "Commercial bole height is measured to ___",
+    "options": ["the tree tip", "the last point fit for utilisation", "1.37 m", "the base of the live crown"], "answer": 1,
+    "explanation": "Commercial bole height stops where the stem is still merchantable.",
+    "learningOutcome": "Recall commercial bole height definition.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "tangent-method", "questionType": "multi-response", "autoGraded": true,
+    "bloomLevel": "Analyze", "difficulty": "Medium", "marks": 1,
+    "question": "Which conditions invalidate the simple level-ground tangent formula? Select all that apply.",
+    "options": [
+      "Significant tree lean",
+      "Sloping ground without using the slope formula",
+      "Tree base and top both visible with level ground and vertical stem",
+      "Using horizontal distance with correct eye height on level ground"
+    ],
+    "answer": [0, 1],
+    "explanation": "Lean and uncorrected slope break tangent assumptions; level ground with horizontal distance is valid.",
+    "learningOutcome": "Analyse validity of tangent method assumptions.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "inventory", "subtopic": "nfi", "questionType": "true-false", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "Bhutan's Second National Forest Inventory measures height on every sample tree.",
+    "answer": 0,
+    "explanation": "The NFI protocol measures height on all inventoried trees using laser hypsometry.",
+    "learningOutcome": "Recall NFI height measurement practice.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "sine-method", "questionType": "fill-blank", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Medium", "marks": 1,
+    "question": "The sine method height formula is AB = EB × sin(angle at top) ÷ sin(___)",
+    "answer": ["angle at base", "base angle", "angle at eye to base"],
+    "explanation": "The sine rule uses the angle at the base (or interior angle at eye) in the denominator.",
+    "learningOutcome": "Recall sine method structure.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "errors", "subtopic": "random", "questionType": "true-false", "autoGraded": true,
+    "bloomLevel": "Understand", "difficulty": "Easy", "marks": 1,
+    "question": "Random height errors tend to reduce when many trees are averaged in a stand summary.",
+    "answer": 0,
+    "explanation": "Random errors scatter around the mean and partially cancel in large samples.",
+    "learningOutcome": "Explain effect of averaging on random error.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "tangent-method", "questionType": "numerical", "autoGraded": true,
+    "bloomLevel": "Apply", "difficulty": "Medium", "marks": 1,
+    "question": "Level ground: distance 40 m, angle to top 38°, eye height 1.5 m. Height (m)?",
+    "answer": 32.7,
+    "tolerance": { "mode": "absolute", "value": 0.3 },
+    "units": "m",
+    "explanation": "h = 40 × tan 38° + 1.5 = 31.2 + 1.5 ≈ 32.7 m.",
+    "learningOutcome": "Apply tangent method with clinometer.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "methods", "subtopic": "lean", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Evaluate", "difficulty": "Hard", "marks": 1,
+    "question": "A mature stand on steep slopes shows 15% lean on many stems. The forester should ___",
+    "options": [
+      "Continue tangent method without change",
+      "Adopt sine method (or laser) for leaning trees and document the threshold used to switch methods",
+      "Skip height on all trees",
+      "Use DBH only for volume"
+    ],
+    "answer": 1,
+    "explanation": "Documented switch criteria to sine or laser avoids systematic tangent bias on lean.",
+    "learningOutcome": "Evaluate method policy for leaning stands.", "active": true
+  },
+  {
+    "unit": "IV", "topic": "height", "subtopic": "stump", "questionType": "mcq", "autoGraded": true,
+    "bloomLevel": "Remember", "difficulty": "Easy", "marks": 1,
+    "question": "Stump height is measured from the ground to ___",
+    "options": ["DBH", "the top of the stump after felling", "the crown point", "breast height"], "answer": 1,
+    "explanation": "Stump height quantifies harvesting loss above ground after felling.",
+    "learningOutcome": "Recall stump height definition.", "active": true
+  }
+]

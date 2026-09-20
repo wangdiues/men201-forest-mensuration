@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paper preview (no Firebase)</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/quiz.css">
+</head>
+<body>
+<main class="wrap" id="app"></main>
+<script type="module">
+  // Design preview only: renders the Unit I paper from the data files, no sign-in, no saving.
+  import { renderPaper } from "./js/paper.js";
+  // ?u=i for a unit paper, ?paper=module-exam for the exam.
+  const params = new URLSearchParams(location.search);
+  const paper = params.get("paper");
+  const unit = params.get("u") || "i";
+  const file = paper ? "data/questions-exam.json" : `data/questions-unit-${unit}.json`;
+  const [bank, assessments] = await Promise.all([
+    fetch(file).then((r) => r.json()),
+    fetch("data/assessments.json").then((r) => r.json()),
+  ]);
+  const assessment = assessments.find((a) => a.id === (paper || `unit-${unit}-quiz`));
+  const items = [];
+  const ids = bank
+    .map((q, i) => ({ id: `q-${paper ? "exam" : unit}-${String(i + 1).padStart(3, "0")}`, ...q }))
+    .filter((q) => q.active !== false);
+  for (const s of assessment.sections) {
+    ids.filter((q) => s.bloomLevels.includes(q.bloomLevel)).slice(0, s.questionCount)
+      .forEach((q) => items.push({ q, section: s.id, sectionLabel: s.label, weight: s.marksPerQuestion }));
+  }
+  document.getElementById("app").innerHTML = renderPaper(items, assessment, "Preview Student", "20 Sept 2026");
+  document.getElementById("unanswered").textContent = `0 of ${items.length} answered`;
+  const clock = document.getElementById("clock");
+  if (clock) clock.textContent = "89:41";
+</script>
+</body>
+</html>

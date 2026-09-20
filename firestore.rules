@@ -1,0 +1,92 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAuth() {
+      return request.auth != null;
+    }
+
+    function isTeacher() {
+      return isAuth()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'teacher';
+    }
+
+    function isOwner(uid) {
+      return request.auth.uid == uid;
+    }
+
+    // Students may create an attempt carrying raw answers only. No grading
+    // fields may be present; the Cloud Function writes them.
+    function attemptCreateOk() {
+      return isAuth()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.status == 'submitted'
+        && !('autoScore' in request.resource.data)
+        && !('autoMax' in request.resource.data)
+        && !('totalScore' in request.resource.data)
+        && !('totalMax' in request.resource.data)
+        && !('percent' in request.resource.data)
+        && !('bloomBreakdown' in request.resource.data)
+        && !('finalBloomBreakdown' in request.resource.data)
+        && !('learningGaps' in request.resource.data)
+        && !('strengths' in request.resource.data)
+        && !('improvements' in request.resource.data);
+    }
+
+    // Teachers may only add the manual-grading fields to an attempt.
+    function attemptUpdateOk() {
+      return isTeacher()
+        && request.resource.data.diff(resource.data).affectedKeys()
+            .hasOnly(['manualGrading', 'status', 'gradedBy', 'gradedAt']);
+    }
+
+    match /users/{uid} {
+      allow get: if isAuth() && (isOwner(uid) || isTeacher());
+      allow list: if isTeacher();
+      allow create: if isAuth()
+        && request.auth.uid == uid
+        && request.resource.data.role == 'student';
+      allow update: if isAuth()
+        && isOwner(uid)
+        && request.resource.data.diff(resource.data).affectedKeys()
+            .hasOnly(['displayName', 'lastSeenAt']);
+      allow delete: if false;
+    }
+
+    match /courses/{courseId} {
+      allow read: if isAuth();
+      allow write: if isTeacher();
+    }
+
+    match /questions/{questionId} {
+      allow read: if isAuth();
+      allow write: if isTeacher();
+    }
+
+    match /assessments/{assessmentId} {
+      allow read: if isAuth();
+      allow write: if isTeacher();
+    }
+
+    match /attempts/{attemptId} {
+      allow create: if attemptCreateOk();
+      allow get, list: if isAuth()
+        && (resource.data.userId == request.auth.uid || isTeacher());
+      allow update: if attemptUpdateOk();
+      allow delete: if isTeacher();
+    }
+
+    // Result rollups are written only by the Cloud Function (admin SDK).
+    match /users/{uid}/results/{assessmentId} {
+      allow read: if isAuth() && (isOwner(uid) || isTeacher());
+      allow write: if false;
+    }
+
+    // Class statistics are written only by the Cloud Function (admin SDK).
+    match /stats/{assessmentId} {
+      allow read: if isTeacher();
+      allow write: if false;
+    }
+  }
+}

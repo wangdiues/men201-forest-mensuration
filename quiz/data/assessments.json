@@ -1,0 +1,401 @@
+[
+  {
+    "id": "module-exam",
+    "kind": "exam",
+    "unit": "Module",
+    "bank": "module-exam",
+    "title": "MEN 201 Forest Mensuration — Module Examination",
+    "description": "The whole module in one paper: 56 questions across Units I–XI in six Bloom sections, 100 marks, 150 minutes, pass mark 40. One attempt. Written answers are graded by the tutor.",
+    "totalMarks": 100,
+    "timeAllowedMin": 150,
+    "fixedOrder": true,
+    "sections": [
+      {
+        "id": "A",
+        "label": "Remember",
+        "bloomLevels": [
+          "Remember"
+        ],
+        "questionCount": 30,
+        "marksPerQuestion": 1,
+        "questionTypes": [
+          "mcq",
+          "true-false",
+          "fill-blank",
+          "matching",
+          "multi-response"
+        ]
+      },
+      {
+        "id": "B",
+        "label": "Understand",
+        "bloomLevels": [
+          "Understand"
+        ],
+        "questionCount": 10,
+        "marksPerQuestion": 2,
+        "questionTypes": [
+          "short-answer"
+        ]
+      },
+      {
+        "id": "C",
+        "label": "Apply",
+        "bloomLevels": [
+          "Apply"
+        ],
+        "questionCount": 8,
+        "marksPerQuestion": 3,
+        "questionTypes": [
+          "numerical",
+          "short-answer"
+        ]
+      },
+      {
+        "id": "D",
+        "label": "Analyze",
+        "bloomLevels": [
+          "Analyze"
+        ],
+        "questionCount": 4,
+        "marksPerQuestion": 3,
+        "questionTypes": [
+          "long-answer",
+          "short-answer"
+        ]
+      },
+      {
+        "id": "E",
+        "label": "Evaluate",
+        "bloomLevels": [
+          "Evaluate"
+        ],
+        "questionCount": 2,
+        "marksPerQuestion": 4,
+        "questionTypes": [
+          "long-answer",
+          "short-answer"
+        ]
+      },
+      {
+        "id": "F",
+        "label": "Create",
+        "bloomLevels": [
+          "Create"
+        ],
+        "questionCount": 2,
+        "marksPerQuestion": 3,
+        "questionTypes": [
+          "long-answer",
+          "short-answer"
+        ]
+      }
+    ],
+    "attemptsAllowed": 1,
+    "passPercent": 40,
+    "active": true
+  },
+  {
+    "id": "unit-i-quiz",
+    "kind": "quiz",
+    "unit": "I",
+    "title": "Unit I — Introduction to Forest Mensuration: Quiz",
+    "description": "The end-of-unit paper: all 40 questions in six Bloom sections, in order. One attempt, 90 minutes. Written answers are graded by the tutor.",
+    "totalMarks": 128,
+    "timeAllowedMin": 90,
+    "fixedOrder": true,
+    "sections": [
+      {
+        "id": "A",
+        "label": "Remember",
+        "bloomLevels": [
+          "Remember"
+        ],
+        "questionCount": 10,
+        "marksPerQuestion": 1,
+        "questionTypes": [
+          "mcq",
+          "fill-blank",
+          "true-false",
+          "short-answer"
+        ]
+      },
+      {
+        "id": "B",
+        "label": "Understand",
+        "bloomLevels": [
+          "Understand"
+        ],
+        "questionCount": 8,
+        "marksPerQuestion": 2,
+        "questionTypes": [
+          "short-answer"
+        ]
+      },
+      {
+        "id": "C",
+        "label": "Apply",
+        "bloomLevels": [
+          "Apply"
+        ],
+        "questionCount": 8,
+        "marksPerQuestion": 4,
+        "questionTypes": [
+          "short-answer"
+        ]
+      },
+      {
+        "id": "D",
+        "label": "Analyze",
+        "bloomLevels": [
+          "Analyze"
+        ],
+        "questionCount": 5,
+        "marksPerQuestion": 5,
+        "questionTypes": [
+          "long-answer",
+          "short-answer"
+        ]
+      },
+      {
+        "id": "E",
+        "label": "Evaluate",
+        "bloomLevels": [
+          "Evaluate"
+        ],
+        "questionCount": 3,
+        "marksPerQuestion": 5,
+        "questionTypes": [
+          "long-answer",
+          "short-answer"
+        ]
+      },
+      {
+        "id": "F",
+        "label": "Create",
+        "bloomLevels": [
+          "Create"
+        ],
+        "questionCount": 6,
+        "marksPerQuestion": 5,
+        "questionTypes": [
+          "long-answer",
+          "short-answer"
+        ]
+      }
+    ],
+    "attemptsAllowed": 1,
+    "passPercent": 50,
+    "active": true
+  },
+  {
+    "id": "unit-ii-quiz",
+    "kind": "quiz",
+    "unit": "II",
+    "title": "Unit II — Diameter, Girth and Bark: Quiz",
+    "description": "A short 10-question check across all Bloom levels. Three attempts; the best score is kept.",
+    "totalMarks": 10,
+    "sections": [
+      {
+        "id": "A",
+        "label": "Mixed",
+        "bloomLevels": [
+          "Remember",
+          "Understand",
+          "Apply",
+          "Analyze",
+          "Evaluate",
+          "Create"
+        ],
+        "questionCount": 10,
+        "marksPerQuestion": 1,
+        "questionTypes": [
+          "mcq",
+          "true-false",
+          "fill-blank",
+          "numerical",
+          "multi-response",
+          "matching",
+          "image-mcq"
+        ]
+      }
+    ],
+    "attemptsAllowed": 3,
+    "passPercent": 50,
+    "active": true
+  },
+  {
+    "id": "unit-ii-assessment",
+    "kind": "assessment",
+    "unit": "II",
+    "title": "Unit II — Diameter, Girth and Bark: Assessment",
+    "description": "A formal 50-mark unit test in four Bloom-mapped sections.",
+    "totalMarks": 50,
+    "sections": [
+      {
+        "id": "A",
+        "label": "Remember",
+        "bloomLevels": [
+          "Remember"
+        ],
+        "questionCount": 10,
+        "marksPerQuestion": 1,
+        "questionTypes": [
+          "mcq",
+          "true-false",
+          "fill-blank",
+          "matching"
+        ]
+      },
+      {
+        "id": "B",
+        "label": "Understand",
+        "bloomLevels": [
+          "Understand"
+        ],
+        "questionCount": 5,
+        "marksPerQuestion": 2,
+        "questionTypes": [
+          "short-answer",
+          "image-mcq",
+          "mcq"
+        ]
+      },
+      {
+        "id": "C",
+        "label": "Apply",
+        "bloomLevels": [
+          "Apply"
+        ],
+        "questionCount": 5,
+        "marksPerQuestion": 4,
+        "questionTypes": [
+          "numerical"
+        ]
+      },
+      {
+        "id": "D",
+        "label": "Analyze / Evaluate",
+        "bloomLevels": [
+          "Analyze",
+          "Evaluate"
+        ],
+        "questionCount": 2,
+        "marksPerQuestion": 5,
+        "questionTypes": [
+          "mcq",
+          "multi-response",
+          "short-answer"
+        ]
+      }
+    ],
+    "attemptsAllowed": 1,
+    "passPercent": 50,
+    "active": true
+  },
+  {
+    "id": "unit-iv-quiz",
+    "kind": "quiz",
+    "unit": "IV",
+    "title": "Unit IV — Tree Height Measurement: Quiz",
+    "description": "A short 10-question check across all Bloom levels. Three attempts; the best score is kept.",
+    "totalMarks": 10,
+    "sections": [
+      {
+        "id": "A",
+        "label": "Mixed",
+        "bloomLevels": [
+          "Remember",
+          "Understand",
+          "Apply",
+          "Analyze",
+          "Evaluate",
+          "Create"
+        ],
+        "questionCount": 10,
+        "marksPerQuestion": 1,
+        "questionTypes": [
+          "mcq",
+          "true-false",
+          "fill-blank",
+          "numerical",
+          "multi-response",
+          "matching",
+          "image-mcq"
+        ]
+      }
+    ],
+    "attemptsAllowed": 3,
+    "passPercent": 50,
+    "active": true
+  },
+  {
+    "id": "unit-iv-assessment",
+    "kind": "assessment",
+    "unit": "IV",
+    "title": "Unit IV — Tree Height Measurement: Assessment",
+    "description": "A formal 50-mark unit test in four Bloom-mapped sections.",
+    "totalMarks": 50,
+    "sections": [
+      {
+        "id": "A",
+        "label": "Remember",
+        "bloomLevels": [
+          "Remember"
+        ],
+        "questionCount": 10,
+        "marksPerQuestion": 1,
+        "questionTypes": [
+          "mcq",
+          "true-false",
+          "fill-blank",
+          "matching"
+        ]
+      },
+      {
+        "id": "B",
+        "label": "Understand",
+        "bloomLevels": [
+          "Understand"
+        ],
+        "questionCount": 5,
+        "marksPerQuestion": 2,
+        "questionTypes": [
+          "short-answer",
+          "image-mcq",
+          "mcq"
+        ]
+      },
+      {
+        "id": "C",
+        "label": "Apply",
+        "bloomLevels": [
+          "Apply"
+        ],
+        "questionCount": 5,
+        "marksPerQuestion": 4,
+        "questionTypes": [
+          "numerical"
+        ]
+      },
+      {
+        "id": "D",
+        "label": "Analyze / Evaluate",
+        "bloomLevels": [
+          "Analyze",
+          "Evaluate"
+        ],
+        "questionCount": 2,
+        "marksPerQuestion": 5,
+        "questionTypes": [
+          "mcq",
+          "multi-response",
+          "short-answer"
+        ]
+      }
+    ],
+    "attemptsAllowed": 1,
+    "passPercent": 50,
+    "active": true
+  }
+]

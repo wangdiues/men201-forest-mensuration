@@ -28,8 +28,11 @@ function shuffleIdx(n) {
   return idx;
 }
 
+// Inputs are named "ans" by default; a renderer may pass a key so that several
+// questions on one page keep separate radio/checkbox groups. Collectors are
+// scoped to one question's root, so a prefix match is safe.
 const collectRadio = (root) => {
-  const el = root.querySelector('input[name="ans"]:checked');
+  const el = root.querySelector('input[name^="ans"]:checked');
   return { givenIndex: el ? Number(el.value) : null };
 };
 
@@ -41,11 +44,11 @@ const collectText = (root) => {
 export const FORMATS = {
   mcq: {
     label: "Multiple choice",
-    render(q) {
+    render(q, key = "ans") {
       return (q.options || [])
         .map(
           (o, i) =>
-            `<label class="opt"><input type="radio" name="ans" value="${i}"><span>${esc(o)}</span></label>`
+            `<label class="opt"><input type="radio" name="${key}" value="${i}"><span>${esc(o)}</span></label>`
         )
         .join("");
     },
@@ -54,10 +57,10 @@ export const FORMATS = {
 
   "true-false": {
     label: "True / False",
-    render() {
+    render(q, key = "ans") {
       return (
-        `<label class="opt"><input type="radio" name="ans" value="0"><span>True</span></label>` +
-        `<label class="opt"><input type="radio" name="ans" value="1"><span>False</span></label>`
+        `<label class="opt"><input type="radio" name="${key}" value="0"><span>True</span></label>` +
+        `<label class="opt"><input type="radio" name="${key}" value="1"><span>False</span></label>`
       );
     },
     collect: collectRadio,
@@ -65,19 +68,19 @@ export const FORMATS = {
 
   "multi-response": {
     label: "Multiple response",
-    render(q) {
+    render(q, key = "ans") {
       return (
         `<p class="hint">Select all that apply.</p>` +
         (q.options || [])
           .map(
             (o, i) =>
-              `<label class="opt"><input type="checkbox" name="ans" value="${i}"><span>${esc(o)}</span></label>`
+              `<label class="opt"><input type="checkbox" name="${key}" value="${i}"><span>${esc(o)}</span></label>`
           )
           .join("")
       );
     },
     collect(root) {
-      const els = [...root.querySelectorAll('input[name="ans"]:checked')];
+      const els = [...root.querySelectorAll('input[name^="ans"]:checked')];
       return { givenIndices: els.map((e) => Number(e.value)) };
     },
   },
@@ -144,11 +147,11 @@ export const FORMATS = {
 
   "image-mcq": {
     label: "Image question",
-    render(q) {
+    render(q, key = "ans") {
       const img = q.image
         ? `<figure class="qimg"><img src="${imgSrc(q.image)}" alt="measurement diagram"></figure>`
         : "";
-      return img + FORMATS.mcq.render(q);
+      return img + FORMATS.mcq.render(q, key);
     },
     collect: collectRadio,
   },

@@ -1,0 +1,1380 @@
+[
+  {
+    "paper": "module-exam",
+    "unit": "I",
+    "topic": "accuracy_precision",
+    "subtopic": "accuracy",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Accuracy of a measurement is its:",
+    "options": [
+      "Closeness to the true or accepted value",
+      "Agreement with repeated measurements of the same thing",
+      "Number of decimal places recorded",
+      "Size of the sample it came from"
+    ],
+    "answer": 0,
+    "explanation": "Accuracy is agreement with reality; precision is agreement among repeats.",
+    "learningOutcome": "Define accuracy.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "I",
+    "topic": "accuracy_precision",
+    "subtopic": "precision",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "A set of readings that agree closely with each other must also be accurate.",
+    "answer": 1,
+    "explanation": "False — tightly clustered readings can all carry the same systematic error.",
+    "learningOutcome": "Recall that precision does not imply accuracy.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "II",
+    "topic": "dbh",
+    "subtopic": "protocol",
+    "questionType": "fill-blank",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Bhutan's Second National Forest Inventory measured diameter at breast height over bark at ___ m above the ground.",
+    "answer": [
+      "1.37"
+    ],
+    "explanation": "The Second NFI protocol fixes breast height at 1.37 m (4.5 ft); many international manuals use 1.30 m.",
+    "learningOutcome": "Recall the national breast-height reference.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "II",
+    "topic": "girth",
+    "subtopic": "conversion",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "A tree has a girth at breast height of 94.2 cm. Its circular-equivalent diameter is closest to:",
+    "options": [
+      "15 cm",
+      "30 cm",
+      "47 cm",
+      "60 cm"
+    ],
+    "answer": 1,
+    "explanation": "D = G / π = 94.2 / 3.1416 = 30.0 cm.",
+    "learningOutcome": "Convert girth to diameter.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "II",
+    "topic": "notation",
+    "subtopic": "symbols",
+    "questionType": "matching",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Match each symbol to the quantity it stands for in this module.",
+    "pairs": [
+      {
+        "left": "d",
+        "right": "Diameter of one tree (cm)"
+      },
+      {
+        "left": "G",
+        "right": "Basal area of the stand (m²/ha)"
+      },
+      {
+        "left": "t",
+        "right": "Single bark thickness (cm)"
+      },
+      {
+        "left": "DUB",
+        "right": "Diameter under bark (cm)"
+      }
+    ],
+    "explanation": "Lower case is the tree, upper case is the stand; t is one-sided bark, so DUB = DOB − 2t.",
+    "learningOutcome": "Recall the module's notation.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "III",
+    "topic": "crown",
+    "subtopic": "projection_area",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "The crown projection area of a tree with mean crown diameter CD is:",
+    "options": [
+      "π × CD",
+      "π × (CD / 2)²",
+      "CD² / 4",
+      "2 × π × CD"
+    ],
+    "answer": 1,
+    "explanation": "The crown is treated as a circle of diameter CD: CPA = π(CD/2)².",
+    "learningOutcome": "Recall the crown projection area formula.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "III",
+    "topic": "cover",
+    "subtopic": "crown_vs_canopy",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Crown cover (Σ crown projection areas ÷ plot area) can exceed 100 % because overlapping crowns are counted more than once.",
+    "answer": 0,
+    "explanation": "True — canopy cover subtracts the overlap and cannot exceed 100 %; crown cover does not.",
+    "learningOutcome": "Distinguish crown cover from canopy cover.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "IV",
+    "topic": "height",
+    "subtopic": "definitions",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "The height from the ground to the first living branch is called the:",
+    "options": [
+      "Bole height",
+      "Crown-base height",
+      "Merchantable height",
+      "Total height"
+    ],
+    "answer": 1,
+    "explanation": "Bole height stops at the first branch living or dead; crown-base height at the first living branch.",
+    "learningOutcome": "Recall the height definitions.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "IV",
+    "topic": "height",
+    "subtopic": "instruments",
+    "questionType": "fill-blank",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "The hand-held instrument that reads vertical angles to the top and base of a tree for height estimation is the ___.",
+    "answer": [
+      "clinometer",
+      "hypsometer",
+      "Suunto clinometer"
+    ],
+    "explanation": "A clinometer (hypsometer) reads the angles used in the tangent method.",
+    "learningOutcome": "Recall the height-measuring instrument.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "IV",
+    "topic": "height",
+    "subtopic": "lean",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "With the tangent method, a tree leaning towards the observer gives a height that is too large.",
+    "answer": 0,
+    "explanation": "True — the imaginary vertical tree through the tip is taller than the real stem.",
+    "learningOutcome": "Recall the direction of the leaning-tree error.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "form_factor",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "In V = g × h × f, the form factor f is:",
+    "options": [
+      "The ratio of stem volume to the volume of a cylinder of the same basal area and height",
+      "The ratio of mid-diameter to breast-height diameter",
+      "The taper of the stem in cm per metre",
+      "The bark volume as a fraction of the total"
+    ],
+    "answer": 0,
+    "explanation": "f = V / (g × h): how much of the cylinder the stem actually fills.",
+    "learningOutcome": "Define the form factor.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "log_formulae",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Which log-volume formula uses only the cross-sectional area at the middle of the log?",
+    "options": [
+      "Smalian's formula",
+      "Huber's formula",
+      "Newton's formula",
+      "The quarter-girth formula"
+    ],
+    "answer": 1,
+    "explanation": "Huber: V = mid-section area × length. Smalian averages the two ends; Newton uses both ends and the middle.",
+    "learningOutcome": "Recall the three log formulae.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "quarter_girth",
+    "questionType": "fill-blank",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "The quarter-girth formula gives a volume about ___ % smaller than the true volume of a round log.",
+    "answer": [
+      "21.5",
+      "21",
+      "22",
+      "21.46"
+    ],
+    "explanation": "(G/4)² L compared with G² L / 4π is smaller by the factor π/4 = 0.7854, i.e. 21.5 % less.",
+    "learningOutcome": "Recall the quarter-girth shortfall.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VI",
+    "topic": "basal_area",
+    "subtopic": "tree",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "The basal area of a tree of DBH 36 cm is:",
+    "options": [
+      "0.0102 m²",
+      "0.1018 m²",
+      "1.018 m²",
+      "10.18 m²"
+    ],
+    "answer": 1,
+    "explanation": "g = 0.00007854 × 36² = 0.101788 m².",
+    "learningOutcome": "Compute a tree's basal area.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VI",
+    "topic": "basal_area",
+    "subtopic": "stand",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Knowing that a stand carries 28 m²/ha of basal area is enough to state its number of stems per hectare.",
+    "answer": 1,
+    "explanation": "False — many few large trees or many small ones can give the same basal area.",
+    "learningOutcome": "Recall what stand basal area does and does not tell you.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VII",
+    "topic": "age",
+    "subtopic": "methods",
+    "questionType": "multi-response",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Which of the following are methods of determining the age of a tree? Select all that apply.",
+    "options": [
+      "Counting annual rings on a core or stump",
+      "Counting branch whorls on a conifer",
+      "Consulting planting or felling records",
+      "Measuring the crown diameter",
+      "Reading a spherical densiometer"
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Rings, whorls and records give age; crown diameter and densiometer readings do not.",
+    "learningOutcome": "Recall the methods of age determination.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VII",
+    "topic": "increment",
+    "subtopic": "curves",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "The current annual increment of a tree is greatest at the age where the cumulative growth curve is:",
+    "options": [
+      "Flattest",
+      "Steepest",
+      "Crossing zero",
+      "At its maximum height"
+    ],
+    "answer": 1,
+    "explanation": "The increment curve is the slope of the growth curve; its peak lies under the steepest point.",
+    "learningOutcome": "Relate the growth and increment curves.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "expansion",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "A 500 m² plot contains 12 trees. The stand density is:",
+    "options": [
+      "24 trees/ha",
+      "120 trees/ha",
+      "240 trees/ha",
+      "600 trees/ha"
+    ],
+    "answer": 2,
+    "explanation": "Expansion factor = 10 000 / 500 = 20; 12 × 20 = 240 trees/ha.",
+    "learningOutcome": "Apply the plot expansion factor.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "IX",
+    "topic": "data",
+    "subtopic": "raw_data",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Errors found in field data should be corrected in the raw file so that only one clean version exists.",
+    "answer": 1,
+    "explanation": "False — keep the raw data unchanged and make corrections in a cleaned copy with a change log.",
+    "learningOutcome": "Recall the raw-data rule.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "X",
+    "topic": "carbon",
+    "subtopic": "carbon_fraction",
+    "questionType": "fill-blank",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Dry biomass is converted to carbon with a carbon fraction of about ___ (the IPCC default used in Bhutan's Second NFI).",
+    "answer": [
+      "0.47",
+      "47"
+    ],
+    "explanation": "About 47 % of dry biomass is carbon.",
+    "learningOutcome": "Recall the carbon fraction.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "I",
+    "topic": "accuracy_precision",
+    "subtopic": "systematic_error",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain how a set of diameter readings can be precise but not accurate.",
+    "modelAnswer": "The readings agree closely with each other but all differ from the true value in the same direction, because of a systematic error such as a stretched tape or a wrong breast-height mark.",
+    "rubric": [
+      {
+        "point": "Readings agree with each other (precise) yet miss the true value",
+        "marks": 1
+      },
+      {
+        "point": "Caused by systematic error, with an example",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain precise-but-inaccurate measurement.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "II",
+    "topic": "dbh",
+    "subtopic": "slope",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain why breast height is measured from the uphill side of the tree on sloping ground.",
+    "modelAnswer": "The uphill side gives a defined, repeatable reference so every tree is measured the same way; if crews mixed sides the difference would be a systematic error, not a random one, and diameters (and therefore volumes) would be biased.",
+    "rubric": [
+      {
+        "point": "A single defined side gives a repeatable reference",
+        "marks": 1
+      },
+      {
+        "point": "Mixing sides produces a systematic bias in diameter and volume",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain the uphill-side convention.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "III",
+    "topic": "cover",
+    "subtopic": "crown_vs_canopy",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain the difference between crown cover and canopy cover of a plot.",
+    "modelAnswer": "Crown cover is the sum of all crown projection areas divided by the plot area, so overlapping crowns are counted more than once and it can exceed 100 %. Canopy cover is the ground area actually covered by crowns, with overlap removed, so it cannot exceed 100 %.",
+    "rubric": [
+      {
+        "point": "Crown cover sums projection areas, overlap counted, may exceed 100 %",
+        "marks": 1
+      },
+      {
+        "point": "Canopy cover is ground actually covered, overlap removed, ≤ 100 %",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Distinguish crown cover from canopy cover.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "IV",
+    "topic": "height",
+    "subtopic": "shadow_method",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain why the shadow method of height measurement cannot be used inside a closed broadleaf stand at midday.",
+    "modelAnswer": "The method needs the tree's shadow and a reference shadow in the same sunlight; under a closed canopy no direct sunshine reaches the floor, so there is no measurable shadow, and at midday shadows are shortest and least accurate anyway.",
+    "rubric": [
+      {
+        "point": "No direct sunlight reaches the floor, so there is no shadow to measure",
+        "marks": 1
+      },
+      {
+        "point": "Explains what the method depends on (shadow of tree and reference in the same sun)",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain the limits of the shadow method.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "V",
+    "topic": "form",
+    "subtopic": "metzger",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Medium",
+    "marks": 2,
+    "question": "Using Metzger's theory of the stem as a beam of uniform resistance, explain why a roadside tree tapers more than the same species growing inside a closed stand.",
+    "modelAnswer": "Metzger treats the stem as a beam built to resist the bending force of wind on the crown. The open-grown roadside tree has a large, low crown exposed to wind, so it needs a wide base and tapers strongly; the stand tree is sheltered and its crown is small and high, so it builds a more cylindrical stem.",
+    "rubric": [
+      {
+        "point": "Stem as a beam resisting wind load on the crown",
+        "marks": 1
+      },
+      {
+        "point": "Open-grown tree: larger exposed crown, more wind load, stronger taper; stand tree sheltered, more cylindrical",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Apply Metzger's theory to stem form.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VI",
+    "topic": "basal_area",
+    "subtopic": "silviculture",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain why thinning prescriptions are written in terms of basal area rather than stems per hectare.",
+    "modelAnswer": "Basal area measures how fully the site is occupied regardless of tree size: 25 m²/ha means the same silvicultural condition whether the trees are small or large, whereas 800 stems/ha means very different things at 10 cm and at 40 cm DBH.",
+    "rubric": [
+      {
+        "point": "Basal area expresses site occupancy independent of tree size",
+        "marks": 1
+      },
+      {
+        "point": "Stem number means different things at different sizes",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain the use of basal area in prescriptions.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VII",
+    "topic": "growth",
+    "subtopic": "tissues",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "A nail is driven into a stem at 1.3 m above ground. Fifty years later it is still at 1.3 m but buried in the wood. Explain both facts.",
+    "modelAnswer": "Height growth (elongation) happens only at the tips through the primary meristem, so wood already formed below the tip does not move upward and the nail stays at 1.3 m. Thickening happens all round the stem through the cambium, which lays new wood outside the old, burying the nail.",
+    "rubric": [
+      {
+        "point": "Elongation occurs only at the tip (primary meristem), so the nail's height is unchanged",
+        "marks": 1
+      },
+      {
+        "point": "Thickening by the cambium adds wood outside, burying the nail",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain the two components of growth.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "XI",
+    "topic": "remote_sensing",
+    "subtopic": "validation",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain why field plots are still needed when forest cover is mapped from satellite images with an AI classifier.",
+    "modelAnswer": "The classifier's output is a model result, not the truth: field plots supply the definitions and the training or reference data it learns from, and give independent validation of its accuracy. Without them the map's errors cannot be known.",
+    "rubric": [
+      {
+        "point": "Plots provide definitions and training/reference data",
+        "marks": 1
+      },
+      {
+        "point": "Plots provide independent validation — a map is a model result whose accuracy must be measured",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain the role of field data in remote sensing.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "II",
+    "topic": "bark",
+    "subtopic": "under_bark",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A tree has a diameter over bark of 52.0 cm. Four bark readings taken at the two diameter axes average 1.8 cm. Calculate the diameter under bark in cm.",
+    "answer": 48.4,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.05
+    },
+    "units": "cm",
+    "explanation": "A diameter crosses the bark twice: DUB = DOB − 2t = 52.0 − 2 × 1.8 = 48.4 cm.",
+    "learningOutcome": "Calculate diameter under bark.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "IV",
+    "topic": "height",
+    "subtopic": "tangent_method",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "From a point 20.0 m (horizontal distance) from a tree on level ground, a clinometer reads 35° to the top of the tree and 8° below horizontal to its base. Calculate the total height of the tree in metres, to two decimal places.",
+    "answer": 16.81,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.1
+    },
+    "units": "m",
+    "explanation": "h = D (tan α + tan β) = 20 × (tan 35° + tan 8°) = 20 × (0.7002 + 0.1405) = 16.81 m.",
+    "learningOutcome": "Calculate height by the tangent method.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "smalian",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A 4.5 m log has a thick-end diameter of 52 cm and a thin-end diameter of 38 cm. Calculate its volume by Smalian's formula in m³, to three decimal places.",
+    "answer": 0.733,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.01
+    },
+    "units": "m³",
+    "explanation": "End areas: 0.00007854 × 52² = 0.2124 m² and 0.00007854 × 38² = 0.1134 m². V = (0.2124 + 0.1134) / 2 × 4.5 = 0.733 m³.",
+    "learningOutcome": "Apply Smalian's formula.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VI",
+    "topic": "basal_area",
+    "subtopic": "per_hectare",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "On a 0.05 ha plot the basal areas of the individual trees sum to 1.32 m². Calculate the stand basal area in m²/ha.",
+    "answer": 26.4,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.1
+    },
+    "units": "m²/ha",
+    "explanation": "G = 1.32 / 0.05 = 26.4 m²/ha (expansion factor 20).",
+    "learningOutcome": "Expand plot basal area to the hectare.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VII",
+    "topic": "increment",
+    "subtopic": "core",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "An increment core shows 8.0 cm of wood across the outermost 10 annual rings. Calculate the tree's mean annual diameter increment over those 10 years, in cm per year.",
+    "answer": 1.6,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.01
+    },
+    "units": "cm/yr",
+    "explanation": "A core is a radius, so the diameter grew 2 × 8.0 = 16.0 cm in 10 years: 1.6 cm/yr.",
+    "learningOutcome": "Derive diameter increment from a core.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "X",
+    "topic": "carbon",
+    "subtopic": "co2e",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A tree holds 500 kg of oven-dry biomass. Using a carbon fraction of 0.47, calculate the CO₂-equivalent it stores, in kg.",
+    "answer": 861.67,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 1
+    },
+    "units": "kg CO₂e",
+    "explanation": "Carbon = 500 × 0.47 = 235 kg; CO₂e = 235 × 44/12 = 861.7 kg.",
+    "learningOutcome": "Convert biomass to CO₂-equivalent.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VII",
+    "topic": "age",
+    "subtopic": "ring_errors",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A ring count on one increment core includes a false ring in one year and a missing ring in another. Analyze how each error pushes the age estimate, and describe how a forester would detect them.",
+    "modelAnswer": "A false ring adds a boundary that is not a year, so the count is too old; a missing ring omits a year, so the count is too young. In this core the two errors partly cancel, which is itself dangerous because the count looks plausible. They are detected by cross-dating: counting along several radii of the same core or stump and comparing several trees, so that a ring present on one radius but not another, or a narrow-ring pattern that fails to line up between trees, exposes the error.",
+    "rubric": [
+      {
+        "point": "False ring → count too old",
+        "marks": 1
+      },
+      {
+        "point": "Missing ring → count too young (and the two can mask each other)",
+        "marks": 1
+      },
+      {
+        "point": "Detection by cross-dating several radii and trees",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Analyze ring-count errors.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "III",
+    "topic": "cover",
+    "subtopic": "methods_disagree",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "Two teams assess the same plot on the same morning. Team 1, using a spherical densiometer, reports 55 % cover. Team 2, mapping crowns and subtracting the overlap, reports 68 %. Analyze why the two results differ.",
+    "modelAnswer": "The methods measure different things: the densiometer records the proportion of sky obscured at eye level from a few points, including gaps within crowns, whereas crown mapping treats each crown as a solid circle, so within-crown gaps count as cover and the figure is higher. Sampling also differs — the densiometer depends on where the observer stood and on the observer's reading, while mapping depends on how crown edges were judged. Neither is wrong; the definition of cover, the sample locations and the observer effects must be stated with the number.",
+    "rubric": [
+      {
+        "point": "Densiometer records sky obscured from a point, including within-crown gaps",
+        "marks": 1
+      },
+      {
+        "point": "Crown mapping treats crowns as solid, so reads higher",
+        "marks": 1
+      },
+      {
+        "point": "Concludes the definitions and sampling differ rather than one team being wrong; a cover figure needs its method stated",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Analyze disagreement between cover methods.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "variation",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A community forest inventory gives a different growing-stock estimate every year, sometimes higher and sometimes lower. Analyze the factors that should be examined before concluding the forest is changing.",
+    "modelAnswer": "Examine the sampling design (were the same plots relocated exactly, or different plots each year, so that sampling error differs?), the field methods (breast-height convention, boundary-tree rules, instruments and calibration), non-sampling errors (crews moving plots off steep ground, recording mistakes), the volume equations and units used, and the size of the sampling error relative to the year-to-year difference. Only a difference larger than the sampling uncertainty, with methods held constant, indicates real change.",
+    "rubric": [
+      {
+        "point": "Sampling design and plot relocation",
+        "marks": 1
+      },
+      {
+        "point": "Field methods, instruments and non-sampling errors",
+        "marks": 1
+      },
+      {
+        "point": "Compares the difference with the sampling uncertainty before claiming change",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Analyze inventory variability.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "quarter_girth_trade",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Evaluate",
+    "difficulty": "Hard",
+    "marks": 4,
+    "question": "A timber depot values every log by the quarter-girth formula. Evaluate this practice from the points of view of the seller, the buyer and the forester who must reconcile depot records with inventory volumes.",
+    "modelAnswer": "Quarter-girth volume is about 21.5 % below true volume, so the buyer pays for less wood than exists and the seller is under-paid unless the price already allows for it; the convention is defensible because it is simple, consistent and roughly allows for bark, slabs and sawing waste, so both parties can trade on it if they know the rule. For the forester it is a problem: depot volumes are not comparable with inventory volumes computed as true volume, so the two must be converted (multiply by 1/0.7854) before yields, removals or growing stock are compared. The judgement: acceptable as a trading convention, unacceptable as a mensuration record unless labelled and converted.",
+    "rubric": [
+      {
+        "point": "States the 21.5 % shortfall and its effect on buyer and seller",
+        "marks": 1
+      },
+      {
+        "point": "Recognises the convention's merits when both parties know it",
+        "marks": 1
+      },
+      {
+        "point": "Identifies the incompatibility with true-volume inventory figures and the conversion (÷ 0.7854)",
+        "marks": 1
+      },
+      {
+        "point": "Reaches a justified overall judgement",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Evaluate the quarter-girth convention.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "XI",
+    "topic": "remote_sensing",
+    "subtopic": "replace_field",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Evaluate",
+    "difficulty": "Hard",
+    "marks": 4,
+    "question": "A manager proposes replacing the field inventory entirely with a forest-cover map produced from satellite imagery by an AI classifier, to save cost. Evaluate the proposal.",
+    "modelAnswer": "Satellite mapping gives repeat, wall-to-wall coverage cheaply and is excellent for area, change and stratification, so it should be used. But a cover map does not measure diameter, height, basal area, volume or carbon: those still come from calibrated relationships that need field plots, and the classifier's accuracy is unknown without independent field validation. Clouds, terrain and mixed pixels also limit it in Bhutan. The sound design combines the two — imagery for area and stratification, a smaller well-designed field sample for the stand attributes and for validation — rather than replacing one with the other.",
+    "rubric": [
+      {
+        "point": "Strengths of satellite mapping (coverage, repeatability, cost, stratification)",
+        "marks": 1
+      },
+      {
+        "point": "A cover map does not give stand attributes (volume, basal area, carbon)",
+        "marks": 1
+      },
+      {
+        "point": "Accuracy unknown without field validation; local limits (cloud, terrain, mixed pixels)",
+        "marks": 1
+      },
+      {
+        "point": "Recommends an integrated design and justifies it",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Evaluate remote sensing as a replacement for field inventory.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "design",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Create",
+    "difficulty": "Hard",
+    "marks": 3,
+    "question": "Design a fixed-area plot inventory to estimate the growing stock of a 250 ha community forest. State the objective, the plot size and shape, how many plots and how they are laid out, what is measured on each plot, how results are expanded to the hectare, and the quality controls.",
+    "modelAnswer": "Objective: growing stock (m³/ha) by species for a management plan. Plots: 500 m² circular plots (radius 12.62 m, corrected for slope), laid out systematically on a grid from a random start, e.g. 25 plots at about 1 plot per 10 ha, stratified by forest type if maps allow. Measured: species, DBH over bark at 1.37 m uphill side for all trees ≥ 10 cm, heights on a sample of trees, plot centre coordinates, slope and boundary-tree rule. Expansion: per-plot volume from the national equations, multiplied by 20 to the hectare, averaged with a standard error. Quality: written protocol, calibrated tapes and clinometers, trained crews, 10 % of plots re-measured by a second crew, data checked in the field.",
+    "rubric": [
+      {
+        "point": "Objective, plot size/shape and a probability-based layout with a stated number of plots",
+        "marks": 1
+      },
+      {
+        "point": "Variables and measurement rules (threshold, breast height, boundary trees)",
+        "marks": 1
+      },
+      {
+        "point": "Expansion to the hectare with an uncertainty statement, and quality control",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Design a fixed-area plot inventory.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "IX",
+    "topic": "data",
+    "subtopic": "management_plan",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Create",
+    "difficulty": "Hard",
+    "marks": 3,
+    "question": "Develop a data-management plan for the tree measurements collected in that inventory, from the field form to the archived data package. (Spare)",
+    "modelAnswer": "One row per tree and one variable per column, with a stable composite key (Plot_ID + Tree_ID) and units fixed in the column names; a digital form (e.g. Open Foris Collect or ODK) that rejects impossible values and warns on unusual ones; the raw export kept unchanged and read-only; cleaning done in a copy with every change logged with reason and author; a data dictionary and README describing variables, units, datum/CRS and protocol; and redundant backups, with the package (raw, cleaned, dictionary, README, change log) archived together.",
+    "rubric": [
+      {
+        "point": "Tidy structure with stable IDs, units and validation in the form",
+        "marks": 1
+      },
+      {
+        "point": "Raw data preserved; cleaning in a copy with a change log",
+        "marks": 1
+      },
+      {
+        "point": "Data dictionary, README and backup as one archived package",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Create a data-management plan.",
+    "active": false
+  },
+  {
+    "paper": "module-exam",
+    "unit": "II",
+    "topic": "dbh",
+    "subtopic": "field_protocol",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Create",
+    "difficulty": "Hard",
+    "marks": 3,
+    "question": "Design a one-page field protocol for measuring DBH in a Bhutanese mixed conifer stand on steep ground, covering the reference height, slope, forked and buttressed trees, bark, instruments and recording.",
+    "modelAnswer": "Reference: 1.37 m from ground on the uphill side, marked with a pole. Slope: measure horizontal, tape kept perpendicular to the stem axis. Forks: a fork below 1.37 m is two trees, each measured at 1.37 m; above it, one tree measured below the swelling. Buttresses and swellings: measure 30 cm above where the stem becomes regular and record the height used. Bark: sample thickness at two opposite points on the diameter axis with a bark gauge, record t and compute DUB = DOB − 2t. Instruments: diameter tape (reads D directly), calipers for stems under 15 cm with two perpendicular readings averaged; check tapes against a rule. Recording: tree number, species, DOB to 0.1 cm, height of measurement if not standard, t, code for the terrain case, crew and date; units on the form.",
+    "rubric": [
+      {
+        "point": "Reference height, uphill-side rule, forks and buttresses",
+        "marks": 1
+      },
+      {
+        "point": "Bark sampling, DUB and instrument checks",
+        "marks": 1
+      },
+      {
+        "point": "Recording standard with units and exceptions coded",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Create a DBH field protocol.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VI",
+    "topic": "crop_diameter",
+    "subtopic": "definition",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Medium",
+    "marks": 2,
+    "question": "Explain why the crop diameter is based on the mean basal area rather than on the arithmetic mean of the diameters.",
+    "modelAnswer": "Only the diameter of the tree of mean basal area reproduces the crop's basal area when multiplied up, so it is the value that works in V = G × h × f; the arithmetic mean of diameters gives a smaller basal area because basal area goes with d².",
+    "rubric": [
+      {
+        "point": "Crop diameter must reproduce the stand's basal area (for V = G·h·f)",
+        "marks": 1
+      },
+      {
+        "point": "Arithmetic mean diameter understates basal area because g ∝ d²",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain the basis of the crop diameter.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "intensity",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "Twenty plots of 500 m² each are measured in a 250 ha forest. Calculate the sampling intensity as a percentage.",
+    "answer": 0.4,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.01
+    },
+    "units": "%",
+    "explanation": "20 × 500 m² = 1 ha sampled; 1 / 250 × 100 = 0.40 %.",
+    "learningOutcome": "Calculate sampling intensity.",
+    "active": true
+  },
+  {
+    "paper": "module-exam",
+    "unit": "I",
+    "topic": "measurement",
+    "subtopic": "kinds",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "active": true,
+    "questionType": "mcq",
+    "question": "Which of the following is NOT one of the four kinds of measurement in forest mensuration?",
+    "options": [
+      "Linear",
+      "Area",
+      "Temperature",
+      "Weight"
+    ],
+    "answer": 2,
+    "explanation": "The four kinds are linear (L), area (L²), volume (L³) and weight (M).",
+    "learningOutcome": "Recall the four kinds of measurement."
+  },
+  {
+    "paper": "module-exam",
+    "unit": "I",
+    "topic": "errors",
+    "subtopic": "systematic",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "active": true,
+    "questionType": "true-false",
+    "question": "A systematic error can be reduced by taking more readings and averaging them.",
+    "answer": 1,
+    "explanation": "False — averaging reduces random error only; a systematic error needs calibration or a change of method.",
+    "learningOutcome": "Distinguish random from systematic error."
+  },
+  {
+    "paper": "module-exam",
+    "unit": "III",
+    "topic": "cover",
+    "subtopic": "densiometer",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "active": true,
+    "questionType": "fill-blank",
+    "question": "The hand-held instrument with a curved mirror engraved with a grid, used to estimate canopy cover from the reflected sky, is the spherical ___.",
+    "answer": [
+      "densiometer"
+    ],
+    "explanation": "The spherical densiometer, convex or concave.",
+    "learningOutcome": "Recall the canopy-cover instrument."
+  },
+  {
+    "paper": "module-exam",
+    "unit": "III",
+    "topic": "cover",
+    "subtopic": "densiometer_dot",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "active": true,
+    "questionType": "mcq",
+    "question": "A convex spherical densiometer grid of 24 squares is read as 96 quarter-square dots. One dot therefore represents about:",
+    "options": [
+      "0.5 % of cover",
+      "1.04 % of cover",
+      "2.08 % of cover",
+      "4.17 % of cover"
+    ],
+    "answer": 1,
+    "explanation": "100 / 96 = 1.04 % per dot — the origin of the 1.04 factor.",
+    "learningOutcome": "Recall the densiometer conversion factor."
+  },
+  {
+    "paper": "module-exam",
+    "unit": "IV",
+    "topic": "height",
+    "subtopic": "tangent_distance",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "active": false,
+    "questionType": "mcq",
+    "question": "In the tangent method, h = D (tan α + tan β). The distance D must be the: (Spare)",
+    "options": [
+      "Slope distance along the ground",
+      "Horizontal distance to the tree",
+      "Observer's eye height",
+      "Distance to the crown edge"
+    ],
+    "answer": 1,
+    "explanation": "Angles are converted to heights with the horizontal distance; slope distance must be reduced first.",
+    "learningOutcome": "Recall the distance used in the tangent method."
+  },
+  {
+    "paper": "module-exam",
+    "unit": "V",
+    "topic": "form",
+    "subtopic": "form_quotient",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "active": true,
+    "questionType": "mcq",
+    "question": "The (simple) form quotient of a stem is:",
+    "options": [
+      "Mid-diameter ÷ diameter at breast height",
+      "Volume ÷ height",
+      "Basal area ÷ volume",
+      "Height ÷ diameter at breast height"
+    ],
+    "answer": 0,
+    "explanation": "FQ = mid-diameter / DBH; the absolute form quotient uses the diameter at half the height above breast height.",
+    "learningOutcome": "Define the form quotient."
+  },
+  {
+    "paper": "module-exam",
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "newton",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "active": false,
+    "questionType": "true-false",
+    "question": "Newton's formula needs the cross-sectional area at both ends and at the middle of the log. (Spare)",
+    "answer": 0,
+    "explanation": "True — V = (A₁ + 4A_m + A₂) / 6 × L, which is why it is the most accurate and the least used.",
+    "learningOutcome": "Recall Newton's formula."
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VI",
+    "topic": "basal_area",
+    "subtopic": "units",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "active": true,
+    "questionType": "fill-blank",
+    "question": "Tree basal area in m² = 0.00007854 × D², with D entered in ___.",
+    "answer": [
+      "cm",
+      "centimetres",
+      "centimeters",
+      "centimetre"
+    ],
+    "explanation": "π/40 000 converts a diameter in centimetres to an area in square metres.",
+    "learningOutcome": "Recall the basal-area constant and its units."
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VI",
+    "topic": "crop_diameter",
+    "subtopic": "thinning",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "active": false,
+    "questionType": "true-false",
+    "question": "After a thinning from below, a stand's crop diameter is larger than it was before the thinning. (Spare)",
+    "answer": 0,
+    "explanation": "True — removing the smallest trees raises both the crop diameter and the arithmetic mean.",
+    "learningOutcome": "Recall the effect of low thinning on mean diameters."
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VII",
+    "topic": "increment",
+    "subtopic": "mai",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "active": true,
+    "questionType": "mcq",
+    "question": "The mean annual increment of a tree at age t is:",
+    "options": [
+      "The volume added in the current year",
+      "Total volume at age t divided by t",
+      "Age t divided by total volume",
+      "Total volume multiplied by t"
+    ],
+    "answer": 1,
+    "explanation": "MAI = V / t; the current annual increment is the growth of one year.",
+    "learningOutcome": "Define mean annual increment."
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VII",
+    "topic": "age",
+    "subtopic": "no_rings",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "active": false,
+    "questionType": "true-false",
+    "question": "Many wet subtropical species of Bhutan's southern foothills form no clear annual rings, so their age cannot be found by ring counting. (Spare)",
+    "answer": 0,
+    "explanation": "True — which is why methods that need no rings (records, whorls, size–age relations) matter there.",
+    "learningOutcome": "Recall the limit of ring counting in the subtropics."
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "expansion_400",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "active": true,
+    "questionType": "fill-blank",
+    "question": "The expansion factor that converts the total of a 400 m² plot to a per-hectare value is ___.",
+    "answer": [
+      "25"
+    ],
+    "explanation": "10 000 / 400 = 25.",
+    "learningOutcome": "Compute an expansion factor."
+  },
+  {
+    "paper": "module-exam",
+    "unit": "IX",
+    "topic": "data",
+    "subtopic": "tidy",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "active": true,
+    "questionType": "mcq",
+    "question": "In a well-structured tree-measurement dataset:",
+    "options": [
+      "Each plot is one row, with its trees in extra columns",
+      "Each tree is one row and each variable is one column",
+      "Units are written after each value in the same cell",
+      "Corrected values overwrite the raw ones"
+    ],
+    "answer": 1,
+    "explanation": "One row per tree, one variable per column, units in the column names, raw data kept unchanged.",
+    "learningOutcome": "Recall tidy data structure."
+  },
+  {
+    "paper": "module-exam",
+    "unit": "XI",
+    "topic": "remote_sensing",
+    "subtopic": "active_sensing",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "active": true,
+    "questionType": "mcq",
+    "question": "LiDAR is classed as an active sensing technology because it:",
+    "options": [
+      "Records reflected sunlight",
+      "Emits its own pulses and measures their return",
+      "Works only from satellites",
+      "Needs no ground reference"
+    ],
+    "answer": 1,
+    "explanation": "Passive sensors measure available energy; active sensors emit and measure a return.",
+    "learningOutcome": "Distinguish active from passive sensing."
+  },
+  {
+    "paper": "module-exam",
+    "unit": "X",
+    "topic": "carbon",
+    "subtopic": "bgb_level",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Medium",
+    "marks": 2,
+    "active": true,
+    "question": "Explain why Bhutan's below-ground biomass equation (Second NFI equation 2.8) must be applied to plot-level above-ground biomass in t/ha rather than to each tree in turn.",
+    "modelAnswer": "The equation expresses a nonlinear relationship fitted at the plot level with AGB in t/ha; because it is nonlinear, applying it tree by tree and summing gives a different total from applying it to the plot total, so it must be used at the level and in the units for which it was specified.",
+    "rubric": [
+      {
+        "point": "The relationship is nonlinear and was fitted at plot level in t/ha",
+        "marks": 1
+      },
+      {
+        "point": "Tree-by-tree application therefore changes the result; use it at its documented level",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain the level at which a fitted equation applies."
+  },
+  {
+    "paper": "module-exam",
+    "unit": "III",
+    "topic": "cover",
+    "subtopic": "densiometer_calc",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "active": true,
+    "question": "At a sample point a convex spherical densiometer gives open-sky counts of 41, 38, 44 and 45 quarter-square dots on the four bearings (96 dots per reading). Using the 1.04 factor, calculate the canopy cover in per cent, to one decimal place.",
+    "answer": 56.3,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.5
+    },
+    "units": "%",
+    "explanation": "Mean open dots = (41 + 38 + 44 + 45) / 4 = 42.0; open sky = 42.0 × 1.04 = 43.7 %; cover = 100 − 43.7 = 56.3 %.",
+    "learningOutcome": "Compute canopy cover from densiometer counts."
+  },
+  {
+    "paper": "module-exam",
+    "unit": "VI",
+    "topic": "crop_diameter",
+    "subtopic": "thinning_gap",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 3,
+    "active": true,
+    "question": "A stand is thinned from below. Analyze how the crop diameter and the arithmetic mean diameter change, and what happens to the gap between them.",
+    "modelAnswer": "Both rise, because the smallest trees are removed. The arithmetic mean rises more than the crop diameter, since the crop diameter is weighted by basal area (d²) and was already dominated by the larger trees. The gap therefore narrows: it depends on the spread of diameters, and low thinning reduces that spread. The two would be equal only if every remaining tree had the same diameter.",
+    "rubric": [
+      {
+        "point": "Both means rise after low thinning",
+        "marks": 1
+      },
+      {
+        "point": "Arithmetic mean rises more, because the crop diameter is basal-area (d²) weighted",
+        "marks": 1
+      },
+      {
+        "point": "Gap narrows as the diameter spread falls; equal only with uniform diameters",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Analyze the effect of thinning on stand mean diameters."
+  }
+]

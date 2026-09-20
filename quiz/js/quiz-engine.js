@@ -29,6 +29,7 @@ import {
   shuffle,
 } from "./bloom.js";
 import { FORMATS, formatOf } from "./formats.js";
+import { renderPaper } from "./paper.js";
 
 // ---------------------------------------------------------------- unit registry
 // Matches the decks in the repo root; notes exist for Units I–VII.
@@ -100,6 +101,18 @@ function chrome(user, profile, title) {
 
 async function loadBank(unitId) {
   const snap = await getDocs(query(collection(db, "questions"), where("unit", "==", unitId), where("active", "==", true)));
+  return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+}
+
+// A paper with its own question set (the module exam) draws by paper tag,
+// not by unit; its questions keep their unit tags for the analytics.
+async function loadPaperBank(paper) {
+  const snap = await getDocs(query(collection(db, "questions"), where("paper", "==", paper), where("active", "==", true)));
+  return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+}
+
+async function loadExams() {
+  const snap = await getDocs(query(collection(db, "assessments"), where("kind", "==", "exam"), where("active", "==", true)));
   return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
 }
 
@@ -231,6 +244,27 @@ async function renderLanding(app, user, profile) {
     ? `<p><a class="btn" href="teacher.html">Teacher dashboard →</a></p>`
     : "";
 
+  const exams = await loadExams().catch(() => []);
+  const examCards = exams
+    .map((x) => {
+      const mine = attempts.filter((a) => a.assessmentId === x.id);
+      const left = Math.max(0, (x.attemptsAllowed || 1) - mine.length);
+      const rules = [`${x.totalMarks} marks`, x.timeAllowedMin ? `${x.timeAllowedMin} minutes` : null, x.passPercent ? `pass mark ${Math.ceil((x.totalMarks * x.passPercent) / 100)}` : null]
+        .filter(Boolean)
+        .join(" · ");
+      const action = left > 0
+        ? `<a class="btn primary" href="take.html?aid=${x.id}">Sit the paper</a>`
+        : `<a class="btn" href="result.html?tid=${mine[0].id}">View your result →</a>`;
+      return `<section class="card exam-card">
+        <p class="eyebrow">Module examination</p>
+        <h2>${esc(x.title)}</h2>
+        <p class="muted">${esc(x.description || "")}</p>
+        <p class="exam-rules">${esc(rules)}</p>
+        ${action}
+      </section>`;
+    })
+    .join("");
+
   app.innerHTML = `
   <section class="card">
     <h2>Unit modules</h2>
@@ -238,6 +272,7 @@ async function renderLanding(app, user, profile) {
     ${teacherLink}
     <div class="unitgrid">${unitRows}</div>
   </section>
+  ${examCards}
   <section class="card">
     <h2>My recent results</h2>
     ${rows ? `<table class="tbl"><thead><tr><th>Assessment</th><th>Date</th><th>Result</th><th></th></tr></thead><tbody>${rows}</tbody></table>` : `<p class="muted">No attempts yet — open a unit module to start.</p>`}
@@ -381,13 +416,15 @@ export async function initTake() {
   const params = new URLSearchParams(location.search);
   const mode = params.get("mode") || "graded";
   onAuthChange(async (user) => {
+    const app = $("#app");
     if (!user) {
-      location.href = "index.html";
+      // Signed-out visitors sign in here rather than being sent home, so the
+      // runner also works when a unit deck embeds it as its last slide.
+      renderAuth(app);
       return;
     }
     const profile = await getProfile(user.uid).catch(() => null);
     chrome(user, profile, mode === "practice" ? "Practice" : "Assessment");
-    const app = $("#app");
     app.innerHTML = `<div class="load">Preparing questions…</div>`;
     try {
       if (mode === "practice") {
@@ -405,7 +442,8 @@ export async function initTake() {
         const aid = params.get("aid");
         const aSnap = await getDoc(doc(db, "assessments", aid));
         if (!aSnap.exists()) {
-          banner("Assessment not found.");
+          const m = /^unit-([ivx]+)-/i.exec(aid || "");
+          banner(m ? `The Unit ${m[1].toUpperCase()} paper is not published yet — check back after the unit is taught.` : "Assessment not found.");
           return;
         }
         const assessment = aSnap.data();
@@ -413,11 +451,16 @@ export async function initTake() {
           query(collection(db, "attempts"), where("userId", "==", user.uid), where("assessmentId", "==", aid))
         );
         if (usedSnap.size >= assessment.attemptsAllowed) {
-          banner(`You have used all ${assessment.attemptsAllowed} attempt(s) for this assessment. Review your results from the unit module.`);
+          const latest = usedSnap.docs
+            .map((d) => ({ id: d.id, ...d.data() }))
+            .sort((a, b) => (b.submittedAt && b.submittedAt.toMillis ? b.submittedAt.toMillis() : 0) - (a.submittedAt && a.submittedAt.toMillis ? a.submittedAt.toMillis() : 0))[0];
+          app.innerHTML = `<div class="card notice">
+            <p>You have used all ${assessment.attemptsAllowed} attempt(s) for this ${esc(assessment.kind || "assessment")}.</p>
+            <p>${latest ? `<a class="btn" href="result.html?tid=${latest.id}">View your result →</a>` : ""} ${assessment.kind === "exam" ? `<a class="btn" href="index.html">Quiz home</a>` : `<a class="btn" href="unit.html?u=${esc(assessment.unit)}">Unit ${esc(assessment.unit)} module</a>`}</p></div>`;
           return;
         }
-        const bank = await loadBank(assessment.unit);
-        const { sectionAssignment, questionIds } = selectForSections(assessment.sections, bank);
+        const bank = assessment.bank ? await loadPaperBank(assessment.bank) : await loadBank(assessment.unit);
+        const { sectionAssignment, questionIds } = selectForSections(assessment.sections, bank, { ordered: assessment.fixedOrder === true });
         const items = [];
         assessment.sections.forEach((s) =>
           (sectionAssignment[s.id] || []).forEach((qid) => {
@@ -454,47 +497,117 @@ function questionShell(app, item, idx, total, title) {
   </div>`;
 }
 
-function runGraded(app, items, assessment, questionIds, sectionAssignment, user) {
-  const answers = [];
-  let idx = 0;
-  const started = Date.now();
+// True when a collected answer carries anything the student entered.
+function isAnswered(given) {
+  if (given.givenIndex != null) return true;
+  if (given.givenIndices && given.givenIndices.length) return true;
+  if (given.givenBlanks && given.givenBlanks.some((b) => String(b).trim())) return true;
+  if (given.givenPairs && given.givenPairs.some((p) => p >= 0)) return true;
+  if (given.given != null && String(given.given).trim()) return true;
+  if (given.givenText != null && String(given.givenText).trim()) return true;
+  return false;
+}
 
-  const draw = () => {
-    questionShell(app, items[idx], idx, items.length, assessment.title);
-    const foot = $("#qfoot", app);
-    foot.innerHTML = idx < items.length - 1 ? `<button class="btn" id="next">Next →</button>` : `<button class="btn primary" id="submit">Submit assessment</button>`;
-    const btn = $("#next", foot) || $("#submit", foot);
-    btn.addEventListener("click", async () => {
-      const fmt = formatOf(items[idx].q);
-      const given = fmt.collect($(".qcard", app));
-      answers.push({ qid: items[idx].q.id, section: items[idx].section, ...given, timeTakenSec: Math.round((Date.now() - started) / 1000) });
-      if (idx < items.length - 1) {
-        idx++;
-        draw();
-      } else {
-        btn.disabled = true;
-        btn.textContent = "Submitting…";
-        try {
-          const ref = await addDoc(collection(db, "attempts"), {
-            userId: user.uid,
-            assessmentId: assessment.id,
-            unit: assessment.unit,
-            questionIds,
-            sectionAssignment,
-            answers,
-            status: "submitted",
-            submittedAt: serverTimestamp(),
-          });
-          location.href = "result.html?tid=" + ref.id;
-        } catch (err) {
-          btn.disabled = false;
-          btn.textContent = "Submit assessment";
-          foot.insertAdjacentHTML("afterend", `<p class="err">Could not submit: ${esc(err.message)}</p>`);
-        }
-      }
+// The whole paper as one exam sheet, with a clock when the paper is timed.
+function runGraded(app, items, assessment, questionIds, sectionAssignment, user) {
+  // The clock survives a reload: its start is remembered per candidate and paper.
+  const clockKey = `men201-paper-${user.uid}-${assessment.id}`;
+  let started = Number(localStorage.getItem(clockKey));
+  if (!started) {
+    started = Date.now();
+    try {
+      localStorage.setItem(clockKey, String(started));
+    } catch {
+      /* storage unavailable — the clock still runs for this page */
+    }
+  }
+
+  const today = new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
+  app.innerHTML = renderPaper(items, assessment, user.displayName || user.email, today);
+
+  const collectAll = () =>
+    items.map((item, i) => {
+      const given = formatOf(item.q).collect($(`.pq[data-i="${i}"]`, app));
+      return { qid: item.q.id, section: item.section, ...given };
     });
+
+  const counter = $("#unanswered", app);
+  const btn = $("#submit", app);
+  let armed = false;
+  let submitting = false;
+  const refresh = () => {
+    const n = collectAll().filter((g) => !isAnswered(g)).length;
+    counter.textContent = n ? `${items.length - n} of ${items.length} answered` : "All questions answered";
+    if (!n) {
+      armed = false;
+      btn.textContent = "Submit paper";
+    }
   };
-  draw();
+  app.addEventListener("input", refresh);
+  app.addEventListener("change", refresh);
+  refresh();
+
+  const submit = async () => {
+    if (submitting) return;
+    submitting = true;
+    const answers = collectAll();
+    const timeTakenSec = Math.round((Date.now() - started) / 1000);
+    btn.disabled = true;
+    btn.textContent = "Submitting…";
+    try {
+      const ref = await addDoc(collection(db, "attempts"), {
+        userId: user.uid,
+        assessmentId: assessment.id,
+        unit: assessment.unit,
+        questionIds,
+        sectionAssignment,
+        answers: answers.map((a) => ({ ...a, timeTakenSec })),
+        status: "submitted",
+        submittedAt: serverTimestamp(),
+      });
+      try {
+        localStorage.removeItem(clockKey);
+      } catch {
+        /* ignore */
+      }
+      location.href = "result.html?tid=" + ref.id;
+    } catch (err) {
+      submitting = false;
+      btn.disabled = false;
+      armed = false;
+      btn.textContent = "Submit paper";
+      counter.innerHTML = `<span class="err">Could not submit: ${esc(err.message)}</span>`;
+    }
+  };
+
+  btn.addEventListener("click", () => {
+    const missing = collectAll().filter((g) => !isAnswered(g)).length;
+    if (missing && !armed) {
+      armed = true;
+      btn.textContent = `Submit with ${missing} unanswered?`;
+      return;
+    }
+    submit();
+  });
+
+  // Clock: counts down from the paper's time allowance and submits at zero.
+  const clockEl = $("#clock", app);
+  if (clockEl && assessment.timeAllowedMin) {
+    const deadline = started + assessment.timeAllowedMin * 60000;
+    const tick = () => {
+      const left = Math.max(0, deadline - Date.now());
+      const m = Math.floor(left / 60000);
+      const s = Math.floor((left % 60000) / 1000);
+      clockEl.textContent = `${m}:${String(s).padStart(2, "0")}`;
+      clockEl.parentElement.classList.toggle("low", left <= 5 * 60000);
+      if (left <= 0) {
+        clearInterval(timer);
+        submit();
+      }
+    };
+    const timer = setInterval(tick, 1000);
+    tick();
+  }
 }
 
 function runPractice(app, items, unit) {
@@ -642,7 +755,7 @@ async function renderResult(app, user, tid, profile) {
   <div class="mast">
     <p class="eyebrow">${esc(assessment.title || "Assessment")}</p>
     <h1>${pending ? "Result — partially graded" : "Result"}</h1>
-    <p class="muted">${fmtDate(attempt.submittedAt)} · Unit ${esc(attempt.unit)}</p>
+    <p class="muted">${fmtDate(attempt.submittedAt)} · ${attempt.unit === "Module" ? "Module examination" : `Unit ${esc(attempt.unit)}`}</p>
   </div>
 
   <section class="card scorecard">

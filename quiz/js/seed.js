@@ -30,17 +30,18 @@ if (saPath) {
 const db = getFirestore();
 
 // ---- questions
+// questions-unit-ii.json -> q-ii-001…, questions-exam.json -> q-exam-001…
 const files = fs
   .readdirSync(dataDir)
-  .filter((f) => f.startsWith("questions-unit-") && f.endsWith(".json"))
+  .filter((f) => f.startsWith("questions-") && f.endsWith(".json"))
   .sort();
 let total = 0;
 for (const f of files) {
   const arr = JSON.parse(fs.readFileSync(path.join(dataDir, f), "utf8"));
-  const unit = (arr[0] && arr[0].unit) || "x";
+  const prefix = f.replace(/^questions-(unit-)?/, "").replace(/\.json$/, "").toLowerCase();
   const batch = db.batch();
   arr.forEach((q, i) => {
-    const id = `q-${unit.toLowerCase()}-${String(i + 1).padStart(3, "0")}`;
+    const id = `q-${prefix}-${String(i + 1).padStart(3, "0")}`;
     batch.set(db.collection("questions").doc(id), q);
   });
   await batch.commit();

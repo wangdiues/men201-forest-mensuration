@@ -1,0 +1,42 @@
+{
+  "code": "MEN201",
+  "title": "Forest Mensuration",
+  "units": [
+    { "id": "I", "title": "Introduction to Forest Mensuration", "deckHref": "MEN201_Unit_I_Introduction_to_Forest_Mensuration.html", "notesHref": "notes/MEN201_Notes_Unit_I.html", "outcomes": [] },
+    {
+      "id": "II",
+      "title": "Diameter, Girth and Bark Thickness",
+      "deckHref": "MEN201_Unit_II_Diameter_Girth_and_Bark_Thickness.html",
+      "notesHref": "notes/MEN201_Notes_Unit_II.html",
+      "outcomes": [
+        "State the national protocol for DBH measurement (over bark, 1.37 m, trees from 10 cm)",
+        "Measure tree diameter and girth accurately with a diameter tape and calipers",
+        "Convert between girth and diameter using D = G / π",
+        "Explain the effect of bark thickness on over-bark and under-bark measurements",
+        "Identify and avoid common sources of error in diameter measurement"
+      ]
+    },
+    { "id": "III", "title": "Measurement of Crown Closure", "deckHref": "MEN201_Unit_III_Measurement_of_Crown_Closure.html", "notesHref": "notes/MEN201_Notes_Unit_III.html", "outcomes": [] },
+    {
+      "id": "IV",
+      "title": "Measurement of Tree Height",
+      "deckHref": "MEN201_Unit_IV_Measurement_of_Tree_Height.html",
+      "notesHref": "notes/MEN201_Notes_Unit_IV.html",
+      "outcomes": [
+        "Define total height and distinguish the six heights measured along a tree",
+        "Estimate height without instruments by the ocular, shadow and single-pole methods",
+        "Apply the tangent method in all four standing positions, adding eye height correctly",
+        "Recognise when a tree leans enough to invalidate the tangent method, and apply the sine method",
+        "Identify sources of error and classify them as random or systematic",
+        "Assign trees to DBH and height classes using the standard width rules"
+      ]
+    },
+    { "id": "V", "title": "Measurement of Tree Volume", "deckHref": "MEN201_Unit_V_Measurement_of_Tree_Volume.html", "notesHref": "notes/MEN201_Notes_Unit_V.html", "outcomes": [] },
+    { "id": "VI", "title": "Measurement of the Crop", "deckHref": "MEN201_Unit_VI_Measurement_of_Crop.html", "notesHref": "notes/MEN201_Notes_Unit_VI.html", "outcomes": [] },
+    { "id": "VII", "title": "Age and Growth of Trees", "deckHref": "MEN201_Unit_VII_Age_and_Growth_of_Trees.html", "notesHref": "notes/MEN201_Notes_Unit_VII.html", "outcomes": [] },
+    { "id": "VIII", "title": "Forest Inventory and Sampling", "deckHref": "MEN201_Unit_VIII_Forest_Inventory_and_Sampling.html", "notesHref": null, "outcomes": [] },
+    { "id": "IX", "title": "Digital Forest Mensuration and Data Management", "deckHref": "MEN201_Unit_IX_Digital_Forest_Mensuration_and_Data_Management.html", "notesHref": null, "outcomes": [] },
+    { "id": "X", "title": "Forest Biomass and Carbon Estimation", "deckHref": "MEN201_Unit_X_Forest_Biomass_and_Carbon_Estimation.html", "notesHref": null, "outcomes": [] },
+    { "id": "XI", "title": "Remote and Emerging Technologies in Forest Mensuration", "deckHref": "MEN201_Unit_XI_Remote_and_Emerging_Technologies_in_Forest_Mensuration.html", "notesHref": null, "outcomes": [] }
+  ]
+}

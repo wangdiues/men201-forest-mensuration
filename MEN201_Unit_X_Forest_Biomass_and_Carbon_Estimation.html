@@ -71,10 +71,66 @@
 
 <section class="slide" data-n="25" aria-labelledby="u10-ref"><div class="head"><div class="eyebrow">Summary · References</div><h2 class="title" id="u10-ref">A carbon estimate is a <em>documented model result</em></h2><div class="hr"></div></div><div class="runhead">MEN 201 · Supplementary<br>Unit X</div><div class="body"><div class="g2 grow"><div class="card"><div class="ch">Key sources</div><ul class="bul sm"><li><strong>UWICER &amp; FRMD (2018).</strong> <a href="supplementary/Allometric_Biomass_Equations_Bhutan_2018.pdf">Allometric Biomass Equations: 14 Species and 2 General</a>.</li><li><strong>DoFPS (2023).</strong> <a href="supplementary/National-Forest-Inventory-Volume-II_State-of-Forest-Carbon-Report-2023.pdf">Second NFI, Volume II: State of Forest Carbon Report</a>. Equation 2.8 and the 35-species-specific + two-general equation set used nationally.</li><li><strong>IPCC (2006).</strong> <a href="https://www.ipcc-nggip.iges.or.jp/public/2006gl/vol4">Guidelines for National GHG Inventories, Volume 4: AFOLU</a>, especially Chapter 4.</li><li><strong>Chave et al. (2014).</strong> Improved allometric models to estimate aboveground biomass of tropical trees. Global Change Biology 20:3177–3190. <a href="https://doi.org/10.1111/gcb.12629">doi:10.1111/gcb.12629</a>.</li><li><strong>Mokany, Raison &amp; Prokushkin (2006).</strong> Critical analysis of root:shoot ratios in terrestrial biomes. Global Change Biology 12:84–96.</li></ul></div><div class="card moss"><div class="ch">Five takeaways</div><ol class="txt-sm" style="margin:0;padding-left:23px"><li>Define the biomass pool and dry-mass unit.</li><li>Select equations for species, region, variables and calibration range.</li><li>Keep tree → plot → hectare expansion visible.</li><li>Apply BGB methods and CF at their documented level and conditions.</li><li>Report measurement, model, sampling and conversion uncertainty.</li></ol><div class="callout moss" style="margin-top:21px;background:rgba(255,255,255,.1);border-left-color:#f0c66d"><p style="color:#fff"><strong style="color:#fff">Next:</strong> Unit XI shows how field plots train and validate satellite, UAV and LiDAR estimates across space and time.</p></div></div></div></div><div class="pageno"></div></section>
 
+<!-- uq:slide -->
+<!-- ======================================================================
+     TEST YOUR UNDERSTANDING — the Unit X paper, sat here on the last slide.
+     The frame loads the quiz app (quiz/take.html) only when this slide is
+     reached, so opening the deck never contacts Firebase. Students sign in
+     inside the frame; the paper shows its full marks, time and pass mark, and
+     results are recorded against the student's account.
+     ====================================================================== -->
+<section class="slide uq" data-n="uq" aria-labelledby="uq-title-X">
+  <div class="head">
+    <div class="eyebrow rv" style="--d:0">Unit X &middot; end of unit</div>
+    <h2 class="title rv" style="--d:1" id="uq-title-X">Test your <em>understanding</em></h2>
+    <div class="hr"></div>
+  </div>
+  <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit X &middot; Paper</div>
+  <div class="body">
+    <p class="txt-sm rv" style="--d:2;margin:0 0 14px">The unit paper: full marks, time allowed and pass mark are printed on the sheet. Sign in, answer, submit once. <a href="quiz/take.html?aid=unit-x-quiz" target="_blank" rel="noopener">Open the paper in its own tab</a></p>
+    <div class="uq-wrap rv" style="--d:3">
+      <iframe class="uq-frame" data-src="quiz/take.html?aid=unit-x-quiz" title="Unit X paper"></iframe>
+    </div>
+  </div>
+  <div class="pageno"></div>
+</section>
+<!-- /uq:slide -->
 </div></main><nav class="hud" aria-label="Slide and unit navigation"><a class="unitnext" href="MEN201_Unit_IX_Digital_Forest_Mensuration_and_Data_Management.html">← Unit IX</a><button id="prev" type="button" aria-label="Previous slide">‹</button><span><b id="cur">1</b> / <span id="tot">25</span></span><button id="next" type="button" aria-label="Next slide">›</button><a class="unitnext" href="MEN201_Unit_XI_Remote_and_Emerging_Technologies_in_Forest_Mensuration.html">Unit XI →</a></nav><script src="supplementary/men201_supplementary_deck.js"></script>
 <script>
 (function(){
  const ids=['bio-d','bio-h','bio-rho','bio-cf','bio-r'],out=document.getElementById('bio-result');
  document.getElementById('bio-run').addEventListener('click',()=>{const model=document.getElementById('bio-model').value,D=Number(document.getElementById('bio-d').value),H=Number(document.getElementById('bio-h').value),rho=Number(document.getElementById('bio-rho').value),CF=Number(document.getElementById('bio-cf').value),rawR=document.getElementById('bio-r').value.trim(),R=rawR===''?null:Number(rawR);if(!(D>0)||!(CF>0&&CF<1)||(R!==null&&!(R>=0&&R<=2))||(model==='chave'&&(!(H>0)||!(rho>0&&rho<=1.5)))){out.innerHTML='<span class="error">Check inputs:</span> positive dimensions; 0&lt;CF&lt;1; valid density; optional R from 0 to 2.';return;}let agb,detail,source;if(model==='chave'){const composite=rho*D*D*H;agb=.0673*Math.pow(composite,.976);detail='ρD²H = '+rho.toFixed(3)+' × '+D.toFixed(2)+'² × '+H.toFixed(2)+' = '+composite.toFixed(2)+'; AGB = 0.0673 × '+composite.toFixed(2)+'^0.976 = '+agb.toFixed(2)+' kg';source='Chave et al. (2014), doi:10.1111/gcb.12629; generalized tropical-tree model.';}else{if(D<2.6||D>95.8){out.innerHTML='<span class="error">Outside published range:</span> Bhutan P. wallichiana DBH-only equation is documented for 2.6–95.8 cm.';return;}const ba=Math.PI*Math.pow(D/100,2)/4,t1=.00309,t2=.098407,t3=.394911,tp=z=>Math.pow(Math.max(z,0),3),x2=tp(ba-t1)-tp(ba-t2)*(t3-t1)/(t3-t2)+tp(ba-t3)*(t2-t1)/(t3-t2);agb=-1.57+3444*ba+55392*x2;detail='ba = π('+D.toFixed(2)+'/100)²/4 = '+ba.toFixed(6)+' m²; X₂ = '+x2.toFixed(9)+'; AGB = −1.57 + 3444ba + 55392X₂ = '+agb.toFixed(2)+' kg';source='UWICER & FRMD (2018), P. wallichiana DBH-only spline, n=52.';}const bgb=R===null?0:agb*R,total=agb+bgb,C=total*CF,co2=C*44/12;out.innerHTML='<strong>Equation:</strong> '+detail+'<br><strong>Generic BGB comparison:</strong> '+(R===null?'not estimated (R blank)':agb.toFixed(2)+' × '+R.toFixed(3)+' = '+bgb.toFixed(2)+' kg')+' · <strong>Total included biomass:</strong> '+total.toFixed(2)+' kg<br><strong>Carbon:</strong> '+total.toFixed(2)+' × '+CF.toFixed(3)+' = '+C.toFixed(2)+' kg C · <strong>CO₂e:</strong> '+C.toFixed(2)+' × 44/12 = '+co2.toFixed(2)+' kg CO₂e<br><span style="color:var(--ink-faint)"><strong>Source/assumptions:</strong> '+source+' CF supplied by user; generic R '+(R===null?'not applied.':'supplied by user—document its source. This is not the Bhutan NFI plot method.')+'</span>';});document.getElementById('bio-run').click();})();
 (function(){const out=document.getElementById('bgb-result');function run(){const agb=Number(document.getElementById('bgb-agb').value),cf=Number(document.getElementById('bgb-cf').value);if(!(agb>0)||!(cf>0&&cf<1)){out.innerHTML='<span class="error">Check inputs:</span> plot AGB must be positive and 0&lt;CF&lt;1.';return;}const power=Math.pow(agb,.89),bgb=.489*power,total=agb+bgb,c=total*cf,co2=c*44/12;out.innerHTML='<strong>Equation used:</strong> BGB<sub>p</sub> = 0.489 × AGB<sub>p</sub><sup>0.89</sup><br><strong>Power term:</strong> '+agb.toFixed(4)+'<sup>0.89</sup> = '+power.toFixed(6)+'<br><strong>BGB:</strong> 0.489 × '+power.toFixed(6)+' = <strong>'+bgb.toFixed(4)+' t/ha</strong> · <strong>Included biomass:</strong> '+agb.toFixed(4)+' + '+bgb.toFixed(4)+' = '+total.toFixed(4)+' t/ha<br><strong>Carbon:</strong> '+total.toFixed(4)+' × '+cf.toFixed(3)+' = '+c.toFixed(4)+' t C/ha · <strong>CO₂e:</strong> '+c.toFixed(4)+' × 44/12 = '+co2.toFixed(4)+' t CO₂e/ha<br><span style="color:var(--ink-faint)"><strong>Source/assumptions:</strong> DoFPS (2023), Second NFI Volume II, equation 2.8; applied at plot level to AGB in t/ha. Deadwood, litter and soil are excluded.</span>';};document.getElementById('bgb-run').addEventListener('click',run);run();})();
-</script></body></html>
+</script><!-- uq:loader -->
+<!-- === TEST YOUR UNDERSTANDING · frame loader ============================
+     The last slide's frame carries data-src, not src: the quiz app and the
+     Firebase SDK behind it are fetched the first time the slide is shown,
+     never on opening the deck. Clicks and keys inside the frame stay in the
+     frame, so answering can't turn the page. The frame is laid out at 1/1.6
+     of its slot and scaled back up, so the paper inside gets a narrower page
+     and larger type once the 1920px stage has been shrunk to a laptop screen.
+     ====================================================================== -->
+<style>
+.uq .body{display:flex;flex-direction:column}
+.uq .body>.uq-wrap{flex:1 1 auto;min-height:0;position:relative;overflow:hidden;
+  border:1px solid var(--rule,rgba(20,28,24,.16));border-radius:3px;background:#fff;
+  box-shadow:0 2px 0 rgba(20,28,24,.05),0 14px 34px rgba(20,28,24,.045)}
+.uq-frame{position:absolute;left:0;top:0;width:calc(100% / 1.6);height:calc(100% / 1.6);
+  transform:scale(1.6);transform-origin:0 0;border:0;background:#fff}
+@media print{.uq-wrap{display:none}}
+</style>
+<script>
+(function(){
+  var slide = document.querySelector('.slide.uq');
+  var frame = slide && slide.querySelector('.uq-frame[data-src]');
+  if (!frame) return;
+  function load(){
+    if (!slide.classList.contains('active') || frame.src) return;
+    frame.src = frame.getAttribute('data-src');
+  }
+  new MutationObserver(load).observe(slide, {attributes:true, attributeFilter:['class']});
+  load();
+})();
+</script>
+<!-- /uq:loader -->
+</body></html>

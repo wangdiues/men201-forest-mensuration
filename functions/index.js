@@ -9,7 +9,7 @@
 
 const { onDocumentCreated, onDocumentUpdated } = require("firebase-functions/v2/firestore");
 const { initializeApp } = require("firebase-admin/app");
-const { getFirestore, FieldValue, FieldPath } = require("firebase-admin/firestore");
+const { getFirestore, FieldValue } = require("firebase-admin/firestore");
 
 initializeApp();
 const db = getFirestore();
@@ -181,9 +181,14 @@ function learningGaps(bloomBreakdown, wrongTopicsByLevel) {
 // ---------------------------------------------------------------- shared load
 
 async function loadContext(attempt) {
-  const qSnap = await db.collection("questions").where(FieldPath.documentId(), "in", attempt.questionIds).get();
+  // getAll rather than an "in" query: "in" is capped at 30 ids and a paper
+  // can carry more questions than that.
+  const refs = (attempt.questionIds || []).map((id) => db.collection("questions").doc(id));
+  const qDocs = refs.length ? await db.getAll(...refs) : [];
   const questions = {};
-  qSnap.forEach((d) => (questions[d.id] = d.data()));
+  qDocs.forEach((d) => {
+    if (d.exists) questions[d.id] = d.data();
+  });
   const aSnap = await db.doc(`assessments/${attempt.assessmentId}`).get();
   const assessment = aSnap.data() || {};
   const sections = {};

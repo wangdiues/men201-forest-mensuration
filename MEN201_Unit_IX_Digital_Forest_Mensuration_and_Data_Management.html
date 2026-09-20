@@ -55,7 +55,63 @@
 
 <section class="slide" data-n="25" aria-labelledby="u9-ref"><div class="head"><div class="eyebrow">References · Further reading</div><h2 class="title" id="u9-ref">Sources and <em>current documentation</em></h2><div class="hr"></div></div><div class="runhead">MEN 201 · Supplementary<br>Unit IX</div><div class="body"><div class="g2 grow"><div class="card"><div class="ch">Course and forestry sources</div><ul class="bul sm"><li><strong>DoFPS (2023).</strong> <a href="supplementary/National-Forest-Inventory-Volume-I_State-of-Forest-Report-2023.pdf">Second NFI, Volume I</a>. Open Foris/Android collection, redundant storage, data management, QA/QC and 25-reading GRS protocol.</li><li><strong>DoFPS (2024).</strong> <a href="supplementary/Forest_Canopy_Cover_Assessment_Guidelines_2024.pdf">Forest Canopy Cover Assessment Guidelines</a>. GRS crown densitometer and 100-reading SRFL protocol.</li><li><strong>FAO.</strong> <a href="https://www.fao.org/4/ae578e/AE578E00.htm">National Forest Inventory Field Manual template</a>.</li><li><strong>Kershaw et al. (2017).</strong> Forest Mensuration, 5th ed.</li><li><strong>Broman &amp; Woo (2018).</strong> Data Organization in Spreadsheets. The American Statistician, 72(1), 2–10.</li></ul></div><div class="card"><div class="ch">Official software documentation</div><ul class="bul sm"><li><strong>Open Foris.</strong> <a href="https://www.openforis.org/collect/">Collect</a> and <a href="https://www.openforis.org/arena/">Arena</a> documentation: survey structure, code lists and validation.</li><li><strong>ODK.</strong> <a href="https://docs.getodk.org/form-logic/">Form logic and constraints</a>.</li><li><strong>KoboToolbox.</strong> <a href="https://support.kobotoolbox.org/">Official help centre</a>.</li><li>Instrument-specific calibration, accuracy and care instructions must come from the actual manufacturer manual and governing field protocol.</li></ul></div></div><div class="callout moss" style="margin-top:22px"><p><strong>Next:</strong> Unit X uses documented equations and conversion factors to turn checked tree measurements into biomass, carbon and CO₂-equivalent estimates.</p></div></div><div class="pageno"></div></section>
 
+<!-- uq:slide -->
+<!-- ======================================================================
+     TEST YOUR UNDERSTANDING — the Unit IX paper, sat here on the last slide.
+     The frame loads the quiz app (quiz/take.html) only when this slide is
+     reached, so opening the deck never contacts Firebase. Students sign in
+     inside the frame; the paper shows its full marks, time and pass mark, and
+     results are recorded against the student's account.
+     ====================================================================== -->
+<section class="slide uq" data-n="uq" aria-labelledby="uq-title-IX">
+  <div class="head">
+    <div class="eyebrow rv" style="--d:0">Unit IX &middot; end of unit</div>
+    <h2 class="title rv" style="--d:1" id="uq-title-IX">Test your <em>understanding</em></h2>
+    <div class="hr"></div>
+  </div>
+  <div class="runhead">MEN 201 &middot; Forest Mensuration<br>Unit IX &middot; Paper</div>
+  <div class="body">
+    <p class="txt-sm rv" style="--d:2;margin:0 0 14px">The unit paper: full marks, time allowed and pass mark are printed on the sheet. Sign in, answer, submit once. <a href="quiz/take.html?aid=unit-ix-quiz" target="_blank" rel="noopener">Open the paper in its own tab</a></p>
+    <div class="uq-wrap rv" style="--d:3">
+      <iframe class="uq-frame" data-src="quiz/take.html?aid=unit-ix-quiz" title="Unit IX paper"></iframe>
+    </div>
+  </div>
+  <div class="pageno"></div>
+</section>
+<!-- /uq:slide -->
 </div></main><nav class="hud" aria-label="Slide and unit navigation"><a class="unitnext" href="MEN201_Unit_VIII_Forest_Inventory_and_Sampling.html">← Unit VIII</a><button id="prev" type="button" aria-label="Previous slide">‹</button><span><b id="cur">1</b> / <span id="tot">25</span></span><button id="next" type="button" aria-label="Next slide">›</button><a class="unitnext" href="MEN201_Unit_X_Forest_Biomass_and_Carbon_Estimation.html">Unit X →</a></nav><script src="supplementary/men201_supplementary_deck.js"></script>
 <script>
 (function(){const rows=Array.from(document.querySelectorAll('#dq-table tbody tr')),out=document.getElementById('dq-result');document.getElementById('dq-run').addEventListener('click',()=>{const seen=new Map(),flags=[];rows.forEach((tr,i)=>{const c=Array.from(tr.cells).map(x=>x.textContent.trim()),key=c[0]+'|'+c[1],dbh=Number(c[3]),h=c[4]===''?NaN:Number(c[4]);if(c.some((x,k)=>k<3&&x==='')||c[3]===''||c[4]==='')flags.push('row '+(i+1)+': missing required value');if(seen.has(key))flags.push('row '+(i+1)+': duplicate key '+key+' (first at row '+seen.get(key)+')');else seen.set(key,i+1);if(Number.isFinite(dbh)&&(dbh<=0||dbh>200))flags.push('row '+(i+1)+': DBH '+dbh+' cm outside demonstration range 0–200');if(Number.isFinite(h)&&(h<=0||h>80))flags.push('row '+(i+1)+': height '+h+' m outside demonstration range 0–80');});out.innerHTML='<strong>'+flags.length+' flag(s)</strong><br>'+flags.map(x=>'• '+x).join('<br>')+'<br><span style="color:var(--ink-faint)">Review evidence before any correction.</span>';});})();
-</script></body></html>
+</script><!-- uq:loader -->
+<!-- === TEST YOUR UNDERSTANDING · frame loader ============================
+     The last slide's frame carries data-src, not src: the quiz app and the
+     Firebase SDK behind it are fetched the first time the slide is shown,
+     never on opening the deck. Clicks and keys inside the frame stay in the
+     frame, so answering can't turn the page. The frame is laid out at 1/1.6
+     of its slot and scaled back up, so the paper inside gets a narrower page
+     and larger type once the 1920px stage has been shrunk to a laptop screen.
+     ====================================================================== -->
+<style>
+.uq .body{display:flex;flex-direction:column}
+.uq .body>.uq-wrap{flex:1 1 auto;min-height:0;position:relative;overflow:hidden;
+  border:1px solid var(--rule,rgba(20,28,24,.16));border-radius:3px;background:#fff;
+  box-shadow:0 2px 0 rgba(20,28,24,.05),0 14px 34px rgba(20,28,24,.045)}
+.uq-frame{position:absolute;left:0;top:0;width:calc(100% / 1.6);height:calc(100% / 1.6);
+  transform:scale(1.6);transform-origin:0 0;border:0;background:#fff}
+@media print{.uq-wrap{display:none}}
+</style>
+<script>
+(function(){
+  var slide = document.querySelector('.slide.uq');
+  var frame = slide && slide.querySelector('.uq-frame[data-src]');
+  if (!frame) return;
+  function load(){
+    if (!slide.classList.contains('active') || frame.src) return;
+    frame.src = frame.getAttribute('data-src');
+  }
+  new MutationObserver(load).observe(slide, {attributes:true, attributeFilter:['class']});
+  load();
+})();
+</script>
+<!-- /uq:loader -->
+</body></html>

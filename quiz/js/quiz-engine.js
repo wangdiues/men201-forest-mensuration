@@ -231,8 +231,8 @@ async function renderLanding(app, user, profile) {
         a.status === "complete"
           ? `<span class="pct">${a.percent}%</span>`
           : a.status === "awaiting-manual"
-          ? `<span class="tag">awaiting grading</span>`
-          : `<span class="tag">grading…</span>`;
+          ? `<span class="tag" title="Objective questions are graded — written answers are being graded next.">awaiting grading</span>`
+          : `<span class="tag" title="Under assessment — usually done within a few minutes.">grading…</span>`;
       return `<tr><td>${esc(titles[a.assessmentId] || a.assessmentId)}</td>
         <td>${fmtDate(a.submittedAt)}</td><td>${status}</td>
         <td><a href="result.html?tid=${a.id}">View →</a></td></tr>`;
@@ -312,9 +312,10 @@ async function renderUnit(app, user, unit) {
   const assessments = await loadAssessmentsForUnit(unit.id);
   const quiz = assessments.find((a) => a.kind === "quiz");
 
-  // my completed attempts at this unit's quiz
+  // my attempts at this unit's quiz, any status — a pending (ungraded) one
+  // still counts against the attempt limit, same as take.html's own gate.
   const mySnap = await getDocs(
-    query(collection(db, "attempts"), where("userId", "==", user.uid), where("unit", "==", unit.id), where("status", "==", "complete"), orderBy("submittedAt", "desc"), limit(50))
+    query(collection(db, "attempts"), where("userId", "==", user.uid), where("unit", "==", unit.id), orderBy("submittedAt", "desc"), limit(50))
   );
   const mine = mySnap.docs.map((d) => ({ id: d.id, ...d.data() }));
 
@@ -322,9 +323,13 @@ async function renderUnit(app, user, unit) {
     if (!quiz) return `<p class="muted">Not yet published.</p>`;
     const used = mine.filter((x) => x.assessmentId === quiz.id);
     const left = Math.max(0, quiz.attemptsAllowed - used.length);
-    const action = left > 0
-      ? `<a class="btn" href="take.html?aid=${quiz.id}">Start test</a>`
-      : `<a class="btn" href="result.html?tid=${used[0].id}">View your grade →</a>`;
+    const latest = used[0];
+    const action =
+      latest && latest.status !== "complete"
+        ? `<p class="tag">Grading in progress — objective questions are marked automatically within a few minutes; written answers may take a little longer. Refresh this page to check.</p>`
+        : left > 0
+        ? `<a class="btn" href="take.html?aid=${quiz.id}">Start test</a>`
+        : `<a class="btn" href="result.html?tid=${latest.id}">View your grade →</a>`;
     return `
       <p class="muted">${esc(quiz.title)} · ${quiz.totalMarks} marks · ${left} of ${quiz.attemptsAllowed} attempts left</p>
       ${action}`;
@@ -620,23 +625,28 @@ async function renderResult(app, user, tid, profile) {
     return;
   }
 
-  // The grading Cloud Function runs asynchronously after submit — the
-  // attempt can still be "submitted" (ungraded) for a moment. Poll briefly
-  // rather than showing undefined score fields.
+  // Grading runs on a schedule (every few minutes), not instantly on
+  // submit — the attempt sits at "submitted" until that job picks it up.
+  // Show a clear, reassuring "under assessment" state rather than a bare
+  // spinner, and poll at a sensible interval for a student who stays on
+  // the page instead of alarming them with a tight short poll.
   if (attempt.status === "submitted") {
-    app.innerHTML = `<div class="load">Grading your attempt…</div>`;
+    app.innerHTML = `<div class="card notice">
+      <p><b>Your attempt is under assessment.</b></p>
+      <p class="muted">This is normal — objective questions are graded automatically, usually within
+      a few minutes of submitting; written answers finish shortly after that. You don't need to keep
+      this page open — come back any time and your result will be here.</p>
+      <p><button class="btn" id="retry">Check now</button></p>
+    </div>`;
+    $("#retry", app).addEventListener("click", () => renderResult(app, user, tid, profile));
     for (let i = 0; i < 20 && attempt.status === "submitted"; i++) {
-      await new Promise((r) => setTimeout(r, 500));
+      await new Promise((r) => setTimeout(r, 15000));
       aSnap = await getDoc(doc(db, "attempts", tid));
       attempt = aSnap.data();
     }
-  }
-
-  if (attempt.status === "submitted") {
-    app.innerHTML = `<div class="card notice"><p>Still grading — this is taking longer than usual.</p>
-      <p><button class="btn" id="retry">Check again</button></p></div>`;
-    $("#retry", app).addEventListener("click", () => renderResult(app, user, tid, profile));
-    return;
+    if (attempt.status === "submitted") {
+      return renderResult(app, user, tid, profile);
+    }
   }
 
   const asSnap = await getDoc(doc(db, "assessments", attempt.assessmentId));

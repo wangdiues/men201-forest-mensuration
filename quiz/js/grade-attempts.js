@@ -416,6 +416,8 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_MODEL = "gemini-3.6-flash";
 const NVIDIA_API_KEY = process.env.NVIDIA_API_KEY;
 const NVIDIA_MODEL = "openai/gpt-oss-20b";
+const GROQ_API_KEY = process.env.GROQ_API_KEY;
+const GROQ_MODEL = "openai/gpt-oss-120b";
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const OPENROUTER_MODEL = "openrouter/free";
 
@@ -513,6 +515,7 @@ async function callOpenAICompatible(label, baseUrl, apiKey, model, items, extraH
 }
 
 const callNvidia = (items) => callOpenAICompatible("NVIDIA NIM", "https://integrate.api.nvidia.com/v1", NVIDIA_API_KEY, NVIDIA_MODEL, items);
+const callGroq = (items) => callOpenAICompatible("Groq", "https://api.groq.com/openai/v1", GROQ_API_KEY, GROQ_MODEL, items);
 const callOpenRouter = (items) =>
   callOpenAICompatible("OpenRouter", "https://openrouter.ai/api/v1", OPENROUTER_API_KEY, OPENROUTER_MODEL, items, {
     "HTTP-Referer": "https://men201-quiz.web.app",
@@ -523,6 +526,7 @@ async function gradeWithFallback(items) {
   const providers = [
     GEMINI_API_KEY && { name: "gemini", fn: callGemini },
     NVIDIA_API_KEY && { name: "nvidia", fn: callNvidia },
+    GROQ_API_KEY && { name: "groq", fn: callGroq },
     OPENROUTER_API_KEY && { name: "openrouter", fn: callOpenRouter },
   ].filter(Boolean);
   if (!providers.length) throw new Error("No AI grading provider is configured");
@@ -591,7 +595,7 @@ async function main() {
   }
 
   let aiGraded = 0;
-  if (GEMINI_API_KEY || NVIDIA_API_KEY || OPENROUTER_API_KEY) {
+  if (GEMINI_API_KEY || NVIDIA_API_KEY || GROQ_API_KEY || OPENROUTER_API_KEY) {
     const awaitingSnap = await db.collection("attempts").where("status", "==", "awaiting-manual").get();
     for (const docSnap of awaitingSnap.docs) {
       try {

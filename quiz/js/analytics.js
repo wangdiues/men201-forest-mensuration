@@ -10,7 +10,7 @@ export function pctFromBreakdown(row) {
 export function unitWisePerformance(assessments, statsMap) {
   const byUnit = {};
   assessments
-    .filter((a) => a.kind === "assessment" || a.kind === "exam")
+    .filter((a) => a.kind === "assessment" || a.kind === "exam" || a.kind === "quiz")
     .forEach((a) => {
       const s = statsMap[a.id] || {};
       const row = (byUnit[a.unit] = byUnit[a.unit] || {

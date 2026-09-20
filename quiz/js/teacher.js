@@ -446,7 +446,6 @@ function renderAssessments(el, data) {
 
 function renderExport(el, data) {
   const assessOptions = data.assessments
-    .filter((a) => a.kind === "assessment")
     .map((a) => `<option value="${a.id}">${esc(a.title)}</option>`)
     .join("");
 

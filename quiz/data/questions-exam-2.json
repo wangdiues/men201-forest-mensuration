@@ -1,0 +1,1360 @@
+[
+  {
+    "paper": "module-exam-2",
+    "unit": "I",
+    "topic": "mensura",
+    "subtopic": "root",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "The Latin root 'mensura' in forest mensuration means:",
+    "learningOutcome": "Recall the meaning of mensura.",
+    "active": true,
+    "options": [
+      "Measurement",
+      "Prediction",
+      "Classification",
+      "Propagation"
+    ],
+    "answer": 0,
+    "explanation": "Mensura is Latin for measurement."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "I",
+    "topic": "relative_accuracy",
+    "subtopic": "definition",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Relative accuracy of a forest measurement is:",
+    "learningOutcome": "Recall the definition of relative accuracy.",
+    "active": true,
+    "options": [
+      "Absolute error divided by true value",
+      "True value divided by absolute error",
+      "Variance divided by mean",
+      "Standard deviation times the mean"
+    ],
+    "answer": 1,
+    "explanation": "Relative accuracy = true value / absolute error."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "I",
+    "topic": "relative_accuracy",
+    "subtopic": "useful_when",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Relative accuracy is useful for comparing measurements of very different magnitudes.",
+    "learningOutcome": "Understand when relative accuracy is used.",
+    "active": true,
+    "answer": 0,
+    "explanation": "True — a 1 cm error on a 20 cm measurement is proportionally larger than on a 200 cm measurement."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "II",
+    "topic": "bark",
+    "subtopic": "tool",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Which tool is most appropriate for measuring bark thickness on a standing tree?",
+    "learningOutcome": "Recall the tool for bark measurement.",
+    "active": true,
+    "options": [
+      "Diameter tape",
+      "Bark caliper",
+      "Clinometer",
+      "Radius rod"
+    ],
+    "answer": 1,
+    "explanation": "A bark caliper measures the gap between outer and inner bark surfaces directly."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "II",
+    "topic": "diameter",
+    "subtopic": "tape_calibration",
+    "questionType": "fill-blank",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "A diameter tape is calibrated to read directly in centimetres because it converts circumference to ___.",
+    "learningOutcome": "Recall how a diameter tape works.",
+    "active": true,
+    "answer": [
+      "diameter"
+    ],
+    "explanation": "The tape converts circumference to diameter via C = πD."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "II",
+    "topic": "bark",
+    "subtopic": "error_direction",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Medium",
+    "marks": 1,
+    "question": "If bark thickness is ignored, the recorded diameter over bark will be:",
+    "learningOutcome": "Predict the direction of bark-induced error.",
+    "active": true,
+    "options": [
+      "Too small",
+      "Too large",
+      "Exactly correct",
+      "Unpredictable"
+    ],
+    "answer": 1,
+    "explanation": "Diameter over bark includes bark on both sides, exceeding diameter under bark by twice the bark thickness."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "III",
+    "topic": "crown",
+    "subtopic": "crown_base",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "The crown base of a tree is where:",
+    "learningOutcome": "Recall the definition of crown base.",
+    "active": true,
+    "options": [
+      "The trunk begins to taper",
+      "The first living branch is attached",
+      "The first branch (living or dead) breaks away",
+      "The roots meet the stem"
+    ],
+    "answer": 2,
+    "explanation": "Crown base is taken at the point where the lowest branch (living or dead) breaks away."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "III",
+    "topic": "crown",
+    "subtopic": "live_crown_ratio",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Medium",
+    "marks": 1,
+    "question": "A tree has crown length 18 m and total height 24 m. Its live crown ratio is:",
+    "learningOutcome": "Calculate live crown ratio.",
+    "active": true,
+    "options": [
+      "0.50",
+      "0.75",
+      "1.33",
+      "0.25"
+    ],
+    "answer": 1,
+    "explanation": "LCR = CL / H = 18 / 24 = 0.75."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "III",
+    "topic": "crown",
+    "subtopic": "cover_class",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "In the cover classes used in this module, a stand with 65 % canopy cover is dense forest (40–80 %).",
+    "learningOutcome": "Recall crown cover thresholds.",
+    "active": true,
+    "answer": 0,
+    "explanation": "True — open forest is 10–40 %, dense forest 40–80 %, very dense above 80 %."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "IV",
+    "topic": "height",
+    "subtopic": "height_classes",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "In Bhutanese inventory, the 'medium' height class for trees is:",
+    "learningOutcome": "Recall height classes used in Bhutan.",
+    "active": true,
+    "options": [
+      "Under 5 m",
+      "5–15 m",
+      "15–30 m",
+      "Over 30 m"
+    ],
+    "answer": 1,
+    "explanation": "Bhutanese inventory: short (under 5 m), medium (5–15 m), tall (over 15 m)."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "IV",
+    "topic": "height",
+    "subtopic": "bole_vs_total",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Medium",
+    "marks": 1,
+    "question": "Bole height differs from crown-base height because bole height measures to the point where:",
+    "learningOutcome": "Distinguish bole height from crown-base height.",
+    "active": true,
+    "options": [
+      "The crown begins",
+      "The first branch (living or dead) breaks away",
+      "The last living branch is",
+      "The trunk forks"
+    ],
+    "answer": 1,
+    "explanation": "Bole height stops at the first branch whether living or dead."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "IV",
+    "topic": "height",
+    "subtopic": "bole_height_def",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Medium",
+    "marks": 1,
+    "question": "The height from the ground to the first branch, whether living or dead, is called the:",
+    "learningOutcome": "Recall bole height definition.",
+    "active": true,
+    "options": [
+      "Crown base",
+      "Bole height",
+      "Merchantable height",
+      "Canopy height"
+    ],
+    "answer": 1,
+    "explanation": "Bole height measures to the first branch (living or dead). Crown base measures to the first living branch."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "V",
+    "topic": "taper",
+    "subtopic": "definition",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Taper of a tree stem is defined as:",
+    "learningOutcome": "Define taper.",
+    "active": true,
+    "options": [
+      "Volume divided by height",
+      "The rate of decrease in diameter from base to top",
+      "Bark thickness at breast height",
+      "Ratio of height to diameter"
+    ],
+    "answer": 1,
+    "explanation": "Taper describes how stem diameter decreases from base towards the crown."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "volume_tables",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Medium",
+    "marks": 1,
+    "question": "A volume table relates:",
+    "learningOutcome": "Recall the purpose of volume tables.",
+    "active": true,
+    "options": [
+      "Tree height to bark thickness",
+      "Tree diameter and height to volume",
+      "Crown width to biomass",
+      "Bole height to merchantable volume"
+    ],
+    "answer": 1,
+    "explanation": "Volume tables use DBH and height as predictors of stem volume."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "standing_volume",
+    "questionType": "fill-blank",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Medium",
+    "marks": 1,
+    "question": "Estimating standing tree volume from a volume table uses two measurements: DBH and ___.",
+    "learningOutcome": "Recall the variables in standing volume estimation.",
+    "active": true,
+    "answer": [
+      "height",
+      "total height",
+      "tree height",
+      "h"
+    ],
+    "explanation": "Standing volume is estimated from DBH and tree height."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VI",
+    "topic": "crop",
+    "subtopic": "lorey_height",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Medium",
+    "marks": 1,
+    "question": "Lorey's mean height of a stand is calculated as:",
+    "learningOutcome": "Calculate Lorey's mean height.",
+    "active": true,
+    "options": [
+      "Total height ÷ number of trees",
+      "Σ(dᵢ × hᵢ) ÷ Σdᵢ",
+      "Average of the ten tallest trees",
+      "Height where crown begins"
+    ],
+    "answer": 1,
+    "explanation": "Lorey's height = Σ(dᵢhᵢ) / Σdᵢ."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VI",
+    "topic": "crop",
+    "subtopic": "crop_age",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Medium",
+    "marks": 1,
+    "question": "Crop age of a stand refers to:",
+    "learningOutcome": "Define crop age.",
+    "active": true,
+    "options": [
+      "The age of the oldest tree",
+      "The age of dominant trees",
+      "The age since planting or natural regeneration",
+      "The median tree age"
+    ],
+    "answer": 2,
+    "explanation": "Crop age is the stand's age since establishment."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VI",
+    "topic": "crop",
+    "subtopic": "crop_volume",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Crop volume is:",
+    "learningOutcome": "Define crop volume.",
+    "active": true,
+    "options": [
+      "The volume of one crop tree",
+      "The total merchantable volume of all stems in a stand",
+      "Bark volume per hectare",
+      "Volume removed during thinning"
+    ],
+    "answer": 1,
+    "explanation": "Crop volume is the total merchantable volume of all stems per unit area."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VII",
+    "topic": "increment",
+    "subtopic": "increment_pct",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Medium",
+    "marks": 1,
+    "question": "A tree's diameter grew from 20 cm to 23 cm in one year. The annual increment percentage is:",
+    "learningOutcome": "Calculate increment percentage.",
+    "active": true,
+    "options": [
+      "3%",
+      "15%",
+      "6.67%",
+      "1.5%"
+    ],
+    "answer": 1,
+    "explanation": "P = (23−20)/20 × 100 = 15%."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VII",
+    "topic": "increment",
+    "subtopic": "rate_vs_absolute",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Growth rate (%) and absolute increment (cm/yr) always tell the same story about growth.",
+    "learningOutcome": "Distinguish growth rate from absolute increment.",
+    "active": true,
+    "answer": 1,
+    "explanation": "False — different trees can have different rates and absolute values."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VII",
+    "topic": "age",
+    "subtopic": "age_by_size",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Medium",
+    "marks": 1,
+    "question": "Estimating tree age from diameter using a species-specific relationship is called:",
+    "learningOutcome": "Recall indirect age estimation.",
+    "active": true,
+    "options": [
+      "Dendrochronology",
+      "Indirect age determination",
+      "Radiocarbon dating",
+      "Increment core analysis"
+    ],
+    "answer": 1,
+    "explanation": "Indirect age determination uses a diameter-age table without counting rings."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "systematic",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "In which sampling method are plots placed on a regular grid?",
+    "learningOutcome": "Recall systematic sampling.",
+    "active": true,
+    "options": [
+      "Simple random",
+      "Systematic",
+      "Stratified",
+      "Purposive"
+    ],
+    "answer": 1,
+    "explanation": "Systematic sampling places plots at fixed intervals on a grid."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VIII",
+    "topic": "plot",
+    "subtopic": "plot_ef",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Bhutan's forest inventory uses 500 m² circular plots. The expansion factor for such a plot is:",
+    "learningOutcome": "Recall expansion factor.",
+    "active": true,
+    "options": [
+      "5",
+      "10",
+      "20",
+      "100"
+    ],
+    "answer": 2,
+    "explanation": "500 m² = 0.05 ha. Expansion factor = 1 ÷ 0.05 = 20."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VIII",
+    "topic": "forest_type",
+    "subtopic": "bhutan_types",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Which is a recognised forest type in Bhutan?",
+    "learningOutcome": "Recall Bhutanese forest types.",
+    "active": true,
+    "options": [
+      "Tropical dry deciduous",
+      "Boreal coniferous",
+      "Temperate rainforest",
+      "Mangrove"
+    ],
+    "answer": 0,
+    "explanation": "Bhutan has tropical, subtropical, temperate and alpine forests."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "IX",
+    "topic": "data",
+    "subtopic": "database_type",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Forestry records stored in tables with rows, columns and unique IDs are in a:",
+    "learningOutcome": "Identify forestry database types.",
+    "active": true,
+    "options": [
+      "Hierarchical database",
+      "Relational database",
+      "Network database",
+      "Flat file"
+    ],
+    "answer": 1,
+    "explanation": "Relational databases use tables with linked rows and unique identifiers."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "IX",
+    "topic": "data",
+    "subtopic": "backup",
+    "questionType": "fill-blank",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Medium",
+    "marks": 1,
+    "question": "Forest inventory databases should be backed up at least ___ per year.",
+    "learningOutcome": "Recall data backup standards.",
+    "active": true,
+    "answer": [
+      "4 times",
+      "quarterly"
+    ],
+    "explanation": "Quarterly backups (at least 4 per year) are the minimum."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "X",
+    "topic": "biomass",
+    "subtopic": "pools",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Which is NOT a standard pool in forest biomass accounting?",
+    "learningOutcome": "Recall biomass pools.",
+    "active": true,
+    "options": [
+      "Above-ground biomass",
+      "Below-ground biomass",
+      "Dead root biomass",
+      "Foliar photosynthesis biomass"
+    ],
+    "answer": 3,
+    "explanation": "Standard pools are above-ground, below-ground, dead wood, and litter."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "X",
+    "topic": "biomass",
+    "subtopic": "allometric",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Medium",
+    "marks": 1,
+    "question": "When choosing an allometric equation, the most important factor is:",
+    "learningOutcome": "Recall allometric equation selection.",
+    "active": true,
+    "options": [
+      "Tree age",
+      "Species and diameter range the equation was developed for",
+      "Bark color",
+      "Site elevation"
+    ],
+    "answer": 1,
+    "explanation": "Equations are species- and diameter-specific."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "X",
+    "topic": "biomass",
+    "subtopic": "biomass_volume",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Converting biomass to timber volume requires knowing:",
+    "learningOutcome": "Recall biomass-volume conversion.",
+    "active": true,
+    "options": [
+      "Bark thickness",
+      "Wood density",
+      "Soil type",
+      "Crown color"
+    ],
+    "answer": 1,
+    "explanation": "Wood density links biomass to volume."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "XI",
+    "topic": "gis",
+    "subtopic": "role",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "In forest inventory, GIS is primarily used to:",
+    "learningOutcome": "Recall GIS role.",
+    "active": true,
+    "options": [
+      "Measure tree diameter",
+      "Store and analyse spatial data of forest stands",
+      "Calculate timber prices",
+      "Identify tree species"
+    ],
+    "answer": 1,
+    "explanation": "GIS stores, maps and analyses spatial data."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "II",
+    "topic": "bark",
+    "subtopic": "why_separate",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Why must bark thickness be measured separately from diameter over bark?",
+    "learningOutcome": "Explain bark separation.",
+    "active": true,
+    "modelAnswer": "Bark thickness must be measured separately to calculate diameter under bark (DUB = DOB − 2t), the standard reference for growth and volume equations.",
+    "rubric": [
+      {
+        "point": "States DUB = DOB − 2t",
+        "marks": 1
+      },
+      {
+        "point": "Explains why it matters for growth/volume",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "III",
+    "topic": "crown",
+    "subtopic": "altitude_cover",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain why crown cover tends to decrease at higher altitudes in mountain forests.",
+    "learningOutcome": "Explain altitude effects on crown cover.",
+    "active": true,
+    "modelAnswer": "At higher altitudes, harsher conditions — stronger wind, lower temperatures, thinner soil — limit tree height and crown spread, reducing the space the canopy occupies. Lower-altitude trees have more resources for fuller crowns.",
+    "rubric": [
+      {
+        "point": "Identifies environmental限制 at altitude",
+        "marks": 1
+      },
+      {
+        "point": "Explains effect on crown size",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "III",
+    "topic": "crown",
+    "subtopic": "cover_vs_count",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain why crown cover is more useful than total tree count for assessing forest structure.",
+    "learningOutcome": "Explain crown cover significance.",
+    "active": true,
+    "modelAnswer": "Crown cover captures the actual canopy space, relating to light interception and microclimate, while tree count reveals nothing about canopy density or tree size.",
+    "rubric": [
+      {
+        "point": "Links crown cover to light/microclimate",
+        "marks": 1
+      },
+      {
+        "point": "Explains why count alone is insufficient",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "III",
+    "topic": "crown",
+    "subtopic": "crown_shape",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "How does crown shape (conical vs spherical) affect crown projection area for the same crown width?",
+    "learningOutcome": "Understand crown shape effects.",
+    "active": true,
+    "modelAnswer": "A conical crown projects a smaller area than a spherical crown of the same width because it tapers towards the top.",
+    "rubric": [
+      {
+        "point": "Recognises crown shape affects projection",
+        "marks": 1
+      },
+      {
+        "point": "Describes conical vs spherical difference",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "IV",
+    "topic": "height",
+    "subtopic": "why_classes",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Why are trees grouped into height classes rather than recorded as individual heights?",
+    "learningOutcome": "Explain height classes.",
+    "active": true,
+    "modelAnswer": "Height measurement on steep terrain is error-prone and slow, so grouping into classes balances accuracy with efficiency.",
+    "rubric": [
+      {
+        "point": "Acknowledges measurement difficulty on slopes",
+        "marks": 1
+      },
+      {
+        "point": "Explains efficiency vs accuracy trade-off",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VI",
+    "topic": "crop",
+    "subtopic": "lorey_why",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Medium",
+    "marks": 2,
+    "question": "Why is Lorey's mean height used instead of simple average height in standing volume equations?",
+    "learningOutcome": "Explain Lorey's weighting.",
+    "active": true,
+    "modelAnswer": "Lorey's height is diameter-weighted so larger trees contribute more. A simple average underestimates the height of productive, larger stems.",
+    "rubric": [
+      {
+        "point": "States Lorey's is diameter-weighted",
+        "marks": 1
+      },
+      {
+        "point": "Explains the effect on volume",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VI",
+    "topic": "crop",
+    "subtopic": "crop_age_why",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Medium",
+    "marks": 2,
+    "question": "Why is crop age important in forest growth and yield modelling?",
+    "learningOutcome": "Explain crop age significance.",
+    "active": true,
+    "modelAnswer": "Crop age determines the stand's developmental stage: young stands grow rapidly, mature stands approach peak volume.",
+    "rubric": [
+      {
+        "point": "Links age to growth stage",
+        "marks": 1
+      },
+      {
+        "point": "Connects to growth/yield modelling",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VII",
+    "topic": "increment",
+    "subtopic": "pct_why",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Medium",
+    "marks": 2,
+    "question": "Foresters track increment percentage rather than just absolute increment. Explain why.",
+    "learningOutcome": "Explain increment percentage.",
+    "active": true,
+    "modelAnswer": "Increment percentage normalises growth across trees of different sizes, enabling comparison. Absolute increment alone favours larger trees.",
+    "rubric": [
+      {
+        "point": "States percentage normalises for size",
+        "marks": 1
+      },
+      {
+        "point": "Contrasts with absolute values",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "systematic_vs_random",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Medium",
+    "marks": 2,
+    "question": "State one advantage and one disadvantage of systematic sampling vs simple random sampling.",
+    "learningOutcome": "Compare sampling methods.",
+    "active": true,
+    "modelAnswer": "Advantage: Systematic spreads plots evenly, ensuring full coverage. Disadvantage: If a periodic pattern matches the grid spacing, estimates can be biased.",
+    "rubric": [
+      {
+        "point": "States even coverage/advantage",
+        "marks": 1
+      },
+      {
+        "point": "States periodic pattern risk/disadvantage",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "XI",
+    "topic": "gis",
+    "subtopic": "gis_vs_maps",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "How does GIS improve upon traditional paper maps for forest inventory?",
+    "learningOutcome": "Compare GIS with paper maps.",
+    "active": true,
+    "modelAnswer": "GIS stores both spatial and attribute data in linked layers that can be queried and updated, whereas paper maps are static and hard to combine.",
+    "rubric": [
+      {
+        "point": "Mentions layered/linked data",
+        "marks": 1
+      },
+      {
+        "point": "Contrasts with static paper maps",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "III",
+    "topic": "crown",
+    "subtopic": "ellipse_cpa",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A tree's crown has two perpendicular crown diameters of 8 m and 10 m. Estimate the crown projection area treating the crown as an ellipse, in m² to one decimal place.",
+    "learningOutcome": "Calculate crown projection area.",
+    "active": true,
+    "answer": 62.8,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.5
+    },
+    "units": "m²",
+    "explanation": "Ellipse area = π × (D₁/2) × (D₂/2) = π × 4 × 5 = 62.8 m²."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "IV",
+    "topic": "height",
+    "subtopic": "bh_from_lcr",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A tree has total height 28 m and live crown ratio 0.75. Calculate the crown-base height. (1 d.p.)",
+    "learningOutcome": "Apply crown length formulas.",
+    "active": true,
+    "answer": 7,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.1
+    },
+    "units": "m",
+    "explanation": "CL = LCR × H = 0.75 × 28 = 21 m. BH = H − CL = 28 − 21 = 7.0 m."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "V",
+    "topic": "taper",
+    "subtopic": "taper_rate",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A tree's diameter is 22 cm at 10 m height and 16 cm at 20 m height. Calculate the average taper rate in cm per metre.",
+    "learningOutcome": "Calculate taper rate.",
+    "active": true,
+    "answer": 0.6,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.05
+    },
+    "units": "cm/m",
+    "explanation": "Taper rate = (22 − 16) / (20 − 10) = 0.6 cm/m."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VI",
+    "topic": "crop",
+    "subtopic": "lorey_calc",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "Three trees have (DBH cm, height m): (20, 15), (30, 20), (25, 18). Calculate Lorey's mean height, weighting each height by the tree's basal area (proportional to d²). Give one decimal place.",
+    "learningOutcome": "Calculate Lorey's height.",
+    "active": true,
+    "answer": 18.3,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.15
+    },
+    "units": "m",
+    "explanation": "Weights d²: 400, 900, 625 (sum 1925). H_L = (400×15 + 900×20 + 625×18) / 1925 = (6000 + 18000 + 11250) / 1925 = 35250 / 1925 = 18.3 m."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VII",
+    "topic": "increment",
+    "subtopic": "pct_calc",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A tree's diameter was 18 cm five years ago and is now 24 cm. Calculate the annual increment percentage. (1 d.p.)",
+    "learningOutcome": "Calculate increment percentage.",
+    "active": true,
+    "answer": 6.7,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.5
+    },
+    "units": "%",
+    "explanation": "P = (24−18)/(18×5) × 100 = 6.67 ≈ 6.7 %."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VIII",
+    "topic": "plot",
+    "subtopic": "plot_area",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A circular forest plot has a radius of 5.64 m. Calculate its area in m² (π = 3.1416, nearest m²).",
+    "learningOutcome": "Calculate circular plot area.",
+    "active": true,
+    "answer": 100,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 2
+    },
+    "units": "m²",
+    "explanation": "Area = πr² = 3.1416 × 5.64² ≈ 100 m²."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "sample_spacing",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A systematic inventory uses plots on a 20 m × 20 m grid. How many plots per hectare?",
+    "learningOutcome": "Calculate plot density.",
+    "active": true,
+    "answer": 25,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 1
+    },
+    "units": "plots/ha",
+    "explanation": "Each plot = 400 m². 10 000 / 400 = 25 plots/ha."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "X",
+    "topic": "biomass",
+    "subtopic": "bio_calc",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "Using B = 0.05 × D² (B in kg, D in cm), calculate the above-ground biomass of a tree with DBH 40 cm.",
+    "learningOutcome": "Apply allometric equation.",
+    "active": true,
+    "answer": 80,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 1
+    },
+    "units": "kg",
+    "explanation": "B = 0.05 × 40² = 0.05 × 1600 = 80 kg."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "I",
+    "topic": "mensuration",
+    "subtopic": "why_important",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "Analyze why forest mensuration is essential beyond timber production.",
+    "learningOutcome": "Analyse non-timber roles.",
+    "active": true,
+    "modelAnswer": "Forest mensuration supports biomass/carbon estimation for climate mitigation, biodiversity assessment through habitat structure, and watershed protection by quantifying vegetation cover and soil stability.",
+    "rubric": [
+      {
+        "point": "Names biomass/carbon as objective",
+        "marks": 1
+      },
+      {
+        "point": "Names biodiversity or habitat",
+        "marks": 1
+      },
+      {
+        "point": "Names watershed/soil or other",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "II",
+    "topic": "bark",
+    "subtopic": "bark_impact",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "Analyze how ignoring bark thickness systematically affects (i) diameter-based growth estimates, (ii) basal area calculations, (iii) volume estimates.",
+    "learningOutcome": "Analyse bark's systematic effects.",
+    "active": true,
+    "modelAnswer": "(i) Growth estimates using DUB are understated when DOB is used. (ii) Basal area g = 0.00007854 × D² is inflated since DOB > DUB, overstating stand density. (iii) Volume equations using DOB over-estimate volume.",
+    "rubric": [
+      {
+        "point": "Explains growth estimate bias",
+        "marks": 1
+      },
+      {
+        "point": "Explains basal area inflation",
+        "marks": 1
+      },
+      {
+        "point": "Explains volume over-estimation",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "II",
+    "topic": "bark",
+    "subtopic": "dub_significance",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "DUB = DOB − 2t. Analyze why this subtraction is significant and what happens if t were ignored in a national inventory.",
+    "learningOutcome": "Analyse DUB formula significance.",
+    "active": true,
+    "modelAnswer": "Ignoring bark thickness creates a permanent systematic bias: all diameter-based metrics would be overstated as bark accumulates. International comparisons using DUB would be invalid and carbon estimates inflated.",
+    "rubric": [
+      {
+        "point": "Identifies systematic bias direction",
+        "marks": 1
+      },
+      {
+        "point": "Explains effect on metrics",
+        "marks": 1
+      },
+      {
+        "point": "Discusses international comparability",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "volume_practice",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A forester has two volume tables for the same species. Analyze what factors should determine which table to use.",
+    "learningOutcome": "Analyse volume table selection.",
+    "active": true,
+    "modelAnswer": "Factors include: stand density, species composition mix, site quality class, tree size range, terrain complexity, and inventory purpose. The table matching the stand's characteristics to its calibration data should be chosen.",
+    "rubric": [
+      {
+        "point": "Mentions stand characteristics matching calibration",
+        "marks": 1
+      },
+      {
+        "point": "Considers tree size/density range",
+        "marks": 1
+      },
+      {
+        "point": "Considers inventory purpose",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "compare_methods",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Evaluate",
+    "difficulty": "Hard",
+    "marks": 4,
+    "question": "Evaluate the relative strengths and limitations of Smalian's, Huber's, and Newton's log-volume formulas for short, irregularly shaped logs.",
+    "learningOutcome": "Evaluate log-volume formulas.",
+    "active": true,
+    "modelAnswer": "Smalian's is simple but over-estimates for convex logs. Huber's uses only the mid-section, under-estimating with about half Smalian's error — efficient when mid-measurement is easy. Newton's uses ends and middle, giving exact results for all four solids and best accuracy for irregular shapes, but requires three measurements per log.",
+    "rubric": [
+      {
+        "point": "Evaluates Smalian's accuracy and simplicity",
+        "marks": 1
+      },
+      {
+        "point": "Evaluates Huber's efficiency and error",
+        "marks": 1
+      },
+      {
+        "point": "Evaluates Newton's accuracy vs effort",
+        "marks": 1
+      },
+      {
+        "point": "Compares all three for irregular logs",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "XI",
+    "topic": "gis",
+    "subtopic": "remote_sensing_eval",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Evaluate",
+    "difficulty": "Hard",
+    "marks": 4,
+    "question": "Evaluate the suitability of LiDAR versus photogrammetry for canopy height models in Bhutan's steep, cloud-forest terrain.",
+    "learningOutcome": "Evaluate remote sensing options.",
+    "active": true,
+    "modelAnswer": "LiDAR penetrates dense canopy better, producing reliable height data in steep terrain with low cloud cover — ideal for Bhutan's monsoon climate, but expensive. Photogrammetry is cheaper with rich textural data but struggles with understorey and clouds. For biomass mapping, LiDAR is more suitable; photogrammetry complements for habitat work.",
+    "rubric": [
+      {
+        "point": "Evaluates LiDAR penetration/terrain",
+        "marks": 1
+      },
+      {
+        "point": "Evaluates photogrammetry cost/limitations",
+        "marks": 1
+      },
+      {
+        "point": "Recommends based on Bhutan context",
+        "marks": 1
+      },
+      {
+        "point": "Considers cost-benefit trade-off",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VI",
+    "topic": "crop",
+    "subtopic": "crop_plan",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Create",
+    "difficulty": "Hard",
+    "marks": 3,
+    "question": "Design a sampling protocol for estimating crop volume of a 50-hectare community forest in Bhutan with three elevation zones.",
+    "learningOutcome": "Design a crop volume protocol.",
+    "active": true,
+    "modelAnswer": "(1) Stratify into three elevation zones proportional to area. (2) In each stratum, place 5 circular plots (100 m², expansion factor 20) systematically on a grid. (3) Record DBH and height for every stem > 5 cm DBH. (4) Use species-specific volume tables, sum per plot, apply expansion factor, weight-average across strata.",
+    "rubric": [
+      {
+        "point": "Mentions stratification by elevation",
+        "marks": 1
+      },
+      {
+        "point": "Specifies plot design and expansion factor",
+        "marks": 1
+      },
+      {
+        "point": "Describes measurement and estimation steps",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "VII",
+    "topic": "age",
+    "subtopic": "growth_monitor",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Create",
+    "difficulty": "Hard",
+    "marks": 3,
+    "question": "Create a monitoring plan for tracking annual increment percentage in a 20-year-old Pinus wallichiana plantation over the next decade.",
+    "learningOutcome": "Create an increment monitoring plan.",
+    "active": true,
+    "modelAnswer": "(1) Tag 30 representative trees. (2) Measure DBH at 1.37 m over bark on uphill side annually. (3) Calculate P = (dₙ − dₙ₋₁)/(dₙ₋₁ × 1) each year. (4) Record site variables to explain variation. (5) Compare to Bhutan growth curves to detect thinning needs.",
+    "rubric": [
+      {
+        "point": "Defines sample and measurement method",
+        "marks": 1
+      },
+      {
+        "point": "States increment formula and frequency",
+        "marks": 1
+      },
+      {
+        "point": "Includes comparison/interpretation step",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "II",
+    "topic": "bark",
+    "subtopic": "spare1",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Which of the following is measured by a bark caliper? (Spare)",
+    "learningOutcome": "Spare question.",
+    "active": false,
+    "options": [
+      "Bark thickness",
+      "Sapwood depth",
+      "Tree height",
+      "Crown length"
+    ],
+    "answer": 0,
+    "explanation": "A bark caliper measures bark thickness on a standing tree."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "III",
+    "topic": "crown",
+    "subtopic": "spare2",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Crown projection area is calculated using: (Spare)",
+    "learningOutcome": "Spare question.",
+    "active": false,
+    "options": [
+      "Crown width only",
+      "Crown width and crown length",
+      "Tree height only",
+      "DBH and height"
+    ],
+    "answer": 1,
+    "explanation": "Crown projection area uses crown width and crown length."
+  },
+  {
+    "paper": "module-exam-2",
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "spare3",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Medium",
+    "marks": 1,
+    "question": "The taper of a stem is greatest: (Spare)",
+    "learningOutcome": "Spare question.",
+    "active": false,
+    "options": [
+      "At the base",
+      "At the crown",
+      "At the mid-height",
+      "It is uniform throughout"
+    ],
+    "answer": 0,
+    "explanation": "Taper is greatest near the base."
+  }
+]

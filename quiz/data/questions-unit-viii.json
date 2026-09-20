@@ -1,0 +1,1074 @@
+[
+  {
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "definition",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Forest inventory is the systematic collection, analysis and reporting of information about forest resources within a defined:",
+    "learningOutcome": "Recall the definition of forest inventory.",
+    "active": true,
+    "options": [
+      "Area and time",
+      "Tree species only",
+      "Country only",
+      "Harvest block only"
+    ],
+    "answer": 0,
+    "explanation": "Forest inventory concerns forest resources within a defined area and time."
+  },
+  {
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "population",
+    "questionType": "fill-blank",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "The complete set of units about which conclusions are required is the forest ___.",
+    "learningOutcome": "Recall population terminology.",
+    "active": true,
+    "answer": [
+      "population"
+    ],
+    "explanation": "The population is the complete set of units about which conclusions are required."
+  },
+  {
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "frame",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "A sampling frame is the operational representation from which sampling units can be selected.",
+    "learningOutcome": "Recall the meaning of sampling frame.",
+    "active": true,
+    "answer": 0,
+    "explanation": "True. A frame may be a mapped grid or complete plot list."
+  },
+  {
+    "unit": "VIII",
+    "topic": "plots",
+    "subtopic": "geometry",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "The area of a circular plot with radius r is:",
+    "learningOutcome": "Recall plot-area formula.",
+    "active": true,
+    "options": [
+      "2πr",
+      "πr²",
+      "πd",
+      "r²/π"
+    ],
+    "answer": 1,
+    "explanation": "The area of a circle is πr²."
+  },
+  {
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "designs",
+    "questionType": "multi-response",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Which are probability sampling designs taught in the unit? Select all that apply.",
+    "learningOutcome": "Recall sampling designs.",
+    "active": true,
+    "options": [
+      "Simple random",
+      "Systematic",
+      "Stratified",
+      "Cluster",
+      "Convenience only"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Simple random, systematic, stratified and cluster designs are taught sampling designs."
+  },
+  {
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "expansion",
+    "questionType": "fill-blank",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "The hectare expansion factor for a fixed-area plot is 10,000 divided by plot area in ___ metres.",
+    "learningOutcome": "Recall expansion-factor units.",
+    "active": true,
+    "answer": [
+      "square",
+      "square metres",
+      "m2",
+      "m²"
+    ],
+    "explanation": "The plot area must be expressed in square metres: EF = 10,000 / plot area."
+  },
+  {
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "variables",
+    "questionType": "matching",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Match each inventory quantity with its unit.",
+    "learningOutcome": "Recall inventory units.",
+    "active": true,
+    "pairs": [
+      {
+        "left": "Trees per hectare",
+        "right": "trees ha⁻¹"
+      },
+      {
+        "left": "Basal area per hectare",
+        "right": "m² ha⁻¹"
+      },
+      {
+        "left": "Volume per hectare",
+        "right": "m³ ha⁻¹"
+      },
+      {
+        "left": "Mean DBH",
+        "right": "cm"
+      }
+    ],
+    "explanation": "These are the standard units used in the inventory calculations."
+  },
+  {
+    "unit": "VIII",
+    "topic": "error",
+    "subtopic": "sampling_error",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Sampling error can be completely eliminated by measuring more carefully within the selected plots.",
+    "learningOutcome": "Distinguish sampling and non-sampling error.",
+    "active": true,
+    "answer": 1,
+    "explanation": "False. Sampling error arises because only a sample, not the whole population, is measured; better field practice reduces non-sampling error."
+  },
+  {
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "objective",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Define forest inventory.",
+    "learningOutcome": "Define forest inventory.",
+    "active": true,
+    "modelAnswer": "Forest inventory is the systematic collection, analysis and reporting of information about forest resources within a defined area and time.",
+    "rubric": [
+      {
+        "point": "Systematic collection, analysis and reporting of forest-resource information",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "sample",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Define a sample in forest inventory.",
+    "learningOutcome": "Define a sample.",
+    "active": true,
+    "modelAnswer": "A sample is the subset of the forest population that is actually observed and measured.",
+    "rubric": [
+      {
+        "point": "Subset of the population that is actually observed",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "objectives",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain why an inventory objective should be stated before selecting variables and a sampling design.",
+    "learningOutcome": "Explain Unit VIII inventory and sampling principles.",
+    "active": true,
+    "modelAnswer": "The objective determines the population, variables, required precision, spatial scale and suitable design; without it measurements may not answer the management question.",
+    "rubric": [
+      {
+        "point": "Objective determines variables/population",
+        "marks": 1
+      },
+      {
+        "point": "Objective determines precision/design and relevance",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "census_sample",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Differentiate a census from sampling.",
+    "learningOutcome": "Explain Unit VIII inventory and sampling principles.",
+    "active": true,
+    "modelAnswer": "A census measures every eligible unit in the population, whereas sampling measures a subset and estimates population values with uncertainty.",
+    "rubric": [
+      {
+        "point": "Census measures every eligible unit",
+        "marks": 1
+      },
+      {
+        "point": "Sampling measures a subset and estimates with uncertainty",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "designs",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain why stratified sampling can improve an inventory estimate.",
+    "learningOutcome": "Explain Unit VIII inventory and sampling principles.",
+    "active": true,
+    "modelAnswer": "The population is divided into relatively homogeneous strata and samples are allocated within them, which can improve representation and precision when strata differ meaningfully.",
+    "rubric": [
+      {
+        "point": "Defines or identifies strata",
+        "marks": 1
+      },
+      {
+        "point": "Explains representation/precision benefit",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "plots",
+    "subtopic": "fixed_area",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Why are fixed-area plots useful for forest inventory?",
+    "learningOutcome": "Explain Unit VIII inventory and sampling principles.",
+    "active": true,
+    "modelAnswer": "A defined plot area gives a consistent sampling unit and allows tree, basal-area and volume measurements to be expanded to a per-hectare basis.",
+    "rubric": [
+      {
+        "point": "Consistent sampling unit",
+        "marks": 1
+      },
+      {
+        "point": "Enables hectare expansion and comparison",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "systematic",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain one advantage and one limitation of systematic sampling.",
+    "learningOutcome": "Explain Unit VIII inventory and sampling principles.",
+    "active": true,
+    "modelAnswer": "A regular grid spreads plots across the population and is operationally efficient, but an unfortunate grid interval can interact with spatial patterns and reduce representativeness.",
+    "rubric": [
+      {
+        "point": "Advantage of regular spatial coverage/efficiency",
+        "marks": 1
+      },
+      {
+        "point": "Limitation involving spatial pattern or interval",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "error",
+    "subtopic": "types",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Differentiate sampling error from non-sampling error.",
+    "learningOutcome": "Explain Unit VIII inventory and sampling principles.",
+    "active": true,
+    "modelAnswer": "Sampling error results from observing a subset rather than the whole population; non-sampling error comes from measurement, recording, coverage, processing or protocol problems.",
+    "rubric": [
+      {
+        "point": "Correct sampling-error definition",
+        "marks": 1
+      },
+      {
+        "point": "Correct non-sampling-error definition",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "uncertainty",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain why an inventory result should report uncertainty.",
+    "learningOutcome": "Explain Unit VIII inventory and sampling principles.",
+    "active": true,
+    "modelAnswer": "A sample-based estimate is not the exact population value; uncertainty communicates expected variation and helps managers judge whether precision is adequate.",
+    "rubric": [
+      {
+        "point": "Estimate differs from exact population value",
+        "marks": 1
+      },
+      {
+        "point": "Uncertainty supports decisions about precision",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "cluster",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "When might cluster sampling be useful?",
+    "learningOutcome": "Explain Unit VIII inventory and sampling principles.",
+    "active": true,
+    "modelAnswer": "Clusters can reduce travel and field cost when plots close together are operationally efficient, although within-cluster similarity may affect precision.",
+    "rubric": [
+      {
+        "point": "Identifies travel/cost or access advantage",
+        "marks": 1
+      },
+      {
+        "point": "Recognises effect on precision or similarity",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "plots",
+    "subtopic": "area",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 4,
+    "question": "Calculate the area of a circular plot with radius 12.62 m. Give the answer to two decimals.",
+    "learningOutcome": "Apply a fixed-area inventory calculation.",
+    "active": true,
+    "answer": 500.34,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.5
+    },
+    "units": "m²",
+    "explanation": "Area = πr² = 3.1416 × 12.62² = 3.1416 × 159.26 = 500.34 m² (the Second NFI 500 m² plot)."
+  },
+  {
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "expansion",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 4,
+    "question": "A fixed-area plot is 500 m². Calculate the hectare expansion factor.",
+    "learningOutcome": "Apply a fixed-area inventory calculation.",
+    "active": true,
+    "answer": 20,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.05
+    },
+    "units": "",
+    "explanation": "EF=10,000/500=20."
+  },
+  {
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "trees_per_ha",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 4,
+    "question": "A 500 m² plot contains 8 trees. Calculate trees per hectare.",
+    "learningOutcome": "Apply a fixed-area inventory calculation.",
+    "active": true,
+    "answer": 160,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.05
+    },
+    "units": "trees ha-1",
+    "explanation": "Trees/ha=8×20=160 trees ha⁻¹."
+  },
+  {
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "basal_area",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 4,
+    "question": "A 500 m² plot has 0.57351 m² total basal area. Calculate basal area per hectare to two decimals.",
+    "learningOutcome": "Apply a fixed-area inventory calculation.",
+    "active": true,
+    "answer": 11.47,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.05
+    },
+    "units": "m² ha-1",
+    "explanation": "G/ha=0.57351×20=11.4702≈11.47 m² ha⁻¹."
+  },
+  {
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "volume",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 4,
+    "question": "A 500 m² plot has 5.577303 m³ total volume. Calculate volume per hectare to two decimals.",
+    "learningOutcome": "Apply a fixed-area inventory calculation.",
+    "active": true,
+    "answer": 111.55,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.05
+    },
+    "units": "m³ ha-1",
+    "explanation": "V/ha=5.577303×20=111.54606≈111.55 m³ ha⁻¹."
+  },
+  {
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "mean_dbh",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 4,
+    "question": "Eight trees have a DBH total of 232.2 cm. Calculate mean DBH to two decimals.",
+    "learningOutcome": "Apply a fixed-area inventory calculation.",
+    "active": true,
+    "answer": 29.03,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.05
+    },
+    "units": "cm",
+    "explanation": "Mean DBH=232.2/8=29.025≈29.03 cm."
+  },
+  {
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "mean_height",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 4,
+    "question": "Eight trees have a height total of 152.5 m. Calculate mean height to two decimals.",
+    "learningOutcome": "Apply a fixed-area inventory calculation.",
+    "active": true,
+    "answer": 19.06,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.05
+    },
+    "units": "m",
+    "explanation": "Mean height=152.5/8=19.0625≈19.06 m."
+  },
+  {
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "design_choice",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 4,
+    "question": "A forest has clearly different high-elevation and low-elevation forest types. Recommend a sampling design and justify it.",
+    "learningOutcome": "Apply sampling-design selection.",
+    "active": true,
+    "modelAnswer": "Use stratified sampling with strata defined by forest type or elevation, then select plots within each stratum using a documented probability method.",
+    "rubric": [
+      {
+        "point": "Selects stratified sampling",
+        "marks": 2
+      },
+      {
+        "point": "Links strata to forest/elevation differences",
+        "marks": 1
+      },
+      {
+        "point": "Specifies probability selection within strata",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "objective_analysis",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 5,
+    "question": "A manager asks the team to “measure the forest” without stating a decision question. Analyse why the request is inadequate and specify what must be defined.",
+    "learningOutcome": "Analyse Unit VIII inventory scenarios.",
+    "active": true,
+    "modelAnswer": "The request does not identify the population, variables, scale, time, precision or output. Define the management objective, population and boundary, variables, sampling unit/design, date, units, precision and reporting requirements.",
+    "rubric": [
+      {
+        "point": "Identifies vague objective problem",
+        "marks": 1
+      },
+      {
+        "point": "Population/boundary",
+        "marks": 1
+      },
+      {
+        "point": "Variables and outputs",
+        "marks": 1
+      },
+      {
+        "point": "Design/units/date",
+        "marks": 1
+      },
+      {
+        "point": "Precision and uncertainty",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "frame_analysis",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 5,
+    "question": "A plot sample is selected only from roads because remote plots are difficult to reach. Analyse the likely bias and improvements.",
+    "learningOutcome": "Analyse Unit VIII inventory scenarios.",
+    "active": true,
+    "modelAnswer": "The frame under-represents inaccessible forest, causing coverage and possible selection bias. Use a complete mapped frame or probability design, record non-response/access issues and ensure difficult strata are represented.",
+    "rubric": [
+      {
+        "point": "Identifies incomplete-frame coverage bias",
+        "marks": 1
+      },
+      {
+        "point": "Explains inaccessible forest under-representation",
+        "marks": 1
+      },
+      {
+        "point": "Recommends complete mapped frame",
+        "marks": 1
+      },
+      {
+        "point": "Uses probability selection/stratification",
+        "marks": 1
+      },
+      {
+        "point": "Documents access/non-response and limitations",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "cluster_analysis",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 5,
+    "question": "A cluster design produces very similar plots within each cluster but few clusters overall. Analyse the precision implications.",
+    "learningOutcome": "Analyse Unit VIII inventory scenarios.",
+    "active": true,
+    "modelAnswer": "Within-cluster similarity reduces independent information; few clusters may poorly represent the population and increase variance. Add or distribute clusters, justify cluster size and estimate uncertainty using the design.",
+    "rubric": [
+      {
+        "point": "Identifies within-cluster similarity",
+        "marks": 1
+      },
+      {
+        "point": "Explains reduced independent information",
+        "marks": 1
+      },
+      {
+        "point": "Few clusters/population representation problem",
+        "marks": 1
+      },
+      {
+        "point": "Recommends more/distributed clusters",
+        "marks": 1
+      },
+      {
+        "point": "Design-based uncertainty",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "plots",
+    "subtopic": "boundary_analysis",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 5,
+    "question": "Different crews apply plot boundaries inconsistently on sloping ground and to borderline trees. Analyse consequences and controls.",
+    "learningOutcome": "Analyse Unit VIII inventory scenarios.",
+    "active": true,
+    "modelAnswer": "Inconsistent inclusion changes the effective sampling unit and creates non-sampling bias and poor repeatability. Define plot centre, radius/boundary and inclusion rules, train crews, use checks and document borderline decisions.",
+    "rubric": [
+      {
+        "point": "Identifies inconsistent inclusion as non-sampling error",
+        "marks": 1
+      },
+      {
+        "point": "Explains bias/repeatability consequence",
+        "marks": 1
+      },
+      {
+        "point": "Defines geometry and inclusion rules",
+        "marks": 1
+      },
+      {
+        "point": "Training and field checks",
+        "marks": 1
+      },
+      {
+        "point": "Documents borderline decisions",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "error",
+    "subtopic": "interpretation",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 5,
+    "question": "An inventory reports a precise-looking mean but omits design, sample size and uncertainty. Analyse why management should not accept it without qualification.",
+    "learningOutcome": "Analyse Unit VIII inventory scenarios.",
+    "active": true,
+    "modelAnswer": "The mean cannot be judged without knowing the population, design, sample size, measurement quality and uncertainty. Report methods, sample size, estimates, error/interval information and limitations.",
+    "rubric": [
+      {
+        "point": "Mean alone is insufficient",
+        "marks": 1
+      },
+      {
+        "point": "Requires population/design",
+        "marks": 1
+      },
+      {
+        "point": "Requires sample size and measurement quality",
+        "marks": 1
+      },
+      {
+        "point": "Requires uncertainty/error information",
+        "marks": 1
+      },
+      {
+        "point": "States management limitation",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "design_evaluation",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Evaluate",
+    "difficulty": "Hard",
+    "marks": 5,
+    "question": "Evaluate using simple random sampling for a highly heterogeneous forest when forest-type information is available.",
+    "learningOutcome": "Evaluate Unit VIII inventory decisions.",
+    "active": true,
+    "modelAnswer": "It is unbiased in principle but may be inefficient and produce poor representation by type. Stratified sampling using the available forest types is likely more precise if strata and allocation are defensible.",
+    "rubric": [
+      {
+        "point": "Judges simple random as possible but inefficient",
+        "marks": 1
+      },
+      {
+        "point": "Recognises heterogeneity issue",
+        "marks": 1
+      },
+      {
+        "point": "Uses available strata",
+        "marks": 1
+      },
+      {
+        "point": "Explains precision/representation benefit",
+        "marks": 1
+      },
+      {
+        "point": "Notes defensible allocation/design",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "precision_evaluation",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Evaluate",
+    "difficulty": "Hard",
+    "marks": 5,
+    "question": "Evaluate a proposal to report 11.47 m²/ha basal area from one 500 m² plot as the forest-unit value.",
+    "learningOutcome": "Evaluate Unit VIII inventory decisions.",
+    "active": true,
+    "modelAnswer": "One plot provides a plot estimate, not a defensible forest-wide estimate unless the population is effectively uniform and the design supports it. More representative plots, a defined frame and uncertainty are needed.",
+    "rubric": [
+      {
+        "point": "Distinguishes plot from forest estimate",
+        "marks": 1
+      },
+      {
+        "point": "Identifies one-plot representation problem",
+        "marks": 1
+      },
+      {
+        "point": "Requires defined population/frame",
+        "marks": 1
+      },
+      {
+        "point": "Recommends additional representative plots",
+        "marks": 1
+      },
+      {
+        "point": "Requires uncertainty",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "error",
+    "subtopic": "accuracy_evaluation",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Evaluate",
+    "difficulty": "Hard",
+    "marks": 5,
+    "question": "Evaluate the claim that careful measuring eliminates all inventory error.",
+    "learningOutcome": "Evaluate Unit VIII inventory decisions.",
+    "active": true,
+    "modelAnswer": "Careful measurement reduces non-sampling error but cannot eliminate sampling error when only a sample is observed. Design, frame, measurement, processing and uncertainty must all be addressed.",
+    "rubric": [
+      {
+        "point": "Rejects claim",
+        "marks": 1
+      },
+      {
+        "point": "Careful measurement reduces non-sampling error",
+        "marks": 1
+      },
+      {
+        "point": "Sampling error remains",
+        "marks": 1
+      },
+      {
+        "point": "Frame/design/processing also matter",
+        "marks": 1
+      },
+      {
+        "point": "Requires uncertainty reporting",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "design",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Create",
+    "difficulty": "Hard",
+    "marks": 5,
+    "question": "Design an inventory plan for estimating merchantable volume by forest type for a five-year management plan.",
+    "learningOutcome": "Create a defensible Unit VIII inventory deliverable.",
+    "active": true,
+    "modelAnswer": "Define population and boundary, stratify by forest type, choose fixed-area plots and probability allocation, specify DBH/height/volume protocol, calculate per-ha estimates, report uncertainty and repeat after five years.",
+    "rubric": [
+      {
+        "point": "Objective/population/boundary",
+        "marks": 1
+      },
+      {
+        "point": "Strata and probability design",
+        "marks": 1
+      },
+      {
+        "point": "Plot/protocol variables",
+        "marks": 1
+      },
+      {
+        "point": "Expansion and estimates",
+        "marks": 1
+      },
+      {
+        "point": "Uncertainty and repeat monitoring",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "plots",
+    "subtopic": "layout",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Create",
+    "difficulty": "Hard",
+    "marks": 5,
+    "question": "Create a fixed-area circular-plot field protocol.",
+    "learningOutcome": "Create a defensible Unit VIII inventory deliverable.",
+    "active": true,
+    "modelAnswer": "Specify plot area/radius, centre establishment, boundary and borderline-tree rules, Plot_ID, tree inclusion threshold, measured variables, units, crew training and quality checks.",
+    "rubric": [
+      {
+        "point": "Area/radius/centre",
+        "marks": 1
+      },
+      {
+        "point": "Boundary/inclusion rules",
+        "marks": 1
+      },
+      {
+        "point": "IDs and threshold",
+        "marks": 1
+      },
+      {
+        "point": "Variables/units",
+        "marks": 1
+      },
+      {
+        "point": "Training/quality checks",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "sampling",
+    "subtopic": "frame",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Create",
+    "difficulty": "Hard",
+    "marks": 5,
+    "question": "Prepare a sampling-frame and selection plan for a mapped management unit.",
+    "learningOutcome": "Create a defensible Unit VIII inventory deliverable.",
+    "active": true,
+    "modelAnswer": "Define the eligible population and boundary, create a complete mapped grid/list, assign unique sampling-unit IDs, select by documented probability design, record replacements and inaccessible units.",
+    "rubric": [
+      {
+        "point": "Population/boundary",
+        "marks": 1
+      },
+      {
+        "point": "Complete mapped frame",
+        "marks": 1
+      },
+      {
+        "point": "Unique IDs",
+        "marks": 1
+      },
+      {
+        "point": "Probability selection",
+        "marks": 1
+      },
+      {
+        "point": "Access/replacement records",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "analysis",
+    "subtopic": "workflow",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Create",
+    "difficulty": "Hard",
+    "marks": 5,
+    "question": "Develop a calculation workflow from plot measurements to forest estimates.",
+    "learningOutcome": "Create a defensible Unit VIII inventory deliverable.",
+    "active": true,
+    "modelAnswer": "Check data and units, calculate plot trees/ha, mean DBH/height, basal area and volume, apply expansion, summarise by stratum, calculate uncertainty and report assumptions.",
+    "rubric": [
+      {
+        "point": "Data/units QA",
+        "marks": 1
+      },
+      {
+        "point": "Plot variables",
+        "marks": 1
+      },
+      {
+        "point": "Expansion",
+        "marks": 1
+      },
+      {
+        "point": "Stratum summaries",
+        "marks": 1
+      },
+      {
+        "point": "Uncertainty/assumptions",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "quality",
+    "subtopic": "qa_plan",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Create",
+    "difficulty": "Hard",
+    "marks": 5,
+    "question": "Create a quality-assurance plan that reduces sampling and non-sampling errors.",
+    "learningOutcome": "Create a defensible Unit VIII inventory deliverable.",
+    "active": true,
+    "modelAnswer": "Use a defensible probability design and adequate spatial coverage for sampling error; standardise instruments and rules, train crews, remeasure checks, audit data and document changes for non-sampling error.",
+    "rubric": [
+      {
+        "point": "Probability/spatial coverage",
+        "marks": 1
+      },
+      {
+        "point": "Standardised protocol/instruments",
+        "marks": 1
+      },
+      {
+        "point": "Training and remeasurement",
+        "marks": 1
+      },
+      {
+        "point": "Data audit/change documentation",
+        "marks": 1
+      },
+      {
+        "point": "Separates and reports both error types",
+        "marks": 1
+      }
+    ]
+  },
+  {
+    "unit": "VIII",
+    "topic": "reporting",
+    "subtopic": "report",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Create",
+    "difficulty": "Hard",
+    "marks": 5,
+    "question": "Prepare a one-page inventory-results report outline for managers.",
+    "learningOutcome": "Create a defensible Unit VIII inventory deliverable.",
+    "active": true,
+    "modelAnswer": "State objective, population, design, date and units; present sample and estimates by forest type; include precision/uncertainty, limitations, interpretation and recommendations.",
+    "rubric": [
+      {
+        "point": "Objective/population/design/date",
+        "marks": 1
+      },
+      {
+        "point": "Sample and estimates",
+        "marks": 1
+      },
+      {
+        "point": "Units and strata",
+        "marks": 1
+      },
+      {
+        "point": "Uncertainty/limitations",
+        "marks": 1
+      },
+      {
+        "point": "Interpretation/recommendations",
+        "marks": 1
+      }
+    ]
+  }
+]

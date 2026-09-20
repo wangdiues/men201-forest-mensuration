@@ -1,6 +1,6 @@
 [
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "definition",
     "subtopic": "scope",
     "questionType": "mcq",
@@ -8,7 +8,7 @@
     "bloomLevel": "Remember",
     "difficulty": "Easy",
     "marks": 1,
-    "question": "The main purpose of tree height and height methods is:",
+    "question": "The main purpose of crop and stand measurements is:",
     "learningOutcome": "Recall the unit focus.",
     "active": true,
     "options": [
@@ -21,7 +21,7 @@
     "explanation": "The selected answer is correct."
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "quality",
     "subtopic": "principles",
     "questionType": "true-false",
@@ -36,7 +36,7 @@
     "explanation": "The statement is true."
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "terminology",
     "subtopic": "units",
     "questionType": "fill-blank",
@@ -51,7 +51,7 @@
     "explanation": "A result needs its unit."
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "definition",
     "subtopic": "scope",
     "questionType": "mcq",
@@ -72,7 +72,7 @@
     "explanation": "The selected answer is correct."
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "definition",
     "subtopic": "scope",
     "questionType": "multi-response",
@@ -80,7 +80,7 @@
     "bloomLevel": "Remember",
     "difficulty": "Easy",
     "marks": 1,
-    "question": "Select good practice for tree height and height methods.",
+    "question": "Select good practice for crop and stand measurements.",
     "learningOutcome": "Recall the unit focus.",
     "active": true,
     "options": [
@@ -97,7 +97,7 @@
     "explanation": "The selected answer is correct."
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "terminology",
     "subtopic": "terms",
     "questionType": "matching",
@@ -125,7 +125,7 @@
     "explanation": "The pairs describe the unit terms."
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "quality",
     "subtopic": "principles",
     "questionType": "true-false",
@@ -140,7 +140,7 @@
     "explanation": "The statement is false."
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "definition",
     "subtopic": "scope",
     "questionType": "mcq",
@@ -161,48 +161,48 @@
     "explanation": "The selected answer is correct."
   },
   {
-    "unit": "IV",
-    "topic": "tree_height_and_height_methods",
+    "unit": "VI",
+    "topic": "crop_and_stand_measurements",
     "subtopic": "definition",
     "questionType": "short-answer",
     "autoGraded": false,
     "bloomLevel": "Remember",
     "difficulty": "Easy",
     "marks": 1,
-    "question": "Define tree height and height methods.",
-    "learningOutcome": "Understand tree height and height methods.",
+    "question": "Define crop and stand measurements.",
+    "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
-    "modelAnswer": "Use the documented tree height and height methods protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
+    "modelAnswer": "Use the documented crop and stand measurements protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
     "rubric": [
       {
-        "point": "Correctly addresses define tree height and height methods.",
+        "point": "Correctly addresses define crop and stand measurements.",
         "marks": 1
       }
     ]
   },
   {
-    "unit": "IV",
-    "topic": "tree_height_and_height_methods",
+    "unit": "VI",
+    "topic": "crop_and_stand_measurements",
     "subtopic": "terminology",
     "questionType": "short-answer",
     "autoGraded": false,
     "bloomLevel": "Remember",
     "difficulty": "Easy",
     "marks": 1,
-    "question": "State one important term used in tree height and height methods.",
-    "learningOutcome": "Understand tree height and height methods.",
+    "question": "State one important term used in crop and stand measurements.",
+    "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
-    "modelAnswer": "Use the documented tree height and height methods protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
+    "modelAnswer": "Use the documented crop and stand measurements protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
     "rubric": [
       {
-        "point": "Correctly addresses state one important term used in tree height and height methods.",
+        "point": "Correctly addresses state one important term used in crop and stand measurements.",
         "marks": 1
       }
     ]
   },
   {
-    "unit": "IV",
-    "topic": "tree_height_and_height_methods",
+    "unit": "VI",
+    "topic": "crop_and_stand_measurements",
     "subtopic": "principle",
     "questionType": "short-answer",
     "autoGraded": false,
@@ -210,9 +210,9 @@
     "difficulty": "Easy",
     "marks": 2,
     "question": "Explain why a written protocol is needed.",
-    "learningOutcome": "Understand tree height and height methods.",
+    "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
-    "modelAnswer": "Use the documented tree height and height methods protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
+    "modelAnswer": "Use the documented crop and stand measurements protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
     "rubric": [
       {
         "point": "Correctly addresses explain why a written protocol is needed.",
@@ -225,8 +225,8 @@
     ]
   },
   {
-    "unit": "IV",
-    "topic": "tree_height_and_height_methods",
+    "unit": "VI",
+    "topic": "crop_and_stand_measurements",
     "subtopic": "principle",
     "questionType": "short-answer",
     "autoGraded": false,
@@ -234,9 +234,9 @@
     "difficulty": "Easy",
     "marks": 2,
     "question": "Describe the role of units.",
-    "learningOutcome": "Understand tree height and height methods.",
+    "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
-    "modelAnswer": "Use the documented tree height and height methods protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
+    "modelAnswer": "Use the documented crop and stand measurements protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
     "rubric": [
       {
         "point": "Correctly addresses describe the role of units.",
@@ -249,8 +249,8 @@
     ]
   },
   {
-    "unit": "IV",
-    "topic": "tree_height_and_height_methods",
+    "unit": "VI",
+    "topic": "crop_and_stand_measurements",
     "subtopic": "principle",
     "questionType": "short-answer",
     "autoGraded": false,
@@ -258,9 +258,9 @@
     "difficulty": "Easy",
     "marks": 2,
     "question": "Differentiate accuracy and precision.",
-    "learningOutcome": "Understand tree height and height methods.",
+    "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
-    "modelAnswer": "Use the documented tree height and height methods protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
+    "modelAnswer": "Use the documented crop and stand measurements protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
     "rubric": [
       {
         "point": "Correctly addresses differentiate accuracy and precision.",
@@ -273,8 +273,8 @@
     ]
   },
   {
-    "unit": "IV",
-    "topic": "tree_height_and_height_methods",
+    "unit": "VI",
+    "topic": "crop_and_stand_measurements",
     "subtopic": "principle",
     "questionType": "short-answer",
     "autoGraded": false,
@@ -282,9 +282,9 @@
     "difficulty": "Easy",
     "marks": 2,
     "question": "Explain why repeats may be useful.",
-    "learningOutcome": "Understand tree height and height methods.",
+    "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
-    "modelAnswer": "Use the documented tree height and height methods protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
+    "modelAnswer": "Use the documented crop and stand measurements protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
     "rubric": [
       {
         "point": "Correctly addresses explain why repeats may be useful.",
@@ -297,8 +297,8 @@
     ]
   },
   {
-    "unit": "IV",
-    "topic": "tree_height_and_height_methods",
+    "unit": "VI",
+    "topic": "crop_and_stand_measurements",
     "subtopic": "principle",
     "questionType": "short-answer",
     "autoGraded": false,
@@ -306,9 +306,9 @@
     "difficulty": "Easy",
     "marks": 2,
     "question": "Describe one source of error.",
-    "learningOutcome": "Understand tree height and height methods.",
+    "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
-    "modelAnswer": "Use the documented tree height and height methods protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
+    "modelAnswer": "Use the documented crop and stand measurements protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
     "rubric": [
       {
         "point": "Correctly addresses describe one source of error.",
@@ -321,8 +321,8 @@
     ]
   },
   {
-    "unit": "IV",
-    "topic": "tree_height_and_height_methods",
+    "unit": "VI",
+    "topic": "crop_and_stand_measurements",
     "subtopic": "principle",
     "questionType": "short-answer",
     "autoGraded": false,
@@ -330,9 +330,9 @@
     "difficulty": "Easy",
     "marks": 2,
     "question": "Explain the management use.",
-    "learningOutcome": "Understand tree height and height methods.",
+    "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
-    "modelAnswer": "Use the documented tree height and height methods protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
+    "modelAnswer": "Use the documented crop and stand measurements protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
     "rubric": [
       {
         "point": "Correctly addresses explain the management use.",
@@ -345,8 +345,8 @@
     ]
   },
   {
-    "unit": "IV",
-    "topic": "tree_height_and_height_methods",
+    "unit": "VI",
+    "topic": "crop_and_stand_measurements",
     "subtopic": "principle",
     "questionType": "short-answer",
     "autoGraded": false,
@@ -354,9 +354,9 @@
     "difficulty": "Easy",
     "marks": 2,
     "question": "Describe a quality check.",
-    "learningOutcome": "Understand tree height and height methods.",
+    "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
-    "modelAnswer": "Use the documented tree height and height methods protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
+    "modelAnswer": "Use the documented crop and stand measurements protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
     "rubric": [
       {
         "point": "Correctly addresses describe a quality check.",
@@ -369,8 +369,8 @@
     ]
   },
   {
-    "unit": "IV",
-    "topic": "tree_height_and_height_methods",
+    "unit": "VI",
+    "topic": "crop_and_stand_measurements",
     "subtopic": "principle",
     "questionType": "short-answer",
     "autoGraded": false,
@@ -378,9 +378,9 @@
     "difficulty": "Easy",
     "marks": 2,
     "question": "Explain why assumptions are reported.",
-    "learningOutcome": "Understand tree height and height methods.",
+    "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
-    "modelAnswer": "Use the documented tree height and height methods protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
+    "modelAnswer": "Use the documented crop and stand measurements protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
     "rubric": [
       {
         "point": "Correctly addresses explain why assumptions are reported.",
@@ -393,7 +393,7 @@
     ]
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "calculation",
     "subtopic": "formula1",
     "questionType": "numerical",
@@ -401,19 +401,19 @@
     "bloomLevel": "Apply",
     "difficulty": "Medium",
     "marks": 4,
-    "question": "Pole 2 m has shadow 3 m; tree shadow 24 m. Calculate height.",
+    "question": "0.57351 m2 BA in 500 m2 plot. BA/ha?",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
-    "answer": 16,
+    "answer": 11.47,
     "tolerance": {
       "mode": "absolute",
       "value": 0.1
     },
-    "units": "m",
+    "units": "m2/ha",
     "explanation": "Substitute the stated values into the documented formula and retain the stated units."
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "calculation",
     "subtopic": "formula2",
     "questionType": "numerical",
@@ -421,19 +421,19 @@
     "bloomLevel": "Apply",
     "difficulty": "Medium",
     "marks": 4,
-    "question": "Pole 2 m has shadow 3 m; tree shadow 24 m. Calculate height.",
+    "question": "0.57351 m2 BA in 500 m2 plot. BA/ha?",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
-    "answer": 16,
+    "answer": 11.47,
     "tolerance": {
       "mode": "absolute",
       "value": 0.1
     },
-    "units": "m",
+    "units": "m2/ha",
     "explanation": "Substitute the stated values into the documented formula and retain the stated units."
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "calculation",
     "subtopic": "formula3",
     "questionType": "numerical",
@@ -441,19 +441,19 @@
     "bloomLevel": "Apply",
     "difficulty": "Medium",
     "marks": 4,
-    "question": "Pole 2 m has shadow 3 m; tree shadow 24 m. Calculate height.",
+    "question": "0.57351 m2 BA in 500 m2 plot. BA/ha?",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
-    "answer": 16,
+    "answer": 11.47,
     "tolerance": {
       "mode": "absolute",
       "value": 0.1
     },
-    "units": "m",
+    "units": "m2/ha",
     "explanation": "Substitute the stated values into the documented formula and retain the stated units."
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "calculation",
     "subtopic": "formula4",
     "questionType": "numerical",
@@ -461,19 +461,19 @@
     "bloomLevel": "Apply",
     "difficulty": "Medium",
     "marks": 4,
-    "question": "Pole 2 m has shadow 3 m; tree shadow 24 m. Calculate height.",
+    "question": "0.57351 m2 BA in 500 m2 plot. BA/ha?",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
-    "answer": 16,
+    "answer": 11.47,
     "tolerance": {
       "mode": "absolute",
       "value": 0.1
     },
-    "units": "m",
+    "units": "m2/ha",
     "explanation": "Substitute the stated values into the documented formula and retain the stated units."
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "calculation",
     "subtopic": "formula5",
     "questionType": "numerical",
@@ -481,19 +481,19 @@
     "bloomLevel": "Apply",
     "difficulty": "Medium",
     "marks": 4,
-    "question": "Pole 2 m has shadow 3 m; tree shadow 24 m. Calculate height.",
+    "question": "0.57351 m2 BA in 500 m2 plot. BA/ha?",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
-    "answer": 16,
+    "answer": 11.47,
     "tolerance": {
       "mode": "absolute",
       "value": 0.1
     },
-    "units": "m",
+    "units": "m2/ha",
     "explanation": "Substitute the stated values into the documented formula and retain the stated units."
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "calculation",
     "subtopic": "formula6",
     "questionType": "numerical",
@@ -501,20 +501,20 @@
     "bloomLevel": "Apply",
     "difficulty": "Medium",
     "marks": 4,
-    "question": "Pole 2 m has shadow 3 m; tree shadow 24 m. Calculate height.",
+    "question": "0.57351 m2 BA in 500 m2 plot. BA/ha?",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
-    "answer": 16,
+    "answer": 11.47,
     "tolerance": {
       "mode": "absolute",
       "value": 0.1
     },
-    "units": "m",
+    "units": "m2/ha",
     "explanation": "Substitute the stated values into the documented formula and retain the stated units."
   },
   {
-    "unit": "IV",
-    "topic": "tree_height_and_height_methods",
+    "unit": "VI",
+    "topic": "crop_and_stand_measurements",
     "subtopic": "application",
     "questionType": "short-answer",
     "autoGraded": false,
@@ -522,9 +522,9 @@
     "difficulty": "Medium",
     "marks": 4,
     "question": "Apply the method to a field situation and state checks.",
-    "learningOutcome": "Understand tree height and height methods.",
+    "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
-    "modelAnswer": "Use the documented tree height and height methods protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
+    "modelAnswer": "Use the documented crop and stand measurements protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
     "rubric": [
       {
         "point": "Correctly addresses apply the method to a field situation and state checks.",
@@ -537,8 +537,8 @@
     ]
   },
   {
-    "unit": "IV",
-    "topic": "tree_height_and_height_methods",
+    "unit": "VI",
+    "topic": "crop_and_stand_measurements",
     "subtopic": "application",
     "questionType": "short-answer",
     "autoGraded": false,
@@ -546,9 +546,9 @@
     "difficulty": "Medium",
     "marks": 4,
     "question": "Calculate a result and explain one assumption.",
-    "learningOutcome": "Understand tree height and height methods.",
+    "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
-    "modelAnswer": "Use the documented tree height and height methods protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
+    "modelAnswer": "Use the documented crop and stand measurements protocol, correct units and explicit assumptions; check the observation and calculation against the field record.",
     "rubric": [
       {
         "point": "Correctly addresses calculate a result and explain one assumption.",
@@ -561,7 +561,7 @@
     ]
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "analysis",
     "subtopic": "scenario1",
     "questionType": "long-answer",
@@ -569,7 +569,7 @@
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
     "marks": 5,
-    "question": "Analyse a Unit IV result that differs between crews. Identify causes and investigation steps.",
+    "question": "Analyse a Unit VI result that differs between crews. Identify causes and investigation steps.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
     "modelAnswer": "Compare protocol, instrument, units, geometry, observer decisions and calculations; verify field records and document the resolution.",
@@ -597,7 +597,7 @@
     ]
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "analysis",
     "subtopic": "scenario2",
     "questionType": "long-answer",
@@ -605,7 +605,7 @@
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
     "marks": 5,
-    "question": "Analyse a Unit IV result that differs between crews. Identify causes and investigation steps.",
+    "question": "Analyse a Unit VI result that differs between crews. Identify causes and investigation steps.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
     "modelAnswer": "Compare protocol, instrument, units, geometry, observer decisions and calculations; verify field records and document the resolution.",
@@ -633,7 +633,7 @@
     ]
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "analysis",
     "subtopic": "scenario3",
     "questionType": "long-answer",
@@ -641,7 +641,7 @@
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
     "marks": 5,
-    "question": "Analyse a Unit IV result that differs between crews. Identify causes and investigation steps.",
+    "question": "Analyse a Unit VI result that differs between crews. Identify causes and investigation steps.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
     "modelAnswer": "Compare protocol, instrument, units, geometry, observer decisions and calculations; verify field records and document the resolution.",
@@ -669,7 +669,7 @@
     ]
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "analysis",
     "subtopic": "scenario4",
     "questionType": "long-answer",
@@ -677,7 +677,7 @@
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
     "marks": 5,
-    "question": "Analyse a Unit IV result that differs between crews. Identify causes and investigation steps.",
+    "question": "Analyse a Unit VI result that differs between crews. Identify causes and investigation steps.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
     "modelAnswer": "Compare protocol, instrument, units, geometry, observer decisions and calculations; verify field records and document the resolution.",
@@ -705,7 +705,7 @@
     ]
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "analysis",
     "subtopic": "scenario5",
     "questionType": "long-answer",
@@ -713,7 +713,7 @@
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
     "marks": 5,
-    "question": "Analyse a Unit IV result that differs between crews. Identify causes and investigation steps.",
+    "question": "Analyse a Unit VI result that differs between crews. Identify causes and investigation steps.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
     "modelAnswer": "Compare protocol, instrument, units, geometry, observer decisions and calculations; verify field records and document the resolution.",
@@ -741,7 +741,7 @@
     ]
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "evaluation",
     "subtopic": "decision1",
     "questionType": "long-answer",
@@ -749,7 +749,7 @@
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
     "marks": 5,
-    "question": "Evaluate reporting a Unit IV value without method, units or uncertainty.",
+    "question": "Evaluate reporting a Unit VI value without method, units or uncertainty.",
     "learningOutcome": "Evaluate reporting.",
     "active": true,
     "modelAnswer": "The proposal is not defensible without method, units, assumptions and uncertainty.",
@@ -777,7 +777,7 @@
     ]
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "evaluation",
     "subtopic": "decision2",
     "questionType": "long-answer",
@@ -785,7 +785,7 @@
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
     "marks": 5,
-    "question": "Evaluate reporting a Unit IV value without method, units or uncertainty.",
+    "question": "Evaluate reporting a Unit VI value without method, units or uncertainty.",
     "learningOutcome": "Evaluate reporting.",
     "active": true,
     "modelAnswer": "The proposal is not defensible without method, units, assumptions and uncertainty.",
@@ -813,7 +813,7 @@
     ]
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "evaluation",
     "subtopic": "decision3",
     "questionType": "long-answer",
@@ -821,7 +821,7 @@
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
     "marks": 5,
-    "question": "Evaluate reporting a Unit IV value without method, units or uncertainty.",
+    "question": "Evaluate reporting a Unit VI value without method, units or uncertainty.",
     "learningOutcome": "Evaluate reporting.",
     "active": true,
     "modelAnswer": "The proposal is not defensible without method, units, assumptions and uncertainty.",
@@ -849,7 +849,7 @@
     ]
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "planning",
     "subtopic": "plan1",
     "questionType": "long-answer",
@@ -857,7 +857,7 @@
     "bloomLevel": "Create",
     "difficulty": "Hard",
     "marks": 5,
-    "question": "Design a reproducible field and reporting plan for tree height and height methods.",
+    "question": "Design a reproducible field and reporting plan for crop and stand measurements.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
     "modelAnswer": "Define objective, variables and units; prepare equipment and protocol; measure consistently; calculate and check results; record assumptions, uncertainty and recommendations.",
@@ -885,7 +885,7 @@
     ]
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "planning",
     "subtopic": "plan2",
     "questionType": "long-answer",
@@ -893,7 +893,7 @@
     "bloomLevel": "Create",
     "difficulty": "Hard",
     "marks": 5,
-    "question": "Design a reproducible field and reporting plan for tree height and height methods.",
+    "question": "Design a reproducible field and reporting plan for crop and stand measurements.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
     "modelAnswer": "Define objective, variables and units; prepare equipment and protocol; measure consistently; calculate and check results; record assumptions, uncertainty and recommendations.",
@@ -921,7 +921,7 @@
     ]
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "planning",
     "subtopic": "plan3",
     "questionType": "long-answer",
@@ -929,7 +929,7 @@
     "bloomLevel": "Create",
     "difficulty": "Hard",
     "marks": 5,
-    "question": "Design a reproducible field and reporting plan for tree height and height methods.",
+    "question": "Design a reproducible field and reporting plan for crop and stand measurements.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
     "modelAnswer": "Define objective, variables and units; prepare equipment and protocol; measure consistently; calculate and check results; record assumptions, uncertainty and recommendations.",
@@ -957,7 +957,7 @@
     ]
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "planning",
     "subtopic": "plan4",
     "questionType": "long-answer",
@@ -965,7 +965,7 @@
     "bloomLevel": "Create",
     "difficulty": "Hard",
     "marks": 5,
-    "question": "Design a reproducible field and reporting plan for tree height and height methods.",
+    "question": "Design a reproducible field and reporting plan for crop and stand measurements.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
     "modelAnswer": "Define objective, variables and units; prepare equipment and protocol; measure consistently; calculate and check results; record assumptions, uncertainty and recommendations.",
@@ -993,7 +993,7 @@
     ]
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "planning",
     "subtopic": "plan5",
     "questionType": "long-answer",
@@ -1001,7 +1001,7 @@
     "bloomLevel": "Create",
     "difficulty": "Hard",
     "marks": 5,
-    "question": "Design a reproducible field and reporting plan for tree height and height methods.",
+    "question": "Design a reproducible field and reporting plan for crop and stand measurements.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
     "modelAnswer": "Define objective, variables and units; prepare equipment and protocol; measure consistently; calculate and check results; record assumptions, uncertainty and recommendations.",
@@ -1029,7 +1029,7 @@
     ]
   },
   {
-    "unit": "IV",
+    "unit": "VI",
     "topic": "planning",
     "subtopic": "plan6",
     "questionType": "long-answer",
@@ -1037,7 +1037,7 @@
     "bloomLevel": "Create",
     "difficulty": "Hard",
     "marks": 5,
-    "question": "Design a reproducible field and reporting plan for tree height and height methods.",
+    "question": "Design a reproducible field and reporting plan for crop and stand measurements.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
     "modelAnswer": "Define objective, variables and units; prepare equipment and protocol; measure consistently; calculate and check results; record assumptions, uncertainty and recommendations.",

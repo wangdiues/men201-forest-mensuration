@@ -1,0 +1,1325 @@
+[
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "I",
+    "topic": "objectives",
+    "subtopic": "four_objectives",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Which of the following is one of the four classic objectives of forest measurement described in Unit I?",
+    "options": [
+      "Basis of sale",
+      "Determining the taxonomic family of a species",
+      "Fixing the retail price of furniture",
+      "Scheduling logging truck routes"
+    ],
+    "answer": 0,
+    "explanation": "The four objectives are basis of sale, basis for management, measurement for research and measurement for planning.",
+    "learningOutcome": "Recall the four objectives of forest measurement."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "I",
+    "topic": "volume_concept",
+    "subtopic": "volume_computed",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Tree volume is measured directly with an instrument, in the same way diameter is measured with a tape.",
+    "answer": 1,
+    "explanation": "False — volume is computed, not measured directly; it is calculated from measured quantities as V = g × h × f (basal area × height × form factor).",
+    "learningOutcome": "Recall that volume is a computed, not directly measured, quantity."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "I",
+    "topic": "bhutan_context",
+    "subtopic": "constitutional_cover",
+    "questionType": "fill-blank",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Article 5 of the Constitution of the Kingdom of Bhutan requires a minimum of ___ per cent of the country's total land to be maintained under forest cover for all time to come.",
+    "answer": [
+      "60",
+      "sixty"
+    ],
+    "explanation": "60% — the constitutional minimum that Bhutan's inventories and mensuration exist in part to demonstrate compliance with.",
+    "learningOutcome": "Recall the constitutional forest-cover requirement."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "I",
+    "topic": "produce_measurement",
+    "subtopic": "sale_by_volume",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Timber is conventionally sold and valued by volume rather than by weight mainly because:",
+    "options": [
+      "Volume does not change with the moisture content of the wood, unlike weight",
+      "Volume is always easier to measure in the forest than weight",
+      "Buyers are legally required to use volume",
+      "Weight cannot be measured for standing trees"
+    ],
+    "answer": 0,
+    "explanation": "Green and dry weight differ substantially and a stack's weight changes week to week as it dries, whereas volume is stable, so timber is priced on volume with weight used only where a stated moisture basis applies.",
+    "learningOutcome": "Recall why timber is valued by volume rather than weight."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "II",
+    "topic": "dbh",
+    "subtopic": "buttress_rule",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "On a tree with buttresses or swelling that extends above 1.37 m, the diameter is measured:",
+    "options": [
+      "Higher up, at the point above the irregularity where the stem becomes cylindrical, and the height noted",
+      "Still at 1.37 m regardless of the buttressing",
+      "At ground level instead",
+      "By estimating it without measurement"
+    ],
+    "answer": 0,
+    "explanation": "When buttressing or swelling reaches above breast height, the reference point is raised to just above the irregularity and the actual height of measurement is recorded, so the diameter reflects the true stem, not the flare.",
+    "learningOutcome": "Recall the diameter measurement rule for buttressed trees."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "II",
+    "topic": "instruments",
+    "subtopic": "caliper_vs_tape",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "A diameter tape measures diameter directly with two jaws pressed against the stem, in the same way a caliper does.",
+    "answer": 1,
+    "explanation": "False — a diameter tape wraps around the stem and measures circumference, then is graduated to read out diameter (C/π); a caliper is the instrument with two arms that measures diameter directly across the stem.",
+    "learningOutcome": "Distinguish how a diameter tape and a caliper each obtain diameter."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "II",
+    "topic": "dbh",
+    "subtopic": "forked_tree_rule",
+    "questionType": "fill-blank",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "A tree that forks below 1.37 m is recorded as ___ separate trees for measurement purposes.",
+    "answer": [
+      "two",
+      "2"
+    ],
+    "explanation": "If the fork is below breast height each stem is measured and recorded separately, since each has grown as an individual stem by that point; a fork above 1.37 m is treated as one tree at breast height.",
+    "learningOutcome": "Recall the recording rule for trees forking below breast height."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "III",
+    "topic": "canopy_cover",
+    "subtopic": "forest_definition",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Under the canopy-cover assessment protocol referenced in this module, an area counts as forest only if it is greater than 0.5 ha, has trees taller than 5 m, and has a canopy cover greater than:",
+    "options": [
+      "10%",
+      "25%",
+      "40%",
+      "60%"
+    ],
+    "answer": 0,
+    "explanation": "The forest definition threshold is canopy cover greater than 10%; the higher 40% threshold in the same protocol defines high forest, not forest in general.",
+    "learningOutcome": "Recall the canopy-cover threshold in the forest definition."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "III",
+    "topic": "canopy_cover",
+    "subtopic": "high_forest_threshold",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "A stand with 35% canopy cover meets the definition of 'high forest' under the Forest and Nature Conservation Act protocol referenced in this module.",
+    "answer": 1,
+    "explanation": "False — high forest is defined at canopy cover ≥ 40%; 35% is forest (it exceeds the 10% forest threshold) but not high forest.",
+    "learningOutcome": "Recall the canopy-cover threshold for 'high forest'."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "III",
+    "topic": "canopy_cover",
+    "subtopic": "minimum_points",
+    "questionType": "fill-blank",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "The canopy-cover assessment protocol requires a minimum of ___ sample points per 500 m² plot.",
+    "answer": [
+      "100"
+    ],
+    "explanation": "100 points minimum: 89 systematic points plus 11 additional points from a fixed quadrant.",
+    "learningOutcome": "Recall the minimum point count for canopy-cover assessment."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "III",
+    "topic": "canopy_cover",
+    "subtopic": "instrument_threshold",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Using the GRS crown densitometer under this protocol, a point is scored as 'covered' when:",
+    "options": [
+      "More than 50% of the instrument's inner circle is covered by canopy",
+      "Any canopy at all is visible in the instrument",
+      "The point falls directly beneath a tree stem",
+      "At least three species are visible overhead"
+    ],
+    "answer": 0,
+    "explanation": "The protocol uses a binary 1/0 score per point: covered if more than 50% of the inner circle is obscured by canopy, otherwise not covered.",
+    "learningOutcome": "Recall the point-scoring rule for the crown densitometer."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "IV",
+    "topic": "height",
+    "subtopic": "instrument_nfi",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "The Second National Forest Inventory measures tree height on every plot tree using a:",
+    "options": [
+      "Haglöf Laser Geo hypsometer",
+      "Abney level only",
+      "Ordinary tape measure held vertically",
+      "Increment borer"
+    ],
+    "answer": 0,
+    "explanation": "The Second NFI protocol specifies a Haglöf Laser Geo hypsometer for measuring height on every tree within the plot.",
+    "learningOutcome": "Recall the height instrument used in the Second NFI."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "IV",
+    "topic": "height",
+    "subtopic": "distance_rule",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "For the tangent method to give the most reliable angle readings, the horizontal distance to the tree should be roughly equal to the tree's height.",
+    "answer": 0,
+    "explanation": "True — keeping distance close to tree height keeps both angles (to top and base) well away from the extremes near 0° and 90°, where small angle-reading errors translate into large height errors.",
+    "learningOutcome": "Recall the distance guideline for reliable tangent-method readings."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "IV",
+    "topic": "height",
+    "subtopic": "merchantable_height",
+    "questionType": "fill-blank",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "The height of the stem up to the point where it is no longer usable for the intended product (e.g. a minimum top diameter) is called the ___ height.",
+    "answer": [
+      "merchantable"
+    ],
+    "explanation": "Merchantable height is defined by a utilisation limit (such as a minimum top diameter), unlike total height (tip) or bole height (first branch).",
+    "learningOutcome": "Recall the definition of merchantable height."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "huber_formula",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Huber's formula for log volume uses:",
+    "options": [
+      "The cross-sectional area at the mid-point of the log, multiplied by length",
+      "The mean of the end areas, multiplied by length",
+      "A weighted combination of both end areas and the mid-area",
+      "The quarter-girth squared, multiplied by length"
+    ],
+    "answer": 0,
+    "explanation": "Huber's (midpoint) formula: V = S_m × l, using only the cross-sectional area at the log's mid-length.",
+    "learningOutcome": "Recall Huber's log-volume formula."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "V",
+    "topic": "form_factor",
+    "subtopic": "species_variation",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Mean stem form factor is the same fixed value (0.5) for every species and does not need to be looked up separately.",
+    "answer": 1,
+    "explanation": "False — measured mean form factors vary by species (e.g. about 0.548 for blue pine, 0.336 for Quercus lanata in the Bhutan form-factor study), so the appropriate species value should be used, not a single universal constant.",
+    "learningOutcome": "Recall that mean form factor varies by species."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "local_vs_standard_table",
+    "questionType": "fill-blank",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "A volume table built from trees felled in one particular forest or region, rather than intended for general national use, is called a ___ volume table.",
+    "answer": [
+      "local"
+    ],
+    "explanation": "A local volume table is fitted to one specific area's trees and is generally more accurate there than a standard (general-purpose) table, but does not transfer reliably elsewhere.",
+    "learningOutcome": "Recall the term for a region-specific volume table."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "formula_recognition",
+    "questionType": "multi-response",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Which of the following are recognised log-volume formulas covered in this module? Select all that apply.",
+    "options": [
+      "Smalian's formula",
+      "Huber's formula",
+      "Newton's formula",
+      "Pythagoras' theorem"
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Smalian's, Huber's and Newton's are the three log-volume formulas covered; Pythagoras' theorem is unrelated to log volume.",
+    "learningOutcome": "Recognise the standard log-volume formulas."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VI",
+    "topic": "stand",
+    "subtopic": "quadratic_mean_diameter",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "The 'crop diameter' (quadratic mean diameter) of a stand is the diameter of the tree that has:",
+    "options": [
+      "The stand's mean basal area",
+      "The arithmetic mean diameter",
+      "The largest basal area in the stand",
+      "The median height"
+    ],
+    "answer": 0,
+    "explanation": "Crop diameter is defined as the diameter corresponding to the stand's mean basal area per tree, not a simple average of the diameters — which is why it is always slightly larger than the arithmetic mean diameter.",
+    "learningOutcome": "Recall the definition of crop (quadratic mean) diameter."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VI",
+    "topic": "stand",
+    "subtopic": "stocking_definition",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Stocking density compares a stand's actual basal area (or stem count) per hectare with a normal or desired reference level for that condition.",
+    "answer": 0,
+    "explanation": "True — stocking (percent stocking) expresses the stand's actual density relative to a normal/fully-stocked reference, used to judge whether a stand is under-, fully, or over-stocked.",
+    "learningOutcome": "Recall the definition of stocking density."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VI",
+    "topic": "crop",
+    "subtopic": "volume_per_ha_route",
+    "questionType": "fill-blank",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Stand volume per hectare can be estimated as the crop volume (mean volume of the crop-diameter tree) multiplied by the number of ___ per hectare.",
+    "answer": [
+      "stems",
+      "trees"
+    ],
+    "explanation": "Volume/ha = crop volume (the volume of the tree of mean basal area/crop diameter and Lorey's height) × stems per hectare.",
+    "learningOutcome": "Recall how stand volume per hectare is built from crop volume."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VII",
+    "topic": "age",
+    "subtopic": "whorl_method",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Counting whorls of branches (one whorl per year's growth) to estimate age is a method best suited to:",
+    "options": [
+      "Young conifers with a clear pattern of annual branch whorls",
+      "Old broadleaf trees with dense crowns",
+      "Any tree regardless of species or age",
+      "Trees growing in deep shade only"
+    ],
+    "answer": 0,
+    "explanation": "Whorl counting works only while the annual whorl pattern is still visible near the top of a young conifer; it becomes unreliable in older trees as lower branches are shed and whorls become indistinct.",
+    "learningOutcome": "Recall the scope of the branch-whorl age method."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VII",
+    "topic": "age",
+    "subtopic": "increment_borer_tool",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "An increment borer removes a full cross-section disc of the stem, in the same way a chainsaw cut does.",
+    "answer": 1,
+    "explanation": "False — an increment borer extracts a narrow cylindrical core along a radius, leaving the tree standing and largely undamaged, unlike a felled cross-section disc.",
+    "learningOutcome": "Recall what an increment borer extracts from a standing tree."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VII",
+    "topic": "growth",
+    "subtopic": "increment_classes",
+    "questionType": "fill-blank",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "The four classes of increment usually distinguished are current annual increment, periodic annual increment, mean annual increment and increment ___.",
+    "answer": [
+      "percent",
+      "percentage"
+    ],
+    "explanation": "The four classes: current annual increment (c.a.i.), periodic annual increment (p.a.i.), mean annual increment (m.a.i.) and increment percent — the last expressing growth as a rate relative to the tree's or stand's size.",
+    "learningOutcome": "Recall the four classes of increment."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "boundary_rule",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Under the common fixed-area-plot boundary rule taught in this module, a tree is counted as 'in' the plot when:",
+    "options": [
+      "The centre of its stem lies inside the plot boundary",
+      "Any part of its crown overhangs the plot boundary",
+      "More than half its root system is inside the boundary",
+      "It is the nearest tree to the plot centre"
+    ],
+    "answer": 0,
+    "explanation": "The common rule places a tree in the plot if its stem centre (not crown extent) lies inside the boundary; doubtful trees are checked by measuring distance accurately.",
+    "learningOutcome": "Recall the boundary-tree inclusion rule."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "cluster_sampling",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "In cluster sampling, as used in Bhutan's Second National Forest Inventory, the sampling unit is best described as:",
+    "options": [
+      "A cluster of several nearby plots selected and treated together",
+      "A single isolated plot selected completely independently of all others",
+      "Every tree in the forest",
+      "A satellite image tile"
+    ],
+    "answer": 0,
+    "explanation": "Cluster sampling selects groups of nearby plots (e.g. three 500 m² circular plots per cluster in the Second NFI) as the sampling unit, reducing travel between plots at the cost of some correlation between plots in the same cluster.",
+    "learningOutcome": "Recall the meaning of the sampling unit in cluster sampling."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "IX",
+    "topic": "data_management",
+    "subtopic": "gnss_satellites",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "A GNSS receiver determines its position on the ground by:",
+    "options": [
+      "Measuring signal travel time from several satellites simultaneously and triangulating position",
+      "Sending a radar pulse to the ground and timing the echo",
+      "Reading a pre-loaded map of fixed reference points only",
+      "Measuring magnetic field strength at the location"
+    ],
+    "answer": 0,
+    "explanation": "A GNSS receiver calculates its position from the travel time of signals received from several satellites at once; more visible satellites and a clear sky generally improve the fix.",
+    "learningOutcome": "Recall how a GNSS receiver fixes position."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "IX",
+    "topic": "data_management",
+    "subtopic": "terminology_match",
+    "questionType": "matching",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Match each data-management term to its meaning.",
+    "pairs": [
+      {
+        "left": "GNSS",
+        "right": "Satellite-based system used to determine ground position"
+      },
+      {
+        "left": "Metadata",
+        "right": "Data describing how and when a dataset was collected"
+      },
+      {
+        "left": "Backup",
+        "right": "A duplicate copy of data kept safe from loss"
+      }
+    ],
+    "explanation": "GNSS fixes position; metadata records the data's provenance; a backup is a safety copy kept against loss or corruption.",
+    "learningOutcome": "Recall core data-management terminology."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "X",
+    "topic": "biomass",
+    "subtopic": "predictor_choice",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Compared with a DBH-only biomass equation, a DBH-and-height biomass equation for the same species is generally:",
+    "options": [
+      "More accurate, because height adds information about the tree's form and taper beyond diameter alone",
+      "Less accurate, because height measurement always contains more error than DBH",
+      "Identical in accuracy, since biomass depends only on DBH",
+      "Impossible to fit, since biomass equations must use DBH only"
+    ],
+    "answer": 0,
+    "explanation": "Adding height as a second predictor generally improves accuracy because two trees of the same DBH can differ substantially in form/volume depending on height, though it costs the extra effort of measuring height on every sample tree.",
+    "learningOutcome": "Recall the effect of adding height as a biomass-equation predictor."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "XI",
+    "topic": "remote_sensing",
+    "subtopic": "resolution_types",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "When choosing satellite imagery for a forest-cover mapping task, 'high resolution' most usefully refers to:",
+    "options": [
+      "A specific combination of spatial, spectral and temporal resolution suited to the task, not one single property",
+      "Only the smallest pixel size the sensor can produce",
+      "Only how often the satellite revisits the same area",
+      "The number of colours the image can display on screen"
+    ],
+    "answer": 0,
+    "explanation": "Resolution is not one property: spatial (pixel size), spectral (number/width of bands) and temporal (revisit frequency) resolution all matter, and 'high resolution' in one dimension can come at the cost of another — the right combination depends on the task.",
+    "learningOutcome": "Recall that image resolution has several distinct dimensions."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "I",
+    "topic": "importance",
+    "subtopic": "six_questions",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "The Unit I session lists six questions a forester must be able to answer (on silviculture, species choice, harvesting, valuation, amenity and habitat). Explain why the session calls this 'the case for the module, made in six lines' even though none of the six questions is itself about measurement.",
+    "modelAnswer": "None of the six questions can be answered without measurement — you cannot judge treatment success, species suitability, harvestable volume, timber value, recreational capacity or habitat quality without first measuring the trees and stand — so measurement is shown to be the necessary foundation for every real forest-management question, even though it never appears as the question itself.",
+    "rubric": [
+      {
+        "point": "Notes that none of the six questions is directly about measurement",
+        "marks": 1
+      },
+      {
+        "point": "Explains that answering each one nonetheless depends on prior measurement, showing mensuration's foundational role",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain why forest mensuration underlies management questions that are not themselves about measurement."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "II",
+    "topic": "dbh",
+    "subtopic": "leaning_tree_dbh",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain why the reference height for DBH is measured along the stem (not vertically from the ground) on a leaning tree.",
+    "modelAnswer": "Measuring 1.37 m along the axis of the leaning stem keeps the same biological point of the tree being sampled regardless of lean, whereas a vertical 1.37 m from the ground would intersect the stem at a different, inconsistent point on the trunk depending on the angle of lean, introducing a systematic error that varies tree to tree.",
+    "rubric": [
+      {
+        "point": "States that height is measured along the leaning stem axis, not vertically",
+        "marks": 1
+      },
+      {
+        "point": "Explains this keeps the biological reference point consistent and avoids a lean-dependent systematic error",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain the along-stem convention for DBH on a leaning tree."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "III",
+    "topic": "canopy_cover",
+    "subtopic": "point_spacing_rationale",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "The canopy-cover protocol spaces its sample points 2.5 m apart (minimum 1 m, maximum 2.5 m) rather than, say, 10 m apart. Explain the trade-off this spacing choice reflects.",
+    "modelAnswer": "Closer spacing gives more points within the same 500 m² plot and captures the fine-grained pattern of gaps and crowns, improving the precision of the cover estimate; but if points are too close they start sampling the same crown or the same gap repeatedly, so information gained per additional point falls while fieldwork time still rises. The 1–2.5 m band balances resolution against field effort.",
+    "rubric": [
+      {
+        "point": "Recognises tighter spacing increases resolution/precision of the cover estimate",
+        "marks": 1
+      },
+      {
+        "point": "Recognises the trade-off — too tight wastes effort resampling the same crown/gap, so spacing balances resolution against field time",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain the trade-off behind the canopy-cover point-spacing rule."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "IV",
+    "topic": "height",
+    "subtopic": "why_distance_matters",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain why an error in the measured horizontal distance to a tree (say, pacing instead of taping) affects a tangent-method height calculation even if both angles are read perfectly.",
+    "modelAnswer": "The formula h = D(tan α + tan β) multiplies the horizontal distance directly by the sum of the two tangents, so any error in D carries straight through as the same proportional error in height — a distance measured 5% short gives a height about 5% too small, even though the angles themselves were read correctly; the method's accuracy is therefore no better than the accuracy of the distance measurement.",
+    "rubric": [
+      {
+        "point": "States that D multiplies the tangent sum directly, so error in D is passed proportionally into height",
+        "marks": 1
+      },
+      {
+        "point": "Gives the consequence: correct angles cannot compensate for a wrong distance",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain how distance error propagates into a tangent-method height."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "V",
+    "topic": "form_factor",
+    "subtopic": "form_factor_uncertainty",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "The Bhutan form-factor study reports residual standard deviations of 8–16% around each species' mean form factor. Explain what this means for using a single mean form factor to estimate the volume of one particular tree.",
+    "modelAnswer": "The mean form factor is an average taken across many felled trees of that species, and individual trees vary around it by roughly 8–16%; so applying the mean to any one standing tree gives volume that could plausibly be off by a similar margin for that individual, even though the formula is unbiased on average. The mean form factor is reliable for many trees together (errors tend to cancel), but carries real uncertainty for a single tree.",
+    "rubric": [
+      {
+        "point": "Recognises the 8–16% as tree-to-tree variation around the mean, not a fixed correction",
+        "marks": 1
+      },
+      {
+        "point": "Distinguishes reliability at the stand/population level (errors cancel) from uncertainty for a single tree",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain the implication of form-factor variability for single-tree volume estimates."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VI",
+    "topic": "stand",
+    "subtopic": "quadratic_vs_arithmetic_reason",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain why the quadratic mean (crop) diameter is always at least as large as the simple arithmetic mean diameter of the same set of trees.",
+    "modelAnswer": "Basal area is proportional to diameter squared, and averaging squared values before taking the square root gives more weight to the larger trees than a straight average of the diameters does; because large trees are over-represented in the basal-area-based average, the resulting crop diameter sits at or above the arithmetic mean, with the gap growing as the stand's diameter distribution becomes more uneven.",
+    "rubric": [
+      {
+        "point": "Notes basal area (and hence the quadratic mean) weights larger trees more heavily because it is based on d²",
+        "marks": 1
+      },
+      {
+        "point": "Concludes the crop diameter is therefore ≥ arithmetic mean, with the gap widening as diameters become less even",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain why the quadratic mean diameter exceeds the arithmetic mean."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VI",
+    "topic": "stand",
+    "subtopic": "stocking_use",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain why a forest manager finds a stand's percent stocking more directly useful for deciding whether to thin than the raw basal-area-per-hectare figure alone.",
+    "modelAnswer": "A basal area figure on its own does not say whether that density is appropriate for the stand's age, site quality and species. Percent stocking expresses the same figure relative to a normal (fully-stocked) reference for that stand type, so a manager can read directly whether the stand is under-stocked, fully stocked, or over-stocked — a judgement the raw basal area number cannot give by itself.",
+    "rubric": [
+      {
+        "point": "Notes raw basal area alone does not indicate whether density is appropriate for the stand's condition",
+        "marks": 1
+      },
+      {
+        "point": "Explains percent stocking benchmarks against a normal reference, giving a direct under/full/over-stocked reading that guides the thinning decision",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain why percent stocking is more actionable than raw basal area."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VII",
+    "topic": "age",
+    "subtopic": "why_core_not_disc",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain why foresters generally prefer an increment borer core to felling a tree for a cross-section disc when estimating age or growth in a standing forest.",
+    "modelAnswer": "A core lets the tree be sampled without killing it, so age and growth can be assessed across a whole stand, including on permanent plots that must be remeasured later, at a fraction of the cost and disturbance of felling; a felled disc gives a clearer, more complete ring record for the one tree destroyed, but that destructive sampling cannot be repeated on the same tree and is impractical beyond a small research sample.",
+    "rubric": [
+      {
+        "point": "Notes the core is non-destructive, allowing repeated/large-scale sampling and remeasurement",
+        "marks": 1
+      },
+      {
+        "point": "Acknowledges the trade-off: a felled disc gives a clearer record but destroys the tree and cannot be scaled or repeated",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain the trade-off between coring and felling for age determination."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "X",
+    "topic": "biomass",
+    "subtopic": "pools_definition_boundary",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain why above-ground biomass and below-ground biomass are treated as separate pools in carbon accounting, rather than one combined 'tree biomass' figure.",
+    "modelAnswer": "The two pools are measured/modelled differently — above-ground biomass can be estimated fairly directly from DBH (and height) using allometric equations fitted to measured trees, while roots cannot practically be excavated and weighed at scale, so below-ground biomass is usually estimated indirectly, often as a ratio applied to the above-ground figure. Keeping the pools separate also lets each be checked, updated or replaced independently, matching how frameworks such as the IPCC define and report pools.",
+    "rubric": [
+      {
+        "point": "Notes the pools are measured/modelled by different methods (direct allometric equations above-ground; indirect ratio-based estimation below-ground)",
+        "marks": 1
+      },
+      {
+        "point": "Notes the practical/reporting benefit of keeping pools separate (auditable, replaceable, matches standard frameworks)",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain why above- and below-ground biomass are accounted as separate pools."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "XI",
+    "topic": "remote_sensing",
+    "subtopic": "platform_selection_reasoning",
+    "questionType": "short-answer",
+    "autoGraded": false,
+    "bloomLevel": "Understand",
+    "difficulty": "Easy",
+    "marks": 2,
+    "question": "Explain why platform choice for a remote-sensing task (satellite, crewed aircraft, or drone) depends on more than which one produces the sharpest images.",
+    "modelAnswer": "Platform choice balances the area to be covered, terrain, payload/sensor needs and cost/logistics against image quality: a drone can capture extremely detailed imagery but only over a small footprint and cannot safely or legally cover a large, remote or mountainous area in reasonable time; a satellite covers huge areas cheaply and repeatedly but at coarser spatial resolution and is affected by cloud cover. The best choice matches the platform to the area, terrain and question being asked, not simply to whichever produces the sharpest single image.",
+    "rubric": [
+      {
+        "point": "States that area/coverage, terrain, payload and cost/logistics matter alongside image sharpness",
+        "marks": 1
+      },
+      {
+        "point": "Gives a concrete contrast between at least two platforms showing the trade-off",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Explain the trade-offs governing remote-sensing platform choice."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "II",
+    "topic": "dbh",
+    "subtopic": "girth_increment",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A tree's girth at breast height increased from 110.0 cm to 119.0 cm over five years. Calculate the increase in diameter over that period, in cm, to one decimal place.",
+    "answer": 2.9,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.05
+    },
+    "units": "cm",
+    "explanation": "D1 = 110.0/π = 35.01 cm; D2 = 119.0/π = 37.88 cm; increase = 37.88 − 35.01 = 2.9 cm.",
+    "learningOutcome": "Calculate a diameter increase from two girth readings."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "III",
+    "topic": "canopy_cover",
+    "subtopic": "protocol_intensity_cover",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "An 1,800 m² plot is assessed at the sampling intensity required for its size under the direct-measurement rule (150 points). Of the 150 points, 123 are scored 'covered'. Calculate the canopy cover of the plot, in per cent, to one decimal place.",
+    "answer": 82,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.5
+    },
+    "units": "%",
+    "explanation": "Cover (%) = covered points ÷ total points × 100 = 123 / 150 × 100 = 82.0%.",
+    "learningOutcome": "Calculate canopy cover from a point-intercept count."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "IV",
+    "topic": "height",
+    "subtopic": "base_above_eye",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A forester stands 15.0 m (horizontal distance) downhill from a tree growing above her on a slope. A clinometer reads 42° above horizontal to the top of the tree and 12° above horizontal to its base. Calculate the total height of the tree, in metres, to two decimal places.",
+    "answer": 10.32,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.1
+    },
+    "units": "m",
+    "explanation": "Both the top and the base are above the observer's eye level here, so h = D(tan α − tan β) = 15.0 × (tan 42° − tan 12°) = 15.0 × (0.9004 − 0.2126) = 15.0 × 0.6878 = 10.32 m.",
+    "learningOutcome": "Calculate height by the tangent method when both angles are above horizontal."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "huber_calc",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A log 5.0 m long has a mid-length diameter of 34 cm. Calculate its volume by Huber's formula, in m³, to three decimal places.",
+    "answer": 0.454,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.003
+    },
+    "units": "m³",
+    "explanation": "Basal area at mid-length: S_m = 0.00007854 × 34² = 0.0908 m². Huber's volume: V = S_m × l = 0.0908 × 5.0 = 0.454 m³.",
+    "learningOutcome": "Calculate log volume by Huber's formula."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VI",
+    "topic": "stand",
+    "subtopic": "quadratic_mean_calc",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "Five trees on a plot have diameters (cm): 18, 22, 25, 28, 32. Calculate the quadratic mean (crop) diameter of these five trees, in cm, to one decimal place.",
+    "answer": 25.5,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.1
+    },
+    "units": "cm",
+    "explanation": "Mean of d²: (18²+22²+25²+28²+32²)/5 = (324+484+625+784+1024)/5 = 3241/5 = 648.2. Quadratic mean diameter = √648.2 = 25.5 cm — larger than the arithmetic mean (25.0 cm), as expected.",
+    "learningOutcome": "Calculate quadratic mean diameter from individual diameters."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VII",
+    "topic": "growth",
+    "subtopic": "cai_from_volumes",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A stand's volume was 148 m³/ha at age 24 and 179 m³/ha at age 30. Calculate the periodic annual increment (p.a.i.) in volume, in m³/ha per year, to one decimal place.",
+    "answer": 5.2,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.05
+    },
+    "units": "m³/ha/yr",
+    "explanation": "p.a.i. = (179 − 148) / (30 − 24) = 31 / 6 = 5.17 ≈ 5.2 m³/ha per year.",
+    "learningOutcome": "Calculate periodic annual increment from two volume measurements."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "cluster_area_intensity",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A national-style inventory uses clusters of three 500 m² circular plots. Forty clusters are measured in a 12,000 ha forest management unit. Calculate the sampling intensity, as a percentage to three decimal places.",
+    "answer": 0.05,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.005
+    },
+    "units": "%",
+    "explanation": "Sampled area = 40 × 3 × 500 m² = 60,000 m² = 6 ha. SI = 6 ha / 12,000 ha × 100 = 0.050%.",
+    "learningOutcome": "Calculate sampling intensity for a cluster-plot design."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "X",
+    "topic": "biomass",
+    "subtopic": "biomass_check_value",
+    "questionType": "numerical",
+    "autoGraded": true,
+    "bloomLevel": "Apply",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "Using the Bhutan general-conifer biomass equation (DBH only), a tree of 40 cm DBH has an estimated above-ground biomass of 494.7 kg. Using a carbon fraction of 0.47, calculate the mass of carbon stored, in kg, to one decimal place.",
+    "answer": 232.5,
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.5
+    },
+    "units": "kg",
+    "explanation": "Carbon mass = biomass × carbon fraction = 494.7 × 0.47 = 232.5 kg.",
+    "learningOutcome": "Calculate carbon mass from an above-ground biomass estimate."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "III",
+    "topic": "canopy_cover",
+    "subtopic": "cover_gradient_interpretation",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A conservation area is re-assessed five years after a selective harvest: canopy cover was 62% before harvest and 47% immediately after, then 51% at the five-year re-assessment. Analyze what this sequence does and does not tell you about the stand's recovery, and what additional measurement would strengthen the conclusion.",
+    "modelAnswer": "The drop from 62% to 47% is consistent with canopy removed in the harvest; the partial recovery to 51% shows some canopy closure, but cover alone cannot show whether this is desirable regrowth of the harvested species, invasion by pioneer or undesirable species, or simply lateral crown spread of residual trees with no increase in stocking or volume. A single re-measurement also cannot separate a genuine trend from measurement variation between crews, instruments or season. Strengthening the conclusion would need species-level regeneration counts or stocking data, repeat measurement by the same protocol and ideally the same points, and a photographic or stem-count record alongside the cover figure.",
+    "rubric": [
+      {
+        "point": "Correctly reads the sequence as harvest removal followed by partial recovery",
+        "marks": 1
+      },
+      {
+        "point": "Notes cover alone cannot distinguish desirable regeneration from lateral crown spread or undesirable species",
+        "marks": 1
+      },
+      {
+        "point": "Proposes additional evidence (species/stocking data, repeat protocol, consistent points) to strengthen the conclusion",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Analyze the limits of a canopy-cover time series for judging stand recovery."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VI",
+    "topic": "stand",
+    "subtopic": "stocking_diagnosis",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A 20-year-old plantation has a measured basal area of 14 m²/ha against a normal-yield-table basal area of 22 m²/ha for that age and site class, while a neighbouring 20-year-old natural stand carries 30 m²/ha against the same 22 m²/ha normal. Analyze what each stand's stocking figure suggests about its condition and the likely management response.",
+    "modelAnswer": "The plantation is at about 64% stocking (14/22) — under-stocked, meaning growing space is not fully occupied; this usually signals establishment failure, mortality, or wide initial spacing rather than a thinning need, so management should investigate causes rather than remove trees. The natural stand is at about 136% stocking (30/22) — over-stocked, meaning trees are crowding each other and mortality from competition is likely if left untreated; this stand is a clear candidate for thinning to bring density back toward normal and concentrate increment on fewer, better trees. The same basal-area range implies opposite management actions once compared with the appropriate normal reference for age and site.",
+    "rubric": [
+      {
+        "point": "Calculates or states the plantation is under-stocked (~64%) and identifies likely causes other than needing thinning",
+        "marks": 1
+      },
+      {
+        "point": "Calculates or states the natural stand is over-stocked (~136%) and identifies thinning as the appropriate response",
+        "marks": 1
+      },
+      {
+        "point": "Draws the general conclusion that interpretation requires comparison against a normal reference for age/site, not the raw basal area alone",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Analyze stocking figures to diagnose stand condition and management need."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VII",
+    "topic": "growth",
+    "subtopic": "culmination_link",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A stand's mean annual increment culminates (reaches its maximum) at age 35, and its periodic annual increment curve crosses the m.a.i. curve at the same age. Analyze why this crossing point matters for deciding the biological rotation age of an even-aged stand, and what happens to the m.a.i. if the stand is left uncut for a further 15 years.",
+    "modelAnswer": "While c.a.i./p.a.i. exceeds m.a.i., each additional year adds more growth than the running average, so m.a.i. is still rising and cutting would sacrifice future average productivity; once c.a.i./p.a.i. falls below m.a.i. (past the crossing point), each extra year adds less than the average, pulling m.a.i. down. Culmination of m.a.i. is therefore the age of maximum average annual production — the biological rotation for volume — and it occurs exactly where the p.a.i./c.a.i. curve crosses the m.a.i. curve. Left uncut for a further 15 years past age 35, the stand keeps growing in absolute volume, but its m.a.i. would decline from its peak as the slowing c.a.i. drags the average down.",
+    "rubric": [
+      {
+        "point": "Explains why m.a.i. rises while c.a.i./p.a.i. exceeds it, and falls once c.a.i./p.a.i. drops below it",
+        "marks": 1
+      },
+      {
+        "point": "Identifies the crossing point as the age of maximum m.a.i. — the biological rotation for volume",
+        "marks": 1
+      },
+      {
+        "point": "Correctly states that leaving the stand 15 more years still adds volume but lowers the m.a.i. from its peak",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Analyze the relationship between the m.a.i./c.a.i. crossing point and biological rotation."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "design_choice_analysis",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Analyze",
+    "difficulty": "Medium",
+    "marks": 3,
+    "question": "A 3,000 ha forest management unit has three clearly mapped forest types (dense conifer, mixed broadleaf, degraded scrub) that are known to differ greatly in growing stock, plus generally difficult terrain. Analyze which basic sampling design (or combination) best fits this situation and why a single simple random sample across the whole unit would be a weaker choice.",
+    "modelAnswer": "Because the three forest types differ greatly in growing stock, stratifying by forest type (sampling separately within each mapped type, combined with correct area weights) will markedly improve precision for the same number of plots, since most of the variation is between types rather than within them; because the terrain is difficult, arranging plots within each stratum as clusters reduces travel cost, so a stratified-cluster combination fits well provided the type map is reliable. A single simple random sample across the whole 3,000 ha would very likely under- or over-represent one of the types by chance, inflating the standard error for a given number of plots, and its scattered plots would be expensive to reach across difficult terrain — worse on both precision and cost than the stratified-cluster alternative.",
+    "rubric": [
+      {
+        "point": "Recommends stratifying by forest type because the types differ greatly in growing stock, with a reasoned mechanism",
+        "marks": 1
+      },
+      {
+        "point": "Recommends clustering within strata (or similar) to manage the difficult terrain / travel cost",
+        "marks": 1
+      },
+      {
+        "point": "Explains concretely why plain simple random sampling would be weaker here",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Analyze which sampling design fits a stratified, difficult-terrain forest."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "table_choice_eval",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Evaluate",
+    "difficulty": "Hard",
+    "marks": 4,
+    "question": "A district forest office is deciding whether to keep using a single national volume table for blue pine or commission a local volume table specific to the district. Evaluate the trade-offs, referring to accuracy, cost and the scale at which the results will be used.",
+    "modelAnswer": "A local table, built from trees felled in the district itself, should fit that population's taper and form better than a general national table, reducing bias for district-level volume and yield estimates — valuable if large harvesting or carbon-crediting decisions rest on the figure. But building it requires felling and measuring a representative sample across the district's diameter range, which costs time, money and trees, and a table built on too few or unrepresentative trees can be worse than the national one, especially outside the sampled diameter range. If the office only needs approximate stocking figures for a management plan, the national table is the more defensible choice; a local table is worth commissioning mainly where volumes are large, decisions are high-stakes, and district conditions are known to differ systematically from the national average.",
+    "rubric": [
+      {
+        "point": "Explains why a local table can reduce bias for that specific population",
+        "marks": 1
+      },
+      {
+        "point": "Identifies the cost/sampling burden and the risk of a poorly-sampled local table performing worse",
+        "marks": 1
+      },
+      {
+        "point": "Weighs stakes/scale of the decision against the cost, rather than asserting one is always better",
+        "marks": 1
+      },
+      {
+        "point": "Reaches a reasoned, conditional recommendation",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Evaluate the choice between a national and a local volume table."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "XI",
+    "topic": "remote_sensing",
+    "subtopic": "lidar_pointcloud_pipeline_eval",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Evaluate",
+    "difficulty": "Hard",
+    "marks": 4,
+    "question": "A donor-funded project proposes to derive individual tree heights across a 5,000 ha forest management unit entirely from a LiDAR point cloud (pulse travel time converted to 3D points, then processed into a canopy height model), with no field height measurements at all. Evaluate this proposal.",
+    "modelAnswer": "LiDAR can generate a dense 3D point cloud over the whole 5,000 ha efficiently, and canopy height models derived from it can estimate tree or stand heights at a scale field crews could never match, which is a genuine strength for extensive coverage and repeat monitoring. But the point cloud still contains blind spots — dense multi-layered canopy can prevent pulses reaching or returning cleanly from suppressed or understorey trees — and the height model's accuracy for a given forest type and terrain is only known by comparing it against independently measured field heights; without any field measurement, the project cannot validate or correct systematic bias, and errors would propagate silently into every downstream estimate (volume, biomass, carbon). The defensible proposal is LiDAR flown and processed with a field-measured validation sample retained, even if greatly reduced from a full field inventory, so the remote-sensing output is checked against ground truth rather than trusted blind.",
+    "rubric": [
+      {
+        "point": "Identifies the genuine strength: efficient coverage and consistency across a large, otherwise-inaccessible area",
+        "marks": 1
+      },
+      {
+        "point": "Identifies a specific limitation: canopy blind spots / return quality affecting suppressed or understorey trees",
+        "marks": 1
+      },
+      {
+        "point": "Explains that without field validation, systematic bias cannot be detected and propagates into downstream estimates",
+        "marks": 1
+      },
+      {
+        "point": "Reaches a reasoned recommendation (retain a field validation sample) rather than a flat yes/no",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Evaluate a proposal to replace field height measurement entirely with LiDAR."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "II",
+    "topic": "dbh",
+    "subtopic": "qc_recheck",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Create",
+    "difficulty": "Hard",
+    "marks": 3,
+    "question": "Design a quality-control procedure for diameter measurements during an ongoing forest inventory, to be applied by a second crew re-measuring a sample of plots. State what is re-measured, the tolerance used to flag a discrepancy, and the action taken when a tree fails the check.",
+    "modelAnswer": "Re-measure DBH (and note bark and breast-height reference) on 5–10% of plots selected at random by a second, independent crew who do not see the first crew's readings; compare paired diameters and flag any pair differing by more than a stated tolerance (e.g. 0.5 cm or 1%, whichever is larger). A systematic pattern of differences (same direction, same crew) triggers retraining and reinspection of that crew's other plots, while isolated flagged trees are remeasured a third time and the median of readings kept; all checks and outcomes are logged for the inventory's quality report.",
+    "rubric": [
+      {
+        "point": "A random or systematic sample of plots is independently re-measured by a second crew",
+        "marks": 1
+      },
+      {
+        "point": "A numeric tolerance for flagging a discrepancy is stated",
+        "marks": 1
+      },
+      {
+        "point": "A defined corrective action follows a failed check (retraining, remeasurement, logging)",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Design a quality-control recheck procedure for diameter measurement."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": true,
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "qc_plan",
+    "questionType": "long-answer",
+    "autoGraded": false,
+    "bloomLevel": "Create",
+    "difficulty": "Hard",
+    "marks": 3,
+    "question": "Create a one-page checklist a crew leader can use in the field to confirm a fixed-area plot has been correctly established before the crew begins measuring trees.",
+    "modelAnswer": "Checklist: (1) Confirm the pre-selected plot centre coordinates/identifier against the field map or GPS, and do not relocate it for convenience; (2) Mark the centre and record date, crew, weather and access notes; (3) Establish the horizontal radius (or side lengths), correcting for slope where the protocol requires it, and mark or flag the boundary; (4) State and apply the boundary-tree rule (e.g. stem-centre-in) before any tree is enumerated, checking doubtful trees by measurement; (5) Confirm instruments are calibrated (tape, clinometer, GPS) and field-form fields match the protocol before recording begins.",
+    "rubric": [
+      {
+        "point": "Confirms plot centre/identifier against the pre-selected location without relocating it",
+        "marks": 1
+      },
+      {
+        "point": "Establishes and marks the correct (slope-corrected) boundary and states the boundary-tree rule before enumeration",
+        "marks": 1
+      },
+      {
+        "point": "Confirms instrument calibration and correct field-form setup before measurement begins",
+        "marks": 1
+      }
+    ],
+    "learningOutcome": "Design a field checklist for correct plot establishment."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": false,
+    "unit": "I",
+    "topic": "objectives",
+    "subtopic": "spare1",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Which of these is one of the four objectives of forest measurement given in Unit I? (Spare)",
+    "options": [
+      "Measurement for research",
+      "Predicting rainfall for the coming season",
+      "Classifying rock types in the soil profile",
+      "Setting national school curricula"
+    ],
+    "answer": 0,
+    "explanation": "Measurement for research is one of the four stated objectives, alongside basis of sale, basis for management and measurement for planning.",
+    "learningOutcome": "Recall the four objectives of forest measurement."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": false,
+    "unit": "V",
+    "topic": "volume",
+    "subtopic": "spare2",
+    "questionType": "true-false",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Newton's formula for log volume requires cross-sectional area measurements at three points along the log: both ends and the middle. (Spare)",
+    "answer": 0,
+    "explanation": "True — Newton's formula is [(S1+4Sm+S2)/6]×l, requiring the end areas and the mid-log area.",
+    "learningOutcome": "Recall the inputs required by Newton's formula."
+  },
+  {
+    "paper": "module-exam-3",
+    "active": false,
+    "unit": "VIII",
+    "topic": "inventory",
+    "subtopic": "spare3",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "A sampling design that selects units by a random start followed by a fixed, regular interval is called: (Spare)",
+    "options": [
+      "Systematic sampling",
+      "Simple random sampling",
+      "Stratified sampling",
+      "Cluster sampling"
+    ],
+    "answer": 0,
+    "explanation": "Systematic sampling uses a random origin then a fixed grid or interval.",
+    "learningOutcome": "Recall the definition of systematic sampling."
+  }
+]

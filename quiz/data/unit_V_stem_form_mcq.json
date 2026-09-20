@@ -1,0 +1,22 @@
+[
+  {
+    "unit": "V",
+    "topic": "stem_form",
+    "questionType": "mcq",
+    "autoGraded": true,
+    "bloomLevel": "Remember",
+    "difficulty": "Easy",
+    "marks": 1,
+    "question": "Which solid of revolution best represents the middle portion of most tree stems?",
+    "options": [
+      "Cylinder",
+      "Paraboloid",
+      "Cone",
+      "Neiloid"
+    ],
+    "answer": 1,
+    "explanation": "A paraboloid (r=1) models the middle portion of most tree stems.",
+    "learningOutcome": "Identify the solid that models the middle portion of a stem.",
+    "active": true
+  }
+]

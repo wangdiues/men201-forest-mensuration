@@ -35,7 +35,9 @@
       "quiz/data/**",
       "outputs/**",
       "assignments/**",
-      "height_enhanced/**"
+      "height_enhanced/**",
+      "tmp/**",
+      "backups/**"
     ]
   },
   "emulators": {

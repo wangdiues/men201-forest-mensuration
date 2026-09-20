@@ -126,6 +126,19 @@ export function collectGrading(root, attempt, ctx) {
   return manualGrading;
 }
 
+// Kicks off the grade-attempts workflow right away instead of waiting for
+// its schedule, so the auto+manual scores get merged to a final result
+// immediately. See quiz-engine.js's triggerGrading() for the full rationale
+// — same relay, duplicated here as one line rather than adding a cross-
+// module dependency for it.
+function triggerGrading() {
+  try {
+    navigator.sendBeacon("https://men201-grading-relay.wangs5050.workers.dev");
+  } catch {
+    /* the scheduled run will pick it up regardless */
+  }
+}
+
 export async function submitManualGrading(attemptId, manualGrading, gradedBy) {
   await updateDoc(doc(db, "attempts", attemptId), {
     manualGrading,
@@ -133,4 +146,5 @@ export async function submitManualGrading(attemptId, manualGrading, gradedBy) {
     gradedBy,
     gradedAt: serverTimestamp(),
   });
+  triggerGrading();
 }

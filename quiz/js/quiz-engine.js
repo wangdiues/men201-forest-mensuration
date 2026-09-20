@@ -66,6 +66,23 @@ function fmtDate(ts) {
   return ts.toDate().toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
 }
 
+// Pings a small relay (Cloudflare Worker) that kicks off the grade-attempts
+// GitHub Actions workflow right away, instead of waiting for its normal
+// every-5-minutes schedule. The relay holds the real GitHub token server
+// side — this call carries no credential. sendBeacon (not fetch) because
+// it's fired right before navigating to the result page, and unlike a
+// bare un-awaited fetch, sendBeacon is guaranteed to be sent even though
+// the page unloads immediately after. Best-effort: if it fails (relay
+// down, blocked, offline), the scheduled run still grades the attempt.
+const GRADING_RELAY_URL = "https://men201-grading-relay.wangs5050.workers.dev";
+function triggerGrading() {
+  try {
+    navigator.sendBeacon(GRADING_RELAY_URL);
+  } catch {
+    /* the scheduled run will pick it up regardless */
+  }
+}
+
 function banner(msg) {
   $("#app").innerHTML = `<div class="card notice"><p>${esc(msg)}</p><p><a class="btn" href="index.html">Back to the quiz home</a></p></div>`;
 }
@@ -512,6 +529,7 @@ function runGraded(app, items, assessment, questionIds, sectionAssignment, user)
       } catch {
         /* ignore */
       }
+      triggerGrading();
       location.href = "result.html?tid=" + ref.id;
     } catch (err) {
       submitting = false;

@@ -3,6 +3,7 @@ import { db } from "./firebase.js";
 import { collection, getDocs, query, where, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import { onAuthChange, getProfile, isTeacher, logoutUser } from "./auth.js";
 import { BLOOM_LEVELS, selectForSections } from "./bloom.js";
+import { attemptNumbers } from "./quiz-engine.js";
 import {
   unitWisePerformance,
   bloomClassPerformance,
@@ -188,6 +189,17 @@ async function renderOverview(el, data) {
   const unitRows = unitWisePerformance(data.assessments, data.statsMap);
   const bloom = bloomClassPerformance(data.statsMap);
 
+  // attemptNumbers needs each (student, assessment) pair's full history to
+  // number correctly, not just this page's most-recent-15 window — pull
+  // every attempt for the assessments actually shown here (bounded: at
+  // most 14 assessments exist in total, well under Firestore's "in" cap).
+  const assessIds = [...new Set(recent.map((a) => a.assessmentId))];
+  let numbered = {};
+  if (assessIds.length) {
+    const ctxSnap = await getDocs(query(collection(db, "attempts"), where("assessmentId", "in", assessIds)));
+    numbered = attemptNumbers(ctxSnap.docs.map((d) => ({ id: d.id, ...d.data() })));
+  }
+
   const rows = recent
     .map((a) => {
       const u = data.users[a.userId] || {};
@@ -198,7 +210,9 @@ async function renderOverview(el, data) {
           : a.status === "awaiting-manual"
           ? `<span class="tag warn">awaiting grading</span>`
           : `<span class="tag">grading…</span>`;
-      return `<tr><td>${esc(u.displayName || a.userId)}</td>
+      const student = esc(u.displayName || a.userId);
+      const attemptTag = `${student} attempt${numbered[a.id] || 1}`;
+      return `<tr><td>${attemptTag}</td>
         <td>${esc(assess?.title || a.assessmentId)}</td>
         <td>${fmtDate(a.submittedAt)}</td><td>${status}</td>
         <td><a href="result.html?tid=${a.id}">View</a></td></tr>`;

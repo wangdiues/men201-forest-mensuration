@@ -91,7 +91,7 @@
         ]
       }
     ],
-    "attemptsAllowed": 1,
+    "attemptsAllowed": 3,
     "passPercent": 40,
     "active": true
   },
@@ -187,7 +187,7 @@
         ]
       }
     ],
-    "attemptsAllowed": 1,
+    "attemptsAllowed": 3,
     "passPercent": 40,
     "active": true
   },
@@ -283,7 +283,7 @@
         ]
       }
     ],
-    "attemptsAllowed": 1,
+    "attemptsAllowed": 3,
     "passPercent": 40,
     "active": true
   },
@@ -376,7 +376,7 @@
         ]
       }
     ],
-    "attemptsAllowed": 1,
+    "attemptsAllowed": 3,
     "passPercent": 40,
     "active": true
   },
@@ -610,7 +610,7 @@
         ]
       }
     ],
-    "attemptsAllowed": 1,
+    "attemptsAllowed": 3,
     "passPercent": 40,
     "active": true
   },
@@ -706,7 +706,7 @@
         ]
       }
     ],
-    "attemptsAllowed": 1,
+    "attemptsAllowed": 3,
     "passPercent": 40,
     "active": true
   },
@@ -802,7 +802,7 @@
         ]
       }
     ],
-    "attemptsAllowed": 1,
+    "attemptsAllowed": 3,
     "passPercent": 40,
     "active": true
   },
@@ -898,7 +898,7 @@
         ]
       }
     ],
-    "attemptsAllowed": 1,
+    "attemptsAllowed": 3,
     "passPercent": 40,
     "active": true
   },
@@ -994,7 +994,7 @@
         ]
       }
     ],
-    "attemptsAllowed": 1,
+    "attemptsAllowed": 3,
     "passPercent": 40,
     "active": true
   },
@@ -1090,7 +1090,7 @@
         ]
       }
     ],
-    "attemptsAllowed": 1,
+    "attemptsAllowed": 3,
     "passPercent": 40,
     "active": true
   },
@@ -1186,7 +1186,7 @@
         ]
       }
     ],
-    "attemptsAllowed": 1,
+    "attemptsAllowed": 3,
     "passPercent": 40,
     "active": true
   },
@@ -1282,7 +1282,7 @@
         ]
       }
     ],
-    "attemptsAllowed": 1,
+    "attemptsAllowed": 3,
     "passPercent": 40,
     "active": true
   },
@@ -1378,7 +1378,7 @@
         ]
       }
     ],
-    "attemptsAllowed": 1,
+    "attemptsAllowed": 3,
     "passPercent": 40,
     "active": true
   },
@@ -1474,7 +1474,7 @@
         ]
       }
     ],
-    "attemptsAllowed": 1,
+    "attemptsAllowed": 3,
     "passPercent": 40,
     "active": true
   }

@@ -66,6 +66,26 @@ function fmtDate(ts) {
   return ts.toDate().toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
 }
 
+// Maps each attempt's id -> its 1-based ordinal ("attempt 1", "attempt 2", …)
+// among that same student's attempts at the same assessment, oldest first.
+// Groups by (userId, assessmentId) so it also works on a teacher's mixed-
+// student attempt list, not just a single student's own history.
+export function attemptNumbers(attempts) {
+  const byKey = {};
+  attempts.forEach((a) => {
+    const key = `${a.userId}::${a.assessmentId}`;
+    (byKey[key] = byKey[key] || []).push(a);
+  });
+  const numbers = {};
+  Object.values(byKey).forEach((group) => {
+    group
+      .slice()
+      .sort((a, b) => (a.submittedAt && a.submittedAt.toMillis ? a.submittedAt.toMillis() : 0) - (b.submittedAt && b.submittedAt.toMillis ? b.submittedAt.toMillis() : 0))
+      .forEach((a, i) => (numbers[a.id] = i + 1));
+  });
+  return numbers;
+}
+
 // Pings a small relay (Cloudflare Worker) that kicks off the grade-attempts
 // GitHub Actions workflow right away, instead of waiting for its normal
 // every-5-minutes schedule. The relay holds the real GitHub token server
@@ -223,10 +243,14 @@ function authErrMsg(err) {
 }
 
 async function renderLanding(app, user, profile) {
+  // Not limited: a student has at most attemptsAllowed (currently 3) per
+  // assessment across 14 assessments, so this is a small read regardless,
+  // and attempt numbering below needs the complete set to be accurate.
   const attemptsSnap = await getDocs(
-    query(collection(db, "attempts"), where("userId", "==", user.uid), orderBy("submittedAt", "desc"), limit(20))
+    query(collection(db, "attempts"), where("userId", "==", user.uid), orderBy("submittedAt", "desc"))
   );
   const attempts = attemptsSnap.docs.map((d) => ({ id: d.id, ...d.data() }));
+  const attemptNo = attemptNumbers(attempts);
   const titles = {};
   if (attempts.length) {
     const ids = [...new Set(attempts.map((a) => a.assessmentId))];
@@ -243,6 +267,7 @@ async function renderLanding(app, user, profile) {
   ).join("");
 
   const rows = attempts
+    .slice(0, 20) // display cap only — attemptNo above used the full set
     .map((a) => {
       const status =
         a.status === "complete"
@@ -251,6 +276,7 @@ async function renderLanding(app, user, profile) {
           ? `<span class="tag" title="Objective questions are graded — written answers are being graded next.">awaiting grading</span>`
           : `<span class="tag" title="Under assessment — usually done within a few minutes.">grading…</span>`;
       return `<tr><td>${esc(titles[a.assessmentId] || a.assessmentId)}</td>
+        <td>Attempt ${attemptNo[a.id] || 1}</td>
         <td>${fmtDate(a.submittedAt)}</td><td>${status}</td>
         <td><a href="result.html?tid=${a.id}">View →</a></td></tr>`;
     })
@@ -291,7 +317,7 @@ async function renderLanding(app, user, profile) {
   ${examCards}
   <section class="card">
     <h2>My recent results</h2>
-    ${rows ? `<table class="tbl"><thead><tr><th>Assessment</th><th>Date</th><th>Result</th><th></th></tr></thead><tbody>${rows}</tbody></table>` : `<p class="muted">No attempts yet — open a unit module to start.</p>`}
+    ${rows ? `<table class="tbl"><thead><tr><th>Assessment</th><th>Attempt</th><th>Date</th><th>Result</th><th></th></tr></thead><tbody>${rows}</tbody></table>` : `<p class="muted">No attempts yet — open a unit module to start.</p>`}
   </section>`;
 }
 
@@ -702,6 +728,14 @@ async function renderResult(app, user, tid, profile) {
 
   const asSnap = await getDoc(doc(db, "assessments", attempt.assessmentId));
   const assessment = asSnap.data() || {};
+
+  // Which attempt number this is out of the student's allowed attempts —
+  // at most attemptsAllowed (currently 3) documents, so this is a tiny read.
+  const siblingsSnap = await getDocs(
+    query(collection(db, "attempts"), where("userId", "==", attempt.userId), where("assessmentId", "==", attempt.assessmentId))
+  );
+  const myNumber = attemptNumbers(siblingsSnap.docs.map((d) => ({ id: d.id, ...d.data() })))[tid] || 1;
+
   const qMap = await fetchDocsByIds("questions", attempt.questionIds);
   const questions = {};
   Object.values(qMap).forEach((q) => (questions[q.id] = q));
@@ -753,7 +787,8 @@ async function renderResult(app, user, tid, profile) {
   <div class="mast">
     <p class="eyebrow">${esc(assessment.title || "Assessment")}</p>
     <h1>${pending ? "Result — partially graded" : "Result"}</h1>
-    <p class="muted">${fmtDate(attempt.submittedAt)} · ${attempt.unit === "Module" ? "Mock module examination" : `Unit ${esc(attempt.unit)}`}</p>
+    <p class="muted">${fmtDate(attempt.submittedAt)} · ${attempt.unit === "Module" ? "Mock module examination" : `Unit ${esc(attempt.unit)}`}
+      · Attempt ${myNumber}${assessment.attemptsAllowed ? ` of ${assessment.attemptsAllowed}` : ""}</p>
     <p><button class="btn print-action" id="download-pdf" type="button">Download assessed paper (PDF)</button>
       <span class="muted">Choose “Save as PDF” in the print dialog.</span></p>
   </div>

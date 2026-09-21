@@ -273,8 +273,8 @@ body .pair .refs li{height:100%}
    so what shows through is soft, a hairline of light on the edge and a faint
    sheen across the top-left — the frosted-glass idiom. At .52 fill the
    brightest scrimmed patch still gives paper text 9:1, muted text 6:1. */
-:root{--glass:rgba(20,28,24,.52);--glass-line:rgba(242,239,230,.2);--vermilion-light:#e8916f;
-  --glass-sheen:linear-gradient(135deg,rgba(242,239,230,.14),rgba(242,239,230,.04) 38%,rgba(242,239,230,0) 62%);
+:root{--glass:rgba(20,28,24,.68);--glass-line:rgba(242,239,230,.26);--vermilion-light:#e8916f;
+  --glass-sheen:linear-gradient(135deg,rgba(242,239,230,.16),rgba(242,239,230,.05) 38%,rgba(242,239,230,0) 62%);
   --glass-blur:blur(18px) saturate(1.25);
   --glass-shadow:0 24px 48px -28px rgba(20,28,24,.9),inset 0 1px 0 rgba(242,239,230,.22),inset 0 0 0 1px rgba(242,239,230,.06)}
 body .topbar{background:rgba(47,81,64,.72);border-bottom:1px solid rgba(242,239,230,.18);
@@ -302,6 +302,15 @@ body .unit:hover,body .unit:focus-within{background:var(--glass-sheen),rgba(20,2
 body .ref:hover,body .ref:focus-visible{background:rgba(242,239,230,.05)}
 /* The mock-exam and photo bands, and the kbd chips, take the same glass edge. */
 body .band{border:1px solid var(--glass-line);box-shadow:var(--glass-shadow)}
+/* Phones and other touch devices: no backdrop blur. iOS Safari drops the
+   blur layer under memory pressure and the panels vanished into the photo;
+   every phone GPU pays for it on scroll. The fill alone carries the panel. */
+@media (pointer:coarse),(max-width:760px){
+  :root{--glass:rgba(20,28,24,.78);--glass-line:rgba(242,239,230,.3)}
+  body .tally,body .unit,body .refs li,body .keys li,body .note,body .practice-layout,body .topbar,body .rod,body .btn--ghost{
+    backdrop-filter:none;-webkit-backdrop-filter:none}
+  body .topbar{background:rgba(47,81,64,.96)}
+}
 body .ref{color:var(--paper)}
 
 body .tally dt,body .tally dd small{color:var(--on-photo-soft)}

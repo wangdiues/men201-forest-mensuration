@@ -128,6 +128,8 @@ a{color:inherit}
 .topbar-cta{flex:0 0 auto;order:2}
 @media (max-width:760px){
   .topbar-nav{order:3;flex-basis:100%}
+}
+@media (max-width:360px){
   .brand span{display:none}
 }
 
@@ -310,6 +312,15 @@ body .band{border:1px solid var(--glass-line);box-shadow:var(--glass-shadow)}
   body .tally,body .unit,body .refs li,body .keys li,body .note,body .practice-layout,body .topbar,body .rod,body .btn--ghost{
     backdrop-filter:none;-webkit-backdrop-filter:none}
   body .topbar{background:rgba(47,81,64,.96)}
+  /* The links wrap onto a second line rather than scrolling off the edge,
+     so every section is visible at a glance. */
+  body .topbar{position:static}   /* two rows of links would pin a sixth of the screen */
+  body .topbar .wrap{padding-top:12px;padding-bottom:8px;row-gap:4px}
+  body .topbar-nav{flex-wrap:wrap;overflow:visible;gap:0 18px;padding:0;
+    mask-image:none;-webkit-mask-image:none}
+  body .topbar-nav a{font-size:15px;padding:5px 0}
+  body .brand{font-size:12px;letter-spacing:.12em}
+  body .topbar-cta{min-height:40px;padding:.45em 1.1em;font-size:14px}
 }
 body .ref{color:var(--paper)}
 

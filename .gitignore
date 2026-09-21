@@ -28,6 +28,7 @@ firebase-debug.log
 Gemini_API_Key.txt
 *.key
 Tally_API.txt
+figma_access_token.txt
 
 # Other AI coding tools state
 .kilo/

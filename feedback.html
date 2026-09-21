@@ -1,172 +1,243 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Feedback · MEN 201 Forest Mensuration</title>
-  <meta name="description" content="Separate anonymous Tally feedback forms for MEN 201 visitors and students.">
-  <meta name="color-scheme" content="light">
-  <style>
-    :root {
-      --paper: #f2efe6;
-      --paper-card: #faf9f4;
-      --ink: #141c18;
-      --ink-soft: #4a544c;
-      --moss: #2f5140;
-      --vermilion: #a83b20;
-      --rule: rgba(20,28,24,.16);
-      --rule-soft: rgba(20,28,24,.09);
-      --display: Georgia, "Times New Roman", serif;
-      --body: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      --mono: Consolas, "SFMono-Regular", monospace;
-      --space-1: clamp(.75rem, .66rem + .4vw, 1rem);
-      --space-2: clamp(1rem, .82rem + .8vw, 1.5rem);
-      --space-3: clamp(1.5rem, 1.1rem + 1.8vw, 2.75rem);
-      --space-4: clamp(2.5rem, 1.6rem + 4vw, 5rem);
-      --radius: 1rem;
-      --shadow: 0 1rem 2rem rgba(20,28,24,.06);
-      --motion: 160ms ease;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feedback · MEN 201 Forest Mensuration</title>
+<meta name="description" content="Separate anonymous Tally feedback forms for MEN 201 visitors and students.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f2efe6'/%3E%3Crect x='13' y='3' width='6' height='26' fill='none' stroke='%232f5140' stroke-width='1.6'/%3E%3Cpath d='M13 8h6M13 13h6M13 18h6M13 23h6' stroke='%232f5140' stroke-width='1.6'/%3E%3Cpath d='M5 16h7' stroke='%23c14524' stroke-width='2'/%3E%3C/svg%3E">
 
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--body);
-      font-size: clamp(1rem, .93rem + .36vw, 1.25rem);
-      line-height: 1.6;
-      background-image:
-        linear-gradient(var(--rule-soft) 1px, transparent 1px),
-        linear-gradient(90deg, var(--rule-soft) 1px, transparent 1px);
-      background-size: 2.5rem 2.5rem;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/men201-chrome.css">
 
-    a { color: inherit; }
-    :focus-visible { outline: 3px solid var(--vermilion); outline-offset: 4px; }
-    .wrap { width: min(100% - var(--space-2) * 2, 75rem); margin-inline: auto; }
+<style>
+  :root {
+    --paper:      #f2efe6;
+    --card:       #faf9f4;
+    --ink:        #141c18;
+    --soft:       #4a544c;
+    --faint:      #5f6b5e;
+    --moss:       #2f5140;
+    --moss-wash:  rgba(47,81,64,.07);
+    --moss-line:  rgba(47,81,64,.28);
+    --verm:       #a83b20;
+    --rule:       rgba(20,28,24,.16);
+    --rule-soft:  rgba(20,28,24,.09);
 
-    header {
-      padding-block: var(--space-4) var(--space-3);
-      border-bottom: 1px solid var(--rule);
-      background: color-mix(in srgb, var(--paper) 94%, transparent);
-    }
+    --display: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --body:    'Public Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+    --mono:    'JetBrains Mono', Consolas, ui-monospace, monospace;
 
-    .eyebrow {
-      margin: 0 0 var(--space-2);
-      color: var(--vermilion);
-      font: 700 clamp(.7rem, .65rem + .2vw, .85rem)/1 var(--mono);
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
+    /* space scale, 320px -> 1440px viewport */
+    --space-2xs: clamp(0.5rem, 0.464rem + 0.179vw, 0.625rem);
+    --space-xs:  clamp(0.75rem, 0.679rem + 0.357vw, 1rem);
+    --space-s:   clamp(1rem, 0.857rem + 0.714vw, 1.5rem);
+    --space-m:   clamp(1.5rem, 1.286rem + 1.071vw, 2.25rem);
+    --space-l:   clamp(2rem, 1.571rem + 2.143vw, 3.5rem);
+    --space-xl:  clamp(3rem, 2.286rem + 3.571vw, 5.5rem);
 
-    h1, h2 { font-family: var(--display); letter-spacing: -.035em; line-height: 1; }
-    h1 { max-width: 12ch; margin: 0; font-size: clamp(2.6rem, 8vw, 6.5rem); }
-    h2 { margin: 0; font-size: clamp(1.8rem, 3.2vw, 3rem); }
-    .lede { max-width: 58ch; margin: var(--space-2) 0 0; color: var(--ink-soft); }
+    /* type scale */
+    --fs-micro: clamp(0.75rem, 0.732rem + 0.089vw, 0.813rem);
+    --fs-small: clamp(0.875rem, 0.857rem + 0.089vw, 0.938rem);
+    --fs-body:  clamp(1rem, 0.929rem + 0.357vw, 1.25rem);
+    --fs-lead:  clamp(1.125rem, 1.054rem + 0.357vw, 1.375rem);
+    --fs-h3:    clamp(1.313rem, 1.188rem + 0.625vw, 1.75rem);
+    --fs-h1:    clamp(2rem, 1.571rem + 2.143vw, 3.5rem);
 
-    main { padding-block: var(--space-3) var(--space-4); }
-    .privacy {
-      display: grid;
-      gap: var(--space-1);
-      margin-bottom: var(--space-3);
-      padding: var(--space-2);
-      border: 1px solid rgba(47,81,64,.3);
-      border-radius: var(--radius);
-      background: rgba(74,122,95,.06);
-    }
-    .privacy strong {
-      color: var(--moss);
-      font: 700 .78em/1 var(--mono);
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-    .privacy p { margin: 0; color: var(--ink-soft); }
+    --radius: 0.75rem;
+    --shadow: 0 1rem 2rem rgba(20,28,24,.06);
+    --motion: 160ms ease;
+  }
 
-    .forms {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
-      gap: var(--space-2);
-    }
-    article {
-      display: grid;
-      align-content: start;
-      gap: var(--space-2);
-      padding: var(--space-2);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      background: var(--paper-card);
-      box-shadow: var(--shadow);
-    }
-    article p { margin: 0; color: var(--ink-soft); }
-    .audience {
-      color: var(--vermilion);
-      font: 700 .72em/1 var(--mono);
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-    .button {
-      display: inline-block;
-      justify-self: start;
-      padding: .7em 1.1em;
-      border-radius: 999px;
-      background: var(--moss);
-      color: var(--paper);
-      font-weight: 700;
-      text-decoration: none;
-      transition: transform var(--motion), background var(--motion);
-    }
-    .button:hover { transform: translateY(-2px); background: var(--vermilion); }
-    .form-link { color: var(--moss); font-size: .9em; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background-image:
+      linear-gradient(var(--rule-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--rule-soft) 1px, transparent 1px);
+    background-size: 2.5rem 2.5rem;
+  }
 
-    footer {
-      padding-block: var(--space-2);
-      border-top: 1px solid var(--rule);
-      color: var(--ink-soft);
-      font-size: .85em;
-    }
-  </style>
+  p { margin: 0; }
+  a { color: var(--moss); }
+  :focus-visible { outline: 2px solid var(--verm); outline-offset: 4px; }
+  .wrap { width: min(100% - var(--space-s) * 2, 62rem); margin-inline: auto; }
+  .vh { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+
+  .skip {
+    position: absolute; left: -9999px; top: 0; z-index: 99;
+    font: 500 var(--fs-micro)/1 var(--mono); letter-spacing: .14em; text-transform: uppercase;
+    background: var(--ink); color: var(--paper); padding: .9rem 1.1rem; text-decoration: none;
+  }
+  .skip:focus { left: var(--space-s); top: var(--space-2xs); }
+
+  .kicker {
+    margin: 0 0 var(--space-xs);
+    color: var(--verm);
+    font: 500 var(--fs-micro)/1 var(--mono);
+    letter-spacing: .22em;
+    text-transform: uppercase;
+  }
+  h1 {
+    margin: 0;
+    max-width: 16ch;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--fs-h1);
+    line-height: 1.08;
+    letter-spacing: -.03em;
+  }
+  h1 em { font-style: italic; font-weight: 400; color: var(--moss); }
+  .lede { max-width: 58ch; margin-top: var(--space-s); font-size: var(--fs-lead); line-height: 1.55; color: var(--soft); }
+  .back { display: inline-block; margin-top: var(--space-s); font: 400 var(--fs-small)/1 var(--mono); color: var(--moss); }
+  .back::before { content: '\2039\a0'; }
+
+  main { padding-block: var(--space-m) var(--space-xl); }
+
+  .privacy {
+    display: grid;
+    gap: var(--space-2xs);
+    margin-bottom: var(--space-m);
+    padding: var(--space-s);
+    border: 1px solid var(--moss-line);
+    border-radius: var(--radius);
+    background: var(--moss-wash);
+  }
+  .privacy strong {
+    color: var(--moss);
+    font: 600 var(--fs-micro)/1 var(--mono);
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+  .privacy p { color: var(--soft); font-size: var(--fs-small); line-height: 1.55; }
+
+  h2.forms-h { margin: 0 0 var(--space-s); font-family: var(--display); font-weight: 600; font-size: var(--fs-h3); }
+
+  .forms {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+    gap: var(--space-s);
+  }
+  article {
+    display: grid;
+    align-content: start;
+    gap: var(--space-xs);
+    padding: var(--space-m);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--moss);
+    border-radius: var(--radius);
+    background: var(--card);
+    box-shadow: var(--shadow);
+    transition: transform var(--motion), box-shadow var(--motion);
+  }
+  article:hover { transform: translateY(-2px); box-shadow: 0 1.4rem 2.4rem rgba(20,28,24,.09); }
+  article p.desc { color: var(--soft); line-height: 1.55; }
+  .audience {
+    color: var(--verm);
+    font: 600 var(--fs-micro)/1 var(--mono);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+  article h3 { margin: 0; font-family: var(--display); font-weight: 600; font-size: var(--fs-h3); line-height: 1.2; }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: .5em;
+    justify-self: start;
+    margin-top: var(--space-2xs);
+    padding: .7em 1.2em;
+    border-radius: 999px;
+    background: var(--moss);
+    color: var(--paper);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform var(--motion), background var(--motion);
+  }
+  .cta:hover, .cta:focus-visible { transform: translateY(-2px); background: var(--verm); color: var(--paper); }
+  .cta svg { width: 1em; height: 1em; flex: none; }
+
+  .form-meta { margin: 0; font-size: var(--fs-micro); font-family: var(--mono); color: var(--faint); letter-spacing: .02em; }
+
+</style>
 </head>
 <body>
-  <header>
+  <a class="skip" href="#main">Skip to feedback forms</a>
+
+  <header class="mast site-band">
     <div class="wrap">
-      <p class="eyebrow">MEN 201 · Forest Mensuration</p>
-      <h1>Help improve the module</h1>
-      <p class="lede">Choose the form that describes you. Both forms are hosted by Tally and are separate so public content review is kept distinct from student feedback on course content and teaching.</p>
+      <p class="kicker">MEN 201 · Forest Mensuration</p>
+      <h1>Help <em>improve</em> the module</h1>
+      <p class="lede">Choose the form that describes you. Both are hosted by Tally and kept separate, so feedback on the public teaching content doesn't mix with feedback on the taught module itself.</p>
+      <a class="back" href="index.html">Back to the contents page</a>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <div class="wrap">
       <aside class="privacy" aria-label="Privacy notice">
         <strong>Anonymous by design</strong>
-        <p>Neither form asks for your name, email address, student ID, or contact details. Please do not include identifying information in an open response. Tally submissions are available to the module owner for review.</p>
+        <p>Neither form asks for your name, email address, student ID, or contact details. Please don't include identifying information in an open response — submissions are reviewed by the module owner as-is.</p>
       </aside>
 
+      <h2 class="forms-h">Two forms, two audiences</h2>
       <section class="forms" aria-label="Feedback forms">
         <article>
           <p class="audience">For anyone viewing the website</p>
-          <h2>Feedback on the contents</h2>
-          <p>Comment on the open-access decks, notes, practical sheets, calculators, navigation, technical accuracy, examples, and topics you would like added.</p>
-          <a class="button" href="https://tally.so/r/xXG1Wd" target="_blank" rel="noopener">Open public content form</a>
-          <a class="form-link" href="https://tally.so/r/xXG1Wd" target="_blank" rel="noopener">Open in a new Tally page</a>
+          <h3>Feedback on the contents</h3>
+          <p class="desc">Comment on the open-access decks, notes, practical sheets, calculators, navigation, technical accuracy, examples, and topics you'd like added.</p>
+          <a class="cta" href="https://tally.so/r/xXG1Wd" target="_blank" rel="noopener">
+            Open public content form
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="vh">(opens in a new tab)</span>
+          </a>
+          <p class="form-meta">Hosted by Tally · roughly 2 minutes</p>
         </article>
 
         <article>
           <p class="audience">For MEN 201 students</p>
-          <h2>Feedback on content and teaching</h2>
-          <p>Comment on the learning resources, practical work, assessment, teaching clarity, pacing, field applications, and changes that would improve your learning.</p>
-          <a class="button" href="https://tally.so/r/ZjxKBV" target="_blank" rel="noopener">Open student feedback form</a>
-          <a class="form-link" href="https://tally.so/r/ZjxKBV" target="_blank" rel="noopener">Open in a new Tally page</a>
+          <h3>Feedback on content and teaching</h3>
+          <p class="desc">Comment on the learning resources, practical work, assessment, teaching clarity, pacing, field applications, and changes that would improve your learning.</p>
+          <a class="cta" href="https://tally.so/r/ZjxKBV" target="_blank" rel="noopener">
+            Open student feedback form
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="vh">(opens in a new tab)</span>
+          </a>
+          <p class="form-meta">Hosted by Tally · roughly 3 minutes</p>
         </article>
       </section>
     </div>
   </main>
 
-  <footer>
+  <footer class="site-colophon">
     <div class="wrap">
-      <a href="index.html">Return to the MEN 201 contents page</a>
+      <div>
+        <h3>Module</h3>
+        <p class="sig">MEN 201 · Forest Mensuration</p>
+        <p>BSc in Forestry<br>College of Natural Resources<br>Royal University of Bhutan</p>
+      </div>
+      <div>
+        <h3>Author</h3>
+        <p class="sig">Wangdi</p>
+        <p>Senior Forestry Officer<br>Forest Resources Planning and Management Division<br>Adjunct Lecturer</p>
+        <p class="stack"><a href="https://wangdiues.github.io/">Portfolio</a></p>
+      </div>
+      <div>
+        <h3>Using these decks</h3>
+        <p>Teaching material for MEN 201. Free to use and adapt for teaching with attribution to the author and the College of Natural Resources.</p>
+        <p class="stack"><a href="index.html">Return to the contents page</a></p>
+      </div>
     </div>
   </footer>
 </body>

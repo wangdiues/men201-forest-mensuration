@@ -1,0 +1,94 @@
+/* ==========================================================================
+   MEN 201 · SITE CHROME — the photograph header and the author footer that
+   every reading page shares with index.html. One file, linked from the notes,
+   the handbook, the feedback page and the quiz app, so the pages open and
+   close the same way the contents page does.
+
+   Image paths are relative to THIS file, so it works from any folder depth.
+   ========================================================================== */
+
+.site-band,.site-colophon{
+  --mc-paper:      #f2efe6;
+  --mc-paper-soft: rgba(242,239,230,.84);
+  --mc-paper-line: rgba(242,239,230,.5);
+  --mc-ink:        #141c18;
+  --mc-blue:       #1c3f6e;
+  --mc-moss-light: #b9d4c3;
+  --mc-scrim: linear-gradient(180deg,rgba(20,28,24,.46),rgba(20,28,24,.58) 55%,rgba(20,28,24,.8)),
+              linear-gradient(rgba(47,81,64,.34),rgba(47,81,64,.34));
+  --mc-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --mc-body:    'Public Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+  --mc-mono:    'JetBrains Mono', Consolas, ui-monospace, monospace;
+}
+
+/* ---- photograph header ------------------------------------------------- */
+.site-band{
+  position:relative;isolation:isolate;overflow:hidden;
+  margin:0;padding:clamp(48px,8vw,112px) 0 clamp(36px,5vw,64px);
+  color:var(--mc-paper);
+  background-color:#2f5140;
+  background-image:var(--mc-scrim),url("../images/optimized/forest-masthead-1400.webp");
+  background-image:var(--mc-scrim),image-set(
+    url("../images/optimized/forest-masthead-960.webp") 1x,
+    url("../images/optimized/forest-masthead-1400.webp") 2x);
+  background-size:cover,cover,cover;background-position:center,center,68% 50%;background-repeat:no-repeat;
+  border:0;
+}
+/* The inner .wrap keeps the page's own column width, so the band's text lines
+   up with the reading column below it. */
+.site-band > .wrap{display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+/* Everything inside takes paper tones, whatever the page's own styles say. */
+.site-band .kicker,.site-band .eyebrow{
+  margin:0 0 clamp(14px,2vw,22px);
+  font:500 clamp(11px,1vw,13px)/1.5 var(--mc-mono);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--mc-paper-soft)}
+/* .site-band-title: the same setting for a page whose real h1 is rendered
+   further down (the quiz unit page). */
+.site-band h1,.site-band .site-band-title{
+  margin:0;max-width:18ch;
+  font-family:var(--mc-display);font-weight:600;font-optical-sizing:auto;
+  font-size:clamp(34px,5.4vw,72px);line-height:1.04;letter-spacing:-.03em;
+  color:var(--mc-paper)}
+.site-band h1 em{font-style:italic;font-weight:300;color:var(--mc-moss-light)}
+.site-band .sub,.site-band .lede,.site-band p.lede{
+  margin:clamp(14px,2vw,22px) 0 0;max-width:58ch;
+  font-family:var(--mc-display);font-weight:400;
+  font-size:clamp(17px,1.7vw,23px);line-height:1.5;color:var(--mc-paper-soft)}
+.site-band .meta,.site-band .back{
+  margin:clamp(14px,2vw,20px) 0 0;
+  font:400 clamp(12px,.95vw,13px)/1.6 var(--mc-mono);color:var(--mc-paper-soft)}
+.site-band a,.site-band :is(.meta,.sub,.lede,p) a{
+  color:var(--mc-paper);text-decoration:none;border-bottom:1px solid var(--mc-paper-line)}
+.site-band a:hover,.site-band a:focus-visible,
+.site-band :is(.meta,.sub,.lede,p) a:hover,.site-band :is(.meta,.sub,.lede,p) a:focus-visible{
+  color:var(--mc-paper);border-bottom-color:var(--mc-paper)}
+.site-band :focus-visible{outline:2px solid var(--mc-paper);outline-offset:4px}
+
+/* ---- author footer ----------------------------------------------------- */
+.site-colophon{
+  margin-top:clamp(24px,4vw,56px);
+  background:var(--mc-blue);color:var(--mc-paper);
+  padding:clamp(40px,6vw,72px) 0 clamp(44px,6vw,80px)}
+.site-colophon > .wrap{display:grid;gap:clamp(24px,4vw,56px);
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))}
+.site-colophon h3{margin:0 0 12px;
+  font:500 clamp(11px,.9vw,12px)/1 var(--mc-mono);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--mc-paper-soft)}
+.site-colophon p{margin:0;font-family:var(--mc-body);font-size:clamp(14px,1.05vw,15px);line-height:1.65;
+  color:var(--mc-paper-soft)}
+.site-colophon .sig{margin-bottom:6px;font-family:var(--mc-display);font-weight:500;
+  font-size:clamp(18px,1.5vw,22px);line-height:1.2;color:var(--mc-paper)}
+.site-colophon .stack{margin-top:12px}
+.site-colophon a{color:var(--mc-moss-light);text-decoration:none;border-bottom:1px solid rgba(185,212,195,.5)}
+.site-colophon a:hover,.site-colophon a:focus-visible{color:var(--mc-paper);border-bottom-color:var(--mc-paper)}
+.site-colophon :focus-visible{outline:2px solid var(--mc-paper);outline-offset:4px}
+
+/* ---- print: paper, not photographs -------------------------------------- */
+@media print{
+  .site-band{background:none;color:var(--mc-ink);padding:0 0 12pt;border-bottom:2px solid #2f5140}
+  .site-band .kicker,.site-band .eyebrow,.site-band .sub,.site-band .lede,.site-band .meta,.site-band .back{color:#414a42}
+  .site-band h1,.site-band .site-band-title{color:var(--mc-ink);font-size:24pt}
+  .site-band h1 em{color:#2f5140}
+  .site-band a{color:inherit;border:0}
+  .site-colophon{display:none}
+}

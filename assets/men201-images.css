@@ -130,6 +130,11 @@
   letter-spacing: .02em;
   color: #d6ded6;
 }
+.men-plate-photo figcaption .cred a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(214, 222, 214, .5);
+}
 
 /* === IN-BODY PHOTOGRAPH ===================================================
    A photograph used as one cell of a slide's grid. It takes the height the row

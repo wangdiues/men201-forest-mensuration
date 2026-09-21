@@ -7,8 +7,8 @@ Eleven units — seven core decks (I–VII) plus four supplementary modules (VII
 into one site with a contents page, together with the full module descriptor as a 28-slide
 deck of its own: 534 slides in total. Also: a set of student lecture notes and a calculation
 handbook for Units I–VII, two working Excel calculators, three printable A4 field sheets, and
-an online quiz and AI-assisted assessment system covering all eleven units (see
-[Online quiz and assessment system](#online-quiz-and-assessment-system) below).
+an online, AI-assisted Unit Test and Module Examination system covering all eleven units
+(see [Unit Tests and Module Examinations](#unit-tests-and-module-examinations) below).
 
 **Author** — Wangdi, Senior Forestry Officer, Forest Resources Planning and Management
 Division; Adjunct Lecturer. [Portfolio](https://wangdiues.github.io/Wangdi-portfolio-v7/)
@@ -50,11 +50,11 @@ every unit — have a complete 40-question Unit Test in the online assessment sy
 the four (VIII, IX, X) embed a small interactive calculator directly in the deck rather than a
 separate Excel workbook.
 
-## Online quiz and assessment system
+## Unit Tests and Module Examinations
 
 `quiz/` is a full student-assessment SPA covering all eleven units, built on top of the
-teaching decks — each unit's last slide links to its own paper. No build step or framework:
-plain ES module JavaScript, imported directly by the browser.
+teaching decks — each unit's last slide links to its own Unit Test. No build step or
+framework: plain ES module JavaScript, imported directly by the browser.
 
 | Assessment | Questions | Marks | Time | Pass mark | Attempts |
 |---|---|---|---|---|---|
@@ -67,6 +67,22 @@ Analyze → Evaluate → Create) and to a topic/subtopic for analytics. Objectiv
 graded deterministically and instantly; short-answer and long-answer items are graded against
 a per-question rubric — see [Backend and infrastructure](#backend-and-infrastructure) for how.
 
+### Sitting a paper
+
+A student signs in, opens a unit's module page, and sees either **Start test** (attempts
+remaining) or **View your grade →** (all 3 used, or a result already in). Papers over ~15
+questions are shown a few at a time — "Step 2 of 5 · Questions 9–16" — with Previous/Next,
+rather than one long scroll, and a live "N of 40 answered" counter next to Submit.
+
+Grading isn't instant, since it runs on a schedule rather than a live server (see below), so
+submitting lands on an **"Your attempt is under assessment"** screen instead of a bare
+spinner — it explains why, auto-checks every 15 seconds, and a **Check now** button skips the
+wait. A result, once ready, shows the total, a pass/fail badge, a bar per Bloom level,
+strengths/improvements, a full question-by-question review, and a **Download assessed paper
+(PDF)** button (browser print, "Save as PDF"). Every attempt is labelled with its number —
+"Attempt 2 of 3" on the result page, "Pema attempt1" on the teacher's list — since a student
+can sit the same paper up to three times.
+
 **Pages**, all under `quiz/`:
 
 | File | Role |
@@ -78,11 +94,20 @@ a per-question rubric — see [Backend and infrastructure](#backend-and-infrastr
 | `teacher.html` | Teacher dashboard (below) |
 | `preview-paper.html?u=<roman>` or `?paper=<examId>` | Renders a paper straight from `quiz/data/*.json`, no Firebase — for proofreading a paper before it's seeded |
 
+A `take.html?mode=practice&u=<roman>` route also exists (ten random auto-graded questions,
+instant feedback, nothing recorded) but isn't currently linked from any page — Unit Tests are
+the sole assessment path a student reaches through the UI today.
+
 **Teacher dashboard** (`teacher.html`, gated by a `teacher` role on the user's Firestore
 profile): a grading queue for anything every AI provider failed to grade, unit/Bloom/
 difficulty/common-mistakes analytics computed from materialized `stats` documents (never a
 live scan of every attempt), a "students needing support" view, question and assessment
-managers, and a CSV grade-sheet export per assessment.
+managers, and a CSV grade-sheet export per assessment (sorted so an assessment with real
+attempts sorts above one nobody's sat yet). Every attempt records `gradedBy` — a teacher's
+UID, or `ai:gemini` / `ai:nvidia` / `ai:groq` / `ai:openrouter` — so which provider (or
+person) produced a given mark is always traceable, even though the dashboard doesn't yet
+surface a UI to re-open and correct an AI-graded attempt after the fact (a known gap — see
+`MEN201_UNIFIED_IMPROVEMENT_PLAN.md`).
 
 **Question data**: `quiz/data/questions-unit-*.json` (11 files, one per unit) and
 `quiz/data/questions-exam*.json` (3 module-exam papers) are the source of truth, seeded into

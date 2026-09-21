@@ -23,6 +23,8 @@ export function paperTotals(items) {
 // items: [{ q, section, sectionLabel, weight }] in paper order.
 export function renderPaper(items, assessment, candidate, dateText) {
   const { total, manual } = paperTotals(items);
+  const stepCount = Math.min(5, items.length);
+  const stepSize = Math.ceil(items.length / stepCount);
   const passMark = assessment.passPercent ? Math.ceil((total * assessment.passPercent) / 100) : null;
   const time = assessment.timeAllowedMin;
   const unitWord = ROMAN[assessment.unit] || assessment.unit;
@@ -109,6 +111,7 @@ export function renderPaper(items, assessment, candidate, dateText) {
       <h2>Instructions</h2>
       <ol>${instructions.map((t) => `<li>${esc(t)}</li>`).join("")}</ol>
     </section>
+    <p class="paper-steps" id="paper-step" aria-live="polite">Step 1 of ${stepCount} · Questions 1–${Math.min(stepSize, items.length)}</p>
     ${sectionHtml}
     <footer class="paper-end">
       <p class="paper-fin">End of paper</p>
@@ -117,7 +120,11 @@ export function renderPaper(items, assessment, candidate, dateText) {
   <div class="paper-bar" role="region" aria-label="Submit">
     ${time ? `<p class="paper-clock"><span class="k">Time left</span> <b id="clock">--:--</b></p>` : ""}
     <p class="paper-count" id="unanswered" aria-live="polite"></p>
-    <button class="btn primary" id="submit" type="button">Submit paper</button>
+    <div class="paper-step-actions">
+      <button class="btn" id="previous-step" type="button" disabled>Previous</button>
+      <button class="btn" id="next-step" type="button"${stepCount === 1 ? " hidden" : ""}>Next</button>
+      <button class="btn primary" id="submit" type="button"${stepCount > 1 ? " hidden" : ""}>Submit paper</button>
+    </div>
   </div>`;
 }
 

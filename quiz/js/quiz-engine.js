@@ -492,8 +492,26 @@ function runGraded(app, items, assessment, questionIds, sectionAssignment, user)
 
   const counter = $("#unanswered", app);
   const btn = $("#submit", app);
+  const previousStep = $("#previous-step", app);
+  const nextStep = $("#next-step", app);
+  const stepLabel = $("#paper-step", app);
+  const stepCount = Math.min(5, items.length);
+  const stepSize = Math.ceil(items.length / stepCount);
+  let currentStep = 0;
   let armed = false;
   let submitting = false;
+  const showStep = () => {
+    const first = currentStep * stepSize;
+    const last = Math.min(items.length, first + stepSize);
+    items.forEach((item, i) => {
+      const question = $(`.pq[data-i="${i}"]`, app);
+      if (question) question.hidden = i < first || i >= last;
+    });
+    stepLabel.textContent = `Step ${currentStep + 1} of ${stepCount} · Questions ${first + 1}–${last}`;
+    previousStep.disabled = currentStep === 0;
+    nextStep.hidden = currentStep === stepCount - 1;
+    btn.hidden = currentStep !== stepCount - 1;
+  };
   const refresh = () => {
     const n = collectAll().filter((g) => !isAnswered(g)).length;
     counter.textContent = n ? `${items.length - n} of ${items.length} answered` : "All questions answered";
@@ -504,6 +522,21 @@ function runGraded(app, items, assessment, questionIds, sectionAssignment, user)
   };
   app.addEventListener("input", refresh);
   app.addEventListener("change", refresh);
+  previousStep.addEventListener("click", () => {
+    if (currentStep > 0) {
+      currentStep--;
+      showStep();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  });
+  nextStep.addEventListener("click", () => {
+    if (currentStep < stepCount - 1) {
+      currentStep++;
+      showStep();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  });
+  showStep();
   refresh();
 
   const submit = async () => {
@@ -721,6 +754,8 @@ async function renderResult(app, user, tid, profile) {
     <p class="eyebrow">${esc(assessment.title || "Assessment")}</p>
     <h1>${pending ? "Result — partially graded" : "Result"}</h1>
     <p class="muted">${fmtDate(attempt.submittedAt)} · ${attempt.unit === "Module" ? "Mock module examination" : `Unit ${esc(attempt.unit)}`}</p>
+    <p><button class="btn print-action" id="download-pdf" type="button">Download assessed paper (PDF)</button>
+      <span class="muted">Choose “Save as PDF” in the print dialog.</span></p>
   </div>
 
   <section class="card scorecard">
@@ -737,6 +772,7 @@ async function renderResult(app, user, tid, profile) {
     <h2>Question review</h2>
     ${review}
   </section>`;
+  $("#download-pdf", app).addEventListener("click", () => window.print());
 }
 
 function correctAnswerDetail(q, a) {

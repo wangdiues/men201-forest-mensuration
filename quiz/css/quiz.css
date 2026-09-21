@@ -215,6 +215,9 @@ main.wrap{padding-top:28px;padding-bottom:64px}
   font-size:calc(17px * var(--tz));letter-spacing:.02em;margin:0}
 .paper-instr ol{margin:8px 0 0;padding-left:22px;font-size:calc(14px * var(--tz));
   color:var(--ink-soft);display:grid;gap:4px}
+.paper-steps{margin:clamp(16px,3vw,26px) 0 0;padding:10px 12px;
+  border:1px solid var(--moss-line);background:var(--moss-wash);color:var(--moss);
+  font:600 calc(12px * var(--tz))/1.4 var(--mono);letter-spacing:.06em}
 
 .psec{margin-top:clamp(28px,5vw,44px)}
 .psec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;
@@ -227,6 +230,7 @@ main.wrap{padding-top:28px;padding-bottom:64px}
 .pq-list{list-style:none;margin:0;padding:0}
 .pq{display:grid;grid-template-columns:2.4rem 1fr auto;column-gap:10px;align-items:start;
   padding:clamp(14px,2.5vw,20px) 0;border-bottom:1px solid var(--rule-soft)}
+.pq[hidden],.btn[hidden]{display:none}
 .pq:last-child{border-bottom:0}
 .pq-n{font-family:var(--display);font-weight:600;font-size:calc(18px * var(--tz));
   line-height:1.5;color:var(--ink);text-align:right;padding-right:2px}
@@ -265,6 +269,20 @@ main.wrap{padding-top:28px;padding-bottom:64px}
 @media (prefers-reduced-motion:reduce){.paper-clock.low b{animation:none}}
 .paper-count{font-size:calc(14px * var(--tz));color:var(--ink-soft);flex:1 1 auto}
 .paper-bar .btn{margin-left:auto}
+.paper-step-actions{display:flex;align-items:center;gap:8px;margin-left:auto}
+.paper-step-actions .btn{margin-left:0}
+
+@media print{
+  body{background:var(--paper)}
+  main.wrap{max-width:none;padding:0}
+  .mast{padding:0 0 12pt}
+  .paper,.card{box-shadow:none;border:0;outline:0;margin:0;padding:0}
+  .paper-bar,.print-action{display:none!important}
+  .paper-steps{display:none}
+  .rev{break-inside:avoid}
+  .scorecard,.card{break-inside:avoid}
+  a{color:inherit;text-decoration:none}
+}
 
 /* === VERDICT / FEEDBACK =================================================== */
 .verdict{font:700 calc(15px * var(--tz)) var(--mono);letter-spacing:.04em;margin:0 0 8px}

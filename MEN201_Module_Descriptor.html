@@ -397,6 +397,11 @@ table.dt tr.hi td{background:var(--vermilion-wash)}
 .hud b{color:#f2efe6;font-weight:600}
 .hud button{all:unset;cursor:pointer;color:#8e9a90;padding:0 4px;font-size:1.1em;line-height:1}
 .hud button:hover{color:#f2efe6}
+.hud .hudsep{width:1px;height:1.1em;background:rgba(255,255,255,.18)}
+.hud .fsbtn{display:inline-flex;align-items:center;gap:.5em;font:inherit;letter-spacing:.14em;text-transform:uppercase;font-size:.9em}
+.hud .fsbtn svg{flex:none}
+.hud .fsbtn[aria-pressed="true"]{color:#f2efe6}
+html.no-fullscreen .hud .hudsep,html.no-fullscreen .hud .fsbtn{display:none}
 .editbtn{position:fixed;left:clamp(12px,1.6vw,26px);top:clamp(12px,1.6vw,26px);z-index:60;
   font:500 clamp(10px,.95vw,12px)/1 var(--mono);letter-spacing:.16em;color:#8e9a90;
   background:rgba(10,14,11,.6);border:1px solid rgba(255,255,255,.1);
@@ -1843,6 +1848,11 @@ ul.reading-list li{margin-bottom:0 !important}
   <button id="prev" title="Previous (&larr;)">&lsaquo;</button>
   <span><b id="cur">1</b> / <span id="tot">28</span></span>
   <button id="next" title="Next (&rarr;)">&rsaquo;</button>
+  <span class="hudsep" aria-hidden="true"></span>
+  <button id="fs" class="fsbtn" title="Full screen (F)" aria-pressed="false">
+    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2H2v4M10 2h4v4M6 14H2v-4M10 14h4v-4"/></svg>
+    <span>Full screen</span>
+  </button>
 </div>
 
 <script>
@@ -1904,8 +1914,35 @@ ul.reading-list li{margin-bottom:0 !important}
       case 'Home': e.preventDefault(); show(0); break;
       case 'End':  e.preventDefault(); show(slides.length - 1); break;
       case 'e': case 'E': toggleEdit(true); break;
+      case 'f': case 'F': toggleFullscreen(); break;
     }
   });
+
+  /* --- Full screen: the HUD button or F. Falls back to the WebKit-prefixed
+     API (iPad Safari); hides the button where neither exists (iPhone). --- */
+  const fsbtn = document.getElementById('fs');
+  const fsEl  = document.documentElement;
+  const fsSupported = !!(fsEl.requestFullscreen || fsEl.webkitRequestFullscreen);
+  if (!fsSupported) fsEl.classList.add('no-fullscreen');
+  function inFullscreen() { return !!(document.fullscreenElement || document.webkitFullscreenElement); }
+  function toggleFullscreen() {
+    if (!fsSupported) return;
+    if (inFullscreen()) {
+      (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+    } else {
+      const r = (fsEl.requestFullscreen || fsEl.webkitRequestFullscreen).call(fsEl);
+      if (r && r.catch) r.catch(() => {});
+    }
+  }
+  function syncFsButton() {
+    const on = inFullscreen();
+    fsbtn.setAttribute('aria-pressed', String(on));
+    fsbtn.querySelector('span').textContent = on ? 'Exit full screen' : 'Full screen';
+    fsbtn.title = on ? 'Exit full screen (F)' : 'Full screen (F)';
+  }
+  fsbtn.addEventListener('click', toggleFullscreen);
+  document.addEventListener('fullscreenchange', syncFsButton);
+  document.addEventListener('webkitfullscreenchange', syncFsButton);
 
   // Click the right or left third of the screen to advance or go back.
   document.addEventListener('click', (e) => {

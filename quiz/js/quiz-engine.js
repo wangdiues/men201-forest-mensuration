@@ -730,7 +730,7 @@ async function renderResult(app, user, tid, profile) {
       ${(attempt.strengths || []).map((s) => `<p><b>Strength:</b> ${esc(s)}</p>`).join("")}
       ${(attempt.improvements || []).map((s) => `<p><b>Improvement:</b> ${esc(s)}</p>`).join("")}
     </div>` : ""}
-    ${(attempt.learningGaps || []).length ? `<div class="gaps">${attempt.learningGaps.map((g) => `<p>⚑ ${esc(g.message)}</p>`).join("")}</div>` : ""}
+    ${(attempt.learningGaps || []).length ? `<div class="gaps">${attempt.learningGaps.map((g) => `<p>⚑ ${esc(g.message.replace(/^(?:This student needs to improve in|Student needs improvement in) /, "You need to improve in "))}</p>`).join("")}</div>` : ""}
   </section>
 
   <section class="card">
@@ -760,4 +760,3 @@ function correctAnswerDetail(q, a) {
       return q.modelAnswer ? `<p class="correct"><b>Model answer:</b> ${esc(q.modelAnswer)}</p>` : "";
   }
 }
-

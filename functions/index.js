@@ -171,8 +171,8 @@ function learningGaps(bloomBreakdown, wrongTopicsByLevel) {
       bloomLevel: lv,
       topic,
       message: topic
-        ? `Student needs improvement in ${BLOOM_VERBS[lv]} ${topic}.`
-        : `Student needs improvement in ${BLOOM_VERBS[lv]}.`,
+        ? `This student needs to improve in ${BLOOM_VERBS[lv]} ${topic}.`
+        : `This student needs to improve in ${BLOOM_VERBS[lv]}.`,
     });
   });
   return gaps;

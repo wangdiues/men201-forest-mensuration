@@ -50,6 +50,36 @@ every unit — have a complete 40-question Unit Test in the online assessment sy
 the four (VIII, IX, X) embed a small interactive calculator directly in the deck rather than a
 separate Excel workbook.
 
+## The site
+
+`index.html` is the contents page: a green top bar with the page's sections and a **Start
+Unit I** button, a full-bleed forest photograph under the title, then the register of units,
+the readings, notes, assessment, feedback, calculators and field sheets, the deck shortcuts,
+and the author footer. Behind the page runs one photograph at a time — the woodland behind
+the core units, the aerial valley behind the supplementary units, the leaf behind the notes,
+and so on — crossfading as the reader reaches each section; every panel on the page is dark
+glass over that photograph rather than a white card.
+
+- **Photographs** live in `images/` (the originals) and `images/optimized/` (the WebP
+  versions the site actually loads, two sizes each). The page fetches each backdrop the
+  first time its section comes near, so it does not download eleven photographs up front.
+  Unsplash photographs are linked to their source pages from the credits paragraph at the
+  foot of the page; the five Pexels photographers are named there too. The three `IMG_`
+  mountain and valley views are supplied course assets. No photograph on the page shows an
+  identifiable person.
+- **Phones** get the same page with the top-bar links wrapped onto two lines, one card per
+  unit with its slide count beneath, and no frosted blur — iOS Safari drops the blur under
+  load, so on touch devices the panels rely on a more opaque fill instead. Print falls back
+  to ink on paper throughout.
+- **The other pages** — the nine notes pages, `feedback.html`, and the quiz app's index and
+  unit pages — open on the same forest photograph and close on the same author footer,
+  through one shared stylesheet, `assets/men201-chrome.css`. The module descriptor's cover
+  carries the photograph as its plate.
+- **Contrast** on the photographs is measured, not estimated: the scrim behind paper-coloured
+  text is set so that text clears 4.5:1 on the brightest patch of the brightest photograph,
+  and `node .claude/skills/web-design/scripts/contrast.mjs --css <file>` checks a page's
+  colour tokens against its backgrounds.
+
 ## Unit Tests and Module Examinations
 
 `quiz/` is a full student-assessment SPA covering all eleven units, built on top of the
@@ -272,7 +302,11 @@ Tapping or clicking the right and left thirds of the screen also moves through t
 does swiping on a touchscreen.
 
 Slides are laid out on a fixed 1920 × 1080 stage and scaled uniformly to the viewport, so a
-deck looks the same on a laptop as on the projector. Press <kbd>F11</kbd> for full screen.
+deck looks the same on a laptop as on the projector. The module descriptor's control bar has a
+**Full screen** button (<kbd>F</kbd> does the same; <kbd>Esc</kbd> leaves full screen before
+it leaves the deck); the unit decks still use the browser's own <kbd>F11</kbd>. On a phone
+the descriptor keeps its controls on one line, and in portrait asks to be turned sideways —
+tapping that hint goes full screen and, on Android, turns the deck landscape.
 
 **Edits made with <kbd>E</kbd> are local.** They are written to that browser's local storage
 only — the file is unchanged and no one else sees them. To publish a correction, edit the HTML
@@ -304,7 +338,13 @@ into a file.
 or type change should be made in each file to keep the module consistent.
 
 `index.html` is the contents page; it links to the unit files by name, so renaming a unit file
-means updating the matching `href`.
+means updating the matching `href`. Its styling is layered: the original register styles,
+then a block that restyles the page in the reference look, then the photograph backdrop, the
+vertical rhythm and the glass panels — the later blocks use a `body` prefix so they win over
+the base rules regardless of order. To change which photograph sits behind a section, edit
+that section's `data-backdrop` attribute and the matching `.backdrop-photo` entry near the top
+of `<body>`; to change the photograph behind the notes, feedback and quiz pages, edit
+`assets/men201-chrome.css`.
 
 **Quiz app**: plain ES modules under `quiz/js/`, no build step — edit and reload. After
 changing a question bank (`quiz/data/questions-*.json`) or `assessments.json`, run the
@@ -312,7 +352,10 @@ changing a question bank (`quiz/data/questions-*.json`) or `assessments.json`, r
 the change into Firestore; editing the JSON files alone does nothing to the live site, since
 they're only the seed source, not what the app reads at runtime. After changing any file
 Firebase Hosting serves, redeploy with `firebase deploy --only hosting`; GitHub Pages
-redeploys itself automatically on every push to `main`.
+redeploys itself automatically on every push to `main`. Firebase keeps every deployed
+version, and on the Spark plan a run of deploys can fill the Hosting storage quota (the CLI
+then refuses with HTTP 429); the fix is in the console — Hosting → Release history →
+Version history settings → auto-delete old versions — after which deploys resume.
 
 ## Acknowledgement
 

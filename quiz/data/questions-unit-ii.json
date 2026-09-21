@@ -468,22 +468,22 @@
   },
   {
     "unit": "II",
-    "topic": "basal-area",
-    "subtopic": "formula",
+    "topic": "bark",
+    "subtopic": "dub_calc",
     "questionType": "numerical",
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
     "marks": 4,
-    "question": "A tree's DBH is 50 cm. Calculate its basal area in m².",
-    "answer": 0.19635,
+    "question": "A tree has a diameter over bark of 42.0 cm and a mean bark thickness of 1.5 cm. Calculate the diameter under bark (DUB) in cm.",
+    "answer": 39,
     "tolerance": {
       "mode": "absolute",
-      "value": 0.01
+      "value": 0.05
     },
-    "units": "m²",
-    "explanation": "BA=0.00007854×50²=0.19635 m².",
-    "learningOutcome": "Apply the basal area formula.",
+    "units": "cm",
+    "explanation": "DUB = DOB − 2t = 42.0 − (2 × 1.5) = 39.0 cm.",
+    "learningOutcome": "Apply the DUB = DOB − 2t formula.",
     "active": true
   },
   {
@@ -1031,4 +1031,3 @@
     "active": true
   }
 ]
-

@@ -208,7 +208,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In crop and stand measurement, explain why a written protocol is needed.",
     "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
@@ -216,11 +216,11 @@
     "rubric": [
       {
         "point": "Correctly addresses explain why a written protocol is needed.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -232,7 +232,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In crop and stand measurement, describe the role of units.",
     "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
@@ -240,11 +240,11 @@
     "rubric": [
       {
         "point": "Correctly addresses describe the role of units.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -256,7 +256,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In crop and stand measurement, differentiate accuracy and precision.",
     "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
@@ -264,11 +264,11 @@
     "rubric": [
       {
         "point": "Correctly addresses differentiate accuracy and precision.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -280,7 +280,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In crop and stand measurement, explain why repeats may be useful.",
     "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
@@ -288,11 +288,11 @@
     "rubric": [
       {
         "point": "Correctly addresses explain why repeats may be useful.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -304,7 +304,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In crop and stand measurement, describe one source of error.",
     "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
@@ -312,11 +312,11 @@
     "rubric": [
       {
         "point": "Correctly addresses describe one source of error.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -328,7 +328,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In crop and stand measurement, explain the management use.",
     "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
@@ -336,11 +336,11 @@
     "rubric": [
       {
         "point": "Correctly addresses explain the management use.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -352,7 +352,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In crop and stand measurement, describe a quality check.",
     "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
@@ -360,11 +360,11 @@
     "rubric": [
       {
         "point": "Correctly addresses describe a quality check.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -376,7 +376,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In crop and stand measurement, explain why assumptions are reported.",
     "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
@@ -384,11 +384,11 @@
     "rubric": [
       {
         "point": "Correctly addresses explain why assumptions are reported.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -400,7 +400,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A 500 m² plot contains 0.57351 m² basal area. Calculate basal area per hectare (m²/ha).",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -420,7 +420,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A 500 m² plot contains 25 trees. Calculate stems per hectare.",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -440,7 +440,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A 0.05 ha plot contains 12 m³ of timber. Calculate volume per hectare (m³/ha).",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -460,7 +460,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Eighty of 100 stocking points are occupied. Calculate stocking percentage.",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -480,7 +480,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Two tree groups have basal areas 0.20 and 0.30 m² and heights 10 and 20 m. Calculate Lorey's mean height (m).",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -500,7 +500,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A stand has 400 trees/ha with mean above-ground biomass 250 kg/tree. Calculate biomass (t/ha).",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -520,7 +520,7 @@
     "autoGraded": false,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Apply a crop and stand measurement method to a field situation and state the quality checks.",
     "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
@@ -528,11 +528,11 @@
     "rubric": [
       {
         "point": "Correctly addresses apply the method to a field situation and state checks.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 3
+        "marks": 0.5
       }
     ]
   },
@@ -544,7 +544,7 @@
     "autoGraded": false,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Calculate a crop and stand measurement result and explain one assumption.",
     "learningOutcome": "Understand crop and stand measurements.",
     "active": true,
@@ -552,11 +552,11 @@
     "rubric": [
       {
         "point": "Correctly addresses calculate a result and explain one assumption.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 3
+        "marks": 0.5
       }
     ]
   },
@@ -568,7 +568,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Two crews obtain different stems-per-hectare estimates from plots of different sizes. Analyse the expansion-factor and boundary checks needed.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
@@ -576,23 +576,15 @@
     "rubric": [
       {
         "point": "Identifies method or instrument cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies units or geometry cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies observer or recording cause",
-        "marks": 1
-      },
-      {
-        "point": "Proposes evidence-based check",
-        "marks": 1
-      },
-      {
-        "point": "Documents conclusion and limitation",
-        "marks": 1
+        "point": "Identifies observer or recording cause; Proposes evidence-based check; Documents conclusion and limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -604,7 +596,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Basal-area totals differ although both crews measured the same trees. Analyse likely DBH and calculation causes.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
@@ -612,23 +604,15 @@
     "rubric": [
       {
         "point": "Identifies method or instrument cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies units or geometry cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies observer or recording cause",
-        "marks": 1
-      },
-      {
-        "point": "Proposes evidence-based check",
-        "marks": 1
-      },
-      {
-        "point": "Documents conclusion and limitation",
-        "marks": 1
+        "point": "Identifies observer or recording cause; Proposes evidence-based check; Documents conclusion and limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -640,7 +624,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Arithmetic mean height is much lower than Lorey's mean height for one stand. Analyse what the difference indicates.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
@@ -648,23 +632,15 @@
     "rubric": [
       {
         "point": "Identifies method or instrument cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies units or geometry cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies observer or recording cause",
-        "marks": 1
-      },
-      {
-        "point": "Proposes evidence-based check",
-        "marks": 1
-      },
-      {
-        "point": "Documents conclusion and limitation",
-        "marks": 1
+        "point": "Identifies observer or recording cause; Proposes evidence-based check; Documents conclusion and limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -676,7 +652,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Relascope basal area disagrees with fixed-plot basal area. Analyse sampling and instrument causes.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
@@ -684,23 +660,15 @@
     "rubric": [
       {
         "point": "Identifies method or instrument cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies units or geometry cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies observer or recording cause",
-        "marks": 1
-      },
-      {
-        "point": "Proposes evidence-based check",
-        "marks": 1
-      },
-      {
-        "point": "Documents conclusion and limitation",
-        "marks": 1
+        "point": "Identifies observer or recording cause; Proposes evidence-based check; Documents conclusion and limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -712,7 +680,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Two reports use different definitions of stocking and reach conflicting conclusions. Analyse how to reconcile them.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
@@ -720,23 +688,15 @@
     "rubric": [
       {
         "point": "Identifies method or instrument cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies units or geometry cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies observer or recording cause",
-        "marks": 1
-      },
-      {
-        "point": "Proposes evidence-based check",
-        "marks": 1
-      },
-      {
-        "point": "Documents conclusion and limitation",
-        "marks": 1
+        "point": "Identifies observer or recording cause; Proposes evidence-based check; Documents conclusion and limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -748,7 +708,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate using arithmetic mean height instead of Lorey's mean height to characterize a volume-dominated stand.",
     "learningOutcome": "Evaluate reporting.",
     "active": true,
@@ -756,23 +716,15 @@
     "rubric": [
       {
         "point": "Rejects unsupported report",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Requires method",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Requires units and assumptions",
-        "marks": 1
-      },
-      {
-        "point": "Requires uncertainty",
-        "marks": 1
-      },
-      {
-        "point": "Justifies reporting decision",
-        "marks": 1
+        "point": "Requires units and assumptions; Requires uncertainty; Justifies reporting decision",
+        "marks": 0.5
       }
     ]
   },
@@ -784,7 +736,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate extrapolating one small convenience plot to an entire heterogeneous compartment.",
     "learningOutcome": "Evaluate reporting.",
     "active": true,
@@ -792,23 +744,15 @@
     "rubric": [
       {
         "point": "Rejects unsupported report",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Requires method",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Requires units and assumptions",
-        "marks": 1
-      },
-      {
-        "point": "Requires uncertainty",
-        "marks": 1
-      },
-      {
-        "point": "Justifies reporting decision",
-        "marks": 1
+        "point": "Requires units and assumptions; Requires uncertainty; Justifies reporting decision",
+        "marks": 0.5
       }
     ]
   },
@@ -820,7 +764,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate comparing stand basal area from reports that use different minimum DBH thresholds.",
     "learningOutcome": "Evaluate reporting.",
     "active": true,
@@ -828,23 +772,15 @@
     "rubric": [
       {
         "point": "Rejects unsupported report",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Requires method",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Requires units and assumptions",
-        "marks": 1
-      },
-      {
-        "point": "Requires uncertainty",
-        "marks": 1
-      },
-      {
-        "point": "Justifies reporting decision",
-        "marks": 1
+        "point": "Requires units and assumptions; Requires uncertainty; Justifies reporting decision",
+        "marks": 0.5
       }
     ]
   },
@@ -856,7 +792,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a fixed-plot inventory for stems per hectare and basal area per hectare.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -864,23 +800,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   },
@@ -892,7 +824,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a point-sampling procedure for stand basal area.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -900,23 +832,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   },
@@ -928,7 +856,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a height-sampling strategy for calculating Lorey's mean height.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -936,23 +864,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   },
@@ -964,7 +888,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a quality-control plan for two stand-inventory crews.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -972,23 +896,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   },
@@ -1000,7 +920,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a stand-summary table that prevents ambiguous reporting.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -1008,23 +928,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   },
@@ -1036,7 +952,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a sampling plan to compare two forest stands fairly.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -1044,23 +960,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   }

@@ -208,7 +208,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In tree-volume measurement, explain why a written protocol is needed.",
     "learningOutcome": "Understand tree volume and volume formulae.",
     "active": true,
@@ -216,11 +216,11 @@
     "rubric": [
       {
         "point": "Correctly addresses explain why a written protocol is needed.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -232,7 +232,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In tree-volume measurement, describe the role of units.",
     "learningOutcome": "Understand tree volume and volume formulae.",
     "active": true,
@@ -240,11 +240,11 @@
     "rubric": [
       {
         "point": "Correctly addresses describe the role of units.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -256,7 +256,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In tree-volume measurement, differentiate accuracy and precision.",
     "learningOutcome": "Understand tree volume and volume formulae.",
     "active": true,
@@ -264,11 +264,11 @@
     "rubric": [
       {
         "point": "Correctly addresses differentiate accuracy and precision.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -280,7 +280,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In tree-volume measurement, explain why repeats may be useful.",
     "learningOutcome": "Understand tree volume and volume formulae.",
     "active": true,
@@ -288,11 +288,11 @@
     "rubric": [
       {
         "point": "Correctly addresses explain why repeats may be useful.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -304,7 +304,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In tree-volume measurement, describe one source of error.",
     "learningOutcome": "Understand tree volume and volume formulae.",
     "active": true,
@@ -312,11 +312,11 @@
     "rubric": [
       {
         "point": "Correctly addresses describe one source of error.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -328,7 +328,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In tree-volume measurement, explain the management use.",
     "learningOutcome": "Understand tree volume and volume formulae.",
     "active": true,
@@ -336,11 +336,11 @@
     "rubric": [
       {
         "point": "Correctly addresses explain the management use.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -352,7 +352,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In tree-volume measurement, describe a quality check.",
     "learningOutcome": "Understand tree volume and volume formulae.",
     "active": true,
@@ -360,11 +360,11 @@
     "rubric": [
       {
         "point": "Correctly addresses describe a quality check.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -376,7 +376,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In tree-volume measurement, explain why assumptions are reported.",
     "learningOutcome": "Understand tree volume and volume formulae.",
     "active": true,
@@ -384,11 +384,11 @@
     "rubric": [
       {
         "point": "Correctly addresses explain why assumptions are reported.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -400,7 +400,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A log has end areas 0.20 and 0.12 m² and length 4 m. Calculate Smalian volume (m³).",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -420,7 +420,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A 4 m log has a mid-sectional area of 0.15 m². Calculate Huber volume (m³).",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -440,7 +440,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A 4 m log has end areas 0.20 and 0.12 m² and mid-area 0.16 m². Calculate Newton volume (m³).",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -460,7 +460,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A cylindrical section has basal area 0.18 m² and length 5 m. Calculate volume (m³).",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -480,7 +480,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A conical stem section has basal area 0.18 m² and length 5 m. Calculate volume (m³).",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -500,7 +500,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A fuelwood stack is 4 m long, 2 m high and 1.5 m wide. Calculate stacked volume (m³).",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -520,7 +520,7 @@
     "autoGraded": false,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Apply a tree-volume measurement method to a field situation and state the quality checks.",
     "learningOutcome": "Understand tree volume and volume formulae.",
     "active": true,
@@ -528,11 +528,11 @@
     "rubric": [
       {
         "point": "Correctly addresses apply the method to a field situation and state checks.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 3
+        "marks": 0.5
       }
     ]
   },
@@ -544,7 +544,7 @@
     "autoGraded": false,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Calculate a tree-volume measurement result and explain one assumption.",
     "learningOutcome": "Understand tree volume and volume formulae.",
     "active": true,
@@ -552,11 +552,11 @@
     "rubric": [
       {
         "point": "Correctly addresses calculate a result and explain one assumption.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 3
+        "marks": 0.5
       }
     ]
   },
@@ -568,7 +568,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Smalian and Huber estimates for the same tapered log differ. Analyse how the sampled cross-sectional areas cause the difference.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
@@ -576,23 +576,15 @@
     "rubric": [
       {
         "point": "Identifies method or instrument cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies units or geometry cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies observer or recording cause",
-        "marks": 1
-      },
-      {
-        "point": "Proposes evidence-based check",
-        "marks": 1
-      },
-      {
-        "point": "Documents conclusion and limitation",
-        "marks": 1
+        "point": "Identifies observer or recording cause; Proposes evidence-based check; Documents conclusion and limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -604,7 +596,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Two crews report different stem volumes after one used over-bark diameters and the other under-bark diameters. Analyse the discrepancy.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
@@ -612,23 +604,15 @@
     "rubric": [
       {
         "point": "Identifies method or instrument cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies units or geometry cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies observer or recording cause",
-        "marks": 1
-      },
-      {
-        "point": "Proposes evidence-based check",
-        "marks": 1
-      },
-      {
-        "point": "Documents conclusion and limitation",
-        "marks": 1
+        "point": "Identifies observer or recording cause; Proposes evidence-based check; Documents conclusion and limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -640,7 +624,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A sectional-volume total is too high. Analyse possible errors in section length, diameter squaring and units.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
@@ -648,23 +632,15 @@
     "rubric": [
       {
         "point": "Identifies method or instrument cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies units or geometry cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies observer or recording cause",
-        "marks": 1
-      },
-      {
-        "point": "Proposes evidence-based check",
-        "marks": 1
-      },
-      {
-        "point": "Documents conclusion and limitation",
-        "marks": 1
+        "point": "Identifies observer or recording cause; Proposes evidence-based check; Documents conclusion and limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -676,7 +652,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A species-specific equation greatly overpredicts a tree outside its calibration diameter range. Analyse the result.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
@@ -684,23 +660,15 @@
     "rubric": [
       {
         "point": "Identifies method or instrument cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies units or geometry cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies observer or recording cause",
-        "marks": 1
-      },
-      {
-        "point": "Proposes evidence-based check",
-        "marks": 1
-      },
-      {
-        "point": "Documents conclusion and limitation",
-        "marks": 1
+        "point": "Identifies observer or recording cause; Proposes evidence-based check; Documents conclusion and limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -712,7 +680,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Field sectional volume and equation-predicted volume disagree by 20%. Analyse a validation workflow.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
@@ -720,23 +688,15 @@
     "rubric": [
       {
         "point": "Identifies method or instrument cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies units or geometry cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies observer or recording cause",
-        "marks": 1
-      },
-      {
-        "point": "Proposes evidence-based check",
-        "marks": 1
-      },
-      {
-        "point": "Documents conclusion and limitation",
-        "marks": 1
+        "point": "Identifies observer or recording cause; Proposes evidence-based check; Documents conclusion and limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -748,7 +708,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate using a species-specific volume equation for a species and diameter range outside its calibration data.",
     "learningOutcome": "Evaluate reporting.",
     "active": true,
@@ -756,23 +716,15 @@
     "rubric": [
       {
         "point": "Rejects unsupported report",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Requires method",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Requires units and assumptions",
-        "marks": 1
-      },
-      {
-        "point": "Requires uncertainty",
-        "marks": 1
-      },
-      {
-        "point": "Justifies reporting decision",
-        "marks": 1
+        "point": "Requires units and assumptions; Requires uncertainty; Justifies reporting decision",
+        "marks": 0.5
       }
     ]
   },
@@ -784,7 +736,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate treating an entire tree stem as a perfect cylinder.",
     "learningOutcome": "Evaluate reporting.",
     "active": true,
@@ -792,23 +744,15 @@
     "rubric": [
       {
         "point": "Rejects unsupported report",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Requires method",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Requires units and assumptions",
-        "marks": 1
-      },
-      {
-        "point": "Requires uncertainty",
-        "marks": 1
-      },
-      {
-        "point": "Justifies reporting decision",
-        "marks": 1
+        "point": "Requires units and assumptions; Requires uncertainty; Justifies reporting decision",
+        "marks": 0.5
       }
     ]
   },
@@ -820,7 +764,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate combining over-bark field measurements with under-bark equation coefficients.",
     "learningOutcome": "Evaluate reporting.",
     "active": true,
@@ -828,23 +772,15 @@
     "rubric": [
       {
         "point": "Rejects unsupported report",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Requires method",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Requires units and assumptions",
-        "marks": 1
-      },
-      {
-        "point": "Requires uncertainty",
-        "marks": 1
-      },
-      {
-        "point": "Justifies reporting decision",
-        "marks": 1
+        "point": "Requires units and assumptions; Requires uncertainty; Justifies reporting decision",
+        "marks": 0.5
       }
     ]
   },
@@ -856,7 +792,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a sectional-measurement plan to estimate the volume of a felled stem.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -864,23 +800,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   },
@@ -892,7 +824,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a field validation study for a Bhutan species-specific volume equation.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -900,23 +832,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   },
@@ -928,7 +856,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a procedure for choosing among Smalian, Huber and Newton formulae.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -936,23 +864,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   },
@@ -964,7 +888,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design an audit trail for a standing-tree volume estimate.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -972,23 +896,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   },
@@ -1000,7 +920,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a sampling plan for estimating stand volume from tree measurements.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -1008,23 +928,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   },
@@ -1036,7 +952,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a comparison of geometric and equation-based volume estimates.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -1044,23 +960,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   }

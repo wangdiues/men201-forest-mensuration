@@ -215,7 +215,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain why an inventory objective should be stated before selecting variables and a sampling design.",
     "learningOutcome": "Explain Unit VIII inventory and sampling principles.",
     "active": true,
@@ -223,11 +223,11 @@
     "rubric": [
       {
         "point": "Objective determines variables/population",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Objective determines precision/design and relevance",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -239,7 +239,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Differentiate a census from sampling.",
     "learningOutcome": "Explain Unit VIII inventory and sampling principles.",
     "active": true,
@@ -247,11 +247,11 @@
     "rubric": [
       {
         "point": "Census measures every eligible unit",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Sampling measures a subset and estimates with uncertainty",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -263,7 +263,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain why stratified sampling can improve an inventory estimate.",
     "learningOutcome": "Explain Unit VIII inventory and sampling principles.",
     "active": true,
@@ -271,11 +271,11 @@
     "rubric": [
       {
         "point": "Defines or identifies strata",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Explains representation/precision benefit",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -287,7 +287,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Why are fixed-area plots useful for forest inventory?",
     "learningOutcome": "Explain Unit VIII inventory and sampling principles.",
     "active": true,
@@ -295,11 +295,11 @@
     "rubric": [
       {
         "point": "Consistent sampling unit",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Enables hectare expansion and comparison",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -311,7 +311,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain one advantage and one limitation of systematic sampling.",
     "learningOutcome": "Explain Unit VIII inventory and sampling principles.",
     "active": true,
@@ -319,11 +319,11 @@
     "rubric": [
       {
         "point": "Advantage of regular spatial coverage/efficiency",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Limitation involving spatial pattern or interval",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -335,7 +335,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Differentiate sampling error from non-sampling error.",
     "learningOutcome": "Explain Unit VIII inventory and sampling principles.",
     "active": true,
@@ -343,11 +343,11 @@
     "rubric": [
       {
         "point": "Correct sampling-error definition",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Correct non-sampling-error definition",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -359,7 +359,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain why an inventory result should report uncertainty.",
     "learningOutcome": "Explain Unit VIII inventory and sampling principles.",
     "active": true,
@@ -367,11 +367,11 @@
     "rubric": [
       {
         "point": "Estimate differs from exact population value",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Uncertainty supports decisions about precision",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -383,7 +383,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "When might cluster sampling be useful?",
     "learningOutcome": "Explain Unit VIII inventory and sampling principles.",
     "active": true,
@@ -391,11 +391,11 @@
     "rubric": [
       {
         "point": "Identifies travel/cost or access advantage",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Recognises effect on precision or similarity",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -407,7 +407,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Calculate the area of a circular plot with radius 12.62 m. Give the answer to two decimals.",
     "learningOutcome": "Apply a fixed-area inventory calculation.",
     "active": true,
@@ -427,7 +427,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A fixed-area plot is 500 m². Calculate the hectare expansion factor.",
     "learningOutcome": "Apply a fixed-area inventory calculation.",
     "active": true,
@@ -447,7 +447,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A 500 m² plot contains 8 trees. Calculate trees per hectare.",
     "learningOutcome": "Apply a fixed-area inventory calculation.",
     "active": true,
@@ -467,7 +467,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A 500 m² plot has 0.57351 m² total basal area. Calculate basal area per hectare to two decimals.",
     "learningOutcome": "Apply a fixed-area inventory calculation.",
     "active": true,
@@ -487,7 +487,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A 500 m² plot has 5.577303 m³ total volume. Calculate volume per hectare to two decimals.",
     "learningOutcome": "Apply a fixed-area inventory calculation.",
     "active": true,
@@ -507,7 +507,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Eight trees have a DBH total of 232.2 cm. Calculate mean DBH to two decimals.",
     "learningOutcome": "Apply a fixed-area inventory calculation.",
     "active": true,
@@ -527,7 +527,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Eight trees have a height total of 152.5 m. Calculate mean height to two decimals.",
     "learningOutcome": "Apply a fixed-area inventory calculation.",
     "active": true,
@@ -547,7 +547,7 @@
     "autoGraded": false,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A forest has clearly different high-elevation and low-elevation forest types. Recommend a sampling design and justify it.",
     "learningOutcome": "Apply sampling-design selection.",
     "active": true,
@@ -555,15 +555,11 @@
     "rubric": [
       {
         "point": "Selects stratified sampling",
-        "marks": 2
+        "marks": 0.5
       },
       {
-        "point": "Links strata to forest/elevation differences",
-        "marks": 1
-      },
-      {
-        "point": "Specifies probability selection within strata",
-        "marks": 1
+        "point": "Links strata to forest/elevation differences; Specifies probability selection within strata",
+        "marks": 0.5
       }
     ]
   },
@@ -575,7 +571,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A manager asks the team to “measure the forest” without stating a decision question. Analyse why the request is inadequate and specify what must be defined.",
     "learningOutcome": "Analyse Unit VIII inventory scenarios.",
     "active": true,
@@ -583,23 +579,15 @@
     "rubric": [
       {
         "point": "Identifies vague objective problem",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Population/boundary",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Variables and outputs",
-        "marks": 1
-      },
-      {
-        "point": "Design/units/date",
-        "marks": 1
-      },
-      {
-        "point": "Precision and uncertainty",
-        "marks": 1
+        "point": "Variables and outputs; Design/units/date; Precision and uncertainty",
+        "marks": 0.5
       }
     ]
   },
@@ -611,7 +599,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A plot sample is selected only from roads because remote plots are difficult to reach. Analyse the likely bias and improvements.",
     "learningOutcome": "Analyse Unit VIII inventory scenarios.",
     "active": true,
@@ -619,23 +607,15 @@
     "rubric": [
       {
         "point": "Identifies incomplete-frame coverage bias",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Explains inaccessible forest under-representation",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Recommends complete mapped frame",
-        "marks": 1
-      },
-      {
-        "point": "Uses probability selection/stratification",
-        "marks": 1
-      },
-      {
-        "point": "Documents access/non-response and limitations",
-        "marks": 1
+        "point": "Recommends complete mapped frame; Uses probability selection/stratification; Documents access/non-response and limitations",
+        "marks": 0.5
       }
     ]
   },
@@ -647,7 +627,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A cluster design produces very similar plots within each cluster but few clusters overall. Analyse the precision implications.",
     "learningOutcome": "Analyse Unit VIII inventory scenarios.",
     "active": true,
@@ -655,23 +635,15 @@
     "rubric": [
       {
         "point": "Identifies within-cluster similarity",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Explains reduced independent information",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Few clusters/population representation problem",
-        "marks": 1
-      },
-      {
-        "point": "Recommends more/distributed clusters",
-        "marks": 1
-      },
-      {
-        "point": "Design-based uncertainty",
-        "marks": 1
+        "point": "Few clusters/population representation problem; Recommends more/distributed clusters; Design-based uncertainty",
+        "marks": 0.5
       }
     ]
   },
@@ -683,7 +655,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Different crews apply plot boundaries inconsistently on sloping ground and to borderline trees. Analyse consequences and controls.",
     "learningOutcome": "Analyse Unit VIII inventory scenarios.",
     "active": true,
@@ -691,23 +663,15 @@
     "rubric": [
       {
         "point": "Identifies inconsistent inclusion as non-sampling error",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Explains bias/repeatability consequence",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Defines geometry and inclusion rules",
-        "marks": 1
-      },
-      {
-        "point": "Training and field checks",
-        "marks": 1
-      },
-      {
-        "point": "Documents borderline decisions",
-        "marks": 1
+        "point": "Defines geometry and inclusion rules; Training and field checks; Documents borderline decisions",
+        "marks": 0.5
       }
     ]
   },
@@ -719,7 +683,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "An inventory reports a precise-looking mean but omits design, sample size and uncertainty. Analyse why management should not accept it without qualification.",
     "learningOutcome": "Analyse Unit VIII inventory scenarios.",
     "active": true,
@@ -727,23 +691,15 @@
     "rubric": [
       {
         "point": "Mean alone is insufficient",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Requires population/design",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Requires sample size and measurement quality",
-        "marks": 1
-      },
-      {
-        "point": "Requires uncertainty/error information",
-        "marks": 1
-      },
-      {
-        "point": "States management limitation",
-        "marks": 1
+        "point": "Requires sample size and measurement quality; Requires uncertainty/error information; States management limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -755,7 +711,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate using simple random sampling for a highly heterogeneous forest when forest-type information is available.",
     "learningOutcome": "Evaluate Unit VIII inventory decisions.",
     "active": true,
@@ -763,23 +719,15 @@
     "rubric": [
       {
         "point": "Judges simple random as possible but inefficient",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Recognises heterogeneity issue",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Uses available strata",
-        "marks": 1
-      },
-      {
-        "point": "Explains precision/representation benefit",
-        "marks": 1
-      },
-      {
-        "point": "Notes defensible allocation/design",
-        "marks": 1
+        "point": "Uses available strata; Explains precision/representation benefit; Notes defensible allocation/design",
+        "marks": 0.5
       }
     ]
   },
@@ -791,7 +739,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate a proposal to report 11.47 m²/ha basal area from one 500 m² plot as the forest-unit value.",
     "learningOutcome": "Evaluate Unit VIII inventory decisions.",
     "active": true,
@@ -799,23 +747,15 @@
     "rubric": [
       {
         "point": "Distinguishes plot from forest estimate",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies one-plot representation problem",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Requires defined population/frame",
-        "marks": 1
-      },
-      {
-        "point": "Recommends additional representative plots",
-        "marks": 1
-      },
-      {
-        "point": "Requires uncertainty",
-        "marks": 1
+        "point": "Requires defined population/frame; Recommends additional representative plots; Requires uncertainty",
+        "marks": 0.5
       }
     ]
   },
@@ -827,7 +767,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate the claim that careful measuring eliminates all inventory error.",
     "learningOutcome": "Evaluate Unit VIII inventory decisions.",
     "active": true,
@@ -835,23 +775,15 @@
     "rubric": [
       {
         "point": "Rejects claim",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Careful measurement reduces non-sampling error",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Sampling error remains",
-        "marks": 1
-      },
-      {
-        "point": "Frame/design/processing also matter",
-        "marks": 1
-      },
-      {
-        "point": "Requires uncertainty reporting",
-        "marks": 1
+        "point": "Sampling error remains; Frame/design/processing also matter; Requires uncertainty reporting",
+        "marks": 0.5
       }
     ]
   },
@@ -863,7 +795,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design an inventory plan for estimating merchantable volume by forest type for a five-year management plan.",
     "learningOutcome": "Create a defensible Unit VIII inventory deliverable.",
     "active": true,
@@ -871,23 +803,19 @@
     "rubric": [
       {
         "point": "Objective/population/boundary",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Strata and probability design",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Plot/protocol variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Expansion and estimates",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and repeat monitoring",
-        "marks": 1
+        "point": "Expansion and estimates; Uncertainty and repeat monitoring",
+        "marks": 0.5
       }
     ]
   },
@@ -899,7 +827,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Create a fixed-area circular-plot field protocol.",
     "learningOutcome": "Create a defensible Unit VIII inventory deliverable.",
     "active": true,
@@ -907,23 +835,19 @@
     "rubric": [
       {
         "point": "Area/radius/centre",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Boundary/inclusion rules",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "IDs and threshold",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Variables/units",
-        "marks": 1
-      },
-      {
-        "point": "Training/quality checks",
-        "marks": 1
+        "point": "Variables/units; Training/quality checks",
+        "marks": 0.5
       }
     ]
   },
@@ -935,7 +859,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Prepare a sampling-frame and selection plan for a mapped management unit.",
     "learningOutcome": "Create a defensible Unit VIII inventory deliverable.",
     "active": true,
@@ -943,23 +867,19 @@
     "rubric": [
       {
         "point": "Population/boundary",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Complete mapped frame",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Unique IDs",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Probability selection",
-        "marks": 1
-      },
-      {
-        "point": "Access/replacement records",
-        "marks": 1
+        "point": "Probability selection; Access/replacement records",
+        "marks": 0.5
       }
     ]
   },
@@ -971,7 +891,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Develop a calculation workflow from plot measurements to forest estimates.",
     "learningOutcome": "Create a defensible Unit VIII inventory deliverable.",
     "active": true,
@@ -979,23 +899,19 @@
     "rubric": [
       {
         "point": "Data/units QA",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Plot variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Expansion",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Stratum summaries",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty/assumptions",
-        "marks": 1
+        "point": "Stratum summaries; Uncertainty/assumptions",
+        "marks": 0.5
       }
     ]
   },
@@ -1007,7 +923,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Create a quality-assurance plan that reduces sampling and non-sampling errors.",
     "learningOutcome": "Create a defensible Unit VIII inventory deliverable.",
     "active": true,
@@ -1015,23 +931,19 @@
     "rubric": [
       {
         "point": "Probability/spatial coverage",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Standardised protocol/instruments",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Training and remeasurement",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Data audit/change documentation",
-        "marks": 1
-      },
-      {
-        "point": "Separates and reports both error types",
-        "marks": 1
+        "point": "Data audit/change documentation; Separates and reports both error types",
+        "marks": 0.5
       }
     ]
   },
@@ -1043,7 +955,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Prepare a one-page inventory-results report outline for managers.",
     "learningOutcome": "Create a defensible Unit VIII inventory deliverable.",
     "active": true,
@@ -1051,23 +963,19 @@
     "rubric": [
       {
         "point": "Objective/population/design/date",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Sample and estimates",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and strata",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Uncertainty/limitations",
-        "marks": 1
-      },
-      {
-        "point": "Interpretation/recommendations",
-        "marks": 1
+        "point": "Uncertainty/limitations; Interpretation/recommendations",
+        "marks": 0.5
       }
     ]
   }

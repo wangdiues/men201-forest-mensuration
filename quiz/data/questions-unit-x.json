@@ -213,7 +213,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain why forest biomass is estimated.",
     "learningOutcome": "Explain Unit X biomass and carbon principles.",
     "active": true,
@@ -221,11 +221,11 @@
     "rubric": [
       {
         "point": "Correct explanation of the main concept",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Relevant second point, use or limitation",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -237,7 +237,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Differentiate AGB and BGB.",
     "learningOutcome": "Explain Unit X biomass and carbon principles.",
     "active": true,
@@ -245,11 +245,11 @@
     "rubric": [
       {
         "point": "Correct explanation of the main concept",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Relevant second point, use or limitation",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -261,7 +261,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Describe destructive biomass measurement.",
     "learningOutcome": "Explain Unit X biomass and carbon principles.",
     "active": true,
@@ -269,11 +269,11 @@
     "rubric": [
       {
         "point": "Correct explanation of the main concept",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Relevant second point, use or limitation",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -285,7 +285,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain one strength and one limitation of non-destructive estimation.",
     "learningOutcome": "Explain Unit X biomass and carbon principles.",
     "active": true,
@@ -293,11 +293,11 @@
     "rubric": [
       {
         "point": "Correct explanation of the main concept",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Relevant second point, use or limitation",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -309,7 +309,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Why check species, variables and calibration range before using an equation?",
     "learningOutcome": "Explain Unit X biomass and carbon principles.",
     "active": true,
@@ -317,11 +317,11 @@
     "rubric": [
       {
         "point": "Correct explanation of the main concept",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Relevant second point, use or limitation",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -333,7 +333,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Why is CO2-equivalent not additional carbon?",
     "learningOutcome": "Explain Unit X biomass and carbon principles.",
     "active": true,
@@ -341,11 +341,11 @@
     "rubric": [
       {
         "point": "Correct explanation of the main concept",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Relevant second point, use or limitation",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -357,7 +357,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain a biomass expansion factor.",
     "learningOutcome": "Explain Unit X biomass and carbon principles.",
     "active": true,
@@ -365,11 +365,11 @@
     "rubric": [
       {
         "point": "Correct explanation of the main concept",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Relevant second point, use or limitation",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -381,7 +381,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Identify two uncertainty sources.",
     "learningOutcome": "Explain Unit X biomass and carbon principles.",
     "active": true,
@@ -389,11 +389,11 @@
     "rubric": [
       {
         "point": "Correct explanation of the main concept",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Relevant second point, use or limitation",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -405,7 +405,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Using AGB=0.0673(rho D2 H)^0.976, calculate AGB for D=30 cm, H=20 m, rho=0.60. Give two decimals.",
     "learningOutcome": "Calculate a Unit X biomass quantity.",
     "active": true,
@@ -425,11 +425,11 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Calculate carbon from 500.0 kg dry biomass at CF=0.47.",
     "learningOutcome": "Calculate a Unit X biomass quantity.",
     "active": true,
-    "answer": 235.0,
+    "answer": 235,
     "tolerance": {
       "mode": "absolute",
       "value": 0.1
@@ -445,7 +445,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Convert 235.0 kg C to CO2e using 44/12.",
     "learningOutcome": "Calculate a Unit X biomass quantity.",
     "active": true,
@@ -465,7 +465,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A 500 m2 plot contains 1,061.91 kg dry AGB. Calculate t/ha.",
     "learningOutcome": "Calculate a Unit X biomass quantity.",
     "active": true,
@@ -485,7 +485,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Use BGBp=0.489xAGBp^0.89 for AGBp=21.2328 t/ha.",
     "learningOutcome": "Calculate a Unit X biomass quantity.",
     "active": true,
@@ -505,7 +505,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Using AGB=-1.57+3444ba+55392X2, ba=0.063347 and X2=0.000218788, calculate AGB.",
     "learningOutcome": "Calculate a Unit X biomass quantity.",
     "active": true,
@@ -525,7 +525,7 @@
     "autoGraded": false,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A DBH-in-metres input is used in an equation expecting cm. State the error and two checks.",
     "learningOutcome": "Apply equation input checks.",
     "active": true,
@@ -533,19 +533,11 @@
     "rubric": [
       {
         "point": "Identifies the unit error",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Corrects/checks units",
-        "marks": 1
-      },
-      {
-        "point": "Checks species and range",
-        "marks": 1
-      },
-      {
-        "point": "Checks pool definition",
-        "marks": 1
+        "point": "Corrects/checks units; Checks species and range; Checks pool definition",
+        "marks": 0.5
       }
     ]
   },
@@ -557,7 +549,7 @@
     "autoGraded": false,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A report labels live-tree AGB as total carbon including deadwood, litter and soil. Explain the correction.",
     "learningOutcome": "Apply pool-boundary rules.",
     "active": true,
@@ -565,19 +557,11 @@
     "rubric": [
       {
         "point": "Identifies AGB as one pool",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Requires separate methods",
-        "marks": 1
-      },
-      {
-        "point": "Requires compatible definitions and units",
-        "marks": 1
-      },
-      {
-        "point": "States correct reporting approach",
-        "marks": 1
+        "point": "Requires separate methods; Requires compatible definitions and units; States correct reporting approach",
+        "marks": 0.5
       }
     ]
   },
@@ -589,7 +573,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A report labels live-tree AGB as total carbon including deadwood, litter and soil. Analyse the error and remedy.",
     "learningOutcome": "Analyze biomass-estimation reliability.",
     "active": true,
@@ -597,23 +581,15 @@
     "rubric": [
       {
         "point": "Identifies one-pool error",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Separate methods",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Compatible definitions",
-        "marks": 1
-      },
-      {
-        "point": "Documented factors",
-        "marks": 1
-      },
-      {
-        "point": "Compatible summation",
-        "marks": 1
+        "point": "Compatible definitions; Documented factors; Compatible summation",
+        "marks": 0.5
       }
     ]
   },
@@ -625,7 +601,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "An equation is applied outside its species and DBH calibration range. Analyse consequences.",
     "learningOutcome": "Analyze biomass-estimation reliability.",
     "active": true,
@@ -633,23 +609,15 @@
     "rubric": [
       {
         "point": "Unsupported extrapolation",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Species mismatch",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Bias/model error risk",
-        "marks": 1
-      },
-      {
-        "point": "Compatible alternative",
-        "marks": 1
-      },
-      {
-        "point": "Validation or limitation",
-        "marks": 1
+        "point": "Bias/model error risk; Compatible alternative; Validation or limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -661,7 +629,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A plot result is reported as t/ha without converting kg or applying plot area. Analyse the error.",
     "learningOutcome": "Analyze biomass-estimation reliability.",
     "active": true,
@@ -669,23 +637,15 @@
     "rubric": [
       {
         "point": "kg/tonne error",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Missing area expansion",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Correct factor",
-        "marks": 1
-      },
-      {
-        "point": "Checks plot area",
-        "marks": 1
-      },
-      {
-        "point": "Correct units",
-        "marks": 1
+        "point": "Correct factor; Checks plot area; Correct units",
+        "marks": 0.5
       }
     ]
   },
@@ -697,31 +657,23 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
-    "question": "A student applies Bhutan\u2019s nonlinear BGB equation to every tree. Analyse why this may be invalid.",
+    "marks": 1.5,
+    "question": "A student applies Bhutan’s nonlinear BGB equation to every tree. Analyse why this may be invalid.",
     "learningOutcome": "Analyze biomass-estimation reliability.",
     "active": true,
     "modelAnswer": "The documented equation is plot-level after AGB is in t/ha; nonlinearity means tree-by-tree application changes the result.",
     "rubric": [
       {
         "point": "Plot-level requirement",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "AGB in t/ha",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Nonlinearity",
-        "marks": 1
-      },
-      {
-        "point": "Changed result",
-        "marks": 1
-      },
-      {
-        "point": "Correct plot-level remedy",
-        "marks": 1
+        "point": "Nonlinearity; Changed result; Correct plot-level remedy",
+        "marks": 0.5
       }
     ]
   },
@@ -733,7 +685,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A report gives many decimals but no equation source, range or uncertainty. Analyse reliability.",
     "learningOutcome": "Analyze biomass-estimation reliability.",
     "active": true,
@@ -741,23 +693,15 @@
     "rubric": [
       {
         "point": "Decimals do not reduce uncertainty",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Source and range",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Inputs and pools",
-        "marks": 1
-      },
-      {
-        "point": "Factors",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty statement",
-        "marks": 1
+        "point": "Inputs and pools; Factors; Uncertainty statement",
+        "marks": 0.5
       }
     ]
   },
@@ -769,7 +713,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate using a generalized equation when species-specific equations are available.",
     "learningOutcome": "Evaluate biomass-estimation decisions.",
     "active": true,
@@ -777,23 +721,15 @@
     "rubric": [
       {
         "point": "Conditional judgement",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Species-specific option",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Compatibility",
-        "marks": 1
-      },
-      {
-        "point": "Range/validation",
-        "marks": 1
-      },
-      {
-        "point": "Justified choice",
-        "marks": 1
+        "point": "Compatibility; Range/validation; Justified choice",
+        "marks": 0.5
       }
     ]
   },
@@ -805,7 +741,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate converting AGB with CF=0.47 and calling it total forest carbon.",
     "learningOutcome": "Evaluate biomass-estimation decisions.",
     "active": true,
@@ -813,23 +749,15 @@
     "rubric": [
       {
         "point": "Valid only for stated pool",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "CF is documented",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies excluded pools",
-        "marks": 1
-      },
-      {
-        "point": "Requires compatible estimates",
-        "marks": 1
-      },
-      {
-        "point": "Rejects total claim",
-        "marks": 1
+        "point": "Identifies excluded pools; Requires compatible estimates; Rejects total claim",
+        "marks": 0.5
       }
     ]
   },
@@ -841,7 +769,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate destructive harvesting as routine national inventory method.",
     "learningOutcome": "Evaluate biomass-estimation decisions.",
     "active": true,
@@ -849,23 +777,15 @@
     "rubric": [
       {
         "point": "Calibration strength",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Cost/hazard",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Destructive/legal limits",
-        "marks": 1
-      },
-      {
-        "point": "Non-destructive alternative",
-        "marks": 1
-      },
-      {
-        "point": "Calibration/uncertainty",
-        "marks": 1
+        "point": "Destructive/legal limits; Non-destructive alternative; Calibration/uncertainty",
+        "marks": 0.5
       }
     ]
   },
@@ -877,7 +797,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a transparent workflow from tree measurement to carbon report.",
     "learningOutcome": "Create a reproducible Unit X plan.",
     "active": true,
@@ -885,23 +805,19 @@
     "rubric": [
       {
         "point": "Pool/units",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Equations",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Inputs/tree/plot/ha",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Conversions",
-        "marks": 1
-      },
-      {
-        "point": "Exclusions/uncertainty",
-        "marks": 1
+        "point": "Conversions; Exclusions/uncertainty",
+        "marks": 0.5
       }
     ]
   },
@@ -913,7 +829,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Create a checklist for selecting an allometric equation.",
     "learningOutcome": "Create a reproducible Unit X plan.",
     "active": true,
@@ -921,23 +837,19 @@
     "rubric": [
       {
         "point": "Output pool",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Population",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Variables/units/range",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Validation/uncertainty",
-        "marks": 1
-      },
-      {
-        "point": "Citation",
-        "marks": 1
+        "point": "Validation/uncertainty; Citation",
+        "marks": 0.5
       }
     ]
   },
@@ -949,7 +861,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a data table for tree-to-plot biomass estimation.",
     "learningOutcome": "Create a reproducible Unit X plan.",
     "active": true,
@@ -957,23 +869,19 @@
     "rubric": [
       {
         "point": "IDs",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Measured inputs",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Equation/version",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Predicted pool/units",
-        "marks": 1
-      },
-      {
-        "point": "QA flags",
-        "marks": 1
+        "point": "Predicted pool/units; QA flags",
+        "marks": 0.5
       }
     ]
   },
@@ -985,7 +893,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Prepare an uncertainty statement for a carbon estimate.",
     "learningOutcome": "Create a reproducible Unit X plan.",
     "active": true,
@@ -993,23 +901,19 @@
     "rubric": [
       {
         "point": "Measurement",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Model",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Sampling/scaling",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Conversion",
-        "marks": 1
-      },
-      {
-        "point": "Unquantified limits",
-        "marks": 1
+        "point": "Conversion; Unquantified limits",
+        "marks": 0.5
       }
     ]
   },
@@ -1021,7 +925,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Develop a management use plan for biomass results.",
     "learningOutcome": "Create a reproducible Unit X plan.",
     "active": true,
@@ -1029,23 +933,19 @@
     "rubric": [
       {
         "point": "Decision/boundary",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Compatibility",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Monitoring",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Uncertainty",
-        "marks": 1
-      },
-      {
-        "point": "Other values/risks",
-        "marks": 1
+        "point": "Uncertainty; Other values/risks",
+        "marks": 0.5
       }
     ]
   },
@@ -1057,7 +957,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Create a technical biomass and carbon report outline.",
     "learningOutcome": "Create a reproducible Unit X plan.",
     "active": true,
@@ -1065,23 +965,19 @@
     "rubric": [
       {
         "point": "Objective",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Methods/QA",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Results",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Interpretation/uncertainty",
-        "marks": 1
-      },
-      {
-        "point": "Recommendations/references",
-        "marks": 1
+        "point": "Interpretation/uncertainty; Recommendations/references",
+        "marks": 0.5
       }
     ]
   }

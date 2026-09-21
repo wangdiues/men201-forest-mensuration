@@ -293,7 +293,7 @@
     "unit": "I",
     "title": "Unit I — Introduction to Forest Mensuration: Test",
     "description": "The end-of-unit paper: all 40 questions in six Bloom sections, in order. One attempt, 90 minutes. Written answers are graded by the tutor.",
-    "totalMarks": 128,
+    "totalMarks": 50,
     "timeAllowedMin": 90,
     "fixedOrder": true,
     "sections": [
@@ -319,7 +319,7 @@
           "Understand"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 2,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "short-answer"
         ]
@@ -331,7 +331,7 @@
           "Apply"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 4,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "short-answer"
         ]
@@ -343,7 +343,7 @@
           "Analyze"
         ],
         "questionCount": 5,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -356,7 +356,7 @@
           "Evaluate"
         ],
         "questionCount": 3,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -369,7 +369,7 @@
           "Create"
         ],
         "questionCount": 6,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 2,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -377,7 +377,7 @@
       }
     ],
     "attemptsAllowed": 1,
-    "passPercent": 50,
+    "passPercent": 40,
     "active": true
   },
   {
@@ -524,7 +524,7 @@
     "unit": "XI",
     "title": "Unit XI — Remote and Emerging Technologies in Forest Mensuration: Test",
     "description": "The end-of-unit paper: all 40 questions in six Bloom sections, in order. One attempt, 90 minutes. Written answers are graded by the tutor.",
-    "totalMarks": 128,
+    "totalMarks": 50,
     "timeAllowedMin": 90,
     "fixedOrder": true,
     "sections": [
@@ -552,7 +552,7 @@
           "Understand"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 2,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "short-answer"
         ]
@@ -564,7 +564,7 @@
           "Apply"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 4,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "numerical",
           "short-answer"
@@ -577,7 +577,7 @@
           "Analyze"
         ],
         "questionCount": 5,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -590,7 +590,7 @@
           "Evaluate"
         ],
         "questionCount": 3,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -603,7 +603,7 @@
           "Create"
         ],
         "questionCount": 6,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 2,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -611,7 +611,7 @@
       }
     ],
     "attemptsAllowed": 1,
-    "passPercent": 50,
+    "passPercent": 40,
     "active": true
   },
   {
@@ -620,7 +620,7 @@
     "unit": "X",
     "title": "Unit X — Forest Biomass and Carbon Estimation: Test",
     "description": "The end-of-unit paper: all 40 questions in six Bloom sections, in order. One attempt, 90 minutes. Written answers are graded by the tutor.",
-    "totalMarks": 128,
+    "totalMarks": 50,
     "timeAllowedMin": 90,
     "fixedOrder": true,
     "sections": [
@@ -648,7 +648,7 @@
           "Understand"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 2,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "short-answer"
         ]
@@ -660,7 +660,7 @@
           "Apply"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 4,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "numerical",
           "short-answer"
@@ -673,7 +673,7 @@
           "Analyze"
         ],
         "questionCount": 5,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -686,7 +686,7 @@
           "Evaluate"
         ],
         "questionCount": 3,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -699,7 +699,7 @@
           "Create"
         ],
         "questionCount": 6,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 2,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -707,7 +707,7 @@
       }
     ],
     "attemptsAllowed": 1,
-    "passPercent": 50,
+    "passPercent": 40,
     "active": true
   },
   {
@@ -716,7 +716,7 @@
     "unit": "IX",
     "title": "Unit IX — Digital Forest Mensuration and Data Management: Test",
     "description": "The end-of-unit paper: all 40 questions in six Bloom sections, in order. One attempt, 90 minutes. Written answers are graded by the tutor.",
-    "totalMarks": 128,
+    "totalMarks": 50,
     "timeAllowedMin": 90,
     "fixedOrder": true,
     "sections": [
@@ -744,7 +744,7 @@
           "Understand"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 2,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "short-answer"
         ]
@@ -756,7 +756,7 @@
           "Apply"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 4,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "numerical",
           "short-answer"
@@ -769,7 +769,7 @@
           "Analyze"
         ],
         "questionCount": 5,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -782,7 +782,7 @@
           "Evaluate"
         ],
         "questionCount": 3,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -795,7 +795,7 @@
           "Create"
         ],
         "questionCount": 6,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 2,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -803,7 +803,7 @@
       }
     ],
     "attemptsAllowed": 1,
-    "passPercent": 50,
+    "passPercent": 40,
     "active": true
   },
   {
@@ -812,7 +812,7 @@
     "unit": "VIII",
     "title": "Unit VIII — Forest Inventory and Sampling: Test",
     "description": "The end-of-unit paper: all 40 questions in six Bloom sections, in order. One attempt, 90 minutes. Written answers are graded by the tutor.",
-    "totalMarks": 128,
+    "totalMarks": 50,
     "timeAllowedMin": 90,
     "fixedOrder": true,
     "sections": [
@@ -840,7 +840,7 @@
           "Understand"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 2,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "short-answer"
         ]
@@ -852,7 +852,7 @@
           "Apply"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 4,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "numerical",
           "short-answer"
@@ -865,7 +865,7 @@
           "Analyze"
         ],
         "questionCount": 5,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -878,7 +878,7 @@
           "Evaluate"
         ],
         "questionCount": 3,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -891,7 +891,7 @@
           "Create"
         ],
         "questionCount": 6,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 2,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -899,7 +899,7 @@
       }
     ],
     "attemptsAllowed": 1,
-    "passPercent": 50,
+    "passPercent": 40,
     "active": true
   },
   {
@@ -908,7 +908,7 @@
     "unit": "II",
     "title": "Unit II — Diameter, Girth and Bark Thickness: Test",
     "description": "The end-of-unit paper: all 40 questions in six Bloom sections, in order. One attempt, 90 minutes. Written answers are graded by the tutor.",
-    "totalMarks": 128,
+    "totalMarks": 50,
     "timeAllowedMin": 90,
     "fixedOrder": true,
     "sections": [
@@ -936,7 +936,7 @@
           "Understand"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 2,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "short-answer"
         ]
@@ -948,7 +948,7 @@
           "Apply"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 4,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "numerical",
           "short-answer"
@@ -961,7 +961,7 @@
           "Analyze"
         ],
         "questionCount": 5,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -974,7 +974,7 @@
           "Evaluate"
         ],
         "questionCount": 3,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -987,7 +987,7 @@
           "Create"
         ],
         "questionCount": 6,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 2,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -995,7 +995,7 @@
       }
     ],
     "attemptsAllowed": 1,
-    "passPercent": 50,
+    "passPercent": 40,
     "active": true
   },
   {
@@ -1004,7 +1004,7 @@
     "unit": "III",
     "title": "Unit III — Measurement of Crown Closure: Test",
     "description": "The end-of-unit paper: all 40 questions in six Bloom sections, in order. One attempt, 90 minutes. Written answers are graded by the tutor.",
-    "totalMarks": 128,
+    "totalMarks": 50,
     "timeAllowedMin": 90,
     "fixedOrder": true,
     "sections": [
@@ -1032,7 +1032,7 @@
           "Understand"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 2,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "short-answer"
         ]
@@ -1044,7 +1044,7 @@
           "Apply"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 4,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "numerical",
           "short-answer"
@@ -1057,7 +1057,7 @@
           "Analyze"
         ],
         "questionCount": 5,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -1070,7 +1070,7 @@
           "Evaluate"
         ],
         "questionCount": 3,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -1083,7 +1083,7 @@
           "Create"
         ],
         "questionCount": 6,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 2,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -1091,7 +1091,7 @@
       }
     ],
     "attemptsAllowed": 1,
-    "passPercent": 50,
+    "passPercent": 40,
     "active": true
   },
   {
@@ -1100,7 +1100,7 @@
     "unit": "IV",
     "title": "Unit IV — Tree Height Measurement: Test",
     "description": "The end-of-unit paper: all 40 questions in six Bloom sections, in order. One attempt, 90 minutes. Written answers are graded by the tutor.",
-    "totalMarks": 128,
+    "totalMarks": 50,
     "timeAllowedMin": 90,
     "fixedOrder": true,
     "sections": [
@@ -1128,7 +1128,7 @@
           "Understand"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 2,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "short-answer"
         ]
@@ -1140,7 +1140,7 @@
           "Apply"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 4,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "numerical",
           "short-answer"
@@ -1153,7 +1153,7 @@
           "Analyze"
         ],
         "questionCount": 5,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -1166,7 +1166,7 @@
           "Evaluate"
         ],
         "questionCount": 3,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -1179,7 +1179,7 @@
           "Create"
         ],
         "questionCount": 6,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 2,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -1187,7 +1187,7 @@
       }
     ],
     "attemptsAllowed": 1,
-    "passPercent": 50,
+    "passPercent": 40,
     "active": true
   },
   {
@@ -1196,7 +1196,7 @@
     "unit": "V",
     "title": "Unit V — Measurement of Tree Volume: Test",
     "description": "The end-of-unit paper: all 40 questions in six Bloom sections, in order. One attempt, 90 minutes. Written answers are graded by the tutor.",
-    "totalMarks": 128,
+    "totalMarks": 50,
     "timeAllowedMin": 90,
     "fixedOrder": true,
     "sections": [
@@ -1224,7 +1224,7 @@
           "Understand"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 2,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "short-answer"
         ]
@@ -1236,7 +1236,7 @@
           "Apply"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 4,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "numerical",
           "short-answer"
@@ -1249,7 +1249,7 @@
           "Analyze"
         ],
         "questionCount": 5,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -1262,7 +1262,7 @@
           "Evaluate"
         ],
         "questionCount": 3,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -1275,7 +1275,7 @@
           "Create"
         ],
         "questionCount": 6,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 2,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -1283,7 +1283,7 @@
       }
     ],
     "attemptsAllowed": 1,
-    "passPercent": 50,
+    "passPercent": 40,
     "active": true
   },
   {
@@ -1292,7 +1292,7 @@
     "unit": "VI",
     "title": "Unit VI — Measurement of Crop: Test",
     "description": "The end-of-unit paper: all 40 questions in six Bloom sections, in order. One attempt, 90 minutes. Written answers are graded by the tutor.",
-    "totalMarks": 128,
+    "totalMarks": 50,
     "timeAllowedMin": 90,
     "fixedOrder": true,
     "sections": [
@@ -1320,7 +1320,7 @@
           "Understand"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 2,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "short-answer"
         ]
@@ -1332,7 +1332,7 @@
           "Apply"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 4,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "numerical",
           "short-answer"
@@ -1345,7 +1345,7 @@
           "Analyze"
         ],
         "questionCount": 5,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -1358,7 +1358,7 @@
           "Evaluate"
         ],
         "questionCount": 3,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -1371,7 +1371,7 @@
           "Create"
         ],
         "questionCount": 6,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 2,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -1379,7 +1379,7 @@
       }
     ],
     "attemptsAllowed": 1,
-    "passPercent": 50,
+    "passPercent": 40,
     "active": true
   },
   {
@@ -1388,7 +1388,7 @@
     "unit": "VII",
     "title": "Unit VII — Age and Growth of Trees: Test",
     "description": "The end-of-unit paper: all 40 questions in six Bloom sections, in order. One attempt, 90 minutes. Written answers are graded by the tutor.",
-    "totalMarks": 128,
+    "totalMarks": 50,
     "timeAllowedMin": 90,
     "fixedOrder": true,
     "sections": [
@@ -1416,7 +1416,7 @@
           "Understand"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 2,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "short-answer"
         ]
@@ -1428,7 +1428,7 @@
           "Apply"
         ],
         "questionCount": 8,
-        "marksPerQuestion": 4,
+        "marksPerQuestion": 1,
         "questionTypes": [
           "numerical",
           "short-answer"
@@ -1441,7 +1441,7 @@
           "Analyze"
         ],
         "questionCount": 5,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -1454,7 +1454,7 @@
           "Evaluate"
         ],
         "questionCount": 3,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 1.5,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -1467,7 +1467,7 @@
           "Create"
         ],
         "questionCount": 6,
-        "marksPerQuestion": 5,
+        "marksPerQuestion": 2,
         "questionTypes": [
           "long-answer",
           "short-answer"
@@ -1475,7 +1475,7 @@
       }
     ],
     "attemptsAllowed": 1,
-    "passPercent": 50,
+    "passPercent": 40,
     "active": true
   }
 ]

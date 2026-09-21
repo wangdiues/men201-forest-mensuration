@@ -217,7 +217,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain why a coordinate must be stored with its datum or CRS.",
     "learningOutcome": "Explain Unit IX digital data-management principles.",
     "active": true,
@@ -225,11 +225,11 @@
     "rubric": [
       {
         "point": "States that identical numbers can locate differently",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Explains that datum/CRS makes the coordinate interpretable",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -241,7 +241,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Differentiate repeatability from absolute accuracy in GNSS work.",
     "learningOutcome": "Explain Unit IX digital data-management principles.",
     "active": true,
@@ -249,11 +249,11 @@
     "rubric": [
       {
         "point": "Defines repeatability as agreement among repeats",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Defines accuracy as closeness to the accepted position",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -265,7 +265,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Describe two good practices when saving a plot-centre waypoint.",
     "learningOutcome": "Explain Unit IX digital data-management principles.",
     "active": true,
@@ -273,11 +273,11 @@
     "rubric": [
       {
         "point": "Identifies stabilisation/averaging or correct configuration",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies named ID and accuracy/metadata recording",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -289,7 +289,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain why a digital instrument is not self-validating.",
     "learningOutcome": "Explain Unit IX digital data-management principles.",
     "active": true,
@@ -297,11 +297,11 @@
     "rubric": [
       {
         "point": "Identifies geometry/calibration or instrument error",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "States need for a known-reference or repeatability check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -313,7 +313,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain the difference between a required rule and a warning rule in a mobile form.",
     "learningOutcome": "Explain Unit IX digital data-management principles.",
     "active": true,
@@ -321,11 +321,11 @@
     "rubric": [
       {
         "point": "Defines a required rule",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Defines a warning rule",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -337,7 +337,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Why should Plot_ID and Tree_ID be stable and unique?",
     "learningOutcome": "Explain Unit IX digital data-management principles.",
     "active": true,
@@ -345,11 +345,11 @@
     "rubric": [
       {
         "point": "Links records reliably",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Prevents duplicates and supports auditing",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -361,7 +361,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain why raw data should remain unchanged.",
     "learningOutcome": "Explain Unit IX digital data-management principles.",
     "active": true,
@@ -369,11 +369,11 @@
     "rubric": [
       {
         "point": "Preserves original evidence",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Allows audit or reversal of corrections",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -385,7 +385,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain why an unusual value should not be deleted automatically.",
     "learningOutcome": "Explain Unit IX digital data-management principles.",
     "active": true,
@@ -393,11 +393,11 @@
     "rubric": [
       {
         "point": "May be a real observation",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Requires evidence-based verification",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -409,7 +409,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Calculate the basal area of a tree with DBH = 30.0 cm using BA = pi x (DBH_cm/100)^2 / 4. Give four decimals.",
     "learningOutcome": "Apply a Unit IX formula or data-quality calculation.",
     "active": true,
@@ -429,7 +429,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A fixed-area plot is 500 m2. Calculate the hectare expansion factor 10,000/Plot_Area_m2.",
     "learningOutcome": "Apply a Unit IX formula or data-quality calculation.",
     "active": true,
@@ -449,7 +449,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A value entered as 226 cm is verified from the field sheet as 22.6 cm. What corrected DBH should be stored?",
     "learningOutcome": "Apply a Unit IX formula or data-quality calculation.",
     "active": true,
@@ -469,7 +469,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Two repeated plot-centre positions differ by 3.0 m east and 4.0 m north. Calculate their horizontal separation.",
     "learningOutcome": "Apply a Unit IX formula or data-quality calculation.",
     "active": true,
@@ -489,7 +489,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Three trees have basal areas 0.0707, 0.0946 and 0.0400 m2. Calculate plot basal area to four decimals.",
     "learningOutcome": "Apply a Unit IX formula or data-quality calculation.",
     "active": true,
@@ -509,7 +509,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A dataset contains 120 tree rows, including two identical rows with the same Plot_ID and Tree_ID. How many unique tree records remain if one duplicate is removed?",
     "learningOutcome": "Apply a Unit IX formula or data-quality calculation.",
     "active": true,
@@ -529,7 +529,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A plot basal area is 0.2053 m2 and the area is 500 m2. Calculate basal area per hectare to four decimals.",
     "learningOutcome": "Apply a Unit IX formula or data-quality calculation.",
     "active": true,
@@ -549,7 +549,7 @@
     "autoGraded": false,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A tree form must record DBH, height, species and defect status. Propose four validation features.",
     "learningOutcome": "Apply mobile-form validation principles.",
     "active": true,
@@ -557,19 +557,11 @@
     "rubric": [
       {
         "point": "Required DBH/height/species fields",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Controlled codes",
-        "marks": 1
-      },
-      {
-        "point": "Range or positive-value checks",
-        "marks": 1
-      },
-      {
-        "point": "Unique key or defect skip logic",
-        "marks": 1
+        "point": "Controlled codes; Range or positive-value checks; Unique key or defect skip logic",
+        "marks": 0.5
       }
     ]
   },
@@ -581,7 +573,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A plot was recorded under a different datum from the GIS layer and appears displaced. Analyse the likely cause and the correction.",
     "learningOutcome": "Analyse Unit IX data-quality and management scenarios.",
     "active": true,
@@ -589,23 +581,15 @@
     "rubric": [
       {
         "point": "Identifies datum/CRS mismatch",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Explains displacement consequence",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Checks coordinate format and metadata",
-        "marks": 1
-      },
-      {
-        "point": "Uses consistent transformation/reprojection",
-        "marks": 1
-      },
-      {
-        "point": "Preserves original records and documents correction",
-        "marks": 1
+        "point": "Checks coordinate format and metadata; Uses consistent transformation/reprojection; Preserves original records and documents correction",
+        "marks": 0.5
       }
     ]
   },
@@ -617,7 +601,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A DBH of 226 cm is flagged while neighbouring trees are 20–45 cm. Analyse how the team should decide whether to correct it.",
     "learningOutcome": "Analyse Unit IX data-quality and management scenarios.",
     "active": true,
@@ -625,23 +609,15 @@
     "rubric": [
       {
         "point": "Rejects automatic deletion",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Checks source evidence",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Checks units/species/method/context",
-        "marks": 1
-      },
-      {
-        "point": "Corrects only with evidence",
-        "marks": 1
-      },
-      {
-        "point": "Retains raw value and audit note",
-        "marks": 1
+        "point": "Checks units/species/method/context; Corrects only with evidence; Retains raw value and audit note",
+        "marks": 0.5
       }
     ]
   },
@@ -653,7 +629,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A spreadsheet combines plot summaries, tree observations and notes in merged cells. Analyse the risks and redesign it.",
     "learningOutcome": "Analyse Unit IX data-quality and management scenarios.",
     "active": true,
@@ -661,23 +637,15 @@
     "rubric": [
       {
         "point": "Identifies mixed-table/merged-cell risk",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Explains formula/filter/audit problems",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "One row per tree",
-        "marks": 1
-      },
-      {
-        "point": "One variable per column with IDs/units",
-        "marks": 1
-      },
-      {
-        "point": "Separates raw, cleaned, lookup and summary data",
-        "marks": 1
+        "point": "One row per tree; One variable per column with IDs/units; Separates raw, cleaned, lookup and summary data",
+        "marks": 0.5
       }
     ]
   },
@@ -689,7 +657,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A form accepts blank species, negative DBH and duplicate Tree_ID values. Analyse three failures and fixes.",
     "learningOutcome": "Analyse Unit IX data-quality and management scenarios.",
     "active": true,
@@ -697,23 +665,15 @@
     "rubric": [
       {
         "point": "Missing species: required controlled list",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Negative DBH: positive/range constraint",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Duplicate key: composite uniqueness rule",
-        "marks": 1
-      },
-      {
-        "point": "Explains prevention versus warning",
-        "marks": 1
-      },
-      {
-        "point": "Requires testing with boundary cases",
-        "marks": 1
+        "point": "Duplicate key: composite uniqueness rule; Explains prevention versus warning; Requires testing with boundary cases",
+        "marks": 0.5
       }
     ]
   },
@@ -725,7 +685,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A team keeps only a cleaned spreadsheet and overwrites it after each correction. Analyse the reliability problems.",
     "learningOutcome": "Analyse Unit IX data-quality and management scenarios.",
     "active": true,
@@ -733,23 +693,15 @@
     "rubric": [
       {
         "point": "Loss of raw evidence",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Loss of audit/reversal",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Raw plus working copy/change log",
-        "marks": 1
-      },
-      {
-        "point": "Versioned backup on different media/locations",
-        "marks": 1
-      },
-      {
-        "point": "Verify files and metadata",
-        "marks": 1
+        "point": "Raw plus working copy/change log; Versioned backup on different media/locations; Verify files and metadata",
+        "marks": 0.5
       }
     ]
   },
@@ -761,7 +713,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate the statement: “The receiver displays many decimal places, so the plot coordinate is highly accurate.”",
     "learningOutcome": "Evaluate Unit IX digital-data decisions.",
     "active": true,
@@ -769,23 +721,15 @@
     "rubric": [
       {
         "point": "Rejects decimal places as proof",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies signal/geometry/canopy errors",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies datum/setup/stabilisation issues",
-        "marks": 1
-      },
-      {
-        "point": "Requires accuracy metadata and conditions",
-        "marks": 1
-      },
-      {
-        "point": "Recommends repeat/checking without moving plot",
-        "marks": 1
+        "point": "Identifies datum/setup/stabilisation issues; Requires accuracy metadata and conditions; Recommends repeat/checking without moving plot",
+        "marks": 0.5
       }
     ]
   },
@@ -797,7 +741,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate using a spherical densiometer in place of the prescribed GRS crown densitometer for a Bhutan canopy-cover protocol.",
     "learningOutcome": "Evaluate Unit IX digital-data decisions.",
     "active": true,
@@ -805,23 +749,15 @@
     "rubric": [
       {
         "point": "Rejects unqualified interchangeability",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Recognises prescribed GRS protocol",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies different method/interpretation",
-        "marks": 1
-      },
-      {
-        "point": "Requires documentation/calibration",
-        "marks": 1
-      },
-      {
-        "point": "Recommends protocol compliance",
-        "marks": 1
+        "point": "Identifies different method/interpretation; Requires documentation/calibration; Recommends protocol compliance",
+        "marks": 0.5
       }
     ]
   },
@@ -833,7 +769,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate a proposal to automatically delete all values outside teaching thresholds such as DBH >200 cm or height >80 m.",
     "learningOutcome": "Evaluate Unit IX digital-data decisions.",
     "active": true,
@@ -841,23 +777,15 @@
     "rubric": [
       {
         "point": "Rejects automatic deletion",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Recognises thresholds as prompts not universal limits",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Requires source/unit/context checks",
-        "marks": 1
-      },
-      {
-        "point": "Retains valid extreme observations",
-        "marks": 1
-      },
-      {
-        "point": "Requires audit and unresolved-flag reporting",
-        "marks": 1
+        "point": "Requires source/unit/context checks; Retains valid extreme observations; Requires audit and unresolved-flag reporting",
+        "marks": 0.5
       }
     ]
   },
@@ -869,7 +797,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a mobile tree-measurement form for an inventory plot.",
     "learningOutcome": "Create a reproducible Unit IX data-management deliverable.",
     "active": true,
@@ -877,23 +805,19 @@
     "rubric": [
       {
         "point": "Entities and stable IDs",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Types, units and code lists",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Required/range/cross-field rules",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Uniqueness and skip logic",
-        "marks": 1
-      },
-      {
-        "point": "Offline testing/version/documentation",
-        "marks": 1
+        "point": "Uniqueness and skip logic; Offline testing/version/documentation",
+        "marks": 0.5
       }
     ]
   },
@@ -905,7 +829,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Create a GNSS plot-location protocol that supports later relocation.",
     "learningOutcome": "Create a reproducible Unit IX data-management deliverable.",
     "active": true,
@@ -913,23 +837,19 @@
     "rubric": [
       {
         "point": "Configuration",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Stabilisation and named waypoint",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Accuracy/observer/time metadata",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Map/repeat checks",
-        "marks": 1
-      },
-      {
-        "point": "No subjective plot relocation and preserved records",
-        "marks": 1
+        "point": "Map/repeat checks; No subjective plot relocation and preserved records",
+        "marks": 0.5
       }
     ]
   },
@@ -941,7 +861,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Create a reproducible spreadsheet data package for one tree inventory.",
     "learningOutcome": "Create a reproducible Unit IX data-management deliverable.",
     "active": true,
@@ -949,23 +869,19 @@
     "rubric": [
       {
         "point": "Raw and cleaned files",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Dictionary/lookups",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Formula summaries",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Change log/README",
-        "marks": 1
-      },
-      {
-        "point": "Verified backups/versioning",
-        "marks": 1
+        "point": "Change log/README; Verified backups/versioning",
+        "marks": 0.5
       }
     ]
   },
@@ -977,7 +893,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Develop an eleven-step quality workflow from raw file to defensible results.",
     "learningOutcome": "Create a reproducible Unit IX data-management deliverable.",
     "active": true,
@@ -985,23 +901,19 @@
     "rubric": [
       {
         "point": "Preserve raw/working copy",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "IDs/missing/impossible/duplicates",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and formulas",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Summaries and graphs",
-        "marks": 1
-      },
-      {
-        "point": "Change log/backup verification",
-        "marks": 1
+        "point": "Summaries and graphs; Change log/backup verification",
+        "marks": 0.5
       }
     ]
   },
@@ -1013,7 +925,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Prepare a graph and summary plan for DBH, height and species composition.",
     "learningOutcome": "Create a reproducible Unit IX data-management deliverable.",
     "active": true,
@@ -1021,23 +933,19 @@
     "rubric": [
       {
         "point": "Summary variables/groups",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Appropriate DBH histogram",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Appropriate species bar chart",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Height-DBH scatter with caution",
-        "marks": 1
-      },
-      {
-        "point": "Titles/axes/units/context",
-        "marks": 1
+        "point": "Height-DBH scatter with caution; Titles/axes/units/context",
+        "marks": 0.5
       }
     ]
   },
@@ -1049,7 +957,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Create a handover checklist for Practical 10 digital data collection and analysis.",
     "learningOutcome": "Create a reproducible Unit IX data-management deliverable.",
     "active": true,
@@ -1057,23 +965,19 @@
     "rubric": [
       {
         "point": "Raw/cleaned datasets",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Dictionary/change log",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Formula summaries/graphs",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Interpretation/flags",
-        "marks": 1
-      },
-      {
-        "point": "Backup/software note",
-        "marks": 1
+        "point": "Interpretation/flags; Backup/software note",
+        "marks": 0.5
       }
     ]
   }

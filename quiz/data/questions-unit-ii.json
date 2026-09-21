@@ -195,7 +195,7 @@
     "autoGraded": true,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Why is DBH measured at breast height rather than at the base of the stem?",
     "options": [
       "To avoid distortion from roots, buttressing and stem swelling",
@@ -216,7 +216,7 @@
     "autoGraded": true,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "What does 'over-bark' DBH mean?",
     "options": [
       "The diameter including the bark",
@@ -237,7 +237,7 @@
     "autoGraded": true,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "If a tree's stem is swollen (buttressed) at the 1.37 m position, the correct response is to measure ___",
     "options": [
       "at the base instead",
@@ -258,7 +258,7 @@
     "autoGraded": true,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Compared with a 10 cm tree, a 50 cm tree of the same species will generally have ___",
     "options": [
       "thinner bark",
@@ -279,7 +279,7 @@
     "autoGraded": true,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "The difference between a diameter tape and an ordinary cloth tape is that the diameter tape ___",
     "options": [
       "is longer",
@@ -300,17 +300,17 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain why DBH is measured at breast height rather than at the base of the stem.",
     "modelAnswer": "A fixed height standardises the measurement across trees and crews, and avoids the irregular stem shape near the ground (roots, buttressing, swelling).",
     "rubric": [
       {
         "point": "Standardisation across trees and crews",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Avoids roots / buttressing / stem swelling",
-        "marks": 1
+        "marks": 0.5
       }
     ],
     "explanation": "Both standardisation and stem irregularity are the two key reasons.",
@@ -325,17 +325,17 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain the difference between over-bark and under-bark diameter, and why the national protocol uses over-bark.",
     "modelAnswer": "Over-bark includes the bark; under-bark excludes it. Over-bark is standard because it is faster and avoids the error and labour of bark removal, and because all national data are comparable when measured the same way.",
     "rubric": [
       {
         "point": "Defines over-bark vs under-bark correctly",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Justifies over-bark (speed / error avoidance / comparability)",
-        "marks": 1
+        "marks": 0.5
       }
     ],
     "explanation": "The definition and the practical justification are both required.",
@@ -350,17 +350,17 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain why Bhutan records DBH at 1.37 m over bark on the uphill side.",
     "modelAnswer": "The defined reference makes readings repeatable across crews and slopes and prevents systematic differences in diameter and basal area.",
     "rubric": [
       {
         "point": "Repeatable height and uphill reference",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Consistent bark boundary prevents bias",
-        "marks": 1
+        "marks": 0.5
       }
     ],
     "learningOutcome": "Unit II uphill",
@@ -374,7 +374,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A tree's girth at 1.37 m is 106.8 cm. Calculate the DBH in cm.",
     "answer": 34,
     "tolerance": {
@@ -394,7 +394,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A tree's girth at breast height is 125.7 cm. What is the DBH in cm?",
     "answer": 40,
     "tolerance": {
@@ -414,7 +414,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A tree's DBH is 30 cm. What is its girth at breast height in cm?",
     "answer": 94.25,
     "tolerance": {
@@ -434,7 +434,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A tree's DBH is 40 cm. What is its girth in cm?",
     "answer": 125.66,
     "tolerance": {
@@ -454,7 +454,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A tree's DBH is 30 cm. Calculate its basal area in m².",
     "answer": 0.070686,
     "tolerance": {
@@ -474,7 +474,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A tree has a diameter over bark of 42.0 cm and a mean bark thickness of 1.5 cm. Calculate the diameter under bark (DUB) in cm.",
     "answer": 39,
     "tolerance": {
@@ -494,7 +494,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A tree's DBH is 20 cm. Calculate its basal area in cm².",
     "answer": 30.4,
     "tolerance": {
@@ -514,7 +514,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A tree has girth 94.2 cm and height 10 m. Using the quarter-girth formula V = (G/4)² × H with G in metres, estimate the volume in m³.",
     "answer": 30,
     "tolerance": {
@@ -534,29 +534,21 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A diameter tape gives 32.4 cm and callipers give 33.8 cm on the same tree. Analyse causes and investigation.",
     "modelAnswer": "Different axes or heights, caliper orientation, tape tension, rough bark and non-circular form may explain the difference. Recheck the marked height and calibrated instruments.",
     "rubric": [
       {
         "point": "Geometry/axis",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Tension/orientation",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Reference-height check",
-        "marks": 1
-      },
-      {
-        "point": "Calibrated repeat",
-        "marks": 1
-      },
-      {
-        "point": "Documented resolution",
-        "marks": 1
+        "point": "Reference-height check; Calibrated repeat; Documented resolution",
+        "marks": 0.5
       }
     ],
     "learningOutcome": "Unit II instrument",
@@ -570,29 +562,21 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A crew’s mean DBH is 2.1 cm above a calibrated re-measurement. Analyse two causes and corrections.",
     "modelAnswer": "A high-reading tape, rough bark, incorrect height or buttress inclusion may cause bias. Calibrate, re-mark 1.37 m uphill and keep the tape level and taut.",
     "rubric": [
       {
         "point": "High-reading/rough-bark cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Height/buttress cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calibration",
-        "marks": 1
-      },
-      {
-        "point": "Position/tension correction",
-        "marks": 1
-      },
-      {
-        "point": "Re-measurement record",
-        "marks": 1
+        "point": "Calibration; Position/tension correction; Re-measurement record",
+        "marks": 0.5
       }
     ],
     "learningOutcome": "Unit II bias",
@@ -606,29 +590,21 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A crew takes one bark reading and subtracts it twice. Analyse the weaknesses.",
     "modelAnswer": "Bark is non-uniform; four opposite readings on two perpendicular axes should be averaged, then DUB=DOB−2t.",
     "rubric": [
       {
         "point": "Non-uniform bark",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Opposite-axis readings",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Mean one-sided thickness",
-        "marks": 1
-      },
-      {
-        "point": "Correct 2t use",
-        "marks": 1
-      },
-      {
-        "point": "Bias risk",
-        "marks": 1
+        "point": "Mean one-sided thickness; Correct 2t use; Bias risk",
+        "marks": 0.5
       }
     ],
     "learningOutcome": "Unit II bark",
@@ -642,29 +618,21 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "On steep ground a crew holds the tape vertically instead of horizontally. Analyse effect and correction.",
     "modelAnswer": "A vertical tape does not measure horizontal circumference at the reference height. Use the uphill 1.37 m point, keep the tape level and taut, and repeat.",
     "rubric": [
       {
         "point": "Incorrect geometry",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Downstream bias",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Uphill reference",
-        "marks": 1
-      },
-      {
-        "point": "Level/tension",
-        "marks": 1
-      },
-      {
-        "point": "Repeat/check",
-        "marks": 1
+        "point": "Uphill reference; Level/tension; Repeat/check",
+        "marks": 0.5
       }
     ],
     "learningOutcome": "Unit II slope",
@@ -678,29 +646,21 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "One crew scatters ±0.4 cm; another is tightly clustered but all high. Analyse the error types.",
     "modelAnswer": "The first is random error; the second is precise but systematically biased. Repetition helps random error, but calibration is needed for the biased crew.",
     "rubric": [
       {
         "point": "Random error",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Systematic bias",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Repeat benefit",
-        "marks": 1
-      },
-      {
-        "point": "Precision is not accuracy",
-        "marks": 1
-      },
-      {
-        "point": "Calibrated choice",
-        "marks": 1
+        "point": "Repeat benefit; Precision is not accuracy; Calibrated choice",
+        "marks": 0.5
       }
     ],
     "learningOutcome": "Unit II errors",
@@ -714,29 +674,21 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate cloth tape plus D=G/π versus diameter tape for 2,000 rough-barked trees.",
     "modelAnswer": "Cloth tape can work but rough bark biases girth and conversion adds workload. Diameter tape is faster but assumes circularity and still needs calibration; choose based on accuracy and QC.",
     "rubric": [
       {
         "point": "Rough-bark bias",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Workload/conversion",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Circularity limitation",
-        "marks": 1
-      },
-      {
-        "point": "Calibration",
-        "marks": 1
-      },
-      {
-        "point": "Justified choice",
-        "marks": 1
+        "point": "Circularity limitation; Calibration; Justified choice",
+        "marks": 0.5
       }
     ],
     "learningOutcome": "Unit II choice",
@@ -750,29 +702,21 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate the claim that under-bark diameter is always more accurate for national inventory.",
     "modelAnswer": "The claim is false. Bhutan’s Second NFI specifies over-bark DBH at 1.37 m because it is practical and repeatable; under-bark adds sampling variation.",
     "rubric": [
       {
         "point": "Rejects claim",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Over-bark convention",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Repeatability",
-        "marks": 1
-      },
-      {
-        "point": "Added variation",
-        "marks": 1
-      },
-      {
-        "point": "Protocol basis",
-        "marks": 1
+        "point": "Repeatability; Added variation; Protocol basis",
+        "marks": 0.5
       }
     ],
     "learningOutcome": "Unit II boundary",
@@ -786,29 +730,21 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate: “A 1% DBH error is unimportant because basal area uses one measurement.”",
     "modelAnswer": "False: basal area uses D², so a 1% diameter error is approximately a 2% basal-area error and propagates downstream.",
     "rubric": [
       {
         "point": "Rejects claim",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "D² relationship",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Approx. 2% effect",
-        "marks": 1
-      },
-      {
-        "point": "Downstream impact",
-        "marks": 1
-      },
-      {
-        "point": "Calibration/checks",
-        "marks": 1
+        "point": "Approx. 2% effect; Downstream impact; Calibration/checks",
+        "marks": 0.5
       }
     ],
     "learningOutcome": "Unit II propagation",
@@ -822,29 +758,25 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Develop a five-step Bhutan DBH protocol using a diameter tape.",
     "modelAnswer": "Identify tree; mark 1.37 m uphill; clear bark and vines; hold a calibrated tape level and taut; record over-bark DBH, units and checks.",
     "rubric": [
       {
         "point": "Identifier",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "1.37 m uphill",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Preparation",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Level calibrated tape",
-        "marks": 1
-      },
-      {
-        "point": "Record/QC",
-        "marks": 1
+        "point": "Level calibrated tape; Record/QC",
+        "marks": 0.5
       }
     ],
     "learningOutcome": "Unit II protocol",
@@ -858,29 +790,25 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a bark-thickness and DUB conversion plan.",
     "modelAnswer": "Take four readings at opposite endpoints of two perpendicular axes, average one-sided thickness, apply DUB=DOB−2t and document units.",
     "rubric": [
       {
         "point": "Axes/readings",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Opposite points",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Mean t",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "DUB formula",
-        "marks": 1
-      },
-      {
-        "point": "Units/irregularity",
-        "marks": 1
+        "point": "DUB formula; Units/irregularity",
+        "marks": 0.5
       }
     ],
     "learningOutcome": "Unit II barkplan",
@@ -894,29 +822,25 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Create a comparison protocol for diameter tape, callipers and girth tape.",
     "modelAnswer": "Use common height and boundary, suitable geometry, repeated readings, calibrated reference and documented differences.",
     "rubric": [
       {
         "point": "Common height",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Correct geometry",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Repeats",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Reference",
-        "marks": 1
-      },
-      {
-        "point": "Documentation",
-        "marks": 1
+        "point": "Reference; Documentation",
+        "marks": 0.5
       }
     ],
     "learningOutcome": "Unit II compare",
@@ -930,29 +854,25 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Prepare a data plan supporting basal-area calculation.",
     "modelAnswer": "Record Plot_ID, Tree_ID, DBH_cm, height, boundary, instrument, observer and date; calculate g=0.00007854D² while preserving raw data.",
     "rubric": [
       {
         "point": "IDs",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Measurements",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Metadata",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Formula/units",
-        "marks": 1
-      },
-      {
-        "point": "Raw data",
-        "marks": 1
+        "point": "Formula/units; Raw data",
+        "marks": 0.5
       }
     ],
     "learningOutcome": "Unit II data",
@@ -966,29 +886,25 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Develop a QA checklist for diameter and bark measurements.",
     "modelAnswer": "Check calibration, height, level and boundary; remeasure a blind subset, compare tolerance and record action.",
     "rubric": [
       {
         "point": "Calibration",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Reference checks",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Blind subset",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Tolerance",
-        "marks": 1
-      },
-      {
-        "point": "Action log",
-        "marks": 1
+        "point": "Tolerance; Action log",
+        "marks": 0.5
       }
     ],
     "learningOutcome": "Unit II qa",
@@ -1002,29 +918,25 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Prepare a report template for a DBH and basal-area survey.",
     "modelAnswer": "State objective, inclusion rules, DBH convention, units, instruments and dates; report diameter distribution, stand basal area, checks and limitations.",
     "rubric": [
       {
         "point": "Objective/rules",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Convention/units",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Metadata",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Basal area",
-        "marks": 1
-      },
-      {
-        "point": "Limits",
-        "marks": 1
+        "point": "Basal area; Limits",
+        "marks": 0.5
       }
     ],
     "learningOutcome": "Unit II report",

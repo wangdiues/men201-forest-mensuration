@@ -9,7 +9,12 @@
     "difficulty": "Easy",
     "marks": 1,
     "question": "Remote sensing acquires information about a forest by measuring:",
-    "options": ["Energy or signals from a distance", "Only measurements taken at every tree", "Only soil samples", "Only written management plans"],
+    "options": [
+      "Energy or signals from a distance",
+      "Only measurements taken at every tree",
+      "Only soil samples",
+      "Only written management plans"
+    ],
     "answer": 0,
     "explanation": "Remote sensing measures reflected or emitted energy, or the return from an emitted signal, from a distance.",
     "learningOutcome": "Define remote sensing.",
@@ -40,7 +45,9 @@
     "difficulty": "Easy",
     "marks": 1,
     "question": "The four kinds of remote-sensing resolution are spatial, spectral, temporal and ___.",
-    "answer": ["radiometric"],
+    "answer": [
+      "radiometric"
+    ],
     "explanation": "Radiometric resolution describes sensitivity to differences in recorded energy; the other dimensions are spatial, spectral and temporal.",
     "learningOutcome": "Recall the four kinds of remote-sensing resolution.",
     "active": true
@@ -55,8 +62,17 @@
     "difficulty": "Easy",
     "marks": 1,
     "question": "Which features can contribute returns from a LiDAR pulse? Select all that apply.",
-    "options": ["Upper canopy", "Lower vegetation", "Ground", "Only the satellite cloud mask"],
-    "answer": [0, 1, 2],
+    "options": [
+      "Upper canopy",
+      "Lower vegetation",
+      "Ground",
+      "Only the satellite cloud mask"
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
     "explanation": "A pulse may interact with upper canopy, lower vegetation and ground; the return pattern depends on the sensor, footprint, canopy and viewing geometry.",
     "learningOutcome": "Recall possible LiDAR return sources.",
     "active": true
@@ -72,9 +88,18 @@
     "marks": 1,
     "question": "Match each UAV platform with its characteristic.",
     "pairs": [
-      { "left": "Multirotor", "right": "Vertical take-off, hovering and detailed small-site work" },
-      { "left": "Fixed-wing", "right": "Efficient coverage of larger areas but cannot hover" },
-      { "left": "Hybrid / specialised", "right": "Combines capabilities or carries specialised payloads" }
+      {
+        "left": "Multirotor",
+        "right": "Vertical take-off, hovering and detailed small-site work"
+      },
+      {
+        "left": "Fixed-wing",
+        "right": "Efficient coverage of larger areas but cannot hover"
+      },
+      {
+        "left": "Hybrid / specialised",
+        "right": "Combines capabilities or carries specialised payloads"
+      }
     ],
     "explanation": "Multirotors suit detailed small sites, fixed-wing aircraft cover larger areas efficiently, and hybrid or specialised platforms combine capabilities or carry specialised sensors.",
     "learningOutcome": "Recall the main UAV platform types.",
@@ -90,7 +115,12 @@
     "difficulty": "Easy",
     "marks": 1,
     "question": "What is an orthomosaic?",
-    "options": ["A geometrically corrected image mosaic intended for map-like viewing and measurement", "A list of tree species from a field plot", "A raw LiDAR return table", "A drone permit"],
+    "options": [
+      "A geometrically corrected image mosaic intended for map-like viewing and measurement",
+      "A list of tree species from a field plot",
+      "A raw LiDAR return table",
+      "A drone permit"
+    ],
     "answer": 0,
     "explanation": "An orthomosaic is a geometrically corrected mosaic intended for map-like viewing and measurement.",
     "learningOutcome": "Recall the meaning of orthomosaic.",
@@ -123,7 +153,10 @@
     "question": "Define independent validation data in a remote-sensing workflow.",
     "modelAnswer": "Independent validation data are separate reference observations used to test how well a finished map or model performs on data it did not fit.",
     "rubric": [
-      { "point": "Separate reference observations test a finished map or model on data not used for fitting", "marks": 1 }
+      {
+        "point": "Separate reference observations test a finished map or model on data not used for fitting",
+        "marks": 1
+      }
     ],
     "learningOutcome": "Define independent validation data.",
     "active": true
@@ -140,7 +173,10 @@
     "question": "What does CHM stand for in LiDAR-based forest mensuration?",
     "modelAnswer": "CHM stands for canopy-height model.",
     "rubric": [
-      { "point": "States canopy-height model", "marks": 1 }
+      {
+        "point": "States canopy-height model",
+        "marks": 1
+      }
     ],
     "learningOutcome": "Recall the meaning of CHM.",
     "active": true
@@ -157,7 +193,10 @@
     "question": "State one of the three criteria in the Bhutan forest definition given in the unit.",
     "modelAnswer": "A forest must span more than 0.5 ha, have trees exceeding 5 m in height, and have canopy cover of more than 10 per cent; any one of these criteria is acceptable.",
     "rubric": [
-      { "point": "States one correct criterion: area >0.5 ha, tree height >5 m, or canopy cover >10%", "marks": 1 }
+      {
+        "point": "States one correct criterion: area >0.5 ha, tree height >5 m, or canopy cover >10%",
+        "marks": 1
+      }
     ],
     "learningOutcome": "Recall a criterion used in the Bhutan forest definition.",
     "active": true
@@ -170,12 +209,18 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Differentiate passive and active remote sensing, giving one forest-mensuration example of each.",
     "modelAnswer": "Passive sensing measures naturally available reflected sunlight or emitted thermal energy, such as multispectral satellite imagery or RGB UAV imagery. Active sensing emits energy and measures the return, such as LiDAR or radar.",
     "rubric": [
-      { "point": "Passive measures naturally available reflected or emitted energy and gives a correct example", "marks": 1 },
-      { "point": "Active emits energy, measures its return and gives a correct example", "marks": 1 }
+      {
+        "point": "Passive measures naturally available reflected or emitted energy and gives a correct example",
+        "marks": 0.5
+      },
+      {
+        "point": "Active emits energy, measures its return and gives a correct example",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Explain passive and active sensing.",
     "active": true
@@ -188,12 +233,18 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain why high spatial resolution alone does not guarantee an accurate forest map.",
     "modelAnswer": "Fine pixels can show smaller features, but classification accuracy also depends on geometry, mixed pixels, the forest definition, reference data and independent validation.",
     "rubric": [
-      { "point": "Accuracy depends on more than pixel size, including classification, geometry or mixed pixels", "marks": 1 },
-      { "point": "Forest definition, reference data or validation also controls the result", "marks": 1 }
+      {
+        "point": "Accuracy depends on more than pixel size, including classification, geometry or mixed pixels",
+        "marks": 0.5
+      },
+      {
+        "point": "Forest definition, reference data or validation also controls the result",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Explain why spatial resolution is not the same as map accuracy.",
     "active": true
@@ -206,12 +257,18 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Describe two controls needed when comparing satellite images for forest change.",
     "modelAnswer": "Use comparable sensors and seasons, align the images geometrically, apply cloud and shadow masks, state a change threshold and investigate candidate change with field evidence.",
     "rubric": [
-      { "point": "Identifies comparable dates/seasons/sensors or geometric alignment", "marks": 1 },
-      { "point": "Identifies cloud/shadow masking, a stated threshold or field validation", "marks": 1 }
+      {
+        "point": "Identifies comparable dates/seasons/sensors or geometric alignment",
+        "marks": 0.5
+      },
+      {
+        "point": "Identifies cloud/shadow masking, a stated threshold or field validation",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Describe controls for satellite change detection.",
     "active": true
@@ -224,12 +281,18 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain why overlapping photographs and ground control are used in UAV photogrammetry.",
     "modelAnswer": "Overlap lets software match common features and reconstruct three-dimensional surfaces. Surveyed or known ground-control points help georeference the products and assess positional quality.",
     "rubric": [
-      { "point": "Overlap supports feature matching and 3D reconstruction", "marks": 1 },
-      { "point": "Ground control supports georeferencing and positional-quality assessment", "marks": 1 }
+      {
+        "point": "Overlap supports feature matching and 3D reconstruction",
+        "marks": 0.5
+      },
+      {
+        "point": "Ground control supports georeferencing and positional-quality assessment",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Explain the roles of image overlap and ground control.",
     "active": true
@@ -242,12 +305,18 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Compare airborne, terrestrial and mobile laser scanning in terms of viewpoint and typical strength.",
     "modelAnswer": "Airborne scanning views from above and supports broad canopy and terrain mapping. Terrestrial scanning views from fixed ground positions and captures detailed local stems and plot structure. Mobile scanning moves through a corridor or plot and rapidly captures local structure, but trajectory and changing viewpoint require careful processing.",
     "rubric": [
-      { "point": "Correctly compares airborne top-down broad-area and terrestrial ground-based detailed views", "marks": 1 },
-      { "point": "Correctly describes mobile moving capture and its positioning/viewpoint processing issue", "marks": 1 }
+      {
+        "point": "Correctly compares airborne top-down broad-area and terrestrial ground-based detailed views",
+        "marks": 0.5
+      },
+      {
+        "point": "Correctly describes mobile moving capture and its positioning/viewpoint processing issue",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Compare LiDAR platform viewpoints and uses.",
     "active": true
@@ -260,12 +329,18 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Explain the difference between training/reference data and independent validation data.",
     "modelAnswer": "Training or reference data help develop classification rules or models. Independent validation data are separate observations used after fitting to test performance on unseen cases.",
     "rubric": [
-      { "point": "Training/reference data develop the rules or model", "marks": 1 },
-      { "point": "Independent data test the finished result and were not used for fitting", "marks": 1 }
+      {
+        "point": "Training/reference data develop the rules or model",
+        "marks": 0.5
+      },
+      {
+        "point": "Independent data test the finished result and were not used for fitting",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Distinguish model development data from validation data.",
     "active": true
@@ -278,12 +353,18 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Describe two governance requirements for a forest database or cloud-based mensuration system.",
     "modelAnswer": "It should use roles and access control, versioning, validation, backup and controlled sharing; a cloud system should also plan for connectivity, cost, export and an exit strategy.",
     "rubric": [
-      { "point": "Identifies access control, roles, versioning or controlled sharing", "marks": 1 },
-      { "point": "Identifies validation, backup, connectivity, export, cost or exit planning", "marks": 1 }
+      {
+        "point": "Identifies access control, roles, versioning or controlled sharing",
+        "marks": 0.5
+      },
+      {
+        "point": "Identifies validation, backup, connectivity, export, cost or exit planning",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Describe governance requirements for digital forestry data.",
     "active": true
@@ -296,12 +377,18 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "Why must an AI result in forest mensuration be treated as a model result rather than unquestionable truth?",
     "modelAnswer": "Models can fail because of biased or small training data, sensor or season differences, location mismatch, data leakage and under-represented rare or inaccessible classes. Independent validation and transparent methods are therefore required.",
     "rubric": [
-      { "point": "Identifies a credible source of model failure or bias", "marks": 1 },
-      { "point": "States the need for independent validation or transparent methods", "marks": 1 }
+      {
+        "point": "Identifies a credible source of model failure or bias",
+        "marks": 0.5
+      },
+      {
+        "point": "States the need for independent validation or transparent methods",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Explain why AI outputs require critical review.",
     "active": true
@@ -314,10 +401,13 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A LiDAR pulse has a measured round-trip travel time of 20 ns. Using the speed of light as 3.0 × 10^8 m/s, calculate the sensor-to-return distance in metres to two decimal places.",
     "answer": 3,
-    "tolerance": { "mode": "absolute", "value": 0.01 },
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.01
+    },
     "units": "m",
     "explanation": "Distance = speed × round-trip time / 2 = (3.0 × 10^8 × 20 × 10^-9) / 2 = 3.00 m.",
     "learningOutcome": "Apply the LiDAR round-trip travel-time relationship.",
@@ -331,10 +421,13 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A UAV photogrammetric canopy surface is 31.6 m above the datum and the ground surface is 8.4 m above the datum. Calculate canopy height to one decimal place.",
     "answer": 23.2,
-    "tolerance": { "mode": "absolute", "value": 0.05 },
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.05
+    },
     "units": "m",
     "explanation": "Canopy height = canopy surface − ground surface = 31.6 − 8.4 = 23.2 m.",
     "learningOutcome": "Calculate canopy height from surface and ground elevations.",
@@ -348,10 +441,13 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A LiDAR cell has a canopy surface elevation of 46.8 m and a ground terrain elevation of 18.3 m. Calculate the CHM value to one decimal place.",
     "answer": 28.5,
-    "tolerance": { "mode": "absolute", "value": 0.05 },
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.05
+    },
     "units": "m",
     "explanation": "CHM = canopy surface model − ground terrain model = 46.8 − 18.3 = 28.5 m.",
     "learningOutcome": "Calculate a LiDAR canopy-height-model value.",
@@ -365,10 +461,13 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A satellite image has square pixels of 10 m by 10 m. Calculate the ground area represented by one pixel in square metres to the nearest whole number.",
     "answer": 100,
-    "tolerance": { "mode": "absolute", "value": 0.5 },
+    "tolerance": {
+      "mode": "absolute",
+      "value": 0.5
+    },
     "units": "m²",
     "explanation": "Pixel area = length × width = 10 × 10 = 100 m².",
     "learningOutcome": "Calculate the ground area of a square image pixel.",
@@ -382,14 +481,18 @@
     "autoGraded": false,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "For a small, steep forest site requiring a detailed orthomosaic and canopy-surface model, propose four important items to include in the UAV survey plan.",
     "modelAnswer": "The plan should define the output and area, select a suitable altitude and forward/side overlap, account for terrain and weather, arrange GNSS or ground control, and include safety, permissions, take-off/recovery and emergency procedures.",
     "rubric": [
-      { "point": "Defines area and required products or accuracy", "marks": 1 },
-      { "point": "Specifies altitude, overlap and terrain-following considerations", "marks": 1 },
-      { "point": "Plans ground control or suitable positioning", "marks": 1 },
-      { "point": "Includes weather, safety, legal permission and emergency controls", "marks": 1 }
+      {
+        "point": "Defines area and required products or accuracy",
+        "marks": 0.5
+      },
+      {
+        "point": "Specifies altitude, overlap and terrain-following considerations; Plans ground control or suitable positioning; Includes weather, safety, legal permission and emergency controls",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Apply UAV survey-planning principles to a forest site.",
     "active": true
@@ -402,14 +505,18 @@
     "autoGraded": false,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A team must validate a satellite forest/non-forest map for a mountainous Bhutanese study area. Describe a defensible validation approach.",
     "modelAnswer": "Use independent, geographically representative reference samples with compatible forest definitions and dates, accurate locations and adequate footprint matching. Use a probability-based design where area estimates are required, report class-specific errors and document sample size and uncertainty.",
     "rubric": [
-      { "point": "Uses independent samples rather than training data", "marks": 1 },
-      { "point": "Ensures geographic representativeness, compatible definitions/dates and accurate locations", "marks": 1 },
-      { "point": "Uses probability-based sampling when area estimates are required", "marks": 1 },
-      { "point": "Reports class-specific errors and sample-size/uncertainty information", "marks": 1 }
+      {
+        "point": "Uses independent samples rather than training data",
+        "marks": 0.5
+      },
+      {
+        "point": "Ensures geographic representativeness, compatible definitions/dates and accurate locations; Uses probability-based sampling when area estimates are required; Reports class-specific errors and sample-size/uncertainty information",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Apply independent map-validation principles.",
     "active": true
@@ -422,14 +529,18 @@
     "autoGraded": false,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A LiDAR project will predict biomass across mixed forest. State four field or data actions needed before accepting the prediction map.",
     "modelAnswer": "Collect field plots with biomass-related measurements and accurate locations, match the field and LiDAR dates and definitions, calibrate the relationship using suitable plots, and test the finished predictions with independent validation across relevant forest types and terrain.",
     "rubric": [
-      { "point": "Collects appropriate, accurately located field plot measurements", "marks": 1 },
-      { "point": "Checks matching dates, definitions and coordinate/footprint compatibility", "marks": 1 },
-      { "point": "Calibrates the model using suitable field data", "marks": 1 },
-      { "point": "Uses independent validation across relevant forest types or terrain", "marks": 1 }
+      {
+        "point": "Collects appropriate, accurately located field plot measurements",
+        "marks": 0.5
+      },
+      {
+        "point": "Checks matching dates, definitions and coordinate/footprint compatibility; Calibrates the model using suitable field data; Uses independent validation across relevant forest types or terrain",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Apply field-calibration and validation requirements to a biomass model.",
     "active": true
@@ -442,14 +553,18 @@
     "autoGraded": false,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A satellite classification labels a mixed pixel containing tree crown, soil and shadow as forest. Explain how you would assess whether that label is defensible.",
     "modelAnswer": "Check the forest definition and minimum mapping unit, inspect the pixel's component signals and image date, compare the classification with representative independent reference data, and report the class error or uncertainty rather than assuming that a green signal is forest.",
     "rubric": [
-      { "point": "Checks the stated forest definition and minimum mapping unit", "marks": 1 },
-      { "point": "Recognises the mixed crown, soil and shadow signals and checks date/conditions", "marks": 1 },
-      { "point": "Compares the label with geographically representative independent reference data", "marks": 1 },
-      { "point": "Reports classification error or uncertainty rather than accepting the label automatically", "marks": 1 }
+      {
+        "point": "Checks the stated forest definition and minimum mapping unit",
+        "marks": 0.5
+      },
+      {
+        "point": "Recognises the mixed crown, soil and shadow signals and checks date/conditions; Compares the label with geographically representative independent reference data; Reports classification error or uncertainty rather than accepting the label automatically",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Apply classification-review principles to a mixed satellite pixel.",
     "active": true
@@ -462,15 +577,22 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A 10 m satellite map shows apparent loss of narrow riparian forest on a steep slope. Analyse at least five reasons why the apparent loss may not be a real forest change and state how you would investigate it.",
     "modelAnswer": "Possible causes include mixed pixels containing soil, shadow or road; cloud or cloud-shadow contamination; terrain illumination and geometric displacement; seasonal or moisture differences; temporal mismatch; and a forest definition or minimum mapping unit that cannot represent narrow forest. Investigation should compare aligned, cloud-masked images from compatible seasons, inspect metadata and terrain effects, check the classification threshold and reference data, and verify candidate change with independent imagery or field evidence.",
     "rubric": [
-      { "point": "Analyses mixed pixels or minimum mapping-unit/scale effects", "marks": 1 },
-      { "point": "Analyses cloud, shadow, atmosphere or terrain illumination effects", "marks": 1 },
-      { "point": "Analyses geometric alignment/displacement or forest-definition issues", "marks": 1 },
-      { "point": "Analyses seasonal, moisture or field-image date mismatch", "marks": 1 },
-      { "point": "Proposes compatible-image checks and independent imagery or field validation", "marks": 1 }
+      {
+        "point": "Analyses mixed pixels or minimum mapping-unit/scale effects",
+        "marks": 0.5
+      },
+      {
+        "point": "Analyses cloud, shadow, atmosphere or terrain illumination effects",
+        "marks": 0.5
+      },
+      {
+        "point": "Analyses geometric alignment/displacement or forest-definition issues; Analyses seasonal, moisture or field-image date mismatch; Proposes compatible-image checks and independent imagery or field validation",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Analyse alternative explanations for apparent satellite-detected change.",
     "active": true
@@ -483,15 +605,22 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A UAV orthomosaic looks visually excellent, but the mapped crowns are shifted and the ground is hidden beneath dense canopy. Analyse the likely causes and their consequences for canopy-height and crown measurements.",
     "modelAnswer": "Poor positioning or insufficient ground control can create horizontal displacement and geometric error even when the mosaic looks attractive. Dense canopy, overlap, shadow and occlusion can prevent reliable ground reconstruction and crown separation. The resulting canopy surface may be misregistered or paired with an unsuitable ground surface, biasing canopy height; overlapping crowns may also be missed or merged. Metadata, control error, point cloud quality and independent plot checks should be inspected before using the products.",
     "rubric": [
-      { "point": "Identifies positioning, control or geometric error as a cause of crown shift", "marks": 1 },
-      { "point": "Identifies dense-canopy occlusion, overlap or shadow as a cause of missing ground/crown errors", "marks": 1 },
-      { "point": "Explains how an unsuitable or misregistered ground surface biases canopy height", "marks": 1 },
-      { "point": "Explains crown merging/missed crowns as a consequence for crown measurements", "marks": 1 },
-      { "point": "Recommends metadata/control/point-cloud inspection and independent field checks", "marks": 1 }
+      {
+        "point": "Identifies positioning, control or geometric error as a cause of crown shift",
+        "marks": 0.5
+      },
+      {
+        "point": "Identifies dense-canopy occlusion, overlap or shadow as a cause of missing ground/crown errors",
+        "marks": 0.5
+      },
+      {
+        "point": "Explains how an unsuitable or misregistered ground surface biases canopy height; Explains crown merging/missed crowns as a consequence for crown measurements; Recommends metadata/control/point-cloud inspection and independent field checks",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Analyse quality limitations in UAV forest products.",
     "active": true
@@ -504,15 +633,22 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A manager needs both a wall-to-wall canopy-height map and detailed stem structure in a steep mixed forest. Analyse which LiDAR viewpoints and supporting data should be combined, including their blind spots.",
     "modelAnswer": "Airborne laser scanning is suited to broad top-down coverage, canopy surface and terrain modelling, while terrestrial scanning provides detailed ground-based stem and plot structure. Mobile scanning can add rapid local or corridor coverage if its trajectory is controlled. Airborne data may miss understory and terrestrial data suffer occlusion behind stems; steep terrain affects ground classification and all platforms require positioning, processing and field calibration. Combining the viewpoints with field plots and independent validation provides complementary scale and structure.",
     "rubric": [
-      { "point": "Selects airborne LiDAR for wall-to-wall canopy and terrain coverage", "marks": 1 },
-      { "point": "Selects terrestrial or mobile scanning for detailed local stem structure", "marks": 1 },
-      { "point": "Identifies airborne understory and ground-based occlusion blind spots", "marks": 1 },
-      { "point": "Addresses steep terrain, positioning or processing effects", "marks": 1 },
-      { "point": "Links the combination to field calibration and independent validation", "marks": 1 }
+      {
+        "point": "Selects airborne LiDAR for wall-to-wall canopy and terrain coverage",
+        "marks": 0.5
+      },
+      {
+        "point": "Selects terrestrial or mobile scanning for detailed local stem structure",
+        "marks": 0.5
+      },
+      {
+        "point": "Identifies airborne understory and ground-based occlusion blind spots; Addresses steep terrain, positioning or processing effects; Links the combination to field calibration and independent validation",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Analyse complementary LiDAR viewpoints for a management question.",
     "active": true
@@ -525,15 +661,22 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "An AI disturbance classifier performs well on accessible training plots but poorly in remote high-elevation forest. Analyse five plausible reasons for this pattern and the evidence you would seek.",
     "modelAnswer": "Accessible plots may under-represent high-elevation terrain, rare disturbance classes and different forest conditions. Labels may be biased or poorly matched in location/date; sensor, season or illumination may differ; preprocessing or data leakage may inflate training performance; and the model may confuse terrain shadow or other signals with disturbance. Stratified independent validation, label and date checks, error matrices by forest type/elevation, metadata review and inspection of the preprocessing pipeline would reveal these problems.",
     "rubric": [
-      { "point": "Identifies biased or non-representative training/label data", "marks": 1 },
-      { "point": "Identifies under-represented rare classes, terrain or inaccessible areas", "marks": 1 },
-      { "point": "Identifies sensor, season, illumination or location/date mismatch", "marks": 1 },
-      { "point": "Identifies leakage, hidden preprocessing or terrain-shadow confusion", "marks": 1 },
-      { "point": "Proposes stratified independent validation and diagnostic error/metadata checks", "marks": 1 }
+      {
+        "point": "Identifies biased or non-representative training/label data",
+        "marks": 0.5
+      },
+      {
+        "point": "Identifies under-represented rare classes, terrain or inaccessible areas",
+        "marks": 0.5
+      },
+      {
+        "point": "Identifies sensor, season, illumination or location/date mismatch; Identifies leakage, hidden preprocessing or terrain-shadow confusion; Proposes stratified independent validation and diagnostic error/metadata checks",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Analyse why an AI model may fail outside its training domain.",
     "active": true
@@ -546,15 +689,22 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A student proposes an independent drone flight over a protected forest in Bhutan to collect imagery for a class project. Analyse the legal, safety and data-responsibility problems with the proposal.",
     "modelAnswer": "The current BCAA FAQ states that only government organisations for government purposes may operate drones under the cited regulation; students cannot plan an independent flight. An eligible operation requires registration, an Unmanned Aircraft Operation Permit, competent authorised crew and site-specific clearances such as DoFPS clearance for protected areas. The plan must also address people, wildlife, terrain, weather, lost-link actions and permit conditions, and minimise capture of people or sensitive sites while securing imagery, coordinates and credentials.",
     "rubric": [
-      { "point": "Recognises that an independent student operation is not eligible under the cited BCAA position", "marks": 1 },
-      { "point": "Identifies registration and Unmanned Aircraft Operation Permit requirements", "marks": 1 },
-      { "point": "Identifies competent crew and protected-area/site clearances", "marks": 1 },
-      { "point": "Analyses operational safety, wildlife, weather, terrain and emergency controls", "marks": 1 },
-      { "point": "Addresses privacy, sensitive-site, community-data and information-security responsibilities", "marks": 1 }
+      {
+        "point": "Recognises that an independent student operation is not eligible under the cited BCAA position",
+        "marks": 0.5
+      },
+      {
+        "point": "Identifies registration and Unmanned Aircraft Operation Permit requirements",
+        "marks": 0.5
+      },
+      {
+        "point": "Identifies competent crew and protected-area/site clearances; Analyses operational safety, wildlife, weather, terrain and emergency controls; Addresses privacy, sensitive-site, community-data and information-security responsibilities",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Analyse legal, safety and data responsibilities for UAV fieldwork in Bhutan.",
     "active": true
@@ -567,15 +717,22 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate a proposal to estimate current biomass for an entire mountainous forest using only a single optical satellite image and no field plots. Judge whether it is defensible and recommend a better design.",
     "modelAnswer": "The proposal is not defensible for a reliable biomass estimate. A single optical date is affected by cloud, shadow, terrain, season, mixed pixels and spectral similarity, and optical canopy signals do not directly reveal biomass. A better design would use representative field plots with accurate locations and compatible dates, satellite data selected for the scale and conditions, possibly LiDAR or other supporting data, a calibrated model, independent validation across forest types and terrain, and documented uncertainty.",
     "rubric": [
-      { "point": "Judges the single-image/no-field-plot proposal as inadequate for defensible biomass estimation", "marks": 1 },
-      { "point": "Evaluates relevant optical, cloud, terrain, seasonal, mixed-pixel or inference limitations", "marks": 1 },
-      { "point": "Recommends representative, accurately located field plots with compatible definitions/dates", "marks": 1 },
-      { "point": "Recommends calibrated remote-data modelling and/or suitable complementary data", "marks": 1 },
-      { "point": "Requires independent validation and uncertainty reporting", "marks": 1 }
+      {
+        "point": "Judges the single-image/no-field-plot proposal as inadequate for defensible biomass estimation",
+        "marks": 0.5
+      },
+      {
+        "point": "Evaluates relevant optical, cloud, terrain, seasonal, mixed-pixel or inference limitations",
+        "marks": 0.5
+      },
+      {
+        "point": "Recommends representative, accurately located field plots with compatible definitions/dates; Recommends calibrated remote-data modelling and/or suitable complementary data; Requires independent validation and uncertainty reporting",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Evaluate whether a remote-sensing biomass proposal is defensible.",
     "active": true
@@ -588,15 +745,22 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate a project plan that stores only final LiDAR canopy-height maps and deletes raw point clouds, processing settings and coordinate-system information to save storage.",
     "modelAnswer": "The plan is unacceptable because LiDAR outputs depend on noise removal, alignment, ground classification, gridding and tree-detection choices. Without raw data and settings the result cannot be reproduced, audited or reprocessed when errors are found. The project should retain raw and processed data with backups, metadata, coordinate system, software/version, processing parameters, quality metrics, identifiers and documented validation, using controlled storage and an appropriate archive or export plan.",
     "rubric": [
-      { "point": "Rejects deletion as a reproducibility and auditability risk", "marks": 1 },
-      { "point": "Explains that processing choices materially affect LiDAR outputs", "marks": 1 },
-      { "point": "Requires retention of raw data, metadata, CRS and processing settings/version", "marks": 1 },
-      { "point": "Requires backups, quality metrics and validation records", "marks": 1 },
-      { "point": "Proposes controlled, cost-aware archiving rather than untracked deletion", "marks": 1 }
+      {
+        "point": "Rejects deletion as a reproducibility and auditability risk",
+        "marks": 0.5
+      },
+      {
+        "point": "Explains that processing choices materially affect LiDAR outputs",
+        "marks": 0.5
+      },
+      {
+        "point": "Requires retention of raw data, metadata, CRS and processing settings/version; Requires backups, quality metrics and validation records; Proposes controlled, cost-aware archiving rather than untracked deletion",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Evaluate LiDAR data-retention and reproducibility decisions.",
     "active": true
@@ -609,15 +773,22 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate the claim that an integrated GIS dashboard is reliable because its field plots, satellite images and LiDAR layers line up visually. State the evidence needed before using it for management.",
     "modelAnswer": "Visual overlap is insufficient evidence. The layers must share compatible coordinate systems, identifiers, dates, definitions, spatial footprints and metadata. Field measurements should be quality checked, remote products should have documented processing and accuracy, and model outputs should be independently validated with uncertainty reported. Governance must also control versions, access, backup and sharing before management use.",
     "rubric": [
-      { "point": "Rejects visual alignment as sufficient evidence of analytical compatibility", "marks": 1 },
-      { "point": "Requires compatible CRS, identifiers, dates, definitions and footprints/metadata", "marks": 1 },
-      { "point": "Requires field and remote-product quality/processing documentation", "marks": 1 },
-      { "point": "Requires independent validation and uncertainty reporting", "marks": 1 },
-      { "point": "Requires governance such as versioning, access control, backup and controlled sharing", "marks": 1 }
+      {
+        "point": "Rejects visual alignment as sufficient evidence of analytical compatibility",
+        "marks": 0.5
+      },
+      {
+        "point": "Requires compatible CRS, identifiers, dates, definitions and footprints/metadata",
+        "marks": 0.5
+      },
+      {
+        "point": "Requires field and remote-product quality/processing documentation; Requires independent validation and uncertainty reporting; Requires governance such as versioning, access control, backup and controlled sharing",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Evaluate evidence for reliability of an integrated forestry information system.",
     "active": true
@@ -630,15 +801,26 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a five-year monitoring system for a steep mixed forest with recent wind damage. Include methods, field evidence, outputs and validation.",
     "modelAnswer": "Use compatible satellite observations for repeated landscape change screening, GNSS-located field plots for current volume, biomass and damage calibration, and permitted UAV or LiDAR surveys where local canopy structure requires finer detail. Define forest types and damage classes, standardise dates and coordinate systems, archive raw and cleaned data, and revisit representative plots on a five-year schedule. Validate mapped damage and modelled attributes independently and report uncertainty and limitations.",
     "rubric": [
-      { "point": "Defines objectives, forest strata/classes and a repeatable five-year schedule", "marks": 1 },
-      { "point": "Combines satellite monitoring with GNSS-located field plots and suitable UAV/LiDAR detail", "marks": 1 },
-      { "point": "Specifies compatible dates, CRS, identifiers, variables and data archiving", "marks": 1 },
-      { "point": "Includes calibration and independent validation across relevant terrain/types", "marks": 1 },
-      { "point": "Plans outputs, uncertainty, limitations and field follow-up of candidate change", "marks": 1 }
+      {
+        "point": "Defines objectives, forest strata/classes and a repeatable five-year schedule",
+        "marks": 0.5
+      },
+      {
+        "point": "Combines satellite monitoring with GNSS-located field plots and suitable UAV/LiDAR detail",
+        "marks": 0.5
+      },
+      {
+        "point": "Specifies compatible dates, CRS, identifiers, variables and data archiving",
+        "marks": 0.5
+      },
+      {
+        "point": "Includes calibration and independent validation across relevant terrain/types; Plans outputs, uncertainty, limitations and field follow-up of candidate change",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Design an integrated multi-year forest monitoring system.",
     "active": true
@@ -651,15 +833,26 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Prepare a field-to-product protocol for a permitted UAV survey intended to map canopy gaps and estimate canopy height at a restoration site.",
     "modelAnswer": "The protocol should state the objective, boundary, required accuracy and products; select a suitable platform, altitude, overlap and terrain/weather limits; establish surveyed ground control and GNSS records; acquire overlapping images with flight logs; process an orthomosaic, canopy surface and suitable ground surface; check control error and compare canopy and gap products with field plots; then archive raw imagery, outputs, metadata, settings and validation results.",
     "rubric": [
-      { "point": "Defines objective, area, accuracy and required orthomosaic/gap/height products", "marks": 1 },
-      { "point": "Defines platform, altitude, overlap, terrain, weather, safety and permit controls", "marks": 1 },
-      { "point": "Includes surveyed ground control, GNSS records, image acquisition and flight logs", "marks": 1 },
-      { "point": "Defines processing from images to orthomosaic, surfaces, CHM and gap map", "marks": 1 },
-      { "point": "Includes field validation, quality checks and complete data archiving", "marks": 1 }
+      {
+        "point": "Defines objective, area, accuracy and required orthomosaic/gap/height products",
+        "marks": 0.5
+      },
+      {
+        "point": "Defines platform, altitude, overlap, terrain, weather, safety and permit controls",
+        "marks": 0.5
+      },
+      {
+        "point": "Includes surveyed ground control, GNSS records, image acquisition and flight logs",
+        "marks": 0.5
+      },
+      {
+        "point": "Defines processing from images to orthomosaic, surfaces, CHM and gap map; Includes field validation, quality checks and complete data archiving",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Create a UAV forest-mensuration acquisition and processing protocol.",
     "active": true
@@ -672,15 +865,26 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Develop a responsible AI workflow to prioritise field visits for suspected forest disturbance using satellite data and field observations.",
     "modelAnswer": "Define the disturbance classes and decision purpose, assemble geographically representative and accurately dated field labels, document preprocessing and train a transparent model. Test it with independent samples across terrain, forest types and seasons; report class-specific errors and uncertainty; set transparent prioritisation rules rather than treating predictions as facts. Protect community and location data, record versions and decisions, and use field visits to confirm or reject candidates and update the workflow.",
     "rubric": [
-      { "point": "Defines classes, objective, data sources and representative dated labels", "marks": 1 },
-      { "point": "Documents preprocessing and uses a transparent, reproducible model", "marks": 1 },
-      { "point": "Uses independent cross-condition validation with errors and uncertainty", "marks": 1 },
-      { "point": "Sets transparent prioritisation rules and keeps human field judgement", "marks": 1 },
-      { "point": "Protects sensitive data and records versions, decisions and feedback", "marks": 1 }
+      {
+        "point": "Defines classes, objective, data sources and representative dated labels",
+        "marks": 0.5
+      },
+      {
+        "point": "Documents preprocessing and uses a transparent, reproducible model",
+        "marks": 0.5
+      },
+      {
+        "point": "Uses independent cross-condition validation with errors and uncertainty",
+        "marks": 0.5
+      },
+      {
+        "point": "Sets transparent prioritisation rules and keeps human field judgement; Protects sensitive data and records versions, decisions and feedback",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Create a responsible AI-assisted disturbance-monitoring workflow.",
     "active": true
@@ -693,15 +897,26 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Create a data-management plan for Practical 13 from field plot collection through a technical inventory report.",
     "modelAnswer": "Create shared plot and tree identifiers, a variable dictionary with units and inclusion rules, standard field forms and quality checks, and records for GNSS coordinate system and accuracy. Preserve raw and cleaned tables with a change log and backups; calculate trees per hectare, mean diameter and height, basal area, volume, biomass and carbon as appropriate; map plots, document uncertainty and limitations, and report methods, QA, results, interpretation and recommendations.",
     "rubric": [
-      { "point": "Defines identifiers, variable dictionary, units, inclusion rules and field forms", "marks": 1 },
-      { "point": "Includes coordinate/accuracy records, validation checks and a field QA process", "marks": 1 },
-      { "point": "Preserves raw/cleaned data, change log, backups and appropriate access controls", "marks": 1 },
-      { "point": "Plans required calculations, summary tables, graphs and plot-location map", "marks": 1 },
-      { "point": "Uses the technical-report structure and communicates uncertainty, limitations and recommendations", "marks": 1 }
+      {
+        "point": "Defines identifiers, variable dictionary, units, inclusion rules and field forms",
+        "marks": 0.5
+      },
+      {
+        "point": "Includes coordinate/accuracy records, validation checks and a field QA process",
+        "marks": 0.5
+      },
+      {
+        "point": "Preserves raw/cleaned data, change log, backups and appropriate access controls",
+        "marks": 0.5
+      },
+      {
+        "point": "Plans required calculations, summary tables, graphs and plot-location map; Uses the technical-report structure and communicates uncertainty, limitations and recommendations",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Create a reproducible data and reporting plan for an integrated inventory.",
     "active": true
@@ -714,15 +929,26 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Prepare a technology-selection matrix for a manager who needs forest cover mapping, a local wind-damage map, terrain and canopy structure, and current field-calibrated biomass. Justify the method combination.",
     "modelAnswer": "Use satellite imagery for repeat, broad forest-cover and change screening; use permitted UAV imagery for detailed local wind-damage and crown mapping; use airborne or terrestrial LiDAR as appropriate for terrain and three-dimensional canopy structure; use GNSS-located field plots with diameter, height and other measurements to calibrate and validate biomass models. Link all products through compatible dates, definitions, CRS and identifiers, and report each method's scale, limitations and uncertainty.",
     "rubric": [
-      { "point": "Assigns satellite data to broad forest-cover/repeat change mapping", "marks": 1 },
-      { "point": "Assigns permitted UAV data to local detailed damage/crown mapping", "marks": 1 },
-      { "point": "Assigns appropriate LiDAR viewpoint to terrain and canopy structure", "marks": 1 },
-      { "point": "Assigns GNSS-located field plots to biomass calibration and validation", "marks": 1 },
-      { "point": "Defines integration standards and communicates scale, limitations and uncertainty", "marks": 1 }
+      {
+        "point": "Assigns satellite data to broad forest-cover/repeat change mapping",
+        "marks": 0.5
+      },
+      {
+        "point": "Assigns permitted UAV data to local detailed damage/crown mapping",
+        "marks": 0.5
+      },
+      {
+        "point": "Assigns appropriate LiDAR viewpoint to terrain and canopy structure",
+        "marks": 0.5
+      },
+      {
+        "point": "Assigns GNSS-located field plots to biomass calibration and validation; Defines integration standards and communicates scale, limitations and uncertainty",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Create a defensible technology plan matched to forest questions and scales.",
     "active": true
@@ -735,15 +961,26 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a reproducible LiDAR processing and reporting checklist for a forest inventory project.",
     "modelAnswer": "Record the sensor and platform, acquisition date, positioning and coordinate system; preserve raw point clouds and metadata; document noise removal, alignment, ground classification, gridding and tree-detection settings; produce terrain, canopy-surface and CHM outputs with quality metrics; calibrate and independently validate forest attributes with field data; and archive software versions, scripts, backups and limitations.",
     "rubric": [
-      { "point": "Records acquisition, platform, positioning, date and coordinate system", "marks": 1 },
-      { "point": "Preserves raw point clouds and complete metadata", "marks": 1 },
-      { "point": "Documents processing steps, parameters, software/version and quality metrics", "marks": 1 },
-      { "point": "Includes terrain, canopy-surface/CHM products and field calibration/independent validation", "marks": 1 },
-      { "point": "Provides backups, reproducible archive and documented limitations", "marks": 1 }
+      {
+        "point": "Records acquisition, platform, positioning, date and coordinate system",
+        "marks": 0.5
+      },
+      {
+        "point": "Preserves raw point clouds and complete metadata",
+        "marks": 0.5
+      },
+      {
+        "point": "Documents processing steps, parameters, software/version and quality metrics",
+        "marks": 0.5
+      },
+      {
+        "point": "Includes terrain, canopy-surface/CHM products and field calibration/independent validation; Provides backups, reproducible archive and documented limitations",
+        "marks": 0.5
+      }
     ],
     "learningOutcome": "Create a reproducible LiDAR processing checklist.",
     "active": true

@@ -208,7 +208,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In tree age and growth measurement, explain why a written protocol is needed.",
     "learningOutcome": "Understand tree age and growth.",
     "active": true,
@@ -216,11 +216,11 @@
     "rubric": [
       {
         "point": "Correctly addresses explain why a written protocol is needed.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -232,7 +232,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In tree age and growth measurement, describe the role of units.",
     "learningOutcome": "Understand tree age and growth.",
     "active": true,
@@ -240,11 +240,11 @@
     "rubric": [
       {
         "point": "Correctly addresses describe the role of units.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -256,7 +256,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In tree age and growth measurement, differentiate accuracy and precision.",
     "learningOutcome": "Understand tree age and growth.",
     "active": true,
@@ -264,11 +264,11 @@
     "rubric": [
       {
         "point": "Correctly addresses differentiate accuracy and precision.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -280,7 +280,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In tree age and growth measurement, explain why repeats may be useful.",
     "learningOutcome": "Understand tree age and growth.",
     "active": true,
@@ -288,11 +288,11 @@
     "rubric": [
       {
         "point": "Correctly addresses explain why repeats may be useful.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -304,7 +304,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In tree age and growth measurement, describe one source of error.",
     "learningOutcome": "Understand tree age and growth.",
     "active": true,
@@ -312,11 +312,11 @@
     "rubric": [
       {
         "point": "Correctly addresses describe one source of error.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -328,7 +328,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In tree age and growth measurement, explain the management use.",
     "learningOutcome": "Understand tree age and growth.",
     "active": true,
@@ -336,11 +336,11 @@
     "rubric": [
       {
         "point": "Correctly addresses explain the management use.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -352,7 +352,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In tree age and growth measurement, describe a quality check.",
     "learningOutcome": "Understand tree age and growth.",
     "active": true,
@@ -360,11 +360,11 @@
     "rubric": [
       {
         "point": "Correctly addresses describe a quality check.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -376,7 +376,7 @@
     "autoGraded": false,
     "bloomLevel": "Understand",
     "difficulty": "Easy",
-    "marks": 2,
+    "marks": 1,
     "question": "In tree age and growth measurement, explain why assumptions are reported.",
     "learningOutcome": "Understand tree age and growth.",
     "active": true,
@@ -384,11 +384,11 @@
     "rubric": [
       {
         "point": "Correctly addresses explain why assumptions are reported.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 1
+        "marks": 0.5
       }
     ]
   },
@@ -400,7 +400,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A conifer has 12 visible whorls and an estimated 3 years of growth below the first whorl. Calculate age (years).",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -420,7 +420,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "An increment core at breast height has 28 annual rings; add 3 years to reach breast height. Calculate total age (years).",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -440,7 +440,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A tree's DBH increases from 20 cm to 30 cm in 5 years. Calculate periodic annual diameter increment (cm/year).",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -460,7 +460,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Tree volume increases from 0.40 to 0.70 m³ over 6 years. Calculate periodic annual volume increment (m³/year).",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -480,7 +480,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "A 20-year-old tree has a volume of 0.60 m³. Calculate mean annual increment (m³/year).",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -500,7 +500,7 @@
     "autoGraded": true,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Mean ring width is 3 mm/year. Assuming equal radial growth, calculate diameter increment (cm/year).",
     "learningOutcome": "Apply a unit calculation.",
     "active": true,
@@ -520,7 +520,7 @@
     "autoGraded": false,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Apply a tree age and growth measurement method to a field situation and state the quality checks.",
     "learningOutcome": "Understand tree age and growth.",
     "active": true,
@@ -528,11 +528,11 @@
     "rubric": [
       {
         "point": "Correctly addresses apply the method to a field situation and state checks.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 3
+        "marks": 0.5
       }
     ]
   },
@@ -544,7 +544,7 @@
     "autoGraded": false,
     "bloomLevel": "Apply",
     "difficulty": "Medium",
-    "marks": 4,
+    "marks": 1,
     "question": "Calculate a tree age and growth measurement result and explain one assumption.",
     "learningOutcome": "Understand tree age and growth.",
     "active": true,
@@ -552,11 +552,11 @@
     "rubric": [
       {
         "point": "Correctly addresses calculate a result and explain one assumption.",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Gives a relevant explanation or check",
-        "marks": 3
+        "marks": 0.5
       }
     ]
   },
@@ -568,7 +568,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Two increment cores from the same tree give different ring counts. Analyse biological and sampling causes.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
@@ -576,23 +576,15 @@
     "rubric": [
       {
         "point": "Identifies method or instrument cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies units or geometry cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies observer or recording cause",
-        "marks": 1
-      },
-      {
-        "point": "Proposes evidence-based check",
-        "marks": 1
-      },
-      {
-        "point": "Documents conclusion and limitation",
-        "marks": 1
+        "point": "Identifies observer or recording cause; Proposes evidence-based check; Documents conclusion and limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -604,7 +596,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "A ring-width series shows an abrupt narrow period followed by recovery. Analyse plausible causes and evidence needed.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
@@ -612,23 +604,15 @@
     "rubric": [
       {
         "point": "Identifies method or instrument cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies units or geometry cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies observer or recording cause",
-        "marks": 1
-      },
-      {
-        "point": "Proposes evidence-based check",
-        "marks": 1
-      },
-      {
-        "point": "Documents conclusion and limitation",
-        "marks": 1
+        "point": "Identifies observer or recording cause; Proposes evidence-based check; Documents conclusion and limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -640,7 +624,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Whorl count and increment-core age disagree for a conifer. Analyse the assumptions behind each estimate.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
@@ -648,23 +632,15 @@
     "rubric": [
       {
         "point": "Identifies method or instrument cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies units or geometry cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies observer or recording cause",
-        "marks": 1
-      },
-      {
-        "point": "Proposes evidence-based check",
-        "marks": 1
-      },
-      {
-        "point": "Documents conclusion and limitation",
-        "marks": 1
+        "point": "Identifies observer or recording cause; Proposes evidence-based check; Documents conclusion and limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -676,7 +652,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Current annual increment rises while mean annual increment is still lower. Analyse the stand's growth stage.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
@@ -684,23 +660,15 @@
     "rubric": [
       {
         "point": "Identifies method or instrument cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies units or geometry cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies observer or recording cause",
-        "marks": 1
-      },
-      {
-        "point": "Proposes evidence-based check",
-        "marks": 1
-      },
-      {
-        "point": "Documents conclusion and limitation",
-        "marks": 1
+        "point": "Identifies observer or recording cause; Proposes evidence-based check; Documents conclusion and limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -712,7 +680,7 @@
     "autoGraded": false,
     "bloomLevel": "Analyze",
     "difficulty": "Medium",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Repeated DBH measurements imply implausibly negative growth. Analyse the field records.",
     "learningOutcome": "Analyse measurement variation.",
     "active": true,
@@ -720,23 +688,15 @@
     "rubric": [
       {
         "point": "Identifies method or instrument cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Identifies units or geometry cause",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Identifies observer or recording cause",
-        "marks": 1
-      },
-      {
-        "point": "Proposes evidence-based check",
-        "marks": 1
-      },
-      {
-        "point": "Documents conclusion and limitation",
-        "marks": 1
+        "point": "Identifies observer or recording cause; Proposes evidence-based check; Documents conclusion and limitation",
+        "marks": 0.5
       }
     ]
   },
@@ -748,7 +708,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate estimating the age of a broadleaved tree solely from whorl count.",
     "learningOutcome": "Evaluate reporting.",
     "active": true,
@@ -756,23 +716,15 @@
     "rubric": [
       {
         "point": "Rejects unsupported report",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Requires method",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Requires units and assumptions",
-        "marks": 1
-      },
-      {
-        "point": "Requires uncertainty",
-        "marks": 1
-      },
-      {
-        "point": "Justifies reporting decision",
-        "marks": 1
+        "point": "Requires units and assumptions; Requires uncertainty; Justifies reporting decision",
+        "marks": 0.5
       }
     ]
   },
@@ -784,7 +736,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate accepting one off-centre increment core without a pith correction as total tree age.",
     "learningOutcome": "Evaluate reporting.",
     "active": true,
@@ -792,23 +744,15 @@
     "rubric": [
       {
         "point": "Rejects unsupported report",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Requires method",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Requires units and assumptions",
-        "marks": 1
-      },
-      {
-        "point": "Requires uncertainty",
-        "marks": 1
-      },
-      {
-        "point": "Justifies reporting decision",
-        "marks": 1
+        "point": "Requires units and assumptions; Requires uncertainty; Justifies reporting decision",
+        "marks": 0.5
       }
     ]
   },
@@ -820,7 +764,7 @@
     "autoGraded": false,
     "bloomLevel": "Evaluate",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 1.5,
     "question": "Evaluate projecting the most recent five-year volume increment unchanged for the next 30 years.",
     "learningOutcome": "Evaluate reporting.",
     "active": true,
@@ -828,23 +772,15 @@
     "rubric": [
       {
         "point": "Rejects unsupported report",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Requires method",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Requires units and assumptions",
-        "marks": 1
-      },
-      {
-        "point": "Requires uncertainty",
-        "marks": 1
-      },
-      {
-        "point": "Justifies reporting decision",
-        "marks": 1
+        "point": "Requires units and assumptions; Requires uncertainty; Justifies reporting decision",
+        "marks": 0.5
       }
     ]
   },
@@ -856,7 +792,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design an increment-coring protocol for estimating tree age.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -864,23 +800,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   },
@@ -892,7 +824,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a permanent-plot protocol for measuring diameter growth.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -900,23 +832,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   },
@@ -928,7 +856,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a cross-dating quality-control procedure for difficult ring series.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -936,23 +864,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   },
@@ -964,7 +888,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a study to estimate the culmination of mean annual volume increment.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -972,23 +896,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   },
@@ -1000,7 +920,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design a method comparison between whorl count and increment coring in young conifers.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -1008,23 +928,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   },
@@ -1036,7 +952,7 @@
     "autoGraded": false,
     "bloomLevel": "Create",
     "difficulty": "Hard",
-    "marks": 5,
+    "marks": 2,
     "question": "Design an age-and-growth report suitable for a management decision.",
     "learningOutcome": "Create a measurement plan.",
     "active": true,
@@ -1044,23 +960,19 @@
     "rubric": [
       {
         "point": "Objective and variables",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Protocol and equipment",
-        "marks": 1
+        "marks": 0.5
       },
       {
         "point": "Units and data recording",
-        "marks": 1
+        "marks": 0.5
       },
       {
-        "point": "Calculation and quality checks",
-        "marks": 1
-      },
-      {
-        "point": "Uncertainty and interpretation",
-        "marks": 1
+        "point": "Calculation and quality checks; Uncertainty and interpretation",
+        "marks": 0.5
       }
     ]
   }

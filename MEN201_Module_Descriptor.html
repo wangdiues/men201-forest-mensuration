@@ -402,6 +402,25 @@ table.dt tr.hi td{background:var(--vermilion-wash)}
 .hud .fsbtn svg{flex:none}
 .hud .fsbtn[aria-pressed="true"]{color:#f2efe6}
 html.no-fullscreen .hud .hudsep,html.no-fullscreen .hud .fsbtn{display:none}
+/* Phones: the bar stays on one line — icon-only full screen, no Esc key
+   badge (there is no Esc on a phone), tighter type — and in portrait a hint
+   that a 16:9 slide is meant to be read sideways. */
+@media (max-width:760px),(max-height:520px){
+  .hud{right:8px;bottom:8px;gap:8px;padding:6px 10px;font-size:11px;letter-spacing:.08em;white-space:nowrap;max-width:calc(100vw - 16px)}
+  .hud > span:not(.hudsep){white-space:nowrap}
+  .hud .fsbtn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .hud .tocback{padding:4px 6px;gap:6px}
+  .hud .tocback kbd{display:none}
+  .editbtn{display:none}
+}
+.rotate-hint{display:none;position:fixed;left:50%;top:10px;transform:translateX(-50%);z-index:70;
+  align-items:center;gap:10px;max-width:calc(100vw - 20px);
+  font:500 11px/1.35 var(--mono);letter-spacing:.06em;color:#f2efe6;
+  background:rgba(10,14,11,.78);border:1px solid rgba(255,255,255,.14);border-radius:100px;
+  padding:8px 14px;backdrop-filter:blur(6px);cursor:pointer}
+.rotate-hint svg{flex:none}
+@media (max-width:760px) and (orientation:portrait){.rotate-hint{display:flex}}
+html.no-fullscreen .rotate-hint b{display:none}
 .editbtn{position:fixed;left:clamp(12px,1.6vw,26px);top:clamp(12px,1.6vw,26px);z-index:60;
   font:500 clamp(10px,.95vw,12px)/1 var(--mono);letter-spacing:.16em;color:#8e9a90;
   background:rgba(10,14,11,.6);border:1px solid rgba(255,255,255,.1);
@@ -1844,6 +1863,10 @@ ul.reading-list li{margin-bottom:0 !important}
 </div><!-- /.stage -->
 </div><!-- /.deck-viewport -->
 
+<button class="rotate-hint" id="rotate-hint" type="button" title="Full screen (F)">
+  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4.5" width="12" height="7" rx="1.2"/><path d="M8 1.5v1.5M8 13v1.5"/></svg>
+  <span>Turn your phone sideways to read the slides<b> · or tap for full screen</b></span>
+</button>
 <div class="hud">
   <button id="prev" title="Previous (&larr;)">&lsaquo;</button>
   <span><b id="cur">1</b> / <span id="tot">28</span></span>
@@ -1941,6 +1964,14 @@ ul.reading-list li{margin-bottom:0 !important}
     fsbtn.title = on ? 'Exit full screen (F)' : 'Full screen (F)';
   }
   fsbtn.addEventListener('click', toggleFullscreen);
+  document.getElementById('rotate-hint').addEventListener('click', toggleFullscreen);
+  // A phone that goes full screen also turns the deck landscape, where the
+  // browser allows it (Android Chrome); elsewhere the request is ignored.
+  document.addEventListener('fullscreenchange', () => {
+    if (!inFullscreen() || !screen.orientation || !screen.orientation.lock) return;
+    if (Math.min(screen.width, screen.height) > 760) return;
+    screen.orientation.lock('landscape').catch(() => {});
+  });
   document.addEventListener('fullscreenchange', syncFsButton);
   document.addEventListener('webkitfullscreenchange', syncFsButton);
 

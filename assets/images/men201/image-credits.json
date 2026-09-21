@@ -587,7 +587,7 @@
     ],
     "alt": "Two foresters at a paint-marked tree in a conifer stand, one boring the stem with an increment borer while the other observes",
     "title": "Conservationists learn how to inventory a forest.jpg",
-    "description": "McMINNVILLE, Ore. – Members of the USDA’s Natural Resources Conservation Service and local Soil and Water Conservation Districts gathered at Miller Woods to learn how to inventory a forest stand, June 24, 2015. NRCS Oregon State Forester Misty Seaboldt led the training, which focused on three techni",
+    "description": "McMINNVILLE, Ore. \u2013 Members of the USDA\u2019s Natural Resources Conservation Service and local Soil and Water Conservation Districts gathered at Miller Woods to learn how to inventory a forest stand, June 24, 2015. NRCS Oregon State Forester Misty Seaboldt led the training, which focused on three techni",
     "creator": "NRCS Oregon",
     "license": "Public domain",
     "licenseUrl": "",
@@ -659,5 +659,425 @@
     "mime": "image/jpeg",
     "bytes": 698285,
     "sha256": "d1e4a8cc85b89ae8a6b63e053ce97d607c5c2e40acb4ff974e173548e60a9edf"
+  },
+  {
+    "asset": "assets/images/men201/BaseSINe.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "BaseSINe.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/BaseSINe.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/BaseSINe.png",
+    "width": 1672,
+    "height": 941,
+    "mime": "image/png",
+    "bytes": 1599891,
+    "sha256": "095dc8ab2ae33d340b395e9bc578a396e91bec99c4309d6955a973fdcaef4084"
+  },
+  {
+    "asset": "assets/images/men201/Canopy_grid.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "Canopy_grid.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/Canopy_grid.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/Canopy_grid.png",
+    "width": 1448,
+    "height": 1086,
+    "mime": "image/png",
+    "bytes": 2150724,
+    "sha256": "94b1bdbcc5243f08462870eaef91ab7a99cc342414443e2f81de3a90d6d6876c"
+  },
+  {
+    "asset": "assets/images/men201/Line_Intercept_method.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "Line_Intercept_method.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/Line_Intercept_method.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/Line_Intercept_method.png",
+    "width": 1448,
+    "height": 1086,
+    "mime": "image/png",
+    "bytes": 1694216,
+    "sha256": "492d59d57f315112d249a01d1658a1d9cf58c8d61247f133ea88ced9ed2d6713"
+  },
+  {
+    "asset": "assets/images/men201/Moosehorn.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "Moosehorn.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/Moosehorn.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/Moosehorn.png",
+    "width": 1448,
+    "height": 1086,
+    "mime": "image/png",
+    "bytes": 1744117,
+    "sha256": "c9375a6e8594a575d558658df192969f0fbf3f60439ab22125263f0809a3e6c6"
+  },
+  {
+    "asset": "assets/images/men201/Point_Intercept.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "Point_Intercept.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/Point_Intercept.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/Point_Intercept.png",
+    "width": 1448,
+    "height": 1086,
+    "mime": "image/png",
+    "bytes": 1675856,
+    "sha256": "097cb78856498f41f69c383cd5189c0499c2bf34b8f51bd117bc3b1324e29d6d"
+  },
+  {
+    "asset": "assets/images/men201/TanQ2.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "TanQ2.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/TanQ2.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/TanQ2.png",
+    "width": 1122,
+    "height": 1402,
+    "mime": "image/png",
+    "bytes": 1723134,
+    "sha256": "0926811765a4ea9b972791d50d93ac1d53af0a7fa02b856d95eb9f68e60f5ed7"
+  },
+  {
+    "asset": "assets/images/men201/Tan_Q1_refined.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "Tan_Q1_refined.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/Tan_Q1_refined.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/Tan_Q1_refined.png",
+    "width": 4000,
+    "height": 2800,
+    "mime": "image/png",
+    "bytes": 1776775,
+    "sha256": "74ee6ade7f8f897968bc9fa56a41484a6bb3b8e1f0c1540645e18d26fcb2ffce"
+  },
+  {
+    "asset": "assets/images/men201/sine-case-1a-lean-toward-between-detail.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "sine-case-1a-lean-toward-between-detail.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/sine-case-1a-lean-toward-between-detail.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/sine-case-1a-lean-toward-between-detail.png",
+    "width": 1448,
+    "height": 1086,
+    "mime": "image/png",
+    "bytes": 1833660,
+    "sha256": "229c89e1c526374f50017ee1d38a06480b3703604f2030fb39258ec152b16a8b"
+  },
+  {
+    "asset": "assets/images/men201/sine-case-1a-lean-toward-between.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "sine-case-1a-lean-toward-between.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/sine-case-1a-lean-toward-between.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/sine-case-1a-lean-toward-between.png",
+    "width": 1672,
+    "height": 941,
+    "mime": "image/png",
+    "bytes": 1799124,
+    "sha256": "9585bdfbe7bc03b03f86175f3c08a337b1343341a9285fa4e961b92f797ffdd7"
+  },
+  {
+    "asset": "assets/images/men201/sine-case-1a-worked-example-real.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "sine-case-1a-worked-example-real.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/sine-case-1a-worked-example-real.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/sine-case-1a-worked-example-real.png",
+    "width": 1672,
+    "height": 941,
+    "mime": "image/png",
+    "bytes": 2454546,
+    "sha256": "725f51b0e6eb034298c955a7ca0ddcdaa329ad32fa5ebfc214874d0057bfde56"
+  },
+  {
+    "asset": "assets/images/men201/sine-case-1b-lean-toward-below.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "sine-case-1b-lean-toward-below.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/sine-case-1b-lean-toward-below.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/sine-case-1b-lean-toward-below.png",
+    "width": 1448,
+    "height": 1086,
+    "mime": "image/png",
+    "bytes": 2338773,
+    "sha256": "d7947e723678b743b4423234bbdec07348f09d004e6bacdecca120c5c0c6c5de"
+  },
+  {
+    "asset": "assets/images/men201/sine-case-1b-worked-example-real.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "sine-case-1b-worked-example-real.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/sine-case-1b-worked-example-real.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/sine-case-1b-worked-example-real.png",
+    "width": 1672,
+    "height": 941,
+    "mime": "image/png",
+    "bytes": 2698604,
+    "sha256": "56856c2fa8df84c722331594708a4a53d994dd57fdaa75eaf93140d888acd32e"
+  },
+  {
+    "asset": "assets/images/men201/sine-case-1c-lean-toward-above.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "sine-case-1c-lean-toward-above.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/sine-case-1c-lean-toward-above.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/sine-case-1c-lean-toward-above.png",
+    "width": 1362,
+    "height": 1155,
+    "mime": "image/png",
+    "bytes": 2673660,
+    "sha256": "8106c031236116a9f062addb326c73a4fc9558d7edac7d6e770b308797165c0b"
+  },
+  {
+    "asset": "assets/images/men201/sine-case-2a-lean-away-between.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "sine-case-2a-lean-away-between.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/sine-case-2a-lean-away-between.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/sine-case-2a-lean-away-between.png",
+    "width": 1619,
+    "height": 971,
+    "mime": "image/png",
+    "bytes": 2262388,
+    "sha256": "7fb75d3a963d8565214743154f068a8f9e90a39aad72690a2c0d6978d20723ac"
+  },
+  {
+    "asset": "assets/images/men201/sine-case-2a-worked-example-real.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "sine-case-2a-worked-example-real.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/sine-case-2a-worked-example-real.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/sine-case-2a-worked-example-real.png",
+    "width": 1619,
+    "height": 971,
+    "mime": "image/png",
+    "bytes": 2723016,
+    "sha256": "5bb52074fbad5d8001960db473d2a84bffa695e8a20ac8516518c97d6b50a9b4"
+  },
+  {
+    "asset": "assets/images/men201/sine-case-2b-lean-away-below.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "sine-case-2b-lean-away-below.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/sine-case-2b-lean-away-below.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/sine-case-2b-lean-away-below.png",
+    "width": 1422,
+    "height": 1106,
+    "mime": "image/png",
+    "bytes": 2814611,
+    "sha256": "e14c53c0b2c94a1e7f1c0535e22f9eb8bdae4701fa0da6fbfcfe5c6c8db91c4f"
+  },
+  {
+    "asset": "assets/images/men201/sine-case-2c-lean-away-above.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "sine-case-2c-lean-away-above.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/sine-case-2c-lean-away-above.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/sine-case-2c-lean-away-above.png",
+    "width": 1448,
+    "height": 1086,
+    "mime": "image/png",
+    "bytes": 2972655,
+    "sha256": "37af4d00bfca10b49208fad8f702cc0261b3dcd6d3e56a850038baa018bab1d9"
+  },
+  {
+    "asset": "assets/images/men201/tan-case-eye-above-base.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "tan-case-eye-above-base.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/tan-case-eye-above-base.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/tan-case-eye-above-base.png",
+    "width": 1448,
+    "height": 1086,
+    "mime": "image/png",
+    "bytes": 2468951,
+    "sha256": "9c3b1b61723f03873de645f0e8703a444cd19fb3cfdec6b3343151c153e3a3ab"
+  },
+  {
+    "asset": "assets/images/men201/tan-case-eye-below-base.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "tan-case-eye-below-base.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/tan-case-eye-below-base.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/tan-case-eye-below-base.png",
+    "width": 1448,
+    "height": 1086,
+    "mime": "image/png",
+    "bytes": 2600149,
+    "sha256": "45b5fb4bc11e6d7e89b9a3b9d684101eab6d627e3cecf67329150782d08f6cfe"
+  },
+  {
+    "asset": "assets/images/men201/tan-case-level-ground.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "tan-case-level-ground.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/tan-case-level-ground.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/tan-case-level-ground.png",
+    "width": 1408,
+    "height": 1117,
+    "mime": "image/png",
+    "bytes": 2631655,
+    "sha256": "8e09b94e07f8c6b90be963060f291d3bea4fbcfe68a3e378f6952acca1f76ad3"
+  },
+  {
+    "asset": "assets/images/men201/tan-case-sloping-eye-between.png",
+    "usedIn": [
+      "Unit IV, slide derivation"
+    ],
+    "alt": "Illustration used in the tree-height derivation for the MEN 201 course slides",
+    "title": "tan-case-sloping-eye-between.png",
+    "description": "Course-generated teaching diagram used to explain tree-height formulas and geometry.",
+    "creator": "MEN 201 course team",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://course.local/men201/",
+    "originalUrl": "https://course.local/men201/assets/images/men201/tan-case-sloping-eye-between.png",
+    "downloadedFrom": "https://course.local/men201/assets/images/men201/tan-case-sloping-eye-between.png",
+    "width": 1392,
+    "height": 1130,
+    "mime": "image/png",
+    "bytes": 2662821,
+    "sha256": "f71300449293059143a8414bfd43b279a605f595c56e00d6432b30adc839e950"
   }
 ]

@@ -16,7 +16,9 @@
   const params = new URLSearchParams(location.search);
   const paper = params.get("paper");
   const unit = params.get("u") || "i";
-  const file = paper ? "data/questions-exam.json" : `data/questions-unit-${unit}.json`;
+  // module-exam -> questions-exam.json, module-exam-2 -> questions-exam-2.json
+  const paperFile = paper ? paper.replace(/^module-/, "") : "";
+  const file = paper ? `data/questions-${paperFile}.json` : `data/questions-unit-${unit}.json`;
   const [bank, assessments] = await Promise.all([
     fetch(file).then((r) => r.json()),
     fetch("data/assessments.json").then((r) => r.json()),
@@ -24,7 +26,7 @@
   const assessment = assessments.find((a) => a.id === (paper || `unit-${unit}-quiz`));
   const items = [];
   const ids = bank
-    .map((q, i) => ({ id: `q-${paper ? "exam" : unit}-${String(i + 1).padStart(3, "0")}`, ...q }))
+    .map((q, i) => ({ id: `q-${paper ? paperFile : unit}-${String(i + 1).padStart(3, "0")}`, ...q }))
     .filter((q) => q.active !== false);
   for (const s of assessment.sections) {
     ids.filter((q) => s.bloomLevels.includes(q.bloomLevel)).slice(0, s.questionCount)

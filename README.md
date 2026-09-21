@@ -302,11 +302,11 @@ Tapping or clicking the right and left thirds of the screen also moves through t
 does swiping on a touchscreen.
 
 Slides are laid out on a fixed 1920 × 1080 stage and scaled uniformly to the viewport, so a
-deck looks the same on a laptop as on the projector. The module descriptor's control bar has a
+deck looks the same on a laptop as on the projector. Every deck's control bar has a
 **Full screen** button (<kbd>F</kbd> does the same; <kbd>Esc</kbd> leaves full screen before
-it leaves the deck); the unit decks still use the browser's own <kbd>F11</kbd>. On a phone
-the descriptor keeps its controls on one line, and in portrait asks to be turned sideways —
-tapping that hint goes full screen and, on Android, turns the deck landscape.
+it leaves the deck). On a phone the module descriptor keeps its controls on one line, and in
+portrait asks to be turned sideways — tapping that hint goes full screen and, on Android,
+turns the deck landscape; the unit decks have not had that phone treatment yet.
 
 **Edits made with <kbd>E</kbd> are local.** They are written to that browser's local storage
 only — the file is unchanged and no one else sees them. To publish a correction, edit the HTML

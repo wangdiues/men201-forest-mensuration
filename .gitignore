@@ -33,3 +33,11 @@ Gemini_API_Key.txt
 
 # Cloudflare Worker local build/dev state - not part of the deployed Worker.
 cf-relay/.wrangler/
+
+# Real student names and submitted files (FO2025 cohort) - never commit to
+# this public repository. Firebase Hosting already excludes this via
+# firebase.json, but that doesn't stop a careless `git add` from staging it.
+assignments/
+
+# Crash dumps and local generation logs - not project content.
+report.*.json

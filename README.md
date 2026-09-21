@@ -3,9 +3,12 @@
 Teaching decks for **MEN 201 Forest Mensuration**, BSc in Forestry — College of Natural
 Resources, Royal University of Bhutan.
 
-Seven units, 384 slides, joined into one site with a contents page, together with the full
-module descriptor as a 28-slide deck of its own — plus a set of student lecture notes and a
-calculation handbook, two working Excel calculators and three printable A4 field sheets.
+Eleven units — seven core decks (I–VII) plus four supplementary modules (VIII–XI) — joined
+into one site with a contents page, together with the full module descriptor as a 28-slide
+deck of its own: 534 slides in total. Also: a set of student lecture notes and a calculation
+handbook for Units I–VII, two working Excel calculators, three printable A4 field sheets, and
+an online quiz and AI-assisted assessment system covering all eleven units (see
+[Online quiz and assessment system](#online-quiz-and-assessment-system) below).
 
 **Author** — Wangdi, Senior Forestry Officer, Forest Resources Planning and Management
 Division; Adjunct Lecturer. [Portfolio](https://wangdiues.github.io/Wangdi-portfolio-v7/)
@@ -15,18 +18,110 @@ Division; Adjunct Lecturer. [Portfolio](https://wangdiues.github.io/Wangdi-portf
 | Unit | Sessions | Title | Slides |
 |------|----------|-------|--------|
 | — | — | **The Module Descriptor** — the approved terms of the module in full | 28 |
-| I | 1–2 | Introduction to Forest Mensuration | 43 |
-| II | 3–4 | Diameter, Girth and Bark Thickness | 48 |
-| III | 5 | Measurement of Crown Closure | 57 |
-| IV | 6–9 | Measurement of Tree Height | 60 |
-| V | 10–12 | Measurement of Tree Volume | 61 |
+| I | 1–2 | Introduction to Forest Mensuration | 44 |
+| II | 3–4 | Diameter, Girth and Bark Thickness | 49 |
+| III | 5 | Measurement of Crown Closure | 58 |
+| IV | 6–9 | Measurement of Tree Height | 63 |
+| V | 10–12 | Measurement of Tree Volume | 62 |
 | VI | 13–14 | Measurement of the Crop | 63 |
-| VII | 15–17 | Age and Growth of Trees | 52 |
+| VII | 15–17 | Age and Growth of Trees | 53 |
+| VIII | — | Forest Inventory and Sampling *(supplementary)* | 31 |
+| IX | — | Digital Forest Mensuration and Data Management *(supplementary)* | 26 |
+| X | — | Forest Biomass and Carbon Estimation *(supplementary)* | 26 |
+| XI | — | Remote and Emerging Technologies in Forest Mensuration *(supplementary)* | 31 |
+
+`node tools/final-check.mjs` (aliased as `npm test`) recomputes this table's slide counts from
+the actual deck files on every run — check its output rather than trusting this table blindly
+if the decks have been edited since.
 
 Every unit carries a **Bhutan policy connection**, naming the national decisions its measurements
-feed, and a **notation reference sheet** that is identical in all seven decks. Units II to VII also
-carry one step each of a **continuous case study** — a single 500 m² plot measured in Unit II and
-followed through canopy, height, volume, the hectare and ten years of growth.
+feed, and a **notation reference sheet** that is identical in all seven core decks. Units II to VII
+also carry one step each of a **continuous case study** — a single 500 m² plot measured in Unit II
+and followed through canopy, height, volume, the hectare and ten years of growth.
+
+### Four supplementary modules
+
+Units VIII–XI were added after the original seven-unit core, one module per Bhutan-context
+supplementary reading in `supplementary/`: inventory and sampling design, digital data
+management, biomass/carbon accounting, and remote-sensing technologies. They don't have a
+dedicated student-notes file (notes exist only for Units I–VII) and aren't part of the
+continuous case study, but they're full teaching decks in the same visual system, and — like
+every unit — have a complete 40-question Unit Test in the online assessment system. Three of
+the four (VIII, IX, X) embed a small interactive calculator directly in the deck rather than a
+separate Excel workbook.
+
+## Online quiz and assessment system
+
+`quiz/` is a full student-assessment SPA covering all eleven units, built on top of the
+teaching decks — each unit's last slide links to its own paper. No build step or framework:
+plain ES module JavaScript, imported directly by the browser.
+
+| Assessment | Questions | Marks | Time | Pass mark | Attempts |
+|---|---|---|---|---|---|
+| **Unit Test** (one per unit, 11 total) | 40, six Bloom sections | 50 | 90 min | 20 (40%) | 3 |
+| **Mock Module Examination** (three alternate papers) | 56, six Bloom sections, all eleven units | 100 | 150 min | 40 (40%) | 3 |
+
+Every question is tagged to a level of Bloom's taxonomy (Remember → Understand → Apply →
+Analyze → Evaluate → Create) and to a topic/subtopic for analytics. Objective formats
+(multiple choice, true/false, fill-in-the-blank, numerical, matching, multi-response) are
+graded deterministically and instantly; short-answer and long-answer items are graded against
+a per-question rubric — see [Backend and infrastructure](#backend-and-infrastructure) for how.
+
+**Pages**, all under `quiz/`:
+
+| File | Role |
+|---|---|
+| `index.html` | Landing page — sign in/register, unit list, exam cards, "my recent results" |
+| `unit.html?u=<roman>` | One unit's module page — starts its Unit Test or shows the result |
+| `take.html?aid=<id>` | The paper itself: printed-style sheet, clock, step-by-step navigation for long papers, submit |
+| `result.html?tid=<attemptId>` | A single attempt's result — score, per-Bloom breakdown, question-by-question review, "download as PDF" via print |
+| `teacher.html` | Teacher dashboard (below) |
+| `preview-paper.html?u=<roman>` or `?paper=<examId>` | Renders a paper straight from `quiz/data/*.json`, no Firebase — for proofreading a paper before it's seeded |
+
+**Teacher dashboard** (`teacher.html`, gated by a `teacher` role on the user's Firestore
+profile): a grading queue for anything every AI provider failed to grade, unit/Bloom/
+difficulty/common-mistakes analytics computed from materialized `stats` documents (never a
+live scan of every attempt), a "students needing support" view, question and assessment
+managers, and a CSV grade-sheet export per assessment.
+
+**Question data**: `quiz/data/questions-unit-*.json` (11 files, one per unit) and
+`quiz/data/questions-exam*.json` (3 module-exam papers) are the source of truth, seeded into
+Firestore by `quiz/js/seed.js` — see the two `*_Instructions.md` files at the repo root for the
+exact schema and paper-building process if a unit's paper ever needs rebuilding.
+
+## Backend and infrastructure
+
+Everything runs on free tiers — no payment card, no paid subscription, and nothing that stops
+working (rather than starts billing) if a quota is hit.
+
+- **Firebase, Spark plan**: Authentication (email/password) and one Cloud Firestore database.
+  `firestore.rules` enforces role-based access server-side (a client can create an attempt but
+  never write its own score; only a teacher can write grading fields), and
+  `firestore.indexes.json` declares the composite indexes the app's queries need.
+- **No Cloud Functions.** Deploying Cloud Functions requires the paid Blaze plan, so grading
+  does not run there. Instead:
+  - **`.github/workflows/grade-attempts.yml`** runs `quiz/js/grade-attempts.js` on a public
+    GitHub Actions runner (free — GitHub Actions is unmetered for public repositories) every 5
+    minutes. It auto-marks objective items, then grades written items through an AI fallback
+    chain — **Gemini → NVIDIA NIM → Groq → OpenRouter**, all free-tier API keys — falling
+    through to the next provider on any failure, and leaving an attempt for a human teacher in
+    `awaiting-manual` if every provider fails.
+  - **`cf-relay/`** is a small Cloudflare Worker (free tier) that lets the site trigger that
+    same workflow *instantly* on submit, instead of waiting for the next scheduled run — most
+    students see a result within seconds. The real GitHub token lives only in the Worker's
+    secret store; the browser calls the Worker's public URL with no credential at all. See
+    `cf-relay/README.md` for the full design and how to redeploy or rotate its token.
+  - **`.github/workflows/seed.yml`** and **`set-role.yml`** are on-demand admin workflows —
+    the first re-pushes `quiz/data/*.json` into Firestore after a content edit, the second
+    promotes or demotes a user between `student` and `teacher`.
+- **Hosting**: the whole repository (this deck site *and* the quiz app) is served from both
+  **Firebase Hosting** (`men201-quiz.web.app`) and **GitHub Pages**
+  (`wangdiues.github.io/men201-forest-mensuration`) — the same static files, two independent
+  free hosts. `firebase.json`'s `hosting.ignore` list keeps local-only material (student
+  submissions, scratch, node_modules, question-bank source JSON) out of both.
+- **`functions/`** contains an earlier Cloud-Functions implementation of the same grading
+  logic, kept only as reference/emulator code — it is not part of the deployed system and
+  would need the Blaze plan to run for real.
 
 ## Type scale
 
@@ -179,12 +274,20 @@ into a file.
 
 ## Editing
 
-Everything is hand-written HTML and CSS in one file per unit. The design tokens live in the
-`:root` block at the top of each file and are shared across all seven, so a colour or type
-change should be made in each file to keep the module consistent.
+**Decks**: hand-written HTML and CSS, one file per unit. The design tokens live in the
+`:root` block at the top of each file and are shared across the seven core decks, so a colour
+or type change should be made in each file to keep the module consistent.
 
 `index.html` is the contents page; it links to the unit files by name, so renaming a unit file
 means updating the matching `href`.
+
+**Quiz app**: plain ES modules under `quiz/js/`, no build step — edit and reload. After
+changing a question bank (`quiz/data/questions-*.json`) or `assessments.json`, run the
+`seed.yml` GitHub Action (or `node quiz/js/seed.js` locally with a service-account key) to push
+the change into Firestore; editing the JSON files alone does nothing to the live site, since
+they're only the seed source, not what the app reads at runtime. After changing any file
+Firebase Hosting serves, redeploy with `firebase deploy --only hosting`; GitHub Pages
+redeploys itself automatically on every push to `main`.
 
 ## Acknowledgement
 

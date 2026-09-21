@@ -27,6 +27,7 @@ firebase-debug.log
 # API keys - never commit.
 Gemini_API_Key.txt
 *.key
+Tally_API.txt
 
 # Other AI coding tools state
 .kilo/

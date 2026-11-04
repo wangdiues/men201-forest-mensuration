@@ -115,11 +115,17 @@ Limits of this validation:
 
 These repeat errors corrected here, or sit outside this deck, so I left them alone as instructed.
 
-1. **The mock exam marks a corrected claim as true.** `exams/units-i-vii/solutions-1.json` Q28 and the Paper 1 solutions in `outputs/mock-exams-units-i-vii/` say the curves meet twice. Your final paper draws from the mocks, so this should be settled first.
-2. **`notes/MEN201_Notes_Unit_VII.html` still teaches the old versions:** "meet exactly twice", "nine per cent", simple > compound "always", and "comparable with a bank rate". The student notes now disagree with the deck.
+1. **Assessment material:** corrected separately, on 4 November.
+2. **`notes/MEN201_Notes_Unit_VII.html`:** corrected on 4 November.
 3. **`G_ub = G_ob − 2πt` is still in other files:** Units I–VI, `notes/MEN201_Calculation_Handbook.html`, `notes/MEN201_Notes_Unit_II.html` and the Unit II practical. Until they change, slide 53's "identical in every unit" is not literally true.
 4. **The unit paper's questions were not reviewed.** `quiz/data/assessments.json` holds no question text, so I could not check them against these corrections.
 5. **Esc in edit mode leaves the deck for the contents page,** contrary to the comment in the script. Edits are saved first. The same two handlers exist in the other decks.
+
+## Follow-up, 4 November
+
+`notes/MEN201_Notes_Unit_VII.html` and the Unit VII parts of `notes/MEN201_Calculation_Handbook.html` now match the deck. The notes also gain the bark-basis rule, the conditions on the periodic method, a net and gross increment example (3a) and references. A typo in worked example 2 is gone.
+
+The matching corrections to assessment material are recorded privately with that material, because this repository is published.
 
 ## Remaining uncertainty
 

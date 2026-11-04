@@ -176,10 +176,10 @@ meanings in the literature.</p>
 
 <h3>Unit VII · age and growth</h3>
 <div class="eq sm">P₁ = (d₂−d₁)/(d₁T) &nbsp;·&nbsp; S = (log P₁ − log P₂)/(log d₂ − log d₁) &nbsp;·&nbsp; Age = 1/(P₁S)</div>
-<div class="eq sm">p.a.i = ΔV ÷ n &nbsp;·&nbsp; m.a.i = V ÷ a &nbsp;·&nbsp; S<sub>o</sub> = S<sub>n</sub> − 2 × (ring width over n years)</div>
-<div class="eq sm">simple: (S<sub>n</sub>−S<sub>o</sub>)/(n S<sub>o</sub>) × 100</div>
-<div class="eq sm">compound: [(S<sub>n</sub>/S<sub>o</sub>)<sup>1/n</sup> − 1] × 100</div>
-<div class="eq sm">Pressler: (S<sub>n</sub>−S<sub>o</sub>)/(S<sub>n</sub>+S<sub>o</sub>) × 200/n</div>
+<div class="eq sm">p.a.i = ΔV ÷ n &nbsp;·&nbsp; m.a.i = V ÷ a &nbsp;·&nbsp; d<sub>0,ub</sub> = d<sub>n,ub</sub> − 2w, where w is the summed width of the outer n annual increments</div>
+<div class="eq sm">simple: (S<sub>n</sub>−S<sub>0</sub>)/(n S<sub>0</sub>) × 100</div>
+<div class="eq sm">compound: [(S<sub>n</sub>/S<sub>0</sub>)<sup>1/n</sup> − 1] × 100</div>
+<div class="eq sm">Pressler: (S<sub>n</sub>−S<sub>0</sub>)/(S<sub>n</sub>+S<sub>0</sub>) × 200/n</div>
 
 <h3>t values for small samples, 95 % two-sided</h3>
 <table class="sm">
@@ -325,8 +325,9 @@ year at the c.a.i for that year:</p>
   <li>if it is <strong>below</strong>, the average <strong>falls</strong>;</li>
   <li>if it is <strong>equal</strong>, the average is <strong>unchanged</strong> — it is stationary.</li>
 </ul>
-<p>A quantity that rises while c.a.i &gt; m.a.i and falls while c.a.i &lt; m.a.i must reach its maximum
-exactly where c.a.i = m.a.i.</p>
+<p>In annual data the m.a.i therefore peaks at the <strong>switch</strong> from c.a.i above the average to c.a.i
+below it. Exact equality need not occur: scores of 40, 60 and 20 give averages of 40, 50 and 40, a peak with no later
+score equal to the average.</p>
 
 <h3>With calculus</h3>
 
@@ -335,13 +336,14 @@ exactly where c.a.i = m.a.i.</p>
 <div class="eq sm">d/da (V/a) = (a · dV/da − V) / a²</div>
 
 <p>Setting the derivative to zero: <span class="m">a · dV/da = V</span>, that is
-<span class="m">dV/da = V/a</span> — c.a.i equals m.a.i. ∎</p>
+<span class="m">dV/da = V/a</span> — c.a.i equals m.a.i. That identifies a stationary point. It is a maximum when
+c.a.i − m.a.i changes from positive to negative there. ∎</p>
 
 <div class="note">
   <span class="k">The generalisation worth naming</span>
-  <p>Any running average peaks where the current value crosses it. The age of maximum <em>average</em> annual
-    production is necessarily the age at which <em>current</em> production falls to the average. This is not a
-    fact about forests; it is a fact about averages.</p>
+  <p>A running average peaks where the current value falls from above it to below it. On a smooth single-peaked
+    curve, the age of maximum <em>average</em> annual production is the age at which <em>current</em> production
+    falls to the average. This is not a fact about forests; it is a fact about averages.</p>
 </div>
 
 <!-- ==================================================================== -->
@@ -904,22 +906,23 @@ record that a replacement was used. A documented gap can be adjusted for; an und
       <tr><td class="rh">Age in 2000</td><td class="n">1 ÷ (0.024 × 1) = 41.67 years</td></tr>
     </tbody>
   </table>
-  <div class="ans">Age in 2010 ≈ 52 years</div>
+  <div class="ans">Age in 2010 ≈ 52 years, under this method</div>
   <p style="margin-top:8px"><strong>Why S = 1.</strong> The two periodic increments are equal in absolute
     terms (3 cm each). Then P₁/P₂ = [Δ/(d₁T)] ÷ [Δ/(d₂T)] = d₂/d₁ identically, so the two logarithms are the
     same and their ratio is 1 <em>whatever</em> the numbers. For equal absolute increments the age reduces to
     d₁ divided by the annual diameter increment: 25 ÷ 0.6 = 41.7 years.</p>
-  <p><em>Sense check:</em> a 31 cm stem at about 52 years implies roughly 0.6 cm of diameter a year — a
-    defensible rate for a Bhutanese conifer on a moderate site.</p>
+  <p><em>Assumptions:</em> a 31 cm stem at about 52 years implies roughly 0.6 cm of diameter a year. With S = 1 the
+    method is a constant-rate extrapolation back to zero diameter, so report the age as a model-based estimate and
+    state the assumptions: equal intervals, S &gt; 0, and no suppression or release.</p>
 </div>
 
 <div class="worked">
   <div class="h">Q5 · growth percentage by three formulae</div>
-  <p>Core 7.2 cm over the outermost 10 rings; present diameter under bark 58 cm.</p>
+  <p>A core gives w = 7.2 cm across the outer 10 annual increments; present diameter under bark 58 cm.</p>
   <table class="sm">
     <tbody>
-      <tr><td class="rh">Diameter growth</td><td class="n">7.2 × 2 = 14.4 cm &nbsp;<em>(a core is a radius)</em></td></tr>
-      <tr><td class="rh">S<sub>o</sub></td><td class="n">58 − 14.4 = 43.6 cm</td></tr>
+      <tr><td class="rh">Diameter growth</td><td class="n">2w = 7.2 × 2 = 14.4 cm &nbsp;<em>(a core is a radius)</em></td></tr>
+      <tr><td class="rh">S<sub>0</sub></td><td class="n">58 − 14.4 = 43.6 cm</td></tr>
       <tr><td class="rh">Simple</td><td class="n">14.4 ÷ (10 × 43.6) × 100 = <strong>3.30 %</strong></td></tr>
       <tr><td class="rh">Compound</td><td class="n">[(58/43.6)<sup>0.1</sup> − 1] × 100 = <strong>2.90 %</strong></td></tr>
       <tr><td class="rh">Pressler</td><td class="n">14.4 ÷ 101.6 × 20 = <strong>2.83 %</strong></td></tr>
@@ -928,18 +931,19 @@ record that a replacement was used. A documented gap can be adjusted for; an und
   <div class="ans">simple &gt; compound &gt; Pressler</div>
   <p style="margin-top:8px"><strong>The ordering, explained.</strong> Simple divides by the original 43.6 for
     all ten years. Compound divides by a base that grows each year, so its denominator is larger on average.
-    Pressler divides by the mean of the two ends, larger still. The gap widens with <em>n</em>: over one or two
-    years the three converge; over ten years simple overstates by about a sixth. For any financial comparison
-    use <strong>compound</strong>, because it is the only one comparable with an interest rate.</p>
+    Pressler divides by the mean of the two ends, larger still. For positive growth and n ≥ 1, simple ≥ compound
+    &gt; Pressler, with simple = compound at n = 1. Here simple reads about 14 % above compound, and the gap widens
+    with <em>n</em>. All three are physical growth rates. None is a financial return, which also needs value, costs,
+    risk and the timing of cash flows.</p>
 </div>
 
-<h4>Q7 · proving the m.a.i culminates where the c.a.i crosses it</h4>
-<p>Either argument earns full marks; both are set out in <a href="#deriv-mai">Section 8</a>. The
-non-calculus version: a running average rises while the current value exceeds it, falls while the current
-value is below it, and is unchanged when they are equal — so it is stationary, and therefore at its maximum,
-exactly at the crossing. The calculus version: with m.a.i = V/a, setting
+<h4>Q7 · where the m.a.i is stationary, and what makes it a maximum</h4>
+<p>Both arguments are set out in <a href="#deriv-mai">Section 8</a>. For a smooth V(a), with m.a.i = V/a, setting
 <span class="m">d/da (V/a) = (a·dV/da − V)/a² = 0</span> gives
-<span class="m">dV/da = V/a</span>, that is c.a.i = m.a.i. ∎</p>
+<span class="m">dV/da = V/a</span>, that is c.a.i = m.a.i, a stationary point. It is a maximum because
+c.a.i − m.a.i changes from positive to negative there. In annual data a new value above the running average lifts
+it, below lowers it, and equal leaves it unchanged, so the average peaks at the switch and exact equality need not
+occur. ∎</p>
 
 <footer class="foot">
   <span>MEN 201 · Calculation Handbook · College of Natural Resources</span>

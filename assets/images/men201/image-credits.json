@@ -1079,5 +1079,221 @@
     "mime": "image/png",
     "bytes": 2662821,
     "sha256": "f71300449293059143a8414bfd43b279a605f595c56e00d6432b30adc839e950"
+  },
+  {
+    "asset": "assets/images/men201/career/cnr-main-building.jpg",
+    "usedIn": [
+      "Career Guide 2027, Cover"
+    ],
+    "title": "College of Natural Resources, Bhutan.jpg",
+    "description": "College of Natural Resources, Lobesa, Bhutan",
+    "creator": "Gurungdb66",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:College_of_Natural_Resources,_Bhutan.jpg",
+    "downloadedFrom": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/College_of_Natural_Resources%2C_Bhutan.jpg/1920px-College_of_Natural_Resources%2C_Bhutan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 2592,
+    "height": 1944,
+    "mime": "image/jpeg",
+    "bytes": 489372,
+    "sha256": "d2fe87574288c35955e08db08c5c50b531300fde188392c1927da1eee7fd8f2a"
+  },
+  {
+    "asset": "assets/images/men201/career/cnr-campus-corridor.jpg",
+    "usedIn": [
+      "Career Guide 2027, Section 4 divider"
+    ],
+    "title": "College of Natural Resources, RUB.jpg",
+    "description": "College campus",
+    "creator": "Ombhutan",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:College_of_Natural_Resources,_RUB.jpg",
+    "downloadedFrom": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/College_of_Natural_Resources%2C_RUB.jpg/1920px-College_of_Natural_Resources%2C_RUB.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 4896,
+    "height": 3672,
+    "mime": "image/jpeg",
+    "bytes": 591502,
+    "sha256": "eeeaf69cce9464e2eb136d4ae561828ad28a5589a323c580a78a09807f94f7f3"
+  },
+  {
+    "asset": "assets/images/men201/career/cnr-campus-students.jpg",
+    "usedIn": [
+      "Career Guide 2027, Closing slide"
+    ],
+    "title": "P1040109-min.jpg",
+    "description": "student accommodatio: Boys Hostel",
+    "creator": "Ombhutan",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:P1040109-min.jpg",
+    "downloadedFrom": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/P1040109-min.jpg/1920px-P1040109-min.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 4896,
+    "height": 3672,
+    "mime": "image/jpeg",
+    "bytes": 553837,
+    "sha256": "c9d907b6a3a3becf0878df8d41b5ca7bfcc03b103645674e0cfc9c5f5353de9c"
+  },
+  {
+    "asset": "assets/images/men201/career/jdnp-forested-mountains.jpg",
+    "usedIn": [
+      "Career Guide 2027, Section 1 divider"
+    ],
+    "title": "Densely forested mountains of Jigme Dorji NP AJTJ IMG 1394.jpg",
+    "description": "Densely forested mountains of Jigme Dorji National Park, Bhutan.",
+    "creator": "A. J. T. Johnsingh, WWF-India and NCF",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Densely_forested_mountains_of_Jigme_Dorji_NP_AJTJ_IMG_1394.jpg",
+    "downloadedFrom": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Densely_forested_mountains_of_Jigme_Dorji_NP_AJTJ_IMG_1394.jpg/1920px-Densely_forested_mountains_of_Jigme_Dorji_NP_AJTJ_IMG_1394.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 2816,
+    "height": 2112,
+    "mime": "image/jpeg",
+    "bytes": 710518,
+    "sha256": "3739d5f976b0df12a3f7431b6b50d7c1701427ec43ca38a95053d0bc40a7819b"
+  },
+  {
+    "asset": "assets/images/men201/career/jdnp-takin.jpg",
+    "usedIn": [
+      "Career Guide 2027, Careers in Bhutan"
+    ],
+    "title": "Bhutan Takin, Jigme Dorji National Park.JPG",
+    "description": "A wintering Bhutan Takin browses on shrubs in warm broadleaf forest in Jigme Dorji National Park, Bhutan",
+    "creator": "Benjissimo",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Bhutan_Takin,_Jigme_Dorji_National_Park.JPG",
+    "downloadedFrom": "https://upload.wikimedia.org/wikipedia/commons/8/81/Bhutan_Takin%2C_Jigme_Dorji_National_Park.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "width": 1913,
+    "height": 1533,
+    "mime": "image/jpeg",
+    "bytes": 933944,
+    "sha256": "22d976976cb01399284ce5994f2961ed4b76e7599d2e89b522f9c84aeaa9d497"
+  },
+  {
+    "asset": "assets/images/men201/career/forester-measuring-trees.jpg",
+    "usedIn": [
+      "Career Guide 2027, Career pathways"
+    ],
+    "title": "20230414-FS-PJK-0220 TONED.jpg",
+    "description": "Forester (Silviculture) Cree Taylor measures Eastern Hemlock trees on the Chattahoochee-Oconee National Forests Conasauga Ranger District, April 14, 2023. (USDA Forest Service photo by Preston Keres)",
+    "creator": "Forest Service Photography",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:20230414-FS-PJK-0220_TONED.jpg",
+    "downloadedFrom": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/20230414-FS-PJK-0220_TONED.jpg/1920px-20230414-FS-PJK-0220_TONED.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 6000,
+    "height": 4000,
+    "mime": "image/jpeg",
+    "bytes": 498456,
+    "sha256": "3be0a1bf0bad1df67dbb40443bed1c1a2a8dda528ed5b60f7a7cba2fdeb14316"
+  },
+  {
+    "asset": "assets/images/men201/career/camera-trap-install.jpg",
+    "usedIn": [
+      "Career Guide 2027, Emerging specialisations"
+    ],
+    "title": "Carnivore Camera Trap Inventory (52582112928).jpg",
+    "description": "2022 USFWS biological science technician Bendigo Artley installs a camera trap as part of a study at Red Rock Lakes National Wildlife Refuge to inventory the Refuge's elusive carnivore population. Photo by Cortez Rohr/USFWS",
+    "creator": "USFWS Mountain Prairie",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Carnivore_Camera_Trap_Inventory_(52582112928).jpg",
+    "downloadedFrom": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Carnivore_Camera_Trap_Inventory_%2852582112928%29.jpg/1920px-Carnivore_Camera_Trap_Inventory_%2852582112928%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 5184,
+    "height": 3456,
+    "mime": "image/jpeg",
+    "bytes": 884130,
+    "sha256": "eda436ff9a8aa16efa37464477ae1c8337c402063e8e50c83bf969032095f11d"
+  },
+  {
+    "asset": "assets/images/men201/career/drone-forestry-research.jpg",
+    "usedIn": [
+      "Career Guide 2027, Skills"
+    ],
+    "title": "USGS Team Flies Drones for Oregon BLM Forestry Research (14594258460).jpg",
+    "description": "Unmanned Aircraft Systems, or aerial drones, flew for the first time to assist in BLM Oregon research this summer. The USGS drone team, based in Colorado, was established in 2008 and has been flying a variety of scientific missions ever since: abandoned mine mapping; waterfowl population estimates; and the monitoring of prescribed burns, to name a few. On July 29, 2014, the USGS team gave a demons",
+    "creator": "Bureau of Land Management Oregon and Washington from Portland, America",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:USGS_Team_Flies_Drones_for_Oregon_BLM_Forestry_Research_(14594258460).jpg",
+    "downloadedFrom": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/USGS_Team_Flies_Drones_for_Oregon_BLM_Forestry_Research_%2814594258460%29.jpg/1920px-USGS_Team_Flies_Drones_for_Oregon_BLM_Forestry_Research_%2814594258460%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 4736,
+    "height": 3232,
+    "mime": "image/jpeg",
+    "bytes": 530451,
+    "sha256": "4ca90981f761d590e8738de829c601e2484ca0bd91f0f9a2ade318f7afad85f1"
+  },
+  {
+    "asset": "assets/images/men201/career/gps-gis-workshop.jpg",
+    "usedIn": [
+      "Career Guide 2027, Section 3 divider"
+    ],
+    "title": "Fish and Wildlife Service GIS Workshop at NCTC - DPLA - 55966b6c6e7b6148abc1a5ab37923337.jpg",
+    "description": "Note: Some of the following information may have arrived from the agency cut off or incomplete. Creator: Harless, Todd. Subjects: National Conservation Training Center; training; West Virginia; GIS; Geographic Information Systems; technology. Publisher: U.S. Fish and Wildlife Service.",
+    "creator": "Department of the Interior. U.S. Fish and Wildlife Service. National Conservation Training Center. 10/1997-8888",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Fish_and_Wildlife_Service_GIS_Workshop_at_NCTC_-_DPLA_-_55966b6c6e7b6148abc1a5ab37923337.jpg",
+    "downloadedFrom": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Fish_and_Wildlife_Service_GIS_Workshop_at_NCTC_-_DPLA_-_55966b6c6e7b6148abc1a5ab37923337.jpg/1920px-Fish_and_Wildlife_Service_GIS_Workshop_at_NCTC_-_DPLA_-_55966b6c6e7b6148abc1a5ab37923337.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 2934,
+    "height": 1861,
+    "mime": "image/jpeg",
+    "bytes": 454155,
+    "sha256": "edd490c0fe4a7206f7b6f42a7edbf2412215277ad1e0f59b64359571d310cb05"
+  },
+  {
+    "asset": "assets/images/men201/career/poster-session-research.jpg",
+    "usedIn": [
+      "Career Guide 2027, Section 2 divider"
+    ],
+    "title": "AMS 2016 Annual Meeting Poster Session (24208048340).jpg",
+    "description": "Mat Gunshor of CIMSS explains \"Employing Short Courses to Prepare for the GOES-R Satellite Series.\" The #AMS2016 Short Course \"GOES-R and JPSS Preview for Users\" was held January 10, prior to the start of the conference. This course introduced users to the new capabilities made possible by NOAA\u2019s next-generation weather satellite constellation. Through a mix of presentations and hands-on exercises",
+    "creator": "NOAASatellites",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:AMS_2016_Annual_Meeting_Poster_Session_(24208048340).jpg",
+    "downloadedFrom": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/AMS_2016_Annual_Meeting_Poster_Session_%2824208048340%29.jpg/1920px-AMS_2016_Annual_Meeting_Poster_Session_%2824208048340%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 6000,
+    "height": 4000,
+    "mime": "image/jpeg",
+    "bytes": 387147,
+    "sha256": "c0e0ff2c5f1f9f32754c132c3fa613549f02dc5a0f285158b96f52955e95b550"
+  },
+  {
+    "asset": "assets/images/men201/career/poster-session-talk.jpg",
+    "usedIn": [
+      "Career Guide 2027, Supervisor contact"
+    ],
+    "title": "2016 AMS Annual Meeting Poster Session (24083760450).jpg",
+    "description": "GOES-R/JPSS poster session at #AMS2016. The AMS Annual Meeting is the world\u2019s largest yearly gathering for the weather, water, and climate community. It brings together great minds from a diverse set of scientific disciplines \u2013 helping attendees make career-long professional contact and life-long friends while learning from the very top people in the atmospheric sciences. Original photo source: ww",
+    "creator": "NOAASatellites",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:2016_AMS_Annual_Meeting_Poster_Session_(24083760450).jpg",
+    "downloadedFrom": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/2016_AMS_Annual_Meeting_Poster_Session_%2824083760450%29.jpg/1920px-2016_AMS_Annual_Meeting_Poster_Session_%2824083760450%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 6000,
+    "height": 4000,
+    "mime": "image/jpeg",
+    "bytes": 366410,
+    "sha256": "82b12600eb5d066653bd91f5111ff76d6094f830e49df7b9467389d3db305708"
+  },
+  {
+    "asset": "assets/images/men201/career/seedling-planting.jpg",
+    "usedIn": [
+      "Career Guide 2027, Employers and grants"
+    ],
+    "title": "ASPEN RESIDENTS HELP U.S. FOREST SERVICE PERSONNEL PLANT SEEDLINGS AT MAROON LAKE CAMPGROUND, 12 MILES NORTH OF... - NARA - 545710.jpg",
+    "description": "",
+    "creator": "David Hiser",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:ASPEN_RESIDENTS_HELP_U.S._FOREST_SERVICE_PERSONNEL_PLANT_SEEDLINGS_AT_MAROON_LAKE_CAMPGROUND,_12_MILES_NORTH_OF..._-_NARA_-_545710.jpg",
+    "downloadedFrom": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/ASPEN_RESIDENTS_HELP_U.S._FOREST_SERVICE_PERSONNEL_PLANT_SEEDLINGS_AT_MAROON_LAKE_CAMPGROUND%2C_12_MILES_NORTH_OF..._-_NARA_-_545710.jpg/1920px-ASPEN_RESIDENTS_HELP_U.S._FOREST_SERVICE_PERSONNEL_PLANT_SEEDLINGS_AT_MAROON_LAKE_CAMPGROUND%2C_12_MILES_NORTH_OF..._-_NARA_-_545710.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 3000,
+    "height": 2019,
+    "mime": "image/jpeg",
+    "bytes": 577678,
+    "sha256": "28f37b7ec17256b4d3c0defc48d880c1f8aaf8e12459c3dcb0d65a38338a4fcf"
   }
 ]
